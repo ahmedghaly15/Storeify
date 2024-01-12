@@ -11,8 +11,11 @@ import 'package:store_ify/features/auth/data/repositories/login/login_repo.dart'
 import 'package:store_ify/features/auth/data/repositories/login/login_repo_impl.dart';
 import 'package:store_ify/features/auth/data/repositories/sign_up/sign_up_repo.dart';
 import 'package:store_ify/features/auth/data/repositories/sign_up/sign_up_repo_impl.dart';
+import 'package:store_ify/features/auth/data/repositories/verification/verification_repo.dart';
+import 'package:store_ify/features/auth/data/repositories/verification/verification_repo_impl.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/sign_up/sign_up_cubit.dart';
+import 'package:store_ify/features/auth/presentation/cubits/verification/verification_cubit.dart';
 
 final GetIt serviceLocator = GetIt.instance;
 
@@ -85,6 +88,12 @@ class ServiceLocator {
         networkInfo: serviceLocator.get<NetworkInfo>(),
       ),
     );
+
+    serviceLocator.registerLazySingleton<VerificationRepo>(
+      () => VerificationRepoImpl(
+          dioConsumer: serviceLocator.get<DioConsumer>(),
+          networkInfo: serviceLocator.get<NetworkInfo>()),
+    );
   }
 
   void _setupForCubits() {
@@ -94,6 +103,11 @@ class ServiceLocator {
 
     serviceLocator.registerFactory<SignUpCubit>(
       () => SignUpCubit(signUpRepo: serviceLocator.get<SignUpRepo>()),
+    );
+
+    serviceLocator.registerFactory<VerificationCubit>(
+      () => VerificationCubit(
+          verificationRepo: serviceLocator.get<VerificationRepo>()),
     );
   }
 }
