@@ -9,7 +9,10 @@ import 'package:store_ify/core/network/network_info.dart';
 import 'package:store_ify/core/network/network_info_impl.dart';
 import 'package:store_ify/features/auth/data/repositories/login/login_repo.dart';
 import 'package:store_ify/features/auth/data/repositories/login/login_repo_impl.dart';
+import 'package:store_ify/features/auth/data/repositories/sign_up/sign_up_repo.dart';
+import 'package:store_ify/features/auth/data/repositories/sign_up/sign_up_repo_impl.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.dart';
+import 'package:store_ify/features/auth/presentation/cubits/sign_up/sign_up_cubit.dart';
 
 final GetIt serviceLocator = GetIt.instance;
 
@@ -75,11 +78,22 @@ class ServiceLocator {
         networkInfo: serviceLocator.get<NetworkInfo>(),
       ),
     );
+
+    serviceLocator.registerLazySingleton<SignUpRepo>(
+      () => SingUpRepoImpl(
+        dioConsumer: serviceLocator.get<DioConsumer>(),
+        networkInfo: serviceLocator.get<NetworkInfo>(),
+      ),
+    );
   }
 
   void _setupForCubits() {
     serviceLocator.registerFactory<LoginCubit>(
       () => LoginCubit(loginRepo: serviceLocator.get<LoginRepo>()),
+    );
+
+    serviceLocator.registerFactory<SignUpCubit>(
+      () => SignUpCubit(signUpRepo: serviceLocator.get<SignUpRepo>()),
     );
   }
 }
