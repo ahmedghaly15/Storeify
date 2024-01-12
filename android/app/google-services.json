@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "74739450491",
+    "project_id": "store-ify-ecommerce",
+    "storage_bucket": "store-ify-ecommerce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74739450491:android:0a91c6343db878cb8e58de",
+        "android_client_info": {
+          "package_name": "com.example.store_ify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1RcgQdie4CIh6UMl1fH1Ze5VFk8uP6jI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
