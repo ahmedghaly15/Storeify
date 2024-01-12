@@ -101,7 +101,6 @@ class ServiceLocator {
     serviceLocator.registerLazySingleton<ResetPasswordRepo>(
       () => ResetPasswordRepoImpl(
         dioConsumer: serviceLocator.get<DioConsumer>(),
-        networkInfo: serviceLocator.get<NetworkInfo>(),
       ),
     );
   }
