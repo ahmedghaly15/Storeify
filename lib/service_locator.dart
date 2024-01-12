@@ -7,12 +7,9 @@ import 'package:store_ify/core/api/dio_consumer.dart';
 import 'package:store_ify/core/helpers/cache_helper.dart';
 import 'package:store_ify/core/network/network_info.dart';
 import 'package:store_ify/core/network/network_info_impl.dart';
-import 'package:store_ify/features/auth/data/repositories/login/login_repo.dart';
-import 'package:store_ify/features/auth/data/repositories/login/login_repo_impl.dart';
-import 'package:store_ify/features/auth/data/repositories/sign_up/sign_up_repo.dart';
-import 'package:store_ify/features/auth/data/repositories/sign_up/sign_up_repo_impl.dart';
-import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.dart';
-import 'package:store_ify/features/auth/presentation/cubits/sign_up/sign_up_cubit.dart';
+import 'package:store_ify/features/auth/data/repositories/forgot_password/forgot_password_repo.dart';
+import 'package:store_ify/features/auth/data/repositories/forgot_password/forgot_password_repo_impl.dart';
+import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forget_password_cubit.dart';
 
 final GetIt serviceLocator = GetIt.instance;
 
@@ -72,15 +69,8 @@ class ServiceLocator {
   }
 
   void _setupForRepos() {
-    serviceLocator.registerLazySingleton<LoginRepo>(
-      () => LoginRepoImpl(
-        dioConsumer: serviceLocator.get<DioConsumer>(),
-        networkInfo: serviceLocator.get<NetworkInfo>(),
-      ),
-    );
-
-    serviceLocator.registerLazySingleton<SignUpRepo>(
-      () => SingUpRepoImpl(
+    serviceLocator.registerLazySingleton<ForgotPasswordRepo>(
+      () => ForgotPasswordRepoImpl(
         dioConsumer: serviceLocator.get<DioConsumer>(),
         networkInfo: serviceLocator.get<NetworkInfo>(),
       ),
@@ -88,12 +78,10 @@ class ServiceLocator {
   }
 
   void _setupForCubits() {
-    serviceLocator.registerFactory<LoginCubit>(
-      () => LoginCubit(loginRepo: serviceLocator.get<LoginRepo>()),
-    );
-
-    serviceLocator.registerFactory<SignUpCubit>(
-      () => SignUpCubit(signUpRepo: serviceLocator.get<SignUpRepo>()),
+    serviceLocator.registerFactory<ForgotPasswordCubit>(
+      () => ForgotPasswordCubit(
+        forgotPasswordRepo: serviceLocator.get<ForgotPasswordRepo>(),
+      ),
     );
   }
 }
