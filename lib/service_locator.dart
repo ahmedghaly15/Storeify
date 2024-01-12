@@ -72,7 +72,6 @@ class ServiceLocator {
     serviceLocator.registerLazySingleton<ForgotPasswordRepo>(
       () => ForgotPasswordRepoImpl(
         dioConsumer: serviceLocator.get<DioConsumer>(),
-        networkInfo: serviceLocator.get<NetworkInfo>(),
       ),
     );
   }
