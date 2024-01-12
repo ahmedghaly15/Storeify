@@ -14,8 +14,8 @@ import 'package:store_ify/features/auth/presentation/views/verification_view.dar
 import 'package:store_ify/features/categories/presentation/view/categories_view.dart';
 import 'package:store_ify/features/entry/presentation/views/entry_view.dart';
 import 'package:store_ify/features/layout/presentation/views/layout_view.dart';
-import 'package:store_ify/features/on_boarding/presentation/cubit/on_boarding_cubit.dart';
-import 'package:store_ify/features/on_boarding/presentation/views/on_boarding_view.dart';
+import 'package:store_ify/features/onboarding/presentation/cubit/on_boarding_cubit.dart';
+import 'package:store_ify/features/onboarding/presentation/views/on_boarding_view.dart';
 import 'package:store_ify/features/product_details/presentation/view/product_details_view.dart';
 import 'package:store_ify/features/products/presentation/view/products_view.dart';
 import 'package:store_ify/features/stores_details/presentation/view/stores_details_view.dart';
