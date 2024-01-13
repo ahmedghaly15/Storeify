@@ -4,37 +4,38 @@ import 'package:store_ify/core/errors/failures.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 
 class ServerFailure extends Failure {
-  ServerFailure(super.errMessage);
+  const ServerFailure(super.errMessage);
 
   factory ServerFailure.fromDioException(DioException dioException) {
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
-        return ServerFailure("Connection timeout with ApiServer");
+        return const ServerFailure("Connection timeout with ApiServer");
       case DioExceptionType.sendTimeout:
-        return ServerFailure('Send Timeout With ApiServer');
+        return const ServerFailure('Send Timeout With ApiServer');
       case DioExceptionType.receiveTimeout:
-        return ServerFailure('Receive Timeout With ApiServer');
+        return const ServerFailure('Receive Timeout With ApiServer');
       case DioExceptionType.badCertificate:
-        return ServerFailure('Your request not found, please try again later!');
+        return const ServerFailure(
+            'Your request not found, please try again later!');
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
           dioException.response!.statusCode!,
           dioException.response!.data,
         );
       case DioExceptionType.cancel:
-        return ServerFailure('Request to ApiServer was canceled');
+        return const ServerFailure('Request to ApiServer was canceled');
       case DioExceptionType.connectionError:
-        return ServerFailure(AppStrings.noInternet);
+        return const ServerFailure(AppStrings.noInternet);
       case DioExceptionType.unknown:
-        return ServerFailure("Unexpected Error, please try again!");
+        return const ServerFailure("Unexpected Error, please try again!");
       default:
-        return ServerFailure(AppStrings.opps);
+        return const ServerFailure(AppStrings.opps);
     }
   }
 
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {
     if (statusCode == StatusCodes.internalServerError) {
-      return ServerFailure(AppStrings.opps);
+      return const ServerFailure(AppStrings.opps);
     }
 
     if (statusCode == StatusCodes.badRequest) {
