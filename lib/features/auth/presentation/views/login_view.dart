@@ -7,6 +7,7 @@ import 'package:store_ify/core/utils/app_navigator.dart';
 import 'package:store_ify/config/themes/app_text_styles.dart';
 import 'package:store_ify/features/auth/presentation/widgets/login/login_form.dart';
 import 'package:store_ify/features/auth/presentation/widgets/or_sign_in_with_text.dart';
+import 'package:store_ify/features/auth/presentation/widgets/sign_up_text_button.dart';
 import 'package:store_ify/features/auth/presentation/widgets/sign_with_social.dart';
 
 class LoginView extends StatelessWidget {
@@ -27,12 +28,12 @@ class LoginView extends StatelessWidget {
                   children: <Widget>[
                     const Spacer(),
                     Text(
-                      "Sign in to Continue ",
+                      "Sign in to Continue",
                       style: AppTextStyles.textStyle24Medium,
                     ),
                     SizedBox(height: 5.h),
                     Text(
-                      "Welcome ",
+                      "Welcome",
                       style: AppTextStyles.textStyle16Medium,
                     ),
                     SizedBox(height: 22.h),
@@ -47,20 +48,10 @@ class LoginView extends StatelessWidget {
                           child: Text(
                             "Forgot password?",
                             style: AppTextStyles.textStyle16Regular
-                                .copyWith(color: AppColors.iconsColor),
+                                .copyWith(color: AppColors.greyColor),
                           ),
                         ),
-                        TextButton(
-                          onPressed: () {
-                            context.navigateTo(
-                                routeName: Routes.signUpViewRoute);
-                          },
-                          child: Text(
-                            "Sign up ",
-                            style: AppTextStyles.textStyle16Regular
-                                .copyWith(color: AppColors.primaryColor),
-                          ),
-                        )
+                        const SignUpTextButton(),
                       ],
                     ),
                     const OrSignInWithText(),

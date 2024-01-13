@@ -3,15 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/config/router/routes.dart';
 import 'package:store_ify/core/helpers/auth_helper.dart';
-import 'package:store_ify/config/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/app_navigator.dart';
 import 'package:store_ify/config/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/functions/show_toast.dart';
-import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
+import 'package:store_ify/core/widgets/custom_loading_indicator.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forget_password_cubit.dart';
+import 'package:store_ify/features/auth/presentation/widgets/sign_up_text_button.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_label.dart';
 
 class ForgotPasswordViewBody extends StatefulWidget {
@@ -79,7 +79,7 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
               },
               builder: (context, state) {
                 if (state is ForgotPasswordLoading) {
-                  return const CustomCircularProgressIndicator();
+                  return const CustomLoadingIndicator();
                 } else {
                   return MainButton(
                     text: 'Verify Email',
@@ -93,18 +93,10 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Don’t have an account ?",
+                  "Don’t have an account?",
                   style: AppTextStyles.textStyle16Regular,
                 ),
-                TextButton(
-                  onPressed: () =>
-                      context.navigateTo(routeName: Routes.signUpViewRoute),
-                  child: Text(
-                    "Sign up",
-                    style: AppTextStyles.textStyle16Regular
-                        .copyWith(color: AppColors.primaryColor),
-                  ),
-                ),
+                const SignUpTextButton(),
               ],
             ),
           ],
