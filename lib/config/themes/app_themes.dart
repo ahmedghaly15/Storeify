@@ -11,8 +11,14 @@ class AppThemes {
         fontFamily: AppStrings.fontFamily,
         brightness: Brightness.light,
         appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          type: BottomNavigationBarType.fixed,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          selectedItemColor: AppColors.primaryColor,
+          unselectedIconTheme: const IconThemeData(color: AppColors.greyColor),
           backgroundColor: Colors.white,
+          elevation: 20.h,
         ),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
