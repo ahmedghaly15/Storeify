@@ -20,6 +20,6 @@ Future<Either<Failure, T>> executeAndHandleErrors<T>({
       return Left(ServerFailure(e.toString()));
     }
   } else {
-    return Left(ServerFailure(AppStrings.noInternet));
+    return const Left(ServerFailure(AppStrings.noInternet));
   }
 }

@@ -46,7 +46,7 @@ class SingUpRepoImpl implements SignUpRepo {
         return Left(ServerFailure(e.toString()));
       }
     } else {
-      return Left(ServerFailure(AppStrings.noInternet));
+      return const Left(ServerFailure(AppStrings.noInternet));
     }
   }
 }
