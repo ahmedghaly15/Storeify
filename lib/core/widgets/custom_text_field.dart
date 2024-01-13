@@ -11,7 +11,7 @@ class CustomTextField extends StatelessWidget {
     this.keyboardType = TextInputType.text,
     this.validate,
     this.onChanged,
-    this.isPassword,
+    this.obscureText,
     this.suffixIcon,
     this.prefixIcon,
     this.onSubmit,
@@ -30,7 +30,7 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validate;
   final Function(String)? onChanged;
-  final bool? isPassword;
+  final bool? obscureText;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final Function(String submittedText)? onSubmit;
@@ -46,7 +46,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      obscureText: isPassword ?? false,
+      obscureText: obscureText ?? false,
       autofillHints: autofillHints,
       validator: validate,
       onChanged: onChanged,

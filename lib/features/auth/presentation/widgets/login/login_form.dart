@@ -97,7 +97,7 @@ class _LoginFormState extends State<LoginForm> {
                 controller: _passwordController,
                 keyboardType: TextInputType.visiblePassword,
                 hintText: '*********',
-                isPassword: BlocProvider.of<LoginCubit>(context).isPassword,
+                obscureText: BlocProvider.of<LoginCubit>(context).isPassword,
                 suffixIcon: IconButton(
                   onPressed: () {
                     BlocProvider.of<LoginCubit>(context)

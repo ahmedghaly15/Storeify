@@ -114,7 +114,7 @@ class _SignUpFormState extends State<SignUpForm> {
               const TextFieldBottomSpacer(),
               const TextFieldLabel(label: 'Password'),
               CustomTextField(
-                isPassword: cubit.isPassword,
+                obscureText: cubit.isPassword,
                 suffixIcon: IconButton(
                   onPressed: () => cubit.switchPassVisibility(),
                   icon: Icon(
@@ -136,7 +136,7 @@ class _SignUpFormState extends State<SignUpForm> {
               const TextFieldBottomSpacer(),
               const TextFieldLabel(label: 'Confirm password'),
               CustomTextField(
-                isPassword: cubit.isConfirmPassVisible,
+                obscureText: cubit.isConfirmPassVisible,
                 suffixIcon: IconButton(
                   onPressed: () => cubit.switchConfirmPassVisibility(),
                   icon: Icon(

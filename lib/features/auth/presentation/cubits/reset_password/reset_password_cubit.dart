@@ -6,10 +6,11 @@ import 'package:store_ify/features/auth/data/repositories/reset_password/reset_p
 part 'reset_password_state.dart';
 
 class ResetPasswordCubit extends Cubit<ResetPasswordState> {
-  ResetPasswordCubit({required this.resetPasswordRepo})
-      : super((const ResetPasswordInitial()));
-
   final ResetPasswordRepo resetPasswordRepo;
+
+  ResetPasswordCubit({
+    required this.resetPasswordRepo,
+  }) : super((const ResetPasswordInitial()));
 
   void resetPassword({
     required String email,
@@ -37,10 +38,16 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
     );
   }
 
-  bool isPassword = true;
-  void changePasswordVisibility() {
-    isPassword = !isPassword;
+  bool passVisible = true;
+  bool confirmPassVisible = true;
 
-    emit(ChangeVisibility(isPassword: isPassword));
+  void changePasswordVisibility() {
+    passVisible = !passVisible;
+    emit(ChangeVisibility(isPassword: passVisible));
+  }
+
+  void changeConfirmPassVisibility() {
+    confirmPassVisible = !confirmPassVisible;
+    emit(ChangeVisibility(isPassword: confirmPassVisible));
   }
 }
