@@ -46,9 +46,12 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 child: CustomIndicator(pageController: pageController),
               ),
               SizedBox(height: 40.h),
-              MainButton(
-                onPressed: () => _navigateAmongOnBoarding(context),
-                text: cubit.isLastBoarding ? 'Get Started' : 'Next',
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 81.w),
+                child: MainButton(
+                  onPressed: () => _navigateAmongOnBoarding(context),
+                  text: cubit.isLastBoarding ? 'Get Started' : 'Next',
+                ),
               ),
             ],
           ),
