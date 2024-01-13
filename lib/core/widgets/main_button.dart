@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/config/themes/app_colors.dart';
 import 'package:store_ify/config/themes/app_text_styles.dart';
 
-class PrimaryButton extends StatelessWidget {
-  const PrimaryButton({
+class MainButton extends StatelessWidget {
+  const MainButton({
     super.key,
     required this.onPressed,
     this.text,

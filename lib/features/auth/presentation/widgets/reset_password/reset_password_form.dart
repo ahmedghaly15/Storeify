@@ -5,8 +5,8 @@ import 'package:store_ify/core/helpers/auth_helper.dart';
 import 'package:store_ify/config/themes/app_colors.dart';
 import 'package:store_ify/core/utils/functions/show_toast.dart';
 import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
-import 'package:store_ify/core/widgets/custom_general_button.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
+import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/widgets/reset_password/login_dialog.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_bottom_spacer.dart';
@@ -128,7 +128,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
               SizedBox(height: 28.h),
               state is ResetPasswordLoading
                   ? const CustomCircularProgressIndicator()
-                  : CustomGeneralButton(
+                  : MainButton(
                       text: 'Reset Password',
                       onPressed: () => _resetPassword(context),
                     ),

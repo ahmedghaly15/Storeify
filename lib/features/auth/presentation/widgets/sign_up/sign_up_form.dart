@@ -9,11 +9,10 @@ import 'package:store_ify/config/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_navigator.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/utils/functions/show_toast.dart';
+import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/service_locator.dart';
 import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
-import 'package:store_ify/core/widgets/custom_general_button.dart';
 import 'package:store_ify/features/auth/presentation/cubits/sign_up/sign_up_cubit.dart';
-
 import 'package:store_ify/core/widgets/custom_text_field.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_bottom_spacer.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_label.dart';
@@ -162,7 +161,7 @@ class _SignUpFormState extends State<SignUpForm> {
               SizedBox(height: 24.h),
               state is SignUpLoading
                   ? const CustomCircularProgressIndicator()
-                  : CustomGeneralButton(
+                  : MainButton(
                       text: 'Sign up',
                       onPressed: () => _signUp(context),
                     ),

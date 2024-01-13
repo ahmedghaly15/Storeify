@@ -7,9 +7,9 @@ import 'package:store_ify/core/helpers/helper.dart';
 import 'package:store_ify/core/utils/app_navigator.dart';
 import 'package:store_ify/config/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/functions/show_toast.dart';
+import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/service_locator.dart';
 import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
-import 'package:store_ify/core/widgets/custom_general_button.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.dart';
 
 class LoginDialog extends StatelessWidget {
@@ -53,8 +53,7 @@ class LoginDialog extends StatelessWidget {
                 if (state is LoginLoading) {
                   return const CustomCircularProgressIndicator();
                 } else {
-                  return CustomGeneralButton(
-                    width: 211.w,
+                  return MainButton(
                     text: "Log in",
                     onPressed: () {
                       BlocProvider.of<LoginCubit>(context).userLogin(

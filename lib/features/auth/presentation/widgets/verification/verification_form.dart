@@ -7,7 +7,7 @@ import 'package:store_ify/config/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_navigator.dart';
 import 'package:store_ify/core/utils/functions/show_toast.dart';
 import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
-import 'package:store_ify/core/widgets/custom_general_button.dart';
+import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/auth/presentation/cubits/verification/verification_cubit.dart';
 
 class VerificationForm extends StatefulWidget {
@@ -74,7 +74,7 @@ class _VerificationFormState extends State<VerificationForm> {
               if (state is VerificationLoading) {
                 return const CustomCircularProgressIndicator();
               } else {
-                return CustomGeneralButton(
+                return MainButton(
                   text: 'Verify',
                   onPressed: () => _verifyOTP(context),
                 );

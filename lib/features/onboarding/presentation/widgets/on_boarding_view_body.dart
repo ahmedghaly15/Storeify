@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/widgets/custom_general_button.dart';
+import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/onboarding/presentation/cubit/on_boarding_cubit.dart';
 import 'package:store_ify/features/onboarding/presentation/widgets/custom_indicator.dart';
 import 'package:store_ify/features/onboarding/presentation/widgets/page_view_item.dart';
@@ -46,8 +46,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 child: CustomIndicator(pageController: pageController),
               ),
               SizedBox(height: 40.h),
-              CustomGeneralButton(
-                width: 213.w,
+              MainButton(
                 onPressed: () => _navigateAmongOnBoarding(context),
                 text: cubit.isLastBoarding ? 'Get Started' : 'Next',
               ),
