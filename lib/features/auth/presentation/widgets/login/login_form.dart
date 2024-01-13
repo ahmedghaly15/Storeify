@@ -10,8 +10,8 @@ import 'package:store_ify/core/utils/app_navigator.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/utils/functions/show_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
+import 'package:store_ify/features/auth/presentation/widgets/custom_auth_loading.dart';
 import 'package:store_ify/service_locator.dart';
-import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_bottom_spacer.dart';
@@ -112,12 +112,10 @@ class _LoginFormState extends State<LoginForm> {
                 ),
               ),
               SizedBox(height: 32.h),
-              state is LoginLoading
-                  ? const CustomCircularProgressIndicator()
-                  : MainButton(
-                      text: 'Log in',
-                      onPressed: () => _login(context),
-                    ),
+              MainButton(
+                text: 'Log in',
+                onPressed: () => _login(context),
+              ),
             ],
           ),
         );
@@ -141,16 +139,26 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   void _handleLoginStates(LoginState state, BuildContext context) {
+    if (state is LoginLoading) {
+      CustomAuthLoading.show(context);
+    }
+
     if (state is LoginSuccess) {
       _handleSuccessState(state, context);
     }
 
     if (state is LoginError) {
-      showToast(text: state.error, state: ToastStates.error);
+      _handleErrorState(context, state);
     }
   }
 
+  void _handleErrorState(BuildContext context, LoginError state) {
+    context.back();
+    showToast(text: state.error, state: ToastStates.error);
+  }
+
   void _handleSuccessState(LoginSuccess state, BuildContext context) {
+    context.back();
     getIt
         .get<CacheHelper>()
         .saveData(key: AppStrings.cachedUserId, value: state.uId)

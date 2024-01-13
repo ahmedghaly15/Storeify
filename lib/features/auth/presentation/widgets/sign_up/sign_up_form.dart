@@ -10,8 +10,8 @@ import 'package:store_ify/core/utils/app_navigator.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/utils/functions/show_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
+import 'package:store_ify/features/auth/presentation/widgets/custom_auth_loading.dart';
 import 'package:store_ify/service_locator.dart';
-import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
 import 'package:store_ify/features/auth/presentation/cubits/sign_up/sign_up_cubit.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_bottom_spacer.dart';
@@ -159,12 +159,10 @@ class _SignUpFormState extends State<SignUpForm> {
                 focusNode: _confirmPasswordFocusNode,
               ),
               SizedBox(height: 24.h),
-              state is SignUpLoading
-                  ? const CustomCircularProgressIndicator()
-                  : MainButton(
-                      text: 'Sign up',
-                      onPressed: () => _signUp(context),
-                    ),
+              MainButton(
+                text: 'Sign up',
+                onPressed: () => _signUp(context),
+              ),
             ],
           ),
         );
@@ -188,15 +186,26 @@ class _SignUpFormState extends State<SignUpForm> {
   }
 
   void _handleSignUpState(SignUpState state, BuildContext context) {
+    if (state is SignUpLoading) {
+      CustomAuthLoading.show(context);
+    }
+
     if (state is SignUpSuccess) {
       _handleSuccessState(state, context);
     }
+
     if (state is SignUpError) {
-      showToast(text: state.error, state: ToastStates.error);
+      _handleErrorState(context, state);
     }
   }
 
+  void _handleErrorState(BuildContext context, SignUpError state) {
+    context.back();
+    showToast(text: state.error, state: ToastStates.error);
+  }
+
   void _handleSuccessState(SignUpSuccess state, BuildContext context) {
+    context.back();
     getIt
         .get<CacheHelper>()
         .saveData(key: AppStrings.cachedUserId, value: Helper.uId)
