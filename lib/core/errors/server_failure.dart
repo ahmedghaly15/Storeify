@@ -36,6 +36,11 @@ class ServerFailure extends Failure {
     if (statusCode == StatusCodes.internalServerError) {
       return ServerFailure(AppStrings.opps);
     }
+
+    if (statusCode == StatusCodes.badRequest) {
+      return ServerFailure(response['message']);
+    }
+
     return ServerFailure(response['messageError']);
   }
 }
