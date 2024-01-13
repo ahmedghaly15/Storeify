@@ -9,7 +9,7 @@ import 'package:store_ify/service_locator.dart';
 Future<Either<Failure, T>> executeAndHandleErrors<T>({
   required Future<T> Function() function,
 }) async {
-  if (await serviceLocator.get<NetworkInfo>().isConnected) {
+  if (await getIt.get<NetworkInfo>().isConnected) {
     try {
       final result = await function();
       return Right(result);

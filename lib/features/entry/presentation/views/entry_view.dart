@@ -16,13 +16,11 @@ class EntryView extends StatefulWidget {
 
 class _EntryViewState extends State<EntryView> {
   void _goToNext() {
-    Helper.uId = serviceLocator
-        .get<CacheHelper>()
-        .getStringData(key: AppStrings.cachedUserId);
+    Helper.uId =
+        getIt.get<CacheHelper>().getStringData(key: AppStrings.cachedUserId);
 
-    bool? onBoarding = serviceLocator
-        .get<CacheHelper>()
-        .getBoolData(key: AppStrings.cachedOnboarding);
+    bool? onBoarding =
+        getIt.get<CacheHelper>().getBoolData(key: AppStrings.cachedOnboarding);
 
     if (onBoarding != null) {
       if (Helper.uId != null) {

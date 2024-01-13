@@ -8,10 +8,10 @@ class DioConsumer implements ApiConsumer {
   final Dio dio;
 
   DioConsumer({required this.dio}) {
-    dio.interceptors.add(serviceLocator.get<AppInterceptors>());
+    dio.interceptors.add(getIt.get<AppInterceptors>());
 
     if (kDebugMode) {
-      dio.interceptors.add(serviceLocator.get<LogInterceptor>());
+      dio.interceptors.add(getIt.get<LogInterceptor>());
     }
   }
 

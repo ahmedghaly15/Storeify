@@ -151,7 +151,7 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   void _handleSuccessState(LoginSuccess state, BuildContext context) {
-    serviceLocator
+    getIt
         .get<CacheHelper>()
         .saveData(key: AppStrings.cachedUserId, value: state.uId)
         .then((value) {

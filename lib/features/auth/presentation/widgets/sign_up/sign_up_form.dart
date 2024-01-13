@@ -198,7 +198,7 @@ class _SignUpFormState extends State<SignUpForm> {
   }
 
   void _handleSuccessState(SignUpSuccess state, BuildContext context) {
-    serviceLocator
+    getIt
         .get<CacheHelper>()
         .saveData(key: AppStrings.cachedUserId, value: Helper.uId)
         .then((value) {
