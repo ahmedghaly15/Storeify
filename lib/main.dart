@@ -9,7 +9,7 @@ void main() async {
 
   Bloc.observer = MyBlocObserver();
 
-  await ServiceLocator().setupServiceLocator();
+  await ServiceLocator().setup();
 
   runApp(const StoreifyApp());
 }

@@ -19,7 +19,7 @@ class StoreifyApp extends StatelessWidget {
       builder: (context, child) => MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => serviceLocator.get<LayoutCubit>(),
+            create: (context) => getIt.get<LayoutCubit>(),
           ),
           // BlocProvider(
           //   create: (context) =>
