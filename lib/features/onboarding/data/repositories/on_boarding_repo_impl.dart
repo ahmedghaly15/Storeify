@@ -54,7 +54,7 @@ class OnBoardingRepoImpl implements OnBoardingRepo {
         .then(
       (value) {
         if (value) {
-          context.navigateAndReplacement(newRoute: Routes.loginViewRoute);
+          context.navigateAndReplace(newRoute: Routes.loginViewRoute);
         }
       },
     );

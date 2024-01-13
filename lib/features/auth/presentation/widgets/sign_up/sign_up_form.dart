@@ -203,8 +203,7 @@ class _SignUpFormState extends State<SignUpForm> {
         .saveData(key: AppStrings.cachedUserId, value: Helper.uId)
         .then((value) {
       if (value) {
-        context.navigateAndReplacement(
-            newRoute: Routes.storeifyLayoutViewRoute);
+        context.navigateAndReplace(newRoute: Routes.storeifyLayoutViewRoute);
       }
     });
   }

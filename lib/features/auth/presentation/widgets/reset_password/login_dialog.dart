@@ -80,8 +80,7 @@ void _handleLoginStates(LoginState state, BuildContext context) {
         .saveData(key: 'uid', value: Helper.uId)
         .then((value) {
       if (value) {
-        context.navigateAndReplacement(
-            newRoute: Routes.storeifyLayoutViewRoute);
+        context.navigateAndReplace(newRoute: Routes.storeifyLayoutViewRoute);
       }
     });
   }

@@ -24,14 +24,14 @@ class _EntryViewState extends State<EntryView> {
 
     if (onBoarding != null) {
       if (Helper.uId != null) {
-        context.navigateAndReplacement(
+        context.navigateAndReplace(
           newRoute: Routes.storeifyLayoutViewRoute,
         );
       } else {
-        context.navigateAndReplacement(newRoute: Routes.loginViewRoute);
+        context.navigateAndReplace(newRoute: Routes.loginViewRoute);
       }
     } else {
-      context.navigateAndReplacement(newRoute: Routes.onBoardingViewRoute);
+      context.navigateAndReplace(newRoute: Routes.onBoardingViewRoute);
     }
   }
 
