@@ -44,6 +44,10 @@ dependencies:
   flutter_native_splash: ^2.3.9
   # A collection of loading indicators animated with flutter
   loading_indicator: ^3.1.1
+  # To add staggered animations to your ListView, GridView
+  flutter_staggered_animations: ^1.1.1
+  # To load and cache network images
+  cached_network_image: ^3.3.0
 
 dev_dependencies:
   flutter_test:

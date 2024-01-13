@@ -34,5 +34,9 @@ class SetupGetItForCubits {
     getIt.registerFactory<LayoutCubit>(
       () => LayoutCubit(layoutRepo: getIt.get<LayoutRepo>()),
     );
+
+    getIt.registerFactory<CategoryCubit>(
+      () => CategoryCubit(categoryRepo: getIt.get<CategoryRepo>()),
+    );
   }
 }

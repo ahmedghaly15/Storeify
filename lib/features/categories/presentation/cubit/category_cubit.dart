@@ -12,6 +12,8 @@ class CategoryCubit extends Cubit<CategoryState> {
     required this.categoryRepo,
   }) : super(const CategoryInitial());
 
+  List<CategoryModel> categories = <CategoryModel>[];
+
   void getCategories() {
     emit(const GetCategoriesLoading());
 
@@ -21,7 +23,10 @@ class CategoryCubit extends Cubit<CategoryState> {
           (failure) => emit(
             GetCategoriesError(error: failure.errMessage.toString()),
           ),
-          (categories) => emit(GetCategoriesSuccess(categories: categories)),
+          (result) {
+            emit(GetCategoriesSuccess(categories: result));
+            categories = result;
+          },
         );
       },
     );

@@ -7,7 +7,7 @@ import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/app_navigator.dart';
 import 'package:store_ify/config/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/functions/show_toast.dart';
-import 'package:store_ify/core/widgets/custom_loading_indicator.dart';
+import 'package:store_ify/core/widgets/button_loading_indicator.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forget_password_cubit.dart';
@@ -80,7 +80,7 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
               builder: (context, state) {
                 return MainButton(
                   child: state is ForgotPasswordLoading
-                      ? const CustomLoadingIndicator()
+                      ? const ButtonLoadingIndicator()
                       : Text(
                           'Verify Email',
                           style: AppTextStyles.textStyle16Medium.copyWith(
