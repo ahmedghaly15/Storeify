@@ -13,18 +13,20 @@ class SignWithSocial extends StatelessWidget {
         ElevatedButton(
           onPressed: () {},
           child: CircleAvatar(
-              radius: 10.r,
-              child: Image.asset(
-                AppAssets.imagesFacebook,
-              )),
+            radius: 10.r,
+            child: Image.asset(
+              AppAssets.imagesFacebook,
+            ),
+          ),
         ),
         ElevatedButton(
           onPressed: () {},
           child: CircleAvatar(
-              radius: 10.r,
-              child: Image.asset(
-                AppAssets.imagesGoogle,
-              )),
+            radius: 10.r,
+            child: Image.asset(
+              AppAssets.imagesGoogle,
+            ),
+          ),
         ),
         ElevatedButton(
           onPressed: () {},

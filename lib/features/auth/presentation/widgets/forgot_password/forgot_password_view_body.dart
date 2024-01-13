@@ -73,19 +73,22 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
             ),
             SizedBox(height: 32.h),
             BlocConsumer<ForgotPasswordCubit, ForgotPasswordState>(
-              listener: (context, state) {
-                _handleForgotPasswordState(
-                    state, context, _emailController.text);
-              },
+              listener: (context, state) => _handleForgotPasswordState(
+                state,
+                context,
+              ),
               builder: (context, state) {
-                if (state is ForgotPasswordLoading) {
-                  return const CustomLoadingIndicator();
-                } else {
-                  return MainButton(
-                    text: 'Verify Email',
-                    onPressed: () => _forgetPassword(context),
-                  );
-                }
+                return MainButton(
+                  child: state is ForgotPasswordLoading
+                      ? const CustomLoadingIndicator()
+                      : Text(
+                          'Verify Email',
+                          style: AppTextStyles.textStyle16Medium.copyWith(
+                            color: Colors.white,
+                          ),
+                        ),
+                  onPressed: () => _forgetPassword(context),
+                );
               },
             ),
             SizedBox(height: 16.h),
@@ -107,7 +110,6 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
 
   void _forgetPassword(BuildContext context) {
     if (_formKey.currentState!.validate()) {
-      _formKey.currentState!.save();
       AuthHelper.keyboardUnfocus(context);
       BlocProvider.of<ForgotPasswordCubit>(context)
           .forgotPassword(email: _emailController.text);
@@ -121,25 +123,20 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
   void _handleForgotPasswordState(
     ForgotPasswordState state,
     BuildContext context,
-    String email,
   ) {
     if (state is ForgotPasswordSuccess) {
-      _handleSuccessState(state, context, email);
+      _handleSuccessState(state, context);
     }
     if (state is ForgotPasswordError) {
       showToast(text: state.errorMessage, state: ToastStates.error);
     }
   }
 
-  void _handleSuccessState(
-    ForgotPasswordSuccess state,
-    BuildContext context,
-    String email,
-  ) {
+  void _handleSuccessState(ForgotPasswordSuccess state, BuildContext context) {
     showToast(text: state.message, state: ToastStates.success);
     context.navigateTo(
       routeName: Routes.verificationViewRoute,
-      arguments: email,
+      arguments: _emailController.text,
     );
   }
 }
