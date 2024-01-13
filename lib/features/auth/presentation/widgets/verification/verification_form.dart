@@ -89,10 +89,7 @@ class _VerificationFormState extends State<VerificationForm> {
 
   void _handleVerificationState(VerificationState state, BuildContext context) {
     if (state is VerificationSuccess) {
-      _handleSuccessState(
-        state,
-        context,
-      );
+      _handleSuccessState(state, context);
     }
     if (state is VerificationError) {
       showToast(text: state.errorMessage, state: ToastStates.error);
