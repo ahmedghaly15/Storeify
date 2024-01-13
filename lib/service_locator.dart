@@ -29,136 +29,21 @@ import 'package:store_ify/features/onboarding/data/repositories/on_boarding_repo
 import 'package:store_ify/features/onboarding/data/repositories/on_boarding_repo_impl.dart';
 import 'package:store_ify/features/onboarding/presentation/cubit/on_boarding_cubit.dart';
 
-final GetIt serviceLocator = GetIt.instance;
+part 'package:store_ify/config/locator/setup_get_it_for_external.dart';
+part 'package:store_ify/config/locator/setup_get_it_for_core.dart';
+part 'package:store_ify/config/locator/setup_get_it_for_repos.dart';
+part 'package:store_ify/config/locator/setup_get_it_for_cubits.dart';
+
+final GetIt getIt = GetIt.instance;
 
 class ServiceLocator {
-  Future<void> setupServiceLocator() async {
-    await _setupForExternal();
+  Future<void> setup() async {
+    await SetupGetItForExternal().setup();
 
-    _setupForCore();
+    SetupGetItForCore().setup();
 
-    _setupForRepos();
+    SetupGetItForRepos().setup();
 
-    _setupForCubits();
-  }
-
-  Future<void> _setupForExternal() async {
-    serviceLocator.registerLazySingleton<InternetConnectionChecker>(
-      () => InternetConnectionChecker(),
-    );
-
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-
-    serviceLocator
-        .registerLazySingleton<SharedPreferences>(() => sharedPreferences);
-
-    serviceLocator.registerLazySingleton<AppInterceptors>(
-      () => AppInterceptors(),
-    );
-
-    serviceLocator.registerLazySingleton<LogInterceptor>(
-      () => LogInterceptor(
-        request: true,
-        requestBody: true,
-        requestHeader: true,
-        responseBody: true,
-        responseHeader: true,
-        error: true,
-      ),
-    );
-
-    serviceLocator.registerLazySingleton<Dio>(() => Dio());
-  }
-
-  void _setupForCore() {
-    serviceLocator.registerLazySingleton<NetworkInfo>(
-      () => NetworkInfoImpl(
-        connectionChecker: serviceLocator.get<InternetConnectionChecker>(),
-      ),
-    );
-
-    serviceLocator.registerLazySingleton<CacheHelper>(
-      () => CacheHelper(serviceLocator<SharedPreferences>()),
-    );
-
-    serviceLocator.registerLazySingleton<DioConsumer>(
-      () => DioConsumer(dio: serviceLocator.get<Dio>()),
-    );
-  }
-
-  void _setupForRepos() {
-    serviceLocator.registerLazySingleton<OnBoardingRepo>(
-      () => OnBoardingRepoImpl(),
-    );
-
-    serviceLocator.registerLazySingleton<ForgotPasswordRepo>(
-      () => ForgotPasswordRepoImpl(
-        dioConsumer: serviceLocator.get<DioConsumer>(),
-      ),
-    );
-
-    serviceLocator.registerLazySingleton<LoginRepo>(
-      () => LoginRepoImpl(
-        dioConsumer: serviceLocator.get<DioConsumer>(),
-        networkInfo: serviceLocator.get<NetworkInfo>(),
-      ),
-    );
-
-    serviceLocator.registerLazySingleton<SignUpRepo>(
-      () => SingUpRepoImpl(
-        dioConsumer: serviceLocator.get<DioConsumer>(),
-        networkInfo: serviceLocator.get<NetworkInfo>(),
-      ),
-    );
-
-    serviceLocator.registerLazySingleton<VerificationRepo>(
-      () => VerificationRepoImpl(
-        dioConsumer: serviceLocator.get<DioConsumer>(),
-      ),
-    );
-
-    serviceLocator.registerLazySingleton<ResetPasswordRepo>(
-      () => ResetPasswordRepoImpl(
-        dioConsumer: serviceLocator.get<DioConsumer>(),
-      ),
-    );
-
-    serviceLocator.registerLazySingleton<LayoutRepo>(() => LayoutRepoImpl());
-  }
-
-  void _setupForCubits() {
-    serviceLocator.registerFactory<OnBoardingCubit>(
-      () => OnBoardingCubit(
-        onBoardingRepo: serviceLocator.get<OnBoardingRepo>(),
-      ),
-    );
-
-    serviceLocator.registerFactory<ForgotPasswordCubit>(
-      () => ForgotPasswordCubit(
-        forgotPasswordRepo: serviceLocator.get<ForgotPasswordRepo>(),
-      ),
-    );
-
-    serviceLocator.registerFactory<LoginCubit>(
-      () => LoginCubit(loginRepo: serviceLocator.get<LoginRepo>()),
-    );
-
-    serviceLocator.registerFactory<SignUpCubit>(
-      () => SignUpCubit(signUpRepo: serviceLocator.get<SignUpRepo>()),
-    );
-
-    serviceLocator.registerFactory<VerificationCubit>(
-      () => VerificationCubit(
-          verificationRepo: serviceLocator.get<VerificationRepo>()),
-    );
-
-    serviceLocator.registerFactory<ResetPasswordCubit>(
-      () => ResetPasswordCubit(
-          resetPasswordRepo: serviceLocator.get<ResetPasswordRepo>()),
-    );
-
-    serviceLocator.registerFactory<LayoutCubit>(
-      () => LayoutCubit(layoutRepo: serviceLocator.get<LayoutRepo>()),
-    );
+    SetupGetItForCubits().setup();
   }
 }

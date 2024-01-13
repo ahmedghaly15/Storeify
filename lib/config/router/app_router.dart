@@ -30,7 +30,7 @@ class AppRouter {
       case Routes.onBoardingViewRoute:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => serviceLocator.get<OnBoardingCubit>(),
+            create: (context) => getIt.get<OnBoardingCubit>(),
             child: const OnBoardingView(),
           ),
         );
@@ -38,7 +38,7 @@ class AppRouter {
       case Routes.loginViewRoute:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => serviceLocator.get<LoginCubit>(),
+            create: (context) => getIt.get<LoginCubit>(),
             child: const LoginView(),
           ),
         );
@@ -46,7 +46,7 @@ class AppRouter {
       case Routes.signUpViewRoute:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => serviceLocator.get<SignUpCubit>(),
+            create: (context) => getIt.get<SignUpCubit>(),
             child: const SignUpView(),
           ),
         );
@@ -54,7 +54,7 @@ class AppRouter {
       case Routes.forgetPasswordRoute:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => serviceLocator.get<ForgotPasswordCubit>(),
+            create: (context) => getIt.get<ForgotPasswordCubit>(),
             child: const ForgotPasswordView(),
           ),
         );
@@ -63,7 +63,7 @@ class AppRouter {
         final args = routeSettings.arguments as String;
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => serviceLocator.get<ResetPasswordCubit>(),
+            create: (context) => getIt.get<ResetPasswordCubit>(),
             child: ResetPasswordView(
               email: args,
             ),
@@ -74,7 +74,7 @@ class AppRouter {
         final args = routeSettings.arguments as String;
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => serviceLocator.get<VerificationCubit>(),
+            create: (context) => getIt.get<VerificationCubit>(),
             child: VerificationView(
               email: args,
             ),

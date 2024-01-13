@@ -25,7 +25,7 @@ class LoginDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => serviceLocator.get<LoginCubit>(),
+      create: (context) => getIt.get<LoginCubit>(),
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 197.h),
         padding: EdgeInsets.all(65.w),
@@ -75,7 +75,7 @@ class LoginDialog extends StatelessWidget {
 
 void _handleLoginStates(LoginState state, BuildContext context) {
   if (state is LoginSuccess) {
-    serviceLocator
+    getIt
         .get<CacheHelper>()
         .saveData(key: 'uid', value: Helper.uId)
         .then((value) {

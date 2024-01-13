@@ -48,7 +48,7 @@ class OnBoardingRepoImpl implements OnBoardingRepo {
 
   @override
   void skipToLogin({required BuildContext context}) {
-    serviceLocator
+    getIt
         .get<CacheHelper>()
         .saveData(key: AppStrings.cachedOnboarding, value: true)
         .then(
