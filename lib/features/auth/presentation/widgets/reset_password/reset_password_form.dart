@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/config/themes/app_text_styles.dart';
 import 'package:store_ify/core/helpers/auth_helper.dart';
 import 'package:store_ify/config/themes/app_colors.dart';
 import 'package:store_ify/core/utils/functions/show_toast.dart';
-import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
+import 'package:store_ify/core/widgets/custom_loading_indicator.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
@@ -62,10 +63,11 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
-      listener: (context, state) {
-        _handleSuccessResetState(state, context, widget.email);
-      },
+      listener: (context, state) => _handleResetSuccessState(state, context),
       builder: (context, state) {
+        final ResetPasswordCubit cubit =
+            BlocProvider.of<ResetPasswordCubit>(context);
+
         return Form(
           key: _formKey,
           autovalidateMode: autovalidateMode,
@@ -74,14 +76,11 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
             children: <Widget>[
               const TextFieldLabel(label: 'Password'),
               CustomTextField(
-                isPassword: true,
+                obscureText: true,
                 suffixIcon: IconButton(
-                  onPressed: () {
-                    BlocProvider.of<ResetPasswordCubit>(context)
-                        .changePasswordVisibility();
-                  },
+                  onPressed: () => cubit.changePasswordVisibility(),
                   icon: Icon(
-                    BlocProvider.of<ResetPasswordCubit>(context).isPassword
+                    cubit.passVisible
                         ? Icons.visibility_outlined
                         : Icons.visibility_off_outlined,
                     color: AppColors.primaryColor,
@@ -99,20 +98,16 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
               const TextFieldBottomSpacer(),
               const TextFieldLabel(label: 'Confirm password'),
               CustomTextField(
-                isPassword:
-                    BlocProvider.of<ResetPasswordCubit>(context).isPassword,
+                obscureText: cubit.passVisible,
                 validate: (value) => AuthHelper.validateConfirmPasswordField(
                   value: value,
                   password: _passwordController.text,
                   confirmPassword: _confirmController.text,
                 ),
                 suffixIcon: IconButton(
-                  onPressed: () {
-                    BlocProvider.of<ResetPasswordCubit>(context)
-                        .changePasswordVisibility();
-                  },
+                  onPressed: () => cubit.changeConfirmPassVisibility(),
                   icon: Icon(
-                    BlocProvider.of<ResetPasswordCubit>(context).isPassword
+                    cubit.confirmPassVisible
                         ? Icons.visibility_outlined
                         : Icons.visibility_off_outlined,
                     color: AppColors.primaryColor,
@@ -126,12 +121,17 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
                 focusNode: _confirmPasswordFocusNode,
               ),
               SizedBox(height: 28.h),
-              state is ResetPasswordLoading
-                  ? const CustomCircularProgressIndicator()
-                  : MainButton(
-                      text: 'Reset Password',
-                      onPressed: () => _resetPassword(context),
-                    ),
+              MainButton(
+                child: state is ResetPasswordLoading
+                    ? const CustomLoadingIndicator()
+                    : Text(
+                        'Reset Password',
+                        style: AppTextStyles.textStyle16Medium.copyWith(
+                          color: Colors.white,
+                        ),
+                      ),
+                onPressed: () => _resetPassword(context),
+              ),
             ],
           ),
         );
@@ -141,7 +141,6 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
 
   void _resetPassword(BuildContext context) {
     if (_formKey.currentState!.validate()) {
-      _formKey.currentState!.save();
       AuthHelper.keyboardUnfocus(context);
       BlocProvider.of<ResetPasswordCubit>(context).resetPassword(
         email: widget.email,
@@ -155,22 +154,14 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
     }
   }
 
-  void _handleSuccessResetState(
+  void _handleResetSuccessState(
     ResetPasswordState state,
     BuildContext context,
-    String email,
   ) {
     if (state is ResetPasswordSuccess) {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return LoginDialog(
-            email: email,
-            password: _passwordController.text,
-          );
-        },
-      );
+      CustomLoginDialog.show(context);
     }
+
     if (state is ResetPasswordError) {
       showToast(text: state.errorMessage, state: ToastStates.error);
     }

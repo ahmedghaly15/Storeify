@@ -23,7 +23,7 @@ class MainButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 50.0.h,
+      height: 42.0.h,
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadiusDirectional.circular(10.0.r),

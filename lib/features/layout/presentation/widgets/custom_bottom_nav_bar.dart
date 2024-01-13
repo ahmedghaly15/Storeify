@@ -18,7 +18,7 @@ class CustomBottomNavBar extends StatelessWidget {
     return BottomNavigationBar(
       elevation: 20.h,
       selectedItemColor: AppColors.primaryColor,
-      unselectedIconTheme: const IconThemeData(color: AppColors.iconsColor),
+      unselectedIconTheme: const IconThemeData(color: AppColors.greyColor),
       unselectedLabelStyle: AppTextStyles.textStyle8Regular.copyWith(
         fontWeight: FontWeight.bold,
       ),

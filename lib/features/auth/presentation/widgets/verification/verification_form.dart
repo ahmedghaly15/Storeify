@@ -4,9 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
 import 'package:store_ify/config/router/routes.dart';
 import 'package:store_ify/config/themes/app_colors.dart';
+import 'package:store_ify/config/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_navigator.dart';
 import 'package:store_ify/core/utils/functions/show_toast.dart';
-import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
+import 'package:store_ify/core/widgets/custom_loading_indicator.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/auth/presentation/cubits/verification/verification_cubit.dart';
 
@@ -24,7 +25,6 @@ class VerificationForm extends StatefulWidget {
 
 class _VerificationFormState extends State<VerificationForm> {
   final TextEditingController _otpController = TextEditingController();
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
@@ -34,90 +34,73 @@ class _VerificationFormState extends State<VerificationForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 26.w),
-            child: Pinput(
-              controller: _otpController,
-              androidSmsAutofillMethod:
-                  AndroidSmsAutofillMethod.smsUserConsentApi,
-              listenForMultipleSmsOnAndroid: true,
-              defaultPinTheme: PinTheme(
-                width: 52.w,
-                height: 52.w,
-                textStyle: TextStyle(
-                  fontSize: 22.sp,
-                  color: AppColors.blueColor,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(19.r),
-                  border: Border.all(color: AppColors.primaryColor),
-                ),
+    return Column(
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 26.w),
+          child: Pinput(
+            controller: _otpController,
+            androidSmsAutofillMethod:
+                AndroidSmsAutofillMethod.smsUserConsentApi,
+            listenForMultipleSmsOnAndroid: true,
+            defaultPinTheme: PinTheme(
+              width: 52.w,
+              height: 52.w,
+              textStyle: TextStyle(
+                fontSize: 22.sp,
+                color: AppColors.blueColor,
               ),
-              separatorBuilder: (index) => SizedBox(width: 34.w),
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return "Pin is Empty";
-                }
-                return null;
-              },
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(19.r),
+                border: Border.all(color: AppColors.primaryColor),
+              ),
             ),
+            separatorBuilder: (index) => SizedBox(width: 34.w),
           ),
-          SizedBox(height: 40.h),
-          BlocConsumer<VerificationCubit, VerificationState>(
-            listener: (context, state) =>
-                _handleVerificationState(state, context, widget.email),
-            builder: (context, state) {
-              if (state is VerificationLoading) {
-                return const CustomCircularProgressIndicator();
-              } else {
-                return MainButton(
-                  text: 'Verify',
-                  onPressed: () => _verifyOTP(context),
-                );
-              }
-            },
-          ),
-        ],
-      ),
+        ),
+        SizedBox(height: 40.h),
+        BlocConsumer<VerificationCubit, VerificationState>(
+          listener: (context, state) =>
+              _handleVerificationState(state, context),
+          builder: (context, state) {
+            return MainButton(
+              child: state is VerificationLoading
+                  ? const CustomLoadingIndicator()
+                  : Text(
+                      'Verify',
+                      style: AppTextStyles.textStyle16Medium.copyWith(
+                        color: Colors.white,
+                      ),
+                    ),
+              onPressed: () => _verifyOTP(context),
+            );
+          },
+        ),
+      ],
     );
   }
 
   void _verifyOTP(BuildContext context) {
-    if (_formKey.currentState!.validate()) {
-      _formKey.currentState!.save();
-      BlocProvider.of<VerificationCubit>(context).otpVerification(
-        email: widget.email,
-        forgetCode: _otpController.text,
-      );
-    }
+    BlocProvider.of<VerificationCubit>(context).otpVerification(
+      email: widget.email,
+      forgetCode: _otpController.text,
+    );
   }
 
-  void _handleVerificationState(
-    VerificationState state,
-    BuildContext context,
-    String email,
-  ) {
+  void _handleVerificationState(VerificationState state, BuildContext context) {
     if (state is VerificationSuccess) {
-      _handleSuccessState(state, context, email);
+      _handleSuccessState(state, context);
     }
     if (state is VerificationError) {
       showToast(text: state.errorMessage, state: ToastStates.error);
     }
   }
 
-  void _handleSuccessState(
-    VerificationSuccess state,
-    BuildContext context,
-    String email,
-  ) {
+  void _handleSuccessState(VerificationSuccess state, BuildContext context) {
     showToast(text: state.message, state: ToastStates.success);
     context.navigateTo(
       routeName: Routes.resetPasswordViewRoute,
-      arguments: email,
+      arguments: widget.email,
     );
   }
 }

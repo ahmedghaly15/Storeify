@@ -14,43 +14,50 @@ class VerificationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Padding(
-        padding: AppConstants.authHorizontalPadding,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            const Spacer(),
-            Align(
-              alignment: Alignment.center,
-              child: Text(
-                "OTP Verification ",
-                style: AppTextStyles.textStyle24Medium,
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            SliverPadding(
+              padding: AppConstants.authHorizontalPadding,
+              sliver: SliverFillRemaining(
+                hasScrollBody: false,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    const Spacer(),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "OTP Verification ",
+                        style: AppTextStyles.textStyle24Medium,
+                      ),
+                    ),
+                    SizedBox(height: 8.h),
+                    Text(
+                      "We’ve sent a code to $email",
+                      style: AppTextStyles.textStyle16Regular
+                          .copyWith(color: AppColors.subTitleColor),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 19.h),
+                    Image.asset(
+                      AppAssets.imagesOtpVerification,
+                      fit: BoxFit.fill,
+                    ),
+                    SizedBox(height: 19.h),
+                    Center(
+                      child: Text(
+                        "OTP Code",
+                        style: AppTextStyles.textStyle16Medium,
+                      ),
+                    ),
+                    SizedBox(height: 13.h),
+                    VerificationForm(email: email),
+                    const Spacer(),
+                  ],
+                ),
               ),
             ),
-            SizedBox(height: 8.h),
-            Text(
-              "We’ve sent a code to $email",
-              style: AppTextStyles.textStyle16Regular
-                  .copyWith(color: AppColors.subTitleColor),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-            SizedBox(height: 19.h),
-            Image.asset(
-              AppAssets.imagesOtpVerification,
-              fit: BoxFit.cover,
-            ),
-            SizedBox(height: 19.h),
-            Center(
-              child: Text(
-                "OTP Code",
-                style: AppTextStyles.textStyle16Medium,
-              ),
-            ),
-            SizedBox(height: 13.h),
-            VerificationForm(email: email),
-            const Spacer(),
           ],
         ),
       ),

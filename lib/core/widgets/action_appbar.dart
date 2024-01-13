@@ -19,7 +19,7 @@ class ActionAppBar extends StatelessWidget {
           onPressed: () {},
           icon: const Icon(
             Icons.notifications_none,
-            color: AppColors.iconsColor,
+            color: AppColors.greyColor,
           ),
         ),
       ],
