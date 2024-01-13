@@ -5,7 +5,7 @@ import 'package:store_ify/config/themes/app_text_styles.dart';
 import 'package:store_ify/core/helpers/auth_helper.dart';
 import 'package:store_ify/config/themes/app_colors.dart';
 import 'package:store_ify/core/utils/functions/show_toast.dart';
-import 'package:store_ify/core/widgets/custom_loading_indicator.dart';
+import 'package:store_ify/core/widgets/button_loading_indicator.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
@@ -123,7 +123,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
               SizedBox(height: 28.h),
               MainButton(
                 child: state is ResetPasswordLoading
-                    ? const CustomLoadingIndicator()
+                    ? const ButtonLoadingIndicator()
                     : Text(
                         'Reset Password',
                         style: AppTextStyles.textStyle16Medium.copyWith(
