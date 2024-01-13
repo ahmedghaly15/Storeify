@@ -38,7 +38,7 @@ class SignUpView extends StatelessWidget {
                 Align(
                   alignment: AlignmentDirectional.centerEnd,
                   child: TextButton(
-                    onPressed: () => context.getBack(),
+                    onPressed: () => context.back(),
                     child: Text(
                       "Login",
                       style: AppTextStyles.textStyle16Regular.copyWith(

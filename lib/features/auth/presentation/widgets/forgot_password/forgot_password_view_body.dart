@@ -9,8 +9,8 @@ import 'package:store_ify/core/utils/app_navigator.dart';
 import 'package:store_ify/config/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/functions/show_toast.dart';
 import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
-import 'package:store_ify/core/widgets/custom_general_button.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
+import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forget_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_label.dart';
 
@@ -81,7 +81,7 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
                 if (state is ForgotPasswordLoading) {
                   return const CustomCircularProgressIndicator();
                 } else {
-                  return CustomGeneralButton(
+                  return MainButton(
                     text: 'Verify Email',
                     onPressed: () => _forgetPassword(context),
                   );

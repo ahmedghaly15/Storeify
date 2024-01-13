@@ -14,7 +14,7 @@ class CustomPageTitle extends StatelessWidget {
       children: [
         IconButton(
             onPressed: () {
-              context.getBack();
+              context.back();
             },
             icon: const Icon(
               Icons.arrow_back,
