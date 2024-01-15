@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:store_ify/config/themes/app_colors.dart';
 import 'package:store_ify/config/themes/app_text_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/helpers/helper.dart';
 import 'package:store_ify/core/widgets/custom_cached_network_image.dart';
 import 'package:store_ify/features/stores/data/models/stores_model.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -16,10 +17,13 @@ class CustomStoresItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5.h,
-      shape: RoundedRectangleBorder(
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(10.r)),
+        boxShadow: <BoxShadow>[
+          Helper.itemBoxShadow(),
+        ],
       ),
       child: MaterialButton(
         padding: EdgeInsets.zero,
