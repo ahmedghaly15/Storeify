@@ -4,13 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/config/router/routes.dart';
 import 'package:store_ify/core/helpers/auth_helper.dart';
 import 'package:store_ify/core/helpers/cache_helper.dart';
-import 'package:store_ify/core/helpers/helper.dart';
 import 'package:store_ify/config/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_navigator.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/utils/functions/show_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/auth/presentation/widgets/custom_auth_loading.dart';
+import 'package:store_ify/features/layout/presentation/cubit/layout_cubit.dart';
 import 'package:store_ify/service_locator.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.dart';
@@ -159,16 +159,13 @@ class _LoginFormState extends State<LoginForm> {
 
   void _handleSuccessState(LoginSuccess state, BuildContext context) {
     context.back();
+    BlocProvider.of<LayoutCubit>(context).getUser(userId: int.parse(state.uId));
     getIt
         .get<CacheHelper>()
         .saveData(key: AppStrings.cachedUserId, value: state.uId)
         .then((value) {
       if (value) {
-        Helper.uId = state.uId;
-        Helper.currentUser = state.user;
-        context.navigateAndReplace(
-          newRoute: Routes.storeifyLayoutViewRoute,
-        );
+        context.navigateAndReplace(newRoute: Routes.storeifyLayoutViewRoute);
       }
     });
   }

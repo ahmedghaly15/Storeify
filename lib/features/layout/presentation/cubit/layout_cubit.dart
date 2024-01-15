@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/helpers/helper.dart';
 import 'package:store_ify/core/models/user.dart';
 import 'package:store_ify/features/layout/data/entities/change_index_params.dart';
 import 'package:store_ify/features/layout/data/repositories/layout_repo.dart';
@@ -32,7 +33,10 @@ class LayoutCubit extends Cubit<LayoutState> {
     layoutRepo.getUser(userId: userId).then((value) {
       value.fold(
         (failure) => emit(GetUserError(error: failure.errMessage.toString())),
-        (user) => emit(GetUserSuccess(user: user)),
+        (user) {
+          Helper.currentUser = user;
+          emit(GetUserSuccess(user: user));
+        },
       );
     });
   }

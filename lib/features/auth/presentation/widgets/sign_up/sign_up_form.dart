@@ -11,6 +11,7 @@ import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/utils/functions/show_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/auth/presentation/widgets/custom_auth_loading.dart';
+import 'package:store_ify/features/layout/presentation/cubit/layout_cubit.dart';
 import 'package:store_ify/service_locator.dart';
 import 'package:store_ify/features/auth/presentation/cubits/sign_up/sign_up_cubit.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
@@ -206,6 +207,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   void _handleSuccessState(SignUpSuccess state, BuildContext context) {
     context.back();
+    BlocProvider.of<LayoutCubit>(context).getUser(userId: int.parse(state.uId));
     getIt
         .get<CacheHelper>()
         .saveData(key: AppStrings.cachedUserId, value: Helper.uId)
