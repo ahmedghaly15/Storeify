@@ -10,6 +10,7 @@ import 'package:store_ify/core/utils/app_navigator.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/utils/functions/show_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
+import 'package:store_ify/features/auth/data/entities/sign_up_params.dart';
 import 'package:store_ify/features/auth/presentation/widgets/custom_auth_loading.dart';
 import 'package:store_ify/features/layout/presentation/cubit/layout_cubit.dart';
 import 'package:store_ify/service_locator.dart';
@@ -176,10 +177,12 @@ class _SignUpFormState extends State<SignUpForm> {
       _formKey.currentState!.save();
       AuthHelper.keyboardUnfocus(context);
       BlocProvider.of<SignUpCubit>(context).userSignUp(
-        userName: _nameController.text,
-        email: _emailController.text,
-        password: _passwordController.text,
-        confirmPassword: _confirmController.text,
+        signUpParams: SignUpParams(
+          userName: _nameController.text,
+          email: _emailController.text,
+          password: _passwordController.text,
+          confirmPassword: _confirmController.text,
+        ),
       );
     } else {
       autovalidateMode = AutovalidateMode.always;
@@ -207,6 +210,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   void _handleSuccessState(SignUpSuccess state, BuildContext context) {
     context.back();
+    Helper.uId = state.uId;
     getIt
         .get<CacheHelper>()
         .saveData(key: AppStrings.cachedUserId, value: Helper.uId)

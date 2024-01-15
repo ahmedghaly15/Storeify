@@ -11,19 +11,11 @@ class VerificationCubit extends Cubit<VerificationState> {
 
   final VerificationRepo verificationRepo;
 
-  void otpVerification({
-    required String email,
-    required String forgetCode,
-  }) {
+  void otpVerification({required VerificationParams verificationParams}) {
     emit(const VerificationLoading());
 
     verificationRepo
-        .otpVerification(
-      verificationParams: VerificationParams(
-        email: email,
-        forgetCode: forgetCode,
-      ),
-    )
+        .otpVerification(verificationParams: verificationParams)
         .then(
       (value) {
         value.fold((failure) {

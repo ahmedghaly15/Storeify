@@ -10,9 +10,7 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
 
   final ForgotPasswordRepo forgotPasswordRepo;
 
-  void forgotPassword({
-    required String email,
-  }) {
+  void forgotPassword({required String email}) {
     emit(const ForgotPasswordLoading());
 
     forgotPasswordRepo.forgotPassword(email: email).then((value) {
