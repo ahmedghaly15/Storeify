@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppConstants {
-  static const EdgeInsetsGeometry authHorizontalPadding = EdgeInsets.symmetric(
+  static const EdgeInsetsGeometry horizontalPadding = EdgeInsets.symmetric(
     horizontal: 16.0,
   );
 
