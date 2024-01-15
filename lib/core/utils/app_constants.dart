@@ -3,8 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppConstants {
   static EdgeInsetsGeometry get horizontalPadding => EdgeInsets.symmetric(
-        horizontal: 16.0.w,
+        horizontal: paddingVal,
       );
+
+  static double get paddingVal => 16.w;
 
   static const ScrollPhysics physics = BouncingScrollPhysics();
   static const int gridCrossAxisCount = 2;
