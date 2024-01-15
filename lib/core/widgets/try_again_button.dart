@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 
 class TryAgainButton extends StatelessWidget {
@@ -9,9 +10,12 @@ class TryAgainButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: MainButton(
-        onPressed: onPressed,
-        text: 'Try again',
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 80.w),
+        child: MainButton(
+          onPressed: onPressed,
+          text: 'Try again',
+        ),
       ),
     );
   }
