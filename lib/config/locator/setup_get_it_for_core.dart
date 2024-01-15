@@ -15,5 +15,7 @@ class SetupGetItForCore {
     getIt.registerLazySingleton<DioConsumer>(
       () => DioConsumer(dio: getIt.get<Dio>()),
     );
+
+    getIt.registerLazySingleton<ApiConsumer>(() => getIt.get<DioConsumer>());
   }
 }

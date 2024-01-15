@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/features/auth/data/entities/sign_up_params.dart';
-import 'package:store_ify/features/auth/data/models/user.dart';
+import 'package:store_ify/core/models/user.dart';
 import 'package:store_ify/features/auth/data/repositories/sign_up/sign_up_repo.dart';
 
 part 'sign_up_state.dart';

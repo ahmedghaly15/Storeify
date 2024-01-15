@@ -5,39 +5,35 @@ class SetupGetItForRepos {
     getIt.registerLazySingleton<OnBoardingRepo>(() => OnBoardingRepoImpl());
 
     getIt.registerLazySingleton<ForgotPasswordRepo>(
-      () => ForgotPasswordRepoImpl(dioConsumer: getIt.get<DioConsumer>()),
+      () => ForgotPasswordRepoImpl(apiConsumer: getIt.get<DioConsumer>()),
     );
 
     getIt.registerLazySingleton<LoginRepo>(
-      () => LoginRepoImpl(
-        dioConsumer: getIt.get<DioConsumer>(),
-        networkInfo: getIt.get<NetworkInfo>(),
-      ),
+      () => LoginRepoImpl(apiConsumer: getIt.get<ApiConsumer>()),
     );
 
     getIt.registerLazySingleton<SignUpRepo>(
-      () => SingUpRepoImpl(
-        dioConsumer: getIt.get<DioConsumer>(),
-        networkInfo: getIt.get<NetworkInfo>(),
-      ),
+      () => SingUpRepoImpl(apiConsumer: getIt.get<ApiConsumer>()),
     );
 
     getIt.registerLazySingleton<VerificationRepo>(
-      () => VerificationRepoImpl(dioConsumer: getIt.get<DioConsumer>()),
+      () => VerificationRepoImpl(apiConsumer: getIt.get<ApiConsumer>()),
     );
 
     getIt.registerLazySingleton<ResetPasswordRepo>(
-      () => ResetPasswordRepoImpl(dioConsumer: getIt.get<DioConsumer>()),
+      () => ResetPasswordRepoImpl(apiConsumer: getIt.get<ApiConsumer>()),
     );
 
-    getIt.registerLazySingleton<LayoutRepo>(() => LayoutRepoImpl());
+    getIt.registerLazySingleton<LayoutRepo>(
+      () => LayoutRepoImpl(apiConsumer: getIt.get<ApiConsumer>()),
+    );
 
     getIt.registerLazySingleton<CategoryRepo>(
-      () => CategoryRepoImpl(dioConsumer: getIt.get<DioConsumer>()),
+      () => CategoryRepoImpl(apiConsumer: getIt.get<ApiConsumer>()),
     );
 
     getIt.registerLazySingleton<StoresRepo>(
-      () => StoresRepoImpl(dioConsumer: getIt.get<DioConsumer>()),
+      () => StoresRepoImpl(apiConsumer: getIt.get<ApiConsumer>()),
     );
   }
 }
