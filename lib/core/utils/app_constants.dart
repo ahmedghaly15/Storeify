@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppConstants {
-  static EdgeInsetsGeometry get authHorizontalPadding => EdgeInsets.symmetric(
-        horizontal: 16.0.w,
-      );
+  static const EdgeInsetsGeometry horizontalPadding = EdgeInsets.symmetric(
+    horizontal: 16.0,
+  );
 
   static const ScrollPhysics physics = BouncingScrollPhysics();
   static const int gridCrossAxisCount = 2;
