@@ -17,11 +17,11 @@ class StoresSliverGridView extends StatelessWidget {
         if (state is GetStoresSuccess) {
           return SliverGrid(
             delegate: SliverChildBuilderDelegate(
-              childCount: state.stores.length,
+              childCount: 4,
               addAutomaticKeepAlives: true,
               (context, index) => AnimationConfiguration.staggeredGrid(
                 position: index,
-                columnCount: state.stores.length,
+                columnCount: 4,
                 duration: const Duration(milliseconds: 650),
                 child: ScaleAnimation(
                   child: FadeInAnimation(
