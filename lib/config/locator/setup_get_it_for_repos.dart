@@ -39,5 +39,9 @@ class SetupGetItForRepos {
     );
 
     getIt.registerLazySingleton<LayoutRepo>(() => LayoutRepoImpl());
+
+    getIt.registerLazySingleton<CategoryRepo>(
+      () => CategoryRepoImpl(dioConsumer: getIt.get<DioConsumer>()),
+    );
   }
 }
