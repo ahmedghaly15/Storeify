@@ -2,14 +2,10 @@ part of 'package:store_ify/service_locator.dart';
 
 class SetupGetItForRepos {
   void setup() {
-    getIt.registerLazySingleton<OnBoardingRepo>(
-      () => OnBoardingRepoImpl(),
-    );
+    getIt.registerLazySingleton<OnBoardingRepo>(() => OnBoardingRepoImpl());
 
     getIt.registerLazySingleton<ForgotPasswordRepo>(
-      () => ForgotPasswordRepoImpl(
-        dioConsumer: getIt.get<DioConsumer>(),
-      ),
+      () => ForgotPasswordRepoImpl(dioConsumer: getIt.get<DioConsumer>()),
     );
 
     getIt.registerLazySingleton<LoginRepo>(
@@ -27,21 +23,21 @@ class SetupGetItForRepos {
     );
 
     getIt.registerLazySingleton<VerificationRepo>(
-      () => VerificationRepoImpl(
-        dioConsumer: getIt.get<DioConsumer>(),
-      ),
+      () => VerificationRepoImpl(dioConsumer: getIt.get<DioConsumer>()),
     );
 
     getIt.registerLazySingleton<ResetPasswordRepo>(
-      () => ResetPasswordRepoImpl(
-        dioConsumer: getIt.get<DioConsumer>(),
-      ),
+      () => ResetPasswordRepoImpl(dioConsumer: getIt.get<DioConsumer>()),
     );
 
     getIt.registerLazySingleton<LayoutRepo>(() => LayoutRepoImpl());
 
     getIt.registerLazySingleton<CategoryRepo>(
       () => CategoryRepoImpl(dioConsumer: getIt.get<DioConsumer>()),
+    );
+
+    getIt.registerLazySingleton<StoresRepo>(
+      () => StoresRepoImpl(dioConsumer: getIt.get<DioConsumer>()),
     );
   }
 }
