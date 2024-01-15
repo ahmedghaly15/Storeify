@@ -10,8 +10,8 @@ class EndPoints {
   static const String category = "${baseUrl}category";
   static const String store = "${baseUrl}Store";
   static const String storeType = "${baseUrl}Store/type/";
-  static const String storeClothes = "${storeType}Clothes";
-  static const String storeFood = "${storeType}Food";
+  static const String clothesStores = "${storeType}Clothes";
+  static const String foodStores = "${storeType}Food";
 }
 
 const String token =
