@@ -31,7 +31,7 @@ class StoresRepoImpl implements StoresRepo {
   Future<Either<Failure, List<StoresModel>>> getClothesStores() {
     return executeAndHandleErrors<List<StoresModel>>(
       function: () async {
-        final response = await dioConsumer.get(EndPoints.storeClothes);
+        final response = await dioConsumer.get(EndPoints.clothesStores);
 
         List<StoresModel> clothesStores = [];
         for (var item in response["Store"]) {
@@ -47,7 +47,7 @@ class StoresRepoImpl implements StoresRepo {
   Future<Either<Failure, List<StoresModel>>> getFoodStores() {
     return executeAndHandleErrors<List<StoresModel>>(
       function: () async {
-        final response = await dioConsumer.get(EndPoints.storeFood);
+        final response = await dioConsumer.get(EndPoints.foodStores);
 
         List<StoresModel> foodStores = [];
         for (var item in response["Store"]) {
