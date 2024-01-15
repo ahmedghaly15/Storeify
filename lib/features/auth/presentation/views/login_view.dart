@@ -20,7 +20,7 @@ class LoginView extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             SliverPadding(
-              padding: AppConstants.authHorizontalPadding,
+              padding: AppConstants.horizontalPadding,
               sliver: SliverFillRemaining(
                 hasScrollBody: false,
                 child: Column(
