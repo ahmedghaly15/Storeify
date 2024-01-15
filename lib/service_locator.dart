@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:store_ify/core/api/api_consumer.dart';
 import 'package:store_ify/core/api/app_interceptors.dart';
 import 'package:store_ify/core/api/dio_consumer.dart';
 import 'package:store_ify/core/helpers/cache_helper.dart';
