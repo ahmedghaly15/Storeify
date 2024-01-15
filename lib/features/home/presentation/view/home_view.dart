@@ -7,7 +7,7 @@ import 'package:store_ify/features/home/presentation/widgets/best_seller_list_vi
 import 'package:store_ify/features/home/presentation/widgets/categories_list_view.dart';
 import 'package:store_ify/features/home/presentation/widgets/list_title.dart';
 import 'package:store_ify/features/home/presentation/widgets/user_info_and_search_field.dart';
-import 'package:store_ify/features/home/presentation/widgets/stores_list_view.dart';
+import 'package:store_ify/features/home/presentation/widgets/stores_sliver_grid_view.dart';
 import 'package:store_ify/features/home/presentation/widgets/view_all_text_button.dart';
 
 class HomeView extends StatelessWidget {
@@ -25,8 +25,7 @@ class HomeView extends StatelessWidget {
               child: UserInfoAndSearchField(),
             ),
           ),
-          SliverFillRemaining(
-            hasScrollBody: false,
+          SliverToBoxAdapter(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -65,10 +64,10 @@ class HomeView extends StatelessWidget {
                     ],
                   ),
                 ),
-                const StoresListView(),
               ],
             ),
           ),
+          const StoresSliverGridView(),
         ],
       ),
     );
