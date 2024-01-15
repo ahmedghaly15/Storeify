@@ -11,5 +11,5 @@ abstract class LayoutRepo {
 
   List<Widget> views();
 
-  Future<Either<Failure, User>> getUser({required int userId});
+  Future<Either<Failure, User>> getUser({required String userId});
 }

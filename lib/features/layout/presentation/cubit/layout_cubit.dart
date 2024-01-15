@@ -27,7 +27,7 @@ class LayoutCubit extends Cubit<LayoutState> {
   List<BottomNavigationBarItem> bottomNavItems() =>
       layoutRepo.getBottomNavItems();
 
-  void getUser({required int userId}) {
+  void getUser({required String userId}) {
     emit(const GetUserLoading());
 
     layoutRepo.getUser(userId: userId).then((value) {
