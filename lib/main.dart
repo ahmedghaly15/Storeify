@@ -4,7 +4,7 @@ import 'package:store_ify/storeify_app.dart';
 import 'package:store_ify/bloc_observer.dart';
 import 'package:store_ify/service_locator.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   Bloc.observer = MyBlocObserver();
