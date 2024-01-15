@@ -57,7 +57,7 @@ class LayoutRepoImpl implements LayoutRepo {
 
   @override
   Future<Either<Failure, User>> getUser({
-    required int userId,
+    required String userId,
   }) {
     return executeAndHandleErrors<User>(
       function: () async {

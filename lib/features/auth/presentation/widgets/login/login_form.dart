@@ -159,7 +159,7 @@ class _LoginFormState extends State<LoginForm> {
 
   void _handleSuccessState(LoginSuccess state, BuildContext context) {
     context.back();
-    BlocProvider.of<LayoutCubit>(context).getUser(userId: int.parse(state.uId));
+    BlocProvider.of<LayoutCubit>(context).getUser(userId: state.uId);
     getIt
         .get<CacheHelper>()
         .saveData(key: AppStrings.cachedUserId, value: state.uId)
