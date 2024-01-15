@@ -22,6 +22,9 @@ import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.da
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/sign_up/sign_up_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/verification/verification_cubit.dart';
+import 'package:store_ify/features/categories/data/repositories/category_repo.dart';
+import 'package:store_ify/features/categories/data/repositories/category_repo_impl.dart';
+import 'package:store_ify/features/categories/presentation/cubit/category_cubit.dart';
 import 'package:store_ify/features/layout/data/repositories/layout_repo.dart';
 import 'package:store_ify/features/layout/data/repositories/layout_repo_impl.dart';
 import 'package:store_ify/features/layout/presentation/cubit/layout_cubit.dart';
