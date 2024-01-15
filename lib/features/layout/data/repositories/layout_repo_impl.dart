@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/api/api_consumer.dart';
 import 'package:store_ify/core/api/end_point.dart';
 import 'package:store_ify/core/errors/failures.dart';
+import 'package:store_ify/core/helpers/helper.dart';
 import 'package:store_ify/core/models/user.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
 import 'package:store_ify/features/cart/presentation/view/cart_view.dart';
@@ -56,12 +57,11 @@ class LayoutRepoImpl implements LayoutRepo {
       ];
 
   @override
-  Future<Either<Failure, User>> getUser({
-    required String userId,
-  }) {
+  Future<Either<Failure, User>> getUser() {
     return executeAndHandleErrors<User>(
       function: () async {
-        final response = await apiConsumer.get('${EndPoints.getUser}$userId');
+        final response =
+            await apiConsumer.get('${EndPoints.getUser}${Helper.uId}');
 
         final User user = User.fromJson(response['data']);
 

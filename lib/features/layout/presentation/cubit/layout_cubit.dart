@@ -19,7 +19,7 @@ class LayoutCubit extends Cubit<LayoutState> {
 
   void changeBottomNav({required ChangeIndexParams params}) {
     layoutRepo.changeBottomNav(params: params);
-    emit(ChangeBottomNav(currentIndex));
+    emit(ChangeBottomNav(index: currentIndex));
   }
 
   List<Widget> views() => layoutRepo.views();
@@ -27,10 +27,10 @@ class LayoutCubit extends Cubit<LayoutState> {
   List<BottomNavigationBarItem> bottomNavItems() =>
       layoutRepo.getBottomNavItems();
 
-  void getUser({required String userId}) {
+  Future<void> getUser() async {
     emit(const GetUserLoading());
 
-    layoutRepo.getUser(userId: userId).then((value) {
+    layoutRepo.getUser().then((value) {
       value.fold(
         (failure) => emit(GetUserError(error: failure.errMessage.toString())),
         (user) {
