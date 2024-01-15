@@ -50,7 +50,7 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
       key: _formKey,
       autovalidateMode: autoValidateMode,
       child: Padding(
-        padding: AppConstants.authHorizontalPadding,
+        padding: AppConstants.horizontalPadding,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,

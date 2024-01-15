@@ -20,7 +20,7 @@ class HomeView extends StatelessWidget {
         physics: AppConstants.physics,
         slivers: [
           SliverPadding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            padding: AppConstants.horizontalPadding,
             sliver: const SliverToBoxAdapter(
               child: UserInfoAndSearchField(),
             ),
@@ -67,7 +67,10 @@ class HomeView extends StatelessWidget {
               ],
             ),
           ),
-          const StoresSliverGridView(),
+          SliverPadding(
+            padding: AppConstants.horizontalPadding,
+            sliver: const StoresSliverGridView(),
+          ),
         ],
       ),
     );

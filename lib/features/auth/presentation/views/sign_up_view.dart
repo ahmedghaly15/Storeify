@@ -17,7 +17,7 @@ class SignUpView extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: AppConstants.authHorizontalPadding,
+            padding: AppConstants.horizontalPadding,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
