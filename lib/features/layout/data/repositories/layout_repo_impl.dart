@@ -1,5 +1,11 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/api/api_consumer.dart';
+import 'package:store_ify/core/api/end_point.dart';
+import 'package:store_ify/core/errors/failures.dart';
+import 'package:store_ify/core/models/user.dart';
+import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
 import 'package:store_ify/features/cart/presentation/view/cart_view.dart';
 import 'package:store_ify/features/favorite/presentation/view/favorite_view.dart';
 import 'package:store_ify/features/home/presentation/view/home_view.dart';
@@ -9,6 +15,10 @@ import 'package:store_ify/features/layout/presentation/cubit/layout_cubit.dart';
 import 'package:store_ify/features/stores/presentation/view/stores_view.dart';
 
 class LayoutRepoImpl implements LayoutRepo {
+  final ApiConsumer apiConsumer;
+
+  const LayoutRepoImpl({required this.apiConsumer});
+
   @override
   void changeBottomNav({required ChangeIndexParams params}) {
     BlocProvider.of<LayoutCubit>(params.context).currentIndex = params.index;
@@ -44,4 +54,19 @@ class LayoutRepoImpl implements LayoutRepo {
           label: "Favorite",
         ),
       ];
+
+  @override
+  Future<Either<Failure, User>> getUser({
+    required int userId,
+  }) {
+    return executeAndHandleErrors<User>(
+      function: () async {
+        final response = await apiConsumer.get('${EndPoints.getUser}$userId');
+
+        final User user = User.fromJson(response['data']);
+
+        return user;
+      },
+    );
+  }
 }
