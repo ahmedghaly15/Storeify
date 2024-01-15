@@ -3,9 +3,7 @@ part of 'package:store_ify/service_locator.dart';
 class SetupGetItForCubits {
   void setup() {
     getIt.registerFactory<OnBoardingCubit>(
-      () => OnBoardingCubit(
-        onBoardingRepo: getIt.get<OnBoardingRepo>(),
-      ),
+      () => OnBoardingCubit(onBoardingRepo: getIt.get<OnBoardingRepo>()),
     );
 
     getIt.registerFactory<ForgotPasswordCubit>(
@@ -27,8 +25,9 @@ class SetupGetItForCubits {
     );
 
     getIt.registerFactory<ResetPasswordCubit>(
-      () =>
-          ResetPasswordCubit(resetPasswordRepo: getIt.get<ResetPasswordRepo>()),
+      () => ResetPasswordCubit(
+        resetPasswordRepo: getIt.get<ResetPasswordRepo>(),
+      ),
     );
 
     getIt.registerFactory<LayoutCubit>(
@@ -37,6 +36,18 @@ class SetupGetItForCubits {
 
     getIt.registerFactory<CategoryCubit>(
       () => CategoryCubit(categoryRepo: getIt.get<CategoryRepo>()),
+    );
+
+    getIt.registerFactory<StoresCubit>(
+      () => StoresCubit(storesRepo: getIt.get<StoresRepo>()),
+    );
+
+    getIt.registerFactory<ClothesStoresCubit>(
+      () => ClothesStoresCubit(storesRepo: getIt.get<StoresRepo>()),
+    );
+
+    getIt.registerFactory<FoodStoresCubit>(
+      () => FoodStoresCubit(storesRepo: getIt.get<StoresRepo>()),
     );
   }
 }
