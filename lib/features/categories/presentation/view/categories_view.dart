@@ -48,9 +48,9 @@ class CategoriesView extends StatelessWidget {
                       ),
                     ),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10.w,
-                      mainAxisSpacing: 16.h,
+                      crossAxisCount: AppConstants.gridCrossAxisCount,
+                      crossAxisSpacing: AppConstants.gridCrossAxisSpacing,
+                      mainAxisSpacing: AppConstants.gridMainAxisSpacing,
                     ),
                   ),
                 );
