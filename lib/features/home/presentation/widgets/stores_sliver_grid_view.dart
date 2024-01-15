@@ -26,7 +26,7 @@ class StoresSliverGridView extends StatelessWidget {
                 child: ScaleAnimation(
                   child: FadeInAnimation(
                     child: CustomStoresItem(
-                      storesModel: state.stores[index],
+                      store: state.stores[index],
                     ),
                   ),
                 ),
