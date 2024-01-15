@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
-import 'package:store_ify/features/stores/data/models/stores_model.dart';
+import 'package:store_ify/core/models/image_model.dart';
 
 class CategoryModel extends Equatable {
   final String id;
   final String name;
   final String description;
-  final CategoryImage image;
+  final ImageModel image;
 
   const CategoryModel({
     required this.id,
@@ -19,11 +19,9 @@ class CategoryModel extends Equatable {
       id: json["_id"],
       name: json["name"],
       description: json["description"],
-      image: CategoryImage.fromJson(json["image"]),
+      image: ImageModel.fromJson(json["image"]),
     );
   }
-
-  String get categoryId => id;
 
   @override
   List<Object?> get props => [id, name, description, image];
