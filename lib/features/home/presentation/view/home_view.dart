@@ -56,7 +56,7 @@ class HomeView extends StatelessWidget {
                   padding: EdgeInsets.only(bottom: 20.h),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                    children: <Widget>[
                       const ListTitle(title: 'Top Stores'),
                       ViewAllTextButton(
                         onPressed: () {},
@@ -68,7 +68,11 @@ class HomeView extends StatelessWidget {
             ),
           ),
           SliverPadding(
-            padding: AppConstants.horizontalPadding,
+            padding: EdgeInsets.only(
+              left: AppConstants.paddingVal,
+              right: AppConstants.paddingVal,
+              bottom: 16.h,
+            ),
             sliver: const StoresSliverGridView(),
           ),
         ],
