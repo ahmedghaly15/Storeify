@@ -5,10 +5,12 @@ import 'package:store_ify/config/router/routes.dart';
 import 'package:store_ify/core/helpers/auth_helper.dart';
 import 'package:store_ify/core/helpers/cache_helper.dart';
 import 'package:store_ify/config/themes/app_colors.dart';
+import 'package:store_ify/core/helpers/helper.dart';
 import 'package:store_ify/core/utils/app_navigator.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/utils/functions/show_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
+import 'package:store_ify/features/auth/data/entities/login_params.dart';
 import 'package:store_ify/features/auth/presentation/widgets/custom_auth_loading.dart';
 import 'package:store_ify/features/layout/presentation/cubit/layout_cubit.dart';
 import 'package:store_ify/service_locator.dart';
@@ -128,8 +130,10 @@ class _LoginFormState extends State<LoginForm> {
       _formKey.currentState!.save();
       AuthHelper.keyboardUnfocus(context);
       BlocProvider.of<LoginCubit>(context).userLogin(
-        email: _emailController.text.trim(),
-        password: _passwordController.text,
+        loginParams: LoginParams(
+          email: _emailController.text.trim(),
+          password: _passwordController.text,
+        ),
       );
     } else {
       setState(() {
@@ -159,6 +163,7 @@ class _LoginFormState extends State<LoginForm> {
 
   void _handleSuccessState(LoginSuccess state, BuildContext context) {
     context.back();
+    Helper.uId = state.uId;
     getIt
         .get<CacheHelper>()
         .saveData(key: AppStrings.cachedUserId, value: state.uId)

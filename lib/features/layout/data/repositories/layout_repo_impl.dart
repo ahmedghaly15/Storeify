@@ -63,7 +63,7 @@ class LayoutRepoImpl implements LayoutRepo {
         final response =
             await apiConsumer.get('${EndPoints.getUser}${Helper.uId}');
 
-        final User user = User.fromJson(response['data']);
+        final User user = User.fromJson(response['user']);
 
         return user;
       },

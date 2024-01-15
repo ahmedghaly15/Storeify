@@ -11,23 +11,14 @@ class LoginCubit extends Cubit<LoginState> {
 
   final LoginRepo loginRepo;
 
-  void userLogin({
-    required String email,
-    required String password,
-  }) {
+  void userLogin({required LoginParams loginParams}) {
     emit(const LoginLoading());
 
-    loginRepo
-        .userLogin(loginParams: LoginParams(email: email, password: password))
-        .then(
+    loginRepo.userLogin(loginParams: loginParams).then(
       (value) {
         value.fold(
-          (failure) {
-            emit(LoginError(error: failure.errMessage.toString()));
-          },
-          (user) {
-            emit(LoginSuccess(user: user, uId: user.id!));
-          },
+          (failure) => emit(LoginError(error: failure.errMessage.toString())),
+          (user) => emit(LoginSuccess(user: user, uId: user.id!)),
         );
       },
     );
