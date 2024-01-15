@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:store_ify/config/router/routes.dart';
 import 'package:store_ify/config/themes/app_colors.dart';
+import 'package:store_ify/core/helpers/cache_helper.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/utils/app_navigator.dart';
+import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
+import 'package:store_ify/service_locator.dart';
 
 class CustomSearchTextField extends StatelessWidget {
   const CustomSearchTextField({super.key});
@@ -26,7 +31,17 @@ class CustomSearchTextField extends StatelessWidget {
         hintText: 'Search',
         prefixIcon: Image.asset(AppAssets.search),
         suffixIcon: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            getIt
+                .get<CacheHelper>()
+                .removeData(key: AppStrings.cachedUserId)
+                .then((value) {
+              if (value) {
+                // getIt.get<FirebaseAuth>().signOut();
+                context.navigateAndReplace(newRoute: Routes.loginViewRoute);
+              }
+            });
+          },
           icon: const Icon(
             Icons.tune,
             color: AppColors.primaryColor,
