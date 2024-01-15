@@ -31,11 +31,16 @@ import 'package:store_ify/features/layout/presentation/cubit/layout_cubit.dart';
 import 'package:store_ify/features/onboarding/data/repositories/on_boarding_repo.dart';
 import 'package:store_ify/features/onboarding/data/repositories/on_boarding_repo_impl.dart';
 import 'package:store_ify/features/onboarding/presentation/cubit/on_boarding_cubit.dart';
+import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
+import 'package:store_ify/features/stores/data/repositories/stores_repo_impl.dart';
+import 'package:store_ify/features/stores/presentation/cubits/clothes/clothes_stores_cubit.dart';
+import 'package:store_ify/features/stores/presentation/cubits/food/food_stores_cubit.dart';
+import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubit.dart';
 
-part 'package:store_ify/config/locator/setup_get_it_for_external.dart';
 part 'package:store_ify/config/locator/setup_get_it_for_core.dart';
-part 'package:store_ify/config/locator/setup_get_it_for_repos.dart';
 part 'package:store_ify/config/locator/setup_get_it_for_cubits.dart';
+part 'package:store_ify/config/locator/setup_get_it_for_external.dart';
+part 'package:store_ify/config/locator/setup_get_it_for_repos.dart';
 
 final GetIt getIt = GetIt.instance;
 

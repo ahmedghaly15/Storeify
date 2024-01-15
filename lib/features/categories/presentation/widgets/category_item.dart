@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:store_ify/config/router/routes.dart';
 import 'package:store_ify/config/themes/app_colors.dart';
@@ -6,7 +5,7 @@ import 'package:store_ify/config/themes/app_text_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/helper.dart';
 import 'package:store_ify/core/utils/app_navigator.dart';
-import 'package:store_ify/core/widgets/cached_network_image_error_icon.dart';
+import 'package:store_ify/core/widgets/custom_cached_network_image.dart';
 import 'package:store_ify/features/categories/data/models/categories_model.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -37,15 +36,8 @@ class CategoryItem extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Expanded(
-              child: ClipRRect(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(10.r)),
-                child: CachedNetworkImage(
-                  imageUrl: category.image.secureUrl,
-                  fit: BoxFit.fill,
-                  width: double.infinity,
-                  errorWidget: (context, _, __) =>
-                      const CachedNetworkImageErrorIcon(),
-                ),
+              child: CustomCachedNetworkImage(
+                imageUrl: category.image.secureUrl,
               ),
             ),
             Padding(

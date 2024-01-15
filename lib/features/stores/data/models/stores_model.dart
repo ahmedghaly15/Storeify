@@ -1,28 +1,31 @@
 import 'package:equatable/equatable.dart';
 import 'package:store_ify/core/models/image_model.dart';
 
-class CategoryModel extends Equatable {
+class StoresModel extends Equatable {
   final String id;
   final String name;
-  final String description;
   final ImageModel image;
+  final double rate;
+  final String type;
 
-  const CategoryModel({
+  const StoresModel({
     required this.id,
     required this.name,
-    required this.description,
     required this.image,
+    required this.rate,
+    required this.type,
   });
 
-  factory CategoryModel.fromJson(Map<String, dynamic> json) {
-    return CategoryModel(
+  factory StoresModel.fromJson(Map<String, dynamic> json) {
+    return StoresModel(
       id: json["_id"],
       name: json["name"],
-      description: json["description"],
       image: ImageModel.fromJson(json["image"]),
+      rate: (json['rate'] ?? 0).toDouble(),
+      type: json['type'],
     );
   }
 
   @override
-  List<Object?> get props => [id, name, description, image];
+  List<Object?> get props => [id, name, image, rate, type];
 }
