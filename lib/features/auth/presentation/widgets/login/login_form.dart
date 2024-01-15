@@ -161,17 +161,16 @@ class _LoginFormState extends State<LoginForm> {
     showToast(text: state.error, state: ToastStates.error);
   }
 
-  void _handleSuccessState(LoginSuccess state, BuildContext context) {
+  void _handleSuccessState(LoginSuccess state, BuildContext context) async {
     context.back();
     Helper.uId = state.uId;
+    await BlocProvider.of<LayoutCubit>(context).getUser();
     getIt
         .get<CacheHelper>()
         .saveData(key: AppStrings.cachedUserId, value: state.uId)
         .then((value) {
       if (value) {
-        BlocProvider.of<LayoutCubit>(context).getUser().then((value) {
-          context.navigateAndReplace(newRoute: Routes.storeifyLayoutViewRoute);
-        });
+        context.navigateAndReplace(newRoute: Routes.storeifyLayoutViewRoute);
       }
     });
   }
