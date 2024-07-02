@@ -11,48 +11,63 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  # Purify dart code
-  dartz: ^0.10.1
-  # HTTP networking package
-  dio: ^5.3.4
-  # Implement value based equality
-  equatable: ^2.0.5
+  
+  # A declarative routing solution for navigation
+  auto_route: ^8.2.0
+  # Networking
+  dio: ^5.4.3+1
+  retrofit: ^4.1.0
+  # Dio interceptor that logs network calls in a pretty, easy to read format.
+  pretty_dio_logger: ^1.3.1
   # State management
-  flutter_bloc: ^8.1.3
-  # Updating app's launcher icon
-  flutter_launcher_icons: ^0.13.1
-  # Easily create toast messages
-  fluttertoast: ^8.2.4
+  flutter_bloc: ^8.1.6
+  # Code generator (mainly used with Cubit & retrofit)
+  freezed_annotation: ^2.4.1
+  # Classes and helper functions that support JSON code generation via the `json_serializable` package.
+  json_annotation: ^4.9.0
+  # An SVG rendering and widget library for Flutter, which allows painting
+  flutter_svg: ^2.0.10+1
+  # Easily create beautify toast with a series of animations and make toast more beautiful.
+  flutter_styled_toast: ^2.2.1
   # Simple direct Service Locator that allows to access the concrete implementation from everywhere
-  get_it: ^7.6.4
+  get_it: ^7.7.0
   # Dart library that checks for internet
   internet_connection_checker: ^1.0.0+1
   # (OTP) text field
-  pinput: ^3.0.1
+  pinput: ^5.0.0
   # Flutter plugin for reading and writing simple key-value pairs for cache
-  shared_preferences: ^2.2.2
-  # Customizable animated page indicator
-  smooth_page_indicator: ^1.1.0
+  shared_preferences: ^2.2.3
+  # Provides API to store data in secure storage
+  flutter_secure_storage: ^9.2.2
   # A flutter plugin for adapting screen and font size.Guaranteed to look good on different models
-  flutter_screenutil: ^5.9.0
+  flutter_screenutil: ^5.9.3
   # Customizable rating bar for flutter
   flutter_rating_bar: ^4.0.1
   # For native splash screen
-  flutter_native_splash: ^2.3.9
-  # A collection of loading indicators animated with flutter
-  loading_indicator: ^3.1.1
+  flutter_native_splash: ^2.4.0
   # To add staggered animations to your ListView, GridView
   flutter_staggered_animations: ^1.1.1
   # To load and cache network images
-  cached_network_image: ^3.3.0
+  cached_network_image: ^3.3.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # Updating app's launcher icon.
+  flutter_launcher_icons: ^0.13.1
+  # Code generator (mainly used with Cubit & retrofit)
+  retrofit_generator: ^8.1.0
+  # Automatically generate navigation
+  auto_route_generator: ^8.0.0
+  # A build system for Dart code generation and modular compilation.
+  build_runner: ^2.4.8
   # Recommended lints to encourage good coding practices
-  flutter_lints: ^3.0.1
+  flutter_lints: ^3.0.2
+  # Code generator (mainly used with Cubit & retrofit)
+  freezed: ^2.5.2
+  # Automatically generate code for converting to and from JSON by annotating Dart classes.
+  json_serializable: ^6.8.0
 
 flutter:
   uses-material-design: true
