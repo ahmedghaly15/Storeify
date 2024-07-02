@@ -1,14 +1,16 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/config/router/app_router.dart';
-import 'package:store_ify/config/themes/app_themes.dart';
+import 'package:store_ify/auto_route_observer.dart';
+import 'package:store_ify/core/router/app_router.dart';
+import 'package:store_ify/core/themes/app_themes.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/features/categories/presentation/cubit/category_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/clothes/clothes_stores_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/food/food_stores_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubit.dart';
-import 'package:store_ify/service_locator.dart';
+import 'package:store_ify/dependency_injection.dart';
 import 'package:store_ify/features/layout/presentation/cubit/layout_cubit.dart';
 
 class StoreifyApp extends StatelessWidget {
@@ -39,11 +41,16 @@ class StoreifyApp extends StatelessWidget {
             create: (context) => getIt.get<FoodStoresCubit>()..getFoodStores(),
           ),
         ],
-        child: MaterialApp(
+        child: MaterialApp.router(
           debugShowCheckedModeBanner: false,
           theme: AppThemes.lightTheme,
           title: AppStrings.appTitle,
-          onGenerateRoute: AppRouter.onGenerateRoute,
+          routerConfig: getIt.get<AppRouter>().config(
+                navigatorObservers: () => [
+                  AppRoutesObserver(),
+                  AutoRouteObserver(),
+                ],
+              ),
         ),
       ),
     );

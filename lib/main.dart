@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/storeify_app.dart';
 import 'package:store_ify/bloc_observer.dart';
-import 'package:store_ify/service_locator.dart';
+import 'package:store_ify/dependency_injection.dart';
 
-Future<void> main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
+  setupDI();
   Bloc.observer = MyBlocObserver();
-
-  await ServiceLocator().setup();
-
   runApp(const StoreifyApp());
 }
