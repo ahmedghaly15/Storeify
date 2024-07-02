@@ -1,25 +1,29 @@
-import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
-import 'package:store_ify/core/errors/failures.dart';
-import 'package:store_ify/core/errors/server_failure.dart';
-import 'package:store_ify/core/network/network_info.dart';
-import 'package:store_ify/core/utils/app_strings.dart';
-import 'package:store_ify/service_locator.dart';
+import 'package:flutter/material.dart';
+import 'package:store_ify/core/api/api_error_handler.dart';
+import 'package:store_ify/core/api/api_result.dart';
 
-Future<Either<Failure, T>> executeAndHandleErrors<T>({
-  required Future<T> Function() function,
-}) async {
-  if (await getIt.get<NetworkInfo>().isConnected) {
-    try {
-      final result = await function();
-      return Right(result);
-    } catch (e) {
-      if (e is DioException) {
-        return Left(ServerFailure.fromDioException(e));
-      }
-      return Left(ServerFailure(e.toString()));
-    }
-  } else {
-    return const Left(ServerFailure(AppStrings.noInternet));
+/// Executes a given asynchronous function and handles any errors that occur during its execution.
+///
+/// This method takes a [function] that returns a [Future] and attempts to execute it.
+/// If the function completes successfully, the result is wrapped in an [ApiResult.success] object and returned.
+/// If an error occurs during execution, the error is caught, logged using [debugPrint], and
+/// an [ApiResult.error] object is returned with the error handled by [ErrorHandler].
+///
+/// Example usage:
+/// ```dart
+/// Future<ApiResult<MyData>> result = executeAndHandleErrors(() async {
+///   // Your asynchronous code here
+/// });
+/// ```
+///
+/// [T] is the type of the result that the function returns.
+Future<ApiResult<T>> executeAndHandleErrors<T>(
+  Future Function() function,
+) async {
+  try {
+    return ApiResult.success(await function());
+  } catch (error) {
+    debugPrint('********* Error in executeAndHandleErrors: $error **********');
+    return ApiResult.error(ErrorHandler.handle(error));
   }
 }
