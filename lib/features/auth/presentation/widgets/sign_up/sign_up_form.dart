@@ -10,7 +10,7 @@ import 'package:store_ify/core/utils/app_navigator.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
-import 'package:store_ify/features/auth/data/models/sign_up_params.dart';
+import 'package:store_ify/features/auth/data/models/register_params.dart';
 import 'package:store_ify/features/auth/presentation/widgets/custom_auth_loading.dart';
 import 'package:store_ify/features/layout/presentation/cubit/layout_cubit.dart';
 import 'package:store_ify/dependency_injection.dart';

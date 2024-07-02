@@ -1,12 +1,14 @@
-class RegisterParams {
-  final String username;
-  final String email;
-  final String password;
-  final String passwordConfirmation;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  RegisterParams(
-      {required this.username,
-      required this.email,
-      required this.password,
-      required this.passwordConfirmation});
+part 'register_params.freezed.dart';
+
+@freezed
+class RegisterParams with _$RegisterParams {
+  const factory RegisterParams({
+    required String username,
+    required String email,
+    required String password,
+    @JsonKey(name: 'password_confirmation')
+    required String passwordConfirmation,
+  }) = _RegisterParams;
 }
