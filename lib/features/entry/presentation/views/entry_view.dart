@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:store_ify/config/router/routes.dart';
+import 'package:store_ify/core/router/routes.dart';
 import 'package:store_ify/core/helpers/cache_helper.dart';
 import 'package:store_ify/core/helpers/helper.dart';
 import 'package:store_ify/core/utils/app_navigator.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
-import 'package:store_ify/service_locator.dart';
+import 'package:store_ify/dependency_injection.dart';
 
 class EntryView extends StatefulWidget {
   const EntryView({super.key});

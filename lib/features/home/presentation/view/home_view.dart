@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/config/router/routes.dart';
+import 'package:store_ify/core/router/routes.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/app_navigator.dart';
 import 'package:store_ify/features/home/presentation/widgets/best_seller_list_view.dart';

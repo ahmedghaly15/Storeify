@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:store_ify/core/api/api_consumer.dart';
 import 'package:store_ify/core/api/end_point.dart';
-import 'package:store_ify/core/errors/failures.dart';
+import 'package:store_ify/core/errors/failure.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
 import 'package:store_ify/features/categories/data/models/categories_model.dart';
 import 'package:store_ify/features/categories/data/repositories/category_repo.dart';

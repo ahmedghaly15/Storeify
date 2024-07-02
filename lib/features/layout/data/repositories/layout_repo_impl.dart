@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/api/api_consumer.dart';
 import 'package:store_ify/core/api/end_point.dart';
-import 'package:store_ify/core/errors/failures.dart';
+import 'package:store_ify/core/errors/failure.dart';
 import 'package:store_ify/core/helpers/helper.dart';
 import 'package:store_ify/core/models/user.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
-import 'package:store_ify/features/cart/presentation/view/cart_view.dart';
-import 'package:store_ify/features/favorite/presentation/view/favorite_view.dart';
 import 'package:store_ify/features/home/presentation/view/home_view.dart';
 import 'package:store_ify/features/layout/data/entities/change_index_params.dart';
 import 'package:store_ify/features/layout/data/repositories/layout_repo.dart';
@@ -30,8 +28,8 @@ class LayoutRepoImpl implements LayoutRepo {
     return const <Widget>[
       HomeView(),
       StoresView(),
-      CartView(),
-      FavoriteView(),
+      // CartView(),
+      // FavoriteView(),
     ];
   }
 

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/config/themes/app_text_styles.dart';
+import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/helpers/auth_helper.dart';
-import 'package:store_ify/config/themes/app_colors.dart';
-import 'package:store_ify/core/utils/functions/show_toast.dart';
+import 'package:store_ify/core/themes/app_colors.dart';
+import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/button_loading_indicator.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
 import 'package:store_ify/core/widgets/main_button.dart';

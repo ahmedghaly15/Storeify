@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/utils/functions/show_toast.dart';
+import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/button_loading_indicator.dart';
 import 'package:store_ify/features/stores/presentation/cubits/food/food_stores_cubit.dart';
 import 'package:store_ify/features/stores/presentation/widgets/custom_stores_item.dart';

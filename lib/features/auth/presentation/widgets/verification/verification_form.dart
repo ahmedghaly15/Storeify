@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
-import 'package:store_ify/config/router/routes.dart';
-import 'package:store_ify/config/themes/app_colors.dart';
-import 'package:store_ify/config/themes/app_text_styles.dart';
+import 'package:store_ify/core/router/routes.dart';
+import 'package:store_ify/core/themes/app_colors.dart';
+import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_navigator.dart';
-import 'package:store_ify/core/utils/functions/show_toast.dart';
+import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/button_loading_indicator.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
-import 'package:store_ify/features/auth/data/entities/verification_params.dart';
+import 'package:store_ify/features/auth/data/models/verification_params.dart';
 import 'package:store_ify/features/auth/presentation/cubits/verification/verification_cubit.dart';
 
 class VerificationForm extends StatefulWidget {

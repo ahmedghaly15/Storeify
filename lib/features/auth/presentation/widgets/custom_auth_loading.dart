@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_indicator/loading_indicator.dart';
-import 'package:store_ify/config/themes/app_colors.dart';
+import 'package:store_ify/core/themes/app_colors.dart';
 
 class CustomAuthLoading {
   static void show(BuildContext context) {

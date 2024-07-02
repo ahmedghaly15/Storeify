@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
-import 'package:store_ify/config/themes/app_text_styles.dart';
+import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/features/auth/presentation/widgets/reset_password/reset_password_form.dart';
 
 class ResetPasswordView extends StatelessWidget {

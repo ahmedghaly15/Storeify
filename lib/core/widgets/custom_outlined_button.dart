@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_ify/config/themes/app_text_styles.dart';
+import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomButtonOutlinedApp extends StatelessWidget {
@@ -18,9 +18,8 @@ class CustomButtonOutlinedApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton(
       style: ButtonStyle(
-        side:
-            MaterialStatePropertyAll(BorderSide(width: 1, color: activeColor)),
-        padding: const MaterialStatePropertyAll(
+        side: WidgetStatePropertyAll(BorderSide(width: 1, color: activeColor)),
+        padding: const WidgetStatePropertyAll(
             EdgeInsets.symmetric(horizontal: 25, vertical: 5)),
       ),
       onPressed: onPressed,
