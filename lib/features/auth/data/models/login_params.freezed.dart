@@ -14,11 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+LoginParams _$LoginParamsFromJson(Map<String, dynamic> json) {
+  return _LoginParams.fromJson(json);
+}
+
 /// @nodoc
 mixin _$LoginParams {
   String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LoginParamsCopyWith<LoginParams> get copyWith =>
       throw _privateConstructorUsedError;
@@ -101,9 +106,12 @@ class __$$LoginParamsImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$LoginParamsImpl implements _LoginParams {
   const _$LoginParamsImpl({required this.email, required this.password});
+
+  factory _$LoginParamsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LoginParamsImplFromJson(json);
 
   @override
   final String email;
@@ -125,6 +133,7 @@ class _$LoginParamsImpl implements _LoginParams {
                 other.password == password));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, email, password);
 
@@ -133,12 +142,22 @@ class _$LoginParamsImpl implements _LoginParams {
   @pragma('vm:prefer-inline')
   _$$LoginParamsImplCopyWith<_$LoginParamsImpl> get copyWith =>
       __$$LoginParamsImplCopyWithImpl<_$LoginParamsImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$LoginParamsImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _LoginParams implements LoginParams {
   const factory _LoginParams(
       {required final String email,
       required final String password}) = _$LoginParamsImpl;
+
+  factory _LoginParams.fromJson(Map<String, dynamic> json) =
+      _$LoginParamsImpl.fromJson;
 
   @override
   String get email;

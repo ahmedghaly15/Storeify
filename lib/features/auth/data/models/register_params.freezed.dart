@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+RegisterParams _$RegisterParamsFromJson(Map<String, dynamic> json) {
+  return _RegisterParams.fromJson(json);
+}
+
 /// @nodoc
 mixin _$RegisterParams {
   String get username => throw _privateConstructorUsedError;
@@ -22,6 +26,7 @@ mixin _$RegisterParams {
   @JsonKey(name: 'password_confirmation')
   String get passwordConfirmation => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RegisterParamsCopyWith<RegisterParams> get copyWith =>
       throw _privateConstructorUsedError;
@@ -132,7 +137,7 @@ class __$$RegisterParamsImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$RegisterParamsImpl implements _RegisterParams {
   const _$RegisterParamsImpl(
       {required this.username,
@@ -140,6 +145,9 @@ class _$RegisterParamsImpl implements _RegisterParams {
       required this.password,
       @JsonKey(name: 'password_confirmation')
       required this.passwordConfirmation});
+
+  factory _$RegisterParamsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RegisterParamsImplFromJson(json);
 
   @override
   final String username;
@@ -170,6 +178,7 @@ class _$RegisterParamsImpl implements _RegisterParams {
                 other.passwordConfirmation == passwordConfirmation));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, username, email, password, passwordConfirmation);
@@ -180,6 +189,13 @@ class _$RegisterParamsImpl implements _RegisterParams {
   _$$RegisterParamsImplCopyWith<_$RegisterParamsImpl> get copyWith =>
       __$$RegisterParamsImplCopyWithImpl<_$RegisterParamsImpl>(
           this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RegisterParamsImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _RegisterParams implements RegisterParams {
@@ -189,6 +205,9 @@ abstract class _RegisterParams implements RegisterParams {
       required final String password,
       @JsonKey(name: 'password_confirmation')
       required final String passwordConfirmation}) = _$RegisterParamsImpl;
+
+  factory _RegisterParams.fromJson(Map<String, dynamic> json) =
+      _$RegisterParamsImpl.fromJson;
 
   @override
   String get username;

@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'register_params.freezed.dart';
+part 'register_params.g.dart';
 
 @freezed
 class RegisterParams with _$RegisterParams {
@@ -11,4 +12,7 @@ class RegisterParams with _$RegisterParams {
     @JsonKey(name: 'password_confirmation')
     required String passwordConfirmation,
   }) = _RegisterParams;
+
+  factory RegisterParams.fromJson(Map<String, dynamic> json) =>
+      _$RegisterParamsFromJson(json);
 }
