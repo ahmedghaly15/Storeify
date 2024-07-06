@@ -1,15 +1,19 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'login_params.freezed.dart';
 part 'login_params.g.dart';
 
-@freezed
-class LoginParams with _$LoginParams {
-  const factory LoginParams({
-    required String email,
-    required String password,
-  }) = _LoginParams;
+@JsonSerializable()
+class LoginParams {
+  final String email;
+  final String password;
+
+  const LoginParams({
+    required this.email,
+    required this.password,
+  });
 
   factory LoginParams.fromJson(Map<String, dynamic> json) =>
       _$LoginParamsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LoginParamsToJson(this);
 }

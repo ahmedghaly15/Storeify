@@ -1,28 +1,35 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'login_request_response.freezed.dart';
 part 'login_request_response.g.dart';
 
-@freezed
-class LoginRequestResponse with _$LoginRequestResponse {
-  const factory LoginRequestResponse({
-    required String code,
-    required LoginResponseData data,
-    required String token,
-  }) = _LoginRequestResponse;
+@JsonSerializable()
+class LoginRequestResponse {
+  final String code, token;
+  final LoginResponseData data;
+
+  const LoginRequestResponse({
+    required this.code,
+    required this.token,
+    required this.data,
+  });
 
   factory LoginRequestResponse.fromJson(Map<String, dynamic> json) =>
       _$LoginRequestResponseFromJson(json);
+  Map<String, dynamic> toJson() => _$LoginRequestResponseToJson(this);
 }
 
-@freezed
-class LoginResponseData with _$LoginResponseData {
-  const factory LoginResponseData({
-    required int id,
-    required String username,
-    required String email,
-  }) = _LoginResponseData;
+@JsonSerializable()
+class LoginResponseData {
+  final int id;
+  final String username, email;
+
+  const LoginResponseData({
+    required this.id,
+    required this.username,
+    required this.email,
+  });
 
   factory LoginResponseData.fromJson(Map<String, dynamic> json) =>
       _$LoginResponseDataFromJson(json);
+  Map<String, dynamic> toJson() => _$LoginResponseDataToJson(this);
 }
