@@ -21,6 +21,10 @@ class AppTextStyles {
     color: AppColors.fontPrimaryColor,
   );
 
+  static TextStyle mainButtonTextStyle = textStyle16Medium.copyWith(
+    color: Colors.white,
+  );
+
   static TextStyle textStyle16Regular = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeight.w400,

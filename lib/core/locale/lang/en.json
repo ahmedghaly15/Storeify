@@ -6,5 +6,6 @@
     "forgotPassword": "Forgot password?",
     "signup": "Sign up",
     "login": "Log in",
-    "orLoginWith": "Or log in with"
+    "orLoginWith": "Or log in with",
+    "INVALID_CREDENTIALS": "Invalid email or password. Please try again."
 }
