@@ -9,7 +9,7 @@ class AppUtils {
     Animation<double>,
     Animation<double>,
     Widget,
-  )? get transitionsBuilder => TransitionsBuilders.slideLeft;
+  )? get transitionsBuilder => TransitionsBuilders.fadeIn;
 
   static const int transitionDuration = 400;
 }
