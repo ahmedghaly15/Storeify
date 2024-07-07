@@ -12,6 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
   
+  # For in-app localization
+  flutter_localization: ^0.2.0
   # A declarative routing solution for navigation
   auto_route: ^8.2.0
   # Networking
