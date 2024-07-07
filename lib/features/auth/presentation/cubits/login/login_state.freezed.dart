@@ -22,6 +22,7 @@ mixin _$LoginState<T> {
     required TResult Function() loading,
     required TResult Function(LoginRequestResponse data) success,
     required TResult Function(String error) error,
+    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$LoginState<T> {
     TResult? Function()? loading,
     TResult? Function(LoginRequestResponse data)? success,
     TResult? Function(String error)? error,
+    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$LoginState<T> {
     TResult Function()? loading,
     TResult Function(LoginRequestResponse data)? success,
     TResult Function(String error)? error,
+    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,8 @@ mixin _$LoginState<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(InvertPasswordVisibility<T> value)
+        invertPasswordVisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +60,8 @@ mixin _$LoginState<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(InvertPasswordVisibility<T> value)?
+        invertPasswordVisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +70,8 @@ mixin _$LoginState<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(InvertPasswordVisibility<T> value)?
+        invertPasswordVisibility,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +137,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() loading,
     required TResult Function(LoginRequestResponse data) success,
     required TResult Function(String error) error,
+    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
   }) {
     return initial();
   }
@@ -139,6 +149,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? loading,
     TResult? Function(LoginRequestResponse data)? success,
     TResult? Function(String error)? error,
+    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
   }) {
     return initial?.call();
   }
@@ -150,6 +161,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? loading,
     TResult Function(LoginRequestResponse data)? success,
     TResult Function(String error)? error,
+    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -165,6 +177,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(InvertPasswordVisibility<T> value)
+        invertPasswordVisibility,
   }) {
     return initial(this);
   }
@@ -176,6 +190,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(InvertPasswordVisibility<T> value)?
+        invertPasswordVisibility,
   }) {
     return initial?.call(this);
   }
@@ -187,6 +203,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(InvertPasswordVisibility<T> value)?
+        invertPasswordVisibility,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -242,6 +260,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() loading,
     required TResult Function(LoginRequestResponse data) success,
     required TResult Function(String error) error,
+    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
   }) {
     return loading();
   }
@@ -253,6 +272,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? loading,
     TResult? Function(LoginRequestResponse data)? success,
     TResult? Function(String error)? error,
+    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
   }) {
     return loading?.call();
   }
@@ -264,6 +284,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? loading,
     TResult Function(LoginRequestResponse data)? success,
     TResult Function(String error)? error,
+    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -279,6 +300,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(InvertPasswordVisibility<T> value)
+        invertPasswordVisibility,
   }) {
     return loading(this);
   }
@@ -290,6 +313,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(InvertPasswordVisibility<T> value)?
+        invertPasswordVisibility,
   }) {
     return loading?.call(this);
   }
@@ -301,6 +326,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(InvertPasswordVisibility<T> value)?
+        invertPasswordVisibility,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -382,6 +409,7 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function() loading,
     required TResult Function(LoginRequestResponse data) success,
     required TResult Function(String error) error,
+    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
   }) {
     return success(data);
   }
@@ -393,6 +421,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function()? loading,
     TResult? Function(LoginRequestResponse data)? success,
     TResult? Function(String error)? error,
+    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
   }) {
     return success?.call(data);
   }
@@ -404,6 +433,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function()? loading,
     TResult Function(LoginRequestResponse data)? success,
     TResult Function(String error)? error,
+    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -419,6 +449,8 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(InvertPasswordVisibility<T> value)
+        invertPasswordVisibility,
   }) {
     return success(this);
   }
@@ -430,6 +462,8 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(InvertPasswordVisibility<T> value)?
+        invertPasswordVisibility,
   }) {
     return success?.call(this);
   }
@@ -441,6 +475,8 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(InvertPasswordVisibility<T> value)?
+        invertPasswordVisibility,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -527,6 +563,7 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() loading,
     required TResult Function(LoginRequestResponse data) success,
     required TResult Function(String error) error,
+    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
   }) {
     return error(this.error);
   }
@@ -538,6 +575,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? loading,
     TResult? Function(LoginRequestResponse data)? success,
     TResult? Function(String error)? error,
+    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
   }) {
     return error?.call(this.error);
   }
@@ -549,6 +587,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? loading,
     TResult Function(LoginRequestResponse data)? success,
     TResult Function(String error)? error,
+    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -564,6 +603,8 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(InvertPasswordVisibility<T> value)
+        invertPasswordVisibility,
   }) {
     return error(this);
   }
@@ -575,6 +616,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(InvertPasswordVisibility<T> value)?
+        invertPasswordVisibility,
   }) {
     return error?.call(this);
   }
@@ -586,6 +629,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(InvertPasswordVisibility<T> value)?
+        invertPasswordVisibility,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -602,4 +647,163 @@ abstract class Error<T> implements LoginState<T> {
   @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$InvertPasswordVisibilityImplCopyWith<T, $Res> {
+  factory _$$InvertPasswordVisibilityImplCopyWith(
+          _$InvertPasswordVisibilityImpl<T> value,
+          $Res Function(_$InvertPasswordVisibilityImpl<T>) then) =
+      __$$InvertPasswordVisibilityImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({bool isPasswordVisible});
+}
+
+/// @nodoc
+class __$$InvertPasswordVisibilityImplCopyWithImpl<T, $Res>
+    extends _$LoginStateCopyWithImpl<T, $Res, _$InvertPasswordVisibilityImpl<T>>
+    implements _$$InvertPasswordVisibilityImplCopyWith<T, $Res> {
+  __$$InvertPasswordVisibilityImplCopyWithImpl(
+      _$InvertPasswordVisibilityImpl<T> _value,
+      $Res Function(_$InvertPasswordVisibilityImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isPasswordVisible = null,
+  }) {
+    return _then(_$InvertPasswordVisibilityImpl<T>(
+      null == isPasswordVisible
+          ? _value.isPasswordVisible
+          : isPasswordVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvertPasswordVisibilityImpl<T> implements InvertPasswordVisibility<T> {
+  const _$InvertPasswordVisibilityImpl(this.isPasswordVisible);
+
+  @override
+  final bool isPasswordVisible;
+
+  @override
+  String toString() {
+    return 'LoginState<$T>.invertPasswordVisibility(isPasswordVisible: $isPasswordVisible)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InvertPasswordVisibilityImpl<T> &&
+            (identical(other.isPasswordVisible, isPasswordVisible) ||
+                other.isPasswordVisible == isPasswordVisible));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isPasswordVisible);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InvertPasswordVisibilityImplCopyWith<T, _$InvertPasswordVisibilityImpl<T>>
+      get copyWith => __$$InvertPasswordVisibilityImplCopyWithImpl<T,
+          _$InvertPasswordVisibilityImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(LoginRequestResponse data) success,
+    required TResult Function(String error) error,
+    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
+  }) {
+    return invertPasswordVisibility(isPasswordVisible);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(LoginRequestResponse data)? success,
+    TResult? Function(String error)? error,
+    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
+  }) {
+    return invertPasswordVisibility?.call(isPasswordVisible);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(LoginRequestResponse data)? success,
+    TResult Function(String error)? error,
+    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
+    required TResult orElse(),
+  }) {
+    if (invertPasswordVisibility != null) {
+      return invertPasswordVisibility(isPasswordVisible);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(InvertPasswordVisibility<T> value)
+        invertPasswordVisibility,
+  }) {
+    return invertPasswordVisibility(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(InvertPasswordVisibility<T> value)?
+        invertPasswordVisibility,
+  }) {
+    return invertPasswordVisibility?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Error<T> value)? error,
+    TResult Function(InvertPasswordVisibility<T> value)?
+        invertPasswordVisibility,
+    required TResult orElse(),
+  }) {
+    if (invertPasswordVisibility != null) {
+      return invertPasswordVisibility(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvertPasswordVisibility<T> implements LoginState<T> {
+  const factory InvertPasswordVisibility(final bool isPasswordVisible) =
+      _$InvertPasswordVisibilityImpl<T>;
+
+  bool get isPasswordVisible;
+  @JsonKey(ignore: true)
+  _$$InvertPasswordVisibilityImplCopyWith<T, _$InvertPasswordVisibilityImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

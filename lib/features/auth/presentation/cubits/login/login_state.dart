@@ -9,4 +9,6 @@ class LoginState<T> with _$LoginState<T> {
   const factory LoginState.loading() = Loading;
   const factory LoginState.success(LoginRequestResponse data) = Success<T>;
   const factory LoginState.error(String error) = Error<T>;
+  const factory LoginState.invertPasswordVisibility(bool isPasswordVisible) =
+      InvertPasswordVisibility<T>;
 }
