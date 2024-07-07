@@ -1,12 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:store_ify/core/api/api_service.dart';
 import 'package:store_ify/core/api/dio_factory.dart';
 import 'package:store_ify/core/locale/logic/cubit/locale_cubit.dart';
 import 'package:store_ify/core/locale/logic/locale_repo.dart';
-import 'package:store_ify/core/network/network_info.dart';
-import 'package:store_ify/core/network/network_info_impl.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/features/auth/data/repos/login_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.dart';
@@ -20,12 +17,6 @@ void setupDI() {
 }
 
 void _setupDIForCore() {
-  getIt.registerLazySingleton<NetworkInfo>(
-    () => NetworkInfoImpl(
-      connectionChecker: getIt.get<InternetConnectionChecker>(),
-    ),
-  );
-
   final Dio dio = DioFactory.getDio();
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
 

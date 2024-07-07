@@ -21,14 +21,14 @@ class _ApiService implements ApiService {
   String? baseUrl;
 
   @override
-  Future<LoginRequestResponse> login(LoginParams params) async {
+  Future<StoreifyUser> login(LoginParams params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(params.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<LoginRequestResponse>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<StoreifyUser>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -44,7 +44,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = LoginRequestResponse.fromJson(_result.data!);
+    final value = StoreifyUser.fromJson(_result.data!);
     return value;
   }
 

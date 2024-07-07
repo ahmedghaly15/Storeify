@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/models/user.dart';
 
 class Helper {
   static String? uId = '';
-  static User? currentUser;
 
   static BoxShadow itemBoxShadow() {
     return BoxShadow(

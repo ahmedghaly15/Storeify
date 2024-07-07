@@ -23,7 +23,8 @@ class LoginForm extends StatelessWidget {
         children: <Widget>[
           const TextFieldLabel(labelKey: LangKeys.email),
           CustomTextField(
-            validate: (String? value) => AuthHelper.validateEmailField(value),
+            validate: (String? value) =>
+                AuthHelper.validateEmailField(value: value),
             onEditingComplete: () => context
                 .requestFocus(context.read<LoginCubit>().passwordFocusNode),
             controller: context.read<LoginCubit>().emailController,
@@ -39,7 +40,7 @@ class LoginForm extends StatelessWidget {
             builder: (context, state) => CustomTextField(
               autofillHints: const <String>[AutofillHints.password],
               validate: (String? value) =>
-                  AuthHelper.validatePasswordField(value),
+                  AuthHelper.validatePasswordField(value: value),
               focusNode: context.read<LoginCubit>().passwordFocusNode,
               onSubmit: (_) => context.read<LoginCubit>().login(context),
               controller: context.read<LoginCubit>().passwordController,
