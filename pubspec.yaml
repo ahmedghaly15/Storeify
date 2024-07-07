@@ -78,6 +78,8 @@ flutter:
     - assets/
     - assets/images/
     - assets/icons/
+    - lib/core/locale/lang/ar.json
+    - lib/core/locale/lang/en.json
 
   fonts:
     - family: Poppins
