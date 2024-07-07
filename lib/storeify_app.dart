@@ -3,15 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/auto_route_observer.dart';
+import 'package:store_ify/core/locale/app_localizations_setup.dart';
+import 'package:store_ify/core/locale/logic/cubit/locale_cubit.dart';
+import 'package:store_ify/core/locale/logic/cubit/locale_state.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_themes.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
-import 'package:store_ify/features/categories/presentation/cubit/category_cubit.dart';
-import 'package:store_ify/features/stores/presentation/cubits/clothes/clothes_stores_cubit.dart';
-import 'package:store_ify/features/stores/presentation/cubits/food/food_stores_cubit.dart';
-import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubit.dart';
 import 'package:store_ify/dependency_injection.dart';
-import 'package:store_ify/features/layout/presentation/cubit/layout_cubit.dart';
 
 class StoreifyApp extends StatelessWidget {
   const StoreifyApp({super.key});
@@ -22,35 +20,29 @@ class StoreifyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child) => MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => getIt.get<LayoutCubit>(),
-          ),
-          BlocProvider(
-            create: (context) => getIt.get<CategoryCubit>()..getCategories(),
-          ),
-          BlocProvider(
-            create: (context) => getIt.get<StoresCubit>()..getStores(),
-          ),
-          BlocProvider(
-            create: (context) =>
-                getIt.get<ClothesStoresCubit>()..getClothesStores(),
-          ),
-          BlocProvider(
-            create: (context) => getIt.get<FoodStoresCubit>()..getFoodStores(),
-          ),
-        ],
-        child: MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          theme: AppThemes.lightTheme,
-          title: AppStrings.appTitle,
-          routerConfig: getIt.get<AppRouter>().config(
-                navigatorObservers: () => [
-                  AppRoutesObserver(),
-                  AutoRouteObserver(),
-                ],
-              ),
+      builder: (context, child) => BlocProvider<LocaleCubit>(
+        create: (context) => getIt.get<LocaleCubit>()..getSavedLang(),
+        child: BlocBuilder<LocaleCubit, LocaleState>(
+          buildWhen: (previous, current) => previous != current,
+          builder: (context, state) {
+            return MaterialApp.router(
+              debugShowCheckedModeBanner: false,
+              locale: state.locale,
+              supportedLocales: AppLocalizationsSetup.supportedLocales,
+              localizationsDelegates:
+                  AppLocalizationsSetup.localizationsDelegates,
+              localeResolutionCallback:
+                  AppLocalizationsSetup.localeResolutionCallback,
+              theme: AppThemes.lightTheme,
+              title: AppStrings.appTitle,
+              routerConfig: getIt.get<AppRouter>().config(
+                    navigatorObservers: () => [
+                      AppRoutesObserver(),
+                      AutoRouteObserver(),
+                    ],
+                  ),
+            );
+          },
         ),
       ),
     );

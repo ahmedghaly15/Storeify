@@ -4,6 +4,8 @@ import 'package:store_ify/core/helpers/shared_pref_keys.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 
 class LocaleRepo {
+  const LocaleRepo();
+
   Future<bool> changeLang(String langCode) async {
     return await SharedPrefHelper.setData(SharedPrefKeys.locale, langCode);
   }
