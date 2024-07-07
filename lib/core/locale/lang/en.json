@@ -1,1 +1,10 @@
-{}
+{
+    "signInToContinue": "Sign in to continue",
+    "welcome": "Welcome",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "signup": "Sign up",
+    "login": "Log in",
+    "orLoginWith": "Or log in with"
+}

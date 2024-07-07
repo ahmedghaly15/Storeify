@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 
 class MainButton extends StatelessWidget {
   const MainButton({
     super.key,
-    this.text,
+    this.textKey,
     this.child,
     required this.onPressed,
     this.borderRadius,
@@ -22,7 +23,7 @@ class MainButton extends StatelessWidget {
     this.fontSize,
   });
 
-  final String? text;
+  final String? textKey;
   final Widget? child;
   final double? borderRadius;
   final TextStyle? textStyle;
@@ -68,7 +69,7 @@ class MainButton extends StatelessWidget {
         child: child ??
             FittedBox(
               child: Text(
-                text!,
+                context.translate(textKey!),
                 style: textStyle ??
                     AppTextStyles.textStyle16Medium.copyWith(
                       fontSize: fontSize?.sp ?? 16.sp,
