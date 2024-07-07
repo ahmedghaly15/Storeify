@@ -9,5 +9,4 @@ class LangKeys {
   static const String signup = 'signup';
   static const String login = 'login';
   static const String orLoginWith = 'orLoginWith';
-  static const String invalidCredentials = 'INVALID_CREDENTIALS';
 }

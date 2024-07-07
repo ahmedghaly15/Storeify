@@ -7,5 +7,7 @@
     "signup": "Sign up",
     "login": "Log in",
     "orLoginWith": "Or log in with",
-    "INVALID_CREDENTIALS": "Invalid email or password. Please try again."
+    "INVALID_CREDENTIALS": "Invalid email or password. Please try again.",
+    "USERNAME_TAKEN": "This username is already taken. Please try another one.",
+    "EMAIL_TAKEN": "This email is already taken. Please try another one."
 }
