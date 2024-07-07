@@ -21,24 +21,20 @@ class SharedPrefHelper {
   }
 
   /// Saves a [value] with a [key] in the SharedPreferences.
-  static setData(String key, value) async {
+  static Future<bool> setData(String key, value) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     debugPrint("SharedPrefHelper : setData with key : $key and value : $value");
     switch (value.runtimeType) {
       case const (String):
-        await sharedPreferences.setString(key, value);
-        break;
+        return await sharedPreferences.setString(key, value);
       case const (int):
-        await sharedPreferences.setInt(key, value);
-        break;
+        return await sharedPreferences.setInt(key, value);
       case const (bool):
-        await sharedPreferences.setBool(key, value);
-        break;
+        return await sharedPreferences.setBool(key, value);
       case const (double):
-        await sharedPreferences.setDouble(key, value);
-        break;
+        return await sharedPreferences.setDouble(key, value);
       default:
-        return null;
+        return false;
     }
   }
 
