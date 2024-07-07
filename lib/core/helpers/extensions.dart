@@ -10,10 +10,20 @@ extension NullOrEmptyString on String? {
 }
 
 extension IsCurrentLocaleEnglish on BuildContext {
+  /// Check if the current locale is English
   bool get isEnglish =>
       read<LocaleCubit>().currentLang == AppStrings.englishLangCode;
 }
 
 extension Translate on BuildContext {
+  /// Translate the given [key] to the current locale
   String translate(String key) => AppLocalizations.of(this)!.translate(key)!;
+}
+
+extension UnfocusKeyboard on BuildContext {
+  void unfocusKeyboard() => FocusScope.of(this).unfocus();
+}
+
+extension RequestFocusOnFocusNode on BuildContext {
+  void requestFocus(FocusNode node) => FocusScope.of(this).requestFocus(node);
 }

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:store_ify/core/router/routes.dart';
 import 'package:store_ify/core/utils/app_utils.dart';
+import 'package:store_ify/features/auth/presentation/views/login_view.dart';
 
 part 'app_router.gr.dart';
 part 'app_routes.dart';

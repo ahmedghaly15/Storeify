@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class AuthHelper {
   static String? validatePasswordField(String? value) {
     if (value!.isEmpty) {
@@ -45,9 +43,5 @@ class AuthHelper {
     }
 
     return null;
-  }
-
-  static void keyboardUnfocus(BuildContext context) {
-    FocusScope.of(context).unfocus();
   }
 }
