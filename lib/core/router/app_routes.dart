@@ -1,6 +1,18 @@
 part of 'app_router.dart';
 
-List<AutoRoute> get appRoutes => [];
+List<AutoRoute> get appRoutes => [
+      AutoRoute(
+        initial: true,
+        page: AuthRoute.page,
+        children: [
+          _buildCustomRoute(
+            initial: true,
+            page: LoginRoute.page,
+          ),
+          _buildCustomRoute(page: SignUpRoute.page),
+        ],
+      ),
+    ];
 
 CustomRoute _buildCustomRoute({
   bool initial = false,

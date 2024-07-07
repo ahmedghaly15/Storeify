@@ -10,4 +10,7 @@ class AppStrings {
   static const String noInternet = 'No Internet Connection. Please try again';
   static const String cachedUserId = 'uId';
   static const String cachedOnboarding = 'onBoarding';
+  static const String langPath = 'lib/core/locale/lang';
+  static const String arabicLangCode = 'ar';
+  static const String englishLangCode = 'en';
 }

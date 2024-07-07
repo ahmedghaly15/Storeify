@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 
 enum CustomToastState { success, warning, error, info }
@@ -10,13 +11,16 @@ class CustomToast {
     required BuildContext context,
     required String message,
     required CustomToastState state,
+    StyledToastAnimation animation = StyledToastAnimation.slideFromBottomFade,
+    StyledToastAnimation reverseAnimation = StyledToastAnimation.fade,
+    StyledToastPosition position = StyledToastPosition.bottom,
   }) {
     showToastWidget(
-      _buildToastWidget(message, state),
+      _buildToastWidget(context, message, state),
       context: context,
-      animation: StyledToastAnimation.slideFromBottomFade,
-      reverseAnimation: StyledToastAnimation.fade,
-      position: StyledToastPosition.bottom,
+      animation: animation,
+      reverseAnimation: reverseAnimation,
+      position: position,
       animDuration: const Duration(seconds: 1),
       duration: const Duration(seconds: 4),
       curve: Curves.elasticOut,
@@ -24,7 +28,8 @@ class CustomToast {
     );
   }
 
-  static Widget _buildToastWidget(String message, CustomToastState state) {
+  static Widget _buildToastWidget(
+      BuildContext context, String messageKey, CustomToastState state) {
     Color backgroundColor;
     IconData icon;
 
@@ -62,7 +67,7 @@ class CustomToast {
           MySizedBox.width12,
           Expanded(
             child: Text(
-              message,
+              context.translate(messageKey),
               style: const TextStyle(color: Colors.white),
             ),
           ),

@@ -1,224 +1,114 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/router/routes.dart';
 import 'package:store_ify/core/helpers/auth_helper.dart';
-import 'package:store_ify/core/helpers/cache_helper.dart';
-import 'package:store_ify/core/helpers/helper.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
-import 'package:store_ify/core/utils/app_navigator.dart';
-import 'package:store_ify/core/utils/app_strings.dart';
-import 'package:store_ify/core/widgets/custom_toast.dart';
-import 'package:store_ify/core/widgets/main_button.dart';
-import 'package:store_ify/features/auth/data/models/sign_up_params.dart';
-import 'package:store_ify/features/auth/presentation/widgets/custom_auth_loading.dart';
-import 'package:store_ify/features/layout/presentation/cubit/layout_cubit.dart';
-import 'package:store_ify/dependency_injection.dart';
-import 'package:store_ify/features/auth/presentation/cubits/sign_up/sign_up_cubit.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
-import 'package:store_ify/features/auth/presentation/widgets/text_field_bottom_spacer.dart';
+import 'package:store_ify/core/widgets/my_sized_box.dart';
+import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
+import 'package:store_ify/features/auth/presentation/cubits/register/register_state.dart';
+import 'package:store_ify/features/auth/presentation/widgets/sign_up/sign_up_button_bloc_consumer.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_label.dart';
 
-class SignUpForm extends StatefulWidget {
+class SignUpForm extends StatelessWidget {
   const SignUpForm({super.key});
 
   @override
-  State<SignUpForm> createState() => _SignUpFormState();
-}
-
-class _SignUpFormState extends State<SignUpForm> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmController = TextEditingController();
-
-  final FocusNode _emailFocusNode = FocusNode();
-  final FocusNode _nameFocusNode = FocusNode();
-  final FocusNode _passwordFocusNode = FocusNode();
-  final FocusNode _confirmPasswordFocusNode = FocusNode();
-
-  late final GlobalKey<FormState> _formKey;
-  late AutovalidateMode autovalidateMode;
-
-  void _initFormAttributes() {
-    _formKey = GlobalKey<FormState>();
-    autovalidateMode = AutovalidateMode.disabled;
-  }
-
-  @override
-  void initState() {
-    _initFormAttributes();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-
-    _disposeControllers();
-
-    _disposeFocusNodes();
-  }
-
-  void _disposeFocusNodes() {
-    _emailFocusNode.dispose();
-    _nameFocusNode.dispose();
-    _passwordFocusNode.dispose();
-    _confirmPasswordFocusNode.dispose();
-  }
-
-  void _disposeControllers() {
-    _emailController.dispose();
-    _nameController.dispose();
-    _passwordController.dispose();
-    _confirmController.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SignUpCubit, SignUpState>(
-      listener: (context, state) => _handleSignUpState(state, context),
-      builder: (context, state) {
-        SignUpCubit cubit = BlocProvider.of<SignUpCubit>(context);
-
-        return Form(
-          key: _formKey,
-          autovalidateMode: autovalidateMode,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              const TextFieldLabel(label: 'Email'),
-              CustomTextField(
-                validate: (String? value) =>
-                    AuthHelper.validateEmailField(value),
-                controller: _emailController,
-                keyboardType: TextInputType.emailAddress,
-                hintText: 'Example@gmail.com',
-                autofillHints: const <String>[AutofillHints.email],
-                focusNode: _emailFocusNode,
-                onEditingComplete: () =>
-                    FocusScope.of(context).requestFocus(_nameFocusNode),
-              ),
-              const TextFieldBottomSpacer(),
-              const TextFieldLabel(label: 'Name'),
-              CustomTextField(
-                validate: (String? value) =>
-                    AuthHelper.validateUserNameField(value),
-                controller: _nameController,
-                keyboardType: TextInputType.name,
-                textCapitalization: TextCapitalization.words,
-                hintText: 'Enter your name',
-                autofillHints: const <String>[AutofillHints.name],
-                focusNode: _nameFocusNode,
-                onEditingComplete: () =>
-                    FocusScope.of(context).requestFocus(_passwordFocusNode),
-              ),
-              const TextFieldBottomSpacer(),
-              const TextFieldLabel(label: 'Password'),
-              CustomTextField(
-                obscureText: cubit.isPassword,
-                suffixIcon: IconButton(
-                  onPressed: () => cubit.switchPassVisibility(),
-                  icon: Icon(
-                    cubit.isPassword
-                        ? Icons.visibility_outlined
-                        : Icons.visibility_off_outlined,
-                    color: AppColors.primaryColor,
-                  ),
-                ),
-                validate: (value) => AuthHelper.validatePasswordField(value),
-                controller: _passwordController,
-                keyboardType: TextInputType.visiblePassword,
-                hintText: '*********',
-                autofillHints: const <String>[AutofillHints.password],
-                focusNode: _passwordFocusNode,
-                onEditingComplete: () => FocusScope.of(context)
-                    .requestFocus(_confirmPasswordFocusNode),
-              ),
-              const TextFieldBottomSpacer(),
-              const TextFieldLabel(label: 'Confirm password'),
-              CustomTextField(
-                obscureText: cubit.isConfirmPassVisible,
-                suffixIcon: IconButton(
-                  onPressed: () => cubit.switchConfirmPassVisibility(),
-                  icon: Icon(
-                    cubit.isConfirmPassVisible
-                        ? Icons.visibility_outlined
-                        : Icons.visibility_off_outlined,
-                    color: AppColors.primaryColor,
-                  ),
-                ),
-                onSubmit: (String val) => _signUp(context),
-                validate: (value) => AuthHelper.validateConfirmPasswordField(
-                  value: value,
-                  password: _passwordController.text,
-                  confirmPassword: _confirmController.text,
-                ),
-                controller: _confirmController,
-                keyboardType: TextInputType.visiblePassword,
-                hintText: '*********',
-                autofillHints: const <String>[AutofillHints.password],
-                focusNode: _confirmPasswordFocusNode,
-              ),
-              SizedBox(height: 24.h),
-              MainButton(
-                text: 'Sign up',
-                onPressed: () => _signUp(context),
-              ),
-            ],
+    return Form(
+      key: context.read<RegisterCubit>().formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          const TextFieldLabel(labelKey: LangKeys.email),
+          CustomTextField(
+            validate: (String? value) =>
+                AuthHelper.validateEmailField(value: value),
+            controller: context.read<RegisterCubit>().emailController,
+            keyboardType: TextInputType.emailAddress,
+            hintTextKey: LangKeys.examplegmailcom,
+            autofillHints: const <String>[AutofillHints.email],
+            focusNode: context.read<RegisterCubit>().emailFocusNode,
+            onEditingComplete: () => context
+                .requestFocus(context.read<RegisterCubit>().usernameFocusNode),
           ),
-        );
-      },
+          MySizedBox.height24,
+          const TextFieldLabel(labelKey: LangKeys.username),
+          CustomTextField(
+            validate: (String? value) =>
+                AuthHelper.validateNameField(value: value),
+            controller: context.read<RegisterCubit>().usernameController,
+            keyboardType: TextInputType.name,
+            textCapitalization: TextCapitalization.words,
+            hintTextKey: LangKeys.enterYourUsername,
+            autofillHints: const <String>[AutofillHints.name],
+            focusNode: context.read<RegisterCubit>().usernameFocusNode,
+            onEditingComplete: () => context
+                .requestFocus(context.read<RegisterCubit>().passwordFocusNode),
+          ),
+          MySizedBox.height24,
+          const TextFieldLabel(labelKey: LangKeys.password),
+          BlocBuilder<RegisterCubit, RegisterState>(
+            buildWhen: (_, current) => current is InvertPasswordVisibility,
+            builder: (context, state) => CustomTextField(
+              obscureText: context.read<RegisterCubit>().isPasswordVisible,
+              suffixIcon: IconButton(
+                onPressed: () =>
+                    context.read<RegisterCubit>().invertPasswordVisibility(),
+                icon: Icon(
+                  context.read<RegisterCubit>().isPasswordVisible
+                      ? Icons.visibility_outlined
+                      : Icons.visibility_off_outlined,
+                  color: AppColors.primaryColor,
+                ),
+              ),
+              validate: (value) =>
+                  AuthHelper.validatePasswordField(value: value),
+              controller: context.read<RegisterCubit>().passwordController,
+              keyboardType: TextInputType.visiblePassword,
+              hintTextKey: LangKeys.passwordHint,
+              autofillHints: const <String>[AutofillHints.password],
+              focusNode: context.read<RegisterCubit>().passwordFocusNode,
+              onEditingComplete: () => context.requestFocus(
+                  context.read<RegisterCubit>().confirmPasswordFocusNode),
+            ),
+          ),
+          MySizedBox.height24,
+          const TextFieldLabel(labelKey: LangKeys.confirmPassword),
+          BlocBuilder<RegisterCubit, RegisterState>(
+            buildWhen: (_, current) => current is InvertPasswordVisibility,
+            builder: (context, state) => CustomTextField(
+              obscureText: context.read<RegisterCubit>().isConfirmPassVisible,
+              suffixIcon: IconButton(
+                onPressed: () => context
+                    .read<RegisterCubit>()
+                    .invertConfirmPasswordVisibility(),
+                icon: Icon(
+                  context.read<RegisterCubit>().isConfirmPassVisible
+                      ? Icons.visibility_outlined
+                      : Icons.visibility_off_outlined,
+                  color: AppColors.primaryColor,
+                ),
+              ),
+              onSubmit: (_) => context.read<RegisterCubit>().register(context),
+              validate: (value) => AuthHelper.validateConfirmPasswordField(
+                value: value,
+                password: context.read<RegisterCubit>().passwordController.text,
+                confirmPassword:
+                    context.read<RegisterCubit>().confirmController.text,
+              ),
+              controller: context.read<RegisterCubit>().confirmController,
+              keyboardType: TextInputType.visiblePassword,
+              hintTextKey: LangKeys.passwordHint,
+              autofillHints: const <String>[AutofillHints.password],
+              focusNode: context.read<RegisterCubit>().confirmPasswordFocusNode,
+            ),
+          ),
+          MySizedBox.height24,
+          const SignUpButtonBlocConsumer(),
+        ],
+      ),
     );
-  }
-
-  void _signUp(BuildContext context) {
-    if (_formKey.currentState!.validate()) {
-      _formKey.currentState!.save();
-      AuthHelper.keyboardUnfocus(context);
-      BlocProvider.of<SignUpCubit>(context).userSignUp(
-        signUpParams: SignUpParams(
-          userName: _nameController.text,
-          email: _emailController.text,
-          password: _passwordController.text,
-          confirmPassword: _confirmController.text,
-        ),
-      );
-    } else {
-      autovalidateMode = AutovalidateMode.always;
-    }
-  }
-
-  void _handleSignUpState(SignUpState state, BuildContext context) {
-    if (state is SignUpLoading) {
-      CustomAuthLoading.show(context);
-    }
-
-    if (state is SignUpSuccess) {
-      _handleSuccessState(state, context);
-    }
-
-    if (state is SignUpError) {
-      _handleErrorState(context, state);
-    }
-  }
-
-  void _handleErrorState(BuildContext context, SignUpError state) {
-    context.back();
-    showToast(text: state.error, state: ToastStates.error);
-  }
-
-  void _handleSuccessState(SignUpSuccess state, BuildContext context) async {
-    context.back();
-    Helper.uId = state.uId;
-    await BlocProvider.of<LayoutCubit>(context).getUser();
-    getIt
-        .get<CacheHelper>()
-        .saveData(key: AppStrings.cachedUserId, value: Helper.uId)
-        .then((value) {
-      if (value) {
-        context.navigateAndReplace(newRoute: Routes.storeifyLayoutViewRoute);
-      }
-    });
   }
 }

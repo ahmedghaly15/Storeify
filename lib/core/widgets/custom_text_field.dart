@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
-    this.hintText,
+    this.hintTextKey,
     this.controller,
     this.keyboardType = TextInputType.text,
     this.validate,
@@ -26,7 +27,7 @@ class CustomTextField extends StatelessWidget {
   });
 
   final TextInputType keyboardType;
-  final String? hintText;
+  final String? hintTextKey;
   final TextEditingController? controller;
   final String? Function(String?)? validate;
   final Function(String)? onChanged;
@@ -66,7 +67,7 @@ class CustomTextField extends StatelessWidget {
         focusedBorder: focusedBorder ?? _buildTextFieldOutlinedBorder(),
         focusedErrorBorder: _buildTextFieldOutlinedBorder(),
         errorBorder: _buildTextFieldOutlinedBorder(),
-        hintText: hintText ?? '',
+        hintText: hintTextKey == null ? '' : context.translate(hintTextKey!),
         hintStyle: AppTextStyles.textStyle16Medium.copyWith(color: Colors.grey),
         labelStyle: AppTextStyles.textStyle16Medium,
         filled: true,
