@@ -30,7 +30,7 @@ class LoginForm extends StatelessWidget {
             controller: context.read<LoginCubit>().emailController,
             focusNode: context.read<LoginCubit>().emailFocusNode,
             keyboardType: TextInputType.emailAddress,
-            hintText: 'Example@gmail.com',
+            hintTextKey: LangKeys.examplegmailcom,
             autofillHints: const [AutofillHints.email],
           ),
           MySizedBox.height24,
@@ -45,7 +45,7 @@ class LoginForm extends StatelessWidget {
               onSubmit: (_) => context.read<LoginCubit>().login(context),
               controller: context.read<LoginCubit>().passwordController,
               keyboardType: TextInputType.visiblePassword,
-              hintText: '*********',
+              hintTextKey: LangKeys.passwordHint,
               obscureText: context.read<LoginCubit>().isPasswordVisible,
               suffixIcon: IconButton(
                 onPressed: () {

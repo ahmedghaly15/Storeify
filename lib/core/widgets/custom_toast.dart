@@ -29,7 +29,7 @@ class CustomToast {
   }
 
   static Widget _buildToastWidget(
-      BuildContext context, String message, CustomToastState state) {
+      BuildContext context, String messageKey, CustomToastState state) {
     Color backgroundColor;
     IconData icon;
 
@@ -67,7 +67,7 @@ class CustomToast {
           MySizedBox.width12,
           Expanded(
             child: Text(
-              context.translate(message),
+              context.translate(messageKey),
               style: const TextStyle(color: Colors.white),
             ),
           ),

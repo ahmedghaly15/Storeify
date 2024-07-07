@@ -9,4 +9,11 @@ class LangKeys {
   static const String signup = 'signup';
   static const String login = 'login';
   static const String orLoginWith = 'orLoginWith';
+  static const String username = 'username';
+  static const String enterYourUsername = 'enterYourUsername';
+  static const String signUp = 'signUp';
+  static const String createAccount = 'createAccount';
+  static const String confirmPassword = 'confirmPassword';
+  static const String examplegmailcom = 'example@gmail.com';
+  static const String passwordHint = 'passwordHint';
 }

@@ -17,7 +17,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   late final TextEditingController passwordController;
   late final TextEditingController confirmController;
   late final FocusNode emailFocusNode;
-  late final FocusNode nameFocusNode;
+  late final FocusNode usernameFocusNode;
   late final FocusNode passwordFocusNode;
   late final FocusNode confirmPasswordFocusNode;
   late final GlobalKey<FormState> formKey;
@@ -29,7 +29,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     passwordController = TextEditingController();
     confirmController = TextEditingController();
     emailFocusNode = FocusNode();
-    nameFocusNode = FocusNode();
+    usernameFocusNode = FocusNode();
     passwordFocusNode = FocusNode();
     confirmPasswordFocusNode = FocusNode();
   }
@@ -40,7 +40,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     passwordController.dispose();
     confirmController.dispose();
     emailFocusNode.dispose();
-    nameFocusNode.dispose();
+    usernameFocusNode.dispose();
     passwordFocusNode.dispose();
     confirmPasswordFocusNode.dispose();
   }

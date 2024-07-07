@@ -9,5 +9,12 @@
     "orLoginWith": "Or log in with",
     "INVALID_CREDENTIALS": "Invalid email or password. Please try again.",
     "USERNAME_TAKEN": "This username is already taken. Please try another one.",
-    "EMAIL_TAKEN": "This email is already taken. Please try another one."
+    "EMAIL_TAKEN": "This email is already taken. Please try another one.",
+    "username": "Username",
+    "enterYourUsername": "Enter your username",
+    "signUp": "Sign up",
+    "createAccount": "Create an account",
+    "confirmPassword": "Confirm password",
+    "example@gmail.com": "Example@gmail.com",
+    "passwordHint": "*********"
 }
