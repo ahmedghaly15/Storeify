@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/features/auth/data/models/login_params.dart';
-import 'package:store_ify/features/auth/data/repos/login_repo.dart';
+import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  final LoginRepo _loginRepo;
+  final AuthRepo _authRepo;
 
-  LoginCubit(this._loginRepo) : super(const LoginState.initial()) {
+  LoginCubit(this._authRepo) : super(const LoginState.initial()) {
     _initFormAttributes();
   }
 
@@ -35,7 +35,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   void _login() async {
     emit(const LoginState.loading());
-    final result = await _loginRepo.login(
+    final result = await _authRepo.login(
       LoginParams(
         email: emailController.text.trim(),
         password: passwordController.text,
