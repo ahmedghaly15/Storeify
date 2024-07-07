@@ -4,8 +4,16 @@ class AuthHelper {
   static String? validatePasswordField({String? value}) {
     if (value == null || value.isEmpty) {
       return "Password can't be blank!";
-    } else if (!AppRegex.isPasswordValid(value)) {
-      return "Please enter a valid password";
+    } else if (value.length < 8) {
+      return 'Password must be at least 8 characters';
+    } else if (!AppRegex.passwordHasCapitalCharacter(value)) {
+      return 'Password must contain at least one uppercase letter';
+    } else if (!AppRegex.passwordHasLowercaseCharacter(value)) {
+      return 'Password must contain at least one lowercase letter';
+    } else if (!AppRegex.passwordHasNumber(value)) {
+      return 'Password must contain at least one number';
+    } else if (!AppRegex.passwordHasSpecialCharacter(value)) {
+      return 'Password must contain at least one special character';
     }
     return null;
   }

@@ -6,7 +6,9 @@ import 'package:store_ify/core/locale/logic/cubit/locale_cubit.dart';
 import 'package:store_ify/core/locale/logic/locale_repo.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/features/auth/data/repos/login_repo.dart';
+import 'package:store_ify/features/auth/data/repos/register_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.dart';
+import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -28,15 +30,20 @@ void _setupDIForRepos() {
   getIt.registerLazySingleton<LoginRepo>(
     () => LoginRepo(getIt.get<ApiService>()),
   );
+  getIt.registerLazySingleton<RegisterRepo>(
+    () => RegisterRepo(getIt.get<ApiService>()),
+  );
 }
 
 void _setupDIForCubits() {
   getIt.registerFactory<LocaleCubit>(
     () => LocaleCubit(getIt.get<LocaleRepo>()),
   );
-
   getIt.registerFactory<LoginCubit>(
     () => LoginCubit(getIt.get<LoginRepo>()),
+  );
+  getIt.registerFactory<RegisterCubit>(
+    () => RegisterCubit(getIt.get<RegisterRepo>()),
   );
 
   // getIt.registerFactory<OnBoardingCubit>(

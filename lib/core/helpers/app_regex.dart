@@ -4,9 +4,19 @@ class AppRegex {
         .hasMatch(email);
   }
 
-  static bool isPasswordValid(String password) {
-    return RegExp(
-            r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$#!%*?&])[A-Za-z\d@$#!%*?&]{8,}$")
-        .hasMatch(password);
+  static bool passwordHasSpecialCharacter(String password) {
+    return RegExp(r"[@$#!%*?&]").hasMatch(password);
+  }
+
+  static bool passwordHasCapitalCharacter(String password) {
+    return RegExp(r"[A-Z]").hasMatch(password);
+  }
+
+  static bool passwordHasLowercaseCharacter(String password) {
+    return RegExp(r"[a-z]").hasMatch(password);
+  }
+
+  static bool passwordHasNumber(String password) {
+    return RegExp(r"\d").hasMatch(password);
   }
 }
