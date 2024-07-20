@@ -5,7 +5,6 @@ import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
-import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/auth/presentation/widgets/sign_up/sign_up_button_bloc_consumer.dart';
 import 'package:store_ify/features/auth/presentation/widgets/sign_up/sign_up_form.dart';
@@ -16,20 +15,17 @@ class SignUpViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Padding(
-        padding: AppConstants.horizontalPadding,
-        child: CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Container(
+              margin: EdgeInsetsDirectional.only(top: 40.h, start: 10.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    margin: EdgeInsets.only(top: 40.h),
-                    child: Text(
-                      context.translate(LangKeys.signUp),
-                      style: AppTextStyles.textStyle24Medium,
-                    ),
+                  Text(
+                    context.translate(LangKeys.signUp),
+                    style: AppTextStyles.textStyle24Medium,
                   ),
                   MySizedBox.height5,
                   Text(
@@ -40,31 +36,38 @@ class SignUpViewBody extends StatelessWidget {
                 ],
               ),
             ),
-            SliverFillRemaining(
-              hasScrollBody: false,
-              child: Column(
-                children: [
-                  const Spacer(),
-                  const SignUpForm(),
-                  MySizedBox.height24,
-                  const SignUpButtonBlocConsumer(),
-                  Align(
-                    alignment: AlignmentDirectional.centerEnd,
-                    child: TextButton(
-                      onPressed: () => context.maybePop(),
-                      child: Text(
-                        context.translate(LangKeys.login),
-                        style: AppTextStyles.textStyle16Regular.copyWith(
-                          color: AppColors.primaryColor,
-                        ),
+          ),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              children: [
+                const Spacer(),
+                const SignUpForm(),
+                MySizedBox.height24,
+                Container(
+                  margin: EdgeInsetsDirectional.only(
+                    start: 24.w,
+                    end: 24.w,
+                    bottom: 10.h,
+                  ),
+                  child: const SignUpButtonBlocConsumer(),
+                ),
+                Align(
+                  alignment: AlignmentDirectional.centerEnd,
+                  child: TextButton(
+                    onPressed: () => context.maybePop(),
+                    child: Text(
+                      context.translate(LangKeys.login),
+                      style: AppTextStyles.textStyle16Regular.copyWith(
+                        color: AppColors.primaryColor,
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
