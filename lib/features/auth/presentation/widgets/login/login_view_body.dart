@@ -5,6 +5,7 @@ import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
+import 'package:store_ify/features/auth/presentation/widgets/login/login_button_bloc_consumer.dart';
 import 'package:store_ify/features/auth/presentation/widgets/login/login_form.dart';
 import 'package:store_ify/features/auth/presentation/widgets/sign_up_text_button.dart';
 
@@ -35,6 +36,8 @@ class LoginViewBody extends StatelessWidget {
                   ),
                   MySizedBox.height22,
                   const LoginForm(),
+                  MySizedBox.height32,
+                  const LoginButtonBlocConsumer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[

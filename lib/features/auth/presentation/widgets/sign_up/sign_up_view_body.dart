@@ -7,6 +7,7 @@ import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
+import 'package:store_ify/features/auth/presentation/widgets/sign_up/sign_up_button_bloc_consumer.dart';
 import 'package:store_ify/features/auth/presentation/widgets/sign_up/sign_up_form.dart';
 
 class SignUpViewBody extends StatelessWidget {
@@ -43,7 +44,10 @@ class SignUpViewBody extends StatelessWidget {
               hasScrollBody: false,
               child: Column(
                 children: [
+                  const Spacer(),
                   const SignUpForm(),
+                  MySizedBox.height24,
+                  const SignUpButtonBlocConsumer(),
                   Align(
                     alignment: AlignmentDirectional.centerEnd,
                     child: TextButton(

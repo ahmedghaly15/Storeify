@@ -18,5 +18,6 @@
     "example@gmail.com": "Example@gmail.com",
     "passwordHint": "*********",
     "USER_NOT_FOUND": "المستخدم غير موجود. حاول مرة اخرى.",
-    "tryAgain": "حاول مرة اخرى"
+    "tryAgain": "حاول مرة اخرى",
+    "dontHaveAnAccount": "ليس لديك حساب؟"
 }
