@@ -9,14 +9,14 @@ enum CustomToastState { success, warning, error, info }
 class CustomToast {
   static void showToast({
     required BuildContext context,
-    required String message,
+    required String messageKey,
     required CustomToastState state,
     StyledToastAnimation animation = StyledToastAnimation.slideFromBottomFade,
     StyledToastAnimation reverseAnimation = StyledToastAnimation.fade,
     StyledToastPosition position = StyledToastPosition.bottom,
   }) {
     showToastWidget(
-      _buildToastWidget(context, message, state),
+      _buildToastWidget(context, messageKey, state),
       context: context,
       animation: animation,
       reverseAnimation: reverseAnimation,
@@ -29,7 +29,10 @@ class CustomToast {
   }
 
   static Widget _buildToastWidget(
-      BuildContext context, String messageKey, CustomToastState state) {
+    BuildContext context,
+    String messageKey,
+    CustomToastState state,
+  ) {
     Color backgroundColor;
     IconData icon;
 

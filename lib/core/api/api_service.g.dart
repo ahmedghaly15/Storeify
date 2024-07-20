@@ -13,7 +13,7 @@ class _ApiService implements ApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'http://192.168.1.10:8081/api/';
+    baseUrl ??= 'http://192.168.1.12:8081/api/';
   }
 
   final Dio _dio;
@@ -21,9 +21,13 @@ class _ApiService implements ApiService {
   String? baseUrl;
 
   @override
-  Future<StoreifyUser> login(LoginParams params) async {
+  Future<StoreifyUser> login(
+    LoginParams params, [
+    CancelToken? cancelToken,
+  ]) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(params.toJson());
@@ -35,9 +39,10 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'http://192.168.1.10:8081/api/login',
+              'http://192.168.1.12:8081/api/login',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(
                 baseUrl: _combineBaseUrls(
@@ -49,9 +54,13 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<StoreifyUser> register(RegisterParams params) async {
+  Future<StoreifyUser> register(
+    RegisterParams params, [
+    CancelToken? cancelToken,
+  ]) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(params.toJson());
@@ -63,9 +72,10 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'http://192.168.1.10:8081/api/register',
+              'http://192.168.1.12:8081/api/register',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(
                 baseUrl: _combineBaseUrls(
@@ -77,9 +87,13 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<void> forgotPassword(String email) async {
+  Future<void> forgotPassword(
+    String email, [
+    CancelToken? cancelToken,
+  ]) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = email;
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -89,9 +103,10 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/password/forgot-password',
+          'http://192.168.1.12:8081/api/forgot-password',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(
             baseUrl: _combineBaseUrls(

@@ -18,4 +18,6 @@ class LangKeys {
   static const String passwordHint = 'passwordHint';
   static const String tryAgain = 'tryAgain';
   static const String dontHaveAnAccount = 'dontHaveAnAccount';
+  static const String verifyEmail = 'verifyEmail';
+  static const String emailSent = 'emailSent';
 }

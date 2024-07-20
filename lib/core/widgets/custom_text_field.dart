@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
@@ -49,6 +51,7 @@ class CustomTextField extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 24.w),
       child: TextFormField(
+        selectionHeightStyle: BoxHeightStyle.strut,
         obscureText: obscureText ?? false,
         autofillHints: autofillHints,
         validator: validate,

@@ -1,5 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forgot_password_state.dart';
 
@@ -12,6 +14,7 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
     _initFormAttributes();
   }
 
+  final _cancelToken = CancelToken();
   late final TextEditingController emailController;
   late final GlobalKey<FormState> formKey;
 
@@ -20,7 +23,14 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
     emailController = TextEditingController();
   }
 
-  void forgotPassword() async {
+  void forgotPassword(BuildContext context) {
+    if (formKey.currentState!.validate()) {
+      context.unfocusKeyboard();
+      _forgotPassword();
+    }
+  }
+
+  void _forgotPassword() async {
     emit(const ForgotPasswordState.loading());
     final result = await _authRepo.forgotPassword(emailController.text.trim());
     result.when(
@@ -33,6 +43,7 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
   @override
   Future<void> close() {
     emailController.dispose();
+    _cancelToken.cancel();
     return super.close();
   }
 }

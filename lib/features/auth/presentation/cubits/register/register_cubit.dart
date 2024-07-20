@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
@@ -12,6 +13,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     _initFormAttributes();
   }
 
+  final _cancelToken = CancelToken();
   late final TextEditingController emailController;
   late final TextEditingController usernameController;
   late final TextEditingController passwordController;
@@ -84,6 +86,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   @override
   Future<void> close() {
     _disposeFormAttributes();
+    _cancelToken.cancel();
     return super.close();
   }
 }

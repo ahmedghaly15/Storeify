@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
@@ -12,6 +13,7 @@ class LoginCubit extends Cubit<LoginState> {
     _initFormAttributes();
   }
 
+  final _cancelToken = CancelToken();
   late final TextEditingController emailController;
   late final TextEditingController passwordController;
   late final FocusNode emailFocusNode;
@@ -40,6 +42,7 @@ class LoginCubit extends Cubit<LoginState> {
         email: emailController.text.trim(),
         password: passwordController.text,
       ),
+      _cancelToken,
     );
     result.when(
       success: (data) => emit(LoginState.success(data)),
@@ -63,6 +66,7 @@ class LoginCubit extends Cubit<LoginState> {
   @override
   Future<void> close() {
     _disposeFormAttributes();
+    _cancelToken.cancel();
     return super.close();
   }
 }
