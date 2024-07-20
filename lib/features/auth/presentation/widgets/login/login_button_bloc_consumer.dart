@@ -19,7 +19,7 @@ class LoginButtonBlocConsumer extends StatelessWidget {
         state.whenOrNull(
           error: (error) => CustomToast.showToast(
             context: context,
-            message: error,
+            messageKey: error,
             state: CustomToastState.error,
           ),
         );

@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
@@ -47,12 +49,16 @@ class LoginViewBody extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsetsDirectional.only(
-                      start: 24.w, end: 24.w, top: 12.h),
+                    start: 24.w,
+                    end: 24.w,
+                    top: 12.h,
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () =>
+                            context.pushRoute(const ForgotPasswordRoute()),
                         child: Text(
                           context.translate(LangKeys.forgotPassword),
                           style: AppTextStyles.textStyle16Regular
