@@ -17,5 +17,6 @@
     "confirmPassword": "Confirm password",
     "example@gmail.com": "Example@gmail.com",
     "passwordHint": "*********",
-    "USER_NOT_FOUND": "User not found. Please try again."
+    "USER_NOT_FOUND": "User not found. Please try again.",
+    "tryAgain": "Try again"
 }

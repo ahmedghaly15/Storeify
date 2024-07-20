@@ -17,4 +17,7 @@ abstract class ApiService {
 
   @POST(EndPoints.register)
   Future<StoreifyUser> register(@Body() RegisterParams params);
+
+  @POST(EndPoints.forgotPassword)
+  Future<void> forgotPassword(@Body() String email);
 }

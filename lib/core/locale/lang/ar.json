@@ -17,5 +17,6 @@
     "confirmPassword": "تأكيد كلمة المرور",
     "example@gmail.com": "Example@gmail.com",
     "passwordHint": "*********",
-    "USER_NOT_FOUND": "المستخدم غير موجود. حاول مرة اخرى."
+    "USER_NOT_FOUND": "المستخدم غير موجود. حاول مرة اخرى.",
+    "tryAgain": "حاول مرة اخرى"
 }
