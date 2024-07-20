@@ -15,7 +15,7 @@ class TextFieldLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 9.h),
+      margin: EdgeInsetsDirectional.only(bottom: 9.h, start: 9.w),
       child: Text(
         context.translate(labelKey),
         style: AppTextStyles.textStyle16Regular

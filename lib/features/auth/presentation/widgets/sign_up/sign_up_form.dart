@@ -8,7 +8,6 @@ import 'package:store_ify/core/widgets/custom_text_field.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_state.dart';
-import 'package:store_ify/features/auth/presentation/widgets/sign_up/sign_up_button_bloc_consumer.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_label.dart';
 
 class SignUpForm extends StatelessWidget {
@@ -105,8 +104,6 @@ class SignUpForm extends StatelessWidget {
               focusNode: context.read<RegisterCubit>().confirmPasswordFocusNode,
             ),
           ),
-          MySizedBox.height24,
-          const SignUpButtonBlocConsumer(),
         ],
       ),
     );

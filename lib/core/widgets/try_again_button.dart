@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 
 class TryAgainButton extends StatelessWidget {
@@ -14,7 +15,7 @@ class TryAgainButton extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 80.w),
         child: MainButton(
           onPressed: onPressed,
-          text: 'Try again',
+          textKey: LangKeys.tryAgain,
         ),
       ),
     );

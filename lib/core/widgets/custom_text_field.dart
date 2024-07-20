@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
@@ -46,33 +48,38 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      obscureText: obscureText ?? false,
-      autofillHints: autofillHints,
-      validator: validate,
-      onChanged: onChanged,
-      onFieldSubmitted: onSubmit,
-      onEditingComplete: onEditingComplete,
-      controller: controller,
-      focusNode: focusNode,
-      keyboardType: keyboardType,
-      cursorColor: Colors.black,
-      textCapitalization: textCapitalization,
-      textAlign: textAlign,
-      decoration: InputDecoration(
-        suffixIcon: suffixIcon,
-        prefixIcon: prefixIcon,
-        contentPadding: contentPadding,
-        enabledBorder: enabledBorder ?? _buildTextFieldOutlinedBorder(),
-        focusedBorder: focusedBorder ?? _buildTextFieldOutlinedBorder(),
-        focusedErrorBorder: _buildTextFieldOutlinedBorder(),
-        errorBorder: _buildTextFieldOutlinedBorder(),
-        hintText: hintTextKey == null ? '' : context.translate(hintTextKey!),
-        hintStyle: AppTextStyles.textStyle16Medium.copyWith(color: Colors.grey),
-        labelStyle: AppTextStyles.textStyle16Medium,
-        filled: true,
-        fillColor: Colors.white,
-        border: _buildTextFieldOutlinedBorder(),
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 24.w),
+      child: TextFormField(
+        selectionHeightStyle: BoxHeightStyle.strut,
+        obscureText: obscureText ?? false,
+        autofillHints: autofillHints,
+        validator: validate,
+        onChanged: onChanged,
+        onFieldSubmitted: onSubmit,
+        onEditingComplete: onEditingComplete,
+        controller: controller,
+        focusNode: focusNode,
+        keyboardType: keyboardType,
+        cursorColor: Colors.black,
+        textCapitalization: textCapitalization,
+        textAlign: textAlign,
+        decoration: InputDecoration(
+          suffixIcon: suffixIcon,
+          prefixIcon: prefixIcon,
+          contentPadding: contentPadding,
+          enabledBorder: enabledBorder ?? _buildTextFieldOutlinedBorder(),
+          focusedBorder: focusedBorder ?? _buildTextFieldOutlinedBorder(),
+          focusedErrorBorder: _buildTextFieldOutlinedBorder(),
+          errorBorder: _buildTextFieldOutlinedBorder(),
+          hintText: hintTextKey == null ? '' : context.translate(hintTextKey!),
+          hintStyle:
+              AppTextStyles.textStyle16Medium.copyWith(color: Colors.grey),
+          labelStyle: AppTextStyles.textStyle16Medium,
+          filled: true,
+          fillColor: Colors.white,
+          border: _buildTextFieldOutlinedBorder(),
+        ),
       ),
     );
   }

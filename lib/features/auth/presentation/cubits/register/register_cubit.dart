@@ -1,17 +1,19 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/features/auth/data/models/register_params.dart';
-import 'package:store_ify/features/auth/data/repos/register_repo.dart';
+import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
-  final RegisterRepo _registerRepo;
+  final AuthRepo _authRepo;
 
-  RegisterCubit(this._registerRepo) : super(const RegisterState.initial()) {
+  RegisterCubit(this._authRepo) : super(const RegisterState.initial()) {
     _initFormAttributes();
   }
 
+  final _cancelToken = CancelToken();
   late final TextEditingController emailController;
   late final TextEditingController usernameController;
   late final TextEditingController passwordController;
@@ -47,7 +49,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   void _register() async {
     emit(const RegisterState.loading());
-    final result = await _registerRepo.register(
+    final result = await _authRepo.register(
       RegisterParams(
         username: usernameController.text.trim(),
         email: emailController.text.trim(),
@@ -84,6 +86,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   @override
   Future<void> close() {
     _disposeFormAttributes();
+    _cancelToken.cancel();
     return super.close();
   }
 }

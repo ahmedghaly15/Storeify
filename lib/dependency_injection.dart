@@ -5,8 +5,8 @@ import 'package:store_ify/core/api/dio_factory.dart';
 import 'package:store_ify/core/locale/logic/cubit/locale_cubit.dart';
 import 'package:store_ify/core/locale/logic/locale_repo.dart';
 import 'package:store_ify/core/router/app_router.dart';
-import 'package:store_ify/features/auth/data/repos/login_repo.dart';
-import 'package:store_ify/features/auth/data/repos/register_repo.dart';
+import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
+import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forgot_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
 
@@ -27,11 +27,8 @@ void _setupDIForCore() {
 
 void _setupDIForRepos() {
   getIt.registerLazySingleton<LocaleRepo>(() => const LocaleRepo());
-  getIt.registerLazySingleton<LoginRepo>(
-    () => LoginRepo(getIt.get<ApiService>()),
-  );
-  getIt.registerLazySingleton<RegisterRepo>(
-    () => RegisterRepo(getIt.get<ApiService>()),
+  getIt.registerLazySingleton<AuthRepo>(
+    () => AuthRepo(getIt.get<ApiService>()),
   );
 }
 
@@ -40,33 +37,12 @@ void _setupDIForCubits() {
     () => LocaleCubit(getIt.get<LocaleRepo>()),
   );
   getIt.registerFactory<LoginCubit>(
-    () => LoginCubit(getIt.get<LoginRepo>()),
+    () => LoginCubit(getIt.get<AuthRepo>()),
   );
   getIt.registerFactory<RegisterCubit>(
-    () => RegisterCubit(getIt.get<RegisterRepo>()),
+    () => RegisterCubit(getIt.get<AuthRepo>()),
   );
-
-  // getIt.registerFactory<OnBoardingCubit>(
-  //   () => OnBoardingCubit(onBoardingRepo: getIt.get<OnBoardingRepo>()),
-  // );
-
-  // getIt.registerFactory<LayoutCubit>(
-  //   () => LayoutCubit(layoutRepo: getIt.get<LayoutRepo>()),
-  // );
-
-  // getIt.registerFactory<CategoryCubit>(
-  //   () => CategoryCubit(categoryRepo: getIt.get<CategoryRepo>()),
-  // );
-
-  // getIt.registerFactory<StoresCubit>(
-  //   () => StoresCubit(storesRepo: getIt.get<StoresRepo>()),
-  // );
-
-  // getIt.registerFactory<ClothesStoresCubit>(
-  //   () => ClothesStoresCubit(storesRepo: getIt.get<StoresRepo>()),
-  // );
-
-  // getIt.registerFactory<FoodStoresCubit>(
-  //   () => FoodStoresCubit(storesRepo: getIt.get<StoresRepo>()),
-  // );
+  getIt.registerFactory<ForgotPasswordCubit>(
+    () => ForgotPasswordCubit(getIt.get<AuthRepo>()),
+  );
 }

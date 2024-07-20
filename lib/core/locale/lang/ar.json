@@ -16,5 +16,10 @@
     "createAccount": "انشاء حساب",
     "confirmPassword": "تأكيد كلمة المرور",
     "example@gmail.com": "Example@gmail.com",
-    "passwordHint": "*********"
+    "passwordHint": "*********",
+    "USER_NOT_FOUND": "المستخدم غير موجود. حاول مرة اخرى.",
+    "tryAgain": "حاول مرة اخرى",
+    "dontHaveAnAccount": "ليس لديك حساب؟",
+    "verifyEmail": "تحقق من بريدك الالكتروني",
+    "emailSent": "تم ارسال بريدك الالكتروني. يرجى التحقق من بريدك الالكتروني."
 }

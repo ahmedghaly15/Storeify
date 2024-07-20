@@ -8,7 +8,6 @@ import 'package:store_ify/core/widgets/custom_text_field.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_state.dart';
-import 'package:store_ify/features/auth/presentation/widgets/login/login_button_bloc_consumer.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_label.dart';
 
 class LoginForm extends StatelessWidget {
@@ -60,8 +59,6 @@ class LoginForm extends StatelessWidget {
               ),
             ),
           ),
-          MySizedBox.height32,
-          const LoginButtonBlocConsumer(),
         ],
       ),
     );

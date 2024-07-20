@@ -10,6 +10,7 @@ List<AutoRoute> get appRoutes => [
             page: LoginRoute.page,
           ),
           _buildCustomRoute(page: SignUpRoute.page),
+          _buildCustomRoute(page: ForgotPasswordRoute.page),
         ],
       ),
     ];

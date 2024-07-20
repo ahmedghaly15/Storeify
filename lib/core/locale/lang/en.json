@@ -16,5 +16,10 @@
     "createAccount": "Create an account",
     "confirmPassword": "Confirm password",
     "example@gmail.com": "Example@gmail.com",
-    "passwordHint": "*********"
+    "passwordHint": "*********",
+    "USER_NOT_FOUND": "User not found. Please try again.",
+    "tryAgain": "Try again",
+    "dontHaveAnAccount": "Don't have an account?",
+    "verifyEmail": "Verify email",
+    "emailSent": "An email has been sent to your email address. Please check your email."
 }

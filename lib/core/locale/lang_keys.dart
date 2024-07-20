@@ -16,4 +16,8 @@ class LangKeys {
   static const String confirmPassword = 'confirmPassword';
   static const String examplegmailcom = 'example@gmail.com';
   static const String passwordHint = 'passwordHint';
+  static const String tryAgain = 'tryAgain';
+  static const String dontHaveAnAccount = 'dontHaveAnAccount';
+  static const String verifyEmail = 'verifyEmail';
+  static const String emailSent = 'emailSent';
 }

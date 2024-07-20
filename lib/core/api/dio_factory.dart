@@ -5,25 +5,25 @@ class DioFactory {
   /// private constructor as I don't want to allow creating an instance of this class
   DioFactory._();
 
-  static Dio? dio;
+  static Dio? _dio;
 
   static Dio getDio() {
     Duration timeOut = const Duration(seconds: 30);
 
-    if (dio == null) {
-      dio = Dio();
-      dio!
+    if (_dio == null) {
+      _dio = Dio();
+      _dio!
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
-      addDioInterceptor();
-      return dio!;
+      _addDioLoggerInterceptor();
+      return _dio!;
     } else {
-      return dio!;
+      return _dio!;
     }
   }
 
-  static void addDioInterceptor() {
-    dio?.interceptors.add(
+  static void _addDioLoggerInterceptor() {
+    _dio?.interceptors.add(
       PrettyDioLogger(
         requestBody: true,
         requestHeader: true,
