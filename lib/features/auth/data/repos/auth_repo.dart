@@ -25,7 +25,7 @@ class AuthRepo {
     CancelToken? cancelToken,
   ]) {
     return executeAndHandleErrors<StoreifyUser>(
-      () async => await _apiService.register(params),
+      () async => await _apiService.register(params, cancelToken),
     );
   }
 
@@ -34,7 +34,7 @@ class AuthRepo {
     CancelToken? cancelToken,
   ]) {
     return executeAndHandleErrors<void>(
-      () async => await _apiService.forgotPassword(email),
+      () async => await _apiService.forgotPassword(email, cancelToken),
     );
   }
 }
