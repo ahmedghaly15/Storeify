@@ -4,6 +4,7 @@ import 'package:store_ify/core/api/end_points.dart';
 import 'package:store_ify/features/auth/data/models/login_params.dart';
 import 'package:store_ify/core/models/storeify_user.dart';
 import 'package:store_ify/features/auth/data/models/register_params.dart';
+import 'package:store_ify/features/auth/data/models/validate_otp_params.dart';
 
 part 'api_service.g.dart';
 
@@ -26,6 +27,12 @@ abstract class ApiService {
   @POST(EndPoints.forgotPassword)
   Future<void> forgotPassword(
     @Body() String email, [
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
+
+  @POST(EndPoints.validateOtp)
+  Future<void> validateOtp(
+    @Body() ValidateOtpParams params, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 }

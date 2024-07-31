@@ -13,7 +13,7 @@ class _ApiService implements ApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'http://192.168.1.12:8081/api/';
+    baseUrl ??= 'http://192.168.1.7:8081/api/';
   }
 
   final Dio _dio;
@@ -39,7 +39,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'http://192.168.1.12:8081/api/login',
+              'http://192.168.1.7:8081/api/login',
               queryParameters: queryParameters,
               data: _data,
               cancelToken: cancelToken,
@@ -72,7 +72,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'http://192.168.1.12:8081/api/register',
+              'http://192.168.1.7:8081/api/register',
               queryParameters: queryParameters,
               data: _data,
               cancelToken: cancelToken,
@@ -103,7 +103,37 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.12:8081/api/forgot-password',
+          'http://192.168.1.7:8081/api/forgot-password',
+          queryParameters: queryParameters,
+          data: _data,
+          cancelToken: cancelToken,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
+  }
+
+  @override
+  Future<void> validateOtp(
+    ValidateOtpParams params, [
+    CancelToken? cancelToken,
+  ]) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(params.toJson());
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'http://192.168.1.7:8081/api/validate-otp',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
