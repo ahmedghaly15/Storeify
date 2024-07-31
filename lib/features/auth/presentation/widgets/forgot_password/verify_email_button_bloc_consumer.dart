@@ -41,6 +41,7 @@ class VerifyEmailButtonBlocConsumer extends StatelessWidget {
         child: circularProgressOrTextWidget(
           condition: state is Loading,
           context: context,
+          textKey: LangKeys.verifyEmail,
         ),
       ),
     );

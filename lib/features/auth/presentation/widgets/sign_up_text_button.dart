@@ -14,7 +14,7 @@ class SignUpTextButton extends StatelessWidget {
     return TextButton(
       onPressed: () => context.pushRoute(const SignUpRoute()),
       child: Text(
-        context.translate(LangKeys.signup),
+        context.translate(LangKeys.signUp),
         style: AppTextStyles.textStyle16Regular
             .copyWith(color: AppColors.primaryColor),
       ),
