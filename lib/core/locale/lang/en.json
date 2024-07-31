@@ -21,5 +21,14 @@
     "tryAgain": "Try again",
     "dontHaveAnAccount": "Don't have an account?",
     "verifyEmail": "Verify email",
-    "emailSent": "An email has been sent to your email address. Please check your email."
+    "emailSent": "An email has been sent to your email address. Please check your email.",
+    "EMAIL_INVALID_FORMAT": "Invalid email format.",
+    "EMAIL_REQUIRED": "Email is required.",
+    "OTP_REQUIRED": "OTP is required.",
+    "INVALID_OTP_FORMAT": "Invalid OTP format.",
+    "INVALID_OTP": "Invalid OTP. Please try again.",
+    "INVALID_EMAIL_OR_OTP": "Invalid email or OTP. Please try again.",
+    "OtpVerification": "OTP Verification",
+    "WeSentCodeTo": "We've sent a code to",
+    "otpCode": "OTP Code"
 }

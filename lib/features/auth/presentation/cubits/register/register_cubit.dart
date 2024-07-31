@@ -56,6 +56,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         password: passwordController.text,
         passwordConfirmation: confirmController.text,
       ),
+      _cancelToken,
     );
     result.when(
       success: (data) => emit(RegisterState.success(data)),
@@ -71,13 +72,13 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
   }
 
-  bool isPasswordVisible = false;
+  bool isPasswordVisible = true;
   void invertPasswordVisibility() {
     isPasswordVisible = !isPasswordVisible;
     emit(RegisterState.invertPasswordVisibility(isPasswordVisible));
   }
 
-  bool isConfirmPassVisible = false;
+  bool isConfirmPassVisible = true;
   void invertConfirmPasswordVisibility() {
     isConfirmPassVisible = !isConfirmPassVisible;
     emit(RegisterState.invertPasswordVisibility(isConfirmPassVisible));
