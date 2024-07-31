@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:store_ify/core/api/end_points.dart';
+import 'package:store_ify/features/auth/data/models/forgot_password_params.dart';
 import 'package:store_ify/features/auth/data/models/login_params.dart';
 import 'package:store_ify/core/models/storeify_user.dart';
 import 'package:store_ify/features/auth/data/models/register_params.dart';
@@ -26,7 +27,7 @@ abstract class ApiService {
 
   @POST(EndPoints.forgotPassword)
   Future<void> forgotPassword(
-    @Body() String email, [
+    @Body() ForgotPasswordParams params, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 
