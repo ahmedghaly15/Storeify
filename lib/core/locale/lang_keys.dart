@@ -20,4 +20,6 @@ class LangKeys {
   static const String dontHaveAnAccount = 'dontHaveAnAccount';
   static const String verifyEmail = 'verifyEmail';
   static const String emailSent = 'emailSent';
+  static const String otpVerification = 'OtpVerification';
+  static const String weSentCodeTo = 'WeSentCodeTo';
 }

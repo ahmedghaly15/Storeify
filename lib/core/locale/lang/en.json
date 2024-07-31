@@ -27,5 +27,7 @@
     "OTP_REQUIRED": "OTP is required.",
     "INVALID_OTP_FORMAT": "Invalid OTP format.",
     "INVALID_OTP": "Invalid OTP. Please try again.",
-    "INVALID_EMAIL_OR_OTP": "Invalid email or OTP. Please try again."
+    "INVALID_EMAIL_OR_OTP": "Invalid email or OTP. Please try again.",
+    "OtpVerification": "OTP Verification",
+    "WeSentCodeTo": "We've sent a code to"
 }
