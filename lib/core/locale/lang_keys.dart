@@ -22,4 +22,5 @@ class LangKeys {
   static const String emailSent = 'emailSent';
   static const String otpVerification = 'OtpVerification';
   static const String weSentCodeTo = 'WeSentCodeTo';
+  static const String otpCode = 'otpCode';
 }
