@@ -9,6 +9,7 @@ import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forgot_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
+import 'package:store_ify/features/auth/presentation/cubits/validate_otp/validate_otp_cubit.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -21,7 +22,6 @@ void setupDI() {
 void _setupDIForCore() {
   final Dio dio = DioFactory.getDio();
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
-
   getIt.registerSingleton<AppRouter>(AppRouter());
 }
 
@@ -44,5 +44,8 @@ void _setupDIForCubits() {
   );
   getIt.registerFactory<ForgotPasswordCubit>(
     () => ForgotPasswordCubit(getIt.get<AuthRepo>()),
+  );
+  getIt.registerFactory<ValidateOtpCubit>(
+    () => ValidateOtpCubit(getIt.get<AuthRepo>()),
   );
 }

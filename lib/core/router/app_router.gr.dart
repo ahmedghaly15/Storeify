@@ -45,6 +45,17 @@ abstract class _$AppRouter extends RootStackRouter {
         child: WrappedRoute(child: const SignUpView()),
       );
     },
+    VerificationRoute.name: (routeData) {
+      final args = routeData.argsAs<VerificationRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WrappedRoute(
+            child: VerificationView(
+          key: args.key,
+          email: args.email,
+        )),
+      );
+    },
   };
 }
 
@@ -116,4 +127,42 @@ class SignUpRoute extends PageRouteInfo<void> {
   static const String name = 'SignUpRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [VerificationView]
+class VerificationRoute extends PageRouteInfo<VerificationRouteArgs> {
+  VerificationRoute({
+    Key? key,
+    required String email,
+    List<PageRouteInfo>? children,
+  }) : super(
+          VerificationRoute.name,
+          args: VerificationRouteArgs(
+            key: key,
+            email: email,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'VerificationRoute';
+
+  static const PageInfo<VerificationRouteArgs> page =
+      PageInfo<VerificationRouteArgs>(name);
+}
+
+class VerificationRouteArgs {
+  const VerificationRouteArgs({
+    this.key,
+    required this.email,
+  });
+
+  final Key? key;
+
+  final String email;
+
+  @override
+  String toString() {
+    return 'VerificationRouteArgs{key: $key, email: $email}';
+  }
 }

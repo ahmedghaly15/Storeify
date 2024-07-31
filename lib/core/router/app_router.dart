@@ -5,6 +5,7 @@ import 'package:store_ify/core/utils/app_utils.dart';
 import 'package:store_ify/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:store_ify/features/auth/presentation/views/login_view.dart';
 import 'package:store_ify/features/auth/presentation/views/sign_up_view.dart';
+import 'package:store_ify/features/auth/presentation/views/verification_view.dart';
 
 part 'app_router.gr.dart';
 part 'app_routes.dart';

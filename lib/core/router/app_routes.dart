@@ -11,6 +11,7 @@ List<AutoRoute> get appRoutes => [
           ),
           _buildCustomRoute(page: SignUpRoute.page),
           _buildCustomRoute(page: ForgotPasswordRoute.page),
+          _buildCustomRoute(page: VerificationRoute.page),
         ],
       ),
     ];
