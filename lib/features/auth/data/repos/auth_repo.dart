@@ -3,6 +3,7 @@ import 'package:store_ify/core/api/api_result.dart';
 import 'package:store_ify/core/api/api_service.dart';
 import 'package:store_ify/core/models/storeify_user.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
+import 'package:store_ify/features/auth/data/models/forgot_password_params.dart';
 import 'package:store_ify/features/auth/data/models/login_params.dart';
 import 'package:store_ify/features/auth/data/models/register_params.dart';
 import 'package:store_ify/features/auth/data/models/validate_otp_params.dart';
@@ -31,11 +32,11 @@ class AuthRepo {
   }
 
   Future<ApiResult<void>> forgotPassword(
-    String email, [
+    ForgotPasswordParams params, [
     CancelToken? cancelToken,
   ]) {
     return executeAndHandleErrors<void>(
-      () async => await _apiService.forgotPassword(email, cancelToken),
+      () async => await _apiService.forgotPassword(params, cancelToken),
     );
   }
 
