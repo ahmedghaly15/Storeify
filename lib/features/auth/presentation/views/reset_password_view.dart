@@ -1,10 +1,17 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/utils/app_constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
+import 'package:store_ify/core/widgets/my_sized_box.dart';
+import 'package:store_ify/dependency_injection.dart';
+import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
+import 'package:store_ify/features/auth/presentation/widgets/reset_password/reset_pass_button_bloc_consumer.dart';
 import 'package:store_ify/features/auth/presentation/widgets/reset_password/reset_password_form.dart';
 
-class ResetPasswordView extends StatelessWidget {
+@RoutePage()
+class ResetPasswordView extends StatelessWidget implements AutoRouteWrapper {
   const ResetPasswordView({
     super.key,
     required this.email,
@@ -13,36 +20,41 @@ class ResetPasswordView extends StatelessWidget {
   final String email;
 
   @override
+  Widget wrappedRoute(BuildContext context) {
+    return BlocProvider<ResetPasswordCubit>(
+      create: (context) => getIt.get<ResetPasswordCubit>(),
+      child: this,
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            SliverPadding(
-              padding: AppConstants.horizontalPadding,
-              sliver: SliverFillRemaining(
-                hasScrollBody: false,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    const Spacer(),
-                    Text(
-                      "Reset Password",
-                      style: AppTextStyles.textStyle24Medium,
-                    ),
-                    SizedBox(height: 13.h),
-                    Text(
-                      "Enter your new password, make sure\nthat it should at least 8 characters",
-                      style: AppTextStyles.textStyle16Regular
-                          .copyWith(color: Colors.grey),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(height: 23.h),
-                    ResetPasswordForm(email: email),
-                    const Spacer(),
-                  ],
-                ),
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    context.translate(LangKeys.resetPassword),
+                    style: AppTextStyles.textStyle24Medium,
+                  ),
+                  MySizedBox.height13,
+                  Text(
+                    context.translate(LangKeys.enterYourNewPass),
+                    style: AppTextStyles.textStyle16Regular
+                        .copyWith(color: Colors.grey),
+                    textAlign: TextAlign.center,
+                  ),
+                  MySizedBox.height22,
+                  const ResetPasswordForm(),
+                  MySizedBox.height19,
+                  ResetPassButtonBlocConsumer(email: email),
+                ],
               ),
             ),
           ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
 import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
@@ -25,9 +26,10 @@ class SignUpButtonBlocConsumer extends StatelessWidget {
       buildWhen: (_, current) =>
           current is Loading || current is Error || current is Success,
       builder: (context, state) => MainButton(
-        child: circularProgressOrTextWidget(
+        child: circularIndicatorOrTextWidget(
           condition: state is Loading,
           context: context,
+          textKey: LangKeys.signUp,
         ),
         onPressed: () => context.read<RegisterCubit>().register(context),
       ),

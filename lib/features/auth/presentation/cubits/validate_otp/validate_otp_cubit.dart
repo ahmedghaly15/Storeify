@@ -7,19 +7,13 @@ import 'package:store_ify/features/auth/presentation/cubits/validate_otp/validat
 
 class ValidateOtpCubit extends Cubit<ValidateOtpState> {
   ValidateOtpCubit(this._authRepo) : super(const ValidateOtpState.initial()) {
-    _initFormAttributes();
+    otpController = TextEditingController();
   }
 
   final AuthRepo _authRepo;
   final CancelToken _cancelToken = CancelToken();
 
   late final TextEditingController otpController;
-  late final GlobalKey<FormState> formKey;
-
-  void _initFormAttributes() {
-    formKey = GlobalKey<FormState>();
-    otpController = TextEditingController();
-  }
 
   void validateOtp(String email) async {
     emit(const ValidateOtpState.loading());

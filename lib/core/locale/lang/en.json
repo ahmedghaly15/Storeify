@@ -4,7 +4,6 @@
     "email": "Email",
     "password": "Password",
     "forgotPassword": "Forgot password?",
-    "signup": "Sign up",
     "login": "Log in",
     "orLoginWith": "Or log in with",
     "INVALID_CREDENTIALS": "Invalid email or password. Please try again.",
@@ -30,5 +29,9 @@
     "INVALID_EMAIL_OR_OTP": "Invalid email or OTP. Please try again.",
     "OtpVerification": "OTP Verification",
     "WeSentCodeTo": "We've sent a code to",
-    "otpCode": "OTP Code"
+    "otpCode": "OTP Code",
+    "verify": "Verify",
+    "resetPassword": "Reset Password",
+    "EnterYourNewPass": "Enter your new password, make sure that it should at least 8 characters",
+    "passwordResetSuccess": "Password reset successfully. Please log in with your new password."
 }

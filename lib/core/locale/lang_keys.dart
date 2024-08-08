@@ -6,7 +6,6 @@ class LangKeys {
   static const String email = 'email';
   static const String password = 'password';
   static const String forgotPassword = 'forgotPassword';
-  static const String signup = 'signup';
   static const String login = 'login';
   static const String orLoginWith = 'orLoginWith';
   static const String username = 'username';
@@ -23,4 +22,8 @@ class LangKeys {
   static const String otpVerification = 'OtpVerification';
   static const String weSentCodeTo = 'WeSentCodeTo';
   static const String otpCode = 'otpCode';
+  static const String verify = 'verify';
+  static const String resetPassword = 'resetPassword';
+  static const String enterYourNewPass = 'EnterYourNewPass';
+  static const String passwordResetSuccess = 'passwordResetSuccess';
 }
