@@ -1,8 +1,6 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
-import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
 import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
@@ -33,11 +31,8 @@ class VerifyEmailButtonBlocConsumer extends StatelessWidget {
       buildWhen: (_, current) =>
           current is Loading || current is Error || current is Success,
       builder: (context, state) => MainButton(
-        onPressed: () {
-          // context.read<ForgotPasswordCubit>().forgotPassword(context);
-          context.pushRoute(VerificationRoute(
-              email: context.read<ForgotPasswordCubit>().emailController.text));
-        },
+        onPressed: () =>
+            context.read<ForgotPasswordCubit>().forgotPassword(context),
         child: circularIndicatorOrTextWidget(
           condition: state is Loading,
           context: context,

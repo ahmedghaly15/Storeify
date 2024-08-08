@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
@@ -53,7 +54,10 @@ class ResetPasswordView extends StatelessWidget implements AutoRouteWrapper {
                   MySizedBox.height22,
                   const ResetPasswordForm(),
                   MySizedBox.height19,
-                  ResetPassButtonBlocConsumer(email: email),
+                  Container(
+                    margin: EdgeInsetsDirectional.symmetric(horizontal: 24.w),
+                    child: ResetPassButtonBlocConsumer(email: email),
+                  ),
                 ],
               ),
             ),

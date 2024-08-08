@@ -8,4 +8,5 @@ class EndPoints {
   static const String forgotPassword = '${baseUrl}forget-password';
   static const String validateOtp = '${baseUrl}validate-otp';
   static const String resetPassword = '${baseUrl}reset-password';
+  static const String fetchHomeData = '${baseUrl}home';
 }
