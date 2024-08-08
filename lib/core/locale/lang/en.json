@@ -30,5 +30,7 @@
     "OtpVerification": "OTP Verification",
     "WeSentCodeTo": "We've sent a code to",
     "otpCode": "OTP Code",
-    "verify": "Verify"
+    "verify": "Verify",
+    "resetPassword": "Reset Password",
+    "EnterYourNewPass": "Enter your new password, make sure that it should at least 8 characters"
 }

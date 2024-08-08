@@ -8,8 +8,9 @@ import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_state.dart';
 
 class ResetPasswordCubit extends Cubit<ResetPasswordState> {
-  ResetPasswordCubit(this._authRepo)
-      : super(const ResetPasswordState.initial()) {
+  ResetPasswordCubit(
+    this._authRepo,
+  ) : super(const ResetPasswordState.initial()) {
     _initFormAttributes();
   }
 
@@ -18,12 +19,34 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
 
   late final TextEditingController passController;
   late final TextEditingController confirmPassController;
+  late final FocusNode passFocusNode;
+  late final FocusNode confirmPassFocusNode;
   late final GlobalKey<FormState> formKey;
 
   void _initFormAttributes() {
+    _initControllers();
+    _initFocusNodes();
+    formKey = GlobalKey<FormState>();
+  }
+
+  void _initControllers() {
     passController = TextEditingController();
     confirmPassController = TextEditingController();
-    formKey = GlobalKey<FormState>();
+  }
+
+  void _initFocusNodes() {
+    passFocusNode = FocusNode();
+    confirmPassFocusNode = FocusNode();
+  }
+
+  void _disposeFormAttributes() {
+    _disposeControllers();
+    _disposeFocusNodes();
+  }
+
+  void _disposeFocusNodes() {
+    passFocusNode.dispose();
+    confirmPassFocusNode.dispose();
   }
 
   void _disposeControllers() {
@@ -56,9 +79,21 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
     }
   }
 
+  bool newPassObscured = true;
+  void invertNewPassVisibility() {
+    newPassObscured = !newPassObscured;
+    emit(ResetPasswordState.invertPasswordVisibility(newPassObscured));
+  }
+
+  bool confirmPassObscured = true;
+  void invertConfirmPassVisibility() {
+    confirmPassObscured = !confirmPassObscured;
+    emit(ResetPasswordState.invertPasswordVisibility(confirmPassObscured));
+  }
+
   @override
   Future<void> close() {
-    _disposeControllers();
+    _disposeFormAttributes();
     _cancelToken.cancel();
     return super.close();
   }

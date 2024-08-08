@@ -23,4 +23,6 @@ class LangKeys {
   static const String weSentCodeTo = 'WeSentCodeTo';
   static const String otpCode = 'otpCode';
   static const String verify = 'verify';
+  static const String resetPassword = 'resetPassword';
+  static const String enterYourNewPass = 'EnterYourNewPass';
 }
