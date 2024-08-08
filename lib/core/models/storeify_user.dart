@@ -4,13 +4,12 @@ part 'storeify_user.g.dart';
 
 @JsonSerializable()
 class StoreifyUser {
-  final String code, token;
-  final UserData data;
+  final String token;
+  final UserData user;
 
   const StoreifyUser({
-    required this.code,
     required this.token,
-    required this.data,
+    required this.user,
   });
 
   factory StoreifyUser.fromJson(Map<String, dynamic> json) =>

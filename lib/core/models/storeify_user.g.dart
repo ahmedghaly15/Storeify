@@ -7,16 +7,14 @@ part of 'storeify_user.dart';
 // **************************************************************************
 
 StoreifyUser _$StoreifyUserFromJson(Map<String, dynamic> json) => StoreifyUser(
-      code: json['code'] as String,
       token: json['token'] as String,
-      data: UserData.fromJson(json['data'] as Map<String, dynamic>),
+      user: UserData.fromJson(json['user'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$StoreifyUserToJson(StoreifyUser instance) =>
     <String, dynamic>{
-      'code': instance.code,
       'token': instance.token,
-      'data': instance.data,
+      'user': instance.user,
     };
 
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
