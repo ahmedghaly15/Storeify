@@ -6,22 +6,32 @@ import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
 import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
-import 'package:store_ify/features/auth/presentation/cubits/validate_otp/validate_otp_cubit.dart';
-import 'package:store_ify/features/auth/presentation/cubits/validate_otp/validate_otp_state.dart';
+import 'package:store_ify/features/auth/data/models/reset_password_requirements.dart';
+import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
+import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_state.dart';
 
-class ValidateOtpButtonBlocConsumer extends StatelessWidget {
-  const ValidateOtpButtonBlocConsumer({super.key, required this.email});
+class ResetPassButtonBlocConsumer extends StatelessWidget {
+  const ResetPassButtonBlocConsumer({
+    super.key,
+    required this.email,
+  });
 
   final String email;
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ValidateOtpCubit, ValidateOtpState>(
+    return BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
       listenWhen: (_, current) => current is Success || current is Error,
       listener: (context, state) {
         state.whenOrNull(
           success: () {
-            context.pushRoute(ResetPasswordRoute(email: email));
+            CustomToast.showToast(
+              context: context,
+              messageKey: LangKeys.passwordResetSuccess,
+              state: CustomToastState.success,
+            );
+            context.router
+                .popUntil((route) => route.settings.name == LoginRoute.name);
           },
           error: (errorKey) => CustomToast.showToast(
             context: context,
@@ -34,11 +44,16 @@ class ValidateOtpButtonBlocConsumer extends StatelessWidget {
           current is Loading || current is Error || current is Success,
       builder: (context, state) {
         return MainButton(
-          onPressed: () => context.read<ValidateOtpCubit>().validateOtp(email),
+          onPressed: () => context
+              .read<ResetPasswordCubit>()
+              .resetPassword(ResetPasswordRequirements(
+                email: email,
+                context: context,
+              )),
           child: circularIndicatorOrTextWidget(
             condition: state is Loading,
             context: context,
-            textKey: LangKeys.verify,
+            textKey: LangKeys.resetPassword,
           ),
         );
       },

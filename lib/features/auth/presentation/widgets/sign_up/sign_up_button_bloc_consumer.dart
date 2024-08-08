@@ -26,7 +26,7 @@ class SignUpButtonBlocConsumer extends StatelessWidget {
       buildWhen: (_, current) =>
           current is Loading || current is Error || current is Success,
       builder: (context, state) => MainButton(
-        child: circularProgressOrTextWidget(
+        child: circularIndicatorOrTextWidget(
           condition: state is Loading,
           context: context,
           textKey: LangKeys.signUp,

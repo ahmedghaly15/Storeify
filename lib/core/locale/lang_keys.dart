@@ -25,4 +25,5 @@ class LangKeys {
   static const String verify = 'verify';
   static const String resetPassword = 'resetPassword';
   static const String enterYourNewPass = 'EnterYourNewPass';
+  static const String passwordResetSuccess = 'passwordResetSuccess';
 }

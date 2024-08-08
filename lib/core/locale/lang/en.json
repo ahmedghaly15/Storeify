@@ -32,5 +32,6 @@
     "otpCode": "OTP Code",
     "verify": "Verify",
     "resetPassword": "Reset Password",
-    "EnterYourNewPass": "Enter your new password, make sure that it should at least 8 characters"
+    "EnterYourNewPass": "Enter your new password, make sure that it should at least 8 characters",
+    "passwordResetSuccess": "Password reset successfully. Please log in with your new password."
 }

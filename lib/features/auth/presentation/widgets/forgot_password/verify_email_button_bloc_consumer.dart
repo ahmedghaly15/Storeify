@@ -38,7 +38,7 @@ class VerifyEmailButtonBlocConsumer extends StatelessWidget {
           context.pushRoute(VerificationRoute(
               email: context.read<ForgotPasswordCubit>().emailController.text));
         },
-        child: circularProgressOrTextWidget(
+        child: circularIndicatorOrTextWidget(
           condition: state is Loading,
           context: context,
           textKey: LangKeys.verifyEmail,

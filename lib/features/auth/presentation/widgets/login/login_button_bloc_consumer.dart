@@ -27,7 +27,7 @@ class LoginButtonBlocConsumer extends StatelessWidget {
           current is Loading || current is Success || current is Error,
       builder: (context, state) {
         return MainButton(
-          child: circularProgressOrTextWidget(
+          child: circularIndicatorOrTextWidget(
             condition: state is Loading,
             context: context,
             textKey: LangKeys.login,

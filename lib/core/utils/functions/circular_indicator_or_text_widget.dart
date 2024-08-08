@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 
-Widget circularProgressOrTextWidget({
+Widget circularIndicatorOrTextWidget({
   required bool condition,
   required BuildContext context,
   required String textKey,
