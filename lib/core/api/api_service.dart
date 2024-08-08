@@ -8,6 +8,7 @@ import 'package:store_ify/features/auth/data/models/login_params.dart';
 import 'package:store_ify/features/auth/data/models/register_params.dart';
 import 'package:store_ify/features/auth/data/models/reset_password_params.dart';
 import 'package:store_ify/features/auth/data/models/validate_otp_params.dart';
+import 'package:store_ify/features/home/data/models/fetch_home_response.dart';
 
 part 'api_service.g.dart';
 
@@ -42,6 +43,11 @@ abstract class ApiService {
   @POST(EndPoints.resetPassword)
   Future<void> resetPassword(
     @Body() ResetPasswordParams params, [
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
+
+  @GET(EndPoints.fetchHomeData)
+  Future<FetchHomeResponse> fetchHomeData([
     @CancelRequest() CancelToken? cancelToken,
   ]);
 }
