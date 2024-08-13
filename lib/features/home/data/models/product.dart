@@ -6,13 +6,14 @@ part 'product.g.dart';
 
 @JsonSerializable()
 class Product {
-  final int id, discount;
+  final int id;
+  final int? discount;
   final String name, description;
   final double price;
   @JsonKey(name: 'price_after_discount')
-  final String priceAfterDiscount;
+  final double priceAfterDiscount;
   @JsonKey(name: 'store_img')
-  final String storeImg;
+  final String? storeImg;
   @JsonKey(name: 'product_images')
   final List<ProductImg> productImages;
   @JsonKey(name: 'is_favorited')

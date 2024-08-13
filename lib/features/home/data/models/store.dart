@@ -8,7 +8,7 @@ class Store {
   final String name, img;
   final List<int> categories;
   @JsonKey(name: 'total_products_ordered')
-  final String totalProductsOrdered;
+  final int totalProductsOrdered;
 
   const Store({
     required this.id,
