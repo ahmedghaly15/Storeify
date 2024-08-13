@@ -26,4 +26,10 @@ class LangKeys {
   static const String resetPassword = 'resetPassword';
   static const String enterYourNewPass = 'EnterYourNewPass';
   static const String passwordResetSuccess = 'passwordResetSuccess';
+  static const String search = 'search';
+  static const String home = 'home';
+  static const String stores = 'stores';
+  static const String cart = 'cart';
+  static const String favorite = 'favorite';
+  static const String noInternet = 'noInternet';
 }

@@ -37,6 +37,11 @@ class AppTextStyles {
     color: AppColors.fontPrimaryColor,
   );
 
+  static TextStyle textStyle8Bold = TextStyle(
+    fontSize: 8.sp,
+    fontWeight: FontWeight.w700,
+  );
+
   static TextStyle textStyle14Regular = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,

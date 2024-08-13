@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Helper {
-  static String? uId = '';
-
   static BoxShadow itemBoxShadow() {
     return BoxShadow(
       offset: Offset(0.w, 4.h),
