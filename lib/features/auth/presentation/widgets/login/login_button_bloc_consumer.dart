@@ -18,8 +18,7 @@ class LoginButtonBlocConsumer extends StatelessWidget {
       listenWhen: (_, current) => current is Error || current is Success,
       listener: (context, state) {
         state.whenOrNull(
-          success: (_) =>
-              context.replaceRoute(ResetPasswordRoute(email: 'email')),
+          success: (_) => context.replaceRoute(const BottomNavBarRoute()),
           error: (error) => CustomToast.showToast(
             context: context,
             messageKey: error,
