@@ -13,7 +13,7 @@ Store _$StoreFromJson(Map<String, dynamic> json) => Store(
       categories: (json['categories'] as List<dynamic>)
           .map((e) => (e as num).toInt())
           .toList(),
-      totalProductsOrdered: json['total_products_ordered'] as String,
+      totalProductsOrdered: (json['total_products_ordered'] as num).toInt(),
     );
 
 Map<String, dynamic> _$StoreToJson(Store instance) => <String, dynamic>{

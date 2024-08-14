@@ -15,6 +15,23 @@ List<AutoRoute> get appRoutes => [
           _buildCustomRoute(page: ResetPasswordRoute.page),
         ],
       ),
+      AutoRoute(
+        page: BottomNavBarRoute.page,
+        initial: isUserLoggedIn ? true : false,
+        children: [
+          AutoRoute(
+            page: LayoutRoute.page,
+            initial: true,
+            children: [
+              _buildCustomRoute(page: HomeRoute.page, initial: true),
+              _buildCustomRoute(page: HomeRoute.page),
+              _buildCustomRoute(page: HomeRoute.page),
+              _buildCustomRoute(page: HomeRoute.page),
+              // _buildCustomRoute(page: CartRoute.page),
+            ],
+          ),
+        ],
+      ),
     ];
 
 CustomRoute _buildCustomRoute({

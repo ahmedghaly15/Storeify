@@ -8,12 +8,12 @@ part of 'product.dart';
 
 Product _$ProductFromJson(Map<String, dynamic> json) => Product(
       id: (json['id'] as num).toInt(),
-      discount: (json['discount'] as num).toInt(),
+      discount: (json['discount'] as num?)?.toInt(),
       name: json['name'] as String,
       description: json['description'] as String,
       price: (json['price'] as num).toDouble(),
-      priceAfterDiscount: json['price_after_discount'] as String,
-      storeImg: json['store_img'] as String,
+      priceAfterDiscount: (json['price_after_discount'] as num).toDouble(),
+      storeImg: json['store_img'] as String?,
       productImages: (json['product_images'] as List<dynamic>)
           .map((e) => ProductImg.fromJson(e as Map<String, dynamic>))
           .toList(),

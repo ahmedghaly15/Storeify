@@ -16,7 +16,7 @@ class LoginCubit extends Cubit<LoginState> {
     _initFormAttributes();
   }
 
-  final _cancelToken = CancelToken();
+  final CancelToken _cancelToken = CancelToken();
   late final TextEditingController emailController;
   late final TextEditingController passwordController;
   late final FocusNode emailFocusNode;

@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:store_ify/core/router/routes.dart';
-import 'package:store_ify/core/themes/app_colors.dart';
-import 'package:store_ify/core/helpers/cache_helper.dart';
+import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/utils/app_navigator.dart';
-import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
-import 'package:store_ify/dependency_injection.dart';
 
 class CustomSearchTextField extends StatelessWidget {
   const CustomSearchTextField({super.key});
@@ -28,27 +23,11 @@ class CustomSearchTextField extends StatelessWidget {
         ],
       ),
       child: CustomTextField(
-        hintText: 'Search',
+        hintTextKey: LangKeys.search,
         prefixIcon: Image.asset(AppAssets.search),
-        suffixIcon: IconButton(
-          onPressed: () {
-            getIt
-                .get<CacheHelper>()
-                .removeData(key: AppStrings.cachedUserId)
-                .then((value) {
-              if (value) {
-                // getIt.get<FirebaseAuth>().signOut();
-                context.navigateAndReplace(newRoute: Routes.loginViewRoute);
-              }
-            });
-          },
-          icon: const Icon(
-            Icons.tune,
-            color: AppColors.primaryColor,
-          ),
-        ),
         onChanged: (String val) {},
         textAlign: TextAlign.start,
+        keyboardType: TextInputType.text,
         enabledBorder: _outlineInputBorder(),
         focusedBorder: _outlineInputBorder(),
       ),

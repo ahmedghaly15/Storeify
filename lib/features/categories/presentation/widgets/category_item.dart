@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:store_ify/core/router/routes.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/helper.dart';
-import 'package:store_ify/core/utils/app_navigator.dart';
 import 'package:store_ify/core/widgets/custom_cached_network_image.dart';
-import 'package:store_ify/features/categories/data/models/categories_model.dart';
+import 'package:store_ify/core/widgets/my_sized_box.dart';
+import 'package:store_ify/features/home/data/models/category.dart';
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem({
@@ -14,12 +13,12 @@ class CategoryItem extends StatelessWidget {
     required this.category,
   });
 
-  final CategoryModel category;
+  final Category category;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 169.w,
+      constraints: BoxConstraints(maxWidth: 170.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(10.r)),
@@ -29,40 +28,40 @@ class CategoryItem extends StatelessWidget {
       ),
       child: MaterialButton(
         padding: EdgeInsets.zero,
-        onPressed: () => context.navigateTo(
-          routeName: Routes.productsViewRoute,
-          arguments: category.id,
-        ),
+        onPressed: () {},
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
-              child: CustomCachedNetworkImage(
-                imageUrl: category.image.secureUrl,
+              child: ClipRRect(
+                borderRadius: BorderRadiusDirectional.vertical(
+                  top: Radius.circular(10.r),
+                ),
+                child: CustomCachedNetworkImage(
+                  imageUrl: category.img,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
+            MySizedBox.height5,
+            Text(
+              category.name,
+              style: AppTextStyles.textStyle14Regular.copyWith(
+                color: AppColors.primaryColor,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            MySizedBox.height5,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(height: 8.h),
-                  Text(
-                    category.name,
-                    style: AppTextStyles.textStyle14Regular.copyWith(
-                      color: AppColors.primaryColor,
-                    ),
-                  ),
-                  SizedBox(height: 5.h),
-                  Text(
-                    category.description,
-                    style: AppTextStyles.textStyle10Medium,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  SizedBox(height: 10.h),
-                ],
+              child: Text(
+                category.description,
+                style: AppTextStyles.textStyle10Medium,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
+            MySizedBox.height4,
           ],
         ),
       ),

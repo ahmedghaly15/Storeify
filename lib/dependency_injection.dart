@@ -11,6 +11,8 @@ import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.da
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/validate_otp/validate_otp_cubit.dart';
+import 'package:store_ify/features/home/data/repos/home_repo.dart';
+import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -30,6 +32,9 @@ void _setupDIForRepos() {
   getIt.registerLazySingleton<LocaleRepo>(() => const LocaleRepo());
   getIt.registerLazySingleton<AuthRepo>(
     () => AuthRepo(getIt.get<ApiService>()),
+  );
+  getIt.registerLazySingleton<HomeRepo>(
+    () => HomeRepo(getIt.get<ApiService>()),
   );
 }
 
@@ -51,5 +56,8 @@ void _setupDIForCubits() {
   );
   getIt.registerFactory<ResetPasswordCubit>(
     () => ResetPasswordCubit(getIt.get<AuthRepo>()),
+  );
+  getIt.registerFactory<HomeCubit>(
+    () => HomeCubit(getIt.get<HomeRepo>()),
   );
 }

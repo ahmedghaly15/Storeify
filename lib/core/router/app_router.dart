@@ -8,6 +8,8 @@ import 'package:store_ify/features/auth/presentation/views/login_view.dart';
 import 'package:store_ify/features/auth/presentation/views/reset_password_view.dart';
 import 'package:store_ify/features/auth/presentation/views/sign_up_view.dart';
 import 'package:store_ify/features/auth/presentation/views/verification_view.dart';
+import 'package:store_ify/features/home/presentation/view/home_view.dart';
+import 'package:store_ify/features/layout/presentation/views/layout_view.dart';
 
 part 'app_router.gr.dart';
 part 'app_routes.dart';
