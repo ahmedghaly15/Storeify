@@ -11,6 +11,8 @@ import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.da
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/validate_otp/validate_otp_cubit.dart';
+import 'package:store_ify/features/categories/data/repositories/categories_repo.dart';
+import 'package:store_ify/features/categories/presentation/cubit/categories_cubit.dart';
 import 'package:store_ify/features/home/data/repos/home_repo.dart';
 import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
 
@@ -36,6 +38,9 @@ void _setupDIForRepos() {
   getIt.registerLazySingleton<HomeRepo>(
     () => HomeRepo(getIt.get<ApiService>()),
   );
+  getIt.registerLazySingleton<CategoriesRepo>(
+    () => CategoriesRepo(getIt.get<ApiService>()),
+  );
 }
 
 void _setupDIForCubits() {
@@ -59,5 +64,8 @@ void _setupDIForCubits() {
   );
   getIt.registerFactory<HomeCubit>(
     () => HomeCubit(getIt.get<HomeRepo>()),
+  );
+  getIt.registerFactory<CategoriesCubit>(
+    () => CategoriesCubit(getIt.get<CategoriesRepo>()),
   );
 }

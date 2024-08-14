@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/helper.dart';
 import 'package:store_ify/core/widgets/custom_cached_network_image.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
-import 'package:store_ify/features/home/data/models/category.dart';
+import 'package:store_ify/features/categories/data/models/category.dart';
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem({
