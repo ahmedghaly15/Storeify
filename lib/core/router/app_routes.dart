@@ -32,6 +32,7 @@ List<AutoRoute> get appRoutes => [
           ),
         ],
       ),
+      _buildCustomRoute(page: CategoriesRoute.page),
     ];
 
 CustomRoute _buildCustomRoute({
