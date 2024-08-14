@@ -1,17 +1,24 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/router/routes.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
-import 'package:store_ify/core/utils/app_navigator.dart';
-import 'package:store_ify/features/home/presentation/widgets/best_seller_list_view.dart';
-import 'package:store_ify/features/home/presentation/widgets/categories_list_view.dart';
-import 'package:store_ify/features/home/presentation/widgets/list_title.dart';
+import 'package:store_ify/dependency_injection.dart';
+import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
+import 'package:store_ify/features/home/presentation/widgets/home_data_bloc_builder.dart';
 import 'package:store_ify/features/home/presentation/widgets/user_info_and_search_field.dart';
-import 'package:store_ify/features/home/presentation/widgets/stores_sliver_grid_view.dart';
-import 'package:store_ify/features/home/presentation/widgets/view_all_text_button.dart';
 
-class HomeView extends StatelessWidget {
+@RoutePage()
+class HomeView extends StatelessWidget implements AutoRouteWrapper {
   const HomeView({super.key});
+
+  @override
+  Widget wrappedRoute(BuildContext context) {
+    return BlocProvider<HomeCubit>(
+      create: (context) => getIt.get<HomeCubit>()..fetchHomeData(),
+      child: this,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,60 +27,14 @@ class HomeView extends StatelessWidget {
         physics: AppConstants.physics,
         slivers: [
           SliverPadding(
-            padding: AppConstants.horizontalPadding,
+            padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
             sliver: const SliverToBoxAdapter(
               child: UserInfoAndSearchField(),
             ),
           ),
-          SliverToBoxAdapter(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 40.h),
-                const ListTitle(
-                  title: 'Best Selling',
-                  bottomPadding: 25,
-                ),
-                const BestSellerListView(),
-                SizedBox(height: 14.h),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 20.h),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const ListTitle(title: 'Categories'),
-                      ViewAllTextButton(
-                        onPressed: () => context.navigateTo(
-                          routeName: Routes.categoriesViewRoute,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const CategoriesListView(),
-                SizedBox(height: 14.h),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 20.h),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      const ListTitle(title: 'Top Stores'),
-                      ViewAllTextButton(
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SliverPadding(
-            padding: EdgeInsets.only(
-              left: AppConstants.paddingVal,
-              right: AppConstants.paddingVal,
-              bottom: 16.h,
-            ),
-            sliver: const StoresSliverGridView(),
+          const SliverFillRemaining(
+            hasScrollBody: false,
+            child: HomeDataBlocBuilder(),
           ),
         ],
       ),
