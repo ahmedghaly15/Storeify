@@ -39,5 +39,9 @@
     "stores": "Stores",
     "cart": "Cart",
     "favorite": "Favorite",
-    "noInternet": "No internet connection. Please try again later."
+    "noInternet": "No internet connection. Please try again later.",
+    "bestSelling": "Best Selling",
+    "categories": "Categories",
+    "viewAll": "View All",
+    "topStores": "Top Stores"
 }

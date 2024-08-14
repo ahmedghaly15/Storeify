@@ -32,4 +32,8 @@ class LangKeys {
   static const String cart = 'cart';
   static const String favorite = 'favorite';
   static const String noInternet = 'noInternet';
+  static const String bestSelling = 'bestSelling';
+  static const String categories = 'categories';
+  static const String viewAll = 'viewAll';
+  static const String topStores = 'topStores';
 }

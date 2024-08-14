@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/helpers/helper.dart';
-import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/widgets/custom_cached_network_image.dart';
+import 'package:store_ify/core/widgets/my_sized_box.dart';
+import 'package:store_ify/features/home/data/models/product.dart';
 
-class CustomProductItem extends StatelessWidget {
-  const CustomProductItem({super.key});
+class ProductItem extends StatelessWidget {
+  const ProductItem({super.key, required this.product});
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 148.w,
+      // constraints: BoxConstraints(maxWidth: 175.w, maxHeight: 210.h),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(10.r)),
@@ -25,52 +29,54 @@ class CustomProductItem extends StatelessWidget {
           // context.navigateTo(routeName: Routes.productDetailsViewRoute);
         },
         child: Column(
+          // crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
               child: ClipRRect(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(10.r)),
-                child: Image.asset(
-                  AppAssets.test,
-                  fit: BoxFit.fill,
-                  width: double.infinity,
+                child: CustomCachedNetworkImage(
+                  imageUrl: product.productImages[0].img,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
-            SizedBox(height: 16.h),
             Padding(
-              padding: EdgeInsets.only(left: 9.w),
+              padding: EdgeInsetsDirectional.only(
+                start: 9.w,
+                top: 8.h,
+                end: 16.w,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Name of product",
+                    product.name,
                     style: AppTextStyles.textStyle14Regular.copyWith(
                       color: AppColors.primaryColor,
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(height: 4.h),
+                  MySizedBox.height4,
                   Text(
-                    "Description about Product",
+                    product.description,
                     style: AppTextStyles.textStyle10Medium,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(height: 8.h),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "250.00 LE",
+                        "${product.priceAfterDiscount} LE",
                         style: AppTextStyles.textStyle10Medium.copyWith(
                           color: AppColors.lightBlueColor,
                         ),
                       ),
+                      MySizedBox.width8,
                       Text(
-                        "450.00 LE",
+                        "${product.price} LE",
                         style: AppTextStyles.textStyle10Medium.copyWith(
-                          color: const Color(0xff3E3D3B),
+                          color: AppColors.fontPrimaryColor,
                           decoration: TextDecoration.lineThrough,
                         ),
                       ),
@@ -78,7 +84,7 @@ class CustomProductItem extends StatelessWidget {
                         onPressed: () {},
                         icon: Icon(
                           Icons.favorite_border_outlined,
-                          size: 19.w,
+                          size: 18.w,
                         ),
                       ),
                     ],
