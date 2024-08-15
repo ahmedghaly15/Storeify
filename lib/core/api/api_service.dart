@@ -9,7 +9,6 @@ import 'package:store_ify/features/auth/data/models/register_params.dart';
 import 'package:store_ify/features/auth/data/models/reset_password_params.dart';
 import 'package:store_ify/features/auth/data/models/validate_otp_params.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
-import 'package:store_ify/features/categories/data/models/fetch_sub_category_params.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_response.dart';
 import 'package:store_ify/features/home/data/models/fetch_home_response.dart';
 
@@ -61,8 +60,8 @@ abstract class ApiService {
 
   @GET('${EndPoints.fetchCategories}/{category_id}/{sub_category_id}')
   Future<FetchSubCategoryResponse> fetchSubCategory(
-    @Path('category_id') String categoryId,
-    @Path('sub_category_id') String subCategoryId, [
+    @Path('category_id') int categoryId,
+    @Path('sub_category_id') int subCategoryId, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 }

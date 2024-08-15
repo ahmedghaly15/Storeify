@@ -24,6 +24,12 @@ class SubCategoryCubit extends Cubit<SubCategoryState> {
     );
   }
 
+  int currentSubCategoryIndex = 1;
+  void updateCurrentSubCategoryIndex(int index) {
+    currentSubCategoryIndex = index;
+    emit(SubCategoryState.updateCurrentSubCategoryIndex(index));
+  }
+
   @override
   Future<void> close() {
     _cancelToken.cancel();

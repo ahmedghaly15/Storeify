@@ -238,8 +238,8 @@ class _ApiService implements ApiService {
 
   @override
   Future<FetchSubCategoryResponse> fetchSubCategory(
-    String categoryId,
-    String subCategoryId, [
+    int categoryId,
+    int subCategoryId, [
     CancelToken? cancelToken,
   ]) async {
     final _extra = <String, dynamic>{};

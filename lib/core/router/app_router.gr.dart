@@ -74,6 +74,17 @@ abstract class _$AppRouter extends RootStackRouter {
         child: WrappedRoute(child: const SignUpView()),
       );
     },
+    SubCategoriesRoute.name: (routeData) {
+      final args = routeData.argsAs<SubCategoriesRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WrappedRoute(
+            child: SubCategoriesView(
+          key: args.key,
+          category: args.category,
+        )),
+      );
+    },
     VerificationRoute.name: (routeData) {
       final args = routeData.argsAs<VerificationRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -236,6 +247,44 @@ class SignUpRoute extends PageRouteInfo<void> {
   static const String name = 'SignUpRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SubCategoriesView]
+class SubCategoriesRoute extends PageRouteInfo<SubCategoriesRouteArgs> {
+  SubCategoriesRoute({
+    Key? key,
+    required Category category,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SubCategoriesRoute.name,
+          args: SubCategoriesRouteArgs(
+            key: key,
+            category: category,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'SubCategoriesRoute';
+
+  static const PageInfo<SubCategoriesRouteArgs> page =
+      PageInfo<SubCategoriesRouteArgs>(name);
+}
+
+class SubCategoriesRouteArgs {
+  const SubCategoriesRouteArgs({
+    this.key,
+    required this.category,
+  });
+
+  final Key? key;
+
+  final Category category;
+
+  @override
+  String toString() {
+    return 'SubCategoriesRouteArgs{key: $key, category: $category}';
+  }
 }
 
 /// generated route for

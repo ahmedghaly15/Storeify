@@ -12,7 +12,8 @@ import 'package:store_ify/features/auth/presentation/cubits/register/register_cu
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/validate_otp/validate_otp_cubit.dart';
 import 'package:store_ify/features/categories/data/repositories/categories_repo.dart';
-import 'package:store_ify/features/categories/presentation/cubit/categories_cubit.dart';
+import 'package:store_ify/features/categories/presentation/cubit/categories/categories_cubit.dart';
+import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_cubit.dart';
 import 'package:store_ify/features/home/data/repos/home_repo.dart';
 import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
 
@@ -67,5 +68,8 @@ void _setupDIForCubits() {
   );
   getIt.registerFactory<CategoriesCubit>(
     () => CategoriesCubit(getIt.get<CategoriesRepo>()),
+  );
+  getIt.registerFactory<SubCategoryCubit>(
+    () => SubCategoryCubit(getIt.get<CategoriesRepo>()),
   );
 }

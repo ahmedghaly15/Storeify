@@ -12,4 +12,6 @@ class SubCategoryState<T> with _$SubCategoryState<T> {
       FetchSubCategoryResponse subCategory) = FetchSubCategorySuccess<T>;
   const factory SubCategoryState.fetchSubCategoryError(error) =
       FetchSubCategoryError<T>;
+  const factory SubCategoryState.updateCurrentSubCategoryIndex(
+      int currentIndex) = UpdateCurrentSubCategoryIndex<T>;
 }
