@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/features/categories/data/repositories/categories_repo.dart';
-import 'package:store_ify/features/categories/presentation/cubit/categories_state.dart';
+import 'package:store_ify/features/categories/presentation/cubit/categories/categories_state.dart';
 
 class CategoriesCubit extends Cubit<CategoriesState> {
   CategoriesCubit(this._categoriesRepo)

@@ -5,8 +5,8 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
-import 'package:store_ify/features/categories/presentation/cubit/categories_cubit.dart';
-import 'package:store_ify/features/categories/presentation/cubit/categories_state.dart';
+import 'package:store_ify/features/categories/presentation/cubit/categories/categories_cubit.dart';
+import 'package:store_ify/features/categories/presentation/cubit/categories/categories_state.dart';
 import 'package:store_ify/features/categories/presentation/widgets/category_item.dart';
 
 class CategoriesBlocBuilder extends StatelessWidget {
