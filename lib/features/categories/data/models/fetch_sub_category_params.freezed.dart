@@ -17,9 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$FetchSubCategoryParams {
   @JsonKey(name: 'category_id')
-  String get categoryId => throw _privateConstructorUsedError;
+  int get categoryId => throw _privateConstructorUsedError;
   @JsonKey(name: 'sub_category_id')
-  String get subCategoryId => throw _privateConstructorUsedError;
+  int get subCategoryId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FetchSubCategoryParamsCopyWith<FetchSubCategoryParams> get copyWith =>
@@ -33,8 +33,8 @@ abstract class $FetchSubCategoryParamsCopyWith<$Res> {
       _$FetchSubCategoryParamsCopyWithImpl<$Res, FetchSubCategoryParams>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'category_id') String categoryId,
-      @JsonKey(name: 'sub_category_id') String subCategoryId});
+      {@JsonKey(name: 'category_id') int categoryId,
+      @JsonKey(name: 'sub_category_id') int subCategoryId});
 }
 
 /// @nodoc
@@ -58,11 +58,11 @@ class _$FetchSubCategoryParamsCopyWithImpl<$Res,
       categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       subCategoryId: null == subCategoryId
           ? _value.subCategoryId
           : subCategoryId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ) as $Val);
   }
 }
@@ -77,8 +77,8 @@ abstract class _$$FetchSubCategoryParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'category_id') String categoryId,
-      @JsonKey(name: 'sub_category_id') String subCategoryId});
+      {@JsonKey(name: 'category_id') int categoryId,
+      @JsonKey(name: 'sub_category_id') int subCategoryId});
 }
 
 /// @nodoc
@@ -101,11 +101,11 @@ class __$$FetchSubCategoryParamsImplCopyWithImpl<$Res>
       categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       subCategoryId: null == subCategoryId
           ? _value.subCategoryId
           : subCategoryId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -119,10 +119,10 @@ class _$FetchSubCategoryParamsImpl implements _FetchSubCategoryParams {
 
   @override
   @JsonKey(name: 'category_id')
-  final String categoryId;
+  final int categoryId;
   @override
   @JsonKey(name: 'sub_category_id')
-  final String subCategoryId;
+  final int subCategoryId;
 
   @override
   String toString() {
@@ -153,16 +153,16 @@ class _$FetchSubCategoryParamsImpl implements _FetchSubCategoryParams {
 
 abstract class _FetchSubCategoryParams implements FetchSubCategoryParams {
   const factory _FetchSubCategoryParams(
-      {@JsonKey(name: 'category_id') required final String categoryId,
-      @JsonKey(name: 'sub_category_id')
-      required final String subCategoryId}) = _$FetchSubCategoryParamsImpl;
+          {@JsonKey(name: 'category_id') required final int categoryId,
+          @JsonKey(name: 'sub_category_id') required final int subCategoryId}) =
+      _$FetchSubCategoryParamsImpl;
 
   @override
   @JsonKey(name: 'category_id')
-  String get categoryId;
+  int get categoryId;
   @override
   @JsonKey(name: 'sub_category_id')
-  String get subCategoryId;
+  int get subCategoryId;
   @override
   @JsonKey(ignore: true)
   _$$FetchSubCategoryParamsImplCopyWith<_$FetchSubCategoryParamsImpl>

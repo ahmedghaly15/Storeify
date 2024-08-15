@@ -60,8 +60,8 @@ abstract class ApiService {
 
   @GET('${EndPoints.fetchCategories}/{category_id}/{sub_category_id}')
   Future<FetchSubCategoryResponse> fetchSubCategory(
-    @Path('category_id') String categoryId,
-    @Path('sub_category_id') String subCategoryId, [
+    @Path('category_id') int categoryId,
+    @Path('sub_category_id') int subCategoryId, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 }

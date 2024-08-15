@@ -254,7 +254,7 @@ class SignUpRoute extends PageRouteInfo<void> {
 class SubCategoriesRoute extends PageRouteInfo<SubCategoriesRouteArgs> {
   SubCategoriesRoute({
     Key? key,
-    required FetchSubCategoryParams params,
+    required NavigateToSubCategoryViewParams params,
     List<PageRouteInfo>? children,
   }) : super(
           SubCategoriesRoute.name,
@@ -279,7 +279,7 @@ class SubCategoriesRouteArgs {
 
   final Key? key;
 
-  final FetchSubCategoryParams params;
+  final NavigateToSubCategoryViewParams params;
 
   @override
   String toString() {
