@@ -8,6 +8,7 @@ import 'package:store_ify/features/categories/data/models/category.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_params.dart';
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_cubit.dart';
 import 'package:store_ify/features/categories/presentation/widgets/sub_categories_list_view.dart';
+import 'package:store_ify/features/categories/presentation/widgets/sub_category_products_sliver_grid.dart';
 
 @RoutePage()
 class SubCategoriesView extends StatelessWidget implements AutoRouteWrapper {
@@ -41,6 +42,7 @@ class SubCategoriesView extends StatelessWidget implements AutoRouteWrapper {
             SliverToBoxAdapter(
               child: SubCategoriesListView(category: category),
             ),
+            const SubCategoryProductsSliverGrid(),
           ],
         ),
       ),

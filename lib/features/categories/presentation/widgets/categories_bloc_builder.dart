@@ -36,23 +36,20 @@ class CategoriesBlocBuilder extends StatelessWidget {
             right: 16.w,
             bottom: 16.h,
           ),
-          sliver: SliverGrid(
-            delegate: SliverChildBuilderDelegate(
-              childCount: categories.length,
-              addAutomaticKeepAlives: true,
-              (context, index) => AnimationConfiguration.staggeredGrid(
-                position: index,
-                columnCount: categories.length,
-                duration: const Duration(milliseconds: 650),
-                child: ScaleAnimation(
-                  child: FadeInAnimation(
-                    child: CategoryItem(
-                      category: categories[index],
-                    ),
+          sliver: SliverGrid.builder(
+            itemBuilder: (_, index) => AnimationConfiguration.staggeredGrid(
+              position: index,
+              columnCount: categories.length,
+              duration: AppConstants.gridDuration,
+              child: ScaleAnimation(
+                child: FadeInAnimation(
+                  child: CategoryItem(
+                    category: categories[index],
                   ),
                 ),
               ),
             ),
+            itemCount: categories.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: AppConstants.gridCrossAxisCount,
               crossAxisSpacing: AppConstants.gridCrossAxisSpacing,
