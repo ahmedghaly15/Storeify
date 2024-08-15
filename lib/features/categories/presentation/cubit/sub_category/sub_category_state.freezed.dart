@@ -23,6 +23,7 @@ mixin _$SubCategoryState<T> {
     required TResult Function(FetchSubCategoryResponse subCategory)
         fetchSubCategorySuccess,
     required TResult Function(dynamic error) fetchSubCategoryError,
+    required TResult Function(int currentIndex) updateCurrentSubCategoryIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$SubCategoryState<T> {
     TResult? Function(FetchSubCategoryResponse subCategory)?
         fetchSubCategorySuccess,
     TResult? Function(dynamic error)? fetchSubCategoryError,
+    TResult? Function(int currentIndex)? updateCurrentSubCategoryIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$SubCategoryState<T> {
     TResult Function(FetchSubCategoryResponse subCategory)?
         fetchSubCategorySuccess,
     TResult Function(dynamic error)? fetchSubCategoryError,
+    TResult Function(int currentIndex)? updateCurrentSubCategoryIndex,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,6 +56,8 @@ mixin _$SubCategoryState<T> {
         fetchSubCategorySuccess,
     required TResult Function(FetchSubCategoryError<T> value)
         fetchSubCategoryError,
+    required TResult Function(UpdateCurrentSubCategoryIndex<T> value)
+        updateCurrentSubCategoryIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,8 @@ mixin _$SubCategoryState<T> {
     TResult? Function(FetchSubCategorySuccess<T> value)?
         fetchSubCategorySuccess,
     TResult? Function(FetchSubCategoryError<T> value)? fetchSubCategoryError,
+    TResult? Function(UpdateCurrentSubCategoryIndex<T> value)?
+        updateCurrentSubCategoryIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +78,8 @@ mixin _$SubCategoryState<T> {
     TResult Function(FetchSubCategoryLoading<T> value)? fetchSubCategoryLoading,
     TResult Function(FetchSubCategorySuccess<T> value)? fetchSubCategorySuccess,
     TResult Function(FetchSubCategoryError<T> value)? fetchSubCategoryError,
+    TResult Function(UpdateCurrentSubCategoryIndex<T> value)?
+        updateCurrentSubCategoryIndex,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -137,6 +146,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(FetchSubCategoryResponse subCategory)
         fetchSubCategorySuccess,
     required TResult Function(dynamic error) fetchSubCategoryError,
+    required TResult Function(int currentIndex) updateCurrentSubCategoryIndex,
   }) {
     return initial();
   }
@@ -149,6 +159,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(FetchSubCategoryResponse subCategory)?
         fetchSubCategorySuccess,
     TResult? Function(dynamic error)? fetchSubCategoryError,
+    TResult? Function(int currentIndex)? updateCurrentSubCategoryIndex,
   }) {
     return initial?.call();
   }
@@ -161,6 +172,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(FetchSubCategoryResponse subCategory)?
         fetchSubCategorySuccess,
     TResult Function(dynamic error)? fetchSubCategoryError,
+    TResult Function(int currentIndex)? updateCurrentSubCategoryIndex,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -179,6 +191,8 @@ class _$InitialImpl<T> implements _Initial<T> {
         fetchSubCategorySuccess,
     required TResult Function(FetchSubCategoryError<T> value)
         fetchSubCategoryError,
+    required TResult Function(UpdateCurrentSubCategoryIndex<T> value)
+        updateCurrentSubCategoryIndex,
   }) {
     return initial(this);
   }
@@ -192,6 +206,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(FetchSubCategorySuccess<T> value)?
         fetchSubCategorySuccess,
     TResult? Function(FetchSubCategoryError<T> value)? fetchSubCategoryError,
+    TResult? Function(UpdateCurrentSubCategoryIndex<T> value)?
+        updateCurrentSubCategoryIndex,
   }) {
     return initial?.call(this);
   }
@@ -203,6 +219,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(FetchSubCategoryLoading<T> value)? fetchSubCategoryLoading,
     TResult Function(FetchSubCategorySuccess<T> value)? fetchSubCategorySuccess,
     TResult Function(FetchSubCategoryError<T> value)? fetchSubCategoryError,
+    TResult Function(UpdateCurrentSubCategoryIndex<T> value)?
+        updateCurrentSubCategoryIndex,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -263,6 +281,7 @@ class _$FetchSubCategoryLoadingImpl<T> implements FetchSubCategoryLoading<T> {
     required TResult Function(FetchSubCategoryResponse subCategory)
         fetchSubCategorySuccess,
     required TResult Function(dynamic error) fetchSubCategoryError,
+    required TResult Function(int currentIndex) updateCurrentSubCategoryIndex,
   }) {
     return fetchSubCategoryLoading();
   }
@@ -275,6 +294,7 @@ class _$FetchSubCategoryLoadingImpl<T> implements FetchSubCategoryLoading<T> {
     TResult? Function(FetchSubCategoryResponse subCategory)?
         fetchSubCategorySuccess,
     TResult? Function(dynamic error)? fetchSubCategoryError,
+    TResult? Function(int currentIndex)? updateCurrentSubCategoryIndex,
   }) {
     return fetchSubCategoryLoading?.call();
   }
@@ -287,6 +307,7 @@ class _$FetchSubCategoryLoadingImpl<T> implements FetchSubCategoryLoading<T> {
     TResult Function(FetchSubCategoryResponse subCategory)?
         fetchSubCategorySuccess,
     TResult Function(dynamic error)? fetchSubCategoryError,
+    TResult Function(int currentIndex)? updateCurrentSubCategoryIndex,
     required TResult orElse(),
   }) {
     if (fetchSubCategoryLoading != null) {
@@ -305,6 +326,8 @@ class _$FetchSubCategoryLoadingImpl<T> implements FetchSubCategoryLoading<T> {
         fetchSubCategorySuccess,
     required TResult Function(FetchSubCategoryError<T> value)
         fetchSubCategoryError,
+    required TResult Function(UpdateCurrentSubCategoryIndex<T> value)
+        updateCurrentSubCategoryIndex,
   }) {
     return fetchSubCategoryLoading(this);
   }
@@ -318,6 +341,8 @@ class _$FetchSubCategoryLoadingImpl<T> implements FetchSubCategoryLoading<T> {
     TResult? Function(FetchSubCategorySuccess<T> value)?
         fetchSubCategorySuccess,
     TResult? Function(FetchSubCategoryError<T> value)? fetchSubCategoryError,
+    TResult? Function(UpdateCurrentSubCategoryIndex<T> value)?
+        updateCurrentSubCategoryIndex,
   }) {
     return fetchSubCategoryLoading?.call(this);
   }
@@ -329,6 +354,8 @@ class _$FetchSubCategoryLoadingImpl<T> implements FetchSubCategoryLoading<T> {
     TResult Function(FetchSubCategoryLoading<T> value)? fetchSubCategoryLoading,
     TResult Function(FetchSubCategorySuccess<T> value)? fetchSubCategorySuccess,
     TResult Function(FetchSubCategoryError<T> value)? fetchSubCategoryError,
+    TResult Function(UpdateCurrentSubCategoryIndex<T> value)?
+        updateCurrentSubCategoryIndex,
     required TResult orElse(),
   }) {
     if (fetchSubCategoryLoading != null) {
@@ -416,6 +443,7 @@ class _$FetchSubCategorySuccessImpl<T> implements FetchSubCategorySuccess<T> {
     required TResult Function(FetchSubCategoryResponse subCategory)
         fetchSubCategorySuccess,
     required TResult Function(dynamic error) fetchSubCategoryError,
+    required TResult Function(int currentIndex) updateCurrentSubCategoryIndex,
   }) {
     return fetchSubCategorySuccess(subCategory);
   }
@@ -428,6 +456,7 @@ class _$FetchSubCategorySuccessImpl<T> implements FetchSubCategorySuccess<T> {
     TResult? Function(FetchSubCategoryResponse subCategory)?
         fetchSubCategorySuccess,
     TResult? Function(dynamic error)? fetchSubCategoryError,
+    TResult? Function(int currentIndex)? updateCurrentSubCategoryIndex,
   }) {
     return fetchSubCategorySuccess?.call(subCategory);
   }
@@ -440,6 +469,7 @@ class _$FetchSubCategorySuccessImpl<T> implements FetchSubCategorySuccess<T> {
     TResult Function(FetchSubCategoryResponse subCategory)?
         fetchSubCategorySuccess,
     TResult Function(dynamic error)? fetchSubCategoryError,
+    TResult Function(int currentIndex)? updateCurrentSubCategoryIndex,
     required TResult orElse(),
   }) {
     if (fetchSubCategorySuccess != null) {
@@ -458,6 +488,8 @@ class _$FetchSubCategorySuccessImpl<T> implements FetchSubCategorySuccess<T> {
         fetchSubCategorySuccess,
     required TResult Function(FetchSubCategoryError<T> value)
         fetchSubCategoryError,
+    required TResult Function(UpdateCurrentSubCategoryIndex<T> value)
+        updateCurrentSubCategoryIndex,
   }) {
     return fetchSubCategorySuccess(this);
   }
@@ -471,6 +503,8 @@ class _$FetchSubCategorySuccessImpl<T> implements FetchSubCategorySuccess<T> {
     TResult? Function(FetchSubCategorySuccess<T> value)?
         fetchSubCategorySuccess,
     TResult? Function(FetchSubCategoryError<T> value)? fetchSubCategoryError,
+    TResult? Function(UpdateCurrentSubCategoryIndex<T> value)?
+        updateCurrentSubCategoryIndex,
   }) {
     return fetchSubCategorySuccess?.call(this);
   }
@@ -482,6 +516,8 @@ class _$FetchSubCategorySuccessImpl<T> implements FetchSubCategorySuccess<T> {
     TResult Function(FetchSubCategoryLoading<T> value)? fetchSubCategoryLoading,
     TResult Function(FetchSubCategorySuccess<T> value)? fetchSubCategorySuccess,
     TResult Function(FetchSubCategoryError<T> value)? fetchSubCategoryError,
+    TResult Function(UpdateCurrentSubCategoryIndex<T> value)?
+        updateCurrentSubCategoryIndex,
     required TResult orElse(),
   }) {
     if (fetchSubCategorySuccess != null) {
@@ -573,6 +609,7 @@ class _$FetchSubCategoryErrorImpl<T> implements FetchSubCategoryError<T> {
     required TResult Function(FetchSubCategoryResponse subCategory)
         fetchSubCategorySuccess,
     required TResult Function(dynamic error) fetchSubCategoryError,
+    required TResult Function(int currentIndex) updateCurrentSubCategoryIndex,
   }) {
     return fetchSubCategoryError(error);
   }
@@ -585,6 +622,7 @@ class _$FetchSubCategoryErrorImpl<T> implements FetchSubCategoryError<T> {
     TResult? Function(FetchSubCategoryResponse subCategory)?
         fetchSubCategorySuccess,
     TResult? Function(dynamic error)? fetchSubCategoryError,
+    TResult? Function(int currentIndex)? updateCurrentSubCategoryIndex,
   }) {
     return fetchSubCategoryError?.call(error);
   }
@@ -597,6 +635,7 @@ class _$FetchSubCategoryErrorImpl<T> implements FetchSubCategoryError<T> {
     TResult Function(FetchSubCategoryResponse subCategory)?
         fetchSubCategorySuccess,
     TResult Function(dynamic error)? fetchSubCategoryError,
+    TResult Function(int currentIndex)? updateCurrentSubCategoryIndex,
     required TResult orElse(),
   }) {
     if (fetchSubCategoryError != null) {
@@ -615,6 +654,8 @@ class _$FetchSubCategoryErrorImpl<T> implements FetchSubCategoryError<T> {
         fetchSubCategorySuccess,
     required TResult Function(FetchSubCategoryError<T> value)
         fetchSubCategoryError,
+    required TResult Function(UpdateCurrentSubCategoryIndex<T> value)
+        updateCurrentSubCategoryIndex,
   }) {
     return fetchSubCategoryError(this);
   }
@@ -628,6 +669,8 @@ class _$FetchSubCategoryErrorImpl<T> implements FetchSubCategoryError<T> {
     TResult? Function(FetchSubCategorySuccess<T> value)?
         fetchSubCategorySuccess,
     TResult? Function(FetchSubCategoryError<T> value)? fetchSubCategoryError,
+    TResult? Function(UpdateCurrentSubCategoryIndex<T> value)?
+        updateCurrentSubCategoryIndex,
   }) {
     return fetchSubCategoryError?.call(this);
   }
@@ -639,6 +682,8 @@ class _$FetchSubCategoryErrorImpl<T> implements FetchSubCategoryError<T> {
     TResult Function(FetchSubCategoryLoading<T> value)? fetchSubCategoryLoading,
     TResult Function(FetchSubCategorySuccess<T> value)? fetchSubCategorySuccess,
     TResult Function(FetchSubCategoryError<T> value)? fetchSubCategoryError,
+    TResult Function(UpdateCurrentSubCategoryIndex<T> value)?
+        updateCurrentSubCategoryIndex,
     required TResult orElse(),
   }) {
     if (fetchSubCategoryError != null) {
@@ -655,5 +700,176 @@ abstract class FetchSubCategoryError<T> implements SubCategoryState<T> {
   dynamic get error;
   @JsonKey(ignore: true)
   _$$FetchSubCategoryErrorImplCopyWith<T, _$FetchSubCategoryErrorImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateCurrentSubCategoryIndexImplCopyWith<T, $Res> {
+  factory _$$UpdateCurrentSubCategoryIndexImplCopyWith(
+          _$UpdateCurrentSubCategoryIndexImpl<T> value,
+          $Res Function(_$UpdateCurrentSubCategoryIndexImpl<T>) then) =
+      __$$UpdateCurrentSubCategoryIndexImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({int currentIndex});
+}
+
+/// @nodoc
+class __$$UpdateCurrentSubCategoryIndexImplCopyWithImpl<T, $Res>
+    extends _$SubCategoryStateCopyWithImpl<T, $Res,
+        _$UpdateCurrentSubCategoryIndexImpl<T>>
+    implements _$$UpdateCurrentSubCategoryIndexImplCopyWith<T, $Res> {
+  __$$UpdateCurrentSubCategoryIndexImplCopyWithImpl(
+      _$UpdateCurrentSubCategoryIndexImpl<T> _value,
+      $Res Function(_$UpdateCurrentSubCategoryIndexImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currentIndex = null,
+  }) {
+    return _then(_$UpdateCurrentSubCategoryIndexImpl<T>(
+      null == currentIndex
+          ? _value.currentIndex
+          : currentIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateCurrentSubCategoryIndexImpl<T>
+    implements UpdateCurrentSubCategoryIndex<T> {
+  const _$UpdateCurrentSubCategoryIndexImpl(this.currentIndex);
+
+  @override
+  final int currentIndex;
+
+  @override
+  String toString() {
+    return 'SubCategoryState<$T>.updateCurrentSubCategoryIndex(currentIndex: $currentIndex)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateCurrentSubCategoryIndexImpl<T> &&
+            (identical(other.currentIndex, currentIndex) ||
+                other.currentIndex == currentIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, currentIndex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateCurrentSubCategoryIndexImplCopyWith<T,
+          _$UpdateCurrentSubCategoryIndexImpl<T>>
+      get copyWith => __$$UpdateCurrentSubCategoryIndexImplCopyWithImpl<T,
+          _$UpdateCurrentSubCategoryIndexImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() fetchSubCategoryLoading,
+    required TResult Function(FetchSubCategoryResponse subCategory)
+        fetchSubCategorySuccess,
+    required TResult Function(dynamic error) fetchSubCategoryError,
+    required TResult Function(int currentIndex) updateCurrentSubCategoryIndex,
+  }) {
+    return updateCurrentSubCategoryIndex(currentIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? fetchSubCategoryLoading,
+    TResult? Function(FetchSubCategoryResponse subCategory)?
+        fetchSubCategorySuccess,
+    TResult? Function(dynamic error)? fetchSubCategoryError,
+    TResult? Function(int currentIndex)? updateCurrentSubCategoryIndex,
+  }) {
+    return updateCurrentSubCategoryIndex?.call(currentIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? fetchSubCategoryLoading,
+    TResult Function(FetchSubCategoryResponse subCategory)?
+        fetchSubCategorySuccess,
+    TResult Function(dynamic error)? fetchSubCategoryError,
+    TResult Function(int currentIndex)? updateCurrentSubCategoryIndex,
+    required TResult orElse(),
+  }) {
+    if (updateCurrentSubCategoryIndex != null) {
+      return updateCurrentSubCategoryIndex(currentIndex);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(FetchSubCategoryLoading<T> value)
+        fetchSubCategoryLoading,
+    required TResult Function(FetchSubCategorySuccess<T> value)
+        fetchSubCategorySuccess,
+    required TResult Function(FetchSubCategoryError<T> value)
+        fetchSubCategoryError,
+    required TResult Function(UpdateCurrentSubCategoryIndex<T> value)
+        updateCurrentSubCategoryIndex,
+  }) {
+    return updateCurrentSubCategoryIndex(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(FetchSubCategoryLoading<T> value)?
+        fetchSubCategoryLoading,
+    TResult? Function(FetchSubCategorySuccess<T> value)?
+        fetchSubCategorySuccess,
+    TResult? Function(FetchSubCategoryError<T> value)? fetchSubCategoryError,
+    TResult? Function(UpdateCurrentSubCategoryIndex<T> value)?
+        updateCurrentSubCategoryIndex,
+  }) {
+    return updateCurrentSubCategoryIndex?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(FetchSubCategoryLoading<T> value)? fetchSubCategoryLoading,
+    TResult Function(FetchSubCategorySuccess<T> value)? fetchSubCategorySuccess,
+    TResult Function(FetchSubCategoryError<T> value)? fetchSubCategoryError,
+    TResult Function(UpdateCurrentSubCategoryIndex<T> value)?
+        updateCurrentSubCategoryIndex,
+    required TResult orElse(),
+  }) {
+    if (updateCurrentSubCategoryIndex != null) {
+      return updateCurrentSubCategoryIndex(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateCurrentSubCategoryIndex<T> implements SubCategoryState<T> {
+  const factory UpdateCurrentSubCategoryIndex(final int currentIndex) =
+      _$UpdateCurrentSubCategoryIndexImpl<T>;
+
+  int get currentIndex;
+  @JsonKey(ignore: true)
+  _$$UpdateCurrentSubCategoryIndexImplCopyWith<T,
+          _$UpdateCurrentSubCategoryIndexImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }

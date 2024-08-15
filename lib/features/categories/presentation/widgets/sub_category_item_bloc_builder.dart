@@ -23,12 +23,12 @@ class SubCategoryItemBlocBuilder extends StatelessWidget {
     return BlocBuilder<SubCategoryCubit, SubCategoryState>(
       buildWhen: (_, current) => current is UpdateCurrentSubCategoryIndex,
       builder: (context, state) {
-        final int currentSubCategory =
-            context.read<SubCategoryCubit>().currentSubCategoryIndex + 1;
+        int currentSubCategory =
+            context.read<SubCategoryCubit>().currentSubCategoryIndex;
 
         return OutlinedButton(
           style: OutlinedButton.styleFrom(
-            foregroundColor: _changeColor(currentSubCategory, index),
+            foregroundColor: _changeColor(currentSubCategory),
             backgroundColor: Colors.white,
             side: BorderSide(
               width: 1.w,
@@ -46,7 +46,7 @@ class SubCategoryItemBlocBuilder extends StatelessWidget {
           child: Text(
             category.subCategories![index].name,
             style: AppTextStyles.textStyle10Medium.copyWith(
-              color: _changeColor(currentSubCategory, index),
+              color: _changeColor(currentSubCategory),
             ),
           ),
         );
@@ -55,7 +55,9 @@ class SubCategoryItemBlocBuilder extends StatelessWidget {
   }
 
   void _updateCurrentSubCategoryAndFetchIt(BuildContext context) {
-    context.read<SubCategoryCubit>().updateCurrentSubCategoryIndex(index);
+    context
+        .read<SubCategoryCubit>()
+        .updateCurrentSubCategoryIndex(category.subCategories![index].id);
     context.read<SubCategoryCubit>().fetchSubCategory(
           FetchSubCategoryParams(
             categoryId: category.id,
@@ -64,7 +66,7 @@ class SubCategoryItemBlocBuilder extends StatelessWidget {
         );
   }
 
-  Color _changeColor(int currentSubCategory, int index) {
+  Color _changeColor(int currentSubCategory) {
     return currentSubCategory == category.subCategories![index].id
         ? AppColors.primaryColor
         : AppColors.blueColor;

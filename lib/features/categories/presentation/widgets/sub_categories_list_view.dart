@@ -18,8 +18,10 @@ class SubCategoriesListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
         itemCount: category.subCategories!.length,
-        itemBuilder: (_, index) =>
-            SubCategoryItemBlocBuilder(category: category, index: index),
+        itemBuilder: (_, index) => SubCategoryItemBlocBuilder(
+          category: category,
+          index: index,
+        ),
         separatorBuilder: (_, __) => MySizedBox.width8,
       ),
     );
