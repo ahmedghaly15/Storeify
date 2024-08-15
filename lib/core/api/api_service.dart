@@ -9,7 +9,6 @@ import 'package:store_ify/features/auth/data/models/register_params.dart';
 import 'package:store_ify/features/auth/data/models/reset_password_params.dart';
 import 'package:store_ify/features/auth/data/models/validate_otp_params.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
-import 'package:store_ify/features/categories/data/models/fetch_sub_category_params.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_response.dart';
 import 'package:store_ify/features/home/data/models/fetch_home_response.dart';
 
