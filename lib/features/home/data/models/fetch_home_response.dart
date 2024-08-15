@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:store_ify/core/models/pagination.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
 import 'package:store_ify/features/home/data/models/product.dart';
-import 'package:store_ify/features/home/data/models/store.dart';
+import 'package:store_ify/features/stores/data/models/store.dart';
 
 part 'fetch_home_response.g.dart';
 

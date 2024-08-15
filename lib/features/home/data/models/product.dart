@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:store_ify/features/home/data/models/store.dart';
 import 'package:store_ify/features/home/data/models/sub_category.dart';
+import 'package:store_ify/features/stores/data/models/store.dart';
 
 part 'product.g.dart';
 

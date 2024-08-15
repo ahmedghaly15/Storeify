@@ -1,29 +1,27 @@
-import 'package:equatable/equatable.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/features/stores/data/models/stores_model.dart';
 import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
-
-part 'stores_state.dart';
+import 'package:store_ify/features/stores/presentation/cubits/stores/stores_state.dart';
 
 class StoresCubit extends Cubit<StoresState> {
-  final StoresRepo storesRepo;
+  StoresCubit(this._storesRepo) : super(const StoresState.initial());
 
-  StoresCubit({
-    required this.storesRepo,
-  }) : super(const StoresInitial());
+  final StoresRepo _storesRepo;
+  final CancelToken _cancelToken = CancelToken();
 
-  void getStores() {
-    emit(const GetStoresLoading());
-
-    storesRepo.getStores().then(
-      (value) {
-        value.fold(
-          (failure) => emit(
-            GetStoresError(error: failure.errMessage.toString()),
-          ),
-          (stores) => emit(GetStoresSuccess(stores: stores)),
-        );
-      },
+  void fetchStores() async {
+    emit(const StoresState.fetchStoresLoading());
+    final result = await _storesRepo.fetchStores(_cancelToken);
+    result.when(
+      success: (stores) => emit(StoresState.fetchStoresSuccess(stores)),
+      error: (error) =>
+          emit(StoresState.fetchStoresError(error.apiErrorModel.error ?? '')),
     );
+  }
+
+  @override
+  Future<void> close() {
+    _cancelToken.cancel();
+    return super.close();
   }
 }
