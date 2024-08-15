@@ -81,7 +81,7 @@ abstract class _$AppRouter extends RootStackRouter {
         child: WrappedRoute(
             child: SubCategoriesView(
           key: args.key,
-          params: args.params,
+          category: args.category,
         )),
       );
     },
@@ -254,13 +254,13 @@ class SignUpRoute extends PageRouteInfo<void> {
 class SubCategoriesRoute extends PageRouteInfo<SubCategoriesRouteArgs> {
   SubCategoriesRoute({
     Key? key,
-    required NavigateToSubCategoryViewParams params,
+    required Category category,
     List<PageRouteInfo>? children,
   }) : super(
           SubCategoriesRoute.name,
           args: SubCategoriesRouteArgs(
             key: key,
-            params: params,
+            category: category,
           ),
           initialChildren: children,
         );
@@ -274,16 +274,16 @@ class SubCategoriesRoute extends PageRouteInfo<SubCategoriesRouteArgs> {
 class SubCategoriesRouteArgs {
   const SubCategoriesRouteArgs({
     this.key,
-    required this.params,
+    required this.category,
   });
 
   final Key? key;
 
-  final NavigateToSubCategoryViewParams params;
+  final Category category;
 
   @override
   String toString() {
-    return 'SubCategoriesRouteArgs{key: $key, params: $params}';
+    return 'SubCategoriesRouteArgs{key: $key, category: $category}';
   }
 }
 
