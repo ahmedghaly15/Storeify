@@ -38,6 +38,20 @@ class StoreDetailsCubit extends Cubit<StoreDetailsState> {
     );
   }
 
+  void fetchStoreOffers(String storeId) async {
+    emit(const StoreDetailsState.fetchStoreOffersLoading());
+    final result = await _storesRepo.fetchStoreOffers(
+      storeId,
+      _cancelToken,
+    );
+    result.when(
+      success: (storeOffers) =>
+          emit(StoreDetailsState.fetchStoreOffersSuccess(storeOffers)),
+      error: (error) => emit(StoreDetailsState.fetchStoreOffersError(
+          error.apiErrorModel.error ?? '')),
+    );
+  }
+
   @override
   Future<void> close() {
     _cancelToken.cancel();

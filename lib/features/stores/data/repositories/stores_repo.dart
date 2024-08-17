@@ -4,6 +4,7 @@ import 'package:store_ify/core/api/api_service.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_branches.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_categories_response.dart';
+import 'package:store_ify/features/stores/data/models/fetch_store_offers_response.dart';
 import 'package:store_ify/features/stores/data/models/fetch_stores_response.dart';
 
 class StoresRepo {
@@ -49,6 +50,18 @@ class StoresRepo {
   ]) {
     return executeAndHandleErrors<FetchStoreCategoriesResponse>(
       () async => await _apiService.fetchStoreCategories(
+        storeId,
+        cancelToken,
+      ),
+    );
+  }
+
+  Future<ApiResult<FetchStoreOffersResponse>> fetchStoreOffers(
+    String storeId, [
+    CancelToken? cancelToken,
+  ]) {
+    return executeAndHandleErrors<FetchStoreOffersResponse>(
+      () async => await _apiService.fetchStoreOffers(
         storeId,
         cancelToken,
       ),

@@ -13,4 +13,5 @@ class EndPoints {
   static const String fetchStores = '${baseUrl}stores';
   static const String fetchStoreBranches = '${baseUrl}stores/branches/';
   static const String fetchStoreCategories = '${baseUrl}stores/category/';
+  static const String fetchStoreOffers = '${baseUrl}stores/offer/';
 }

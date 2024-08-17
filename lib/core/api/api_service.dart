@@ -13,6 +13,7 @@ import 'package:store_ify/features/categories/data/models/fetch_sub_category_res
 import 'package:store_ify/features/home/data/models/fetch_home_response.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_branches.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_categories_response.dart';
+import 'package:store_ify/features/stores/data/models/fetch_store_offers_response.dart';
 import 'package:store_ify/features/stores/data/models/fetch_stores_response.dart';
 
 part 'api_service.g.dart';
@@ -87,6 +88,12 @@ abstract class ApiService {
 
   @GET('${EndPoints.fetchStoreCategories}{store_id}')
   Future<FetchStoreCategoriesResponse> fetchStoreCategories(
+    @Path('store_id') String storeId, [
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
+
+  @GET('${EndPoints.fetchStoreOffers}{store_id}')
+  Future<FetchStoreOffersResponse> fetchStoreOffers(
     @Path('store_id') String storeId, [
     @CancelRequest() CancelToken? cancelToken,
   ]);

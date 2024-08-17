@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_branches.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_categories_response.dart';
+import 'package:store_ify/features/stores/data/models/fetch_store_offers_response.dart';
 
 part 'store_details_state.freezed.dart';
 
@@ -20,4 +21,10 @@ class StoreDetailsState<T> with _$StoreDetailsState<T> {
       FetchStoreCategoriesSuccess<T>;
   const factory StoreDetailsState.fetchStoreCategoriesError(String error) =
       FetchStoreCategoriesError<T>;
+  const factory StoreDetailsState.fetchStoreOffersLoading() =
+      FetchStoreOffersLoading;
+  const factory StoreDetailsState.fetchStoreOffersSuccess(
+      FetchStoreOffersResponse storeOffers) = FetchStoreOffersSuccess<T>;
+  const factory StoreDetailsState.fetchStoreOffersError(String error) =
+      FetchStoreOffersError<T>;
 }
