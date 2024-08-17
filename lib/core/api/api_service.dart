@@ -11,6 +11,10 @@ import 'package:store_ify/features/auth/data/models/validate_otp_params.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_response.dart';
 import 'package:store_ify/features/home/data/models/fetch_home_response.dart';
+import 'package:store_ify/features/stores/data/models/fetch_store_branches.dart';
+import 'package:store_ify/features/stores/data/models/fetch_store_categories_response.dart';
+import 'package:store_ify/features/stores/data/models/fetch_store_offers_response.dart';
+import 'package:store_ify/features/stores/data/models/fetch_stores_response.dart';
 
 part 'api_service.g.dart';
 
@@ -62,6 +66,35 @@ abstract class ApiService {
   Future<FetchSubCategoryResponse> fetchSubCategory(
     @Path('category_id') int categoryId,
     @Path('sub_category_id') int subCategoryId, [
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
+
+  @GET(EndPoints.fetchStores)
+  Future<FetchStoresResponse> fetchStores([
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
+
+  @GET('${EndPoints.fetchStores}/{category_id}')
+  Future<FetchStoresResponse> fetchCategoryStores(
+    @Path('category_id') String categoryId, [
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
+
+  @GET('${EndPoints.fetchStoreBranches}{store_id}')
+  Future<FetchStoreBranchesResponse> fetchStoreBranches(
+    @Path('store_id') String storeId, [
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
+
+  @GET('${EndPoints.fetchStoreCategories}{store_id}')
+  Future<FetchStoreCategoriesResponse> fetchStoreCategories(
+    @Path('store_id') String storeId, [
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
+
+  @GET('${EndPoints.fetchStoreOffers}{store_id}')
+  Future<FetchStoreOffersResponse> fetchStoreOffers(
+    @Path('store_id') String storeId, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 }

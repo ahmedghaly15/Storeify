@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/features/home/data/models/store.dart';
 import 'package:store_ify/features/home/presentation/widgets/horizontal_separated_list_view.dart';
+import 'package:store_ify/features/stores/data/models/store.dart';
 import 'package:store_ify/features/stores/presentation/widgets/store_item.dart';
 
 class TopStoresListView extends StatelessWidget {

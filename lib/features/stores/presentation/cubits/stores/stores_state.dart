@@ -1,34 +1,20 @@
-part of 'stores_cubit.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:store_ify/features/stores/data/models/fetch_stores_response.dart';
 
-abstract class StoresState extends Equatable {
-  const StoresState();
+part 'stores_state.freezed.dart';
 
-  @override
-  List<Object> get props => [];
-}
-
-class StoresInitial extends StoresState {
-  const StoresInitial();
-}
-
-class GetStoresLoading extends StoresState {
-  const GetStoresLoading();
-}
-
-class GetStoresSuccess extends StoresState {
-  final List<StoresModel> stores;
-
-  const GetStoresSuccess({required this.stores});
-
-  @override
-  List<Object> get props => [stores];
-}
-
-class GetStoresError extends StoresState {
-  final String error;
-
-  const GetStoresError({required this.error});
-
-  @override
-  List<Object> get props => [error];
+@freezed
+class StoresState<T> with _$StoresState<T> {
+  const factory StoresState.initial() = _Initial;
+  const factory StoresState.fetchStoresLoading() = FetchStoresLoading;
+  const factory StoresState.fetchStoresSuccess(FetchStoresResponse stores) =
+      FetchStoresSuccess<T>;
+  const factory StoresState.fetchStoresError(String error) =
+      FetchStoresError<T>;
+  const factory StoresState.fetchCategoryStoresLoading() =
+      FetchCategoryStoresLoading;
+  const factory StoresState.fetchCategoryStoresSuccess(
+      FetchStoresResponse categoryStores) = FetchCategoryStoresSuccess<T>;
+  const factory StoresState.fetchCategoryStoresError(String error) =
+      FetchCategoryStoresError<T>;
 }

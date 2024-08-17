@@ -74,6 +74,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: WrappedRoute(child: const SignUpView()),
       );
     },
+    StoresRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WrappedRoute(child: const StoresView()),
+      );
+    },
     SubCategoriesRoute.name: (routeData) {
       final args = routeData.argsAs<SubCategoriesRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -245,6 +251,20 @@ class SignUpRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SignUpRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [StoresView]
+class StoresRoute extends PageRouteInfo<void> {
+  const StoresRoute({List<PageRouteInfo>? children})
+      : super(
+          StoresRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'StoresRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

@@ -13,6 +13,7 @@ import 'package:store_ify/features/categories/presentation/view/categories_view.
 import 'package:store_ify/features/categories/presentation/view/sub_categories_view.dart';
 import 'package:store_ify/features/home/presentation/view/home_view.dart';
 import 'package:store_ify/features/layout/presentation/views/layout_view.dart';
+import 'package:store_ify/features/stores/presentation/view/stores_view.dart';
 
 part 'app_router.gr.dart';
 part 'app_routes.dart';

@@ -1,9 +1,70 @@
-import 'package:dartz/dartz.dart';
-import 'package:store_ify/core/errors/failure.dart';
-import 'package:store_ify/features/stores/data/models/stores_model.dart';
+import 'package:dio/dio.dart';
+import 'package:store_ify/core/api/api_result.dart';
+import 'package:store_ify/core/api/api_service.dart';
+import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
+import 'package:store_ify/features/stores/data/models/fetch_store_branches.dart';
+import 'package:store_ify/features/stores/data/models/fetch_store_categories_response.dart';
+import 'package:store_ify/features/stores/data/models/fetch_store_offers_response.dart';
+import 'package:store_ify/features/stores/data/models/fetch_stores_response.dart';
 
-abstract class StoresRepo {
-  Future<Either<Failure, List<StoresModel>>> getStores();
-  Future<Either<Failure, List<StoresModel>>> getClothesStores();
-  Future<Either<Failure, List<StoresModel>>> getFoodStores();
+class StoresRepo {
+  const StoresRepo(this._apiService);
+
+  final ApiService _apiService;
+
+  Future<ApiResult<FetchStoresResponse>> fetchStores([
+    CancelToken? cancelToken,
+  ]) {
+    return executeAndHandleErrors<FetchStoresResponse>(
+      () async => await _apiService.fetchStores(cancelToken),
+    );
+  }
+
+  Future<ApiResult<FetchStoresResponse>> fetchCategoryStores(
+    String categoryId, [
+    CancelToken? cancelToken,
+  ]) {
+    return executeAndHandleErrors<FetchStoresResponse>(
+      () async => await _apiService.fetchCategoryStores(
+        categoryId,
+        cancelToken,
+      ),
+    );
+  }
+
+  Future<ApiResult<FetchStoreBranchesResponse>> fetchStoreBranches(
+    String storeId, [
+    CancelToken? cancelToken,
+  ]) {
+    return executeAndHandleErrors<FetchStoreBranchesResponse>(
+      () async => await _apiService.fetchStoreBranches(
+        storeId,
+        cancelToken,
+      ),
+    );
+  }
+
+  Future<ApiResult<FetchStoreCategoriesResponse>> fetchStoreCategories(
+    String storeId, [
+    CancelToken? cancelToken,
+  ]) {
+    return executeAndHandleErrors<FetchStoreCategoriesResponse>(
+      () async => await _apiService.fetchStoreCategories(
+        storeId,
+        cancelToken,
+      ),
+    );
+  }
+
+  Future<ApiResult<FetchStoreOffersResponse>> fetchStoreOffers(
+    String storeId, [
+    CancelToken? cancelToken,
+  ]) {
+    return executeAndHandleErrors<FetchStoreOffersResponse>(
+      () async => await _apiService.fetchStoreOffers(
+        storeId,
+        cancelToken,
+      ),
+    );
+  }
 }
