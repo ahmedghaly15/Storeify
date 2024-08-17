@@ -16,4 +16,16 @@ class StoresRepo {
       () async => await _apiService.fetchStores(cancelToken),
     );
   }
+
+  Future<ApiResult<FetchStoresResponse>> fetchCategoryStores(
+    String categoryId, [
+    CancelToken? cancelToken,
+  ]) {
+    return executeAndHandleErrors<FetchStoresResponse>(
+      () async => await _apiService.fetchCategoryStores(
+        categoryId,
+        cancelToken,
+      ),
+    );
+  }
 }

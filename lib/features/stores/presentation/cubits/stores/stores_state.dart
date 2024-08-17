@@ -11,4 +11,10 @@ class StoresState<T> with _$StoresState<T> {
       FetchStoresSuccess<T>;
   const factory StoresState.fetchStoresError(String error) =
       FetchStoresError<T>;
+  const factory StoresState.fetchCategoryStoresLoading() =
+      FetchCategoryStoresLoading;
+  const factory StoresState.fetchCategoryStoresSuccess(
+      FetchStoresResponse categoryStores) = FetchCategoryStoresSuccess<T>;
+  const factory StoresState.fetchCategoryStoresError(String error) =
+      FetchCategoryStoresError<T>;
 }
