@@ -24,6 +24,20 @@ class StoreDetailsCubit extends Cubit<StoreDetailsState> {
     );
   }
 
+  void fetchStoreCategories(String storeId) async {
+    emit(const StoreDetailsState.fetchStoreCategoriesLoading());
+    final result = await _storesRepo.fetchStoreCategories(
+      storeId,
+      _cancelToken,
+    );
+    result.when(
+      success: (storeCategories) =>
+          emit(StoreDetailsState.fetchStoreCategoriesSuccess(storeCategories)),
+      error: (error) => emit(StoreDetailsState.fetchStoreCategoriesError(
+          error.apiErrorModel.error ?? '')),
+    );
+  }
+
   @override
   Future<void> close() {
     _cancelToken.cancel();

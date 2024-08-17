@@ -23,6 +23,10 @@ mixin _$StoreDetailsState<T> {
     required TResult Function(FetchStoreBranchesResponse storeBranches)
         fetchStoreBranchesSuccess,
     required TResult Function(String error) fetchStoreBranchesError,
+    required TResult Function() fetchStoreCategoriesLoading,
+    required TResult Function(FetchStoreCategoriesResponse storeCategories)
+        fetchStoreCategoriesSuccess,
+    required TResult Function(String error) fetchStoreCategoriesError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +36,10 @@ mixin _$StoreDetailsState<T> {
     TResult? Function(FetchStoreBranchesResponse storeBranches)?
         fetchStoreBranchesSuccess,
     TResult? Function(String error)? fetchStoreBranchesError,
+    TResult? Function()? fetchStoreCategoriesLoading,
+    TResult? Function(FetchStoreCategoriesResponse storeCategories)?
+        fetchStoreCategoriesSuccess,
+    TResult? Function(String error)? fetchStoreCategoriesError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +49,10 @@ mixin _$StoreDetailsState<T> {
     TResult Function(FetchStoreBranchesResponse storeBranches)?
         fetchStoreBranchesSuccess,
     TResult Function(String error)? fetchStoreBranchesError,
+    TResult Function()? fetchStoreCategoriesLoading,
+    TResult Function(FetchStoreCategoriesResponse storeCategories)?
+        fetchStoreCategoriesSuccess,
+    TResult Function(String error)? fetchStoreCategoriesError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,6 +65,12 @@ mixin _$StoreDetailsState<T> {
         fetchStoreBranchesSuccess,
     required TResult Function(FetchStoreBranchesError<T> value)
         fetchStoreBranchesError,
+    required TResult Function(FetchStoreCategoriesLoading<T> value)
+        fetchStoreCategoriesLoading,
+    required TResult Function(FetchStoreCategoriesSuccess<T> value)
+        fetchStoreCategoriesSuccess,
+    required TResult Function(FetchStoreCategoriesError<T> value)
+        fetchStoreCategoriesError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +82,12 @@ mixin _$StoreDetailsState<T> {
         fetchStoreBranchesSuccess,
     TResult? Function(FetchStoreBranchesError<T> value)?
         fetchStoreBranchesError,
+    TResult? Function(FetchStoreCategoriesLoading<T> value)?
+        fetchStoreCategoriesLoading,
+    TResult? Function(FetchStoreCategoriesSuccess<T> value)?
+        fetchStoreCategoriesSuccess,
+    TResult? Function(FetchStoreCategoriesError<T> value)?
+        fetchStoreCategoriesError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,6 +98,12 @@ mixin _$StoreDetailsState<T> {
     TResult Function(FetchStoreBranchesSuccess<T> value)?
         fetchStoreBranchesSuccess,
     TResult Function(FetchStoreBranchesError<T> value)? fetchStoreBranchesError,
+    TResult Function(FetchStoreCategoriesLoading<T> value)?
+        fetchStoreCategoriesLoading,
+    TResult Function(FetchStoreCategoriesSuccess<T> value)?
+        fetchStoreCategoriesSuccess,
+    TResult Function(FetchStoreCategoriesError<T> value)?
+        fetchStoreCategoriesError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,6 +171,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(FetchStoreBranchesResponse storeBranches)
         fetchStoreBranchesSuccess,
     required TResult Function(String error) fetchStoreBranchesError,
+    required TResult Function() fetchStoreCategoriesLoading,
+    required TResult Function(FetchStoreCategoriesResponse storeCategories)
+        fetchStoreCategoriesSuccess,
+    required TResult Function(String error) fetchStoreCategoriesError,
   }) {
     return initial();
   }
@@ -153,6 +187,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(FetchStoreBranchesResponse storeBranches)?
         fetchStoreBranchesSuccess,
     TResult? Function(String error)? fetchStoreBranchesError,
+    TResult? Function()? fetchStoreCategoriesLoading,
+    TResult? Function(FetchStoreCategoriesResponse storeCategories)?
+        fetchStoreCategoriesSuccess,
+    TResult? Function(String error)? fetchStoreCategoriesError,
   }) {
     return initial?.call();
   }
@@ -165,6 +203,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(FetchStoreBranchesResponse storeBranches)?
         fetchStoreBranchesSuccess,
     TResult Function(String error)? fetchStoreBranchesError,
+    TResult Function()? fetchStoreCategoriesLoading,
+    TResult Function(FetchStoreCategoriesResponse storeCategories)?
+        fetchStoreCategoriesSuccess,
+    TResult Function(String error)? fetchStoreCategoriesError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -183,6 +225,12 @@ class _$InitialImpl<T> implements _Initial<T> {
         fetchStoreBranchesSuccess,
     required TResult Function(FetchStoreBranchesError<T> value)
         fetchStoreBranchesError,
+    required TResult Function(FetchStoreCategoriesLoading<T> value)
+        fetchStoreCategoriesLoading,
+    required TResult Function(FetchStoreCategoriesSuccess<T> value)
+        fetchStoreCategoriesSuccess,
+    required TResult Function(FetchStoreCategoriesError<T> value)
+        fetchStoreCategoriesError,
   }) {
     return initial(this);
   }
@@ -197,6 +245,12 @@ class _$InitialImpl<T> implements _Initial<T> {
         fetchStoreBranchesSuccess,
     TResult? Function(FetchStoreBranchesError<T> value)?
         fetchStoreBranchesError,
+    TResult? Function(FetchStoreCategoriesLoading<T> value)?
+        fetchStoreCategoriesLoading,
+    TResult? Function(FetchStoreCategoriesSuccess<T> value)?
+        fetchStoreCategoriesSuccess,
+    TResult? Function(FetchStoreCategoriesError<T> value)?
+        fetchStoreCategoriesError,
   }) {
     return initial?.call(this);
   }
@@ -210,6 +264,12 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(FetchStoreBranchesSuccess<T> value)?
         fetchStoreBranchesSuccess,
     TResult Function(FetchStoreBranchesError<T> value)? fetchStoreBranchesError,
+    TResult Function(FetchStoreCategoriesLoading<T> value)?
+        fetchStoreCategoriesLoading,
+    TResult Function(FetchStoreCategoriesSuccess<T> value)?
+        fetchStoreCategoriesSuccess,
+    TResult Function(FetchStoreCategoriesError<T> value)?
+        fetchStoreCategoriesError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -271,6 +331,10 @@ class _$FetchStoreBranchesLoadingImpl<T>
     required TResult Function(FetchStoreBranchesResponse storeBranches)
         fetchStoreBranchesSuccess,
     required TResult Function(String error) fetchStoreBranchesError,
+    required TResult Function() fetchStoreCategoriesLoading,
+    required TResult Function(FetchStoreCategoriesResponse storeCategories)
+        fetchStoreCategoriesSuccess,
+    required TResult Function(String error) fetchStoreCategoriesError,
   }) {
     return fetchStoreBranchesLoading();
   }
@@ -283,6 +347,10 @@ class _$FetchStoreBranchesLoadingImpl<T>
     TResult? Function(FetchStoreBranchesResponse storeBranches)?
         fetchStoreBranchesSuccess,
     TResult? Function(String error)? fetchStoreBranchesError,
+    TResult? Function()? fetchStoreCategoriesLoading,
+    TResult? Function(FetchStoreCategoriesResponse storeCategories)?
+        fetchStoreCategoriesSuccess,
+    TResult? Function(String error)? fetchStoreCategoriesError,
   }) {
     return fetchStoreBranchesLoading?.call();
   }
@@ -295,6 +363,10 @@ class _$FetchStoreBranchesLoadingImpl<T>
     TResult Function(FetchStoreBranchesResponse storeBranches)?
         fetchStoreBranchesSuccess,
     TResult Function(String error)? fetchStoreBranchesError,
+    TResult Function()? fetchStoreCategoriesLoading,
+    TResult Function(FetchStoreCategoriesResponse storeCategories)?
+        fetchStoreCategoriesSuccess,
+    TResult Function(String error)? fetchStoreCategoriesError,
     required TResult orElse(),
   }) {
     if (fetchStoreBranchesLoading != null) {
@@ -313,6 +385,12 @@ class _$FetchStoreBranchesLoadingImpl<T>
         fetchStoreBranchesSuccess,
     required TResult Function(FetchStoreBranchesError<T> value)
         fetchStoreBranchesError,
+    required TResult Function(FetchStoreCategoriesLoading<T> value)
+        fetchStoreCategoriesLoading,
+    required TResult Function(FetchStoreCategoriesSuccess<T> value)
+        fetchStoreCategoriesSuccess,
+    required TResult Function(FetchStoreCategoriesError<T> value)
+        fetchStoreCategoriesError,
   }) {
     return fetchStoreBranchesLoading(this);
   }
@@ -327,6 +405,12 @@ class _$FetchStoreBranchesLoadingImpl<T>
         fetchStoreBranchesSuccess,
     TResult? Function(FetchStoreBranchesError<T> value)?
         fetchStoreBranchesError,
+    TResult? Function(FetchStoreCategoriesLoading<T> value)?
+        fetchStoreCategoriesLoading,
+    TResult? Function(FetchStoreCategoriesSuccess<T> value)?
+        fetchStoreCategoriesSuccess,
+    TResult? Function(FetchStoreCategoriesError<T> value)?
+        fetchStoreCategoriesError,
   }) {
     return fetchStoreBranchesLoading?.call(this);
   }
@@ -340,6 +424,12 @@ class _$FetchStoreBranchesLoadingImpl<T>
     TResult Function(FetchStoreBranchesSuccess<T> value)?
         fetchStoreBranchesSuccess,
     TResult Function(FetchStoreBranchesError<T> value)? fetchStoreBranchesError,
+    TResult Function(FetchStoreCategoriesLoading<T> value)?
+        fetchStoreCategoriesLoading,
+    TResult Function(FetchStoreCategoriesSuccess<T> value)?
+        fetchStoreCategoriesSuccess,
+    TResult Function(FetchStoreCategoriesError<T> value)?
+        fetchStoreCategoriesError,
     required TResult orElse(),
   }) {
     if (fetchStoreBranchesLoading != null) {
@@ -430,6 +520,10 @@ class _$FetchStoreBranchesSuccessImpl<T>
     required TResult Function(FetchStoreBranchesResponse storeBranches)
         fetchStoreBranchesSuccess,
     required TResult Function(String error) fetchStoreBranchesError,
+    required TResult Function() fetchStoreCategoriesLoading,
+    required TResult Function(FetchStoreCategoriesResponse storeCategories)
+        fetchStoreCategoriesSuccess,
+    required TResult Function(String error) fetchStoreCategoriesError,
   }) {
     return fetchStoreBranchesSuccess(storeBranches);
   }
@@ -442,6 +536,10 @@ class _$FetchStoreBranchesSuccessImpl<T>
     TResult? Function(FetchStoreBranchesResponse storeBranches)?
         fetchStoreBranchesSuccess,
     TResult? Function(String error)? fetchStoreBranchesError,
+    TResult? Function()? fetchStoreCategoriesLoading,
+    TResult? Function(FetchStoreCategoriesResponse storeCategories)?
+        fetchStoreCategoriesSuccess,
+    TResult? Function(String error)? fetchStoreCategoriesError,
   }) {
     return fetchStoreBranchesSuccess?.call(storeBranches);
   }
@@ -454,6 +552,10 @@ class _$FetchStoreBranchesSuccessImpl<T>
     TResult Function(FetchStoreBranchesResponse storeBranches)?
         fetchStoreBranchesSuccess,
     TResult Function(String error)? fetchStoreBranchesError,
+    TResult Function()? fetchStoreCategoriesLoading,
+    TResult Function(FetchStoreCategoriesResponse storeCategories)?
+        fetchStoreCategoriesSuccess,
+    TResult Function(String error)? fetchStoreCategoriesError,
     required TResult orElse(),
   }) {
     if (fetchStoreBranchesSuccess != null) {
@@ -472,6 +574,12 @@ class _$FetchStoreBranchesSuccessImpl<T>
         fetchStoreBranchesSuccess,
     required TResult Function(FetchStoreBranchesError<T> value)
         fetchStoreBranchesError,
+    required TResult Function(FetchStoreCategoriesLoading<T> value)
+        fetchStoreCategoriesLoading,
+    required TResult Function(FetchStoreCategoriesSuccess<T> value)
+        fetchStoreCategoriesSuccess,
+    required TResult Function(FetchStoreCategoriesError<T> value)
+        fetchStoreCategoriesError,
   }) {
     return fetchStoreBranchesSuccess(this);
   }
@@ -486,6 +594,12 @@ class _$FetchStoreBranchesSuccessImpl<T>
         fetchStoreBranchesSuccess,
     TResult? Function(FetchStoreBranchesError<T> value)?
         fetchStoreBranchesError,
+    TResult? Function(FetchStoreCategoriesLoading<T> value)?
+        fetchStoreCategoriesLoading,
+    TResult? Function(FetchStoreCategoriesSuccess<T> value)?
+        fetchStoreCategoriesSuccess,
+    TResult? Function(FetchStoreCategoriesError<T> value)?
+        fetchStoreCategoriesError,
   }) {
     return fetchStoreBranchesSuccess?.call(this);
   }
@@ -499,6 +613,12 @@ class _$FetchStoreBranchesSuccessImpl<T>
     TResult Function(FetchStoreBranchesSuccess<T> value)?
         fetchStoreBranchesSuccess,
     TResult Function(FetchStoreBranchesError<T> value)? fetchStoreBranchesError,
+    TResult Function(FetchStoreCategoriesLoading<T> value)?
+        fetchStoreCategoriesLoading,
+    TResult Function(FetchStoreCategoriesSuccess<T> value)?
+        fetchStoreCategoriesSuccess,
+    TResult Function(FetchStoreCategoriesError<T> value)?
+        fetchStoreCategoriesError,
     required TResult orElse(),
   }) {
     if (fetchStoreBranchesSuccess != null) {
@@ -593,6 +713,10 @@ class _$FetchStoreBranchesErrorImpl<T> implements FetchStoreBranchesError<T> {
     required TResult Function(FetchStoreBranchesResponse storeBranches)
         fetchStoreBranchesSuccess,
     required TResult Function(String error) fetchStoreBranchesError,
+    required TResult Function() fetchStoreCategoriesLoading,
+    required TResult Function(FetchStoreCategoriesResponse storeCategories)
+        fetchStoreCategoriesSuccess,
+    required TResult Function(String error) fetchStoreCategoriesError,
   }) {
     return fetchStoreBranchesError(error);
   }
@@ -605,6 +729,10 @@ class _$FetchStoreBranchesErrorImpl<T> implements FetchStoreBranchesError<T> {
     TResult? Function(FetchStoreBranchesResponse storeBranches)?
         fetchStoreBranchesSuccess,
     TResult? Function(String error)? fetchStoreBranchesError,
+    TResult? Function()? fetchStoreCategoriesLoading,
+    TResult? Function(FetchStoreCategoriesResponse storeCategories)?
+        fetchStoreCategoriesSuccess,
+    TResult? Function(String error)? fetchStoreCategoriesError,
   }) {
     return fetchStoreBranchesError?.call(error);
   }
@@ -617,6 +745,10 @@ class _$FetchStoreBranchesErrorImpl<T> implements FetchStoreBranchesError<T> {
     TResult Function(FetchStoreBranchesResponse storeBranches)?
         fetchStoreBranchesSuccess,
     TResult Function(String error)? fetchStoreBranchesError,
+    TResult Function()? fetchStoreCategoriesLoading,
+    TResult Function(FetchStoreCategoriesResponse storeCategories)?
+        fetchStoreCategoriesSuccess,
+    TResult Function(String error)? fetchStoreCategoriesError,
     required TResult orElse(),
   }) {
     if (fetchStoreBranchesError != null) {
@@ -635,6 +767,12 @@ class _$FetchStoreBranchesErrorImpl<T> implements FetchStoreBranchesError<T> {
         fetchStoreBranchesSuccess,
     required TResult Function(FetchStoreBranchesError<T> value)
         fetchStoreBranchesError,
+    required TResult Function(FetchStoreCategoriesLoading<T> value)
+        fetchStoreCategoriesLoading,
+    required TResult Function(FetchStoreCategoriesSuccess<T> value)
+        fetchStoreCategoriesSuccess,
+    required TResult Function(FetchStoreCategoriesError<T> value)
+        fetchStoreCategoriesError,
   }) {
     return fetchStoreBranchesError(this);
   }
@@ -649,6 +787,12 @@ class _$FetchStoreBranchesErrorImpl<T> implements FetchStoreBranchesError<T> {
         fetchStoreBranchesSuccess,
     TResult? Function(FetchStoreBranchesError<T> value)?
         fetchStoreBranchesError,
+    TResult? Function(FetchStoreCategoriesLoading<T> value)?
+        fetchStoreCategoriesLoading,
+    TResult? Function(FetchStoreCategoriesSuccess<T> value)?
+        fetchStoreCategoriesSuccess,
+    TResult? Function(FetchStoreCategoriesError<T> value)?
+        fetchStoreCategoriesError,
   }) {
     return fetchStoreBranchesError?.call(this);
   }
@@ -662,6 +806,12 @@ class _$FetchStoreBranchesErrorImpl<T> implements FetchStoreBranchesError<T> {
     TResult Function(FetchStoreBranchesSuccess<T> value)?
         fetchStoreBranchesSuccess,
     TResult Function(FetchStoreBranchesError<T> value)? fetchStoreBranchesError,
+    TResult Function(FetchStoreCategoriesLoading<T> value)?
+        fetchStoreCategoriesLoading,
+    TResult Function(FetchStoreCategoriesSuccess<T> value)?
+        fetchStoreCategoriesSuccess,
+    TResult Function(FetchStoreCategoriesError<T> value)?
+        fetchStoreCategoriesError,
     required TResult orElse(),
   }) {
     if (fetchStoreBranchesError != null) {
@@ -678,5 +828,556 @@ abstract class FetchStoreBranchesError<T> implements StoreDetailsState<T> {
   String get error;
   @JsonKey(ignore: true)
   _$$FetchStoreBranchesErrorImplCopyWith<T, _$FetchStoreBranchesErrorImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchStoreCategoriesLoadingImplCopyWith<T, $Res> {
+  factory _$$FetchStoreCategoriesLoadingImplCopyWith(
+          _$FetchStoreCategoriesLoadingImpl<T> value,
+          $Res Function(_$FetchStoreCategoriesLoadingImpl<T>) then) =
+      __$$FetchStoreCategoriesLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$FetchStoreCategoriesLoadingImplCopyWithImpl<T, $Res>
+    extends _$StoreDetailsStateCopyWithImpl<T, $Res,
+        _$FetchStoreCategoriesLoadingImpl<T>>
+    implements _$$FetchStoreCategoriesLoadingImplCopyWith<T, $Res> {
+  __$$FetchStoreCategoriesLoadingImplCopyWithImpl(
+      _$FetchStoreCategoriesLoadingImpl<T> _value,
+      $Res Function(_$FetchStoreCategoriesLoadingImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FetchStoreCategoriesLoadingImpl<T>
+    implements FetchStoreCategoriesLoading<T> {
+  const _$FetchStoreCategoriesLoadingImpl();
+
+  @override
+  String toString() {
+    return 'StoreDetailsState<$T>.fetchStoreCategoriesLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchStoreCategoriesLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() fetchStoreBranchesLoading,
+    required TResult Function(FetchStoreBranchesResponse storeBranches)
+        fetchStoreBranchesSuccess,
+    required TResult Function(String error) fetchStoreBranchesError,
+    required TResult Function() fetchStoreCategoriesLoading,
+    required TResult Function(FetchStoreCategoriesResponse storeCategories)
+        fetchStoreCategoriesSuccess,
+    required TResult Function(String error) fetchStoreCategoriesError,
+  }) {
+    return fetchStoreCategoriesLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? fetchStoreBranchesLoading,
+    TResult? Function(FetchStoreBranchesResponse storeBranches)?
+        fetchStoreBranchesSuccess,
+    TResult? Function(String error)? fetchStoreBranchesError,
+    TResult? Function()? fetchStoreCategoriesLoading,
+    TResult? Function(FetchStoreCategoriesResponse storeCategories)?
+        fetchStoreCategoriesSuccess,
+    TResult? Function(String error)? fetchStoreCategoriesError,
+  }) {
+    return fetchStoreCategoriesLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? fetchStoreBranchesLoading,
+    TResult Function(FetchStoreBranchesResponse storeBranches)?
+        fetchStoreBranchesSuccess,
+    TResult Function(String error)? fetchStoreBranchesError,
+    TResult Function()? fetchStoreCategoriesLoading,
+    TResult Function(FetchStoreCategoriesResponse storeCategories)?
+        fetchStoreCategoriesSuccess,
+    TResult Function(String error)? fetchStoreCategoriesError,
+    required TResult orElse(),
+  }) {
+    if (fetchStoreCategoriesLoading != null) {
+      return fetchStoreCategoriesLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(FetchStoreBranchesLoading<T> value)
+        fetchStoreBranchesLoading,
+    required TResult Function(FetchStoreBranchesSuccess<T> value)
+        fetchStoreBranchesSuccess,
+    required TResult Function(FetchStoreBranchesError<T> value)
+        fetchStoreBranchesError,
+    required TResult Function(FetchStoreCategoriesLoading<T> value)
+        fetchStoreCategoriesLoading,
+    required TResult Function(FetchStoreCategoriesSuccess<T> value)
+        fetchStoreCategoriesSuccess,
+    required TResult Function(FetchStoreCategoriesError<T> value)
+        fetchStoreCategoriesError,
+  }) {
+    return fetchStoreCategoriesLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(FetchStoreBranchesLoading<T> value)?
+        fetchStoreBranchesLoading,
+    TResult? Function(FetchStoreBranchesSuccess<T> value)?
+        fetchStoreBranchesSuccess,
+    TResult? Function(FetchStoreBranchesError<T> value)?
+        fetchStoreBranchesError,
+    TResult? Function(FetchStoreCategoriesLoading<T> value)?
+        fetchStoreCategoriesLoading,
+    TResult? Function(FetchStoreCategoriesSuccess<T> value)?
+        fetchStoreCategoriesSuccess,
+    TResult? Function(FetchStoreCategoriesError<T> value)?
+        fetchStoreCategoriesError,
+  }) {
+    return fetchStoreCategoriesLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(FetchStoreBranchesLoading<T> value)?
+        fetchStoreBranchesLoading,
+    TResult Function(FetchStoreBranchesSuccess<T> value)?
+        fetchStoreBranchesSuccess,
+    TResult Function(FetchStoreBranchesError<T> value)? fetchStoreBranchesError,
+    TResult Function(FetchStoreCategoriesLoading<T> value)?
+        fetchStoreCategoriesLoading,
+    TResult Function(FetchStoreCategoriesSuccess<T> value)?
+        fetchStoreCategoriesSuccess,
+    TResult Function(FetchStoreCategoriesError<T> value)?
+        fetchStoreCategoriesError,
+    required TResult orElse(),
+  }) {
+    if (fetchStoreCategoriesLoading != null) {
+      return fetchStoreCategoriesLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchStoreCategoriesLoading<T> implements StoreDetailsState<T> {
+  const factory FetchStoreCategoriesLoading() =
+      _$FetchStoreCategoriesLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$FetchStoreCategoriesSuccessImplCopyWith<T, $Res> {
+  factory _$$FetchStoreCategoriesSuccessImplCopyWith(
+          _$FetchStoreCategoriesSuccessImpl<T> value,
+          $Res Function(_$FetchStoreCategoriesSuccessImpl<T>) then) =
+      __$$FetchStoreCategoriesSuccessImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({FetchStoreCategoriesResponse storeCategories});
+}
+
+/// @nodoc
+class __$$FetchStoreCategoriesSuccessImplCopyWithImpl<T, $Res>
+    extends _$StoreDetailsStateCopyWithImpl<T, $Res,
+        _$FetchStoreCategoriesSuccessImpl<T>>
+    implements _$$FetchStoreCategoriesSuccessImplCopyWith<T, $Res> {
+  __$$FetchStoreCategoriesSuccessImplCopyWithImpl(
+      _$FetchStoreCategoriesSuccessImpl<T> _value,
+      $Res Function(_$FetchStoreCategoriesSuccessImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? storeCategories = null,
+  }) {
+    return _then(_$FetchStoreCategoriesSuccessImpl<T>(
+      null == storeCategories
+          ? _value.storeCategories
+          : storeCategories // ignore: cast_nullable_to_non_nullable
+              as FetchStoreCategoriesResponse,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchStoreCategoriesSuccessImpl<T>
+    implements FetchStoreCategoriesSuccess<T> {
+  const _$FetchStoreCategoriesSuccessImpl(this.storeCategories);
+
+  @override
+  final FetchStoreCategoriesResponse storeCategories;
+
+  @override
+  String toString() {
+    return 'StoreDetailsState<$T>.fetchStoreCategoriesSuccess(storeCategories: $storeCategories)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchStoreCategoriesSuccessImpl<T> &&
+            (identical(other.storeCategories, storeCategories) ||
+                other.storeCategories == storeCategories));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, storeCategories);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchStoreCategoriesSuccessImplCopyWith<T,
+          _$FetchStoreCategoriesSuccessImpl<T>>
+      get copyWith => __$$FetchStoreCategoriesSuccessImplCopyWithImpl<T,
+          _$FetchStoreCategoriesSuccessImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() fetchStoreBranchesLoading,
+    required TResult Function(FetchStoreBranchesResponse storeBranches)
+        fetchStoreBranchesSuccess,
+    required TResult Function(String error) fetchStoreBranchesError,
+    required TResult Function() fetchStoreCategoriesLoading,
+    required TResult Function(FetchStoreCategoriesResponse storeCategories)
+        fetchStoreCategoriesSuccess,
+    required TResult Function(String error) fetchStoreCategoriesError,
+  }) {
+    return fetchStoreCategoriesSuccess(storeCategories);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? fetchStoreBranchesLoading,
+    TResult? Function(FetchStoreBranchesResponse storeBranches)?
+        fetchStoreBranchesSuccess,
+    TResult? Function(String error)? fetchStoreBranchesError,
+    TResult? Function()? fetchStoreCategoriesLoading,
+    TResult? Function(FetchStoreCategoriesResponse storeCategories)?
+        fetchStoreCategoriesSuccess,
+    TResult? Function(String error)? fetchStoreCategoriesError,
+  }) {
+    return fetchStoreCategoriesSuccess?.call(storeCategories);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? fetchStoreBranchesLoading,
+    TResult Function(FetchStoreBranchesResponse storeBranches)?
+        fetchStoreBranchesSuccess,
+    TResult Function(String error)? fetchStoreBranchesError,
+    TResult Function()? fetchStoreCategoriesLoading,
+    TResult Function(FetchStoreCategoriesResponse storeCategories)?
+        fetchStoreCategoriesSuccess,
+    TResult Function(String error)? fetchStoreCategoriesError,
+    required TResult orElse(),
+  }) {
+    if (fetchStoreCategoriesSuccess != null) {
+      return fetchStoreCategoriesSuccess(storeCategories);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(FetchStoreBranchesLoading<T> value)
+        fetchStoreBranchesLoading,
+    required TResult Function(FetchStoreBranchesSuccess<T> value)
+        fetchStoreBranchesSuccess,
+    required TResult Function(FetchStoreBranchesError<T> value)
+        fetchStoreBranchesError,
+    required TResult Function(FetchStoreCategoriesLoading<T> value)
+        fetchStoreCategoriesLoading,
+    required TResult Function(FetchStoreCategoriesSuccess<T> value)
+        fetchStoreCategoriesSuccess,
+    required TResult Function(FetchStoreCategoriesError<T> value)
+        fetchStoreCategoriesError,
+  }) {
+    return fetchStoreCategoriesSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(FetchStoreBranchesLoading<T> value)?
+        fetchStoreBranchesLoading,
+    TResult? Function(FetchStoreBranchesSuccess<T> value)?
+        fetchStoreBranchesSuccess,
+    TResult? Function(FetchStoreBranchesError<T> value)?
+        fetchStoreBranchesError,
+    TResult? Function(FetchStoreCategoriesLoading<T> value)?
+        fetchStoreCategoriesLoading,
+    TResult? Function(FetchStoreCategoriesSuccess<T> value)?
+        fetchStoreCategoriesSuccess,
+    TResult? Function(FetchStoreCategoriesError<T> value)?
+        fetchStoreCategoriesError,
+  }) {
+    return fetchStoreCategoriesSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(FetchStoreBranchesLoading<T> value)?
+        fetchStoreBranchesLoading,
+    TResult Function(FetchStoreBranchesSuccess<T> value)?
+        fetchStoreBranchesSuccess,
+    TResult Function(FetchStoreBranchesError<T> value)? fetchStoreBranchesError,
+    TResult Function(FetchStoreCategoriesLoading<T> value)?
+        fetchStoreCategoriesLoading,
+    TResult Function(FetchStoreCategoriesSuccess<T> value)?
+        fetchStoreCategoriesSuccess,
+    TResult Function(FetchStoreCategoriesError<T> value)?
+        fetchStoreCategoriesError,
+    required TResult orElse(),
+  }) {
+    if (fetchStoreCategoriesSuccess != null) {
+      return fetchStoreCategoriesSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchStoreCategoriesSuccess<T> implements StoreDetailsState<T> {
+  const factory FetchStoreCategoriesSuccess(
+          final FetchStoreCategoriesResponse storeCategories) =
+      _$FetchStoreCategoriesSuccessImpl<T>;
+
+  FetchStoreCategoriesResponse get storeCategories;
+  @JsonKey(ignore: true)
+  _$$FetchStoreCategoriesSuccessImplCopyWith<T,
+          _$FetchStoreCategoriesSuccessImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchStoreCategoriesErrorImplCopyWith<T, $Res> {
+  factory _$$FetchStoreCategoriesErrorImplCopyWith(
+          _$FetchStoreCategoriesErrorImpl<T> value,
+          $Res Function(_$FetchStoreCategoriesErrorImpl<T>) then) =
+      __$$FetchStoreCategoriesErrorImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$FetchStoreCategoriesErrorImplCopyWithImpl<T, $Res>
+    extends _$StoreDetailsStateCopyWithImpl<T, $Res,
+        _$FetchStoreCategoriesErrorImpl<T>>
+    implements _$$FetchStoreCategoriesErrorImplCopyWith<T, $Res> {
+  __$$FetchStoreCategoriesErrorImplCopyWithImpl(
+      _$FetchStoreCategoriesErrorImpl<T> _value,
+      $Res Function(_$FetchStoreCategoriesErrorImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$FetchStoreCategoriesErrorImpl<T>(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchStoreCategoriesErrorImpl<T>
+    implements FetchStoreCategoriesError<T> {
+  const _$FetchStoreCategoriesErrorImpl(this.error);
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'StoreDetailsState<$T>.fetchStoreCategoriesError(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchStoreCategoriesErrorImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchStoreCategoriesErrorImplCopyWith<T,
+          _$FetchStoreCategoriesErrorImpl<T>>
+      get copyWith => __$$FetchStoreCategoriesErrorImplCopyWithImpl<T,
+          _$FetchStoreCategoriesErrorImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() fetchStoreBranchesLoading,
+    required TResult Function(FetchStoreBranchesResponse storeBranches)
+        fetchStoreBranchesSuccess,
+    required TResult Function(String error) fetchStoreBranchesError,
+    required TResult Function() fetchStoreCategoriesLoading,
+    required TResult Function(FetchStoreCategoriesResponse storeCategories)
+        fetchStoreCategoriesSuccess,
+    required TResult Function(String error) fetchStoreCategoriesError,
+  }) {
+    return fetchStoreCategoriesError(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? fetchStoreBranchesLoading,
+    TResult? Function(FetchStoreBranchesResponse storeBranches)?
+        fetchStoreBranchesSuccess,
+    TResult? Function(String error)? fetchStoreBranchesError,
+    TResult? Function()? fetchStoreCategoriesLoading,
+    TResult? Function(FetchStoreCategoriesResponse storeCategories)?
+        fetchStoreCategoriesSuccess,
+    TResult? Function(String error)? fetchStoreCategoriesError,
+  }) {
+    return fetchStoreCategoriesError?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? fetchStoreBranchesLoading,
+    TResult Function(FetchStoreBranchesResponse storeBranches)?
+        fetchStoreBranchesSuccess,
+    TResult Function(String error)? fetchStoreBranchesError,
+    TResult Function()? fetchStoreCategoriesLoading,
+    TResult Function(FetchStoreCategoriesResponse storeCategories)?
+        fetchStoreCategoriesSuccess,
+    TResult Function(String error)? fetchStoreCategoriesError,
+    required TResult orElse(),
+  }) {
+    if (fetchStoreCategoriesError != null) {
+      return fetchStoreCategoriesError(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(FetchStoreBranchesLoading<T> value)
+        fetchStoreBranchesLoading,
+    required TResult Function(FetchStoreBranchesSuccess<T> value)
+        fetchStoreBranchesSuccess,
+    required TResult Function(FetchStoreBranchesError<T> value)
+        fetchStoreBranchesError,
+    required TResult Function(FetchStoreCategoriesLoading<T> value)
+        fetchStoreCategoriesLoading,
+    required TResult Function(FetchStoreCategoriesSuccess<T> value)
+        fetchStoreCategoriesSuccess,
+    required TResult Function(FetchStoreCategoriesError<T> value)
+        fetchStoreCategoriesError,
+  }) {
+    return fetchStoreCategoriesError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(FetchStoreBranchesLoading<T> value)?
+        fetchStoreBranchesLoading,
+    TResult? Function(FetchStoreBranchesSuccess<T> value)?
+        fetchStoreBranchesSuccess,
+    TResult? Function(FetchStoreBranchesError<T> value)?
+        fetchStoreBranchesError,
+    TResult? Function(FetchStoreCategoriesLoading<T> value)?
+        fetchStoreCategoriesLoading,
+    TResult? Function(FetchStoreCategoriesSuccess<T> value)?
+        fetchStoreCategoriesSuccess,
+    TResult? Function(FetchStoreCategoriesError<T> value)?
+        fetchStoreCategoriesError,
+  }) {
+    return fetchStoreCategoriesError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(FetchStoreBranchesLoading<T> value)?
+        fetchStoreBranchesLoading,
+    TResult Function(FetchStoreBranchesSuccess<T> value)?
+        fetchStoreBranchesSuccess,
+    TResult Function(FetchStoreBranchesError<T> value)? fetchStoreBranchesError,
+    TResult Function(FetchStoreCategoriesLoading<T> value)?
+        fetchStoreCategoriesLoading,
+    TResult Function(FetchStoreCategoriesSuccess<T> value)?
+        fetchStoreCategoriesSuccess,
+    TResult Function(FetchStoreCategoriesError<T> value)?
+        fetchStoreCategoriesError,
+    required TResult orElse(),
+  }) {
+    if (fetchStoreCategoriesError != null) {
+      return fetchStoreCategoriesError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchStoreCategoriesError<T> implements StoreDetailsState<T> {
+  const factory FetchStoreCategoriesError(final String error) =
+      _$FetchStoreCategoriesErrorImpl<T>;
+
+  String get error;
+  @JsonKey(ignore: true)
+  _$$FetchStoreCategoriesErrorImplCopyWith<T,
+          _$FetchStoreCategoriesErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
