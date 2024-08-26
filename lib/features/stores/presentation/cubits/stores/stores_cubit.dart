@@ -33,6 +33,12 @@ class StoresCubit extends Cubit<StoresState> {
     );
   }
 
+  int currentStoreIndex = 1;
+  void updateCurrentStoreIndex(int index) {
+    currentStoreIndex = index;
+    emit(StoresState.updateCurrentStoreIndex(index));
+  }
+
   @override
   Future<void> close() {
     _cancelToken.cancel();

@@ -17,4 +17,6 @@ class StoresState<T> with _$StoresState<T> {
       FetchStoresResponse categoryStores) = FetchCategoryStoresSuccess<T>;
   const factory StoresState.fetchCategoryStoresError(String error) =
       FetchCategoryStoresError<T>;
+  const factory StoresState.updateCurrentStoreIndex(int currentIndex) =
+      UpdateCurrentStoreIndex<T>;
 }
