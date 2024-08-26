@@ -1,4 +1,4 @@
-import 'package:store_ify/core/utils/app_strings.dart';
+// import 'package:store_ify/core/utils/app_strings.dart';
 
 class ApiErrors {
   static const String badRequestError = "badRequestError";
@@ -13,7 +13,7 @@ class ApiErrors {
   static const String defaultError =
       'Opps, something is wrong.\nPlease try again later';
   static const String cacheError = "cacheError";
-  static const String noInternetError = AppStrings.noInternet;
+  // static const String noInternetError = AppStrings.noInternet;
   static const String loadingMessage = "loading_message";
   static const String retryAgainMessage = "retry_again_message";
   static const String ok = "Ok";

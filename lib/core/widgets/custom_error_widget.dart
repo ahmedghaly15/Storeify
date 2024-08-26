@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
@@ -31,12 +32,12 @@ class CustomErrorWidget extends StatelessWidget {
           Container(
             margin: EdgeInsets.symmetric(vertical: 12.h),
             child: Text(
-              error == AppStrings.noInternet ? '$error. Tap to try' : error,
+              error == LangKeys.noInternet ? '$error. Tap to try' : error,
               style: AppTextStyles.textStyle18Bold,
               textAlign: TextAlign.center,
             ),
           ),
-          if (error == AppStrings.noInternet)
+          if (error == LangKeys.noInternet)
             Text(
               'Connect to the internet and try again.',
               style: AppTextStyles.textStyle14Regular,

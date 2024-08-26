@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:store_ify/core/api/api_error_model.dart';
 import 'package:store_ify/core/api/api_errors.dart';
+import 'package:store_ify/core/locale/lang_keys.dart';
 
 enum DataSource {
   noContent,
@@ -58,7 +59,7 @@ class ResponseError {
   static String receiveTimeout = ApiErrors.timeoutError;
   static String sendTimeout = ApiErrors.timeoutError;
   static String cacheError = ApiErrors.cacheError;
-  static String noInternetConnection = ApiErrors.noInternetError;
+  static String noInternetConnection = LangKeys.noInternet;
   static String defaultError = ApiErrors.defaultError;
 }
 

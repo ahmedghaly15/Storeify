@@ -20,7 +20,7 @@ ApiErrorModel _$ApiErrorModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ApiErrorModel {
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'code')
   String? get error => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $ApiErrorModelCopyWith<$Res> {
           ApiErrorModel value, $Res Function(ApiErrorModel) then) =
       _$ApiErrorModelCopyWithImpl<$Res, ApiErrorModel>;
   @useResult
-  $Res call({@JsonKey(name: 'data') String? error});
+  $Res call({@JsonKey(name: 'code') String? error});
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ abstract class _$$ApiErrorModelImplCopyWith<$Res>
       __$$ApiErrorModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'data') String? error});
+  $Res call({@JsonKey(name: 'code') String? error});
 }
 
 /// @nodoc
@@ -98,13 +98,13 @@ class __$$ApiErrorModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ApiErrorModelImpl implements _ApiErrorModel {
-  const _$ApiErrorModelImpl({@JsonKey(name: 'data') this.error});
+  const _$ApiErrorModelImpl({@JsonKey(name: 'code') this.error});
 
   factory _$ApiErrorModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ApiErrorModelImplFromJson(json);
 
   @override
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'code')
   final String? error;
 
   @override
@@ -139,14 +139,14 @@ class _$ApiErrorModelImpl implements _ApiErrorModel {
 }
 
 abstract class _ApiErrorModel implements ApiErrorModel {
-  const factory _ApiErrorModel({@JsonKey(name: 'data') final String? error}) =
+  const factory _ApiErrorModel({@JsonKey(name: 'code') final String? error}) =
       _$ApiErrorModelImpl;
 
   factory _ApiErrorModel.fromJson(Map<String, dynamic> json) =
       _$ApiErrorModelImpl.fromJson;
 
   @override
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'code')
   String? get error;
   @override
   @JsonKey(ignore: true)

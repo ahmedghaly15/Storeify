@@ -9,4 +9,8 @@ class AppConstants {
   static double get gridCrossAxisSpacing => 10.w;
   static double get gridMainAxisSpacing => 16.h;
   static const Duration gridDuration = Duration(milliseconds: 650);
+  static EdgeInsetsGeometry categoryMargin =
+      EdgeInsetsDirectional.only(top: 29.h, bottom: 19.h);
+  static EdgeInsetsGeometry categoryPadding =
+      EdgeInsetsDirectional.symmetric(horizontal: 16.w);
 }

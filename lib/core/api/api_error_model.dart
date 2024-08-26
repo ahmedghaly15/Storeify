@@ -6,7 +6,7 @@ part 'api_error_model.freezed.dart';
 @freezed
 class ApiErrorModel with _$ApiErrorModel {
   const factory ApiErrorModel({
-    @JsonKey(name: 'data') String? error,
+    @JsonKey(name: 'code') String? error,
   }) = _ApiErrorModel;
 
   factory ApiErrorModel.fromJson(Map<String, dynamic> json) =>
