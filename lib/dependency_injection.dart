@@ -17,6 +17,7 @@ import 'package:store_ify/features/categories/presentation/cubit/sub_category/su
 import 'package:store_ify/features/home/data/repos/home_repo.dart';
 import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
 import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
+import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubit.dart';
 
 final GetIt getIt = GetIt.instance;
@@ -79,5 +80,8 @@ void _setupDIForCubits() {
   );
   getIt.registerFactory<StoresCubit>(
     () => StoresCubit(getIt.get<StoresRepo>()),
+  );
+  getIt.registerFactory<StoreDetailsCubit>(
+    () => StoreDetailsCubit(getIt.get<StoresRepo>()),
   );
 }

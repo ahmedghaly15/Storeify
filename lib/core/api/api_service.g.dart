@@ -396,7 +396,7 @@ class _ApiService implements ApiService {
 
   @override
   Future<FetchStoreOffersResponse> fetchStoreOffers(
-    String storeId, [
+    int storeId, [
     CancelToken? cancelToken,
   ]) async {
     final _extra = <String, dynamic>{};

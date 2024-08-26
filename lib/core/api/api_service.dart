@@ -94,7 +94,7 @@ abstract class ApiService {
 
   @GET('${EndPoints.fetchStoreOffers}{store_id}')
   Future<FetchStoreOffersResponse> fetchStoreOffers(
-    @Path('store_id') String storeId, [
+    @Path('store_id') int storeId, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 }

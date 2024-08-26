@@ -57,7 +57,7 @@ class StoresRepo {
   }
 
   Future<ApiResult<FetchStoreOffersResponse>> fetchStoreOffers(
-    String storeId, [
+    int storeId, [
     CancelToken? cancelToken,
   ]) {
     return executeAndHandleErrors<FetchStoreOffersResponse>(

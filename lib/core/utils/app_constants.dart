@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/locale/lang_keys.dart';
 
 bool isUserLoggedIn = false;
 
@@ -13,4 +14,9 @@ class AppConstants {
       EdgeInsetsDirectional.only(top: 29.h, bottom: 19.h);
   static EdgeInsetsGeometry categoryPadding =
       EdgeInsetsDirectional.symmetric(horizontal: 16.w);
+  static const List<String> storeDetailsCategoriesKeys = [
+    LangKeys.allOffers,
+    LangKeys.branches,
+    LangKeys.categories,
+  ];
 }
