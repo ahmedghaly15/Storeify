@@ -33,8 +33,8 @@ class StoreDetailsView extends StatelessWidget implements AutoRouteWrapper {
           SliverToBoxAdapter(
             child: StoreImageAndName(store: store),
           ),
-          const SliverToBoxAdapter(
-            child: StoreDetailsCategoriesListView(),
+          SliverToBoxAdapter(
+            child: StoreDetailsCategoriesListView(storeId: store.id),
           ),
           SliverPadding(
             padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),

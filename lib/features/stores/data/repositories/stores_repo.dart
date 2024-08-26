@@ -33,7 +33,7 @@ class StoresRepo {
   }
 
   Future<ApiResult<FetchStoreBranchesResponse>> fetchStoreBranches(
-    String storeId, [
+    int storeId, [
     CancelToken? cancelToken,
   ]) {
     return executeAndHandleErrors<FetchStoreBranchesResponse>(
@@ -45,7 +45,7 @@ class StoresRepo {
   }
 
   Future<ApiResult<FetchStoreCategoriesResponse>> fetchStoreCategories(
-    String storeId, [
+    int storeId, [
     CancelToken? cancelToken,
   ]) {
     return executeAndHandleErrors<FetchStoreCategoriesResponse>(

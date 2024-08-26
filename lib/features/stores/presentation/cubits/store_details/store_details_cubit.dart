@@ -11,7 +11,7 @@ class StoreDetailsCubit extends Cubit<StoreDetailsState> {
   final StoresRepo _storesRepo;
   final CancelToken _cancelToken = CancelToken();
 
-  void fetchStoreBranches(String storeId) async {
+  void fetchStoreBranches(int storeId) async {
     emit(const StoreDetailsState.fetchStoreBranchesLoading());
     final result = await _storesRepo.fetchStoreBranches(
       storeId,
@@ -25,7 +25,7 @@ class StoreDetailsCubit extends Cubit<StoreDetailsState> {
     );
   }
 
-  void fetchStoreCategories(String storeId) async {
+  void fetchStoreCategories(int storeId) async {
     emit(const StoreDetailsState.fetchStoreCategoriesLoading());
     final result = await _storesRepo.fetchStoreCategories(
       storeId,

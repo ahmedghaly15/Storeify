@@ -82,13 +82,13 @@ abstract class ApiService {
 
   @GET('${EndPoints.fetchStoreBranches}{store_id}')
   Future<FetchStoreBranchesResponse> fetchStoreBranches(
-    @Path('store_id') String storeId, [
+    @Path('store_id') int storeId, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 
   @GET('${EndPoints.fetchStoreCategories}{store_id}')
   Future<FetchStoreCategoriesResponse> fetchStoreCategories(
-    @Path('store_id') String storeId, [
+    @Path('store_id') int storeId, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 

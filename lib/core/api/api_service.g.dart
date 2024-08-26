@@ -332,7 +332,7 @@ class _ApiService implements ApiService {
 
   @override
   Future<FetchStoreBranchesResponse> fetchStoreBranches(
-    String storeId, [
+    int storeId, [
     CancelToken? cancelToken,
   ]) async {
     final _extra = <String, dynamic>{};
@@ -364,7 +364,7 @@ class _ApiService implements ApiService {
 
   @override
   Future<FetchStoreCategoriesResponse> fetchStoreCategories(
-    String storeId, [
+    int storeId, [
     CancelToken? cancelToken,
   ]) async {
     final _extra = <String, dynamic>{};
