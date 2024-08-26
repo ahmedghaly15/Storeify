@@ -4,8 +4,9 @@ import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_state.dart';
 
 class StoreDetailsCubit extends Cubit<StoreDetailsState> {
-  StoreDetailsCubit(this._storesRepo)
-      : super(const StoreDetailsState.initial());
+  StoreDetailsCubit(
+    this._storesRepo,
+  ) : super(const StoreDetailsState.initial());
 
   final StoresRepo _storesRepo;
   final CancelToken _cancelToken = CancelToken();

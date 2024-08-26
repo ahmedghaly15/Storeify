@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
+import 'package:store_ify/core/widgets/custom_outlined_button.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_params.dart';
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_cubit.dart';
@@ -26,33 +26,31 @@ class SubCategoryItemBlocBuilder extends StatelessWidget {
         int currentSubCategory =
             context.read<SubCategoryCubit>().currentSubCategoryIndex;
 
-        return OutlinedButton(
-          style: OutlinedButton.styleFrom(
-            foregroundColor: _changeColor(currentSubCategory),
-            backgroundColor: Colors.white,
-            side: BorderSide(
-              width: 1.w,
-              color: currentSubCategory == category.subCategories![index].id
-                  ? AppColors.primaryColor
-                  : AppColors.blueColor,
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(34.r),
-            ),
-          ),
+        return CustomOutlinedButton(
+          foregroundColor: _activeColor(currentSubCategory),
+          borderColor: _activeColor(currentSubCategory),
           onPressed: () {
             _updateCurrentSubCategoryAndFetchIt(context);
           },
           child: Text(
             category.subCategories![index].name,
             style: AppTextStyles.textStyle10Medium.copyWith(
-              color: _changeColor(currentSubCategory),
+              color: _activeColor(currentSubCategory),
             ),
           ),
         );
       },
     );
   }
+
+  Color _activeColor(int currentSubCategory) {
+    return _isActive(currentSubCategory)
+        ? AppColors.primaryColor
+        : AppColors.blueColor;
+  }
+
+  bool _isActive(int currentSubCategory) =>
+      currentSubCategory == category.subCategories![index].id;
 
   void _updateCurrentSubCategoryAndFetchIt(BuildContext context) {
     context
@@ -64,11 +62,5 @@ class SubCategoryItemBlocBuilder extends StatelessWidget {
             subCategoryId: category.subCategories![index].id,
           ),
         );
-  }
-
-  Color _changeColor(int currentSubCategory) {
-    return currentSubCategory == category.subCategories![index].id
-        ? AppColors.primaryColor
-        : AppColors.blueColor;
   }
 }

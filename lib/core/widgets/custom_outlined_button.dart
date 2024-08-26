@@ -1,33 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:store_ify/core/themes/app_text_styles.dart';
+import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomButtonOutlinedApp extends StatelessWidget {
-  const CustomButtonOutlinedApp({
+class CustomOutlinedButton extends StatelessWidget {
+  const CustomOutlinedButton({
     super.key,
-    required this.text,
-    this.onPressed,
-    required this.activeColor,
+    required this.onPressed,
+    required this.child,
+    this.foregroundColor,
+    this.borderColor,
   });
 
-  final String text;
+  final Widget child;
   final void Function()? onPressed;
-  final Color activeColor;
+  final Color? foregroundColor;
+  final Color? borderColor;
 
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
-      style: ButtonStyle(
-        side: WidgetStatePropertyAll(BorderSide(width: 1, color: activeColor)),
-        padding: const WidgetStatePropertyAll(
-            EdgeInsets.symmetric(horizontal: 25, vertical: 5)),
+      style: OutlinedButton.styleFrom(
+        foregroundColor: foregroundColor,
+        backgroundColor: Colors.white,
+        side: BorderSide(
+          width: 1.w,
+          color: borderColor ?? AppColors.primaryColor,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(34.r),
+        ),
       ),
       onPressed: onPressed,
-      child: Text(
-        text,
-        style: AppTextStyles.textStyle8Regular
-            .copyWith(fontSize: 10.sp, color: activeColor),
-      ),
+      child: child,
     );
   }
 }
