@@ -20,4 +20,16 @@ class FavoritesRepo {
       ),
     );
   }
+
+  Future<ApiResult<void>> removeProductFromFavs(
+    int productId, [
+    CancelToken? cancelToken,
+  ]) {
+    return executeAndHandleErrors<void>(
+      () async => await _apiService.removeProductFromFavs(
+        productId,
+        cancelToken,
+      ),
+    );
+  }
 }

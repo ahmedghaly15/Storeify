@@ -25,6 +25,20 @@ class FavoritesCubit extends Cubit<FavoritesState> {
     );
   }
 
+  void removeProductFromFavs(int productId) async {
+    emit(const FavoritesState.removeProductFromFavsLoading());
+    final result = await _favoritesRepo.removeProductFromFavs(
+      productId,
+      _cancelToken,
+    );
+    result.when(
+      success: (_) => emit(const FavoritesState.removeProductFromFavsSuccess()),
+      error: (error) => emit(
+        FavoritesState.removeProductFromFavsError(error.error ?? ''),
+      ),
+    );
+  }
+
   @override
   Future<void> close() {
     _cancelToken.cancel();
