@@ -25,10 +25,6 @@ mixin _$FavoritesState<T> {
     required TResult Function() removeProductFromFavsLoading,
     required TResult Function() removeProductFromFavsSuccess,
     required TResult Function(String error) removeProductFromFavsError,
-    required TResult Function() fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesResponse favorites)
-        fetchFavoritesSuccess,
-    required TResult Function(String error) fetchFavoritesError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,9 +36,6 @@ mixin _$FavoritesState<T> {
     TResult? Function()? removeProductFromFavsLoading,
     TResult? Function()? removeProductFromFavsSuccess,
     TResult? Function(String error)? removeProductFromFavsError,
-    TResult? Function()? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult? Function(String error)? fetchFavoritesError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,9 +47,6 @@ mixin _$FavoritesState<T> {
     TResult Function()? removeProductFromFavsLoading,
     TResult Function()? removeProductFromFavsSuccess,
     TResult Function(String error)? removeProductFromFavsError,
-    TResult Function()? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult Function(String error)? fetchFavoritesError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -74,11 +64,6 @@ mixin _$FavoritesState<T> {
         removeProductFromFavsSuccess,
     required TResult Function(RemoveProductFromFavsError<T> value)
         removeProductFromFavsError,
-    required TResult Function(FetchFavoritesLoading<T> value)
-        fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesSuccess<T> value)
-        fetchFavoritesSuccess,
-    required TResult Function(FetchFavoritesError<T> value) fetchFavoritesError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,9 +78,6 @@ mixin _$FavoritesState<T> {
         removeProductFromFavsSuccess,
     TResult? Function(RemoveProductFromFavsError<T> value)?
         removeProductFromFavsError,
-    TResult? Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult? Function(FetchFavoritesError<T> value)? fetchFavoritesError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -110,9 +92,6 @@ mixin _$FavoritesState<T> {
         removeProductFromFavsSuccess,
     TResult Function(RemoveProductFromFavsError<T> value)?
         removeProductFromFavsError,
-    TResult Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult Function(FetchFavoritesError<T> value)? fetchFavoritesError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -181,10 +160,6 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() removeProductFromFavsLoading,
     required TResult Function() removeProductFromFavsSuccess,
     required TResult Function(String error) removeProductFromFavsError,
-    required TResult Function() fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesResponse favorites)
-        fetchFavoritesSuccess,
-    required TResult Function(String error) fetchFavoritesError,
   }) {
     return initial();
   }
@@ -199,9 +174,6 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? removeProductFromFavsLoading,
     TResult? Function()? removeProductFromFavsSuccess,
     TResult? Function(String error)? removeProductFromFavsError,
-    TResult? Function()? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult? Function(String error)? fetchFavoritesError,
   }) {
     return initial?.call();
   }
@@ -216,9 +188,6 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? removeProductFromFavsLoading,
     TResult Function()? removeProductFromFavsSuccess,
     TResult Function(String error)? removeProductFromFavsError,
-    TResult Function()? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult Function(String error)? fetchFavoritesError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -242,11 +211,6 @@ class _$InitialImpl<T> implements _Initial<T> {
         removeProductFromFavsSuccess,
     required TResult Function(RemoveProductFromFavsError<T> value)
         removeProductFromFavsError,
-    required TResult Function(FetchFavoritesLoading<T> value)
-        fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesSuccess<T> value)
-        fetchFavoritesSuccess,
-    required TResult Function(FetchFavoritesError<T> value) fetchFavoritesError,
   }) {
     return initial(this);
   }
@@ -264,9 +228,6 @@ class _$InitialImpl<T> implements _Initial<T> {
         removeProductFromFavsSuccess,
     TResult? Function(RemoveProductFromFavsError<T> value)?
         removeProductFromFavsError,
-    TResult? Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult? Function(FetchFavoritesError<T> value)? fetchFavoritesError,
   }) {
     return initial?.call(this);
   }
@@ -284,9 +245,6 @@ class _$InitialImpl<T> implements _Initial<T> {
         removeProductFromFavsSuccess,
     TResult Function(RemoveProductFromFavsError<T> value)?
         removeProductFromFavsError,
-    TResult Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult Function(FetchFavoritesError<T> value)? fetchFavoritesError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -347,10 +305,6 @@ class _$PreferProductLoadingImpl<T> implements PreferProductLoading<T> {
     required TResult Function() removeProductFromFavsLoading,
     required TResult Function() removeProductFromFavsSuccess,
     required TResult Function(String error) removeProductFromFavsError,
-    required TResult Function() fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesResponse favorites)
-        fetchFavoritesSuccess,
-    required TResult Function(String error) fetchFavoritesError,
   }) {
     return preferProductLoading();
   }
@@ -365,9 +319,6 @@ class _$PreferProductLoadingImpl<T> implements PreferProductLoading<T> {
     TResult? Function()? removeProductFromFavsLoading,
     TResult? Function()? removeProductFromFavsSuccess,
     TResult? Function(String error)? removeProductFromFavsError,
-    TResult? Function()? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult? Function(String error)? fetchFavoritesError,
   }) {
     return preferProductLoading?.call();
   }
@@ -382,9 +333,6 @@ class _$PreferProductLoadingImpl<T> implements PreferProductLoading<T> {
     TResult Function()? removeProductFromFavsLoading,
     TResult Function()? removeProductFromFavsSuccess,
     TResult Function(String error)? removeProductFromFavsError,
-    TResult Function()? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult Function(String error)? fetchFavoritesError,
     required TResult orElse(),
   }) {
     if (preferProductLoading != null) {
@@ -408,11 +356,6 @@ class _$PreferProductLoadingImpl<T> implements PreferProductLoading<T> {
         removeProductFromFavsSuccess,
     required TResult Function(RemoveProductFromFavsError<T> value)
         removeProductFromFavsError,
-    required TResult Function(FetchFavoritesLoading<T> value)
-        fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesSuccess<T> value)
-        fetchFavoritesSuccess,
-    required TResult Function(FetchFavoritesError<T> value) fetchFavoritesError,
   }) {
     return preferProductLoading(this);
   }
@@ -430,9 +373,6 @@ class _$PreferProductLoadingImpl<T> implements PreferProductLoading<T> {
         removeProductFromFavsSuccess,
     TResult? Function(RemoveProductFromFavsError<T> value)?
         removeProductFromFavsError,
-    TResult? Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult? Function(FetchFavoritesError<T> value)? fetchFavoritesError,
   }) {
     return preferProductLoading?.call(this);
   }
@@ -450,9 +390,6 @@ class _$PreferProductLoadingImpl<T> implements PreferProductLoading<T> {
         removeProductFromFavsSuccess,
     TResult Function(RemoveProductFromFavsError<T> value)?
         removeProductFromFavsError,
-    TResult Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult Function(FetchFavoritesError<T> value)? fetchFavoritesError,
     required TResult orElse(),
   }) {
     if (preferProductLoading != null) {
@@ -513,10 +450,6 @@ class _$PreferProductSuccessImpl<T> implements PreferProductSuccess<T> {
     required TResult Function() removeProductFromFavsLoading,
     required TResult Function() removeProductFromFavsSuccess,
     required TResult Function(String error) removeProductFromFavsError,
-    required TResult Function() fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesResponse favorites)
-        fetchFavoritesSuccess,
-    required TResult Function(String error) fetchFavoritesError,
   }) {
     return preferProductSuccess();
   }
@@ -531,9 +464,6 @@ class _$PreferProductSuccessImpl<T> implements PreferProductSuccess<T> {
     TResult? Function()? removeProductFromFavsLoading,
     TResult? Function()? removeProductFromFavsSuccess,
     TResult? Function(String error)? removeProductFromFavsError,
-    TResult? Function()? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult? Function(String error)? fetchFavoritesError,
   }) {
     return preferProductSuccess?.call();
   }
@@ -548,9 +478,6 @@ class _$PreferProductSuccessImpl<T> implements PreferProductSuccess<T> {
     TResult Function()? removeProductFromFavsLoading,
     TResult Function()? removeProductFromFavsSuccess,
     TResult Function(String error)? removeProductFromFavsError,
-    TResult Function()? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult Function(String error)? fetchFavoritesError,
     required TResult orElse(),
   }) {
     if (preferProductSuccess != null) {
@@ -574,11 +501,6 @@ class _$PreferProductSuccessImpl<T> implements PreferProductSuccess<T> {
         removeProductFromFavsSuccess,
     required TResult Function(RemoveProductFromFavsError<T> value)
         removeProductFromFavsError,
-    required TResult Function(FetchFavoritesLoading<T> value)
-        fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesSuccess<T> value)
-        fetchFavoritesSuccess,
-    required TResult Function(FetchFavoritesError<T> value) fetchFavoritesError,
   }) {
     return preferProductSuccess(this);
   }
@@ -596,9 +518,6 @@ class _$PreferProductSuccessImpl<T> implements PreferProductSuccess<T> {
         removeProductFromFavsSuccess,
     TResult? Function(RemoveProductFromFavsError<T> value)?
         removeProductFromFavsError,
-    TResult? Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult? Function(FetchFavoritesError<T> value)? fetchFavoritesError,
   }) {
     return preferProductSuccess?.call(this);
   }
@@ -616,9 +535,6 @@ class _$PreferProductSuccessImpl<T> implements PreferProductSuccess<T> {
         removeProductFromFavsSuccess,
     TResult Function(RemoveProductFromFavsError<T> value)?
         removeProductFromFavsError,
-    TResult Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult Function(FetchFavoritesError<T> value)? fetchFavoritesError,
     required TResult orElse(),
   }) {
     if (preferProductSuccess != null) {
@@ -704,10 +620,6 @@ class _$PreferProductErrorImpl<T> implements PreferProductError<T> {
     required TResult Function() removeProductFromFavsLoading,
     required TResult Function() removeProductFromFavsSuccess,
     required TResult Function(String error) removeProductFromFavsError,
-    required TResult Function() fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesResponse favorites)
-        fetchFavoritesSuccess,
-    required TResult Function(String error) fetchFavoritesError,
   }) {
     return preferProductError(error);
   }
@@ -722,9 +634,6 @@ class _$PreferProductErrorImpl<T> implements PreferProductError<T> {
     TResult? Function()? removeProductFromFavsLoading,
     TResult? Function()? removeProductFromFavsSuccess,
     TResult? Function(String error)? removeProductFromFavsError,
-    TResult? Function()? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult? Function(String error)? fetchFavoritesError,
   }) {
     return preferProductError?.call(error);
   }
@@ -739,9 +648,6 @@ class _$PreferProductErrorImpl<T> implements PreferProductError<T> {
     TResult Function()? removeProductFromFavsLoading,
     TResult Function()? removeProductFromFavsSuccess,
     TResult Function(String error)? removeProductFromFavsError,
-    TResult Function()? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult Function(String error)? fetchFavoritesError,
     required TResult orElse(),
   }) {
     if (preferProductError != null) {
@@ -765,11 +671,6 @@ class _$PreferProductErrorImpl<T> implements PreferProductError<T> {
         removeProductFromFavsSuccess,
     required TResult Function(RemoveProductFromFavsError<T> value)
         removeProductFromFavsError,
-    required TResult Function(FetchFavoritesLoading<T> value)
-        fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesSuccess<T> value)
-        fetchFavoritesSuccess,
-    required TResult Function(FetchFavoritesError<T> value) fetchFavoritesError,
   }) {
     return preferProductError(this);
   }
@@ -787,9 +688,6 @@ class _$PreferProductErrorImpl<T> implements PreferProductError<T> {
         removeProductFromFavsSuccess,
     TResult? Function(RemoveProductFromFavsError<T> value)?
         removeProductFromFavsError,
-    TResult? Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult? Function(FetchFavoritesError<T> value)? fetchFavoritesError,
   }) {
     return preferProductError?.call(this);
   }
@@ -807,9 +705,6 @@ class _$PreferProductErrorImpl<T> implements PreferProductError<T> {
         removeProductFromFavsSuccess,
     TResult Function(RemoveProductFromFavsError<T> value)?
         removeProductFromFavsError,
-    TResult Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult Function(FetchFavoritesError<T> value)? fetchFavoritesError,
     required TResult orElse(),
   }) {
     if (preferProductError != null) {
@@ -879,10 +774,6 @@ class _$RemoveProductFromFavsLoadingImpl<T>
     required TResult Function() removeProductFromFavsLoading,
     required TResult Function() removeProductFromFavsSuccess,
     required TResult Function(String error) removeProductFromFavsError,
-    required TResult Function() fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesResponse favorites)
-        fetchFavoritesSuccess,
-    required TResult Function(String error) fetchFavoritesError,
   }) {
     return removeProductFromFavsLoading();
   }
@@ -897,9 +788,6 @@ class _$RemoveProductFromFavsLoadingImpl<T>
     TResult? Function()? removeProductFromFavsLoading,
     TResult? Function()? removeProductFromFavsSuccess,
     TResult? Function(String error)? removeProductFromFavsError,
-    TResult? Function()? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult? Function(String error)? fetchFavoritesError,
   }) {
     return removeProductFromFavsLoading?.call();
   }
@@ -914,9 +802,6 @@ class _$RemoveProductFromFavsLoadingImpl<T>
     TResult Function()? removeProductFromFavsLoading,
     TResult Function()? removeProductFromFavsSuccess,
     TResult Function(String error)? removeProductFromFavsError,
-    TResult Function()? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult Function(String error)? fetchFavoritesError,
     required TResult orElse(),
   }) {
     if (removeProductFromFavsLoading != null) {
@@ -940,11 +825,6 @@ class _$RemoveProductFromFavsLoadingImpl<T>
         removeProductFromFavsSuccess,
     required TResult Function(RemoveProductFromFavsError<T> value)
         removeProductFromFavsError,
-    required TResult Function(FetchFavoritesLoading<T> value)
-        fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesSuccess<T> value)
-        fetchFavoritesSuccess,
-    required TResult Function(FetchFavoritesError<T> value) fetchFavoritesError,
   }) {
     return removeProductFromFavsLoading(this);
   }
@@ -962,9 +842,6 @@ class _$RemoveProductFromFavsLoadingImpl<T>
         removeProductFromFavsSuccess,
     TResult? Function(RemoveProductFromFavsError<T> value)?
         removeProductFromFavsError,
-    TResult? Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult? Function(FetchFavoritesError<T> value)? fetchFavoritesError,
   }) {
     return removeProductFromFavsLoading?.call(this);
   }
@@ -982,9 +859,6 @@ class _$RemoveProductFromFavsLoadingImpl<T>
         removeProductFromFavsSuccess,
     TResult Function(RemoveProductFromFavsError<T> value)?
         removeProductFromFavsError,
-    TResult Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult Function(FetchFavoritesError<T> value)? fetchFavoritesError,
     required TResult orElse(),
   }) {
     if (removeProductFromFavsLoading != null) {
@@ -1049,10 +923,6 @@ class _$RemoveProductFromFavsSuccessImpl<T>
     required TResult Function() removeProductFromFavsLoading,
     required TResult Function() removeProductFromFavsSuccess,
     required TResult Function(String error) removeProductFromFavsError,
-    required TResult Function() fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesResponse favorites)
-        fetchFavoritesSuccess,
-    required TResult Function(String error) fetchFavoritesError,
   }) {
     return removeProductFromFavsSuccess();
   }
@@ -1067,9 +937,6 @@ class _$RemoveProductFromFavsSuccessImpl<T>
     TResult? Function()? removeProductFromFavsLoading,
     TResult? Function()? removeProductFromFavsSuccess,
     TResult? Function(String error)? removeProductFromFavsError,
-    TResult? Function()? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult? Function(String error)? fetchFavoritesError,
   }) {
     return removeProductFromFavsSuccess?.call();
   }
@@ -1084,9 +951,6 @@ class _$RemoveProductFromFavsSuccessImpl<T>
     TResult Function()? removeProductFromFavsLoading,
     TResult Function()? removeProductFromFavsSuccess,
     TResult Function(String error)? removeProductFromFavsError,
-    TResult Function()? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult Function(String error)? fetchFavoritesError,
     required TResult orElse(),
   }) {
     if (removeProductFromFavsSuccess != null) {
@@ -1110,11 +974,6 @@ class _$RemoveProductFromFavsSuccessImpl<T>
         removeProductFromFavsSuccess,
     required TResult Function(RemoveProductFromFavsError<T> value)
         removeProductFromFavsError,
-    required TResult Function(FetchFavoritesLoading<T> value)
-        fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesSuccess<T> value)
-        fetchFavoritesSuccess,
-    required TResult Function(FetchFavoritesError<T> value) fetchFavoritesError,
   }) {
     return removeProductFromFavsSuccess(this);
   }
@@ -1132,9 +991,6 @@ class _$RemoveProductFromFavsSuccessImpl<T>
         removeProductFromFavsSuccess,
     TResult? Function(RemoveProductFromFavsError<T> value)?
         removeProductFromFavsError,
-    TResult? Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult? Function(FetchFavoritesError<T> value)? fetchFavoritesError,
   }) {
     return removeProductFromFavsSuccess?.call(this);
   }
@@ -1152,9 +1008,6 @@ class _$RemoveProductFromFavsSuccessImpl<T>
         removeProductFromFavsSuccess,
     TResult Function(RemoveProductFromFavsError<T> value)?
         removeProductFromFavsError,
-    TResult Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult Function(FetchFavoritesError<T> value)? fetchFavoritesError,
     required TResult orElse(),
   }) {
     if (removeProductFromFavsSuccess != null) {
@@ -1246,10 +1099,6 @@ class _$RemoveProductFromFavsErrorImpl<T>
     required TResult Function() removeProductFromFavsLoading,
     required TResult Function() removeProductFromFavsSuccess,
     required TResult Function(String error) removeProductFromFavsError,
-    required TResult Function() fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesResponse favorites)
-        fetchFavoritesSuccess,
-    required TResult Function(String error) fetchFavoritesError,
   }) {
     return removeProductFromFavsError(error);
   }
@@ -1264,9 +1113,6 @@ class _$RemoveProductFromFavsErrorImpl<T>
     TResult? Function()? removeProductFromFavsLoading,
     TResult? Function()? removeProductFromFavsSuccess,
     TResult? Function(String error)? removeProductFromFavsError,
-    TResult? Function()? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult? Function(String error)? fetchFavoritesError,
   }) {
     return removeProductFromFavsError?.call(error);
   }
@@ -1281,9 +1127,6 @@ class _$RemoveProductFromFavsErrorImpl<T>
     TResult Function()? removeProductFromFavsLoading,
     TResult Function()? removeProductFromFavsSuccess,
     TResult Function(String error)? removeProductFromFavsError,
-    TResult Function()? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult Function(String error)? fetchFavoritesError,
     required TResult orElse(),
   }) {
     if (removeProductFromFavsError != null) {
@@ -1307,11 +1150,6 @@ class _$RemoveProductFromFavsErrorImpl<T>
         removeProductFromFavsSuccess,
     required TResult Function(RemoveProductFromFavsError<T> value)
         removeProductFromFavsError,
-    required TResult Function(FetchFavoritesLoading<T> value)
-        fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesSuccess<T> value)
-        fetchFavoritesSuccess,
-    required TResult Function(FetchFavoritesError<T> value) fetchFavoritesError,
   }) {
     return removeProductFromFavsError(this);
   }
@@ -1329,9 +1167,6 @@ class _$RemoveProductFromFavsErrorImpl<T>
         removeProductFromFavsSuccess,
     TResult? Function(RemoveProductFromFavsError<T> value)?
         removeProductFromFavsError,
-    TResult? Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult? Function(FetchFavoritesError<T> value)? fetchFavoritesError,
   }) {
     return removeProductFromFavsError?.call(this);
   }
@@ -1349,9 +1184,6 @@ class _$RemoveProductFromFavsErrorImpl<T>
         removeProductFromFavsSuccess,
     TResult Function(RemoveProductFromFavsError<T> value)?
         removeProductFromFavsError,
-    TResult Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult Function(FetchFavoritesError<T> value)? fetchFavoritesError,
     required TResult orElse(),
   }) {
     if (removeProductFromFavsError != null) {
@@ -1369,571 +1201,5 @@ abstract class RemoveProductFromFavsError<T> implements FavoritesState<T> {
   @JsonKey(ignore: true)
   _$$RemoveProductFromFavsErrorImplCopyWith<T,
           _$RemoveProductFromFavsErrorImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$FetchFavoritesLoadingImplCopyWith<T, $Res> {
-  factory _$$FetchFavoritesLoadingImplCopyWith(
-          _$FetchFavoritesLoadingImpl<T> value,
-          $Res Function(_$FetchFavoritesLoadingImpl<T>) then) =
-      __$$FetchFavoritesLoadingImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$FetchFavoritesLoadingImplCopyWithImpl<T, $Res>
-    extends _$FavoritesStateCopyWithImpl<T, $Res,
-        _$FetchFavoritesLoadingImpl<T>>
-    implements _$$FetchFavoritesLoadingImplCopyWith<T, $Res> {
-  __$$FetchFavoritesLoadingImplCopyWithImpl(
-      _$FetchFavoritesLoadingImpl<T> _value,
-      $Res Function(_$FetchFavoritesLoadingImpl<T>) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$FetchFavoritesLoadingImpl<T> implements FetchFavoritesLoading<T> {
-  const _$FetchFavoritesLoadingImpl();
-
-  @override
-  String toString() {
-    return 'FavoritesState<$T>.fetchFavoritesLoading()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchFavoritesLoadingImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() preferProductLoading,
-    required TResult Function() preferProductSuccess,
-    required TResult Function(String error) preferProductError,
-    required TResult Function() removeProductFromFavsLoading,
-    required TResult Function() removeProductFromFavsSuccess,
-    required TResult Function(String error) removeProductFromFavsError,
-    required TResult Function() fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesResponse favorites)
-        fetchFavoritesSuccess,
-    required TResult Function(String error) fetchFavoritesError,
-  }) {
-    return fetchFavoritesLoading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? preferProductLoading,
-    TResult? Function()? preferProductSuccess,
-    TResult? Function(String error)? preferProductError,
-    TResult? Function()? removeProductFromFavsLoading,
-    TResult? Function()? removeProductFromFavsSuccess,
-    TResult? Function(String error)? removeProductFromFavsError,
-    TResult? Function()? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult? Function(String error)? fetchFavoritesError,
-  }) {
-    return fetchFavoritesLoading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? preferProductLoading,
-    TResult Function()? preferProductSuccess,
-    TResult Function(String error)? preferProductError,
-    TResult Function()? removeProductFromFavsLoading,
-    TResult Function()? removeProductFromFavsSuccess,
-    TResult Function(String error)? removeProductFromFavsError,
-    TResult Function()? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult Function(String error)? fetchFavoritesError,
-    required TResult orElse(),
-  }) {
-    if (fetchFavoritesLoading != null) {
-      return fetchFavoritesLoading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(PreferProductLoading<T> value)
-        preferProductLoading,
-    required TResult Function(PreferProductSuccess<T> value)
-        preferProductSuccess,
-    required TResult Function(PreferProductError<T> value) preferProductError,
-    required TResult Function(RemoveProductFromFavsLoading<T> value)
-        removeProductFromFavsLoading,
-    required TResult Function(RemoveProductFromFavsSuccess<T> value)
-        removeProductFromFavsSuccess,
-    required TResult Function(RemoveProductFromFavsError<T> value)
-        removeProductFromFavsError,
-    required TResult Function(FetchFavoritesLoading<T> value)
-        fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesSuccess<T> value)
-        fetchFavoritesSuccess,
-    required TResult Function(FetchFavoritesError<T> value) fetchFavoritesError,
-  }) {
-    return fetchFavoritesLoading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(PreferProductLoading<T> value)? preferProductLoading,
-    TResult? Function(PreferProductSuccess<T> value)? preferProductSuccess,
-    TResult? Function(PreferProductError<T> value)? preferProductError,
-    TResult? Function(RemoveProductFromFavsLoading<T> value)?
-        removeProductFromFavsLoading,
-    TResult? Function(RemoveProductFromFavsSuccess<T> value)?
-        removeProductFromFavsSuccess,
-    TResult? Function(RemoveProductFromFavsError<T> value)?
-        removeProductFromFavsError,
-    TResult? Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult? Function(FetchFavoritesError<T> value)? fetchFavoritesError,
-  }) {
-    return fetchFavoritesLoading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(PreferProductLoading<T> value)? preferProductLoading,
-    TResult Function(PreferProductSuccess<T> value)? preferProductSuccess,
-    TResult Function(PreferProductError<T> value)? preferProductError,
-    TResult Function(RemoveProductFromFavsLoading<T> value)?
-        removeProductFromFavsLoading,
-    TResult Function(RemoveProductFromFavsSuccess<T> value)?
-        removeProductFromFavsSuccess,
-    TResult Function(RemoveProductFromFavsError<T> value)?
-        removeProductFromFavsError,
-    TResult Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult Function(FetchFavoritesError<T> value)? fetchFavoritesError,
-    required TResult orElse(),
-  }) {
-    if (fetchFavoritesLoading != null) {
-      return fetchFavoritesLoading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchFavoritesLoading<T> implements FavoritesState<T> {
-  const factory FetchFavoritesLoading() = _$FetchFavoritesLoadingImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$FetchFavoritesSuccessImplCopyWith<T, $Res> {
-  factory _$$FetchFavoritesSuccessImplCopyWith(
-          _$FetchFavoritesSuccessImpl<T> value,
-          $Res Function(_$FetchFavoritesSuccessImpl<T>) then) =
-      __$$FetchFavoritesSuccessImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({FetchFavoritesResponse favorites});
-}
-
-/// @nodoc
-class __$$FetchFavoritesSuccessImplCopyWithImpl<T, $Res>
-    extends _$FavoritesStateCopyWithImpl<T, $Res,
-        _$FetchFavoritesSuccessImpl<T>>
-    implements _$$FetchFavoritesSuccessImplCopyWith<T, $Res> {
-  __$$FetchFavoritesSuccessImplCopyWithImpl(
-      _$FetchFavoritesSuccessImpl<T> _value,
-      $Res Function(_$FetchFavoritesSuccessImpl<T>) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? favorites = null,
-  }) {
-    return _then(_$FetchFavoritesSuccessImpl<T>(
-      null == favorites
-          ? _value.favorites
-          : favorites // ignore: cast_nullable_to_non_nullable
-              as FetchFavoritesResponse,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$FetchFavoritesSuccessImpl<T> implements FetchFavoritesSuccess<T> {
-  const _$FetchFavoritesSuccessImpl(this.favorites);
-
-  @override
-  final FetchFavoritesResponse favorites;
-
-  @override
-  String toString() {
-    return 'FavoritesState<$T>.fetchFavoritesSuccess(favorites: $favorites)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchFavoritesSuccessImpl<T> &&
-            (identical(other.favorites, favorites) ||
-                other.favorites == favorites));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, favorites);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchFavoritesSuccessImplCopyWith<T, _$FetchFavoritesSuccessImpl<T>>
-      get copyWith => __$$FetchFavoritesSuccessImplCopyWithImpl<T,
-          _$FetchFavoritesSuccessImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() preferProductLoading,
-    required TResult Function() preferProductSuccess,
-    required TResult Function(String error) preferProductError,
-    required TResult Function() removeProductFromFavsLoading,
-    required TResult Function() removeProductFromFavsSuccess,
-    required TResult Function(String error) removeProductFromFavsError,
-    required TResult Function() fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesResponse favorites)
-        fetchFavoritesSuccess,
-    required TResult Function(String error) fetchFavoritesError,
-  }) {
-    return fetchFavoritesSuccess(favorites);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? preferProductLoading,
-    TResult? Function()? preferProductSuccess,
-    TResult? Function(String error)? preferProductError,
-    TResult? Function()? removeProductFromFavsLoading,
-    TResult? Function()? removeProductFromFavsSuccess,
-    TResult? Function(String error)? removeProductFromFavsError,
-    TResult? Function()? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult? Function(String error)? fetchFavoritesError,
-  }) {
-    return fetchFavoritesSuccess?.call(favorites);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? preferProductLoading,
-    TResult Function()? preferProductSuccess,
-    TResult Function(String error)? preferProductError,
-    TResult Function()? removeProductFromFavsLoading,
-    TResult Function()? removeProductFromFavsSuccess,
-    TResult Function(String error)? removeProductFromFavsError,
-    TResult Function()? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult Function(String error)? fetchFavoritesError,
-    required TResult orElse(),
-  }) {
-    if (fetchFavoritesSuccess != null) {
-      return fetchFavoritesSuccess(favorites);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(PreferProductLoading<T> value)
-        preferProductLoading,
-    required TResult Function(PreferProductSuccess<T> value)
-        preferProductSuccess,
-    required TResult Function(PreferProductError<T> value) preferProductError,
-    required TResult Function(RemoveProductFromFavsLoading<T> value)
-        removeProductFromFavsLoading,
-    required TResult Function(RemoveProductFromFavsSuccess<T> value)
-        removeProductFromFavsSuccess,
-    required TResult Function(RemoveProductFromFavsError<T> value)
-        removeProductFromFavsError,
-    required TResult Function(FetchFavoritesLoading<T> value)
-        fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesSuccess<T> value)
-        fetchFavoritesSuccess,
-    required TResult Function(FetchFavoritesError<T> value) fetchFavoritesError,
-  }) {
-    return fetchFavoritesSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(PreferProductLoading<T> value)? preferProductLoading,
-    TResult? Function(PreferProductSuccess<T> value)? preferProductSuccess,
-    TResult? Function(PreferProductError<T> value)? preferProductError,
-    TResult? Function(RemoveProductFromFavsLoading<T> value)?
-        removeProductFromFavsLoading,
-    TResult? Function(RemoveProductFromFavsSuccess<T> value)?
-        removeProductFromFavsSuccess,
-    TResult? Function(RemoveProductFromFavsError<T> value)?
-        removeProductFromFavsError,
-    TResult? Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult? Function(FetchFavoritesError<T> value)? fetchFavoritesError,
-  }) {
-    return fetchFavoritesSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(PreferProductLoading<T> value)? preferProductLoading,
-    TResult Function(PreferProductSuccess<T> value)? preferProductSuccess,
-    TResult Function(PreferProductError<T> value)? preferProductError,
-    TResult Function(RemoveProductFromFavsLoading<T> value)?
-        removeProductFromFavsLoading,
-    TResult Function(RemoveProductFromFavsSuccess<T> value)?
-        removeProductFromFavsSuccess,
-    TResult Function(RemoveProductFromFavsError<T> value)?
-        removeProductFromFavsError,
-    TResult Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult Function(FetchFavoritesError<T> value)? fetchFavoritesError,
-    required TResult orElse(),
-  }) {
-    if (fetchFavoritesSuccess != null) {
-      return fetchFavoritesSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchFavoritesSuccess<T> implements FavoritesState<T> {
-  const factory FetchFavoritesSuccess(final FetchFavoritesResponse favorites) =
-      _$FetchFavoritesSuccessImpl<T>;
-
-  FetchFavoritesResponse get favorites;
-  @JsonKey(ignore: true)
-  _$$FetchFavoritesSuccessImplCopyWith<T, _$FetchFavoritesSuccessImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$FetchFavoritesErrorImplCopyWith<T, $Res> {
-  factory _$$FetchFavoritesErrorImplCopyWith(_$FetchFavoritesErrorImpl<T> value,
-          $Res Function(_$FetchFavoritesErrorImpl<T>) then) =
-      __$$FetchFavoritesErrorImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({String error});
-}
-
-/// @nodoc
-class __$$FetchFavoritesErrorImplCopyWithImpl<T, $Res>
-    extends _$FavoritesStateCopyWithImpl<T, $Res, _$FetchFavoritesErrorImpl<T>>
-    implements _$$FetchFavoritesErrorImplCopyWith<T, $Res> {
-  __$$FetchFavoritesErrorImplCopyWithImpl(_$FetchFavoritesErrorImpl<T> _value,
-      $Res Function(_$FetchFavoritesErrorImpl<T>) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$FetchFavoritesErrorImpl<T>(
-      null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$FetchFavoritesErrorImpl<T> implements FetchFavoritesError<T> {
-  const _$FetchFavoritesErrorImpl(this.error);
-
-  @override
-  final String error;
-
-  @override
-  String toString() {
-    return 'FavoritesState<$T>.fetchFavoritesError(error: $error)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchFavoritesErrorImpl<T> &&
-            (identical(other.error, error) || other.error == error));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, error);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchFavoritesErrorImplCopyWith<T, _$FetchFavoritesErrorImpl<T>>
-      get copyWith => __$$FetchFavoritesErrorImplCopyWithImpl<T,
-          _$FetchFavoritesErrorImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() preferProductLoading,
-    required TResult Function() preferProductSuccess,
-    required TResult Function(String error) preferProductError,
-    required TResult Function() removeProductFromFavsLoading,
-    required TResult Function() removeProductFromFavsSuccess,
-    required TResult Function(String error) removeProductFromFavsError,
-    required TResult Function() fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesResponse favorites)
-        fetchFavoritesSuccess,
-    required TResult Function(String error) fetchFavoritesError,
-  }) {
-    return fetchFavoritesError(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? preferProductLoading,
-    TResult? Function()? preferProductSuccess,
-    TResult? Function(String error)? preferProductError,
-    TResult? Function()? removeProductFromFavsLoading,
-    TResult? Function()? removeProductFromFavsSuccess,
-    TResult? Function(String error)? removeProductFromFavsError,
-    TResult? Function()? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult? Function(String error)? fetchFavoritesError,
-  }) {
-    return fetchFavoritesError?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? preferProductLoading,
-    TResult Function()? preferProductSuccess,
-    TResult Function(String error)? preferProductError,
-    TResult Function()? removeProductFromFavsLoading,
-    TResult Function()? removeProductFromFavsSuccess,
-    TResult Function(String error)? removeProductFromFavsError,
-    TResult Function()? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesResponse favorites)? fetchFavoritesSuccess,
-    TResult Function(String error)? fetchFavoritesError,
-    required TResult orElse(),
-  }) {
-    if (fetchFavoritesError != null) {
-      return fetchFavoritesError(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(PreferProductLoading<T> value)
-        preferProductLoading,
-    required TResult Function(PreferProductSuccess<T> value)
-        preferProductSuccess,
-    required TResult Function(PreferProductError<T> value) preferProductError,
-    required TResult Function(RemoveProductFromFavsLoading<T> value)
-        removeProductFromFavsLoading,
-    required TResult Function(RemoveProductFromFavsSuccess<T> value)
-        removeProductFromFavsSuccess,
-    required TResult Function(RemoveProductFromFavsError<T> value)
-        removeProductFromFavsError,
-    required TResult Function(FetchFavoritesLoading<T> value)
-        fetchFavoritesLoading,
-    required TResult Function(FetchFavoritesSuccess<T> value)
-        fetchFavoritesSuccess,
-    required TResult Function(FetchFavoritesError<T> value) fetchFavoritesError,
-  }) {
-    return fetchFavoritesError(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(PreferProductLoading<T> value)? preferProductLoading,
-    TResult? Function(PreferProductSuccess<T> value)? preferProductSuccess,
-    TResult? Function(PreferProductError<T> value)? preferProductError,
-    TResult? Function(RemoveProductFromFavsLoading<T> value)?
-        removeProductFromFavsLoading,
-    TResult? Function(RemoveProductFromFavsSuccess<T> value)?
-        removeProductFromFavsSuccess,
-    TResult? Function(RemoveProductFromFavsError<T> value)?
-        removeProductFromFavsError,
-    TResult? Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult? Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult? Function(FetchFavoritesError<T> value)? fetchFavoritesError,
-  }) {
-    return fetchFavoritesError?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(PreferProductLoading<T> value)? preferProductLoading,
-    TResult Function(PreferProductSuccess<T> value)? preferProductSuccess,
-    TResult Function(PreferProductError<T> value)? preferProductError,
-    TResult Function(RemoveProductFromFavsLoading<T> value)?
-        removeProductFromFavsLoading,
-    TResult Function(RemoveProductFromFavsSuccess<T> value)?
-        removeProductFromFavsSuccess,
-    TResult Function(RemoveProductFromFavsError<T> value)?
-        removeProductFromFavsError,
-    TResult Function(FetchFavoritesLoading<T> value)? fetchFavoritesLoading,
-    TResult Function(FetchFavoritesSuccess<T> value)? fetchFavoritesSuccess,
-    TResult Function(FetchFavoritesError<T> value)? fetchFavoritesError,
-    required TResult orElse(),
-  }) {
-    if (fetchFavoritesError != null) {
-      return fetchFavoritesError(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchFavoritesError<T> implements FavoritesState<T> {
-  const factory FetchFavoritesError(final String error) =
-      _$FetchFavoritesErrorImpl<T>;
-
-  String get error;
-  @JsonKey(ignore: true)
-  _$$FetchFavoritesErrorImplCopyWith<T, _$FetchFavoritesErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }

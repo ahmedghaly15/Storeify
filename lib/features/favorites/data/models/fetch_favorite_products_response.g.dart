@@ -1,21 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'fetch_favorites_response.dart';
+part of 'fetch_favorite_products_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-FetchFavoritesResponse _$FetchFavoritesResponseFromJson(
+FetchFavoriteProductsResponse _$FetchFavoriteProductsResponseFromJson(
         Map<String, dynamic> json) =>
-    FetchFavoritesResponse(
+    FetchFavoriteProductsResponse(
       products: (json['products'] as List<dynamic>)
           .map((e) => Product.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$FetchFavoritesResponseToJson(
-        FetchFavoritesResponse instance) =>
+Map<String, dynamic> _$FetchFavoriteProductsResponseToJson(
+        FetchFavoriteProductsResponse instance) =>
     <String, dynamic>{
       'products': instance.products,
     };

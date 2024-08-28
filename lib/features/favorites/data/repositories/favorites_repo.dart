@@ -2,8 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:store_ify/core/api/api_result.dart';
 import 'package:store_ify/core/api/api_service.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
-import 'package:store_ify/features/favorites/data/models/fetch_favorites_response.dart';
-import 'package:store_ify/features/favorites/data/models/prefer_product_params.dart';
+import 'package:store_ify/features/favorites/data/models/fetch_fav_stores_response.dart';
+import 'package:store_ify/features/favorites/data/models/fetch_favorite_products_response.dart';
+import 'package:store_ify/features/favorites/data/models/prefer_params.dart';
 
 class FavoritesRepo {
   const FavoritesRepo(this._apiService);
@@ -11,7 +12,7 @@ class FavoritesRepo {
   final ApiService _apiService;
 
   Future<ApiResult<void>> preferProduct(
-    PreferProductParams params, [
+    PreferParams params, [
     CancelToken? cancelToken,
   ]) {
     return executeAndHandleErrors<void>(
@@ -34,11 +35,19 @@ class FavoritesRepo {
     );
   }
 
-  Future<ApiResult<FetchFavoritesResponse>> fetchFavorites([
+  Future<ApiResult<FetchFavoriteProductsResponse>> fetchFavoriteProducts([
     CancelToken? cancelToken,
   ]) {
-    return executeAndHandleErrors<FetchFavoritesResponse>(
-      () async => await _apiService.fetchFavorites(cancelToken),
+    return executeAndHandleErrors<FetchFavoriteProductsResponse>(
+      () async => await _apiService.fetchFavoriteProducts(cancelToken),
+    );
+  }
+
+  Future<ApiResult<FetchFavStoresResponse>> fetchFavStores([
+    CancelToken? cancelToken,
+  ]) {
+    return executeAndHandleErrors<FetchFavStoresResponse>(
+      () async => await _apiService.fetchFavStores(cancelToken),
     );
   }
 }

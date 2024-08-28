@@ -19,4 +19,8 @@ class AppConstants {
     LangKeys.branches,
     LangKeys.categories,
   ];
+  static const List<String> favoritesCategoriesKeys = [
+    LangKeys.stores,
+    LangKeys.products,
+  ];
 }

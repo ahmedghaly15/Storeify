@@ -10,7 +10,7 @@ import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_themes.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/dependency_injection.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites_cubit.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_cubit.dart';
 
 class StoreifyApp extends StatelessWidget {
   const StoreifyApp({super.key});

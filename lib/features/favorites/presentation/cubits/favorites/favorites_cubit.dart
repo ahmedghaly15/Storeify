@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/features/favorites/data/models/prefer_product_params.dart';
+import 'package:store_ify/features/favorites/data/models/prefer_params.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites_state.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_state.dart';
 
 class FavoritesCubit extends Cubit<FavoritesState> {
   FavoritesCubit(
@@ -15,7 +15,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
   void preferProduct(int productId) async {
     emit(const FavoritesState.preferProductLoading());
     final result = await _favoritesRepo.preferProduct(
-      PreferProductParams(productId: productId),
+      PreferParams(productId: productId),
       _cancelToken,
     );
     result.when(
@@ -35,18 +35,6 @@ class FavoritesCubit extends Cubit<FavoritesState> {
       success: (_) => emit(const FavoritesState.removeProductFromFavsSuccess()),
       error: (error) => emit(
         FavoritesState.removeProductFromFavsError(error.error ?? ''),
-      ),
-    );
-  }
-
-  void fetchFavorites() async {
-    emit(const FavoritesState.fetchFavoritesLoading());
-    final result = await _favoritesRepo.fetchFavorites(_cancelToken);
-    result.when(
-      success: (favorites) =>
-          emit(FavoritesState.fetchFavoritesSuccess(favorites)),
-      error: (errorModel) => emit(
-        FavoritesState.fetchFavoritesError(errorModel.error ?? ''),
       ),
     );
   }
