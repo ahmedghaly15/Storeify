@@ -36,4 +36,6 @@ class LangKeys {
   static const String categories = 'categories';
   static const String viewAll = 'viewAll';
   static const String topStores = 'topStores';
+  static const String allOffers = 'allOffers';
+  static const String branches = 'branches';
 }

@@ -27,4 +27,6 @@ class StoreDetailsState<T> with _$StoreDetailsState<T> {
       FetchStoreOffersResponse storeOffers) = FetchStoreOffersSuccess<T>;
   const factory StoreDetailsState.fetchStoreOffersError(String error) =
       FetchStoreOffersError<T>;
+  const factory StoreDetailsState.updateCurrentDetailsIndex(int currentIndex) =
+      UpdateCurrentDetailsIndex<T>;
 }

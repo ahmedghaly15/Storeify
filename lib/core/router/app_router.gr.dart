@@ -74,6 +74,17 @@ abstract class _$AppRouter extends RootStackRouter {
         child: WrappedRoute(child: const SignUpView()),
       );
     },
+    StoreDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<StoreDetailsRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WrappedRoute(
+            child: StoreDetailsView(
+          key: args.key,
+          store: args.store,
+        )),
+      );
+    },
     StoresRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -253,6 +264,44 @@ class SignUpRoute extends PageRouteInfo<void> {
   static const String name = 'SignUpRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [StoreDetailsView]
+class StoreDetailsRoute extends PageRouteInfo<StoreDetailsRouteArgs> {
+  StoreDetailsRoute({
+    Key? key,
+    required Store store,
+    List<PageRouteInfo>? children,
+  }) : super(
+          StoreDetailsRoute.name,
+          args: StoreDetailsRouteArgs(
+            key: key,
+            store: store,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'StoreDetailsRoute';
+
+  static const PageInfo<StoreDetailsRouteArgs> page =
+      PageInfo<StoreDetailsRouteArgs>(name);
+}
+
+class StoreDetailsRouteArgs {
+  const StoreDetailsRouteArgs({
+    this.key,
+    required this.store,
+  });
+
+  final Key? key;
+
+  final Store store;
+
+  @override
+  String toString() {
+    return 'StoreDetailsRouteArgs{key: $key, store: $store}';
+  }
 }
 
 /// generated route for

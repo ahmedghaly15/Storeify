@@ -10,7 +10,7 @@ FetchStoreCategoriesResponse _$FetchStoreCategoriesResponseFromJson(
         Map<String, dynamic> json) =>
     FetchStoreCategoriesResponse(
       categories: (json['categories'] as List<dynamic>)
-          .map((e) => SubCategory.fromJson(e as Map<String, dynamic>))
+          .map((e) => Category.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
