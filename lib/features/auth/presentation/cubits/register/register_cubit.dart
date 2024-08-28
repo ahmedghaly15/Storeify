@@ -60,8 +60,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     );
     result.when(
       success: (data) => emit(RegisterState.success(data)),
-      error: (error) =>
-          emit(RegisterState.error(error.apiErrorModel.error ?? '')),
+      error: (errorModel) => emit(RegisterState.error(errorModel.error ?? '')),
     );
   }
 

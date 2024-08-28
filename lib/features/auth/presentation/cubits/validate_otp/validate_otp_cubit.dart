@@ -26,8 +26,8 @@ class ValidateOtpCubit extends Cubit<ValidateOtpState> {
     );
     result.when(
       success: (_) => emit(const ValidateOtpState.success()),
-      error: (error) =>
-          emit(ValidateOtpState.error(error.apiErrorModel.error ?? '')),
+      error: (errorModel) =>
+          emit(ValidateOtpState.error(errorModel.error ?? '')),
     );
   }
 

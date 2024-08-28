@@ -67,8 +67,8 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
 
     result.when(
       success: (_) => emit(const ResetPasswordState.success()),
-      error: (error) =>
-          emit(ResetPasswordState.error(error.apiErrorModel.error ?? '')),
+      error: (errorModel) =>
+          emit(ResetPasswordState.error(errorModel.error ?? '')),
     );
   }
 

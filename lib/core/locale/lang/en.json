@@ -46,5 +46,6 @@
     "topStores": "Top Stores",
     "allOffers": "All Offers",
     "branches": "Branches",
-    "defaultError": "Opps, something is wrong. Please try again later"
+    "defaultError": "Opps, something is wrong. Please try again later",
+    "timeoutError": "Timeout. Please try again later"
 }

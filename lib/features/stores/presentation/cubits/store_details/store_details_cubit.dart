@@ -20,8 +20,8 @@ class StoreDetailsCubit extends Cubit<StoreDetailsState> {
     result.when(
       success: (storeBranches) =>
           emit(StoreDetailsState.fetchStoreBranchesSuccess(storeBranches)),
-      error: (error) => emit(StoreDetailsState.fetchStoreBranchesError(
-          error.apiErrorModel.error ?? '')),
+      error: (errorModel) => emit(
+          StoreDetailsState.fetchStoreBranchesError(errorModel.error ?? '')),
     );
   }
 
@@ -34,8 +34,8 @@ class StoreDetailsCubit extends Cubit<StoreDetailsState> {
     result.when(
       success: (storeCategories) =>
           emit(StoreDetailsState.fetchStoreCategoriesSuccess(storeCategories)),
-      error: (error) => emit(StoreDetailsState.fetchStoreCategoriesError(
-          error.apiErrorModel.error ?? '')),
+      error: (errorModel) => emit(
+          StoreDetailsState.fetchStoreCategoriesError(errorModel.error ?? '')),
     );
   }
 
@@ -48,8 +48,8 @@ class StoreDetailsCubit extends Cubit<StoreDetailsState> {
     result.when(
       success: (storeOffers) =>
           emit(StoreDetailsState.fetchStoreOffersSuccess(storeOffers)),
-      error: (error) => emit(StoreDetailsState.fetchStoreOffersError(
-          error.apiErrorModel.error ?? '')),
+      error: (errorModel) =>
+          emit(StoreDetailsState.fetchStoreOffersError(errorModel.error ?? '')),
     );
   }
 

@@ -7,7 +7,7 @@ import 'package:store_ify/core/api/api_result.dart';
 /// This method takes a [function] that returns a [Future] and attempts to execute it.
 /// If the function completes successfully, the result is wrapped in an [ApiResult.success] object and returned.
 /// If an error occurs during execution, the error is caught, logged using [debugPrint], and
-/// an [ApiResult.error] object is returned with the error handled by [ErrorHandler].
+/// an [ApiResult.error] object is returned with the error handled by [ApiErrorHandler].
 ///
 /// Example usage:
 /// ```dart
@@ -24,6 +24,6 @@ Future<ApiResult<T>> executeAndHandleErrors<T>(
     return ApiResult.success(await function());
   } catch (error) {
     debugPrint('********* Error in executeAndHandleErrors: $error **********');
-    return ApiResult.error(ErrorHandler.handle(error));
+    return ApiResult.error(ApiErrorHandler.handle(error));
   }
 }
