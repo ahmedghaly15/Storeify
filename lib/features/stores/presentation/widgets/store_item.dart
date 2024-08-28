@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,7 +8,6 @@ import 'package:store_ify/core/helpers/helper.dart';
 import 'package:store_ify/core/widgets/custom_cached_network_image.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/stores/data/models/store.dart';
-
 
 class StoreItem extends StatelessWidget {
   const StoreItem({
@@ -28,7 +29,7 @@ class StoreItem extends StatelessWidget {
       ),
       child: MaterialButton(
         padding: EdgeInsets.zero,
-        onPressed: () {},
+        onPressed: () => context.pushRoute(StoreDetailsRoute(store: store)),
         child: Column(
           children: <Widget>[
             Expanded(

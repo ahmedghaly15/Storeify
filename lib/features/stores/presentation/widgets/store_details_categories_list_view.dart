@@ -8,6 +8,7 @@ import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_outlined_button.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_cubit.dart';
+import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_state.dart';
 
 class StoreDetailsCategoriesListView extends StatelessWidget {
   const StoreDetailsCategoriesListView({super.key, required this.storeId});
@@ -20,19 +21,28 @@ class StoreDetailsCategoriesListView extends StatelessWidget {
       margin: AppConstants.categoryMargin,
       height: 25.h,
       child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        padding: AppConstants.categoryPadding,
         itemBuilder: (_, index) {
-          int currentStoreDetail =
-              context.read<StoreDetailsCubit>().currentSubDetailsIndex;
-          return CustomOutlinedButton(
-            onPressed: () => _updateCurrentStoreAndFetchItsData(context, index),
-            foregroundColor: _activeColor(currentStoreDetail, index),
-            borderColor: _activeColor(currentStoreDetail, index),
-            child: Text(
-              context.translate(AppConstants.storeDetailsCategoriesKeys[index]),
-              style: AppTextStyles.textStyle10Medium.copyWith(
-                color: _activeColor(currentStoreDetail, index),
-              ),
-            ),
+          return BlocBuilder<StoreDetailsCubit, StoreDetailsState>(
+            buildWhen: (_, current) => current is UpdateCurrentDetailsIndex,
+            builder: (context, state) {
+              int currentStoreDetail =
+                  context.read<StoreDetailsCubit>().currentSubDetailsIndex;
+              return CustomOutlinedButton(
+                onPressed: () =>
+                    _updateCurrentStoreAndFetchItsData(context, index),
+                foregroundColor: _activeColor(currentStoreDetail, index),
+                borderColor: _activeColor(currentStoreDetail, index),
+                child: Text(
+                  context.translate(
+                      AppConstants.storeDetailsCategoriesKeys[index]),
+                  style: AppTextStyles.textStyle10Medium.copyWith(
+                    color: _activeColor(currentStoreDetail, index),
+                  ),
+                ),
+              );
+            },
           );
         },
         separatorBuilder: (_, __) => MySizedBox.width8,

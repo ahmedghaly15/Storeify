@@ -39,7 +39,7 @@ class StoreDetailsView extends StatelessWidget implements AutoRouteWrapper {
           SliverPadding(
             padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
             sliver: const SliverFillRemaining(
-              hasScrollBody: false,
+              // hasScrollBody: false,
               child: StoreDetailsData(),
             ),
           ),

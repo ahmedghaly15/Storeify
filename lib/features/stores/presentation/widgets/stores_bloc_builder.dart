@@ -6,8 +6,8 @@ import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_state.dart';
-import 'package:store_ify/features/stores/presentation/widgets/store_categories_grid_view_bloc_builder.dart';
-import 'package:store_ify/features/stores/presentation/widgets/stores_list_view.dart';
+import 'package:store_ify/features/stores/presentation/widgets/category_stores_grid_view_bloc_builder.dart';
+import 'package:store_ify/features/stores/presentation/widgets/stores_categories_list_view.dart';
 
 class StoresBlocBuilder extends StatelessWidget {
   const StoresBlocBuilder({super.key});
@@ -28,9 +28,10 @@ class StoresBlocBuilder extends StatelessWidget {
             Container(
               margin: AppConstants.categoryMargin,
               height: 25.h,
-              child: StoresListView(fetchStoresResponse: fetchStoresResponse),
+              child: StoreCategoriesListView(
+                  fetchStoresResponse: fetchStoresResponse),
             ),
-            StoreCategoriesGridViewBlocBuilder(
+            CategoryStoresGridViewBlocBuilder(
               stores: fetchStoresResponse.stores,
             ),
           ],

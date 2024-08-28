@@ -9,8 +9,8 @@ import 'package:store_ify/core/widgets/product_item.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_state.dart';
 
-class StoreOffersSliverGridBlocBuilder extends StatelessWidget {
-  const StoreOffersSliverGridBlocBuilder({super.key});
+class StoreOffersGridViewBlocBuilder extends StatelessWidget {
+  const StoreOffersGridViewBlocBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,26 +23,30 @@ class StoreOffersSliverGridBlocBuilder extends StatelessWidget {
         fetchStoreOffersLoading: () => const Center(
           child: CustomCircularProgressIndicator(),
         ),
-        fetchStoreOffersSuccess: (result) => SliverGrid.builder(
-          itemCount: result.products.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: AppConstants.gridCrossAxisCount,
-            crossAxisSpacing: 32.w,
-            mainAxisSpacing: 19.h,
-          ),
-          itemBuilder: (_, index) => AnimationConfiguration.staggeredGrid(
-            position: index,
-            columnCount: result.products.length,
-            duration: AppConstants.gridDuration,
-            child: ScaleAnimation(
-              child: FadeInAnimation(
-                child: ProductItem(
-                  product: result.products[index],
+        fetchStoreOffersSuccess: (result) => result.products.isNotEmpty
+            ? GridView.builder(
+                itemCount: result.products.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: AppConstants.gridCrossAxisCount,
+                  crossAxisSpacing: 32.w,
+                  mainAxisSpacing: 19.h,
                 ),
+                itemBuilder: (_, index) => AnimationConfiguration.staggeredGrid(
+                  position: index,
+                  columnCount: result.products.length,
+                  duration: AppConstants.gridDuration,
+                  child: ScaleAnimation(
+                    child: FadeInAnimation(
+                      child: ProductItem(
+                        product: result.products[index],
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            : const Center(
+                child: Text('No Products'),
               ),
-            ),
-          ),
-        ),
         fetchStoreOffersError: (errorKey) => CustomErrorWidget(
           onPressed: () {},
           error: errorKey,

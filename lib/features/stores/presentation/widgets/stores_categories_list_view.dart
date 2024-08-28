@@ -9,8 +9,8 @@ import 'package:store_ify/features/stores/data/models/fetch_stores_response.dart
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_state.dart';
 
-class StoresListView extends StatelessWidget {
-  const StoresListView({super.key, required this.fetchStoresResponse});
+class StoreCategoriesListView extends StatelessWidget {
+  const StoreCategoriesListView({super.key, required this.fetchStoresResponse});
 
   final FetchStoresResponse fetchStoresResponse;
 
@@ -29,11 +29,7 @@ class StoresListView extends StatelessWidget {
                 currentStoreIndex, fetchStoresResponse.stores[index].id),
             borderColor: _activeColor(
                 currentStoreIndex, fetchStoresResponse.stores[index].id),
-            onPressed: () {
-              context.read<StoresCubit>().updateCurrentSelectedStore(
-                  fetchStoresResponse.stores[index].id);
-              context.read<StoresCubit>().updateCurrentStoreIndex(index);
-            },
+            onPressed: () => _updateSelectedStoreAndItsIndex(context, index),
             child: Text(
               fetchStoresResponse.stores[index].name,
               style: AppTextStyles.textStyle10Medium.copyWith(
@@ -47,6 +43,13 @@ class StoresListView extends StatelessWidget {
       separatorBuilder: (_, __) => MySizedBox.width8,
       itemCount: fetchStoresResponse.stores.length,
     );
+  }
+
+  void _updateSelectedStoreAndItsIndex(BuildContext context, int index) {
+    context
+        .read<StoresCubit>()
+        .updateCurrentSelectedStore(fetchStoresResponse.stores[index].id);
+    context.read<StoresCubit>().updateCurrentStoreIndex(index);
   }
 
   bool _isActive(int currentStoreIndex, int storeId) =>
