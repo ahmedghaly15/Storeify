@@ -110,4 +110,10 @@ abstract class ApiService {
     @Body() PreferProductParams params, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
+
+  @DELETE('${EndPoints.preferProduct}{product_id}')
+  Future<void> removeProductFromFavs(
+    @Path('product_id') int productId, [
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
 }
