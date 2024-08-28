@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:retrofit/retrofit.dart' as retrofit;
 
 import 'package:store_ify/core/api/end_points.dart';
 import 'package:store_ify/core/models/storeify_user.dart';
@@ -23,30 +24,35 @@ abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
   @POST(EndPoints.login)
+  @retrofit.Headers({'Accept-Language': 'en'})
   Future<StoreifyUser> login(
     @Body() LoginParams params, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 
   @POST(EndPoints.register)
+  @retrofit.Headers({'Accept-Language': 'en'})
   Future<StoreifyUser> register(
     @Body() RegisterParams params, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 
   @POST(EndPoints.forgotPassword)
+  @retrofit.Headers({'Accept-Language': 'en'})
   Future<void> forgotPassword(
     @Body() ForgotPasswordParams params, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 
   @POST(EndPoints.validateOtp)
+  @retrofit.Headers({'Accept-Language': 'en'})
   Future<void> validateOtp(
     @Body() ValidateOtpParams params, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 
   @POST(EndPoints.resetPassword)
+  @retrofit.Headers({'Accept-Language': 'en'})
   Future<void> resetPassword(
     @Body() ResetPasswordParams params, [
     @CancelRequest() CancelToken? cancelToken,
