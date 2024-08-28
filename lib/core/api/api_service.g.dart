@@ -433,7 +433,7 @@ class _ApiService implements ApiService {
 
   @override
   Future<void> preferProduct(
-    PreferProductParams params, [
+    PreferParams params, [
     CancelToken? cancelToken,
   ]) async {
     final _extra = <String, dynamic>{};
@@ -488,6 +488,66 @@ class _ApiService implements ApiService {
           _dio.options.baseUrl,
           baseUrl,
         ))));
+  }
+
+  @override
+  Future<FetchFavoriteProductsResponse> fetchFavoriteProducts(
+      [CancelToken? cancelToken]) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<FetchFavoriteProductsResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'http://192.168.1.10:8081/api/favorites/',
+              queryParameters: queryParameters,
+              data: _data,
+              cancelToken: cancelToken,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = FetchFavoriteProductsResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<FetchFavStoresResponse> fetchFavStores(
+      [CancelToken? cancelToken]) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<FetchFavStoresResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'http://192.168.1.10:8081/api/favoritesStore/',
+              queryParameters: queryParameters,
+              data: _data,
+              cancelToken: cancelToken,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = FetchFavStoresResponse.fromJson(_result.data!);
+    return value;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

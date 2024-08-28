@@ -15,7 +15,8 @@ import 'package:store_ify/features/categories/data/repositories/categories_repo.
 import 'package:store_ify/features/categories/presentation/cubit/categories/categories_cubit.dart';
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_cubit.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites_cubit.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_cubit.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
 import 'package:store_ify/features/home/data/repos/home_repo.dart';
 import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
 import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
@@ -91,5 +92,8 @@ void _setupDIForCubits() {
   );
   getIt.registerFactory<FavoritesCubit>(
     () => FavoritesCubit(getIt.get<FavoritesRepo>()),
+  );
+  getIt.registerFactory<FetchFavoritesCubit>(
+    () => FetchFavoritesCubit(getIt.get<FavoritesRepo>()),
   );
 }

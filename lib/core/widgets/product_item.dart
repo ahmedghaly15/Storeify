@@ -7,8 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/widgets/custom_cached_network_image.dart';
 import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites_cubit.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites_state.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_cubit.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_state.dart';
 import 'package:store_ify/features/home/data/models/product.dart';
 
 class ProductItem extends StatelessWidget {
@@ -39,7 +39,9 @@ class ProductItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(10.r)),
                 child: CustomCachedNetworkImage(
-                  imageUrl: product.productImages[0].img,
+                  imageUrl: product.productImages.isNotEmpty
+                      ? product.productImages[0].img
+                      : 'https://plus.unsplash.com/premium_photo-1675896084254-dcb626387e1e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D',
                   fit: BoxFit.cover,
                 ),
               ),

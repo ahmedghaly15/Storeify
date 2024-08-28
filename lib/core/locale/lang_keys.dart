@@ -40,4 +40,8 @@ class LangKeys {
   static const String branches = 'branches';
   static const String defaultError = 'defaultError';
   static const String timeoutError = 'timeoutError';
+  static const String favorites = 'favorites';
+  static const String products = 'products';
+  static const String noFavoriteStores = 'NO_FAVORITE_STORES';
+  static const String noFavoriteProducts = 'NO_FAVORITE_PRODUCTS';
 }

@@ -49,5 +49,9 @@
     "defaultError": "عفوا، هناك خطأ ما. الرجاء المحاولة مرة أخرى",
     "timeoutError": "انتهت الوقت. الرجاء المحاولة مرة أخرى",
     "PRODUCT_NOT_FAVORITED": "المنتج غير مفضل بالفعل",
-    "PRODUCT_ALREADY_FAVORITED": "المنتج مفضل بالفعل"
+    "PRODUCT_ALREADY_FAVORITED": "المنتج مفضل بالفعل",
+    "favorites": "المفضلة",
+    "products": "المنتجات",
+    "NO_FAVORITE_STORES": "ليس لديك متاجر مفضلة",
+    "No_Favorite_Products": "ليس لديك منتجات مفضلة"
 }

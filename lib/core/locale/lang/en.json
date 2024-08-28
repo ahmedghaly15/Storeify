@@ -49,5 +49,9 @@
     "defaultError": "Opps, something is wrong. Please try again later",
     "timeoutError": "Timeout. Please try again later",
     "PRODUCT_NOT_FAVORITED": "Product is not in your favorites",
-    "PRODUCT_ALREADY_FAVORITED": "Product is already in your favorites"
+    "PRODUCT_ALREADY_FAVORITED": "Product is already in your favorites",
+    "favorites": "Favorites",
+    "products": "Products",
+    "NO_FAVORITE_STORES": "You don't have any favorite stores",
+    "No_Favorite_Products": "You don't have any favorite products"
 }
