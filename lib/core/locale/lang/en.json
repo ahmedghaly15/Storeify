@@ -47,5 +47,6 @@
     "allOffers": "All Offers",
     "branches": "Branches",
     "defaultError": "Opps, something is wrong. Please try again later",
-    "timeoutError": "Timeout. Please try again later"
+    "timeoutError": "Timeout. Please try again later",
+    "PRODUCT_NOT_FAVORITED": "Product is not in your favorites"
 }

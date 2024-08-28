@@ -12,7 +12,6 @@ import 'package:store_ify/features/auth/data/models/validate_otp_params.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_response.dart';
 import 'package:store_ify/features/favorites/data/models/prefer_product_params.dart';
-import 'package:store_ify/features/favorites/data/models/prefer_product_response.dart';
 import 'package:store_ify/features/home/data/models/fetch_home_response.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_branches.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_categories_response.dart';
@@ -107,7 +106,7 @@ abstract class ApiService {
   ]);
 
   @POST(EndPoints.preferProduct)
-  Future<PreferProductResponse> preferProduct(
+  Future<void> preferProduct(
     @Body() PreferProductParams params, [
     @CancelRequest() CancelToken? cancelToken,
   ]);

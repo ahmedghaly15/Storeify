@@ -10,6 +10,7 @@ import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_themes.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/dependency_injection.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites_cubit.dart';
 
 class StoreifyApp extends StatelessWidget {
   const StoreifyApp({super.key});
@@ -20,8 +21,15 @@ class StoreifyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child) => BlocProvider<LocaleCubit>(
-        create: (context) => getIt.get<LocaleCubit>()..getSavedLang(),
+      builder: (context, child) => MultiBlocProvider(
+        providers: [
+          BlocProvider<LocaleCubit>(
+            create: (_) => getIt.get<LocaleCubit>()..getSavedLang(),
+          ),
+          BlocProvider<FavoritesCubit>(
+            create: (_) => getIt.get<FavoritesCubit>(),
+          ),
+        ],
         child: BlocBuilder<LocaleCubit, LocaleState>(
           buildWhen: (previous, current) => previous != current,
           builder: (context, state) {

@@ -432,7 +432,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<PreferProductResponse> preferProduct(
+  Future<void> preferProduct(
     PreferProductParams params, [
     CancelToken? cancelToken,
   ]) async {
@@ -442,26 +442,23 @@ class _ApiService implements ApiService {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(params.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<PreferProductResponse>(Options(
+    await _dio.fetch<void>(_setStreamType<void>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
-            .compose(
-              _dio.options,
-              null,
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = PreferProductResponse.fromJson(_result.data!);
-    return value;
+        .compose(
+          _dio.options,
+          'http://192.168.1.10:8081/api/favorites/',
+          queryParameters: queryParameters,
+          data: _data,
+          cancelToken: cancelToken,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
