@@ -50,4 +50,28 @@ class FavoritesRepo {
       () async => await _apiService.fetchFavStores(cancelToken),
     );
   }
+
+  Future<ApiResult<void>> preferStore(
+    PreferParams params, [
+    CancelToken? cancelToken,
+  ]) {
+    return executeAndHandleErrors<void>(
+      () async => _apiService.preferStore(
+        params,
+        cancelToken,
+      ),
+    );
+  }
+
+  Future<ApiResult<void>> removeStoreFromFavs(
+    int storeId, [
+    CancelToken? cancelToken,
+  ]) {
+    return executeAndHandleErrors<void>(
+      () async => await _apiService.removeStoreFromFavs(
+        storeId,
+        cancelToken,
+      ),
+    );
+  }
 }
