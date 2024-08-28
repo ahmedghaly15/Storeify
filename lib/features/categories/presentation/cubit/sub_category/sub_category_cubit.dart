@@ -18,8 +18,8 @@ class SubCategoryCubit extends Cubit<SubCategoryState> {
     result.when(
       success: (subCategory) =>
           emit(SubCategoryState.fetchSubCategorySuccess(subCategory)),
-      error: (error) => emit(
-        SubCategoryState.fetchSubCategoryError(error.apiErrorModel.error ?? ''),
+      error: (errorModel) => emit(
+        SubCategoryState.fetchSubCategoryError(errorModel.error ?? ''),
       ),
     );
   }

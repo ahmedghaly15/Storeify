@@ -16,8 +16,8 @@ class CategoriesCubit extends Cubit<CategoriesState> {
     result.when(
       success: (categories) =>
           emit(CategoriesState.fetchCategoriesSuccess(categories)),
-      error: (error) => emit(CategoriesState.fetchCategoriesError(
-          error.apiErrorModel.error ?? '')),
+      error: (errorModel) =>
+          emit(CategoriesState.fetchCategoriesError(errorModel.error ?? '')),
     );
   }
 

@@ -39,4 +39,5 @@ class LangKeys {
   static const String allOffers = 'allOffers';
   static const String branches = 'branches';
   static const String defaultError = 'defaultError';
+  static const String timeoutError = 'timeoutError';
 }

@@ -14,8 +14,8 @@ class HomeCubit extends Cubit<HomeState> {
     final result = await _homeRepo.fetchHomeData(_cancelToken);
     result.when(
       success: (homeData) => emit(HomeState.fetchHomeDataSuccess(homeData)),
-      error: (error) =>
-          emit(HomeState.fetchHomeDataError(error.apiErrorModel.error ?? '')),
+      error: (errorModel) =>
+          emit(HomeState.fetchHomeDataError(errorModel.error ?? '')),
     );
   }
 
