@@ -11,6 +11,7 @@ import 'package:store_ify/features/auth/data/models/reset_password_params.dart';
 import 'package:store_ify/features/auth/data/models/validate_otp_params.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_response.dart';
+import 'package:store_ify/features/favorites/data/models/fetch_favorites_response.dart';
 import 'package:store_ify/features/favorites/data/models/prefer_product_params.dart';
 import 'package:store_ify/features/home/data/models/fetch_home_response.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_branches.dart';
@@ -105,15 +106,20 @@ abstract class ApiService {
     @CancelRequest() CancelToken? cancelToken,
   ]);
 
-  @POST(EndPoints.preferProduct)
+  @POST(EndPoints.favorites)
   Future<void> preferProduct(
     @Body() PreferProductParams params, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 
-  @DELETE('${EndPoints.preferProduct}{product_id}')
+  @DELETE('${EndPoints.favorites}{product_id}')
   Future<void> removeProductFromFavs(
     @Path('product_id') int productId, [
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
+
+  @GET(EndPoints.favorites)
+  Future<FetchFavoritesResponse> fetchFavorites([
     @CancelRequest() CancelToken? cancelToken,
   ]);
 }
