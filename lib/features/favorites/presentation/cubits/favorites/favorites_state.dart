@@ -15,4 +15,8 @@ class FavoritesState<T> with _$FavoritesState<T> {
       RemoveProductFromFavsSuccess;
   const factory FavoritesState.removeProductFromFavsError(String error) =
       RemoveProductFromFavsError<T>;
+  const factory FavoritesState.preferStoreLoading() = PreferStoreLoading;
+  const factory FavoritesState.preferStoreSuccess() = PreferStoreSuccess<T>;
+  const factory FavoritesState.preferStoreError(String error) =
+      PreferStoreError<T>;
 }

@@ -124,6 +124,12 @@ abstract class ApiService {
     @CancelRequest() CancelToken? cancelToken,
   ]);
 
+  @POST(EndPoints.favoriteStores)
+  Future<void> preferStore(
+    @Body() PreferParams params, [
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
+
   @GET(EndPoints.favoriteStores)
   Future<FetchFavStoresResponse> fetchFavStores([
     @CancelRequest() CancelToken? cancelToken,
