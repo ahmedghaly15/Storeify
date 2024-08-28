@@ -20,7 +20,7 @@ mixin _$FavoritesState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() preferProductLoading,
-    required TResult Function(PreferProductResponse data) preferProductSuccess,
+    required TResult Function() preferProductSuccess,
     required TResult Function(String error) preferProductError,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$FavoritesState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? preferProductLoading,
-    TResult? Function(PreferProductResponse data)? preferProductSuccess,
+    TResult? Function()? preferProductSuccess,
     TResult? Function(String error)? preferProductError,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$FavoritesState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? preferProductLoading,
-    TResult Function(PreferProductResponse data)? preferProductSuccess,
+    TResult Function()? preferProductSuccess,
     TResult Function(String error)? preferProductError,
     required TResult orElse(),
   }) =>
@@ -128,7 +128,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() preferProductLoading,
-    required TResult Function(PreferProductResponse data) preferProductSuccess,
+    required TResult Function() preferProductSuccess,
     required TResult Function(String error) preferProductError,
   }) {
     return initial();
@@ -139,7 +139,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? preferProductLoading,
-    TResult? Function(PreferProductResponse data)? preferProductSuccess,
+    TResult? Function()? preferProductSuccess,
     TResult? Function(String error)? preferProductError,
   }) {
     return initial?.call();
@@ -150,7 +150,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? preferProductLoading,
-    TResult Function(PreferProductResponse data)? preferProductSuccess,
+    TResult Function()? preferProductSuccess,
     TResult Function(String error)? preferProductError,
     required TResult orElse(),
   }) {
@@ -246,7 +246,7 @@ class _$PreferProductLoadingImpl<T> implements PreferProductLoading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() preferProductLoading,
-    required TResult Function(PreferProductResponse data) preferProductSuccess,
+    required TResult Function() preferProductSuccess,
     required TResult Function(String error) preferProductError,
   }) {
     return preferProductLoading();
@@ -257,7 +257,7 @@ class _$PreferProductLoadingImpl<T> implements PreferProductLoading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? preferProductLoading,
-    TResult? Function(PreferProductResponse data)? preferProductSuccess,
+    TResult? Function()? preferProductSuccess,
     TResult? Function(String error)? preferProductError,
   }) {
     return preferProductLoading?.call();
@@ -268,7 +268,7 @@ class _$PreferProductLoadingImpl<T> implements PreferProductLoading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? preferProductLoading,
-    TResult Function(PreferProductResponse data)? preferProductSuccess,
+    TResult Function()? preferProductSuccess,
     TResult Function(String error)? preferProductError,
     required TResult orElse(),
   }) {
@@ -328,8 +328,6 @@ abstract class _$$PreferProductSuccessImplCopyWith<T, $Res> {
           _$PreferProductSuccessImpl<T> value,
           $Res Function(_$PreferProductSuccessImpl<T>) then) =
       __$$PreferProductSuccessImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({PreferProductResponse data});
 }
 
 /// @nodoc
@@ -339,62 +337,37 @@ class __$$PreferProductSuccessImplCopyWithImpl<T, $Res>
   __$$PreferProductSuccessImplCopyWithImpl(_$PreferProductSuccessImpl<T> _value,
       $Res Function(_$PreferProductSuccessImpl<T>) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = freezed,
-  }) {
-    return _then(_$PreferProductSuccessImpl<T>(
-      freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as PreferProductResponse,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$PreferProductSuccessImpl<T> implements PreferProductSuccess<T> {
-  const _$PreferProductSuccessImpl(this.data);
-
-  @override
-  final PreferProductResponse data;
+  const _$PreferProductSuccessImpl();
 
   @override
   String toString() {
-    return 'FavoritesState<$T>.preferProductSuccess(data: $data)';
+    return 'FavoritesState<$T>.preferProductSuccess()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PreferProductSuccessImpl<T> &&
-            const DeepCollectionEquality().equals(other.data, data));
+            other is _$PreferProductSuccessImpl<T>);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PreferProductSuccessImplCopyWith<T, _$PreferProductSuccessImpl<T>>
-      get copyWith => __$$PreferProductSuccessImplCopyWithImpl<T,
-          _$PreferProductSuccessImpl<T>>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() preferProductLoading,
-    required TResult Function(PreferProductResponse data) preferProductSuccess,
+    required TResult Function() preferProductSuccess,
     required TResult Function(String error) preferProductError,
   }) {
-    return preferProductSuccess(data);
+    return preferProductSuccess();
   }
 
   @override
@@ -402,10 +375,10 @@ class _$PreferProductSuccessImpl<T> implements PreferProductSuccess<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? preferProductLoading,
-    TResult? Function(PreferProductResponse data)? preferProductSuccess,
+    TResult? Function()? preferProductSuccess,
     TResult? Function(String error)? preferProductError,
   }) {
-    return preferProductSuccess?.call(data);
+    return preferProductSuccess?.call();
   }
 
   @override
@@ -413,12 +386,12 @@ class _$PreferProductSuccessImpl<T> implements PreferProductSuccess<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? preferProductLoading,
-    TResult Function(PreferProductResponse data)? preferProductSuccess,
+    TResult Function()? preferProductSuccess,
     TResult Function(String error)? preferProductError,
     required TResult orElse(),
   }) {
     if (preferProductSuccess != null) {
-      return preferProductSuccess(data);
+      return preferProductSuccess();
     }
     return orElse();
   }
@@ -464,13 +437,7 @@ class _$PreferProductSuccessImpl<T> implements PreferProductSuccess<T> {
 }
 
 abstract class PreferProductSuccess<T> implements FavoritesState<T> {
-  const factory PreferProductSuccess(final PreferProductResponse data) =
-      _$PreferProductSuccessImpl<T>;
-
-  PreferProductResponse get data;
-  @JsonKey(ignore: true)
-  _$$PreferProductSuccessImplCopyWith<T, _$PreferProductSuccessImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory PreferProductSuccess() = _$PreferProductSuccessImpl<T>;
 }
 
 /// @nodoc
@@ -540,7 +507,7 @@ class _$PreferProductErrorImpl<T> implements PreferProductError<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() preferProductLoading,
-    required TResult Function(PreferProductResponse data) preferProductSuccess,
+    required TResult Function() preferProductSuccess,
     required TResult Function(String error) preferProductError,
   }) {
     return preferProductError(error);
@@ -551,7 +518,7 @@ class _$PreferProductErrorImpl<T> implements PreferProductError<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? preferProductLoading,
-    TResult? Function(PreferProductResponse data)? preferProductSuccess,
+    TResult? Function()? preferProductSuccess,
     TResult? Function(String error)? preferProductError,
   }) {
     return preferProductError?.call(error);
@@ -562,7 +529,7 @@ class _$PreferProductErrorImpl<T> implements PreferProductError<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? preferProductLoading,
-    TResult Function(PreferProductResponse data)? preferProductSuccess,
+    TResult Function()? preferProductSuccess,
     TResult Function(String error)? preferProductError,
     required TResult orElse(),
   }) {

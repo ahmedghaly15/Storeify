@@ -15,14 +15,11 @@ class FavoritesCubit extends Cubit<FavoritesState> {
   void preferProduct(int productId) async {
     emit(const FavoritesState.preferProductLoading());
     final result = await _favoritesRepo.preferProduct(
-      PreferProductParams(
-        productId: productId,
-      ),
+      PreferProductParams(productId: productId),
       _cancelToken,
     );
     result.when(
-      success: (preferProductResponse) =>
-          emit(FavoritesState.preferProductSuccess(preferProductResponse)),
+      success: (_) => emit(const FavoritesState.preferProductSuccess()),
       error: (errorModel) =>
           emit(FavoritesState.preferProductError(errorModel.error ?? '')),
     );
