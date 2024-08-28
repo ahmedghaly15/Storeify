@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:store_ify/features/favorites/data/models/fetch_favorites_response.dart';
 
 part 'favorites_state.freezed.dart';
 
@@ -15,4 +16,9 @@ class FavoritesState<T> with _$FavoritesState<T> {
       RemoveProductFromFavsSuccess;
   const factory FavoritesState.removeProductFromFavsError(String error) =
       RemoveProductFromFavsError<T>;
+  const factory FavoritesState.fetchFavoritesLoading() = FetchFavoritesLoading;
+  const factory FavoritesState.fetchFavoritesSuccess(
+      FetchFavoritesResponse favorites) = FetchFavoritesSuccess<T>;
+  const factory FavoritesState.fetchFavoritesError(String error) =
+      FetchFavoritesError<T>;
 }

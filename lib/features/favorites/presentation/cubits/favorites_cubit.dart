@@ -39,6 +39,18 @@ class FavoritesCubit extends Cubit<FavoritesState> {
     );
   }
 
+  void fetchFavorites() async {
+    emit(const FavoritesState.fetchFavoritesLoading());
+    final result = await _favoritesRepo.fetchFavorites(_cancelToken);
+    result.when(
+      success: (favorites) =>
+          emit(FavoritesState.fetchFavoritesSuccess(favorites)),
+      error: (errorModel) => emit(
+        FavoritesState.fetchFavoritesError(errorModel.error ?? ''),
+      ),
+    );
+  }
+
   @override
   Future<void> close() {
     _cancelToken.cancel();

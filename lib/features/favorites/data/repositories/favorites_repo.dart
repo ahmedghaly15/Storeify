@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:store_ify/core/api/api_result.dart';
 import 'package:store_ify/core/api/api_service.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
+import 'package:store_ify/features/favorites/data/models/fetch_favorites_response.dart';
 import 'package:store_ify/features/favorites/data/models/prefer_product_params.dart';
 
 class FavoritesRepo {
@@ -30,6 +31,14 @@ class FavoritesRepo {
         productId,
         cancelToken,
       ),
+    );
+  }
+
+  Future<ApiResult<FetchFavoritesResponse>> fetchFavorites([
+    CancelToken? cancelToken,
+  ]) {
+    return executeAndHandleErrors<FetchFavoritesResponse>(
+      () async => await _apiService.fetchFavorites(cancelToken),
     );
   }
 }
