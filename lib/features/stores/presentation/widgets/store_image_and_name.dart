@@ -18,7 +18,7 @@ class StoreImageAndName extends StatelessWidget {
     return Container(
       margin: EdgeInsetsDirectional.only(
         top: 18.h,
-        bottom: 47.h,
+        bottom: 16.h,
         start: 35.w,
         end: 45.w,
       ),

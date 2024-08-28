@@ -8,6 +8,7 @@ import 'package:store_ify/core/helpers/helper.dart';
 import 'package:store_ify/core/widgets/custom_cached_network_image.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
+import 'package:store_ify/features/home/data/models/product.dart';
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem({
@@ -42,7 +43,8 @@ class CategoryItem extends StatelessWidget {
                   top: Radius.circular(10.r),
                 ),
                 child: CustomCachedNetworkImage(
-                  imageUrl: category.img,
+                  imageUrl: category.img ??
+                      'https://plus.unsplash.com/premium_photo-1675896084254-dcb626387e1e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -59,8 +61,10 @@ class CategoryItem extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: Text(
-                category.description,
+                category.description ??
+                    _mergeProductsToOneString(category.products!),
                 style: AppTextStyles.textStyle10Medium,
+                textAlign: TextAlign.center,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -70,5 +74,14 @@ class CategoryItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String _mergeProductsToOneString(List<Product> products) {
+    if (products.isEmpty) {
+      return 'No Products';
+    } else if (products.length > 1) {
+      return products.map((e) => e.name).toList().join(', ');
+    }
+    return products[0].name;
   }
 }

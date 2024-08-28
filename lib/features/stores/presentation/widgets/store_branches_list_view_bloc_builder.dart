@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
@@ -21,13 +22,18 @@ class StoreBranchesListViewBlocBuilder extends StatelessWidget {
         fetchStoreBranchesLoading: () => const Center(
           child: CustomCircularProgressIndicator(),
         ),
-        fetchStoreBranchesSuccess: (result) => ListView.separated(
-          itemBuilder: (_, index) => StoreBranchItem(
-            branch: result.branches[index],
-          ),
-          separatorBuilder: (_, __) => MySizedBox.height16,
-          itemCount: result.branches.length,
-        ),
+        fetchStoreBranchesSuccess: (result) => result.branches.isNotEmpty
+            ? ListView.separated(
+                padding: AppConstants.categoryPadding,
+                itemBuilder: (_, index) => StoreBranchItem(
+                  branch: result.branches[index],
+                ),
+                separatorBuilder: (_, __) => MySizedBox.height16,
+                itemCount: result.branches.length,
+              )
+            : const Center(
+                child: Text('No branches'),
+              ),
         fetchStoreBranchesError: (errorKey) => CustomErrorWidget(
           onPressed: () {},
           error: errorKey,
