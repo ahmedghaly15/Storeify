@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:store_ify/features/categories/data/models/category.dart';
 
 part 'store.g.dart';
 
@@ -6,7 +7,7 @@ part 'store.g.dart';
 class Store {
   final int id;
   final String name, img;
-  final List<int> categories;
+  final List<Category>? categories;
   @JsonKey(name: 'total_products_ordered')
   final int totalProductsOrdered;
 

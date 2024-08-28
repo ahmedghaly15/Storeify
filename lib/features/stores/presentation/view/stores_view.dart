@@ -29,7 +29,7 @@ class StoresView extends StatelessWidget implements AutoRouteWrapper {
             hasLeading: false,
           ),
           SliverFillRemaining(
-            hasScrollBody: false,
+            // hasScrollBody: false,
             child: StoresBlocBuilder(),
           )
         ],

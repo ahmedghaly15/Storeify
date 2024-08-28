@@ -10,8 +10,8 @@ class ApiErrors {
   static const String internalServerError = "internalServerError";
   static const String unknownError = "unknownError";
   static const String timeoutError = "timeoutError";
-  static const String defaultError =
-      'Opps, something is wrong.\nPlease try again later';
+  // static const String defaultError =
+  //     'Opps, something is wrong. Please try again later';
   static const String cacheError = "cacheError";
   // static const String noInternetError = AppStrings.noInternet;
   static const String loadingMessage = "loading_message";

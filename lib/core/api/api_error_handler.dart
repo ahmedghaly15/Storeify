@@ -55,12 +55,12 @@ class ResponseError {
 
   // local status code
   static String connectTimeout = ApiErrors.timeoutError;
-  static String cancel = ApiErrors.defaultError;
+  static String cancel = LangKeys.defaultError;
   static String receiveTimeout = ApiErrors.timeoutError;
   static String sendTimeout = ApiErrors.timeoutError;
   static String cacheError = ApiErrors.cacheError;
   static String noInternetConnection = LangKeys.noInternet;
-  static String defaultError = ApiErrors.defaultError;
+  static String defaultError = LangKeys.defaultError;
 }
 
 extension DataSourceExtension on DataSource {

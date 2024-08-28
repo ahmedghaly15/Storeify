@@ -45,5 +45,6 @@
     "viewAll": "View All",
     "topStores": "Top Stores",
     "allOffers": "All Offers",
-    "branches": "Branches"
+    "branches": "Branches",
+    "defaultError": "Opps, something is wrong. Please try again later"
 }

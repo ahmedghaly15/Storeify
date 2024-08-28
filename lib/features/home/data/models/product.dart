@@ -14,7 +14,7 @@ class Product {
   final double priceAfterDiscount;
   @JsonKey(name: 'store_img')
   final String? storeImg;
-  @JsonKey(name: 'product_images')
+  @JsonKey(name: 'images')
   final List<ProductImg> productImages;
   @JsonKey(name: 'is_favorited')
   final bool isFavorited;
