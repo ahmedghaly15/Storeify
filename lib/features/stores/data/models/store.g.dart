@@ -10,8 +10,8 @@ Store _$StoreFromJson(Map<String, dynamic> json) => Store(
       id: (json['id'] as num).toInt(),
       name: json['name'] as String,
       img: json['img'] as String,
-      categories: (json['categories'] as List<dynamic>)
-          .map((e) => (e as num).toInt())
+      categories: (json['categories'] as List<dynamic>?)
+          ?.map((e) => Category.fromJson(e as Map<String, dynamic>))
           .toList(),
       totalProductsOrdered: (json['total_products_ordered'] as num).toInt(),
     );

@@ -26,6 +26,7 @@ mixin _$StoresState<T> {
     required TResult Function(FetchStoresResponse categoryStores)
         fetchCategoryStoresSuccess,
     required TResult Function(String error) fetchCategoryStoresError,
+    required TResult Function(int currentIndex) updateCurrentSelectedStore,
     required TResult Function(int currentIndex) updateCurrentStoreIndex,
   }) =>
       throw _privateConstructorUsedError;
@@ -39,6 +40,7 @@ mixin _$StoresState<T> {
     TResult? Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult? Function(String error)? fetchCategoryStoresError,
+    TResult? Function(int currentIndex)? updateCurrentSelectedStore,
     TResult? Function(int currentIndex)? updateCurrentStoreIndex,
   }) =>
       throw _privateConstructorUsedError;
@@ -52,6 +54,7 @@ mixin _$StoresState<T> {
     TResult Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult Function(String error)? fetchCategoryStoresError,
+    TResult Function(int currentIndex)? updateCurrentSelectedStore,
     TResult Function(int currentIndex)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) =>
@@ -68,6 +71,8 @@ mixin _$StoresState<T> {
         fetchCategoryStoresSuccess,
     required TResult Function(FetchCategoryStoresError<T> value)
         fetchCategoryStoresError,
+    required TResult Function(UpdateCurrentSelectedStore<T> value)
+        updateCurrentSelectedStore,
     required TResult Function(UpdateCurrentStoreIndex<T> value)
         updateCurrentStoreIndex,
   }) =>
@@ -84,6 +89,8 @@ mixin _$StoresState<T> {
         fetchCategoryStoresSuccess,
     TResult? Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult? Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult? Function(UpdateCurrentStoreIndex<T> value)?
         updateCurrentStoreIndex,
   }) =>
@@ -100,6 +107,8 @@ mixin _$StoresState<T> {
         fetchCategoryStoresSuccess,
     TResult Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult Function(UpdateCurrentStoreIndex<T> value)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) =>
@@ -170,6 +179,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(FetchStoresResponse categoryStores)
         fetchCategoryStoresSuccess,
     required TResult Function(String error) fetchCategoryStoresError,
+    required TResult Function(int currentIndex) updateCurrentSelectedStore,
     required TResult Function(int currentIndex) updateCurrentStoreIndex,
   }) {
     return initial();
@@ -186,6 +196,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult? Function(String error)? fetchCategoryStoresError,
+    TResult? Function(int currentIndex)? updateCurrentSelectedStore,
     TResult? Function(int currentIndex)? updateCurrentStoreIndex,
   }) {
     return initial?.call();
@@ -202,6 +213,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult Function(String error)? fetchCategoryStoresError,
+    TResult Function(int currentIndex)? updateCurrentSelectedStore,
     TResult Function(int currentIndex)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) {
@@ -224,6 +236,8 @@ class _$InitialImpl<T> implements _Initial<T> {
         fetchCategoryStoresSuccess,
     required TResult Function(FetchCategoryStoresError<T> value)
         fetchCategoryStoresError,
+    required TResult Function(UpdateCurrentSelectedStore<T> value)
+        updateCurrentSelectedStore,
     required TResult Function(UpdateCurrentStoreIndex<T> value)
         updateCurrentStoreIndex,
   }) {
@@ -243,6 +257,8 @@ class _$InitialImpl<T> implements _Initial<T> {
         fetchCategoryStoresSuccess,
     TResult? Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult? Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult? Function(UpdateCurrentStoreIndex<T> value)?
         updateCurrentStoreIndex,
   }) {
@@ -262,6 +278,8 @@ class _$InitialImpl<T> implements _Initial<T> {
         fetchCategoryStoresSuccess,
     TResult Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult Function(UpdateCurrentStoreIndex<T> value)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) {
@@ -323,6 +341,7 @@ class _$FetchStoresLoadingImpl<T> implements FetchStoresLoading<T> {
     required TResult Function(FetchStoresResponse categoryStores)
         fetchCategoryStoresSuccess,
     required TResult Function(String error) fetchCategoryStoresError,
+    required TResult Function(int currentIndex) updateCurrentSelectedStore,
     required TResult Function(int currentIndex) updateCurrentStoreIndex,
   }) {
     return fetchStoresLoading();
@@ -339,6 +358,7 @@ class _$FetchStoresLoadingImpl<T> implements FetchStoresLoading<T> {
     TResult? Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult? Function(String error)? fetchCategoryStoresError,
+    TResult? Function(int currentIndex)? updateCurrentSelectedStore,
     TResult? Function(int currentIndex)? updateCurrentStoreIndex,
   }) {
     return fetchStoresLoading?.call();
@@ -355,6 +375,7 @@ class _$FetchStoresLoadingImpl<T> implements FetchStoresLoading<T> {
     TResult Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult Function(String error)? fetchCategoryStoresError,
+    TResult Function(int currentIndex)? updateCurrentSelectedStore,
     TResult Function(int currentIndex)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) {
@@ -377,6 +398,8 @@ class _$FetchStoresLoadingImpl<T> implements FetchStoresLoading<T> {
         fetchCategoryStoresSuccess,
     required TResult Function(FetchCategoryStoresError<T> value)
         fetchCategoryStoresError,
+    required TResult Function(UpdateCurrentSelectedStore<T> value)
+        updateCurrentSelectedStore,
     required TResult Function(UpdateCurrentStoreIndex<T> value)
         updateCurrentStoreIndex,
   }) {
@@ -396,6 +419,8 @@ class _$FetchStoresLoadingImpl<T> implements FetchStoresLoading<T> {
         fetchCategoryStoresSuccess,
     TResult? Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult? Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult? Function(UpdateCurrentStoreIndex<T> value)?
         updateCurrentStoreIndex,
   }) {
@@ -415,6 +440,8 @@ class _$FetchStoresLoadingImpl<T> implements FetchStoresLoading<T> {
         fetchCategoryStoresSuccess,
     TResult Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult Function(UpdateCurrentStoreIndex<T> value)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) {
@@ -502,6 +529,7 @@ class _$FetchStoresSuccessImpl<T> implements FetchStoresSuccess<T> {
     required TResult Function(FetchStoresResponse categoryStores)
         fetchCategoryStoresSuccess,
     required TResult Function(String error) fetchCategoryStoresError,
+    required TResult Function(int currentIndex) updateCurrentSelectedStore,
     required TResult Function(int currentIndex) updateCurrentStoreIndex,
   }) {
     return fetchStoresSuccess(stores);
@@ -518,6 +546,7 @@ class _$FetchStoresSuccessImpl<T> implements FetchStoresSuccess<T> {
     TResult? Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult? Function(String error)? fetchCategoryStoresError,
+    TResult? Function(int currentIndex)? updateCurrentSelectedStore,
     TResult? Function(int currentIndex)? updateCurrentStoreIndex,
   }) {
     return fetchStoresSuccess?.call(stores);
@@ -534,6 +563,7 @@ class _$FetchStoresSuccessImpl<T> implements FetchStoresSuccess<T> {
     TResult Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult Function(String error)? fetchCategoryStoresError,
+    TResult Function(int currentIndex)? updateCurrentSelectedStore,
     TResult Function(int currentIndex)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) {
@@ -556,6 +586,8 @@ class _$FetchStoresSuccessImpl<T> implements FetchStoresSuccess<T> {
         fetchCategoryStoresSuccess,
     required TResult Function(FetchCategoryStoresError<T> value)
         fetchCategoryStoresError,
+    required TResult Function(UpdateCurrentSelectedStore<T> value)
+        updateCurrentSelectedStore,
     required TResult Function(UpdateCurrentStoreIndex<T> value)
         updateCurrentStoreIndex,
   }) {
@@ -575,6 +607,8 @@ class _$FetchStoresSuccessImpl<T> implements FetchStoresSuccess<T> {
         fetchCategoryStoresSuccess,
     TResult? Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult? Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult? Function(UpdateCurrentStoreIndex<T> value)?
         updateCurrentStoreIndex,
   }) {
@@ -594,6 +628,8 @@ class _$FetchStoresSuccessImpl<T> implements FetchStoresSuccess<T> {
         fetchCategoryStoresSuccess,
     TResult Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult Function(UpdateCurrentStoreIndex<T> value)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) {
@@ -687,6 +723,7 @@ class _$FetchStoresErrorImpl<T> implements FetchStoresError<T> {
     required TResult Function(FetchStoresResponse categoryStores)
         fetchCategoryStoresSuccess,
     required TResult Function(String error) fetchCategoryStoresError,
+    required TResult Function(int currentIndex) updateCurrentSelectedStore,
     required TResult Function(int currentIndex) updateCurrentStoreIndex,
   }) {
     return fetchStoresError(error);
@@ -703,6 +740,7 @@ class _$FetchStoresErrorImpl<T> implements FetchStoresError<T> {
     TResult? Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult? Function(String error)? fetchCategoryStoresError,
+    TResult? Function(int currentIndex)? updateCurrentSelectedStore,
     TResult? Function(int currentIndex)? updateCurrentStoreIndex,
   }) {
     return fetchStoresError?.call(error);
@@ -719,6 +757,7 @@ class _$FetchStoresErrorImpl<T> implements FetchStoresError<T> {
     TResult Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult Function(String error)? fetchCategoryStoresError,
+    TResult Function(int currentIndex)? updateCurrentSelectedStore,
     TResult Function(int currentIndex)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) {
@@ -741,6 +780,8 @@ class _$FetchStoresErrorImpl<T> implements FetchStoresError<T> {
         fetchCategoryStoresSuccess,
     required TResult Function(FetchCategoryStoresError<T> value)
         fetchCategoryStoresError,
+    required TResult Function(UpdateCurrentSelectedStore<T> value)
+        updateCurrentSelectedStore,
     required TResult Function(UpdateCurrentStoreIndex<T> value)
         updateCurrentStoreIndex,
   }) {
@@ -760,6 +801,8 @@ class _$FetchStoresErrorImpl<T> implements FetchStoresError<T> {
         fetchCategoryStoresSuccess,
     TResult? Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult? Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult? Function(UpdateCurrentStoreIndex<T> value)?
         updateCurrentStoreIndex,
   }) {
@@ -779,6 +822,8 @@ class _$FetchStoresErrorImpl<T> implements FetchStoresError<T> {
         fetchCategoryStoresSuccess,
     TResult Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult Function(UpdateCurrentStoreIndex<T> value)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) {
@@ -850,6 +895,7 @@ class _$FetchCategoryStoresLoadingImpl<T>
     required TResult Function(FetchStoresResponse categoryStores)
         fetchCategoryStoresSuccess,
     required TResult Function(String error) fetchCategoryStoresError,
+    required TResult Function(int currentIndex) updateCurrentSelectedStore,
     required TResult Function(int currentIndex) updateCurrentStoreIndex,
   }) {
     return fetchCategoryStoresLoading();
@@ -866,6 +912,7 @@ class _$FetchCategoryStoresLoadingImpl<T>
     TResult? Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult? Function(String error)? fetchCategoryStoresError,
+    TResult? Function(int currentIndex)? updateCurrentSelectedStore,
     TResult? Function(int currentIndex)? updateCurrentStoreIndex,
   }) {
     return fetchCategoryStoresLoading?.call();
@@ -882,6 +929,7 @@ class _$FetchCategoryStoresLoadingImpl<T>
     TResult Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult Function(String error)? fetchCategoryStoresError,
+    TResult Function(int currentIndex)? updateCurrentSelectedStore,
     TResult Function(int currentIndex)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) {
@@ -904,6 +952,8 @@ class _$FetchCategoryStoresLoadingImpl<T>
         fetchCategoryStoresSuccess,
     required TResult Function(FetchCategoryStoresError<T> value)
         fetchCategoryStoresError,
+    required TResult Function(UpdateCurrentSelectedStore<T> value)
+        updateCurrentSelectedStore,
     required TResult Function(UpdateCurrentStoreIndex<T> value)
         updateCurrentStoreIndex,
   }) {
@@ -923,6 +973,8 @@ class _$FetchCategoryStoresLoadingImpl<T>
         fetchCategoryStoresSuccess,
     TResult? Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult? Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult? Function(UpdateCurrentStoreIndex<T> value)?
         updateCurrentStoreIndex,
   }) {
@@ -942,6 +994,8 @@ class _$FetchCategoryStoresLoadingImpl<T>
         fetchCategoryStoresSuccess,
     TResult Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult Function(UpdateCurrentStoreIndex<T> value)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) {
@@ -1036,6 +1090,7 @@ class _$FetchCategoryStoresSuccessImpl<T>
     required TResult Function(FetchStoresResponse categoryStores)
         fetchCategoryStoresSuccess,
     required TResult Function(String error) fetchCategoryStoresError,
+    required TResult Function(int currentIndex) updateCurrentSelectedStore,
     required TResult Function(int currentIndex) updateCurrentStoreIndex,
   }) {
     return fetchCategoryStoresSuccess(categoryStores);
@@ -1052,6 +1107,7 @@ class _$FetchCategoryStoresSuccessImpl<T>
     TResult? Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult? Function(String error)? fetchCategoryStoresError,
+    TResult? Function(int currentIndex)? updateCurrentSelectedStore,
     TResult? Function(int currentIndex)? updateCurrentStoreIndex,
   }) {
     return fetchCategoryStoresSuccess?.call(categoryStores);
@@ -1068,6 +1124,7 @@ class _$FetchCategoryStoresSuccessImpl<T>
     TResult Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult Function(String error)? fetchCategoryStoresError,
+    TResult Function(int currentIndex)? updateCurrentSelectedStore,
     TResult Function(int currentIndex)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) {
@@ -1090,6 +1147,8 @@ class _$FetchCategoryStoresSuccessImpl<T>
         fetchCategoryStoresSuccess,
     required TResult Function(FetchCategoryStoresError<T> value)
         fetchCategoryStoresError,
+    required TResult Function(UpdateCurrentSelectedStore<T> value)
+        updateCurrentSelectedStore,
     required TResult Function(UpdateCurrentStoreIndex<T> value)
         updateCurrentStoreIndex,
   }) {
@@ -1109,6 +1168,8 @@ class _$FetchCategoryStoresSuccessImpl<T>
         fetchCategoryStoresSuccess,
     TResult? Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult? Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult? Function(UpdateCurrentStoreIndex<T> value)?
         updateCurrentStoreIndex,
   }) {
@@ -1128,6 +1189,8 @@ class _$FetchCategoryStoresSuccessImpl<T>
         fetchCategoryStoresSuccess,
     TResult Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult Function(UpdateCurrentStoreIndex<T> value)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) {
@@ -1226,6 +1289,7 @@ class _$FetchCategoryStoresErrorImpl<T> implements FetchCategoryStoresError<T> {
     required TResult Function(FetchStoresResponse categoryStores)
         fetchCategoryStoresSuccess,
     required TResult Function(String error) fetchCategoryStoresError,
+    required TResult Function(int currentIndex) updateCurrentSelectedStore,
     required TResult Function(int currentIndex) updateCurrentStoreIndex,
   }) {
     return fetchCategoryStoresError(error);
@@ -1242,6 +1306,7 @@ class _$FetchCategoryStoresErrorImpl<T> implements FetchCategoryStoresError<T> {
     TResult? Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult? Function(String error)? fetchCategoryStoresError,
+    TResult? Function(int currentIndex)? updateCurrentSelectedStore,
     TResult? Function(int currentIndex)? updateCurrentStoreIndex,
   }) {
     return fetchCategoryStoresError?.call(error);
@@ -1258,6 +1323,7 @@ class _$FetchCategoryStoresErrorImpl<T> implements FetchCategoryStoresError<T> {
     TResult Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult Function(String error)? fetchCategoryStoresError,
+    TResult Function(int currentIndex)? updateCurrentSelectedStore,
     TResult Function(int currentIndex)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) {
@@ -1280,6 +1346,8 @@ class _$FetchCategoryStoresErrorImpl<T> implements FetchCategoryStoresError<T> {
         fetchCategoryStoresSuccess,
     required TResult Function(FetchCategoryStoresError<T> value)
         fetchCategoryStoresError,
+    required TResult Function(UpdateCurrentSelectedStore<T> value)
+        updateCurrentSelectedStore,
     required TResult Function(UpdateCurrentStoreIndex<T> value)
         updateCurrentStoreIndex,
   }) {
@@ -1299,6 +1367,8 @@ class _$FetchCategoryStoresErrorImpl<T> implements FetchCategoryStoresError<T> {
         fetchCategoryStoresSuccess,
     TResult? Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult? Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult? Function(UpdateCurrentStoreIndex<T> value)?
         updateCurrentStoreIndex,
   }) {
@@ -1318,6 +1388,8 @@ class _$FetchCategoryStoresErrorImpl<T> implements FetchCategoryStoresError<T> {
         fetchCategoryStoresSuccess,
     TResult Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult Function(UpdateCurrentStoreIndex<T> value)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) {
@@ -1335,6 +1407,207 @@ abstract class FetchCategoryStoresError<T> implements StoresState<T> {
   String get error;
   @JsonKey(ignore: true)
   _$$FetchCategoryStoresErrorImplCopyWith<T, _$FetchCategoryStoresErrorImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateCurrentSelectedStoreImplCopyWith<T, $Res> {
+  factory _$$UpdateCurrentSelectedStoreImplCopyWith(
+          _$UpdateCurrentSelectedStoreImpl<T> value,
+          $Res Function(_$UpdateCurrentSelectedStoreImpl<T>) then) =
+      __$$UpdateCurrentSelectedStoreImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({int currentIndex});
+}
+
+/// @nodoc
+class __$$UpdateCurrentSelectedStoreImplCopyWithImpl<T, $Res>
+    extends _$StoresStateCopyWithImpl<T, $Res,
+        _$UpdateCurrentSelectedStoreImpl<T>>
+    implements _$$UpdateCurrentSelectedStoreImplCopyWith<T, $Res> {
+  __$$UpdateCurrentSelectedStoreImplCopyWithImpl(
+      _$UpdateCurrentSelectedStoreImpl<T> _value,
+      $Res Function(_$UpdateCurrentSelectedStoreImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currentIndex = null,
+  }) {
+    return _then(_$UpdateCurrentSelectedStoreImpl<T>(
+      null == currentIndex
+          ? _value.currentIndex
+          : currentIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateCurrentSelectedStoreImpl<T>
+    implements UpdateCurrentSelectedStore<T> {
+  const _$UpdateCurrentSelectedStoreImpl(this.currentIndex);
+
+  @override
+  final int currentIndex;
+
+  @override
+  String toString() {
+    return 'StoresState<$T>.updateCurrentSelectedStore(currentIndex: $currentIndex)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateCurrentSelectedStoreImpl<T> &&
+            (identical(other.currentIndex, currentIndex) ||
+                other.currentIndex == currentIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, currentIndex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateCurrentSelectedStoreImplCopyWith<T,
+          _$UpdateCurrentSelectedStoreImpl<T>>
+      get copyWith => __$$UpdateCurrentSelectedStoreImplCopyWithImpl<T,
+          _$UpdateCurrentSelectedStoreImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() fetchStoresLoading,
+    required TResult Function(FetchStoresResponse stores) fetchStoresSuccess,
+    required TResult Function(String error) fetchStoresError,
+    required TResult Function() fetchCategoryStoresLoading,
+    required TResult Function(FetchStoresResponse categoryStores)
+        fetchCategoryStoresSuccess,
+    required TResult Function(String error) fetchCategoryStoresError,
+    required TResult Function(int currentIndex) updateCurrentSelectedStore,
+    required TResult Function(int currentIndex) updateCurrentStoreIndex,
+  }) {
+    return updateCurrentSelectedStore(currentIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? fetchStoresLoading,
+    TResult? Function(FetchStoresResponse stores)? fetchStoresSuccess,
+    TResult? Function(String error)? fetchStoresError,
+    TResult? Function()? fetchCategoryStoresLoading,
+    TResult? Function(FetchStoresResponse categoryStores)?
+        fetchCategoryStoresSuccess,
+    TResult? Function(String error)? fetchCategoryStoresError,
+    TResult? Function(int currentIndex)? updateCurrentSelectedStore,
+    TResult? Function(int currentIndex)? updateCurrentStoreIndex,
+  }) {
+    return updateCurrentSelectedStore?.call(currentIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? fetchStoresLoading,
+    TResult Function(FetchStoresResponse stores)? fetchStoresSuccess,
+    TResult Function(String error)? fetchStoresError,
+    TResult Function()? fetchCategoryStoresLoading,
+    TResult Function(FetchStoresResponse categoryStores)?
+        fetchCategoryStoresSuccess,
+    TResult Function(String error)? fetchCategoryStoresError,
+    TResult Function(int currentIndex)? updateCurrentSelectedStore,
+    TResult Function(int currentIndex)? updateCurrentStoreIndex,
+    required TResult orElse(),
+  }) {
+    if (updateCurrentSelectedStore != null) {
+      return updateCurrentSelectedStore(currentIndex);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(FetchStoresLoading<T> value) fetchStoresLoading,
+    required TResult Function(FetchStoresSuccess<T> value) fetchStoresSuccess,
+    required TResult Function(FetchStoresError<T> value) fetchStoresError,
+    required TResult Function(FetchCategoryStoresLoading<T> value)
+        fetchCategoryStoresLoading,
+    required TResult Function(FetchCategoryStoresSuccess<T> value)
+        fetchCategoryStoresSuccess,
+    required TResult Function(FetchCategoryStoresError<T> value)
+        fetchCategoryStoresError,
+    required TResult Function(UpdateCurrentSelectedStore<T> value)
+        updateCurrentSelectedStore,
+    required TResult Function(UpdateCurrentStoreIndex<T> value)
+        updateCurrentStoreIndex,
+  }) {
+    return updateCurrentSelectedStore(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(FetchStoresLoading<T> value)? fetchStoresLoading,
+    TResult? Function(FetchStoresSuccess<T> value)? fetchStoresSuccess,
+    TResult? Function(FetchStoresError<T> value)? fetchStoresError,
+    TResult? Function(FetchCategoryStoresLoading<T> value)?
+        fetchCategoryStoresLoading,
+    TResult? Function(FetchCategoryStoresSuccess<T> value)?
+        fetchCategoryStoresSuccess,
+    TResult? Function(FetchCategoryStoresError<T> value)?
+        fetchCategoryStoresError,
+    TResult? Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
+    TResult? Function(UpdateCurrentStoreIndex<T> value)?
+        updateCurrentStoreIndex,
+  }) {
+    return updateCurrentSelectedStore?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(FetchStoresLoading<T> value)? fetchStoresLoading,
+    TResult Function(FetchStoresSuccess<T> value)? fetchStoresSuccess,
+    TResult Function(FetchStoresError<T> value)? fetchStoresError,
+    TResult Function(FetchCategoryStoresLoading<T> value)?
+        fetchCategoryStoresLoading,
+    TResult Function(FetchCategoryStoresSuccess<T> value)?
+        fetchCategoryStoresSuccess,
+    TResult Function(FetchCategoryStoresError<T> value)?
+        fetchCategoryStoresError,
+    TResult Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
+    TResult Function(UpdateCurrentStoreIndex<T> value)? updateCurrentStoreIndex,
+    required TResult orElse(),
+  }) {
+    if (updateCurrentSelectedStore != null) {
+      return updateCurrentSelectedStore(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateCurrentSelectedStore<T> implements StoresState<T> {
+  const factory UpdateCurrentSelectedStore(final int currentIndex) =
+      _$UpdateCurrentSelectedStoreImpl<T>;
+
+  int get currentIndex;
+  @JsonKey(ignore: true)
+  _$$UpdateCurrentSelectedStoreImplCopyWith<T,
+          _$UpdateCurrentSelectedStoreImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1414,6 +1687,7 @@ class _$UpdateCurrentStoreIndexImpl<T> implements UpdateCurrentStoreIndex<T> {
     required TResult Function(FetchStoresResponse categoryStores)
         fetchCategoryStoresSuccess,
     required TResult Function(String error) fetchCategoryStoresError,
+    required TResult Function(int currentIndex) updateCurrentSelectedStore,
     required TResult Function(int currentIndex) updateCurrentStoreIndex,
   }) {
     return updateCurrentStoreIndex(currentIndex);
@@ -1430,6 +1704,7 @@ class _$UpdateCurrentStoreIndexImpl<T> implements UpdateCurrentStoreIndex<T> {
     TResult? Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult? Function(String error)? fetchCategoryStoresError,
+    TResult? Function(int currentIndex)? updateCurrentSelectedStore,
     TResult? Function(int currentIndex)? updateCurrentStoreIndex,
   }) {
     return updateCurrentStoreIndex?.call(currentIndex);
@@ -1446,6 +1721,7 @@ class _$UpdateCurrentStoreIndexImpl<T> implements UpdateCurrentStoreIndex<T> {
     TResult Function(FetchStoresResponse categoryStores)?
         fetchCategoryStoresSuccess,
     TResult Function(String error)? fetchCategoryStoresError,
+    TResult Function(int currentIndex)? updateCurrentSelectedStore,
     TResult Function(int currentIndex)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) {
@@ -1468,6 +1744,8 @@ class _$UpdateCurrentStoreIndexImpl<T> implements UpdateCurrentStoreIndex<T> {
         fetchCategoryStoresSuccess,
     required TResult Function(FetchCategoryStoresError<T> value)
         fetchCategoryStoresError,
+    required TResult Function(UpdateCurrentSelectedStore<T> value)
+        updateCurrentSelectedStore,
     required TResult Function(UpdateCurrentStoreIndex<T> value)
         updateCurrentStoreIndex,
   }) {
@@ -1487,6 +1765,8 @@ class _$UpdateCurrentStoreIndexImpl<T> implements UpdateCurrentStoreIndex<T> {
         fetchCategoryStoresSuccess,
     TResult? Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult? Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult? Function(UpdateCurrentStoreIndex<T> value)?
         updateCurrentStoreIndex,
   }) {
@@ -1506,6 +1786,8 @@ class _$UpdateCurrentStoreIndexImpl<T> implements UpdateCurrentStoreIndex<T> {
         fetchCategoryStoresSuccess,
     TResult Function(FetchCategoryStoresError<T> value)?
         fetchCategoryStoresError,
+    TResult Function(UpdateCurrentSelectedStore<T> value)?
+        updateCurrentSelectedStore,
     TResult Function(UpdateCurrentStoreIndex<T> value)? updateCurrentStoreIndex,
     required TResult orElse(),
   }) {
