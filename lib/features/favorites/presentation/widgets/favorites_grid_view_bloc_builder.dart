@@ -28,8 +28,9 @@ class FavoritesGridViewBlocBuilder extends StatelessWidget {
         fetchFavStoresSuccess: (favStoresResponse) =>
             FavoriteStoresGridView(stores: favStoresResponse.stores),
         fetchFavStoresError: (errorKey) => CustomErrorWidget(
-          onPressed: () {},
-          error: errorKey,
+          tryAgainOnPressed: () =>
+              context.read<FetchFavoritesCubit>().fetchFavStores(),
+          errorKey: errorKey,
         ),
         fetchFavoriteProductsLoading: () => const Center(
           child: CustomCircularProgressIndicator(),
@@ -37,8 +38,9 @@ class FavoritesGridViewBlocBuilder extends StatelessWidget {
         fetchFavoriteProductsSuccess: (favProductsResponse) =>
             FavoriteProductsGridView(products: favProductsResponse.products),
         fetchFavoriteProductsError: (errorKey) => CustomErrorWidget(
-          onPressed: () {},
-          error: errorKey,
+          tryAgainOnPressed: () =>
+              context.read<FetchFavoritesCubit>().fetchFavProducts(),
+          errorKey: errorKey,
         ),
         orElse: () => const Center(
           child: CustomCircularProgressIndicator(),

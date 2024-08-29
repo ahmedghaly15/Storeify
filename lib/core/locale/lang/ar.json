@@ -53,5 +53,7 @@
     "favorites": "المفضلة",
     "products": "المنتجات",
     "NO_FAVORITE_STORES": "ليس لديك متاجر مفضلة",
-    "No_Favorite_Products": "ليس لديك منتجات مفضلة"
+    "No_Favorite_Products": "ليس لديك منتجات مفضلة",
+    "ensureInternetConnection": "الرجاء التحقق من اتصالك بالانترنت و المحاولة مرة أخرى.",
+    "defaultErrorDescription": "حدث خطأ في الحصول على البيانات لك. الرجاء المحاولة مرة أخرى"
 }

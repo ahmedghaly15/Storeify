@@ -36,9 +36,9 @@ class StoresBlocBuilder extends StatelessWidget {
             ),
           ],
         ),
-        fetchCategoryStoresError: (errorKey) => CustomErrorWidget(
-          onPressed: () {},
-          error: errorKey,
+        fetchStoresError: (errorKey) => CustomErrorWidget(
+          tryAgainOnPressed: () => context.read<StoresCubit>().fetchStores(),
+          errorKey: errorKey,
         ),
         orElse: () => const Center(
           child: CustomCircularProgressIndicator(),

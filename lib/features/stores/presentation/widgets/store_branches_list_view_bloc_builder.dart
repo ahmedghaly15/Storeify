@@ -35,8 +35,10 @@ class StoreBranchesListViewBlocBuilder extends StatelessWidget {
                 child: Text('No branches'),
               ),
         fetchStoreBranchesError: (errorKey) => CustomErrorWidget(
-          onPressed: () {},
-          error: errorKey,
+          tryAgainOnPressed: () {
+            // TODO: add try again function
+          },
+          errorKey: errorKey,
         ),
         orElse: () => const Center(
           child: CustomCircularProgressIndicator(),
