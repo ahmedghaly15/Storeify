@@ -33,6 +33,19 @@ class CartCubit extends Cubit<CartState> {
     );
   }
 
+  void removeProductFromCart(int productId) async {
+    emit(const CartState.removeProductFromCartLoading());
+    final result = await _cartRepo.removeProductFromCart(
+      productId,
+      _cancelToken,
+    );
+    result.when(
+      success: (_) => emit(const CartState.removeProductFromCartSuccess()),
+      error: (errorModel) =>
+          emit(CartState.removeProductFromCartError(errorModel.error ?? '')),
+    );
+  }
+
   @override
   Future<void> close() {
     _cancelToken.cancel();

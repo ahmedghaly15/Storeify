@@ -25,6 +25,9 @@ mixin _$CartState<T> {
     required TResult Function() fetchCartLoading,
     required TResult Function(FetchCartResponse cart) fetchCartSuccess,
     required TResult Function(String error) fetchCartError,
+    required TResult Function() removeProductFromCartLoading,
+    required TResult Function() removeProductFromCartSuccess,
+    required TResult Function(String error) removeProductFromCartError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +39,9 @@ mixin _$CartState<T> {
     TResult? Function()? fetchCartLoading,
     TResult? Function(FetchCartResponse cart)? fetchCartSuccess,
     TResult? Function(String error)? fetchCartError,
+    TResult? Function()? removeProductFromCartLoading,
+    TResult? Function()? removeProductFromCartSuccess,
+    TResult? Function(String error)? removeProductFromCartError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +53,9 @@ mixin _$CartState<T> {
     TResult Function()? fetchCartLoading,
     TResult Function(FetchCartResponse cart)? fetchCartSuccess,
     TResult Function(String error)? fetchCartError,
+    TResult Function()? removeProductFromCartLoading,
+    TResult Function()? removeProductFromCartSuccess,
+    TResult Function(String error)? removeProductFromCartError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +71,12 @@ mixin _$CartState<T> {
     required TResult Function(FetchCartLoading<T> value) fetchCartLoading,
     required TResult Function(FetchCartSuccess<T> value) fetchCartSuccess,
     required TResult Function(FetchCartError<T> value) fetchCartError,
+    required TResult Function(RemoveProductFromCartLoading<T> value)
+        removeProductFromCartLoading,
+    required TResult Function(RemoveProductFromCartSuccess<T> value)
+        removeProductFromCartSuccess,
+    required TResult Function(RemoveProductFromCartError<T> value)
+        removeProductFromCartError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +90,12 @@ mixin _$CartState<T> {
     TResult? Function(FetchCartLoading<T> value)? fetchCartLoading,
     TResult? Function(FetchCartSuccess<T> value)? fetchCartSuccess,
     TResult? Function(FetchCartError<T> value)? fetchCartError,
+    TResult? Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult? Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult? Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -86,6 +107,12 @@ mixin _$CartState<T> {
     TResult Function(FetchCartLoading<T> value)? fetchCartLoading,
     TResult Function(FetchCartSuccess<T> value)? fetchCartSuccess,
     TResult Function(FetchCartError<T> value)? fetchCartError,
+    TResult Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -154,6 +181,9 @@ class _$InitialImpl<T> implements Initial<T> {
     required TResult Function() fetchCartLoading,
     required TResult Function(FetchCartResponse cart) fetchCartSuccess,
     required TResult Function(String error) fetchCartError,
+    required TResult Function() removeProductFromCartLoading,
+    required TResult Function() removeProductFromCartSuccess,
+    required TResult Function(String error) removeProductFromCartError,
   }) {
     return initial();
   }
@@ -168,6 +198,9 @@ class _$InitialImpl<T> implements Initial<T> {
     TResult? Function()? fetchCartLoading,
     TResult? Function(FetchCartResponse cart)? fetchCartSuccess,
     TResult? Function(String error)? fetchCartError,
+    TResult? Function()? removeProductFromCartLoading,
+    TResult? Function()? removeProductFromCartSuccess,
+    TResult? Function(String error)? removeProductFromCartError,
   }) {
     return initial?.call();
   }
@@ -182,6 +215,9 @@ class _$InitialImpl<T> implements Initial<T> {
     TResult Function()? fetchCartLoading,
     TResult Function(FetchCartResponse cart)? fetchCartSuccess,
     TResult Function(String error)? fetchCartError,
+    TResult Function()? removeProductFromCartLoading,
+    TResult Function()? removeProductFromCartSuccess,
+    TResult Function(String error)? removeProductFromCartError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -203,6 +239,12 @@ class _$InitialImpl<T> implements Initial<T> {
     required TResult Function(FetchCartLoading<T> value) fetchCartLoading,
     required TResult Function(FetchCartSuccess<T> value) fetchCartSuccess,
     required TResult Function(FetchCartError<T> value) fetchCartError,
+    required TResult Function(RemoveProductFromCartLoading<T> value)
+        removeProductFromCartLoading,
+    required TResult Function(RemoveProductFromCartSuccess<T> value)
+        removeProductFromCartSuccess,
+    required TResult Function(RemoveProductFromCartError<T> value)
+        removeProductFromCartError,
   }) {
     return initial(this);
   }
@@ -219,6 +261,12 @@ class _$InitialImpl<T> implements Initial<T> {
     TResult? Function(FetchCartLoading<T> value)? fetchCartLoading,
     TResult? Function(FetchCartSuccess<T> value)? fetchCartSuccess,
     TResult? Function(FetchCartError<T> value)? fetchCartError,
+    TResult? Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult? Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult? Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
   }) {
     return initial?.call(this);
   }
@@ -233,6 +281,12 @@ class _$InitialImpl<T> implements Initial<T> {
     TResult Function(FetchCartLoading<T> value)? fetchCartLoading,
     TResult Function(FetchCartSuccess<T> value)? fetchCartSuccess,
     TResult Function(FetchCartError<T> value)? fetchCartError,
+    TResult Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -294,6 +348,9 @@ class _$AddProductToCartLoadingImpl<T> implements AddProductToCartLoading<T> {
     required TResult Function() fetchCartLoading,
     required TResult Function(FetchCartResponse cart) fetchCartSuccess,
     required TResult Function(String error) fetchCartError,
+    required TResult Function() removeProductFromCartLoading,
+    required TResult Function() removeProductFromCartSuccess,
+    required TResult Function(String error) removeProductFromCartError,
   }) {
     return addProductToCartLoading();
   }
@@ -308,6 +365,9 @@ class _$AddProductToCartLoadingImpl<T> implements AddProductToCartLoading<T> {
     TResult? Function()? fetchCartLoading,
     TResult? Function(FetchCartResponse cart)? fetchCartSuccess,
     TResult? Function(String error)? fetchCartError,
+    TResult? Function()? removeProductFromCartLoading,
+    TResult? Function()? removeProductFromCartSuccess,
+    TResult? Function(String error)? removeProductFromCartError,
   }) {
     return addProductToCartLoading?.call();
   }
@@ -322,6 +382,9 @@ class _$AddProductToCartLoadingImpl<T> implements AddProductToCartLoading<T> {
     TResult Function()? fetchCartLoading,
     TResult Function(FetchCartResponse cart)? fetchCartSuccess,
     TResult Function(String error)? fetchCartError,
+    TResult Function()? removeProductFromCartLoading,
+    TResult Function()? removeProductFromCartSuccess,
+    TResult Function(String error)? removeProductFromCartError,
     required TResult orElse(),
   }) {
     if (addProductToCartLoading != null) {
@@ -343,6 +406,12 @@ class _$AddProductToCartLoadingImpl<T> implements AddProductToCartLoading<T> {
     required TResult Function(FetchCartLoading<T> value) fetchCartLoading,
     required TResult Function(FetchCartSuccess<T> value) fetchCartSuccess,
     required TResult Function(FetchCartError<T> value) fetchCartError,
+    required TResult Function(RemoveProductFromCartLoading<T> value)
+        removeProductFromCartLoading,
+    required TResult Function(RemoveProductFromCartSuccess<T> value)
+        removeProductFromCartSuccess,
+    required TResult Function(RemoveProductFromCartError<T> value)
+        removeProductFromCartError,
   }) {
     return addProductToCartLoading(this);
   }
@@ -359,6 +428,12 @@ class _$AddProductToCartLoadingImpl<T> implements AddProductToCartLoading<T> {
     TResult? Function(FetchCartLoading<T> value)? fetchCartLoading,
     TResult? Function(FetchCartSuccess<T> value)? fetchCartSuccess,
     TResult? Function(FetchCartError<T> value)? fetchCartError,
+    TResult? Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult? Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult? Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
   }) {
     return addProductToCartLoading?.call(this);
   }
@@ -373,6 +448,12 @@ class _$AddProductToCartLoadingImpl<T> implements AddProductToCartLoading<T> {
     TResult Function(FetchCartLoading<T> value)? fetchCartLoading,
     TResult Function(FetchCartSuccess<T> value)? fetchCartSuccess,
     TResult Function(FetchCartError<T> value)? fetchCartError,
+    TResult Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
     required TResult orElse(),
   }) {
     if (addProductToCartLoading != null) {
@@ -434,6 +515,9 @@ class _$AddProductToCartSuccessImpl<T> implements AddProductToCartSuccess<T> {
     required TResult Function() fetchCartLoading,
     required TResult Function(FetchCartResponse cart) fetchCartSuccess,
     required TResult Function(String error) fetchCartError,
+    required TResult Function() removeProductFromCartLoading,
+    required TResult Function() removeProductFromCartSuccess,
+    required TResult Function(String error) removeProductFromCartError,
   }) {
     return addProductToCartSuccess();
   }
@@ -448,6 +532,9 @@ class _$AddProductToCartSuccessImpl<T> implements AddProductToCartSuccess<T> {
     TResult? Function()? fetchCartLoading,
     TResult? Function(FetchCartResponse cart)? fetchCartSuccess,
     TResult? Function(String error)? fetchCartError,
+    TResult? Function()? removeProductFromCartLoading,
+    TResult? Function()? removeProductFromCartSuccess,
+    TResult? Function(String error)? removeProductFromCartError,
   }) {
     return addProductToCartSuccess?.call();
   }
@@ -462,6 +549,9 @@ class _$AddProductToCartSuccessImpl<T> implements AddProductToCartSuccess<T> {
     TResult Function()? fetchCartLoading,
     TResult Function(FetchCartResponse cart)? fetchCartSuccess,
     TResult Function(String error)? fetchCartError,
+    TResult Function()? removeProductFromCartLoading,
+    TResult Function()? removeProductFromCartSuccess,
+    TResult Function(String error)? removeProductFromCartError,
     required TResult orElse(),
   }) {
     if (addProductToCartSuccess != null) {
@@ -483,6 +573,12 @@ class _$AddProductToCartSuccessImpl<T> implements AddProductToCartSuccess<T> {
     required TResult Function(FetchCartLoading<T> value) fetchCartLoading,
     required TResult Function(FetchCartSuccess<T> value) fetchCartSuccess,
     required TResult Function(FetchCartError<T> value) fetchCartError,
+    required TResult Function(RemoveProductFromCartLoading<T> value)
+        removeProductFromCartLoading,
+    required TResult Function(RemoveProductFromCartSuccess<T> value)
+        removeProductFromCartSuccess,
+    required TResult Function(RemoveProductFromCartError<T> value)
+        removeProductFromCartError,
   }) {
     return addProductToCartSuccess(this);
   }
@@ -499,6 +595,12 @@ class _$AddProductToCartSuccessImpl<T> implements AddProductToCartSuccess<T> {
     TResult? Function(FetchCartLoading<T> value)? fetchCartLoading,
     TResult? Function(FetchCartSuccess<T> value)? fetchCartSuccess,
     TResult? Function(FetchCartError<T> value)? fetchCartError,
+    TResult? Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult? Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult? Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
   }) {
     return addProductToCartSuccess?.call(this);
   }
@@ -513,6 +615,12 @@ class _$AddProductToCartSuccessImpl<T> implements AddProductToCartSuccess<T> {
     TResult Function(FetchCartLoading<T> value)? fetchCartLoading,
     TResult Function(FetchCartSuccess<T> value)? fetchCartSuccess,
     TResult Function(FetchCartError<T> value)? fetchCartError,
+    TResult Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
     required TResult orElse(),
   }) {
     if (addProductToCartSuccess != null) {
@@ -600,6 +708,9 @@ class _$AddProductToCartErrorImpl<T> implements AddProductToCartError<T> {
     required TResult Function() fetchCartLoading,
     required TResult Function(FetchCartResponse cart) fetchCartSuccess,
     required TResult Function(String error) fetchCartError,
+    required TResult Function() removeProductFromCartLoading,
+    required TResult Function() removeProductFromCartSuccess,
+    required TResult Function(String error) removeProductFromCartError,
   }) {
     return addProductToCartError(error);
   }
@@ -614,6 +725,9 @@ class _$AddProductToCartErrorImpl<T> implements AddProductToCartError<T> {
     TResult? Function()? fetchCartLoading,
     TResult? Function(FetchCartResponse cart)? fetchCartSuccess,
     TResult? Function(String error)? fetchCartError,
+    TResult? Function()? removeProductFromCartLoading,
+    TResult? Function()? removeProductFromCartSuccess,
+    TResult? Function(String error)? removeProductFromCartError,
   }) {
     return addProductToCartError?.call(error);
   }
@@ -628,6 +742,9 @@ class _$AddProductToCartErrorImpl<T> implements AddProductToCartError<T> {
     TResult Function()? fetchCartLoading,
     TResult Function(FetchCartResponse cart)? fetchCartSuccess,
     TResult Function(String error)? fetchCartError,
+    TResult Function()? removeProductFromCartLoading,
+    TResult Function()? removeProductFromCartSuccess,
+    TResult Function(String error)? removeProductFromCartError,
     required TResult orElse(),
   }) {
     if (addProductToCartError != null) {
@@ -649,6 +766,12 @@ class _$AddProductToCartErrorImpl<T> implements AddProductToCartError<T> {
     required TResult Function(FetchCartLoading<T> value) fetchCartLoading,
     required TResult Function(FetchCartSuccess<T> value) fetchCartSuccess,
     required TResult Function(FetchCartError<T> value) fetchCartError,
+    required TResult Function(RemoveProductFromCartLoading<T> value)
+        removeProductFromCartLoading,
+    required TResult Function(RemoveProductFromCartSuccess<T> value)
+        removeProductFromCartSuccess,
+    required TResult Function(RemoveProductFromCartError<T> value)
+        removeProductFromCartError,
   }) {
     return addProductToCartError(this);
   }
@@ -665,6 +788,12 @@ class _$AddProductToCartErrorImpl<T> implements AddProductToCartError<T> {
     TResult? Function(FetchCartLoading<T> value)? fetchCartLoading,
     TResult? Function(FetchCartSuccess<T> value)? fetchCartSuccess,
     TResult? Function(FetchCartError<T> value)? fetchCartError,
+    TResult? Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult? Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult? Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
   }) {
     return addProductToCartError?.call(this);
   }
@@ -679,6 +808,12 @@ class _$AddProductToCartErrorImpl<T> implements AddProductToCartError<T> {
     TResult Function(FetchCartLoading<T> value)? fetchCartLoading,
     TResult Function(FetchCartSuccess<T> value)? fetchCartSuccess,
     TResult Function(FetchCartError<T> value)? fetchCartError,
+    TResult Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
     required TResult orElse(),
   }) {
     if (addProductToCartError != null) {
@@ -744,6 +879,9 @@ class _$FetchCartLoadingImpl<T> implements FetchCartLoading<T> {
     required TResult Function() fetchCartLoading,
     required TResult Function(FetchCartResponse cart) fetchCartSuccess,
     required TResult Function(String error) fetchCartError,
+    required TResult Function() removeProductFromCartLoading,
+    required TResult Function() removeProductFromCartSuccess,
+    required TResult Function(String error) removeProductFromCartError,
   }) {
     return fetchCartLoading();
   }
@@ -758,6 +896,9 @@ class _$FetchCartLoadingImpl<T> implements FetchCartLoading<T> {
     TResult? Function()? fetchCartLoading,
     TResult? Function(FetchCartResponse cart)? fetchCartSuccess,
     TResult? Function(String error)? fetchCartError,
+    TResult? Function()? removeProductFromCartLoading,
+    TResult? Function()? removeProductFromCartSuccess,
+    TResult? Function(String error)? removeProductFromCartError,
   }) {
     return fetchCartLoading?.call();
   }
@@ -772,6 +913,9 @@ class _$FetchCartLoadingImpl<T> implements FetchCartLoading<T> {
     TResult Function()? fetchCartLoading,
     TResult Function(FetchCartResponse cart)? fetchCartSuccess,
     TResult Function(String error)? fetchCartError,
+    TResult Function()? removeProductFromCartLoading,
+    TResult Function()? removeProductFromCartSuccess,
+    TResult Function(String error)? removeProductFromCartError,
     required TResult orElse(),
   }) {
     if (fetchCartLoading != null) {
@@ -793,6 +937,12 @@ class _$FetchCartLoadingImpl<T> implements FetchCartLoading<T> {
     required TResult Function(FetchCartLoading<T> value) fetchCartLoading,
     required TResult Function(FetchCartSuccess<T> value) fetchCartSuccess,
     required TResult Function(FetchCartError<T> value) fetchCartError,
+    required TResult Function(RemoveProductFromCartLoading<T> value)
+        removeProductFromCartLoading,
+    required TResult Function(RemoveProductFromCartSuccess<T> value)
+        removeProductFromCartSuccess,
+    required TResult Function(RemoveProductFromCartError<T> value)
+        removeProductFromCartError,
   }) {
     return fetchCartLoading(this);
   }
@@ -809,6 +959,12 @@ class _$FetchCartLoadingImpl<T> implements FetchCartLoading<T> {
     TResult? Function(FetchCartLoading<T> value)? fetchCartLoading,
     TResult? Function(FetchCartSuccess<T> value)? fetchCartSuccess,
     TResult? Function(FetchCartError<T> value)? fetchCartError,
+    TResult? Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult? Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult? Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
   }) {
     return fetchCartLoading?.call(this);
   }
@@ -823,6 +979,12 @@ class _$FetchCartLoadingImpl<T> implements FetchCartLoading<T> {
     TResult Function(FetchCartLoading<T> value)? fetchCartLoading,
     TResult Function(FetchCartSuccess<T> value)? fetchCartSuccess,
     TResult Function(FetchCartError<T> value)? fetchCartError,
+    TResult Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
     required TResult orElse(),
   }) {
     if (fetchCartLoading != null) {
@@ -908,6 +1070,9 @@ class _$FetchCartSuccessImpl<T> implements FetchCartSuccess<T> {
     required TResult Function() fetchCartLoading,
     required TResult Function(FetchCartResponse cart) fetchCartSuccess,
     required TResult Function(String error) fetchCartError,
+    required TResult Function() removeProductFromCartLoading,
+    required TResult Function() removeProductFromCartSuccess,
+    required TResult Function(String error) removeProductFromCartError,
   }) {
     return fetchCartSuccess(cart);
   }
@@ -922,6 +1087,9 @@ class _$FetchCartSuccessImpl<T> implements FetchCartSuccess<T> {
     TResult? Function()? fetchCartLoading,
     TResult? Function(FetchCartResponse cart)? fetchCartSuccess,
     TResult? Function(String error)? fetchCartError,
+    TResult? Function()? removeProductFromCartLoading,
+    TResult? Function()? removeProductFromCartSuccess,
+    TResult? Function(String error)? removeProductFromCartError,
   }) {
     return fetchCartSuccess?.call(cart);
   }
@@ -936,6 +1104,9 @@ class _$FetchCartSuccessImpl<T> implements FetchCartSuccess<T> {
     TResult Function()? fetchCartLoading,
     TResult Function(FetchCartResponse cart)? fetchCartSuccess,
     TResult Function(String error)? fetchCartError,
+    TResult Function()? removeProductFromCartLoading,
+    TResult Function()? removeProductFromCartSuccess,
+    TResult Function(String error)? removeProductFromCartError,
     required TResult orElse(),
   }) {
     if (fetchCartSuccess != null) {
@@ -957,6 +1128,12 @@ class _$FetchCartSuccessImpl<T> implements FetchCartSuccess<T> {
     required TResult Function(FetchCartLoading<T> value) fetchCartLoading,
     required TResult Function(FetchCartSuccess<T> value) fetchCartSuccess,
     required TResult Function(FetchCartError<T> value) fetchCartError,
+    required TResult Function(RemoveProductFromCartLoading<T> value)
+        removeProductFromCartLoading,
+    required TResult Function(RemoveProductFromCartSuccess<T> value)
+        removeProductFromCartSuccess,
+    required TResult Function(RemoveProductFromCartError<T> value)
+        removeProductFromCartError,
   }) {
     return fetchCartSuccess(this);
   }
@@ -973,6 +1150,12 @@ class _$FetchCartSuccessImpl<T> implements FetchCartSuccess<T> {
     TResult? Function(FetchCartLoading<T> value)? fetchCartLoading,
     TResult? Function(FetchCartSuccess<T> value)? fetchCartSuccess,
     TResult? Function(FetchCartError<T> value)? fetchCartError,
+    TResult? Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult? Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult? Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
   }) {
     return fetchCartSuccess?.call(this);
   }
@@ -987,6 +1170,12 @@ class _$FetchCartSuccessImpl<T> implements FetchCartSuccess<T> {
     TResult Function(FetchCartLoading<T> value)? fetchCartLoading,
     TResult Function(FetchCartSuccess<T> value)? fetchCartSuccess,
     TResult Function(FetchCartError<T> value)? fetchCartError,
+    TResult Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
     required TResult orElse(),
   }) {
     if (fetchCartSuccess != null) {
@@ -1078,6 +1267,9 @@ class _$FetchCartErrorImpl<T> implements FetchCartError<T> {
     required TResult Function() fetchCartLoading,
     required TResult Function(FetchCartResponse cart) fetchCartSuccess,
     required TResult Function(String error) fetchCartError,
+    required TResult Function() removeProductFromCartLoading,
+    required TResult Function() removeProductFromCartSuccess,
+    required TResult Function(String error) removeProductFromCartError,
   }) {
     return fetchCartError(error);
   }
@@ -1092,6 +1284,9 @@ class _$FetchCartErrorImpl<T> implements FetchCartError<T> {
     TResult? Function()? fetchCartLoading,
     TResult? Function(FetchCartResponse cart)? fetchCartSuccess,
     TResult? Function(String error)? fetchCartError,
+    TResult? Function()? removeProductFromCartLoading,
+    TResult? Function()? removeProductFromCartSuccess,
+    TResult? Function(String error)? removeProductFromCartError,
   }) {
     return fetchCartError?.call(error);
   }
@@ -1106,6 +1301,9 @@ class _$FetchCartErrorImpl<T> implements FetchCartError<T> {
     TResult Function()? fetchCartLoading,
     TResult Function(FetchCartResponse cart)? fetchCartSuccess,
     TResult Function(String error)? fetchCartError,
+    TResult Function()? removeProductFromCartLoading,
+    TResult Function()? removeProductFromCartSuccess,
+    TResult Function(String error)? removeProductFromCartError,
     required TResult orElse(),
   }) {
     if (fetchCartError != null) {
@@ -1127,6 +1325,12 @@ class _$FetchCartErrorImpl<T> implements FetchCartError<T> {
     required TResult Function(FetchCartLoading<T> value) fetchCartLoading,
     required TResult Function(FetchCartSuccess<T> value) fetchCartSuccess,
     required TResult Function(FetchCartError<T> value) fetchCartError,
+    required TResult Function(RemoveProductFromCartLoading<T> value)
+        removeProductFromCartLoading,
+    required TResult Function(RemoveProductFromCartSuccess<T> value)
+        removeProductFromCartSuccess,
+    required TResult Function(RemoveProductFromCartError<T> value)
+        removeProductFromCartError,
   }) {
     return fetchCartError(this);
   }
@@ -1143,6 +1347,12 @@ class _$FetchCartErrorImpl<T> implements FetchCartError<T> {
     TResult? Function(FetchCartLoading<T> value)? fetchCartLoading,
     TResult? Function(FetchCartSuccess<T> value)? fetchCartSuccess,
     TResult? Function(FetchCartError<T> value)? fetchCartError,
+    TResult? Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult? Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult? Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
   }) {
     return fetchCartError?.call(this);
   }
@@ -1157,6 +1367,12 @@ class _$FetchCartErrorImpl<T> implements FetchCartError<T> {
     TResult Function(FetchCartLoading<T> value)? fetchCartLoading,
     TResult Function(FetchCartSuccess<T> value)? fetchCartSuccess,
     TResult Function(FetchCartError<T> value)? fetchCartError,
+    TResult Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
     required TResult orElse(),
   }) {
     if (fetchCartError != null) {
@@ -1173,4 +1389,547 @@ abstract class FetchCartError<T> implements CartState<T> {
   @JsonKey(ignore: true)
   _$$FetchCartErrorImplCopyWith<T, _$FetchCartErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemoveProductFromCartLoadingImplCopyWith<T, $Res> {
+  factory _$$RemoveProductFromCartLoadingImplCopyWith(
+          _$RemoveProductFromCartLoadingImpl<T> value,
+          $Res Function(_$RemoveProductFromCartLoadingImpl<T>) then) =
+      __$$RemoveProductFromCartLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$RemoveProductFromCartLoadingImplCopyWithImpl<T, $Res>
+    extends _$CartStateCopyWithImpl<T, $Res,
+        _$RemoveProductFromCartLoadingImpl<T>>
+    implements _$$RemoveProductFromCartLoadingImplCopyWith<T, $Res> {
+  __$$RemoveProductFromCartLoadingImplCopyWithImpl(
+      _$RemoveProductFromCartLoadingImpl<T> _value,
+      $Res Function(_$RemoveProductFromCartLoadingImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RemoveProductFromCartLoadingImpl<T>
+    implements RemoveProductFromCartLoading<T> {
+  const _$RemoveProductFromCartLoadingImpl();
+
+  @override
+  String toString() {
+    return 'CartState<$T>.removeProductFromCartLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveProductFromCartLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() addProductToCartLoading,
+    required TResult Function() addProductToCartSuccess,
+    required TResult Function(String error) addProductToCartError,
+    required TResult Function() fetchCartLoading,
+    required TResult Function(FetchCartResponse cart) fetchCartSuccess,
+    required TResult Function(String error) fetchCartError,
+    required TResult Function() removeProductFromCartLoading,
+    required TResult Function() removeProductFromCartSuccess,
+    required TResult Function(String error) removeProductFromCartError,
+  }) {
+    return removeProductFromCartLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? addProductToCartLoading,
+    TResult? Function()? addProductToCartSuccess,
+    TResult? Function(String error)? addProductToCartError,
+    TResult? Function()? fetchCartLoading,
+    TResult? Function(FetchCartResponse cart)? fetchCartSuccess,
+    TResult? Function(String error)? fetchCartError,
+    TResult? Function()? removeProductFromCartLoading,
+    TResult? Function()? removeProductFromCartSuccess,
+    TResult? Function(String error)? removeProductFromCartError,
+  }) {
+    return removeProductFromCartLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? addProductToCartLoading,
+    TResult Function()? addProductToCartSuccess,
+    TResult Function(String error)? addProductToCartError,
+    TResult Function()? fetchCartLoading,
+    TResult Function(FetchCartResponse cart)? fetchCartSuccess,
+    TResult Function(String error)? fetchCartError,
+    TResult Function()? removeProductFromCartLoading,
+    TResult Function()? removeProductFromCartSuccess,
+    TResult Function(String error)? removeProductFromCartError,
+    required TResult orElse(),
+  }) {
+    if (removeProductFromCartLoading != null) {
+      return removeProductFromCartLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial<T> value) initial,
+    required TResult Function(AddProductToCartLoading<T> value)
+        addProductToCartLoading,
+    required TResult Function(AddProductToCartSuccess<T> value)
+        addProductToCartSuccess,
+    required TResult Function(AddProductToCartError<T> value)
+        addProductToCartError,
+    required TResult Function(FetchCartLoading<T> value) fetchCartLoading,
+    required TResult Function(FetchCartSuccess<T> value) fetchCartSuccess,
+    required TResult Function(FetchCartError<T> value) fetchCartError,
+    required TResult Function(RemoveProductFromCartLoading<T> value)
+        removeProductFromCartLoading,
+    required TResult Function(RemoveProductFromCartSuccess<T> value)
+        removeProductFromCartSuccess,
+    required TResult Function(RemoveProductFromCartError<T> value)
+        removeProductFromCartError,
+  }) {
+    return removeProductFromCartLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial<T> value)? initial,
+    TResult? Function(AddProductToCartLoading<T> value)?
+        addProductToCartLoading,
+    TResult? Function(AddProductToCartSuccess<T> value)?
+        addProductToCartSuccess,
+    TResult? Function(AddProductToCartError<T> value)? addProductToCartError,
+    TResult? Function(FetchCartLoading<T> value)? fetchCartLoading,
+    TResult? Function(FetchCartSuccess<T> value)? fetchCartSuccess,
+    TResult? Function(FetchCartError<T> value)? fetchCartError,
+    TResult? Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult? Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult? Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
+  }) {
+    return removeProductFromCartLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial<T> value)? initial,
+    TResult Function(AddProductToCartLoading<T> value)? addProductToCartLoading,
+    TResult Function(AddProductToCartSuccess<T> value)? addProductToCartSuccess,
+    TResult Function(AddProductToCartError<T> value)? addProductToCartError,
+    TResult Function(FetchCartLoading<T> value)? fetchCartLoading,
+    TResult Function(FetchCartSuccess<T> value)? fetchCartSuccess,
+    TResult Function(FetchCartError<T> value)? fetchCartError,
+    TResult Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
+    required TResult orElse(),
+  }) {
+    if (removeProductFromCartLoading != null) {
+      return removeProductFromCartLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemoveProductFromCartLoading<T> implements CartState<T> {
+  const factory RemoveProductFromCartLoading() =
+      _$RemoveProductFromCartLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$RemoveProductFromCartSuccessImplCopyWith<T, $Res> {
+  factory _$$RemoveProductFromCartSuccessImplCopyWith(
+          _$RemoveProductFromCartSuccessImpl<T> value,
+          $Res Function(_$RemoveProductFromCartSuccessImpl<T>) then) =
+      __$$RemoveProductFromCartSuccessImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$RemoveProductFromCartSuccessImplCopyWithImpl<T, $Res>
+    extends _$CartStateCopyWithImpl<T, $Res,
+        _$RemoveProductFromCartSuccessImpl<T>>
+    implements _$$RemoveProductFromCartSuccessImplCopyWith<T, $Res> {
+  __$$RemoveProductFromCartSuccessImplCopyWithImpl(
+      _$RemoveProductFromCartSuccessImpl<T> _value,
+      $Res Function(_$RemoveProductFromCartSuccessImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RemoveProductFromCartSuccessImpl<T>
+    implements RemoveProductFromCartSuccess<T> {
+  const _$RemoveProductFromCartSuccessImpl();
+
+  @override
+  String toString() {
+    return 'CartState<$T>.removeProductFromCartSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveProductFromCartSuccessImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() addProductToCartLoading,
+    required TResult Function() addProductToCartSuccess,
+    required TResult Function(String error) addProductToCartError,
+    required TResult Function() fetchCartLoading,
+    required TResult Function(FetchCartResponse cart) fetchCartSuccess,
+    required TResult Function(String error) fetchCartError,
+    required TResult Function() removeProductFromCartLoading,
+    required TResult Function() removeProductFromCartSuccess,
+    required TResult Function(String error) removeProductFromCartError,
+  }) {
+    return removeProductFromCartSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? addProductToCartLoading,
+    TResult? Function()? addProductToCartSuccess,
+    TResult? Function(String error)? addProductToCartError,
+    TResult? Function()? fetchCartLoading,
+    TResult? Function(FetchCartResponse cart)? fetchCartSuccess,
+    TResult? Function(String error)? fetchCartError,
+    TResult? Function()? removeProductFromCartLoading,
+    TResult? Function()? removeProductFromCartSuccess,
+    TResult? Function(String error)? removeProductFromCartError,
+  }) {
+    return removeProductFromCartSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? addProductToCartLoading,
+    TResult Function()? addProductToCartSuccess,
+    TResult Function(String error)? addProductToCartError,
+    TResult Function()? fetchCartLoading,
+    TResult Function(FetchCartResponse cart)? fetchCartSuccess,
+    TResult Function(String error)? fetchCartError,
+    TResult Function()? removeProductFromCartLoading,
+    TResult Function()? removeProductFromCartSuccess,
+    TResult Function(String error)? removeProductFromCartError,
+    required TResult orElse(),
+  }) {
+    if (removeProductFromCartSuccess != null) {
+      return removeProductFromCartSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial<T> value) initial,
+    required TResult Function(AddProductToCartLoading<T> value)
+        addProductToCartLoading,
+    required TResult Function(AddProductToCartSuccess<T> value)
+        addProductToCartSuccess,
+    required TResult Function(AddProductToCartError<T> value)
+        addProductToCartError,
+    required TResult Function(FetchCartLoading<T> value) fetchCartLoading,
+    required TResult Function(FetchCartSuccess<T> value) fetchCartSuccess,
+    required TResult Function(FetchCartError<T> value) fetchCartError,
+    required TResult Function(RemoveProductFromCartLoading<T> value)
+        removeProductFromCartLoading,
+    required TResult Function(RemoveProductFromCartSuccess<T> value)
+        removeProductFromCartSuccess,
+    required TResult Function(RemoveProductFromCartError<T> value)
+        removeProductFromCartError,
+  }) {
+    return removeProductFromCartSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial<T> value)? initial,
+    TResult? Function(AddProductToCartLoading<T> value)?
+        addProductToCartLoading,
+    TResult? Function(AddProductToCartSuccess<T> value)?
+        addProductToCartSuccess,
+    TResult? Function(AddProductToCartError<T> value)? addProductToCartError,
+    TResult? Function(FetchCartLoading<T> value)? fetchCartLoading,
+    TResult? Function(FetchCartSuccess<T> value)? fetchCartSuccess,
+    TResult? Function(FetchCartError<T> value)? fetchCartError,
+    TResult? Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult? Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult? Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
+  }) {
+    return removeProductFromCartSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial<T> value)? initial,
+    TResult Function(AddProductToCartLoading<T> value)? addProductToCartLoading,
+    TResult Function(AddProductToCartSuccess<T> value)? addProductToCartSuccess,
+    TResult Function(AddProductToCartError<T> value)? addProductToCartError,
+    TResult Function(FetchCartLoading<T> value)? fetchCartLoading,
+    TResult Function(FetchCartSuccess<T> value)? fetchCartSuccess,
+    TResult Function(FetchCartError<T> value)? fetchCartError,
+    TResult Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
+    required TResult orElse(),
+  }) {
+    if (removeProductFromCartSuccess != null) {
+      return removeProductFromCartSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemoveProductFromCartSuccess<T> implements CartState<T> {
+  const factory RemoveProductFromCartSuccess() =
+      _$RemoveProductFromCartSuccessImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$RemoveProductFromCartErrorImplCopyWith<T, $Res> {
+  factory _$$RemoveProductFromCartErrorImplCopyWith(
+          _$RemoveProductFromCartErrorImpl<T> value,
+          $Res Function(_$RemoveProductFromCartErrorImpl<T>) then) =
+      __$$RemoveProductFromCartErrorImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$RemoveProductFromCartErrorImplCopyWithImpl<T, $Res>
+    extends _$CartStateCopyWithImpl<T, $Res,
+        _$RemoveProductFromCartErrorImpl<T>>
+    implements _$$RemoveProductFromCartErrorImplCopyWith<T, $Res> {
+  __$$RemoveProductFromCartErrorImplCopyWithImpl(
+      _$RemoveProductFromCartErrorImpl<T> _value,
+      $Res Function(_$RemoveProductFromCartErrorImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$RemoveProductFromCartErrorImpl<T>(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RemoveProductFromCartErrorImpl<T>
+    implements RemoveProductFromCartError<T> {
+  const _$RemoveProductFromCartErrorImpl(this.error);
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'CartState<$T>.removeProductFromCartError(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveProductFromCartErrorImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemoveProductFromCartErrorImplCopyWith<T,
+          _$RemoveProductFromCartErrorImpl<T>>
+      get copyWith => __$$RemoveProductFromCartErrorImplCopyWithImpl<T,
+          _$RemoveProductFromCartErrorImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() addProductToCartLoading,
+    required TResult Function() addProductToCartSuccess,
+    required TResult Function(String error) addProductToCartError,
+    required TResult Function() fetchCartLoading,
+    required TResult Function(FetchCartResponse cart) fetchCartSuccess,
+    required TResult Function(String error) fetchCartError,
+    required TResult Function() removeProductFromCartLoading,
+    required TResult Function() removeProductFromCartSuccess,
+    required TResult Function(String error) removeProductFromCartError,
+  }) {
+    return removeProductFromCartError(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? addProductToCartLoading,
+    TResult? Function()? addProductToCartSuccess,
+    TResult? Function(String error)? addProductToCartError,
+    TResult? Function()? fetchCartLoading,
+    TResult? Function(FetchCartResponse cart)? fetchCartSuccess,
+    TResult? Function(String error)? fetchCartError,
+    TResult? Function()? removeProductFromCartLoading,
+    TResult? Function()? removeProductFromCartSuccess,
+    TResult? Function(String error)? removeProductFromCartError,
+  }) {
+    return removeProductFromCartError?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? addProductToCartLoading,
+    TResult Function()? addProductToCartSuccess,
+    TResult Function(String error)? addProductToCartError,
+    TResult Function()? fetchCartLoading,
+    TResult Function(FetchCartResponse cart)? fetchCartSuccess,
+    TResult Function(String error)? fetchCartError,
+    TResult Function()? removeProductFromCartLoading,
+    TResult Function()? removeProductFromCartSuccess,
+    TResult Function(String error)? removeProductFromCartError,
+    required TResult orElse(),
+  }) {
+    if (removeProductFromCartError != null) {
+      return removeProductFromCartError(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial<T> value) initial,
+    required TResult Function(AddProductToCartLoading<T> value)
+        addProductToCartLoading,
+    required TResult Function(AddProductToCartSuccess<T> value)
+        addProductToCartSuccess,
+    required TResult Function(AddProductToCartError<T> value)
+        addProductToCartError,
+    required TResult Function(FetchCartLoading<T> value) fetchCartLoading,
+    required TResult Function(FetchCartSuccess<T> value) fetchCartSuccess,
+    required TResult Function(FetchCartError<T> value) fetchCartError,
+    required TResult Function(RemoveProductFromCartLoading<T> value)
+        removeProductFromCartLoading,
+    required TResult Function(RemoveProductFromCartSuccess<T> value)
+        removeProductFromCartSuccess,
+    required TResult Function(RemoveProductFromCartError<T> value)
+        removeProductFromCartError,
+  }) {
+    return removeProductFromCartError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial<T> value)? initial,
+    TResult? Function(AddProductToCartLoading<T> value)?
+        addProductToCartLoading,
+    TResult? Function(AddProductToCartSuccess<T> value)?
+        addProductToCartSuccess,
+    TResult? Function(AddProductToCartError<T> value)? addProductToCartError,
+    TResult? Function(FetchCartLoading<T> value)? fetchCartLoading,
+    TResult? Function(FetchCartSuccess<T> value)? fetchCartSuccess,
+    TResult? Function(FetchCartError<T> value)? fetchCartError,
+    TResult? Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult? Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult? Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
+  }) {
+    return removeProductFromCartError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial<T> value)? initial,
+    TResult Function(AddProductToCartLoading<T> value)? addProductToCartLoading,
+    TResult Function(AddProductToCartSuccess<T> value)? addProductToCartSuccess,
+    TResult Function(AddProductToCartError<T> value)? addProductToCartError,
+    TResult Function(FetchCartLoading<T> value)? fetchCartLoading,
+    TResult Function(FetchCartSuccess<T> value)? fetchCartSuccess,
+    TResult Function(FetchCartError<T> value)? fetchCartError,
+    TResult Function(RemoveProductFromCartLoading<T> value)?
+        removeProductFromCartLoading,
+    TResult Function(RemoveProductFromCartSuccess<T> value)?
+        removeProductFromCartSuccess,
+    TResult Function(RemoveProductFromCartError<T> value)?
+        removeProductFromCartError,
+    required TResult orElse(),
+  }) {
+    if (removeProductFromCartError != null) {
+      return removeProductFromCartError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemoveProductFromCartError<T> implements CartState<T> {
+  const factory RemoveProductFromCartError(final String error) =
+      _$RemoveProductFromCartErrorImpl<T>;
+
+  String get error;
+  @JsonKey(ignore: true)
+  _$$RemoveProductFromCartErrorImplCopyWith<T,
+          _$RemoveProductFromCartErrorImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

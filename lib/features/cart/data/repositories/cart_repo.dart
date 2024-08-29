@@ -30,4 +30,16 @@ class CartRepo {
       () async => await _apiService.fetchCart(cancelToken),
     );
   }
+
+  Future<ApiResult<void>> removeProductFromCart(
+    int productId, [
+    CancelToken? cancelToken,
+  ]) {
+    return executeAndHandleErrors<void>(
+      () async => await _apiService.removeProductFromCart(
+        productId,
+        cancelToken,
+      ),
+    );
+  }
 }

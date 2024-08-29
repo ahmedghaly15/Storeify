@@ -154,4 +154,10 @@ abstract class ApiService {
   Future<FetchCartResponse> fetchCart([
     @CancelRequest() CancelToken? cancelToken,
   ]);
+
+  @DELETE('${EndPoints.cart}{product_id}')
+  Future<void> removeProductFromCart(
+    @Path('product_id') int productId, [
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
 }

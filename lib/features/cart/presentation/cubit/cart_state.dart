@@ -14,4 +14,10 @@ class CartState<T> with _$CartState<T> {
   const factory CartState.fetchCartSuccess(FetchCartResponse cart) =
       FetchCartSuccess<T>;
   const factory CartState.fetchCartError(String error) = FetchCartError<T>;
+  const factory CartState.removeProductFromCartLoading() =
+      RemoveProductFromCartLoading;
+  const factory CartState.removeProductFromCartSuccess() =
+      RemoveProductFromCartSuccess;
+  const factory CartState.removeProductFromCartError(String error) =
+      RemoveProductFromCartError<T>;
 }
