@@ -24,7 +24,7 @@ class CustomSearchTextField extends StatelessWidget {
       ),
       child: CustomTextField(
         hintTextKey: LangKeys.search,
-        prefixIcon: Image.asset(AppAssets.search),
+        prefixIcon: Image.asset(AppAssets.iconsSearch),
         onChanged: (String val) {},
         textAlign: TextAlign.start,
         keyboardType: TextInputType.text,

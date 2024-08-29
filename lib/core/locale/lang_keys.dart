@@ -44,4 +44,6 @@ class LangKeys {
   static const String products = 'products';
   static const String noFavoriteStores = 'NO_FAVORITE_STORES';
   static const String noFavoriteProducts = 'NO_FAVORITE_PRODUCTS';
+  static const String ensureInternetConnection = 'ensureInternetConnection';
+  static const String defaultErrorDescription = 'defaultErrorDescription';
 }

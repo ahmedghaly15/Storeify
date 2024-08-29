@@ -53,5 +53,7 @@
     "favorites": "Favorites",
     "products": "Products",
     "NO_FAVORITE_STORES": "You don't have any favorite stores",
-    "No_Favorite_Products": "You don't have any favorite products"
+    "No_Favorite_Products": "You don't have any favorite products",
+    "ensureInternetConnection": "Please ensure that you are connect with the internet and try again.",
+    "defaultErrorDescription": "An error occurred while getting the  data  for  you. Please try again later"
 }
