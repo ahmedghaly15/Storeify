@@ -9,6 +9,8 @@ import 'package:store_ify/features/auth/data/models/login_params.dart';
 import 'package:store_ify/features/auth/data/models/register_params.dart';
 import 'package:store_ify/features/auth/data/models/reset_password_params.dart';
 import 'package:store_ify/features/auth/data/models/validate_otp_params.dart';
+import 'package:store_ify/features/cart/data/models/add_product_to_cart_params.dart';
+import 'package:store_ify/features/cart/data/models/fetch_cart_response.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_response.dart';
 import 'package:store_ify/features/favorites/data/models/fetch_fav_stores_response.dart';
@@ -138,6 +140,24 @@ abstract class ApiService {
 
   @GET(EndPoints.favoriteStores)
   Future<FetchFavStoresResponse> fetchFavStores([
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
+
+  @POST('${EndPoints.addProductToCart}{productId}')
+  Future<void> addProductToCart(
+    @Path('productId') int productId,
+    @Body() AddProductToCartParams params, [
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
+
+  @GET(EndPoints.cart)
+  Future<FetchCartResponse> fetchCart([
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
+
+  @DELETE('${EndPoints.cart}{product_id}')
+  Future<void> removeProductFromCart(
+    @Path('product_id') int productId, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 }
