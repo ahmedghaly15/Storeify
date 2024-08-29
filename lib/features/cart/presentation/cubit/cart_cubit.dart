@@ -23,6 +23,16 @@ class CartCubit extends Cubit<CartState> {
     );
   }
 
+  void fetchCart() async {
+    emit(const CartState.fetchCartLoading());
+    final result = await _cartRepo.fetchCart(_cancelToken);
+    result.when(
+      success: (cart) => emit(CartState.fetchCartSuccess(cart)),
+      error: (errorModel) =>
+          emit(CartState.fetchCartError(errorModel.error ?? '')),
+    );
+  }
+
   @override
   Future<void> close() {
     _cancelToken.cancel();
