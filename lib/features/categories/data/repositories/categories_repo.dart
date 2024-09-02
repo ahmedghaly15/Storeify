@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:store_ify/core/api/api_result.dart';
 import 'package:store_ify/core/api/api_service.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
-import 'package:store_ify/features/categories/data/models/category.dart';
+import 'package:store_ify/features/categories/data/models/fetch_categories_response.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_params.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_response.dart';
 
@@ -11,10 +11,10 @@ class CategoriesRepo {
 
   const CategoriesRepo(this._apiService);
 
-  Future<ApiResult<List<Category>>> fetchCategories([
+  Future<ApiResult<FetchCategoriesResponse>> fetchCategories([
     CancelToken? cancelToken,
   ]) {
-    return executeAndHandleErrors<List<Category>>(
+    return executeAndHandleErrors<FetchCategoriesResponse>(
       () async => await _apiService.fetchCategories(cancelToken),
     );
   }

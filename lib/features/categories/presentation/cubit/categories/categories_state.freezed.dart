@@ -20,7 +20,8 @@ mixin _$CategoriesState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() fetchCategoriesLoading,
-    required TResult Function(List<Category> categories) fetchCategoriesSuccess,
+    required TResult Function(FetchCategoriesResponse fetchCategoriesResponse)
+        fetchCategoriesSuccess,
     required TResult Function(dynamic error) fetchCategoriesError,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +29,8 @@ mixin _$CategoriesState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? fetchCategoriesLoading,
-    TResult? Function(List<Category> categories)? fetchCategoriesSuccess,
+    TResult? Function(FetchCategoriesResponse fetchCategoriesResponse)?
+        fetchCategoriesSuccess,
     TResult? Function(dynamic error)? fetchCategoriesError,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +38,8 @@ mixin _$CategoriesState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? fetchCategoriesLoading,
-    TResult Function(List<Category> categories)? fetchCategoriesSuccess,
+    TResult Function(FetchCategoriesResponse fetchCategoriesResponse)?
+        fetchCategoriesSuccess,
     TResult Function(dynamic error)? fetchCategoriesError,
     required TResult orElse(),
   }) =>
@@ -129,7 +132,8 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() fetchCategoriesLoading,
-    required TResult Function(List<Category> categories) fetchCategoriesSuccess,
+    required TResult Function(FetchCategoriesResponse fetchCategoriesResponse)
+        fetchCategoriesSuccess,
     required TResult Function(dynamic error) fetchCategoriesError,
   }) {
     return initial();
@@ -140,7 +144,8 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? fetchCategoriesLoading,
-    TResult? Function(List<Category> categories)? fetchCategoriesSuccess,
+    TResult? Function(FetchCategoriesResponse fetchCategoriesResponse)?
+        fetchCategoriesSuccess,
     TResult? Function(dynamic error)? fetchCategoriesError,
   }) {
     return initial?.call();
@@ -151,7 +156,8 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? fetchCategoriesLoading,
-    TResult Function(List<Category> categories)? fetchCategoriesSuccess,
+    TResult Function(FetchCategoriesResponse fetchCategoriesResponse)?
+        fetchCategoriesSuccess,
     TResult Function(dynamic error)? fetchCategoriesError,
     required TResult orElse(),
   }) {
@@ -250,7 +256,8 @@ class _$FetchCategoriesLoadingImpl<T> implements FetchCategoriesLoading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() fetchCategoriesLoading,
-    required TResult Function(List<Category> categories) fetchCategoriesSuccess,
+    required TResult Function(FetchCategoriesResponse fetchCategoriesResponse)
+        fetchCategoriesSuccess,
     required TResult Function(dynamic error) fetchCategoriesError,
   }) {
     return fetchCategoriesLoading();
@@ -261,7 +268,8 @@ class _$FetchCategoriesLoadingImpl<T> implements FetchCategoriesLoading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? fetchCategoriesLoading,
-    TResult? Function(List<Category> categories)? fetchCategoriesSuccess,
+    TResult? Function(FetchCategoriesResponse fetchCategoriesResponse)?
+        fetchCategoriesSuccess,
     TResult? Function(dynamic error)? fetchCategoriesError,
   }) {
     return fetchCategoriesLoading?.call();
@@ -272,7 +280,8 @@ class _$FetchCategoriesLoadingImpl<T> implements FetchCategoriesLoading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? fetchCategoriesLoading,
-    TResult Function(List<Category> categories)? fetchCategoriesSuccess,
+    TResult Function(FetchCategoriesResponse fetchCategoriesResponse)?
+        fetchCategoriesSuccess,
     TResult Function(dynamic error)? fetchCategoriesError,
     required TResult orElse(),
   }) {
@@ -334,7 +343,7 @@ abstract class _$$FetchCategoriesSuccessImplCopyWith<T, $Res> {
           $Res Function(_$FetchCategoriesSuccessImpl<T>) then) =
       __$$FetchCategoriesSuccessImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({List<Category> categories});
+  $Res call({FetchCategoriesResponse fetchCategoriesResponse});
 }
 
 /// @nodoc
@@ -350,13 +359,13 @@ class __$$FetchCategoriesSuccessImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categories = null,
+    Object? fetchCategoriesResponse = null,
   }) {
     return _then(_$FetchCategoriesSuccessImpl<T>(
-      null == categories
-          ? _value._categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as List<Category>,
+      null == fetchCategoriesResponse
+          ? _value.fetchCategoriesResponse
+          : fetchCategoriesResponse // ignore: cast_nullable_to_non_nullable
+              as FetchCategoriesResponse,
     ));
   }
 }
@@ -364,20 +373,14 @@ class __$$FetchCategoriesSuccessImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$FetchCategoriesSuccessImpl<T> implements FetchCategoriesSuccess<T> {
-  const _$FetchCategoriesSuccessImpl(final List<Category> categories)
-      : _categories = categories;
+  const _$FetchCategoriesSuccessImpl(this.fetchCategoriesResponse);
 
-  final List<Category> _categories;
   @override
-  List<Category> get categories {
-    if (_categories is EqualUnmodifiableListView) return _categories;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_categories);
-  }
+  final FetchCategoriesResponse fetchCategoriesResponse;
 
   @override
   String toString() {
-    return 'CategoriesState<$T>.fetchCategoriesSuccess(categories: $categories)';
+    return 'CategoriesState<$T>.fetchCategoriesSuccess(fetchCategoriesResponse: $fetchCategoriesResponse)';
   }
 
   @override
@@ -385,13 +388,13 @@ class _$FetchCategoriesSuccessImpl<T> implements FetchCategoriesSuccess<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchCategoriesSuccessImpl<T> &&
-            const DeepCollectionEquality()
-                .equals(other._categories, _categories));
+            (identical(
+                    other.fetchCategoriesResponse, fetchCategoriesResponse) ||
+                other.fetchCategoriesResponse == fetchCategoriesResponse));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_categories));
+  int get hashCode => Object.hash(runtimeType, fetchCategoriesResponse);
 
   @JsonKey(ignore: true)
   @override
@@ -405,10 +408,11 @@ class _$FetchCategoriesSuccessImpl<T> implements FetchCategoriesSuccess<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() fetchCategoriesLoading,
-    required TResult Function(List<Category> categories) fetchCategoriesSuccess,
+    required TResult Function(FetchCategoriesResponse fetchCategoriesResponse)
+        fetchCategoriesSuccess,
     required TResult Function(dynamic error) fetchCategoriesError,
   }) {
-    return fetchCategoriesSuccess(categories);
+    return fetchCategoriesSuccess(fetchCategoriesResponse);
   }
 
   @override
@@ -416,10 +420,11 @@ class _$FetchCategoriesSuccessImpl<T> implements FetchCategoriesSuccess<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? fetchCategoriesLoading,
-    TResult? Function(List<Category> categories)? fetchCategoriesSuccess,
+    TResult? Function(FetchCategoriesResponse fetchCategoriesResponse)?
+        fetchCategoriesSuccess,
     TResult? Function(dynamic error)? fetchCategoriesError,
   }) {
-    return fetchCategoriesSuccess?.call(categories);
+    return fetchCategoriesSuccess?.call(fetchCategoriesResponse);
   }
 
   @override
@@ -427,12 +432,13 @@ class _$FetchCategoriesSuccessImpl<T> implements FetchCategoriesSuccess<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? fetchCategoriesLoading,
-    TResult Function(List<Category> categories)? fetchCategoriesSuccess,
+    TResult Function(FetchCategoriesResponse fetchCategoriesResponse)?
+        fetchCategoriesSuccess,
     TResult Function(dynamic error)? fetchCategoriesError,
     required TResult orElse(),
   }) {
     if (fetchCategoriesSuccess != null) {
-      return fetchCategoriesSuccess(categories);
+      return fetchCategoriesSuccess(fetchCategoriesResponse);
     }
     return orElse();
   }
@@ -479,10 +485,11 @@ class _$FetchCategoriesSuccessImpl<T> implements FetchCategoriesSuccess<T> {
 }
 
 abstract class FetchCategoriesSuccess<T> implements CategoriesState<T> {
-  const factory FetchCategoriesSuccess(final List<Category> categories) =
+  const factory FetchCategoriesSuccess(
+          final FetchCategoriesResponse fetchCategoriesResponse) =
       _$FetchCategoriesSuccessImpl<T>;
 
-  List<Category> get categories;
+  FetchCategoriesResponse get fetchCategoriesResponse;
   @JsonKey(ignore: true)
   _$$FetchCategoriesSuccessImplCopyWith<T, _$FetchCategoriesSuccessImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
@@ -555,7 +562,8 @@ class _$FetchCategoriesErrorImpl<T> implements FetchCategoriesError<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() fetchCategoriesLoading,
-    required TResult Function(List<Category> categories) fetchCategoriesSuccess,
+    required TResult Function(FetchCategoriesResponse fetchCategoriesResponse)
+        fetchCategoriesSuccess,
     required TResult Function(dynamic error) fetchCategoriesError,
   }) {
     return fetchCategoriesError(error);
@@ -566,7 +574,8 @@ class _$FetchCategoriesErrorImpl<T> implements FetchCategoriesError<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? fetchCategoriesLoading,
-    TResult? Function(List<Category> categories)? fetchCategoriesSuccess,
+    TResult? Function(FetchCategoriesResponse fetchCategoriesResponse)?
+        fetchCategoriesSuccess,
     TResult? Function(dynamic error)? fetchCategoriesError,
   }) {
     return fetchCategoriesError?.call(error);
@@ -577,7 +586,8 @@ class _$FetchCategoriesErrorImpl<T> implements FetchCategoriesError<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? fetchCategoriesLoading,
-    TResult Function(List<Category> categories)? fetchCategoriesSuccess,
+    TResult Function(FetchCategoriesResponse fetchCategoriesResponse)?
+        fetchCategoriesSuccess,
     TResult Function(dynamic error)? fetchCategoriesError,
     required TResult orElse(),
   }) {

@@ -11,7 +11,7 @@ import 'package:store_ify/features/auth/data/models/reset_password_params.dart';
 import 'package:store_ify/features/auth/data/models/validate_otp_params.dart';
 import 'package:store_ify/features/cart/data/models/add_product_to_cart_params.dart';
 import 'package:store_ify/features/cart/data/models/fetch_cart_response.dart';
-import 'package:store_ify/features/categories/data/models/category.dart';
+import 'package:store_ify/features/categories/data/models/fetch_categories_response.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_response.dart';
 import 'package:store_ify/features/favorites/data/models/fetch_fav_stores_response.dart';
 import 'package:store_ify/features/favorites/data/models/fetch_favorite_products_response.dart';
@@ -69,7 +69,7 @@ abstract class ApiService {
   ]);
 
   @GET(EndPoints.fetchCategories)
-  Future<List<Category>> fetchCategories([
+  Future<FetchCategoriesResponse> fetchCategories([
     @CancelRequest() CancelToken? cancelToken,
   ]);
 

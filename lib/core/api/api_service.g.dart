@@ -211,14 +211,15 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<Category>> fetchCategories([CancelToken? cancelToken]) async {
+  Future<FetchCategoriesResponse> fetchCategories(
+      [CancelToken? cancelToken]) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result =
-        await _dio.fetch<List<dynamic>>(_setStreamType<List<Category>>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<FetchCategoriesResponse>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -235,9 +236,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    var value = _result.data!
-        .map((dynamic i) => Category.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = FetchCategoriesResponse.fromJson(_result.data!);
     return value;
   }
 
