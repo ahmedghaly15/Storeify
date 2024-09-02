@@ -5,27 +5,21 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_cubit.dart';
 
-class CustomIndicator extends StatelessWidget {
-  const CustomIndicator({
-    super.key,
-    required this.pageController,
-  });
-  final PageController pageController;
+class CustomIndicators extends StatelessWidget {
+  const CustomIndicators({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
     return SmoothPageIndicator(
-      controller: pageController,
+      controller: context.read<OnboardingCubit>().pageController,
       count: context.read<OnboardingCubit>().onboardingPages.length,
       effect: ExpandingDotsEffect(
         dotColor: Colors.grey,
         activeDotColor: AppColors.primaryColor,
-        dotHeight: size.height * 0.01.h,
-        expansionFactor: size.width * 0.013.w,
-        dotWidth: size.width * 0.02.w,
-        spacing: size.width * 0.015.w,
+        dotHeight: 6.h,
+        expansionFactor: 5.w,
+        dotWidth: 6.h,
+        spacing: 5.w,
       ),
     );
   }

@@ -53,4 +53,6 @@ class LangKeys {
   static const String onboardingTitle3 = 'onboardingTitle3';
   static const String onboardingSubtitle3 = 'onboardingSubtitle3';
   static const String skip = 'skip';
+  static const String next = 'next';
+  static const String getStarted = 'getStarted';
 }
