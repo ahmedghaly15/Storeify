@@ -22,7 +22,7 @@ part 'app_router.gr.dart';
 part 'app_routes.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'View,Route')
-class AppRouter extends _$AppRouter {
+class AppRouter extends RootStackRouter {
   @override
   RouteType get defaultRouteType => const RouteType.adaptive();
 

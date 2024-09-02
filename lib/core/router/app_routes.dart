@@ -40,7 +40,7 @@ List<AutoRoute> get appRoutes => [
 
 CustomRoute _buildCustomRoute({
   bool initial = false,
-  required PageInfo<dynamic> page,
+  required PageInfo page,
   List<AutoRoute>? children,
   Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
       transitionsBuilder,
