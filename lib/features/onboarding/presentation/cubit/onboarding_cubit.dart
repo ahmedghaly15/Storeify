@@ -9,15 +9,18 @@ class OnboardingCubit extends Cubit<OnboardingState> {
   final OnboardingRepo _onboardingRepo;
 
   OnboardingCubit(this._onboardingRepo)
-      : super(const OnboardingState.initial());
+      : super(const OnboardingState.initial()) {
+    pageController = PageController(initialPage: 0);
+  }
 
   bool isLastOnboarding = false;
+  late final PageController pageController;
 
-  List<OnboardingAttributes> onboardingPages() =>
+  List<OnboardingAttributes> get onboardingPages =>
       _onboardingRepo.onboardingPages();
 
   void onChangePageIndex(int index) {
-    if (index == onboardingPages().length - 1) {
+    if (index == onboardingPages.length - 1) {
       isLastOnboarding = true;
     } else {
       isLastOnboarding = false;
@@ -25,11 +28,11 @@ class OnboardingCubit extends Cubit<OnboardingState> {
     emit(OnboardingState.pageViewIndexChanged(index));
   }
 
-  void navigateBetweenPages(NavigateAmongPagesParams params) {
+  void navigateBetweenPages(BuildContext context) {
     _onboardingRepo.navigateAmongPages(
       NavigateAmongPagesParams(
-        context: params.context,
-        pageController: params.pageController,
+        context: context,
+        pageController: pageController,
         isLastBoarding: isLastOnboarding,
       ),
     );
@@ -37,5 +40,11 @@ class OnboardingCubit extends Cubit<OnboardingState> {
 
   void skipToLogin(BuildContext context) {
     _onboardingRepo.skipToLogin(context);
+  }
+
+  @override
+  Future<void> close() {
+    pageController.dispose();
+    return super.close();
   }
 }

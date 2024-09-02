@@ -5,11 +5,14 @@ import 'package:store_ify/core/helpers/shared_pref_keys.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/onboarding/data/models/navigate_among_pages_params.dart';
 import 'package:store_ify/features/onboarding/data/models/onboarding_attributes.dart';
 import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo.dart';
 
 class OnboardingRepoImpl implements OnboardingRepo {
+  const OnboardingRepoImpl();
+
   @override
   List<OnboardingAttributes> onboardingPages() => const <OnboardingAttributes>[
         OnboardingAttributes(
@@ -31,11 +34,11 @@ class OnboardingRepoImpl implements OnboardingRepo {
 
   @override
   void navigateAmongPages(NavigateAmongPagesParams params) {
-    if (params.isLastBoarding!) skipToLogin(params.context);
+    if (params.isLastBoarding) skipToLogin(params.context);
 
     params.pageController.nextPage(
-      duration: const Duration(milliseconds: 475),
-      curve: Curves.fastEaseInToSlowEaseOut,
+      duration: AppConstants.onboardingAnimationDuration,
+      curve: AppConstants.onboardingCurve,
     );
   }
 

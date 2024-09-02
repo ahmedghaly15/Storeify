@@ -8,6 +8,6 @@ class NavigateAmongPagesParams with _$NavigateAmongPagesParams {
   const factory NavigateAmongPagesParams({
     required BuildContext context,
     required PageController pageController,
-    bool? isLastBoarding,
+    required bool isLastBoarding,
   }) = _NavigateAmongPagesParams;
 }

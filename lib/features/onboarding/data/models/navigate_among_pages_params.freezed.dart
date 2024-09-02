@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$NavigateAmongPagesParams {
   BuildContext get context => throw _privateConstructorUsedError;
   PageController get pageController => throw _privateConstructorUsedError;
-  bool? get isLastBoarding => throw _privateConstructorUsedError;
+  bool get isLastBoarding => throw _privateConstructorUsedError;
 
   /// Create a copy of NavigateAmongPagesParams
   /// with the given fields replaced by the non-null parameter values.
@@ -36,7 +36,7 @@ abstract class $NavigateAmongPagesParamsCopyWith<$Res> {
   $Res call(
       {BuildContext context,
       PageController pageController,
-      bool? isLastBoarding});
+      bool isLastBoarding});
 }
 
 /// @nodoc
@@ -57,7 +57,7 @@ class _$NavigateAmongPagesParamsCopyWithImpl<$Res,
   $Res call({
     Object? context = null,
     Object? pageController = null,
-    Object? isLastBoarding = freezed,
+    Object? isLastBoarding = null,
   }) {
     return _then(_value.copyWith(
       context: null == context
@@ -68,10 +68,10 @@ class _$NavigateAmongPagesParamsCopyWithImpl<$Res,
           ? _value.pageController
           : pageController // ignore: cast_nullable_to_non_nullable
               as PageController,
-      isLastBoarding: freezed == isLastBoarding
+      isLastBoarding: null == isLastBoarding
           ? _value.isLastBoarding
           : isLastBoarding // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
     ) as $Val);
   }
 }
@@ -88,7 +88,7 @@ abstract class _$$NavigateAmongPagesParamsImplCopyWith<$Res>
   $Res call(
       {BuildContext context,
       PageController pageController,
-      bool? isLastBoarding});
+      bool isLastBoarding});
 }
 
 /// @nodoc
@@ -108,7 +108,7 @@ class __$$NavigateAmongPagesParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? context = null,
     Object? pageController = null,
-    Object? isLastBoarding = freezed,
+    Object? isLastBoarding = null,
   }) {
     return _then(_$NavigateAmongPagesParamsImpl(
       context: null == context
@@ -119,10 +119,10 @@ class __$$NavigateAmongPagesParamsImplCopyWithImpl<$Res>
           ? _value.pageController
           : pageController // ignore: cast_nullable_to_non_nullable
               as PageController,
-      isLastBoarding: freezed == isLastBoarding
+      isLastBoarding: null == isLastBoarding
           ? _value.isLastBoarding
           : isLastBoarding // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
     ));
   }
 }
@@ -133,14 +133,14 @@ class _$NavigateAmongPagesParamsImpl implements _NavigateAmongPagesParams {
   const _$NavigateAmongPagesParamsImpl(
       {required this.context,
       required this.pageController,
-      this.isLastBoarding});
+      required this.isLastBoarding});
 
   @override
   final BuildContext context;
   @override
   final PageController pageController;
   @override
-  final bool? isLastBoarding;
+  final bool isLastBoarding;
 
   @override
   String toString() {
@@ -177,14 +177,14 @@ abstract class _NavigateAmongPagesParams implements NavigateAmongPagesParams {
   const factory _NavigateAmongPagesParams(
       {required final BuildContext context,
       required final PageController pageController,
-      final bool? isLastBoarding}) = _$NavigateAmongPagesParamsImpl;
+      required final bool isLastBoarding}) = _$NavigateAmongPagesParamsImpl;
 
   @override
   BuildContext get context;
   @override
   PageController get pageController;
   @override
-  bool? get isLastBoarding;
+  bool get isLastBoarding;
 
   /// Create a copy of NavigateAmongPagesParams
   /// with the given fields replaced by the non-null parameter values.

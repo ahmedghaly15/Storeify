@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
+import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_cubit.dart';
 
 class CustomIndicator extends StatelessWidget {
   const CustomIndicator({
@@ -16,7 +18,7 @@ class CustomIndicator extends StatelessWidget {
 
     return SmoothPageIndicator(
       controller: pageController,
-      count: 3,
+      count: context.read<OnboardingCubit>().onboardingPages.length,
       effect: ExpandingDotsEffect(
         dotColor: Colors.grey,
         activeDotColor: AppColors.primaryColor,
