@@ -6,7 +6,7 @@ import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/onboarding/data/models/onboarding_attributes.dart';
-import 'package:store_ify/features/onboarding/presentation/widgets/custom_indicator.dart';
+import 'package:store_ify/features/onboarding/presentation/widgets/custom_indicators.dart';
 import 'package:store_ify/features/onboarding/presentation/widgets/next_button_bloc_builder.dart';
 
 class PageViewItem extends StatelessWidget {
