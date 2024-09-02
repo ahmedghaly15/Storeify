@@ -87,6 +87,9 @@ class _$HomeStateCopyWithImpl<T, $Res, $Val extends HomeState<T>>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -103,6 +106,9 @@ class __$$InitialImplCopyWithImpl<T, $Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -221,6 +227,9 @@ class __$$FetchHomeDataLoadingImplCopyWithImpl<T, $Res>
   __$$FetchHomeDataLoadingImplCopyWithImpl(_$FetchHomeDataLoadingImpl<T> _value,
       $Res Function(_$FetchHomeDataLoadingImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -343,6 +352,8 @@ class __$$FetchHomeDataSuccessImplCopyWithImpl<T, $Res>
       $Res Function(_$FetchHomeDataSuccessImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -382,7 +393,9 @@ class _$FetchHomeDataSuccessImpl<T> implements FetchHomeDataSuccess<T> {
   @override
   int get hashCode => Object.hash(runtimeType, homeResponse);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchHomeDataSuccessImplCopyWith<T, _$FetchHomeDataSuccessImpl<T>>
@@ -472,7 +485,10 @@ abstract class FetchHomeDataSuccess<T> implements HomeState<T> {
       _$FetchHomeDataSuccessImpl<T>;
 
   FetchHomeResponse get homeResponse;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchHomeDataSuccessImplCopyWith<T, _$FetchHomeDataSuccessImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -494,6 +510,8 @@ class __$$FetchHomeDataErrorImplCopyWithImpl<T, $Res>
       $Res Function(_$FetchHomeDataErrorImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -532,7 +550,9 @@ class _$FetchHomeDataErrorImpl<T> implements FetchHomeDataError<T> {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchHomeDataErrorImplCopyWith<T, _$FetchHomeDataErrorImpl<T>>
@@ -622,7 +642,10 @@ abstract class FetchHomeDataError<T> implements HomeState<T> {
       _$FetchHomeDataErrorImpl<T>;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchHomeDataErrorImplCopyWith<T, _$FetchHomeDataErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }

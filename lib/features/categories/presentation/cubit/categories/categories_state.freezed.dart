@@ -90,6 +90,9 @@ class _$CategoriesStateCopyWithImpl<T, $Res, $Val extends CategoriesState<T>>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CategoriesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -106,6 +109,9 @@ class __$$InitialImplCopyWithImpl<T, $Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of CategoriesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -229,6 +235,9 @@ class __$$FetchCategoriesLoadingImplCopyWithImpl<T, $Res>
       _$FetchCategoriesLoadingImpl<T> _value,
       $Res Function(_$FetchCategoriesLoadingImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of CategoriesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -356,6 +365,8 @@ class __$$FetchCategoriesSuccessImplCopyWithImpl<T, $Res>
       $Res Function(_$FetchCategoriesSuccessImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of CategoriesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -396,7 +407,9 @@ class _$FetchCategoriesSuccessImpl<T> implements FetchCategoriesSuccess<T> {
   @override
   int get hashCode => Object.hash(runtimeType, fetchCategoriesResponse);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CategoriesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchCategoriesSuccessImplCopyWith<T, _$FetchCategoriesSuccessImpl<T>>
@@ -490,7 +503,10 @@ abstract class FetchCategoriesSuccess<T> implements CategoriesState<T> {
       _$FetchCategoriesSuccessImpl<T>;
 
   FetchCategoriesResponse get fetchCategoriesResponse;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CategoriesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchCategoriesSuccessImplCopyWith<T, _$FetchCategoriesSuccessImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -514,6 +530,8 @@ class __$$FetchCategoriesErrorImplCopyWithImpl<T, $Res>
       $Res Function(_$FetchCategoriesErrorImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of CategoriesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -550,7 +568,9 @@ class _$FetchCategoriesErrorImpl<T> implements FetchCategoriesError<T> {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CategoriesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchCategoriesErrorImplCopyWith<T, _$FetchCategoriesErrorImpl<T>>
@@ -643,7 +663,10 @@ abstract class FetchCategoriesError<T> implements CategoriesState<T> {
       _$FetchCategoriesErrorImpl<T>;
 
   dynamic get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CategoriesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchCategoriesErrorImplCopyWith<T, _$FetchCategoriesErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }

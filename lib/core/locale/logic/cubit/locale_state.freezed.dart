@@ -56,7 +56,9 @@ mixin _$LocaleState<T> {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LocaleState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LocaleStateCopyWith<T, LocaleState<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -80,6 +82,8 @@ class _$LocaleStateCopyWithImpl<T, $Res, $Val extends LocaleState<T>>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LocaleState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -113,6 +117,8 @@ class __$$InitialImplCopyWithImpl<T, $Res>
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of LocaleState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -151,7 +157,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @override
   int get hashCode => Object.hash(runtimeType, locale);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LocaleState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$InitialImplCopyWith<T, _$InitialImpl<T>> get copyWith =>
@@ -225,8 +233,11 @@ abstract class _Initial<T> implements LocaleState<T> {
 
   @override
   Locale get locale;
+
+  /// Create a copy of LocaleState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InitialImplCopyWith<T, _$InitialImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -250,6 +261,8 @@ class __$$ChangeLocaleImplCopyWithImpl<T, $Res>
       _$ChangeLocaleImpl<T> _value, $Res Function(_$ChangeLocaleImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of LocaleState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -288,7 +301,9 @@ class _$ChangeLocaleImpl<T> implements _ChangeLocale<T> {
   @override
   int get hashCode => Object.hash(runtimeType, locale);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LocaleState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ChangeLocaleImplCopyWith<T, _$ChangeLocaleImpl<T>> get copyWith =>
@@ -363,8 +378,11 @@ abstract class _ChangeLocale<T> implements LocaleState<T> {
 
   @override
   Locale get locale;
+
+  /// Create a copy of LocaleState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ChangeLocaleImplCopyWith<T, _$ChangeLocaleImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

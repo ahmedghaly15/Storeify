@@ -21,7 +21,9 @@ mixin _$FetchSubCategoryParams {
   @JsonKey(name: 'sub_category_id')
   int get subCategoryId => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FetchSubCategoryParams
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FetchSubCategoryParamsCopyWith<FetchSubCategoryParams> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +50,8 @@ class _$FetchSubCategoryParamsCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FetchSubCategoryParams
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +95,8 @@ class __$$FetchSubCategoryParamsImplCopyWithImpl<$Res>
       $Res Function(_$FetchSubCategoryParamsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FetchSubCategoryParams
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -143,7 +149,9 @@ class _$FetchSubCategoryParamsImpl implements _FetchSubCategoryParams {
   @override
   int get hashCode => Object.hash(runtimeType, categoryId, subCategoryId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FetchSubCategoryParams
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchSubCategoryParamsImplCopyWith<_$FetchSubCategoryParamsImpl>
@@ -163,8 +171,11 @@ abstract class _FetchSubCategoryParams implements FetchSubCategoryParams {
   @override
   @JsonKey(name: 'sub_category_id')
   int get subCategoryId;
+
+  /// Create a copy of FetchSubCategoryParams
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchSubCategoryParamsImplCopyWith<_$FetchSubCategoryParamsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
