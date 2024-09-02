@@ -15,7 +15,7 @@ dependencies:
   # For in-app localization
   flutter_localization: ^0.2.0
   # A declarative routing solution for navigation
-  auto_route: ^8.2.0
+  auto_route: ^9.2.2
   # Networking
   dio: ^5.4.3+1
   retrofit: ^4.1.0
@@ -34,7 +34,7 @@ dependencies:
   # Simple direct Service Locator that allows to access the concrete implementation from everywhere
   get_it: ^7.7.0
   # Dart library that checks for internet
-  internet_connection_checker: ^1.0.0+1
+  internet_connection_checker: ^2.0.0
   # (OTP) text field
   pinput: ^5.0.0
   # Flutter plugin for reading and writing simple key-value pairs for cache
@@ -61,15 +61,17 @@ dev_dependencies:
   # Code generator (mainly used with Cubit & retrofit)
   retrofit_generator: ^8.1.0
   # Automatically generate navigation
-  auto_route_generator: ^8.0.0
+  auto_route_generator: ^9.0.0
   # A build system for Dart code generation and modular compilation.
   build_runner: ^2.4.8
   # Recommended lints to encourage good coding practices
-  flutter_lints: ^3.0.2
+  flutter_lints: ^4.0.0
   # Code generator (mainly used with Cubit & retrofit)
   freezed: ^2.5.2
   # Automatically generate code for converting to and from JSON by annotating Dart classes.
   json_serializable: ^6.8.0
+  # Performs static analysis of Dart code. It is useful for tool integration and embedding.
+  analyzer: ^6.4.1
 
 flutter:
   uses-material-design: true
