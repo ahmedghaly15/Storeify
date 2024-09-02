@@ -134,6 +134,9 @@ class _$CartStateCopyWithImpl<T, $Res, $Val extends CartState<T>>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -150,6 +153,9 @@ class __$$InitialImplCopyWithImpl<T, $Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -316,6 +322,9 @@ class __$$AddProductToCartLoadingImplCopyWithImpl<T, $Res>
       _$AddProductToCartLoadingImpl<T> _value,
       $Res Function(_$AddProductToCartLoadingImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -483,6 +492,9 @@ class __$$AddProductToCartSuccessImplCopyWithImpl<T, $Res>
       _$AddProductToCartSuccessImpl<T> _value,
       $Res Function(_$AddProductToCartSuccessImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -653,6 +665,8 @@ class __$$AddProductToCartErrorImplCopyWithImpl<T, $Res>
       $Res Function(_$AddProductToCartErrorImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -691,7 +705,9 @@ class _$AddProductToCartErrorImpl<T> implements AddProductToCartError<T> {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddProductToCartErrorImplCopyWith<T, _$AddProductToCartErrorImpl<T>>
@@ -828,7 +844,10 @@ abstract class AddProductToCartError<T> implements CartState<T> {
       _$AddProductToCartErrorImpl<T>;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddProductToCartErrorImplCopyWith<T, _$AddProductToCartErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -847,6 +866,9 @@ class __$$FetchCartLoadingImplCopyWithImpl<T, $Res>
   __$$FetchCartLoadingImplCopyWithImpl(_$FetchCartLoadingImpl<T> _value,
       $Res Function(_$FetchCartLoadingImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1015,6 +1037,8 @@ class __$$FetchCartSuccessImplCopyWithImpl<T, $Res>
       $Res Function(_$FetchCartSuccessImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1053,7 +1077,9 @@ class _$FetchCartSuccessImpl<T> implements FetchCartSuccess<T> {
   @override
   int get hashCode => Object.hash(runtimeType, cart);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchCartSuccessImplCopyWith<T, _$FetchCartSuccessImpl<T>> get copyWith =>
@@ -1190,7 +1216,10 @@ abstract class FetchCartSuccess<T> implements CartState<T> {
       _$FetchCartSuccessImpl<T>;
 
   FetchCartResponse get cart;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchCartSuccessImplCopyWith<T, _$FetchCartSuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1212,6 +1241,8 @@ class __$$FetchCartErrorImplCopyWithImpl<T, $Res>
       $Res Function(_$FetchCartErrorImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1250,7 +1281,9 @@ class _$FetchCartErrorImpl<T> implements FetchCartError<T> {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchCartErrorImplCopyWith<T, _$FetchCartErrorImpl<T>> get copyWith =>
@@ -1386,7 +1419,10 @@ abstract class FetchCartError<T> implements CartState<T> {
   const factory FetchCartError(final String error) = _$FetchCartErrorImpl<T>;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchCartErrorImplCopyWith<T, _$FetchCartErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1408,6 +1444,9 @@ class __$$RemoveProductFromCartLoadingImplCopyWithImpl<T, $Res>
       _$RemoveProductFromCartLoadingImpl<T> _value,
       $Res Function(_$RemoveProductFromCartLoadingImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1578,6 +1617,9 @@ class __$$RemoveProductFromCartSuccessImplCopyWithImpl<T, $Res>
       _$RemoveProductFromCartSuccessImpl<T> _value,
       $Res Function(_$RemoveProductFromCartSuccessImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1751,6 +1793,8 @@ class __$$RemoveProductFromCartErrorImplCopyWithImpl<T, $Res>
       $Res Function(_$RemoveProductFromCartErrorImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1790,7 +1834,9 @@ class _$RemoveProductFromCartErrorImpl<T>
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RemoveProductFromCartErrorImplCopyWith<T,
@@ -1928,7 +1974,10 @@ abstract class RemoveProductFromCartError<T> implements CartState<T> {
       _$RemoveProductFromCartErrorImpl<T>;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RemoveProductFromCartErrorImplCopyWith<T,
           _$RemoveProductFromCartErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;

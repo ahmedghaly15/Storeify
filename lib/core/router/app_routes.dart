@@ -2,7 +2,11 @@ part of 'app_router.dart';
 
 List<AutoRoute> get appRoutes => [
       AutoRoute(
-        initial: isUserLoggedIn ? false : true,
+        initial: isOnboardingVisited ? false : true,
+        page: OnboardingRoute.page,
+      ),
+      AutoRoute(
+        initial: (isOnboardingVisited && !isUserLoggedIn) ? true : false,
         page: AuthRoute.page,
         children: [
           _buildCustomRoute(
@@ -27,7 +31,6 @@ List<AutoRoute> get appRoutes => [
               _buildCustomRoute(page: StoresRoute.page),
               _buildCustomRoute(page: HomeRoute.page),
               _buildCustomRoute(page: FavoritesRoute.page),
-              // _buildCustomRoute(page: CartRoute.page),
             ],
           ),
         ],
@@ -40,7 +43,7 @@ List<AutoRoute> get appRoutes => [
 
 CustomRoute _buildCustomRoute({
   bool initial = false,
-  required PageInfo<dynamic> page,
+  required PageInfo page,
   List<AutoRoute>? children,
   Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
       transitionsBuilder,

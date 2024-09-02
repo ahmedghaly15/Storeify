@@ -46,4 +46,13 @@ class LangKeys {
   static const String noFavoriteProducts = 'NO_FAVORITE_PRODUCTS';
   static const String ensureInternetConnection = 'ensureInternetConnection';
   static const String defaultErrorDescription = 'defaultErrorDescription';
+  static const String onboardingTitle1 = 'onboardingTitle1';
+  static const String onboardingSubtitle1 = 'onboardingSubtitle1';
+  static const String onboardingTitle2 = 'onboardingTitle2';
+  static const String onboardingSubtitle2 = 'onboardingSubtitle2';
+  static const String onboardingTitle3 = 'onboardingTitle3';
+  static const String onboardingSubtitle3 = 'onboardingSubtitle3';
+  static const String skip = 'skip';
+  static const String next = 'next';
+  static const String getStarted = 'getStarted';
 }
