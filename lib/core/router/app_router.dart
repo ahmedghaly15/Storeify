@@ -14,6 +14,7 @@ import 'package:store_ify/features/categories/presentation/view/sub_categories_v
 import 'package:store_ify/features/favorites/presentation/views/favorites_view.dart';
 import 'package:store_ify/features/home/presentation/view/home_view.dart';
 import 'package:store_ify/features/layout/presentation/views/layout_view.dart';
+import 'package:store_ify/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:store_ify/features/stores/data/models/store.dart';
 import 'package:store_ify/features/stores/presentation/view/store_details_view.dart';
 import 'package:store_ify/features/stores/presentation/view/stores_view.dart';
