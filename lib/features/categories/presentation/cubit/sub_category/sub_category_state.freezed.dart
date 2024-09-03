@@ -101,6 +101,9 @@ class _$SubCategoryStateCopyWithImpl<T, $Res, $Val extends SubCategoryState<T>>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of SubCategoryState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -117,6 +120,9 @@ class __$$InitialImplCopyWithImpl<T, $Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of SubCategoryState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -251,6 +257,9 @@ class __$$FetchSubCategoryLoadingImplCopyWithImpl<T, $Res>
       _$FetchSubCategoryLoadingImpl<T> _value,
       $Res Function(_$FetchSubCategoryLoadingImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of SubCategoryState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -389,6 +398,8 @@ class __$$FetchSubCategorySuccessImplCopyWithImpl<T, $Res>
       $Res Function(_$FetchSubCategorySuccessImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubCategoryState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -428,7 +439,9 @@ class _$FetchSubCategorySuccessImpl<T> implements FetchSubCategorySuccess<T> {
   @override
   int get hashCode => Object.hash(runtimeType, subCategory);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubCategoryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchSubCategorySuccessImplCopyWith<T, _$FetchSubCategorySuccessImpl<T>>
@@ -533,7 +546,10 @@ abstract class FetchSubCategorySuccess<T> implements SubCategoryState<T> {
       _$FetchSubCategorySuccessImpl<T>;
 
   FetchSubCategoryResponse get subCategory;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubCategoryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchSubCategorySuccessImplCopyWith<T, _$FetchSubCategorySuccessImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -558,6 +574,8 @@ class __$$FetchSubCategoryErrorImplCopyWithImpl<T, $Res>
       $Res Function(_$FetchSubCategoryErrorImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubCategoryState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -594,7 +612,9 @@ class _$FetchSubCategoryErrorImpl<T> implements FetchSubCategoryError<T> {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubCategoryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchSubCategoryErrorImplCopyWith<T, _$FetchSubCategoryErrorImpl<T>>
@@ -698,7 +718,10 @@ abstract class FetchSubCategoryError<T> implements SubCategoryState<T> {
       _$FetchSubCategoryErrorImpl<T>;
 
   dynamic get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubCategoryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchSubCategoryErrorImplCopyWith<T, _$FetchSubCategoryErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -723,6 +746,8 @@ class __$$UpdateCurrentSubCategoryIndexImplCopyWithImpl<T, $Res>
       $Res Function(_$UpdateCurrentSubCategoryIndexImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubCategoryState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -763,7 +788,9 @@ class _$UpdateCurrentSubCategoryIndexImpl<T>
   @override
   int get hashCode => Object.hash(runtimeType, currentIndex);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubCategoryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateCurrentSubCategoryIndexImplCopyWith<T,
@@ -868,7 +895,10 @@ abstract class UpdateCurrentSubCategoryIndex<T> implements SubCategoryState<T> {
       _$UpdateCurrentSubCategoryIndexImpl<T>;
 
   int get currentIndex;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubCategoryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateCurrentSubCategoryIndexImplCopyWith<T,
           _$UpdateCurrentSubCategoryIndexImpl<T>>
       get copyWith => throw _privateConstructorUsedError;

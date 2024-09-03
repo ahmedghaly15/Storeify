@@ -53,5 +53,16 @@
     "favorites": "المفضلة",
     "products": "المنتجات",
     "NO_FAVORITE_STORES": "ليس لديك متاجر مفضلة",
-    "No_Favorite_Products": "ليس لديك منتجات مفضلة"
+    "No_Favorite_Products": "ليس لديك منتجات مفضلة",
+    "ensureInternetConnection": "الرجاء التحقق من اتصالك بالانترنت و المحاولة مرة أخرى.",
+    "defaultErrorDescription": "حدث خطأ في الحصول على البيانات لك. الرجاء المحاولة مرة أخرى",
+    "onboardingTitle1": "مرحبا بك في Store-ify",
+    "onboardingSubtitle1": "استكشف العالم المتنوعة. Store-ify هو موقعك لتسوق المتاجر و المنتجات.",
+    "onboardingTitle2": "تصفح وتسوق",
+    "onboardingSubtitle2": "تصفح متاجر و منتجاتك. البحث عن المنتجات الجديدة و الخصومات الجديدة. تجربة جديدة للبحث",
+    "onboardingTitle3": "توصيل سريع",
+    "onboardingSubtitle3": "تمكين تسويقك بسهولة. تسويق منتجاتك من متاجر مختلفة في مكان و استخدام خيارات البحث. ",
+    "skip": "تخطي",
+    "next": "التالي",
+    "getStarted": "ابدء"
 }

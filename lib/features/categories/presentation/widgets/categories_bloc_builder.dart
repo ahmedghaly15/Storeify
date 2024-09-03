@@ -30,7 +30,7 @@ class CategoriesBlocBuilder extends StatelessWidget {
             child: Text(context.translate(errorKey)),
           ),
         ),
-        fetchCategoriesSuccess: (categories) => SliverPadding(
+        fetchCategoriesSuccess: (fetchCategoriesResponse) => SliverPadding(
           padding: EdgeInsets.only(
             left: 16.w,
             right: 16.w,
@@ -39,17 +39,17 @@ class CategoriesBlocBuilder extends StatelessWidget {
           sliver: SliverGrid.builder(
             itemBuilder: (_, index) => AnimationConfiguration.staggeredGrid(
               position: index,
-              columnCount: categories.length,
+              columnCount: fetchCategoriesResponse.categories.length,
               duration: AppConstants.gridDuration,
               child: ScaleAnimation(
                 child: FadeInAnimation(
                   child: CategoryItem(
-                    category: categories[index],
+                    category: fetchCategoriesResponse.categories[index],
                   ),
                 ),
               ),
             ),
-            itemCount: categories.length,
+            itemCount: fetchCategoriesResponse.categories.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: AppConstants.gridCrossAxisCount,
               crossAxisSpacing: AppConstants.gridCrossAxisSpacing,

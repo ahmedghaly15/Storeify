@@ -53,5 +53,16 @@
     "favorites": "Favorites",
     "products": "Products",
     "NO_FAVORITE_STORES": "You don't have any favorite stores",
-    "No_Favorite_Products": "You don't have any favorite products"
+    "No_Favorite_Products": "You don't have any favorite products",
+    "ensureInternetConnection": "Please ensure that you are connect with the internet and try again.",
+    "defaultErrorDescription": "An error occurred while getting the  data  for  you. Please try again later",
+    "onboardingTitle1": "Welcome to Store-ify",
+    "onboardingSubtitle1": "Explore a world of endless possibilities. Store-ify is your one-stop destination for a diverse range of stores and products.",
+    "onboardingTitle2": "Discover & Shop",
+    "onboardingSubtitle2": "Browse through a variety of stores and products. Find the latest trends, exclusive deals, and more. Your next great find is just a tap away",
+    "onboardingTitle3": "Easy of Delivery",
+    "onboardingSubtitle3": "Enjoy a seamless shopping experience. Shop from multiple stores in one place, use our search options to find what you need, and discover a new way to shop.",
+    "skip": "Skip",
+    "next": "Next",
+    "getStarted": "Get Started"
 }

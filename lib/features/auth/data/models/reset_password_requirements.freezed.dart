@@ -19,7 +19,9 @@ mixin _$ResetPasswordRequirements {
   String get email => throw _privateConstructorUsedError;
   BuildContext get context => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ResetPasswordRequirements
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ResetPasswordRequirementsCopyWith<ResetPasswordRequirements> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -44,6 +46,8 @@ class _$ResetPasswordRequirementsCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ResetPasswordRequirements
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -85,6 +89,8 @@ class __$$ResetPasswordRequirementsImplCopyWithImpl<$Res>
       $Res Function(_$ResetPasswordRequirementsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ResetPasswordRequirements
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,7 +138,9 @@ class _$ResetPasswordRequirementsImpl implements _ResetPasswordRequirements {
   @override
   int get hashCode => Object.hash(runtimeType, email, context);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ResetPasswordRequirements
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ResetPasswordRequirementsImplCopyWith<_$ResetPasswordRequirementsImpl>
@@ -149,8 +157,11 @@ abstract class _ResetPasswordRequirements implements ResetPasswordRequirements {
   String get email;
   @override
   BuildContext get context;
+
+  /// Create a copy of ResetPasswordRequirements
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ResetPasswordRequirementsImplCopyWith<_$ResetPasswordRequirementsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

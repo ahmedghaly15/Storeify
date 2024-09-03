@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 
 bool isUserLoggedIn = false;
+bool isOnboardingVisited = false;
 
 class AppConstants {
   static const ScrollPhysics physics = BouncingScrollPhysics();
@@ -23,4 +24,7 @@ class AppConstants {
     LangKeys.stores,
     LangKeys.products,
   ];
+  static const Duration onboardingAnimationDuration =
+      Duration(milliseconds: 475);
+  static Curve get onboardingCurve => Curves.fastEaseInToSlowEaseOut;
 }

@@ -27,23 +27,25 @@ class StoreDetailsView extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          const CustomSliverAppBar(),
-          SliverToBoxAdapter(
-            child: StoreImageAndName(store: store),
-          ),
-          SliverToBoxAdapter(
-            child: StoreDetailsCategoriesListView(storeId: store.id),
-          ),
-          SliverPadding(
-            padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
-            sliver: const SliverFillRemaining(
-              // hasScrollBody: false,
-              child: StoreDetailsData(),
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            const CustomSliverAppBar(),
+            SliverToBoxAdapter(
+              child: StoreImageAndName(store: store),
             ),
-          ),
-        ],
+            SliverToBoxAdapter(
+              child: StoreDetailsCategoriesListView(storeId: store.id),
+            ),
+            SliverPadding(
+              padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
+              sliver: const SliverFillRemaining(
+                // hasScrollBody: false,
+                child: StoreDetailsData(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

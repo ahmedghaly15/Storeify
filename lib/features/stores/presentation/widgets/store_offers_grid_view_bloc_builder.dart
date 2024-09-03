@@ -48,8 +48,10 @@ class StoreOffersGridViewBlocBuilder extends StatelessWidget {
                 child: Text('No Products'),
               ),
         fetchStoreOffersError: (errorKey) => CustomErrorWidget(
-          onPressed: () {},
-          error: errorKey,
+          tryAgainOnPressed: () {
+            // TODO: add try again function
+          },
+          errorKey: errorKey,
         ),
         orElse: () => const Center(
           child: CustomCircularProgressIndicator(),

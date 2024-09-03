@@ -128,6 +128,9 @@ class _$FetchFavoritesStateCopyWithImpl<T, $Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -144,6 +147,9 @@ class __$$InitialImplCopyWithImpl<T, $Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -304,6 +310,9 @@ class __$$FetchFavoriteProductsLoadingImplCopyWithImpl<T, $Res>
       _$FetchFavoriteProductsLoadingImpl<T> _value,
       $Res Function(_$FetchFavoriteProductsLoadingImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -471,6 +480,8 @@ class __$$FetchFavoriteProductsSuccessImplCopyWithImpl<T, $Res>
       $Res Function(_$FetchFavoriteProductsSuccessImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -511,7 +522,9 @@ class _$FetchFavoriteProductsSuccessImpl<T>
   @override
   int get hashCode => Object.hash(runtimeType, favorites);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchFavoriteProductsSuccessImplCopyWith<T,
@@ -644,7 +657,10 @@ abstract class FetchFavoriteProductsSuccess<T>
       _$FetchFavoriteProductsSuccessImpl<T>;
 
   FetchFavoriteProductsResponse get favorites;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchFavoriteProductsSuccessImplCopyWith<T,
           _$FetchFavoriteProductsSuccessImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
@@ -670,6 +686,8 @@ class __$$FetchFavoriteProductsErrorImplCopyWithImpl<T, $Res>
       $Res Function(_$FetchFavoriteProductsErrorImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -709,7 +727,9 @@ class _$FetchFavoriteProductsErrorImpl<T>
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchFavoriteProductsErrorImplCopyWith<T,
@@ -840,7 +860,10 @@ abstract class FetchFavoriteProductsError<T> implements FetchFavoritesState<T> {
       _$FetchFavoriteProductsErrorImpl<T>;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchFavoriteProductsErrorImplCopyWith<T,
           _$FetchFavoriteProductsErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
@@ -866,6 +889,8 @@ class __$$UpdateSelectedFavCategoryImplCopyWithImpl<T, $Res>
       $Res Function(_$UpdateSelectedFavCategoryImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -906,7 +931,9 @@ class _$UpdateSelectedFavCategoryImpl<T>
   @override
   int get hashCode => Object.hash(runtimeType, selectedFavCategory);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateSelectedFavCategoryImplCopyWith<T,
@@ -1037,7 +1064,10 @@ abstract class UpdateSelectedFavCategory<T> implements FetchFavoritesState<T> {
       _$UpdateSelectedFavCategoryImpl<T>;
 
   int get selectedFavCategory;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateSelectedFavCategoryImplCopyWith<T,
           _$UpdateSelectedFavCategoryImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
@@ -1060,6 +1090,9 @@ class __$$FetchFavStoresLoadingImplCopyWithImpl<T, $Res>
       _$FetchFavStoresLoadingImpl<T> _value,
       $Res Function(_$FetchFavStoresLoadingImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1224,6 +1257,8 @@ class __$$FetchFavStoresSuccessImplCopyWithImpl<T, $Res>
       $Res Function(_$FetchFavStoresSuccessImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1263,7 +1298,9 @@ class _$FetchFavStoresSuccessImpl<T> implements FetchFavStoresSuccess<T> {
   @override
   int get hashCode => Object.hash(runtimeType, favStores);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchFavStoresSuccessImplCopyWith<T, _$FetchFavStoresSuccessImpl<T>>
@@ -1393,7 +1430,10 @@ abstract class FetchFavStoresSuccess<T> implements FetchFavoritesState<T> {
       _$FetchFavStoresSuccessImpl<T>;
 
   FetchFavStoresResponse get favStores;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchFavStoresSuccessImplCopyWith<T, _$FetchFavStoresSuccessImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1416,6 +1456,8 @@ class __$$FetchFavStoresErrorImplCopyWithImpl<T, $Res>
       $Res Function(_$FetchFavStoresErrorImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1454,7 +1496,9 @@ class _$FetchFavStoresErrorImpl<T> implements FetchFavStoresError<T> {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchFavStoresErrorImplCopyWith<T, _$FetchFavStoresErrorImpl<T>>
@@ -1584,7 +1628,10 @@ abstract class FetchFavStoresError<T> implements FetchFavoritesState<T> {
       _$FetchFavStoresErrorImpl<T>;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FetchFavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchFavStoresErrorImplCopyWith<T, _$FetchFavStoresErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
