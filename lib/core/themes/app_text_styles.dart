@@ -65,4 +65,10 @@ class AppTextStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.fontPrimaryColor,
   );
+
+  static TextStyle textStyle10Light = TextStyle(
+    fontSize: 10.sp,
+    fontWeight: FontWeight.w300,
+    color: AppColors.fontPrimaryColor,
+  );
 }

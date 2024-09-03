@@ -11,6 +11,8 @@ import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.da
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/validate_otp/validate_otp_cubit.dart';
+import 'package:store_ify/features/cart/data/repositories/cart_repo.dart';
+import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:store_ify/features/categories/data/repositories/categories_repo.dart';
 import 'package:store_ify/features/categories/presentation/cubit/categories/categories_cubit.dart';
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_cubit.dart';
@@ -60,6 +62,9 @@ void _setupDIForRepos() {
   getIt.registerLazySingleton<OnboardingRepo>(
     () => const OnboardingRepoImpl(),
   );
+  getIt.registerLazySingleton<CartRepo>(
+    () => CartRepo(getIt.get<ApiService>()),
+  );
 }
 
 void _setupDIForCubits() {
@@ -104,5 +109,8 @@ void _setupDIForCubits() {
   );
   getIt.registerFactory<OnboardingCubit>(
     () => OnboardingCubit(getIt.get<OnboardingRepo>()),
+  );
+  getIt.registerFactory<CartCubit>(
+    () => CartCubit(getIt.get<CartRepo>()),
   );
 }
