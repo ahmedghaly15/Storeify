@@ -6,6 +6,7 @@ import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
+import 'package:store_ify/core/widgets/custom_error_widget.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
 import 'package:store_ify/features/home/presentation/cubit/home_state.dart';
@@ -54,19 +55,18 @@ class HomeDataBlocBuilder extends StatelessWidget {
               MySizedBox.height13,
               PaddedTitleAndViewAllTextButton(
                 titleKey: LangKeys.topStores,
-                viewAllOnPressed: () {},
+                viewAllOnPressed: () =>
+                    context.pushRoute(const CheckoutRoute()),
               ),
               TopStoresListView(topStores: homeData.topStores),
               // CategoriesListView(categories: homeData.categories),
             ],
           ),
         ),
-        orElse: () {
-          // TODO: show here error widget with error message: "Unknown error occurred"
-          return const Center(
-            child: CustomCircularProgressIndicator(),
-          );
-        },
+        orElse: () => CustomErrorWidget(
+          tryAgainOnPressed: () => context.read<HomeCubit>().fetchHomeData(),
+          errorKey: LangKeys.defaultError,
+        ),
       ),
     );
   }
