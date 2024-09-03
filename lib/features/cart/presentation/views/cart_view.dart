@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
 import 'package:store_ify/dependency_injection.dart';
 import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
@@ -25,6 +26,7 @@ class CartView extends StatelessWidget implements AutoRouteWrapper {
   Widget build(BuildContext context) {
     return const SafeArea(
       child: CustomScrollView(
+        physics: AppConstants.physics,
         slivers: [
           CustomSliverAppBar(titleKey: LangKeys.cart),
           CartProductsSliverListBlocBuilder(),
