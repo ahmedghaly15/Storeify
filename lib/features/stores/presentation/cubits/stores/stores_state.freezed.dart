@@ -131,6 +131,9 @@ class _$StoresStateCopyWithImpl<T, $Res, $Val extends StoresState<T>>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -147,6 +150,9 @@ class __$$InitialImplCopyWithImpl<T, $Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -308,6 +314,9 @@ class __$$FetchStoresLoadingImplCopyWithImpl<T, $Res>
   __$$FetchStoresLoadingImplCopyWithImpl(_$FetchStoresLoadingImpl<T> _value,
       $Res Function(_$FetchStoresLoadingImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -473,6 +482,8 @@ class __$$FetchStoresSuccessImplCopyWithImpl<T, $Res>
       $Res Function(_$FetchStoresSuccessImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -511,7 +522,9 @@ class _$FetchStoresSuccessImpl<T> implements FetchStoresSuccess<T> {
   @override
   int get hashCode => Object.hash(runtimeType, stores);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchStoresSuccessImplCopyWith<T, _$FetchStoresSuccessImpl<T>>
@@ -645,7 +658,10 @@ abstract class FetchStoresSuccess<T> implements StoresState<T> {
       _$FetchStoresSuccessImpl<T>;
 
   FetchStoresResponse get stores;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchStoresSuccessImplCopyWith<T, _$FetchStoresSuccessImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -667,6 +683,8 @@ class __$$FetchStoresErrorImplCopyWithImpl<T, $Res>
       $Res Function(_$FetchStoresErrorImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -705,7 +723,9 @@ class _$FetchStoresErrorImpl<T> implements FetchStoresError<T> {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchStoresErrorImplCopyWith<T, _$FetchStoresErrorImpl<T>> get copyWith =>
@@ -839,7 +859,10 @@ abstract class FetchStoresError<T> implements StoresState<T> {
       _$FetchStoresErrorImpl<T>;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchStoresErrorImplCopyWith<T, _$FetchStoresErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -861,6 +884,9 @@ class __$$FetchCategoryStoresLoadingImplCopyWithImpl<T, $Res>
       _$FetchCategoryStoresLoadingImpl<T> _value,
       $Res Function(_$FetchCategoryStoresLoadingImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1031,6 +1057,8 @@ class __$$FetchCategoryStoresSuccessImplCopyWithImpl<T, $Res>
       $Res Function(_$FetchCategoryStoresSuccessImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1071,7 +1099,9 @@ class _$FetchCategoryStoresSuccessImpl<T>
   @override
   int get hashCode => Object.hash(runtimeType, categoryStores);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchCategoryStoresSuccessImplCopyWith<T,
@@ -1207,7 +1237,10 @@ abstract class FetchCategoryStoresSuccess<T> implements StoresState<T> {
       _$FetchCategoryStoresSuccessImpl<T>;
 
   FetchStoresResponse get categoryStores;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchCategoryStoresSuccessImplCopyWith<T,
           _$FetchCategoryStoresSuccessImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
@@ -1233,6 +1266,8 @@ class __$$FetchCategoryStoresErrorImplCopyWithImpl<T, $Res>
       $Res Function(_$FetchCategoryStoresErrorImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1271,7 +1306,9 @@ class _$FetchCategoryStoresErrorImpl<T> implements FetchCategoryStoresError<T> {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchCategoryStoresErrorImplCopyWith<T, _$FetchCategoryStoresErrorImpl<T>>
@@ -1405,7 +1442,10 @@ abstract class FetchCategoryStoresError<T> implements StoresState<T> {
       _$FetchCategoryStoresErrorImpl<T>;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchCategoryStoresErrorImplCopyWith<T, _$FetchCategoryStoresErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1430,6 +1470,8 @@ class __$$UpdateCurrentSelectedStoreImplCopyWithImpl<T, $Res>
       $Res Function(_$UpdateCurrentSelectedStoreImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1470,7 +1512,9 @@ class _$UpdateCurrentSelectedStoreImpl<T>
   @override
   int get hashCode => Object.hash(runtimeType, currentIndex);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateCurrentSelectedStoreImplCopyWith<T,
@@ -1605,7 +1649,10 @@ abstract class UpdateCurrentSelectedStore<T> implements StoresState<T> {
       _$UpdateCurrentSelectedStoreImpl<T>;
 
   int get currentIndex;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateCurrentSelectedStoreImplCopyWith<T,
           _$UpdateCurrentSelectedStoreImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
@@ -1630,6 +1677,8 @@ class __$$UpdateCurrentStoreIndexImplCopyWithImpl<T, $Res>
       $Res Function(_$UpdateCurrentStoreIndexImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1669,7 +1718,9 @@ class _$UpdateCurrentStoreIndexImpl<T> implements UpdateCurrentStoreIndex<T> {
   @override
   int get hashCode => Object.hash(runtimeType, currentIndex);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateCurrentStoreIndexImplCopyWith<T, _$UpdateCurrentStoreIndexImpl<T>>
@@ -1803,7 +1854,10 @@ abstract class UpdateCurrentStoreIndex<T> implements StoresState<T> {
       _$UpdateCurrentStoreIndexImpl<T>;
 
   int get currentIndex;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StoresState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateCurrentStoreIndexImplCopyWith<T, _$UpdateCurrentStoreIndexImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }

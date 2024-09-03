@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/utils/functions/check_if_onboarding_visited.dart';
 import 'package:store_ify/core/utils/functions/check_if_user_is_logged_in.dart';
 import 'package:store_ify/storeify_app.dart';
 import 'package:store_ify/bloc_observer.dart';
@@ -9,6 +10,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setupDI();
   Bloc.observer = MyBlocObserver();
+  await checkIfOnboardingIsVisited();
   await checkIfUserLoggedIn();
   runApp(const StoreifyApp());
 }

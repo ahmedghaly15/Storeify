@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/features/stores/data/models/store.dart';
 import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_state.dart';
 
@@ -10,16 +9,12 @@ class StoresCubit extends Cubit<StoresState> {
   final StoresRepo _storesRepo;
   final CancelToken _cancelToken = CancelToken();
 
-  List<Store>? stores;
-
   void fetchStores() async {
     emit(const StoresState.fetchStoresLoading());
     final result = await _storesRepo.fetchStores(_cancelToken);
     result.when(
-      success: (fetchStoresResponse) {
-        stores = fetchStoresResponse.stores;
-        emit(StoresState.fetchStoresSuccess(fetchStoresResponse));
-      },
+      success: (fetchStoresResponse) =>
+          emit(StoresState.fetchStoresSuccess(fetchStoresResponse)),
       error: (errorModel) =>
           emit(StoresState.fetchStoresError(errorModel.error ?? '')),
     );

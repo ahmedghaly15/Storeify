@@ -158,6 +158,9 @@ class _$FavoritesStateCopyWithImpl<T, $Res, $Val extends FavoritesState<T>>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -174,6 +177,9 @@ class __$$InitialImplCopyWithImpl<T, $Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -363,6 +369,9 @@ class __$$PreferProductLoadingImplCopyWithImpl<T, $Res>
   __$$PreferProductLoadingImplCopyWithImpl(_$PreferProductLoadingImpl<T> _value,
       $Res Function(_$PreferProductLoadingImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -553,6 +562,9 @@ class __$$PreferProductSuccessImplCopyWithImpl<T, $Res>
   __$$PreferProductSuccessImplCopyWithImpl(_$PreferProductSuccessImpl<T> _value,
       $Res Function(_$PreferProductSuccessImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -745,6 +757,8 @@ class __$$PreferProductErrorImplCopyWithImpl<T, $Res>
       $Res Function(_$PreferProductErrorImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -783,7 +797,9 @@ class _$PreferProductErrorImpl<T> implements PreferProductError<T> {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PreferProductErrorImplCopyWith<T, _$PreferProductErrorImpl<T>>
@@ -944,7 +960,10 @@ abstract class PreferProductError<T> implements FavoritesState<T> {
       _$PreferProductErrorImpl<T>;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PreferProductErrorImplCopyWith<T, _$PreferProductErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -966,6 +985,9 @@ class __$$RemoveProductFromFavsLoadingImplCopyWithImpl<T, $Res>
       _$RemoveProductFromFavsLoadingImpl<T> _value,
       $Res Function(_$RemoveProductFromFavsLoadingImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1160,6 +1182,9 @@ class __$$RemoveProductFromFavsSuccessImplCopyWithImpl<T, $Res>
       _$RemoveProductFromFavsSuccessImpl<T> _value,
       $Res Function(_$RemoveProductFromFavsSuccessImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1357,6 +1382,8 @@ class __$$RemoveProductFromFavsErrorImplCopyWithImpl<T, $Res>
       $Res Function(_$RemoveProductFromFavsErrorImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1396,7 +1423,9 @@ class _$RemoveProductFromFavsErrorImpl<T>
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RemoveProductFromFavsErrorImplCopyWith<T,
@@ -1558,7 +1587,10 @@ abstract class RemoveProductFromFavsError<T> implements FavoritesState<T> {
       _$RemoveProductFromFavsErrorImpl<T>;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RemoveProductFromFavsErrorImplCopyWith<T,
           _$RemoveProductFromFavsErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
@@ -1578,6 +1610,9 @@ class __$$PreferStoreLoadingImplCopyWithImpl<T, $Res>
   __$$PreferStoreLoadingImplCopyWithImpl(_$PreferStoreLoadingImpl<T> _value,
       $Res Function(_$PreferStoreLoadingImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1767,6 +1802,9 @@ class __$$PreferStoreSuccessImplCopyWithImpl<T, $Res>
   __$$PreferStoreSuccessImplCopyWithImpl(_$PreferStoreSuccessImpl<T> _value,
       $Res Function(_$PreferStoreSuccessImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1959,6 +1997,8 @@ class __$$PreferStoreErrorImplCopyWithImpl<T, $Res>
       $Res Function(_$PreferStoreErrorImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1997,7 +2037,9 @@ class _$PreferStoreErrorImpl<T> implements PreferStoreError<T> {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PreferStoreErrorImplCopyWith<T, _$PreferStoreErrorImpl<T>> get copyWith =>
@@ -2158,7 +2200,10 @@ abstract class PreferStoreError<T> implements FavoritesState<T> {
       _$PreferStoreErrorImpl<T>;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PreferStoreErrorImplCopyWith<T, _$PreferStoreErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2180,6 +2225,9 @@ class __$$RemoveStoreFromFavsLoadingImplCopyWithImpl<T, $Res>
       _$RemoveStoreFromFavsLoadingImpl<T> _value,
       $Res Function(_$RemoveStoreFromFavsLoadingImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -2374,6 +2422,9 @@ class __$$RemoveStoreFromFavsLoSuccessImplCopyWithImpl<T, $Res>
       _$RemoveStoreFromFavsLoSuccessImpl<T> _value,
       $Res Function(_$RemoveStoreFromFavsLoSuccessImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -2571,6 +2622,8 @@ class __$$RemoveStoreFromFavsErrorImplCopyWithImpl<T, $Res>
       $Res Function(_$RemoveStoreFromFavsErrorImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2609,7 +2662,9 @@ class _$RemoveStoreFromFavsErrorImpl<T> implements RemoveStoreFromFavsError<T> {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RemoveStoreFromFavsErrorImplCopyWith<T, _$RemoveStoreFromFavsErrorImpl<T>>
@@ -2770,7 +2825,10 @@ abstract class RemoveStoreFromFavsError<T> implements FavoritesState<T> {
       _$RemoveStoreFromFavsErrorImpl<T>;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FavoritesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RemoveStoreFromFavsErrorImplCopyWith<T, _$RemoveStoreFromFavsErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }

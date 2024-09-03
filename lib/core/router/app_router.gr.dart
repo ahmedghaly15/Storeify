@@ -9,119 +9,6 @@
 
 part of 'app_router.dart';
 
-abstract class _$AppRouter extends RootStackRouter {
-  // ignore: unused_element
-  _$AppRouter({super.navigatorKey});
-
-  @override
-  final Map<String, PageFactory> pagesMap = {
-    AuthRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const Auth(),
-      );
-    },
-    BottomNavBarRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const BottomNavBar(),
-      );
-    },
-    CategoriesRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(child: const CategoriesView()),
-      );
-    },
-    FavoritesRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(child: const FavoritesView()),
-      );
-    },
-    ForgotPasswordRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(child: const ForgotPasswordView()),
-      );
-    },
-    HomeRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(child: const HomeView()),
-      );
-    },
-    LayoutRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const LayoutView(),
-      );
-    },
-    LoginRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(child: const LoginView()),
-      );
-    },
-    ResetPasswordRoute.name: (routeData) {
-      final args = routeData.argsAs<ResetPasswordRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(
-            child: ResetPasswordView(
-          key: args.key,
-          email: args.email,
-        )),
-      );
-    },
-    SignUpRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(child: const SignUpView()),
-      );
-    },
-    StoreDetailsRoute.name: (routeData) {
-      final args = routeData.argsAs<StoreDetailsRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(
-            child: StoreDetailsView(
-          key: args.key,
-          store: args.store,
-        )),
-      );
-    },
-    StoresRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(child: const StoresView()),
-      );
-    },
-    SubCategoriesRoute.name: (routeData) {
-      final args = routeData.argsAs<SubCategoriesRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(
-            child: SubCategoriesView(
-          key: args.key,
-          category: args.category,
-        )),
-      );
-    },
-    VerificationRoute.name: (routeData) {
-      final args = routeData.argsAs<VerificationRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(
-            child: VerificationView(
-          key: args.key,
-          email: args.email,
-        )),
-      );
-    },
-  };
-}
-
 /// generated route for
 /// [Auth]
 class AuthRoute extends PageRouteInfo<void> {
@@ -133,7 +20,12 @@ class AuthRoute extends PageRouteInfo<void> {
 
   static const String name = 'AuthRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const Auth();
+    },
+  );
 }
 
 /// generated route for
@@ -147,7 +39,12 @@ class BottomNavBarRoute extends PageRouteInfo<void> {
 
   static const String name = 'BottomNavBarRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const BottomNavBar();
+    },
+  );
 }
 
 /// generated route for
@@ -161,7 +58,12 @@ class CategoriesRoute extends PageRouteInfo<void> {
 
   static const String name = 'CategoriesRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const CategoriesView());
+    },
+  );
 }
 
 /// generated route for
@@ -175,7 +77,12 @@ class FavoritesRoute extends PageRouteInfo<void> {
 
   static const String name = 'FavoritesRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const FavoritesView());
+    },
+  );
 }
 
 /// generated route for
@@ -189,7 +96,12 @@ class ForgotPasswordRoute extends PageRouteInfo<void> {
 
   static const String name = 'ForgotPasswordRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const ForgotPasswordView());
+    },
+  );
 }
 
 /// generated route for
@@ -203,7 +115,12 @@ class HomeRoute extends PageRouteInfo<void> {
 
   static const String name = 'HomeRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const HomeView());
+    },
+  );
 }
 
 /// generated route for
@@ -217,7 +134,12 @@ class LayoutRoute extends PageRouteInfo<void> {
 
   static const String name = 'LayoutRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const LayoutView();
+    },
+  );
 }
 
 /// generated route for
@@ -231,7 +153,31 @@ class LoginRoute extends PageRouteInfo<void> {
 
   static const String name = 'LoginRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const LoginView());
+    },
+  );
+}
+
+/// generated route for
+/// [OnboardingView]
+class OnboardingRoute extends PageRouteInfo<void> {
+  const OnboardingRoute({List<PageRouteInfo>? children})
+      : super(
+          OnboardingRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OnboardingRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const OnboardingView());
+    },
+  );
 }
 
 /// generated route for
@@ -252,8 +198,17 @@ class ResetPasswordRoute extends PageRouteInfo<ResetPasswordRouteArgs> {
 
   static const String name = 'ResetPasswordRoute';
 
-  static const PageInfo<ResetPasswordRouteArgs> page =
-      PageInfo<ResetPasswordRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<ResetPasswordRouteArgs>();
+      return WrappedRoute(
+          child: ResetPasswordView(
+        key: args.key,
+        email: args.email,
+      ));
+    },
+  );
 }
 
 class ResetPasswordRouteArgs {
@@ -283,7 +238,12 @@ class SignUpRoute extends PageRouteInfo<void> {
 
   static const String name = 'SignUpRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const SignUpView());
+    },
+  );
 }
 
 /// generated route for
@@ -304,8 +264,17 @@ class StoreDetailsRoute extends PageRouteInfo<StoreDetailsRouteArgs> {
 
   static const String name = 'StoreDetailsRoute';
 
-  static const PageInfo<StoreDetailsRouteArgs> page =
-      PageInfo<StoreDetailsRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<StoreDetailsRouteArgs>();
+      return WrappedRoute(
+          child: StoreDetailsView(
+        key: args.key,
+        store: args.store,
+      ));
+    },
+  );
 }
 
 class StoreDetailsRouteArgs {
@@ -335,7 +304,12 @@ class StoresRoute extends PageRouteInfo<void> {
 
   static const String name = 'StoresRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const StoresView());
+    },
+  );
 }
 
 /// generated route for
@@ -356,8 +330,17 @@ class SubCategoriesRoute extends PageRouteInfo<SubCategoriesRouteArgs> {
 
   static const String name = 'SubCategoriesRoute';
 
-  static const PageInfo<SubCategoriesRouteArgs> page =
-      PageInfo<SubCategoriesRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<SubCategoriesRouteArgs>();
+      return WrappedRoute(
+          child: SubCategoriesView(
+        key: args.key,
+        category: args.category,
+      ));
+    },
+  );
 }
 
 class SubCategoriesRouteArgs {
@@ -394,8 +377,17 @@ class VerificationRoute extends PageRouteInfo<VerificationRouteArgs> {
 
   static const String name = 'VerificationRoute';
 
-  static const PageInfo<VerificationRouteArgs> page =
-      PageInfo<VerificationRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<VerificationRouteArgs>();
+      return WrappedRoute(
+          child: VerificationView(
+        key: args.key,
+        email: args.email,
+      ));
+    },
+  );
 }
 
 class VerificationRouteArgs {

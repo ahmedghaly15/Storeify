@@ -14,8 +14,8 @@ class CategoriesCubit extends Cubit<CategoriesState> {
     emit(const CategoriesState.fetchCategoriesLoading());
     final result = await _categoriesRepo.fetchCategories(_cancelToken);
     result.when(
-      success: (categories) =>
-          emit(CategoriesState.fetchCategoriesSuccess(categories)),
+      success: (fetchCategoriesResponse) =>
+          emit(CategoriesState.fetchCategoriesSuccess(fetchCategoriesResponse)),
       error: (errorModel) =>
           emit(CategoriesState.fetchCategoriesError(errorModel.error ?? '')),
     );
