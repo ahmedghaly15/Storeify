@@ -60,4 +60,10 @@ class LangKeys {
   static const String delivery = 'delivery';
   static const String total = 'total';
   static const String checkout = 'checkout';
+  static const String yourAddress = 'yourAddress';
+  static const String phone = 'phone';
+  static const String date = 'date';
+  static const String time = 'time';
+  static const String enterYourAddress = 'enterYourAddress';
+  static const String dateHint = 'dateHint';
 }

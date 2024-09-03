@@ -69,5 +69,11 @@
     "subtotal": "Subtotal",
     "delivery": "Delivery",
     "total": "Total",
-    "checkout": "Checkout"
+    "checkout": "Checkout",
+    "yourAddress": "Your Address",
+    "enterYourAddress": "Enter your address",
+    "phone": "Phone",
+    "date": "Date",
+    "dateHint": "MMM/DD/YYYY",
+    "time": "Time"
 }
