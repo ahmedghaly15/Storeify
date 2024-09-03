@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 
 class ControlCartProductQuantity extends StatelessWidget {
@@ -7,23 +6,29 @@ class ControlCartProductQuantity extends StatelessWidget {
     super.key,
     required this.icon,
     required this.onTap,
-    this.borderRadius,
+    required this.borderRadius,
   });
 
-  final BorderRadiusGeometry? borderRadius;
+  final BorderRadiusGeometry borderRadius;
   final IconData icon;
   final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(6.h),
       decoration: BoxDecoration(
         borderRadius: borderRadius,
         color: AppColors.primaryColor,
       ),
-      child: InkWell(
-        onTap: onTap,
+      child: MaterialButton(
+        padding: EdgeInsets.zero,
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        shape: RoundedRectangleBorder(
+          borderRadius: borderRadius,
+        ),
+        minWidth: 0,
+        height: 0,
+        onPressed: onTap,
         child: Icon(
           icon,
           color: Colors.white,

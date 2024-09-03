@@ -45,22 +45,24 @@ class CartProductItem extends StatelessWidget {
             ),
           ),
           MySizedBox.width8,
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                product.name,
-                style: AppTextStyles.textStyle14Regular.copyWith(
-                  color: AppColors.primaryColor,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  product.name,
+                  style: AppTextStyles.textStyle14Regular.copyWith(
+                    color: AppColors.primaryColor,
+                  ),
                 ),
-              ),
-              Text(
-                product.description,
-                style: AppTextStyles.textStyle10Light,
-              ),
-              MySizedBox.height8,
-              QuantityAndPrice(price: product.price),
-            ],
+                Text(
+                  product.description,
+                  style: AppTextStyles.textStyle10Light,
+                ),
+                MySizedBox.height8,
+                QuantityAndPrice(price: product.price),
+              ],
+            ),
           ),
         ],
       ),
