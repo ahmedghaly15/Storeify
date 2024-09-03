@@ -43,10 +43,7 @@ class LoginViewBody extends StatelessWidget {
                 MySizedBox.height22,
                 const LoginForm(),
                 MySizedBox.height32,
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 24.w),
-                  child: const LoginButtonBlocConsumer(),
-                ),
+                const LoginButtonBlocConsumer(),
                 Container(
                   margin: EdgeInsetsDirectional.only(
                     start: 24.w,

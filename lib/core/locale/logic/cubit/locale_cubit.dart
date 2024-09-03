@@ -22,6 +22,8 @@ class LocaleCubit extends Cubit<LocaleState> {
   }
 
   void _changeLang(String langCode) async {
+    if (currentLang == langCode) return;
+
     await _localeRepo.changeLang(langCode);
     currentLang = langCode;
     emit(LocaleState.changeLocale(Locale(langCode)));

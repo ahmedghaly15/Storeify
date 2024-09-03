@@ -29,7 +29,7 @@ List<AutoRoute> get appRoutes => [
             children: [
               _buildCustomRoute(page: HomeRoute.page, initial: true),
               _buildCustomRoute(page: StoresRoute.page),
-              _buildCustomRoute(page: HomeRoute.page),
+              _buildCustomRoute(page: CartRoute.page),
               _buildCustomRoute(page: FavoritesRoute.page),
             ],
           ),

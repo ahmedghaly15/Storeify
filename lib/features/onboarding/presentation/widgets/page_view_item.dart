@@ -54,10 +54,7 @@ class PageViewItem extends StatelessWidget {
         MySizedBox.height24,
         const CustomIndicators(),
         MySizedBox.height40,
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 80.w),
-          child: const NextButtonBlocBuilder(),
-        ),
+        const NextButtonBlocBuilder(),
       ],
     );
   }

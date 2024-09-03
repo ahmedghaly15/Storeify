@@ -64,5 +64,10 @@
     "onboardingSubtitle3": "Enjoy a seamless shopping experience. Shop from multiple stores in one place, use our search options to find what you need, and discover a new way to shop.",
     "skip": "Skip",
     "next": "Next",
-    "getStarted": "Get Started"
+    "getStarted": "Get Started",
+    "summary": "Summary",
+    "subtotal": "Subtotal",
+    "delivery": "Delivery",
+    "total": "Total",
+    "checkout": "Checkout"
 }

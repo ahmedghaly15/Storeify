@@ -11,12 +11,10 @@ class TryAgainButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 80.w),
-        child: MainButton(
-          onPressed: onPressed,
-          textKey: LangKeys.tryAgain,
-        ),
+      child: MainButton(
+        margin: EdgeInsets.symmetric(horizontal: 80.w),
+        onPressed: onPressed,
+        textKey: LangKeys.tryAgain,
       ),
     );
   }

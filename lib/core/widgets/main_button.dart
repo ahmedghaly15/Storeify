@@ -21,6 +21,7 @@ class MainButton extends StatelessWidget {
     this.border,
     this.isOutlined = false,
     this.fontSize,
+    this.margin,
   });
 
   final String? textKey;
@@ -37,12 +38,14 @@ class MainButton extends StatelessWidget {
   final BoxBorder? border;
   final bool isOutlined;
   final double? fontSize;
+  final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: width?.w ?? double.infinity,
       height: height?.h ?? 42.0.h,
+      margin: margin,
       decoration: BoxDecoration(
         color: isOutlined
             ? Colors.white
