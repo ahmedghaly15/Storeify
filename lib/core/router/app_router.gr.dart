@@ -48,6 +48,25 @@ class BottomNavBarRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [CartView]
+class CartRoute extends PageRouteInfo<void> {
+  const CartRoute({List<PageRouteInfo>? children})
+      : super(
+          CartRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CartRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const CartView());
+    },
+  );
+}
+
+/// generated route for
 /// [CategoriesView]
 class CategoriesRoute extends PageRouteInfo<void> {
   const CategoriesRoute({List<PageRouteInfo>? children})

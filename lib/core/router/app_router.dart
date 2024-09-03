@@ -8,6 +8,7 @@ import 'package:store_ify/features/auth/presentation/views/login_view.dart';
 import 'package:store_ify/features/auth/presentation/views/reset_password_view.dart';
 import 'package:store_ify/features/auth/presentation/views/sign_up_view.dart';
 import 'package:store_ify/features/auth/presentation/views/verification_view.dart';
+import 'package:store_ify/features/cart/presentation/views/cart_view.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
 import 'package:store_ify/features/categories/presentation/view/categories_view.dart';
 import 'package:store_ify/features/categories/presentation/view/sub_categories_view.dart';
