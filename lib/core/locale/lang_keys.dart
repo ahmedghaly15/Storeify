@@ -55,4 +55,9 @@ class LangKeys {
   static const String skip = 'skip';
   static const String next = 'next';
   static const String getStarted = 'getStarted';
+  static const String summary = 'summary';
+  static const String subtotal = 'subtotal';
+  static const String delivery = 'delivery';
+  static const String total = 'total';
+  static const String checkout = 'checkout';
 }
