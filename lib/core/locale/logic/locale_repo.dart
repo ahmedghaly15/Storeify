@@ -7,6 +7,7 @@ class LocaleRepo {
   const LocaleRepo();
 
   Future<bool> changeLang(String langCode) async {
+    await SharedPrefHelper.removeData(SharedPrefKeys.locale);
     return await SharedPrefHelper.setData(SharedPrefKeys.locale, langCode);
   }
 
