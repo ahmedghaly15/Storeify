@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
@@ -30,6 +31,7 @@ class LoginButtonBlocConsumer extends StatelessWidget {
           current is Loading || current is Success || current is Error,
       builder: (context, state) {
         return MainButton(
+          margin: EdgeInsets.symmetric(horizontal: 24.w),
           child: circularIndicatorOrTextWidget(
             condition: state is Loading,
             context: context,

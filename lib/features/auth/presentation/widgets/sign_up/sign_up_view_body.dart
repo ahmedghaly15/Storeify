@@ -44,14 +44,7 @@ class SignUpViewBody extends StatelessWidget {
                 const Spacer(),
                 const SignUpForm(),
                 MySizedBox.height24,
-                Container(
-                  margin: EdgeInsetsDirectional.only(
-                    start: 24.w,
-                    end: 24.w,
-                    bottom: 10.h,
-                  ),
-                  child: const SignUpButtonBlocConsumer(),
-                ),
+                const SignUpButtonBlocConsumer(),
                 Align(
                   alignment: AlignmentDirectional.centerEnd,
                   child: TextButton(

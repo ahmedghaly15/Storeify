@@ -43,15 +43,7 @@ class ForgotPasswordView extends StatelessWidget implements AutoRouteWrapper {
                   margin: EdgeInsets.only(top: 14.h),
                   child: const ForgotPasswordForm(),
                 ),
-                Container(
-                  margin: EdgeInsetsDirectional.only(
-                    top: 32.h,
-                    bottom: 20.h,
-                    start: 24.w,
-                    end: 24.w,
-                  ),
-                  child: const VerifyEmailButtonBlocConsumer(),
-                ),
+                const VerifyEmailButtonBlocConsumer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
