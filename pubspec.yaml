@@ -61,6 +61,8 @@ dependencies:
   geolocator: ^13.0.1
   # Provides easy geocoding and reverse-geocoding features
   geocoding: ^3.0.0
+  # A customized Flutter TextFormField to input international phone number along with country code
+  intl_phone_field: ^3.2.0
 
 dev_dependencies:
   flutter_test:
