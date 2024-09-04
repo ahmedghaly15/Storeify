@@ -45,6 +45,7 @@ class AppThemes {
           ),
           headerBackgroundColor: AppColors.primaryColor,
           headerForegroundColor: Colors.white,
+          dividerColor: Colors.white,
         ),
       );
 }

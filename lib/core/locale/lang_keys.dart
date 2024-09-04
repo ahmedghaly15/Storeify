@@ -66,4 +66,6 @@ class LangKeys {
   static const String time = 'time';
   static const String enterYourAddress = 'enterYourAddress';
   static const String dateHint = 'dateHint';
+  static const String enableLocation = 'enableLocation';
+  static const String locationDenied = 'locationDenied';
 }

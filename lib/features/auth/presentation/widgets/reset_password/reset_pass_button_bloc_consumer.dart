@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/router/app_router.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
 import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
@@ -45,7 +46,9 @@ class ResetPassButtonBlocConsumer extends StatelessWidget {
           current is Loading || current is Error || current is Success,
       builder: (context, state) {
         return MainButton(
-          margin: EdgeInsetsDirectional.symmetric(horizontal: 24.w),
+          margin: EdgeInsetsDirectional.symmetric(
+            horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
+          ),
           onPressed: () => context.read<ResetPasswordCubit>().resetPassword(
                 ResetPasswordRequirements(
                   email: email,

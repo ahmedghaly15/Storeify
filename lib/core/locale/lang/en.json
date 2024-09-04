@@ -75,5 +75,7 @@
     "phone": "Phone",
     "date": "Date",
     "dateHint": "MMM/DD/YYYY",
-    "time": "Time"
+    "time": "Time",
+    "enableLocation": "Location is required. Please enable your location.",
+    "locationDenied": "Location permission denied. Please grant location permission."
 }

@@ -75,5 +75,7 @@
     "date": "التاريخ",
     "time": "الوقت",
     "enterYourAddress": "ادخل عنوانك",
-    "dateHint": "MMM/DD/YYYY"
+    "dateHint": "MMM/DD/YYYY",
+    "enableLocation": "الموقع مطلوب. الرجاء تفعيل الموقع.",
+    "locationDenied": "الموقع غير مسموح به. الرجاء تفعيل الموقع."
 }

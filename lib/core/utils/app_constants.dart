@@ -32,4 +32,6 @@ class AppConstants {
         borderRadius: BorderRadius.circular(8.r),
         borderSide: BorderSide(color: AppColors.fontPrimaryColor, width: 1.w),
       );
+
+  static const double mainButtonHorizontalMarginVal = 24.0;
 }
