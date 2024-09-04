@@ -21,7 +21,7 @@ class StoreifyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child) => MultiBlocProvider(
+      builder: (_, __) => MultiBlocProvider(
         providers: [
           BlocProvider<LocaleCubit>(
             create: (_) => getIt.get<LocaleCubit>()..getSavedLang(),
@@ -32,25 +32,23 @@ class StoreifyApp extends StatelessWidget {
         ],
         child: BlocBuilder<LocaleCubit, LocaleState>(
           buildWhen: (previous, current) => previous != current,
-          builder: (context, state) {
-            return MaterialApp.router(
-              debugShowCheckedModeBanner: false,
-              locale: state.locale,
-              supportedLocales: AppLocalizationsSetup.supportedLocales,
-              localizationsDelegates:
-                  AppLocalizationsSetup.localizationsDelegates,
-              localeResolutionCallback:
-                  AppLocalizationsSetup.localeResolutionCallback,
-              theme: AppThemes.lightTheme,
-              title: AppStrings.appTitle,
-              routerConfig: getIt.get<AppRouter>().config(
-                    navigatorObservers: () => [
-                      AppRoutesObserver(),
-                      AutoRouteObserver(),
-                    ],
-                  ),
-            );
-          },
+          builder: (context, state) => MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            locale: state.locale,
+            supportedLocales: AppLocalizationsSetup.supportedLocales,
+            localizationsDelegates:
+                AppLocalizationsSetup.localizationsDelegates,
+            localeResolutionCallback:
+                AppLocalizationsSetup.localeResolutionCallback,
+            theme: AppThemes.lightTheme,
+            title: AppStrings.appTitle,
+            routerConfig: getIt.get<AppRouter>().config(
+                  navigatorObservers: () => [
+                    AppRoutesObserver(),
+                    AutoRouteObserver(),
+                  ],
+                ),
+          ),
         ),
       ),
     );

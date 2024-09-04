@@ -69,5 +69,13 @@
     "subtotal": "المجموع الفرعي",
     "delivery": "التوصيل",
     "total": "المجموع",
-    "checkout": "تأكيد الطلب"
+    "checkout": "تأكيد الطلب",
+    "yourAddress": "عنوانك",
+    "phone": "الهاتف",
+    "date": "التاريخ",
+    "time": "الوقت",
+    "enterYourAddress": "ادخل عنوانك",
+    "dateHint": "MMM/DD/YYYY",
+    "enableLocation": "الموقع مطلوب. الرجاء تفعيل الموقع.",
+    "locationDenied": "الموقع غير مسموح به. الرجاء تفعيل الموقع."
 }

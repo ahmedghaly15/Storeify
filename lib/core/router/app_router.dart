@@ -12,6 +12,7 @@ import 'package:store_ify/features/cart/presentation/views/cart_view.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
 import 'package:store_ify/features/categories/presentation/view/categories_view.dart';
 import 'package:store_ify/features/categories/presentation/view/sub_categories_view.dart';
+import 'package:store_ify/features/checkout/presentation/views/checkout_view.dart';
 import 'package:store_ify/features/favorites/presentation/views/favorites_view.dart';
 import 'package:store_ify/features/home/presentation/view/home_view.dart';
 import 'package:store_ify/features/layout/presentation/views/layout_view.dart';

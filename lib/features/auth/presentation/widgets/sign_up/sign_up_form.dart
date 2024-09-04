@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/helpers/auth_helper.dart';
+import 'package:store_ify/core/helpers/validator.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
@@ -23,7 +23,7 @@ class SignUpForm extends StatelessWidget {
           const TextFieldLabel(labelKey: LangKeys.email),
           CustomTextField(
             validate: (String? value) =>
-                AuthHelper.validateEmailField(value: value),
+                Validator.validateEmailField(value: value),
             controller: context.read<RegisterCubit>().emailController,
             keyboardType: TextInputType.emailAddress,
             hintTextKey: LangKeys.examplegmailcom,
@@ -36,7 +36,7 @@ class SignUpForm extends StatelessWidget {
           const TextFieldLabel(labelKey: LangKeys.username),
           CustomTextField(
             validate: (String? value) =>
-                AuthHelper.validateNameField(value: value),
+                Validator.validateNameField(value: value),
             controller: context.read<RegisterCubit>().usernameController,
             keyboardType: TextInputType.name,
             textCapitalization: TextCapitalization.words,
@@ -63,7 +63,7 @@ class SignUpForm extends StatelessWidget {
                 ),
               ),
               validate: (value) =>
-                  AuthHelper.validatePasswordField(value: value),
+                  Validator.validatePasswordField(value: value),
               controller: context.read<RegisterCubit>().passwordController,
               keyboardType: TextInputType.visiblePassword,
               hintTextKey: LangKeys.passwordHint,
@@ -91,7 +91,7 @@ class SignUpForm extends StatelessWidget {
                 ),
               ),
               onSubmit: (_) => context.read<RegisterCubit>().register(context),
-              validate: (value) => AuthHelper.validateConfirmPasswordField(
+              validate: (value) => Validator.validateConfirmPasswordField(
                 value: value,
                 password: context.read<RegisterCubit>().passwordController.text,
                 confirmPassword:

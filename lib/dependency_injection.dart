@@ -5,6 +5,7 @@ import 'package:store_ify/core/api/dio_factory.dart';
 import 'package:store_ify/core/locale/logic/cubit/locale_cubit.dart';
 import 'package:store_ify/core/locale/logic/locale_repo.dart';
 import 'package:store_ify/core/router/app_router.dart';
+import 'package:store_ify/core/services/location_service.dart';
 import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forgot_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.dart';
@@ -16,6 +17,7 @@ import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:store_ify/features/categories/data/repositories/categories_repo.dart';
 import 'package:store_ify/features/categories/presentation/cubit/categories/categories_cubit.dart';
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_cubit.dart';
+import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_cubit.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
@@ -40,6 +42,9 @@ void _setupDIForCore() {
   final Dio dio = DioFactory.getDio();
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
   getIt.registerSingleton<AppRouter>(AppRouter());
+  getIt.registerLazySingleton<UserPositionService>(
+    () => UserPositionService(),
+  );
 }
 
 void _setupDIForRepos() {
@@ -112,5 +117,8 @@ void _setupDIForCubits() {
   );
   getIt.registerFactory<CartCubit>(
     () => CartCubit(getIt.get<CartRepo>()),
+  );
+  getIt.registerFactory<CheckoutCubit>(
+    () => CheckoutCubit(),
   );
 }

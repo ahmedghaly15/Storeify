@@ -86,6 +86,25 @@ class CategoriesRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [CheckoutView]
+class CheckoutRoute extends PageRouteInfo<void> {
+  const CheckoutRoute({List<PageRouteInfo>? children})
+      : super(
+          CheckoutRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CheckoutRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const CheckoutView();
+    },
+  );
+}
+
+/// generated route for
 /// [FavoritesView]
 class FavoritesRoute extends PageRouteInfo<void> {
   const FavoritesRoute({List<PageRouteInfo>? children})

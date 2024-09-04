@@ -15,12 +15,6 @@ class AppTextStyles {
     color: AppColors.fontPrimaryColor,
   );
 
-  static TextStyle textStyle16Medium = TextStyle(
-    fontSize: 16.sp,
-    fontWeight: FontWeight.w500,
-    color: AppColors.fontPrimaryColor,
-  );
-
   static TextStyle mainButtonTextStyle = textStyle16Medium.copyWith(
     color: Colors.white,
   );
@@ -28,6 +22,18 @@ class AppTextStyles {
   static TextStyle textStyle16Regular = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeight.w400,
+    color: AppColors.fontPrimaryColor,
+  );
+
+  static TextStyle textStyle16Medium = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w500,
+    color: AppColors.fontPrimaryColor,
+  );
+
+  static TextStyle textStyle16SemiBold = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w600,
     color: AppColors.fontPrimaryColor,
   );
 

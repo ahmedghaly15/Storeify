@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/core/themes/app_colors.dart';
 
 bool isUserLoggedIn = false;
 bool isOnboardingVisited = false;
@@ -27,4 +28,10 @@ class AppConstants {
   static const Duration onboardingAnimationDuration =
       Duration(milliseconds: 475);
   static Curve get onboardingCurve => Curves.fastEaseInToSlowEaseOut;
+  static OutlineInputBorder get textFieldOutlinedBorder => OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.r),
+        borderSide: BorderSide(color: AppColors.fontPrimaryColor, width: 1.w),
+      );
+
+  static const double mainButtonHorizontalMarginVal = 24.0;
 }

@@ -1,6 +1,6 @@
 import 'package:store_ify/core/helpers/app_regex.dart';
 
-class AuthHelper {
+class Validator {
   static String? validatePasswordField({String? value}) {
     if (value == null || value.isEmpty) {
       return "Password can't be blank!";
@@ -46,6 +46,13 @@ class AuthHelper {
       return "Passwords don't match";
     }
 
+    return null;
+  }
+
+  static String? validateField(String? value) {
+    if (value!.isEmpty) {
+      return "Address can't be blank!";
+    }
     return null;
   }
 }

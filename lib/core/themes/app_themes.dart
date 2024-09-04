@@ -5,21 +5,22 @@ import 'package:store_ify/core/utils/app_strings.dart';
 
 class AppThemes {
   static ThemeData get lightTheme => ThemeData(
+        colorScheme: const ColorScheme.light(primary: AppColors.primaryColor),
         primaryColor: AppColors.primaryColor,
         useMaterial3: true,
         scaffoldBackgroundColor: Colors.white,
         fontFamily: AppStrings.fontFamily,
         brightness: Brightness.light,
         appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          type: BottomNavigationBarType.fixed,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          selectedItemColor: AppColors.primaryColor,
-          unselectedIconTheme: const IconThemeData(color: AppColors.greyColor),
-          backgroundColor: Colors.white,
-          elevation: 20.h,
-        ),
+        // bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        //   type: BottomNavigationBarType.fixed,
+        //   showSelectedLabels: false,
+        //   showUnselectedLabels: false,
+        //   selectedItemColor: AppColors.primaryColor,
+        //   unselectedIconTheme: const IconThemeData(color: AppColors.greyColor),
+        //   backgroundColor: Colors.white,
+        //   elevation: 20.h,
+        // ),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
             padding: WidgetStateProperty.all(
@@ -33,6 +34,18 @@ class AppThemes {
             padding: WidgetStateProperty.all(EdgeInsets.zero),
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
+        ),
+        datePickerTheme: const DatePickerThemeData(
+          backgroundColor: Colors.white,
+          cancelButtonStyle: ButtonStyle(
+            foregroundColor: WidgetStatePropertyAll(AppColors.primaryColor),
+          ),
+          confirmButtonStyle: ButtonStyle(
+            foregroundColor: WidgetStatePropertyAll(AppColors.primaryColor),
+          ),
+          headerBackgroundColor: AppColors.primaryColor,
+          headerForegroundColor: Colors.white,
+          dividerColor: Colors.white,
         ),
       );
 }

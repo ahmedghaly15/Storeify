@@ -69,5 +69,13 @@
     "subtotal": "Subtotal",
     "delivery": "Delivery",
     "total": "Total",
-    "checkout": "Checkout"
+    "checkout": "Checkout",
+    "yourAddress": "Your Address",
+    "enterYourAddress": "Enter your address",
+    "phone": "Phone",
+    "date": "Date",
+    "dateHint": "MMM/DD/YYYY",
+    "time": "Time",
+    "enableLocation": "Location is required. Please enable your location.",
+    "locationDenied": "Location permission denied. Please grant location permission."
 }
