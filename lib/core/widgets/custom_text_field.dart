@@ -2,9 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -26,6 +26,7 @@ class CustomTextField extends StatelessWidget {
     this.textAlign = TextAlign.center,
     this.enabledBorder,
     this.focusedBorder,
+    this.enabled,
   });
 
   final TextInputType keyboardType;
@@ -45,12 +46,14 @@ class CustomTextField extends StatelessWidget {
   final TextAlign textAlign;
   final InputBorder? enabledBorder;
   final InputBorder? focusedBorder;
+  final bool? enabled;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 24.w),
       child: TextFormField(
+        enabled: enabled,
         selectionHeightStyle: BoxHeightStyle.strut,
         obscureText: obscureText ?? false,
         autofillHints: autofillHints,
@@ -68,26 +71,19 @@ class CustomTextField extends StatelessWidget {
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
           contentPadding: contentPadding,
-          enabledBorder: enabledBorder ?? _buildTextFieldOutlinedBorder(),
-          focusedBorder: focusedBorder ?? _buildTextFieldOutlinedBorder(),
-          focusedErrorBorder: _buildTextFieldOutlinedBorder(),
-          errorBorder: _buildTextFieldOutlinedBorder(),
+          enabledBorder: enabledBorder ?? AppConstants.textFieldOutlinedBorder,
+          focusedBorder: focusedBorder ?? AppConstants.textFieldOutlinedBorder,
+          focusedErrorBorder: AppConstants.textFieldOutlinedBorder,
+          errorBorder: AppConstants.textFieldOutlinedBorder,
           hintText: hintTextKey == null ? '' : context.translate(hintTextKey!),
           hintStyle:
               AppTextStyles.textStyle16Medium.copyWith(color: Colors.grey),
           labelStyle: AppTextStyles.textStyle16Medium,
           filled: true,
           fillColor: Colors.white,
-          border: _buildTextFieldOutlinedBorder(),
+          border: AppConstants.textFieldOutlinedBorder,
         ),
       ),
-    );
-  }
-
-  OutlineInputBorder _buildTextFieldOutlinedBorder() {
-    return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8.r),
-      borderSide: BorderSide(color: AppColors.fontPrimaryColor, width: 1.w),
     );
   }
 }

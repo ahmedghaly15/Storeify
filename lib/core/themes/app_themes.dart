@@ -5,6 +5,7 @@ import 'package:store_ify/core/utils/app_strings.dart';
 
 class AppThemes {
   static ThemeData get lightTheme => ThemeData(
+        colorScheme: const ColorScheme.light(primary: AppColors.primaryColor),
         primaryColor: AppColors.primaryColor,
         useMaterial3: true,
         scaffoldBackgroundColor: Colors.white,
@@ -33,6 +34,17 @@ class AppThemes {
             padding: WidgetStateProperty.all(EdgeInsets.zero),
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
+        ),
+        datePickerTheme: const DatePickerThemeData(
+          backgroundColor: Colors.white,
+          cancelButtonStyle: ButtonStyle(
+            foregroundColor: WidgetStatePropertyAll(AppColors.primaryColor),
+          ),
+          confirmButtonStyle: ButtonStyle(
+            foregroundColor: WidgetStatePropertyAll(AppColors.primaryColor),
+          ),
+          headerBackgroundColor: AppColors.primaryColor,
+          headerForegroundColor: Colors.white,
         ),
       );
 }
