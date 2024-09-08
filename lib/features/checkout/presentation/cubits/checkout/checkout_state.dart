@@ -11,4 +11,7 @@ class CheckoutState<T> with _$CheckoutState<T> {
       ChangeCheckoutHour<T>;
   const factory CheckoutState.changeCheckoutMinutes(int value) =
       ChangeCheckoutMinutes<T>;
+  const factory CheckoutState.onCountryChanged(String phoneNumber) =
+      _OnCountryChanged<T>;
+  const factory CheckoutState.onDatePicked(String date) = _OnDatePicked<T>;
 }

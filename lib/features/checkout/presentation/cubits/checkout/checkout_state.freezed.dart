@@ -22,6 +22,8 @@ mixin _$CheckoutState<T> {
     required TResult Function(String countryCode) getCurrentCountryCode,
     required TResult Function(int value) changeCheckoutHour,
     required TResult Function(int value) changeCheckoutMinutes,
+    required TResult Function(String phoneNumber) onCountryChanged,
+    required TResult Function(String date) onDatePicked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +32,8 @@ mixin _$CheckoutState<T> {
     TResult? Function(String countryCode)? getCurrentCountryCode,
     TResult? Function(int value)? changeCheckoutHour,
     TResult? Function(int value)? changeCheckoutMinutes,
+    TResult? Function(String phoneNumber)? onCountryChanged,
+    TResult? Function(String date)? onDatePicked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +42,8 @@ mixin _$CheckoutState<T> {
     TResult Function(String countryCode)? getCurrentCountryCode,
     TResult Function(int value)? changeCheckoutHour,
     TResult Function(int value)? changeCheckoutMinutes,
+    TResult Function(String phoneNumber)? onCountryChanged,
+    TResult Function(String date)? onDatePicked,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +55,8 @@ mixin _$CheckoutState<T> {
     required TResult Function(ChangeCheckoutHour<T> value) changeCheckoutHour,
     required TResult Function(ChangeCheckoutMinutes<T> value)
         changeCheckoutMinutes,
+    required TResult Function(_OnCountryChanged<T> value) onCountryChanged,
+    required TResult Function(_OnDatePicked<T> value) onDatePicked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +65,8 @@ mixin _$CheckoutState<T> {
     TResult? Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
     TResult? Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
     TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult? Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult? Function(_OnDatePicked<T> value)? onDatePicked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +75,8 @@ mixin _$CheckoutState<T> {
     TResult Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
     TResult Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
     TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult Function(_OnDatePicked<T> value)? onDatePicked,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -136,6 +148,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(String countryCode) getCurrentCountryCode,
     required TResult Function(int value) changeCheckoutHour,
     required TResult Function(int value) changeCheckoutMinutes,
+    required TResult Function(String phoneNumber) onCountryChanged,
+    required TResult Function(String date) onDatePicked,
   }) {
     return initial();
   }
@@ -147,6 +161,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(String countryCode)? getCurrentCountryCode,
     TResult? Function(int value)? changeCheckoutHour,
     TResult? Function(int value)? changeCheckoutMinutes,
+    TResult? Function(String phoneNumber)? onCountryChanged,
+    TResult? Function(String date)? onDatePicked,
   }) {
     return initial?.call();
   }
@@ -158,6 +174,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(String countryCode)? getCurrentCountryCode,
     TResult Function(int value)? changeCheckoutHour,
     TResult Function(int value)? changeCheckoutMinutes,
+    TResult Function(String phoneNumber)? onCountryChanged,
+    TResult Function(String date)? onDatePicked,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -175,6 +193,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(ChangeCheckoutHour<T> value) changeCheckoutHour,
     required TResult Function(ChangeCheckoutMinutes<T> value)
         changeCheckoutMinutes,
+    required TResult Function(_OnCountryChanged<T> value) onCountryChanged,
+    required TResult Function(_OnDatePicked<T> value) onDatePicked,
   }) {
     return initial(this);
   }
@@ -186,6 +206,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
     TResult? Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
     TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult? Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult? Function(_OnDatePicked<T> value)? onDatePicked,
   }) {
     return initial?.call(this);
   }
@@ -197,6 +219,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
     TResult Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
     TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult Function(_OnDatePicked<T> value)? onDatePicked,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -286,6 +310,8 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
     required TResult Function(String countryCode) getCurrentCountryCode,
     required TResult Function(int value) changeCheckoutHour,
     required TResult Function(int value) changeCheckoutMinutes,
+    required TResult Function(String phoneNumber) onCountryChanged,
+    required TResult Function(String date) onDatePicked,
   }) {
     return getCurrentCountryCode(countryCode);
   }
@@ -297,6 +323,8 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
     TResult? Function(String countryCode)? getCurrentCountryCode,
     TResult? Function(int value)? changeCheckoutHour,
     TResult? Function(int value)? changeCheckoutMinutes,
+    TResult? Function(String phoneNumber)? onCountryChanged,
+    TResult? Function(String date)? onDatePicked,
   }) {
     return getCurrentCountryCode?.call(countryCode);
   }
@@ -308,6 +336,8 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
     TResult Function(String countryCode)? getCurrentCountryCode,
     TResult Function(int value)? changeCheckoutHour,
     TResult Function(int value)? changeCheckoutMinutes,
+    TResult Function(String phoneNumber)? onCountryChanged,
+    TResult Function(String date)? onDatePicked,
     required TResult orElse(),
   }) {
     if (getCurrentCountryCode != null) {
@@ -325,6 +355,8 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
     required TResult Function(ChangeCheckoutHour<T> value) changeCheckoutHour,
     required TResult Function(ChangeCheckoutMinutes<T> value)
         changeCheckoutMinutes,
+    required TResult Function(_OnCountryChanged<T> value) onCountryChanged,
+    required TResult Function(_OnDatePicked<T> value) onDatePicked,
   }) {
     return getCurrentCountryCode(this);
   }
@@ -336,6 +368,8 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
     TResult? Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
     TResult? Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
     TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult? Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult? Function(_OnDatePicked<T> value)? onDatePicked,
   }) {
     return getCurrentCountryCode?.call(this);
   }
@@ -347,6 +381,8 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
     TResult Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
     TResult Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
     TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult Function(_OnDatePicked<T> value)? onDatePicked,
     required TResult orElse(),
   }) {
     if (getCurrentCountryCode != null) {
@@ -442,6 +478,8 @@ class _$ChangeCheckoutHourImpl<T> implements ChangeCheckoutHour<T> {
     required TResult Function(String countryCode) getCurrentCountryCode,
     required TResult Function(int value) changeCheckoutHour,
     required TResult Function(int value) changeCheckoutMinutes,
+    required TResult Function(String phoneNumber) onCountryChanged,
+    required TResult Function(String date) onDatePicked,
   }) {
     return changeCheckoutHour(value);
   }
@@ -453,6 +491,8 @@ class _$ChangeCheckoutHourImpl<T> implements ChangeCheckoutHour<T> {
     TResult? Function(String countryCode)? getCurrentCountryCode,
     TResult? Function(int value)? changeCheckoutHour,
     TResult? Function(int value)? changeCheckoutMinutes,
+    TResult? Function(String phoneNumber)? onCountryChanged,
+    TResult? Function(String date)? onDatePicked,
   }) {
     return changeCheckoutHour?.call(value);
   }
@@ -464,6 +504,8 @@ class _$ChangeCheckoutHourImpl<T> implements ChangeCheckoutHour<T> {
     TResult Function(String countryCode)? getCurrentCountryCode,
     TResult Function(int value)? changeCheckoutHour,
     TResult Function(int value)? changeCheckoutMinutes,
+    TResult Function(String phoneNumber)? onCountryChanged,
+    TResult Function(String date)? onDatePicked,
     required TResult orElse(),
   }) {
     if (changeCheckoutHour != null) {
@@ -481,6 +523,8 @@ class _$ChangeCheckoutHourImpl<T> implements ChangeCheckoutHour<T> {
     required TResult Function(ChangeCheckoutHour<T> value) changeCheckoutHour,
     required TResult Function(ChangeCheckoutMinutes<T> value)
         changeCheckoutMinutes,
+    required TResult Function(_OnCountryChanged<T> value) onCountryChanged,
+    required TResult Function(_OnDatePicked<T> value) onDatePicked,
   }) {
     return changeCheckoutHour(this);
   }
@@ -492,6 +536,8 @@ class _$ChangeCheckoutHourImpl<T> implements ChangeCheckoutHour<T> {
     TResult? Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
     TResult? Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
     TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult? Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult? Function(_OnDatePicked<T> value)? onDatePicked,
   }) {
     return changeCheckoutHour?.call(this);
   }
@@ -503,6 +549,8 @@ class _$ChangeCheckoutHourImpl<T> implements ChangeCheckoutHour<T> {
     TResult Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
     TResult Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
     TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult Function(_OnDatePicked<T> value)? onDatePicked,
     required TResult orElse(),
   }) {
     if (changeCheckoutHour != null) {
@@ -600,6 +648,8 @@ class _$ChangeCheckoutMinutesImpl<T> implements ChangeCheckoutMinutes<T> {
     required TResult Function(String countryCode) getCurrentCountryCode,
     required TResult Function(int value) changeCheckoutHour,
     required TResult Function(int value) changeCheckoutMinutes,
+    required TResult Function(String phoneNumber) onCountryChanged,
+    required TResult Function(String date) onDatePicked,
   }) {
     return changeCheckoutMinutes(value);
   }
@@ -611,6 +661,8 @@ class _$ChangeCheckoutMinutesImpl<T> implements ChangeCheckoutMinutes<T> {
     TResult? Function(String countryCode)? getCurrentCountryCode,
     TResult? Function(int value)? changeCheckoutHour,
     TResult? Function(int value)? changeCheckoutMinutes,
+    TResult? Function(String phoneNumber)? onCountryChanged,
+    TResult? Function(String date)? onDatePicked,
   }) {
     return changeCheckoutMinutes?.call(value);
   }
@@ -622,6 +674,8 @@ class _$ChangeCheckoutMinutesImpl<T> implements ChangeCheckoutMinutes<T> {
     TResult Function(String countryCode)? getCurrentCountryCode,
     TResult Function(int value)? changeCheckoutHour,
     TResult Function(int value)? changeCheckoutMinutes,
+    TResult Function(String phoneNumber)? onCountryChanged,
+    TResult Function(String date)? onDatePicked,
     required TResult orElse(),
   }) {
     if (changeCheckoutMinutes != null) {
@@ -639,6 +693,8 @@ class _$ChangeCheckoutMinutesImpl<T> implements ChangeCheckoutMinutes<T> {
     required TResult Function(ChangeCheckoutHour<T> value) changeCheckoutHour,
     required TResult Function(ChangeCheckoutMinutes<T> value)
         changeCheckoutMinutes,
+    required TResult Function(_OnCountryChanged<T> value) onCountryChanged,
+    required TResult Function(_OnDatePicked<T> value) onDatePicked,
   }) {
     return changeCheckoutMinutes(this);
   }
@@ -650,6 +706,8 @@ class _$ChangeCheckoutMinutesImpl<T> implements ChangeCheckoutMinutes<T> {
     TResult? Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
     TResult? Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
     TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult? Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult? Function(_OnDatePicked<T> value)? onDatePicked,
   }) {
     return changeCheckoutMinutes?.call(this);
   }
@@ -661,6 +719,8 @@ class _$ChangeCheckoutMinutesImpl<T> implements ChangeCheckoutMinutes<T> {
     TResult Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
     TResult Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
     TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult Function(_OnDatePicked<T> value)? onDatePicked,
     required TResult orElse(),
   }) {
     if (changeCheckoutMinutes != null) {
@@ -681,4 +741,340 @@ abstract class ChangeCheckoutMinutes<T> implements CheckoutState<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ChangeCheckoutMinutesImplCopyWith<T, _$ChangeCheckoutMinutesImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$OnCountryChangedImplCopyWith<T, $Res> {
+  factory _$$OnCountryChangedImplCopyWith(_$OnCountryChangedImpl<T> value,
+          $Res Function(_$OnCountryChangedImpl<T>) then) =
+      __$$OnCountryChangedImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String phoneNumber});
+}
+
+/// @nodoc
+class __$$OnCountryChangedImplCopyWithImpl<T, $Res>
+    extends _$CheckoutStateCopyWithImpl<T, $Res, _$OnCountryChangedImpl<T>>
+    implements _$$OnCountryChangedImplCopyWith<T, $Res> {
+  __$$OnCountryChangedImplCopyWithImpl(_$OnCountryChangedImpl<T> _value,
+      $Res Function(_$OnCountryChangedImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? phoneNumber = null,
+  }) {
+    return _then(_$OnCountryChangedImpl<T>(
+      null == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$OnCountryChangedImpl<T> implements _OnCountryChanged<T> {
+  const _$OnCountryChangedImpl(this.phoneNumber);
+
+  @override
+  final String phoneNumber;
+
+  @override
+  String toString() {
+    return 'CheckoutState<$T>.onCountryChanged(phoneNumber: $phoneNumber)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OnCountryChangedImpl<T> &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, phoneNumber);
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OnCountryChangedImplCopyWith<T, _$OnCountryChangedImpl<T>> get copyWith =>
+      __$$OnCountryChangedImplCopyWithImpl<T, _$OnCountryChangedImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String countryCode) getCurrentCountryCode,
+    required TResult Function(int value) changeCheckoutHour,
+    required TResult Function(int value) changeCheckoutMinutes,
+    required TResult Function(String phoneNumber) onCountryChanged,
+    required TResult Function(String date) onDatePicked,
+  }) {
+    return onCountryChanged(phoneNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String countryCode)? getCurrentCountryCode,
+    TResult? Function(int value)? changeCheckoutHour,
+    TResult? Function(int value)? changeCheckoutMinutes,
+    TResult? Function(String phoneNumber)? onCountryChanged,
+    TResult? Function(String date)? onDatePicked,
+  }) {
+    return onCountryChanged?.call(phoneNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String countryCode)? getCurrentCountryCode,
+    TResult Function(int value)? changeCheckoutHour,
+    TResult Function(int value)? changeCheckoutMinutes,
+    TResult Function(String phoneNumber)? onCountryChanged,
+    TResult Function(String date)? onDatePicked,
+    required TResult orElse(),
+  }) {
+    if (onCountryChanged != null) {
+      return onCountryChanged(phoneNumber);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(GetCurrentCountryCode<T> value)
+        getCurrentCountryCode,
+    required TResult Function(ChangeCheckoutHour<T> value) changeCheckoutHour,
+    required TResult Function(ChangeCheckoutMinutes<T> value)
+        changeCheckoutMinutes,
+    required TResult Function(_OnCountryChanged<T> value) onCountryChanged,
+    required TResult Function(_OnDatePicked<T> value) onDatePicked,
+  }) {
+    return onCountryChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult? Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult? Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult? Function(_OnDatePicked<T> value)? onDatePicked,
+  }) {
+    return onCountryChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult Function(_OnDatePicked<T> value)? onDatePicked,
+    required TResult orElse(),
+  }) {
+    if (onCountryChanged != null) {
+      return onCountryChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnCountryChanged<T> implements CheckoutState<T> {
+  const factory _OnCountryChanged(final String phoneNumber) =
+      _$OnCountryChangedImpl<T>;
+
+  String get phoneNumber;
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$OnCountryChangedImplCopyWith<T, _$OnCountryChangedImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$OnDatePickedImplCopyWith<T, $Res> {
+  factory _$$OnDatePickedImplCopyWith(_$OnDatePickedImpl<T> value,
+          $Res Function(_$OnDatePickedImpl<T>) then) =
+      __$$OnDatePickedImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String date});
+}
+
+/// @nodoc
+class __$$OnDatePickedImplCopyWithImpl<T, $Res>
+    extends _$CheckoutStateCopyWithImpl<T, $Res, _$OnDatePickedImpl<T>>
+    implements _$$OnDatePickedImplCopyWith<T, $Res> {
+  __$$OnDatePickedImplCopyWithImpl(
+      _$OnDatePickedImpl<T> _value, $Res Function(_$OnDatePickedImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? date = null,
+  }) {
+    return _then(_$OnDatePickedImpl<T>(
+      null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$OnDatePickedImpl<T> implements _OnDatePicked<T> {
+  const _$OnDatePickedImpl(this.date);
+
+  @override
+  final String date;
+
+  @override
+  String toString() {
+    return 'CheckoutState<$T>.onDatePicked(date: $date)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OnDatePickedImpl<T> &&
+            (identical(other.date, date) || other.date == date));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, date);
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OnDatePickedImplCopyWith<T, _$OnDatePickedImpl<T>> get copyWith =>
+      __$$OnDatePickedImplCopyWithImpl<T, _$OnDatePickedImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String countryCode) getCurrentCountryCode,
+    required TResult Function(int value) changeCheckoutHour,
+    required TResult Function(int value) changeCheckoutMinutes,
+    required TResult Function(String phoneNumber) onCountryChanged,
+    required TResult Function(String date) onDatePicked,
+  }) {
+    return onDatePicked(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String countryCode)? getCurrentCountryCode,
+    TResult? Function(int value)? changeCheckoutHour,
+    TResult? Function(int value)? changeCheckoutMinutes,
+    TResult? Function(String phoneNumber)? onCountryChanged,
+    TResult? Function(String date)? onDatePicked,
+  }) {
+    return onDatePicked?.call(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String countryCode)? getCurrentCountryCode,
+    TResult Function(int value)? changeCheckoutHour,
+    TResult Function(int value)? changeCheckoutMinutes,
+    TResult Function(String phoneNumber)? onCountryChanged,
+    TResult Function(String date)? onDatePicked,
+    required TResult orElse(),
+  }) {
+    if (onDatePicked != null) {
+      return onDatePicked(date);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(GetCurrentCountryCode<T> value)
+        getCurrentCountryCode,
+    required TResult Function(ChangeCheckoutHour<T> value) changeCheckoutHour,
+    required TResult Function(ChangeCheckoutMinutes<T> value)
+        changeCheckoutMinutes,
+    required TResult Function(_OnCountryChanged<T> value) onCountryChanged,
+    required TResult Function(_OnDatePicked<T> value) onDatePicked,
+  }) {
+    return onDatePicked(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult? Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult? Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult? Function(_OnDatePicked<T> value)? onDatePicked,
+  }) {
+    return onDatePicked?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult Function(_OnDatePicked<T> value)? onDatePicked,
+    required TResult orElse(),
+  }) {
+    if (onDatePicked != null) {
+      return onDatePicked(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnDatePicked<T> implements CheckoutState<T> {
+  const factory _OnDatePicked(final String date) = _$OnDatePickedImpl<T>;
+
+  String get date;
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$OnDatePickedImplCopyWith<T, _$OnDatePickedImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
