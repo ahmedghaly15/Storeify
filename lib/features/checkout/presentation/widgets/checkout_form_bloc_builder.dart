@@ -10,11 +10,11 @@ import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
-import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_label.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_cubit.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_state.dart';
+import 'package:store_ify/features/checkout/presentation/widgets/checkout_next_bloc_consumer_button.dart';
 import 'package:store_ify/features/checkout/presentation/widgets/custom_time_picker.dart';
 
 class CheckoutFormBlocBuilder extends StatelessWidget {
@@ -98,17 +98,7 @@ class CheckoutFormBlocBuilder extends StatelessWidget {
                 MySizedBox.height10,
                 const TextFieldLabel(labelKey: LangKeys.time),
                 const CustomTimePicker(),
-                MainButton(
-                  margin: EdgeInsets.symmetric(
-                    horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
-                    vertical: 40.h,
-                  ),
-                  onPressed: () {
-                    debugPrint(
-                        'PHONE NUMBER: ${context.read<CheckoutCubit>().dateController.text}');
-                  },
-                  textKey: LangKeys.next,
-                ),
+                const CheckoutNextBlocConsumerButton(),
               ],
             ),
           ),
