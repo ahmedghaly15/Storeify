@@ -42,9 +42,7 @@ void _setupDIForCore() {
   final Dio dio = DioFactory.getDio();
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
   getIt.registerSingleton<AppRouter>(AppRouter());
-  getIt.registerLazySingleton<UserPositionService>(
-    () => UserPositionService(),
-  );
+  getIt.registerLazySingleton<LocationService>(() => LocationService());
 }
 
 void _setupDIForRepos() {
