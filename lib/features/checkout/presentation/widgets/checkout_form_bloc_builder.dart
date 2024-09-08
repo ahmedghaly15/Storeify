@@ -58,7 +58,6 @@ class CheckoutFormBlocBuilder extends StatelessWidget {
                   margin: EdgeInsets.symmetric(horizontal: 24.w),
                   child: IntlPhoneField(
                     initialCountryCode: countryCode,
-                    controller: context.read<CheckoutCubit>().phoneController,
                     keyboardType: TextInputType.phone,
                     pickerDialogStyle: PickerDialogStyle(
                       backgroundColor: Colors.white,
@@ -72,17 +71,16 @@ class CheckoutFormBlocBuilder extends StatelessWidget {
                       filled: true,
                       fillColor: Colors.white,
                     ),
+                    onChanged: (phoneNumber) => context
+                        .read<CheckoutCubit>()
+                        .onCountryChanged(
+                            '${phoneNumber.countryCode}${phoneNumber.number}'),
                   ),
                 ),
                 MySizedBox.height10,
                 const TextFieldLabel(labelKey: LangKeys.date),
                 InkWell(
-                  onTap: () => showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime(2000),
-                    lastDate: DateTime(2101),
-                  ),
+                  onTap: () => context.read<CheckoutCubit>().pickDate(context),
                   child: CustomTextField(
                     enabled: false,
                     controller: context.read<CheckoutCubit>().dateController,
@@ -105,7 +103,10 @@ class CheckoutFormBlocBuilder extends StatelessWidget {
                     horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
                     vertical: 40.h,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    debugPrint(
+                        'PHONE NUMBER: ${context.read<CheckoutCubit>().dateController.text}');
+                  },
                   textKey: LangKeys.next,
                 ),
               ],
