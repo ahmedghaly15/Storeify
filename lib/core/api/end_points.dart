@@ -18,4 +18,5 @@ class EndPoints {
   static const String favoriteStores = '${baseUrl}favoritesStore/';
   static const String addProductToCart = '${baseUrl}addProduct/';
   static const String cart = '${baseUrl}cart/';
+  static const String checkout = '${baseUrl}checkout';
 }
