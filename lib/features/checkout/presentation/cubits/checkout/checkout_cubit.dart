@@ -30,6 +30,19 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     emit(CheckoutState.getCurrentCountryCode(countryCode!));
   }
 
+  int hours = 4;
+  int minutes = 0;
+
+  void changeHours(int value) {
+    hours = value;
+    emit(CheckoutState.changeCheckoutHour(hours));
+  }
+
+  void changeMinutes(int value) {
+    minutes = value;
+    emit(CheckoutState.changeCheckoutMinutes(minutes));
+  }
+
   void _disposeControllers() {
     usernameController.dispose();
     addressController.dispose();

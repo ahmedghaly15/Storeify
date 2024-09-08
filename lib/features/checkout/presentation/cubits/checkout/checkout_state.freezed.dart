@@ -20,18 +20,24 @@ mixin _$CheckoutState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String countryCode) getCurrentCountryCode,
+    required TResult Function(int value) changeCheckoutHour,
+    required TResult Function(int value) changeCheckoutMinutes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String countryCode)? getCurrentCountryCode,
+    TResult? Function(int value)? changeCheckoutHour,
+    TResult? Function(int value)? changeCheckoutMinutes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String countryCode)? getCurrentCountryCode,
+    TResult Function(int value)? changeCheckoutHour,
+    TResult Function(int value)? changeCheckoutMinutes,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +46,25 @@ mixin _$CheckoutState<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(GetCurrentCountryCode<T> value)
         getCurrentCountryCode,
+    required TResult Function(ChangeCheckoutHour<T> value) changeCheckoutHour,
+    required TResult Function(ChangeCheckoutMinutes<T> value)
+        changeCheckoutMinutes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult? Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +134,8 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String countryCode) getCurrentCountryCode,
+    required TResult Function(int value) changeCheckoutHour,
+    required TResult Function(int value) changeCheckoutMinutes,
   }) {
     return initial();
   }
@@ -130,6 +145,8 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String countryCode)? getCurrentCountryCode,
+    TResult? Function(int value)? changeCheckoutHour,
+    TResult? Function(int value)? changeCheckoutMinutes,
   }) {
     return initial?.call();
   }
@@ -139,6 +156,8 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String countryCode)? getCurrentCountryCode,
+    TResult Function(int value)? changeCheckoutHour,
+    TResult Function(int value)? changeCheckoutMinutes,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -153,6 +172,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(GetCurrentCountryCode<T> value)
         getCurrentCountryCode,
+    required TResult Function(ChangeCheckoutHour<T> value) changeCheckoutHour,
+    required TResult Function(ChangeCheckoutMinutes<T> value)
+        changeCheckoutMinutes,
   }) {
     return initial(this);
   }
@@ -162,6 +184,8 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult? Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
   }) {
     return initial?.call(this);
   }
@@ -171,6 +195,8 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -258,6 +284,8 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String countryCode) getCurrentCountryCode,
+    required TResult Function(int value) changeCheckoutHour,
+    required TResult Function(int value) changeCheckoutMinutes,
   }) {
     return getCurrentCountryCode(countryCode);
   }
@@ -267,6 +295,8 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String countryCode)? getCurrentCountryCode,
+    TResult? Function(int value)? changeCheckoutHour,
+    TResult? Function(int value)? changeCheckoutMinutes,
   }) {
     return getCurrentCountryCode?.call(countryCode);
   }
@@ -276,6 +306,8 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String countryCode)? getCurrentCountryCode,
+    TResult Function(int value)? changeCheckoutHour,
+    TResult Function(int value)? changeCheckoutMinutes,
     required TResult orElse(),
   }) {
     if (getCurrentCountryCode != null) {
@@ -290,6 +322,9 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(GetCurrentCountryCode<T> value)
         getCurrentCountryCode,
+    required TResult Function(ChangeCheckoutHour<T> value) changeCheckoutHour,
+    required TResult Function(ChangeCheckoutMinutes<T> value)
+        changeCheckoutMinutes,
   }) {
     return getCurrentCountryCode(this);
   }
@@ -299,6 +334,8 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult? Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
   }) {
     return getCurrentCountryCode?.call(this);
   }
@@ -308,6 +345,8 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
     required TResult orElse(),
   }) {
     if (getCurrentCountryCode != null) {
@@ -327,5 +366,319 @@ abstract class GetCurrentCountryCode<T> implements CheckoutState<T> {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetCurrentCountryCodeImplCopyWith<T, _$GetCurrentCountryCodeImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeCheckoutHourImplCopyWith<T, $Res> {
+  factory _$$ChangeCheckoutHourImplCopyWith(_$ChangeCheckoutHourImpl<T> value,
+          $Res Function(_$ChangeCheckoutHourImpl<T>) then) =
+      __$$ChangeCheckoutHourImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({int value});
+}
+
+/// @nodoc
+class __$$ChangeCheckoutHourImplCopyWithImpl<T, $Res>
+    extends _$CheckoutStateCopyWithImpl<T, $Res, _$ChangeCheckoutHourImpl<T>>
+    implements _$$ChangeCheckoutHourImplCopyWith<T, $Res> {
+  __$$ChangeCheckoutHourImplCopyWithImpl(_$ChangeCheckoutHourImpl<T> _value,
+      $Res Function(_$ChangeCheckoutHourImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$ChangeCheckoutHourImpl<T>(
+      null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeCheckoutHourImpl<T> implements ChangeCheckoutHour<T> {
+  const _$ChangeCheckoutHourImpl(this.value);
+
+  @override
+  final int value;
+
+  @override
+  String toString() {
+    return 'CheckoutState<$T>.changeCheckoutHour(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeCheckoutHourImpl<T> &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeCheckoutHourImplCopyWith<T, _$ChangeCheckoutHourImpl<T>>
+      get copyWith => __$$ChangeCheckoutHourImplCopyWithImpl<T,
+          _$ChangeCheckoutHourImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String countryCode) getCurrentCountryCode,
+    required TResult Function(int value) changeCheckoutHour,
+    required TResult Function(int value) changeCheckoutMinutes,
+  }) {
+    return changeCheckoutHour(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String countryCode)? getCurrentCountryCode,
+    TResult? Function(int value)? changeCheckoutHour,
+    TResult? Function(int value)? changeCheckoutMinutes,
+  }) {
+    return changeCheckoutHour?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String countryCode)? getCurrentCountryCode,
+    TResult Function(int value)? changeCheckoutHour,
+    TResult Function(int value)? changeCheckoutMinutes,
+    required TResult orElse(),
+  }) {
+    if (changeCheckoutHour != null) {
+      return changeCheckoutHour(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(GetCurrentCountryCode<T> value)
+        getCurrentCountryCode,
+    required TResult Function(ChangeCheckoutHour<T> value) changeCheckoutHour,
+    required TResult Function(ChangeCheckoutMinutes<T> value)
+        changeCheckoutMinutes,
+  }) {
+    return changeCheckoutHour(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult? Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+  }) {
+    return changeCheckoutHour?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    required TResult orElse(),
+  }) {
+    if (changeCheckoutHour != null) {
+      return changeCheckoutHour(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeCheckoutHour<T> implements CheckoutState<T> {
+  const factory ChangeCheckoutHour(final int value) =
+      _$ChangeCheckoutHourImpl<T>;
+
+  int get value;
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangeCheckoutHourImplCopyWith<T, _$ChangeCheckoutHourImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeCheckoutMinutesImplCopyWith<T, $Res> {
+  factory _$$ChangeCheckoutMinutesImplCopyWith(
+          _$ChangeCheckoutMinutesImpl<T> value,
+          $Res Function(_$ChangeCheckoutMinutesImpl<T>) then) =
+      __$$ChangeCheckoutMinutesImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({int value});
+}
+
+/// @nodoc
+class __$$ChangeCheckoutMinutesImplCopyWithImpl<T, $Res>
+    extends _$CheckoutStateCopyWithImpl<T, $Res, _$ChangeCheckoutMinutesImpl<T>>
+    implements _$$ChangeCheckoutMinutesImplCopyWith<T, $Res> {
+  __$$ChangeCheckoutMinutesImplCopyWithImpl(
+      _$ChangeCheckoutMinutesImpl<T> _value,
+      $Res Function(_$ChangeCheckoutMinutesImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$ChangeCheckoutMinutesImpl<T>(
+      null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeCheckoutMinutesImpl<T> implements ChangeCheckoutMinutes<T> {
+  const _$ChangeCheckoutMinutesImpl(this.value);
+
+  @override
+  final int value;
+
+  @override
+  String toString() {
+    return 'CheckoutState<$T>.changeCheckoutMinutes(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeCheckoutMinutesImpl<T> &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeCheckoutMinutesImplCopyWith<T, _$ChangeCheckoutMinutesImpl<T>>
+      get copyWith => __$$ChangeCheckoutMinutesImplCopyWithImpl<T,
+          _$ChangeCheckoutMinutesImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String countryCode) getCurrentCountryCode,
+    required TResult Function(int value) changeCheckoutHour,
+    required TResult Function(int value) changeCheckoutMinutes,
+  }) {
+    return changeCheckoutMinutes(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String countryCode)? getCurrentCountryCode,
+    TResult? Function(int value)? changeCheckoutHour,
+    TResult? Function(int value)? changeCheckoutMinutes,
+  }) {
+    return changeCheckoutMinutes?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String countryCode)? getCurrentCountryCode,
+    TResult Function(int value)? changeCheckoutHour,
+    TResult Function(int value)? changeCheckoutMinutes,
+    required TResult orElse(),
+  }) {
+    if (changeCheckoutMinutes != null) {
+      return changeCheckoutMinutes(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(GetCurrentCountryCode<T> value)
+        getCurrentCountryCode,
+    required TResult Function(ChangeCheckoutHour<T> value) changeCheckoutHour,
+    required TResult Function(ChangeCheckoutMinutes<T> value)
+        changeCheckoutMinutes,
+  }) {
+    return changeCheckoutMinutes(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult? Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+  }) {
+    return changeCheckoutMinutes?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    required TResult orElse(),
+  }) {
+    if (changeCheckoutMinutes != null) {
+      return changeCheckoutMinutes(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeCheckoutMinutes<T> implements CheckoutState<T> {
+  const factory ChangeCheckoutMinutes(final int value) =
+      _$ChangeCheckoutMinutesImpl<T>;
+
+  int get value;
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangeCheckoutMinutesImplCopyWith<T, _$ChangeCheckoutMinutesImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
