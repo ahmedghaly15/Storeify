@@ -17,6 +17,7 @@ import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:store_ify/features/categories/data/repositories/categories_repo.dart';
 import 'package:store_ify/features/categories/presentation/cubit/categories/categories_cubit.dart';
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_cubit.dart';
+import 'package:store_ify/features/checkout/data/repositories/checkout_repo.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_cubit.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_cubit.dart';
@@ -68,6 +69,9 @@ void _setupDIForRepos() {
   getIt.registerLazySingleton<CartRepo>(
     () => CartRepo(getIt.get<ApiService>()),
   );
+  getIt.registerLazySingleton<CheckoutRepo>(
+    () => CheckoutRepoImpl(getIt.get<ApiService>()),
+  );
 }
 
 void _setupDIForCubits() {
@@ -117,6 +121,6 @@ void _setupDIForCubits() {
     () => CartCubit(getIt.get<CartRepo>()),
   );
   getIt.registerFactory<CheckoutCubit>(
-    () => CheckoutCubit(),
+    () => CheckoutCubit(getIt.get<CheckoutRepo>()),
   );
 }
