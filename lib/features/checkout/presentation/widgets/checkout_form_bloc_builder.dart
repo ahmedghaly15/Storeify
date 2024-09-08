@@ -15,7 +15,7 @@ import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_label.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_cubit.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_state.dart';
-import 'package:store_ify/features/checkout/presentation/widgets/time_pickers.dart';
+import 'package:store_ify/features/checkout/presentation/widgets/custom_time_picker.dart';
 
 class CheckoutFormBlocBuilder extends StatelessWidget {
   const CheckoutFormBlocBuilder({super.key});
@@ -28,6 +28,7 @@ class CheckoutFormBlocBuilder extends StatelessWidget {
         getCurrentCountryCode: (countryCode) => Form(
           key: context.read<CheckoutCubit>().formKey,
           child: FadeInDown(
+            from: 50.h,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -98,7 +99,7 @@ class CheckoutFormBlocBuilder extends StatelessWidget {
                 ),
                 MySizedBox.height10,
                 const TextFieldLabel(labelKey: LangKeys.time),
-                const TimePickers(),
+                const CustomTimePicker(),
                 MainButton(
                   margin: EdgeInsets.symmetric(
                     horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
