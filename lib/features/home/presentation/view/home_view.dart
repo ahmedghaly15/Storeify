@@ -15,7 +15,9 @@ class HomeView extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider<HomeCubit>(
-      create: (context) => getIt.get<HomeCubit>()..fetchHomeData(),
+      create: (context) => getIt.get<HomeCubit>()
+        ..fetchHomeData()
+        ..requestLocationPermission(),
       child: this,
     );
   }

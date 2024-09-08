@@ -63,6 +63,10 @@ dependencies:
   geocoding: ^3.0.0
   # A customized Flutter TextFormField to input international phone number along with country code
   intl_phone_field: ^3.2.0
+  # For Beautiful animations 
+  animate_do: ^3.3.4
+  # For formatting numbers and dates
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:

@@ -13,6 +13,8 @@ import 'package:store_ify/features/cart/data/models/add_product_to_cart_params.d
 import 'package:store_ify/features/cart/data/models/fetch_cart_response.dart';
 import 'package:store_ify/features/categories/data/models/fetch_categories_response.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_response.dart';
+import 'package:store_ify/features/checkout/data/models/checkout_params.dart';
+import 'package:store_ify/features/checkout/data/models/checkout_response.dart';
 import 'package:store_ify/features/favorites/data/models/fetch_fav_stores_response.dart';
 import 'package:store_ify/features/favorites/data/models/fetch_favorite_products_response.dart';
 import 'package:store_ify/features/favorites/data/models/prefer_params.dart';
@@ -158,6 +160,12 @@ abstract class ApiService {
   @DELETE('${EndPoints.cart}{product_id}')
   Future<void> removeProductFromCart(
     @Path('product_id') int productId, [
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
+
+  @POST(EndPoints.checkout)
+  Future<CheckoutResponse> checkout(
+    @Body() CheckoutParams params, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 }

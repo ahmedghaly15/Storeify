@@ -77,5 +77,7 @@
     "enterYourAddress": "ادخل عنوانك",
     "dateHint": "MMM/DD/YYYY",
     "enableLocation": "الموقع مطلوب. الرجاء تفعيل الموقع.",
-    "locationDenied": "الموقع غير مسموح به. الرجاء تفعيل الموقع."
+    "locationDenied": "الموقع غير مسموح به. الرجاء تفعيل الموقع.",
+    "DATE_AFTER_TODAY": "التاريخ يجب ان يكون بعد اليوم.",
+    "CART_EMPTY": "عربة التسوق فارغة."
 }

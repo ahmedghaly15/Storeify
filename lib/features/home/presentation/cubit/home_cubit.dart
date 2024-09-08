@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/services/location_service.dart';
 import 'package:store_ify/features/home/data/repos/home_repo.dart';
 import 'package:store_ify/features/home/presentation/cubit/home_state.dart';
 
@@ -17,6 +18,10 @@ class HomeCubit extends Cubit<HomeState> {
       error: (errorModel) =>
           emit(HomeState.fetchHomeDataError(errorModel.error ?? '')),
     );
+  }
+
+  void requestLocationPermission() async {
+    await LocationService.requestPermission();
   }
 
   @override
