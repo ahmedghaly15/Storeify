@@ -28,8 +28,10 @@ class LocationService {
 
   static Future<String> getCountryCode() async {
     Position position = await _determineCurrentPosition();
+    debugPrint('***** LocationService: Getting Country Code *****');
     List<Placemark> placemarks =
         await placemarkFromCoordinates(position.latitude, position.longitude);
+    debugPrint('***** Country Code: ${placemarks.first.isoCountryCode} *****');
     return placemarks.first.isoCountryCode ?? 'US';
   }
 }

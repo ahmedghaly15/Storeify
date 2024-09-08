@@ -5,4 +5,6 @@ part 'checkout_state.freezed.dart';
 @freezed
 class CheckoutState<T> with _$CheckoutState<T> {
   const factory CheckoutState.initial() = _Initial;
+  const factory CheckoutState.getCurrentCountryCode(String countryCode) =
+      GetCurrentCountryCode<T>;
 }

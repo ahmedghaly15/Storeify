@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/services/location_service.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_state.dart';
 
 class CheckoutCubit extends Cubit<CheckoutState> {
   CheckoutCubit() : super(const CheckoutState.initial()) {
+    _getCountryCode();
     _initFormAttributes();
   }
 
@@ -19,6 +21,13 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     addressController = TextEditingController();
     phoneController = TextEditingController();
     dateController = TextEditingController();
+  }
+
+  String? countryCode;
+
+  void _getCountryCode() async {
+    countryCode = await LocationService.getCountryCode();
+    emit(CheckoutState.getCurrentCountryCode(countryCode!));
   }
 
   void _disposeControllers() {
