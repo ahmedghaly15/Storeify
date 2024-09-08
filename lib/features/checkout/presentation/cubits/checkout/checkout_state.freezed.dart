@@ -24,6 +24,9 @@ mixin _$CheckoutState<T> {
     required TResult Function(int value) changeCheckoutMinutes,
     required TResult Function(String phoneNumber) onCountryChanged,
     required TResult Function(String date) onDatePicked,
+    required TResult Function() checkoutLoading,
+    required TResult Function(CheckoutResponse checkout) checkoutSuccess,
+    required TResult Function(String error) checkoutError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +37,9 @@ mixin _$CheckoutState<T> {
     TResult? Function(int value)? changeCheckoutMinutes,
     TResult? Function(String phoneNumber)? onCountryChanged,
     TResult? Function(String date)? onDatePicked,
+    TResult? Function()? checkoutLoading,
+    TResult? Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult? Function(String error)? checkoutError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +50,9 @@ mixin _$CheckoutState<T> {
     TResult Function(int value)? changeCheckoutMinutes,
     TResult Function(String phoneNumber)? onCountryChanged,
     TResult Function(String date)? onDatePicked,
+    TResult Function()? checkoutLoading,
+    TResult Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult Function(String error)? checkoutError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -57,6 +66,9 @@ mixin _$CheckoutState<T> {
         changeCheckoutMinutes,
     required TResult Function(_OnCountryChanged<T> value) onCountryChanged,
     required TResult Function(_OnDatePicked<T> value) onDatePicked,
+    required TResult Function(CheckoutLoading<T> value) checkoutLoading,
+    required TResult Function(CheckoutSuccess<T> value) checkoutSuccess,
+    required TResult Function(CheckoutError<T> value) checkoutError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,6 +79,9 @@ mixin _$CheckoutState<T> {
     TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
     TResult? Function(_OnCountryChanged<T> value)? onCountryChanged,
     TResult? Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult? Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult? Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult? Function(CheckoutError<T> value)? checkoutError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,6 +92,9 @@ mixin _$CheckoutState<T> {
     TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
     TResult Function(_OnCountryChanged<T> value)? onCountryChanged,
     TResult Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult Function(CheckoutError<T> value)? checkoutError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -150,6 +168,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(int value) changeCheckoutMinutes,
     required TResult Function(String phoneNumber) onCountryChanged,
     required TResult Function(String date) onDatePicked,
+    required TResult Function() checkoutLoading,
+    required TResult Function(CheckoutResponse checkout) checkoutSuccess,
+    required TResult Function(String error) checkoutError,
   }) {
     return initial();
   }
@@ -163,6 +184,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(int value)? changeCheckoutMinutes,
     TResult? Function(String phoneNumber)? onCountryChanged,
     TResult? Function(String date)? onDatePicked,
+    TResult? Function()? checkoutLoading,
+    TResult? Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult? Function(String error)? checkoutError,
   }) {
     return initial?.call();
   }
@@ -176,6 +200,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(int value)? changeCheckoutMinutes,
     TResult Function(String phoneNumber)? onCountryChanged,
     TResult Function(String date)? onDatePicked,
+    TResult Function()? checkoutLoading,
+    TResult Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult Function(String error)? checkoutError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -195,6 +222,9 @@ class _$InitialImpl<T> implements _Initial<T> {
         changeCheckoutMinutes,
     required TResult Function(_OnCountryChanged<T> value) onCountryChanged,
     required TResult Function(_OnDatePicked<T> value) onDatePicked,
+    required TResult Function(CheckoutLoading<T> value) checkoutLoading,
+    required TResult Function(CheckoutSuccess<T> value) checkoutSuccess,
+    required TResult Function(CheckoutError<T> value) checkoutError,
   }) {
     return initial(this);
   }
@@ -208,6 +238,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
     TResult? Function(_OnCountryChanged<T> value)? onCountryChanged,
     TResult? Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult? Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult? Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult? Function(CheckoutError<T> value)? checkoutError,
   }) {
     return initial?.call(this);
   }
@@ -221,6 +254,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
     TResult Function(_OnCountryChanged<T> value)? onCountryChanged,
     TResult Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult Function(CheckoutError<T> value)? checkoutError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -312,6 +348,9 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
     required TResult Function(int value) changeCheckoutMinutes,
     required TResult Function(String phoneNumber) onCountryChanged,
     required TResult Function(String date) onDatePicked,
+    required TResult Function() checkoutLoading,
+    required TResult Function(CheckoutResponse checkout) checkoutSuccess,
+    required TResult Function(String error) checkoutError,
   }) {
     return getCurrentCountryCode(countryCode);
   }
@@ -325,6 +364,9 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
     TResult? Function(int value)? changeCheckoutMinutes,
     TResult? Function(String phoneNumber)? onCountryChanged,
     TResult? Function(String date)? onDatePicked,
+    TResult? Function()? checkoutLoading,
+    TResult? Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult? Function(String error)? checkoutError,
   }) {
     return getCurrentCountryCode?.call(countryCode);
   }
@@ -338,6 +380,9 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
     TResult Function(int value)? changeCheckoutMinutes,
     TResult Function(String phoneNumber)? onCountryChanged,
     TResult Function(String date)? onDatePicked,
+    TResult Function()? checkoutLoading,
+    TResult Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult Function(String error)? checkoutError,
     required TResult orElse(),
   }) {
     if (getCurrentCountryCode != null) {
@@ -357,6 +402,9 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
         changeCheckoutMinutes,
     required TResult Function(_OnCountryChanged<T> value) onCountryChanged,
     required TResult Function(_OnDatePicked<T> value) onDatePicked,
+    required TResult Function(CheckoutLoading<T> value) checkoutLoading,
+    required TResult Function(CheckoutSuccess<T> value) checkoutSuccess,
+    required TResult Function(CheckoutError<T> value) checkoutError,
   }) {
     return getCurrentCountryCode(this);
   }
@@ -370,6 +418,9 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
     TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
     TResult? Function(_OnCountryChanged<T> value)? onCountryChanged,
     TResult? Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult? Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult? Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult? Function(CheckoutError<T> value)? checkoutError,
   }) {
     return getCurrentCountryCode?.call(this);
   }
@@ -383,6 +434,9 @@ class _$GetCurrentCountryCodeImpl<T> implements GetCurrentCountryCode<T> {
     TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
     TResult Function(_OnCountryChanged<T> value)? onCountryChanged,
     TResult Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult Function(CheckoutError<T> value)? checkoutError,
     required TResult orElse(),
   }) {
     if (getCurrentCountryCode != null) {
@@ -480,6 +534,9 @@ class _$ChangeCheckoutHourImpl<T> implements ChangeCheckoutHour<T> {
     required TResult Function(int value) changeCheckoutMinutes,
     required TResult Function(String phoneNumber) onCountryChanged,
     required TResult Function(String date) onDatePicked,
+    required TResult Function() checkoutLoading,
+    required TResult Function(CheckoutResponse checkout) checkoutSuccess,
+    required TResult Function(String error) checkoutError,
   }) {
     return changeCheckoutHour(value);
   }
@@ -493,6 +550,9 @@ class _$ChangeCheckoutHourImpl<T> implements ChangeCheckoutHour<T> {
     TResult? Function(int value)? changeCheckoutMinutes,
     TResult? Function(String phoneNumber)? onCountryChanged,
     TResult? Function(String date)? onDatePicked,
+    TResult? Function()? checkoutLoading,
+    TResult? Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult? Function(String error)? checkoutError,
   }) {
     return changeCheckoutHour?.call(value);
   }
@@ -506,6 +566,9 @@ class _$ChangeCheckoutHourImpl<T> implements ChangeCheckoutHour<T> {
     TResult Function(int value)? changeCheckoutMinutes,
     TResult Function(String phoneNumber)? onCountryChanged,
     TResult Function(String date)? onDatePicked,
+    TResult Function()? checkoutLoading,
+    TResult Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult Function(String error)? checkoutError,
     required TResult orElse(),
   }) {
     if (changeCheckoutHour != null) {
@@ -525,6 +588,9 @@ class _$ChangeCheckoutHourImpl<T> implements ChangeCheckoutHour<T> {
         changeCheckoutMinutes,
     required TResult Function(_OnCountryChanged<T> value) onCountryChanged,
     required TResult Function(_OnDatePicked<T> value) onDatePicked,
+    required TResult Function(CheckoutLoading<T> value) checkoutLoading,
+    required TResult Function(CheckoutSuccess<T> value) checkoutSuccess,
+    required TResult Function(CheckoutError<T> value) checkoutError,
   }) {
     return changeCheckoutHour(this);
   }
@@ -538,6 +604,9 @@ class _$ChangeCheckoutHourImpl<T> implements ChangeCheckoutHour<T> {
     TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
     TResult? Function(_OnCountryChanged<T> value)? onCountryChanged,
     TResult? Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult? Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult? Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult? Function(CheckoutError<T> value)? checkoutError,
   }) {
     return changeCheckoutHour?.call(this);
   }
@@ -551,6 +620,9 @@ class _$ChangeCheckoutHourImpl<T> implements ChangeCheckoutHour<T> {
     TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
     TResult Function(_OnCountryChanged<T> value)? onCountryChanged,
     TResult Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult Function(CheckoutError<T> value)? checkoutError,
     required TResult orElse(),
   }) {
     if (changeCheckoutHour != null) {
@@ -650,6 +722,9 @@ class _$ChangeCheckoutMinutesImpl<T> implements ChangeCheckoutMinutes<T> {
     required TResult Function(int value) changeCheckoutMinutes,
     required TResult Function(String phoneNumber) onCountryChanged,
     required TResult Function(String date) onDatePicked,
+    required TResult Function() checkoutLoading,
+    required TResult Function(CheckoutResponse checkout) checkoutSuccess,
+    required TResult Function(String error) checkoutError,
   }) {
     return changeCheckoutMinutes(value);
   }
@@ -663,6 +738,9 @@ class _$ChangeCheckoutMinutesImpl<T> implements ChangeCheckoutMinutes<T> {
     TResult? Function(int value)? changeCheckoutMinutes,
     TResult? Function(String phoneNumber)? onCountryChanged,
     TResult? Function(String date)? onDatePicked,
+    TResult? Function()? checkoutLoading,
+    TResult? Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult? Function(String error)? checkoutError,
   }) {
     return changeCheckoutMinutes?.call(value);
   }
@@ -676,6 +754,9 @@ class _$ChangeCheckoutMinutesImpl<T> implements ChangeCheckoutMinutes<T> {
     TResult Function(int value)? changeCheckoutMinutes,
     TResult Function(String phoneNumber)? onCountryChanged,
     TResult Function(String date)? onDatePicked,
+    TResult Function()? checkoutLoading,
+    TResult Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult Function(String error)? checkoutError,
     required TResult orElse(),
   }) {
     if (changeCheckoutMinutes != null) {
@@ -695,6 +776,9 @@ class _$ChangeCheckoutMinutesImpl<T> implements ChangeCheckoutMinutes<T> {
         changeCheckoutMinutes,
     required TResult Function(_OnCountryChanged<T> value) onCountryChanged,
     required TResult Function(_OnDatePicked<T> value) onDatePicked,
+    required TResult Function(CheckoutLoading<T> value) checkoutLoading,
+    required TResult Function(CheckoutSuccess<T> value) checkoutSuccess,
+    required TResult Function(CheckoutError<T> value) checkoutError,
   }) {
     return changeCheckoutMinutes(this);
   }
@@ -708,6 +792,9 @@ class _$ChangeCheckoutMinutesImpl<T> implements ChangeCheckoutMinutes<T> {
     TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
     TResult? Function(_OnCountryChanged<T> value)? onCountryChanged,
     TResult? Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult? Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult? Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult? Function(CheckoutError<T> value)? checkoutError,
   }) {
     return changeCheckoutMinutes?.call(this);
   }
@@ -721,6 +808,9 @@ class _$ChangeCheckoutMinutesImpl<T> implements ChangeCheckoutMinutes<T> {
     TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
     TResult Function(_OnCountryChanged<T> value)? onCountryChanged,
     TResult Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult Function(CheckoutError<T> value)? checkoutError,
     required TResult orElse(),
   }) {
     if (changeCheckoutMinutes != null) {
@@ -819,6 +909,9 @@ class _$OnCountryChangedImpl<T> implements _OnCountryChanged<T> {
     required TResult Function(int value) changeCheckoutMinutes,
     required TResult Function(String phoneNumber) onCountryChanged,
     required TResult Function(String date) onDatePicked,
+    required TResult Function() checkoutLoading,
+    required TResult Function(CheckoutResponse checkout) checkoutSuccess,
+    required TResult Function(String error) checkoutError,
   }) {
     return onCountryChanged(phoneNumber);
   }
@@ -832,6 +925,9 @@ class _$OnCountryChangedImpl<T> implements _OnCountryChanged<T> {
     TResult? Function(int value)? changeCheckoutMinutes,
     TResult? Function(String phoneNumber)? onCountryChanged,
     TResult? Function(String date)? onDatePicked,
+    TResult? Function()? checkoutLoading,
+    TResult? Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult? Function(String error)? checkoutError,
   }) {
     return onCountryChanged?.call(phoneNumber);
   }
@@ -845,6 +941,9 @@ class _$OnCountryChangedImpl<T> implements _OnCountryChanged<T> {
     TResult Function(int value)? changeCheckoutMinutes,
     TResult Function(String phoneNumber)? onCountryChanged,
     TResult Function(String date)? onDatePicked,
+    TResult Function()? checkoutLoading,
+    TResult Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult Function(String error)? checkoutError,
     required TResult orElse(),
   }) {
     if (onCountryChanged != null) {
@@ -864,6 +963,9 @@ class _$OnCountryChangedImpl<T> implements _OnCountryChanged<T> {
         changeCheckoutMinutes,
     required TResult Function(_OnCountryChanged<T> value) onCountryChanged,
     required TResult Function(_OnDatePicked<T> value) onDatePicked,
+    required TResult Function(CheckoutLoading<T> value) checkoutLoading,
+    required TResult Function(CheckoutSuccess<T> value) checkoutSuccess,
+    required TResult Function(CheckoutError<T> value) checkoutError,
   }) {
     return onCountryChanged(this);
   }
@@ -877,6 +979,9 @@ class _$OnCountryChangedImpl<T> implements _OnCountryChanged<T> {
     TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
     TResult? Function(_OnCountryChanged<T> value)? onCountryChanged,
     TResult? Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult? Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult? Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult? Function(CheckoutError<T> value)? checkoutError,
   }) {
     return onCountryChanged?.call(this);
   }
@@ -890,6 +995,9 @@ class _$OnCountryChangedImpl<T> implements _OnCountryChanged<T> {
     TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
     TResult Function(_OnCountryChanged<T> value)? onCountryChanged,
     TResult Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult Function(CheckoutError<T> value)? checkoutError,
     required TResult orElse(),
   }) {
     if (onCountryChanged != null) {
@@ -987,6 +1095,9 @@ class _$OnDatePickedImpl<T> implements _OnDatePicked<T> {
     required TResult Function(int value) changeCheckoutMinutes,
     required TResult Function(String phoneNumber) onCountryChanged,
     required TResult Function(String date) onDatePicked,
+    required TResult Function() checkoutLoading,
+    required TResult Function(CheckoutResponse checkout) checkoutSuccess,
+    required TResult Function(String error) checkoutError,
   }) {
     return onDatePicked(date);
   }
@@ -1000,6 +1111,9 @@ class _$OnDatePickedImpl<T> implements _OnDatePicked<T> {
     TResult? Function(int value)? changeCheckoutMinutes,
     TResult? Function(String phoneNumber)? onCountryChanged,
     TResult? Function(String date)? onDatePicked,
+    TResult? Function()? checkoutLoading,
+    TResult? Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult? Function(String error)? checkoutError,
   }) {
     return onDatePicked?.call(date);
   }
@@ -1013,6 +1127,9 @@ class _$OnDatePickedImpl<T> implements _OnDatePicked<T> {
     TResult Function(int value)? changeCheckoutMinutes,
     TResult Function(String phoneNumber)? onCountryChanged,
     TResult Function(String date)? onDatePicked,
+    TResult Function()? checkoutLoading,
+    TResult Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult Function(String error)? checkoutError,
     required TResult orElse(),
   }) {
     if (onDatePicked != null) {
@@ -1032,6 +1149,9 @@ class _$OnDatePickedImpl<T> implements _OnDatePicked<T> {
         changeCheckoutMinutes,
     required TResult Function(_OnCountryChanged<T> value) onCountryChanged,
     required TResult Function(_OnDatePicked<T> value) onDatePicked,
+    required TResult Function(CheckoutLoading<T> value) checkoutLoading,
+    required TResult Function(CheckoutSuccess<T> value) checkoutSuccess,
+    required TResult Function(CheckoutError<T> value) checkoutError,
   }) {
     return onDatePicked(this);
   }
@@ -1045,6 +1165,9 @@ class _$OnDatePickedImpl<T> implements _OnDatePicked<T> {
     TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
     TResult? Function(_OnCountryChanged<T> value)? onCountryChanged,
     TResult? Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult? Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult? Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult? Function(CheckoutError<T> value)? checkoutError,
   }) {
     return onDatePicked?.call(this);
   }
@@ -1058,6 +1181,9 @@ class _$OnDatePickedImpl<T> implements _OnDatePicked<T> {
     TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
     TResult Function(_OnCountryChanged<T> value)? onCountryChanged,
     TResult Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult Function(CheckoutError<T> value)? checkoutError,
     required TResult orElse(),
   }) {
     if (onDatePicked != null) {
@@ -1076,5 +1202,526 @@ abstract class _OnDatePicked<T> implements CheckoutState<T> {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OnDatePickedImplCopyWith<T, _$OnDatePickedImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CheckoutLoadingImplCopyWith<T, $Res> {
+  factory _$$CheckoutLoadingImplCopyWith(_$CheckoutLoadingImpl<T> value,
+          $Res Function(_$CheckoutLoadingImpl<T>) then) =
+      __$$CheckoutLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$CheckoutLoadingImplCopyWithImpl<T, $Res>
+    extends _$CheckoutStateCopyWithImpl<T, $Res, _$CheckoutLoadingImpl<T>>
+    implements _$$CheckoutLoadingImplCopyWith<T, $Res> {
+  __$$CheckoutLoadingImplCopyWithImpl(_$CheckoutLoadingImpl<T> _value,
+      $Res Function(_$CheckoutLoadingImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$CheckoutLoadingImpl<T> implements CheckoutLoading<T> {
+  const _$CheckoutLoadingImpl();
+
+  @override
+  String toString() {
+    return 'CheckoutState<$T>.checkoutLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CheckoutLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String countryCode) getCurrentCountryCode,
+    required TResult Function(int value) changeCheckoutHour,
+    required TResult Function(int value) changeCheckoutMinutes,
+    required TResult Function(String phoneNumber) onCountryChanged,
+    required TResult Function(String date) onDatePicked,
+    required TResult Function() checkoutLoading,
+    required TResult Function(CheckoutResponse checkout) checkoutSuccess,
+    required TResult Function(String error) checkoutError,
+  }) {
+    return checkoutLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String countryCode)? getCurrentCountryCode,
+    TResult? Function(int value)? changeCheckoutHour,
+    TResult? Function(int value)? changeCheckoutMinutes,
+    TResult? Function(String phoneNumber)? onCountryChanged,
+    TResult? Function(String date)? onDatePicked,
+    TResult? Function()? checkoutLoading,
+    TResult? Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult? Function(String error)? checkoutError,
+  }) {
+    return checkoutLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String countryCode)? getCurrentCountryCode,
+    TResult Function(int value)? changeCheckoutHour,
+    TResult Function(int value)? changeCheckoutMinutes,
+    TResult Function(String phoneNumber)? onCountryChanged,
+    TResult Function(String date)? onDatePicked,
+    TResult Function()? checkoutLoading,
+    TResult Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult Function(String error)? checkoutError,
+    required TResult orElse(),
+  }) {
+    if (checkoutLoading != null) {
+      return checkoutLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(GetCurrentCountryCode<T> value)
+        getCurrentCountryCode,
+    required TResult Function(ChangeCheckoutHour<T> value) changeCheckoutHour,
+    required TResult Function(ChangeCheckoutMinutes<T> value)
+        changeCheckoutMinutes,
+    required TResult Function(_OnCountryChanged<T> value) onCountryChanged,
+    required TResult Function(_OnDatePicked<T> value) onDatePicked,
+    required TResult Function(CheckoutLoading<T> value) checkoutLoading,
+    required TResult Function(CheckoutSuccess<T> value) checkoutSuccess,
+    required TResult Function(CheckoutError<T> value) checkoutError,
+  }) {
+    return checkoutLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult? Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult? Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult? Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult? Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult? Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult? Function(CheckoutError<T> value)? checkoutError,
+  }) {
+    return checkoutLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult Function(CheckoutError<T> value)? checkoutError,
+    required TResult orElse(),
+  }) {
+    if (checkoutLoading != null) {
+      return checkoutLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CheckoutLoading<T> implements CheckoutState<T> {
+  const factory CheckoutLoading() = _$CheckoutLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$CheckoutSuccessImplCopyWith<T, $Res> {
+  factory _$$CheckoutSuccessImplCopyWith(_$CheckoutSuccessImpl<T> value,
+          $Res Function(_$CheckoutSuccessImpl<T>) then) =
+      __$$CheckoutSuccessImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({CheckoutResponse checkout});
+}
+
+/// @nodoc
+class __$$CheckoutSuccessImplCopyWithImpl<T, $Res>
+    extends _$CheckoutStateCopyWithImpl<T, $Res, _$CheckoutSuccessImpl<T>>
+    implements _$$CheckoutSuccessImplCopyWith<T, $Res> {
+  __$$CheckoutSuccessImplCopyWithImpl(_$CheckoutSuccessImpl<T> _value,
+      $Res Function(_$CheckoutSuccessImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? checkout = null,
+  }) {
+    return _then(_$CheckoutSuccessImpl<T>(
+      null == checkout
+          ? _value.checkout
+          : checkout // ignore: cast_nullable_to_non_nullable
+              as CheckoutResponse,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CheckoutSuccessImpl<T> implements CheckoutSuccess<T> {
+  const _$CheckoutSuccessImpl(this.checkout);
+
+  @override
+  final CheckoutResponse checkout;
+
+  @override
+  String toString() {
+    return 'CheckoutState<$T>.checkoutSuccess(checkout: $checkout)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CheckoutSuccessImpl<T> &&
+            (identical(other.checkout, checkout) ||
+                other.checkout == checkout));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, checkout);
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CheckoutSuccessImplCopyWith<T, _$CheckoutSuccessImpl<T>> get copyWith =>
+      __$$CheckoutSuccessImplCopyWithImpl<T, _$CheckoutSuccessImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String countryCode) getCurrentCountryCode,
+    required TResult Function(int value) changeCheckoutHour,
+    required TResult Function(int value) changeCheckoutMinutes,
+    required TResult Function(String phoneNumber) onCountryChanged,
+    required TResult Function(String date) onDatePicked,
+    required TResult Function() checkoutLoading,
+    required TResult Function(CheckoutResponse checkout) checkoutSuccess,
+    required TResult Function(String error) checkoutError,
+  }) {
+    return checkoutSuccess(checkout);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String countryCode)? getCurrentCountryCode,
+    TResult? Function(int value)? changeCheckoutHour,
+    TResult? Function(int value)? changeCheckoutMinutes,
+    TResult? Function(String phoneNumber)? onCountryChanged,
+    TResult? Function(String date)? onDatePicked,
+    TResult? Function()? checkoutLoading,
+    TResult? Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult? Function(String error)? checkoutError,
+  }) {
+    return checkoutSuccess?.call(checkout);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String countryCode)? getCurrentCountryCode,
+    TResult Function(int value)? changeCheckoutHour,
+    TResult Function(int value)? changeCheckoutMinutes,
+    TResult Function(String phoneNumber)? onCountryChanged,
+    TResult Function(String date)? onDatePicked,
+    TResult Function()? checkoutLoading,
+    TResult Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult Function(String error)? checkoutError,
+    required TResult orElse(),
+  }) {
+    if (checkoutSuccess != null) {
+      return checkoutSuccess(checkout);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(GetCurrentCountryCode<T> value)
+        getCurrentCountryCode,
+    required TResult Function(ChangeCheckoutHour<T> value) changeCheckoutHour,
+    required TResult Function(ChangeCheckoutMinutes<T> value)
+        changeCheckoutMinutes,
+    required TResult Function(_OnCountryChanged<T> value) onCountryChanged,
+    required TResult Function(_OnDatePicked<T> value) onDatePicked,
+    required TResult Function(CheckoutLoading<T> value) checkoutLoading,
+    required TResult Function(CheckoutSuccess<T> value) checkoutSuccess,
+    required TResult Function(CheckoutError<T> value) checkoutError,
+  }) {
+    return checkoutSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult? Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult? Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult? Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult? Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult? Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult? Function(CheckoutError<T> value)? checkoutError,
+  }) {
+    return checkoutSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult Function(CheckoutError<T> value)? checkoutError,
+    required TResult orElse(),
+  }) {
+    if (checkoutSuccess != null) {
+      return checkoutSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CheckoutSuccess<T> implements CheckoutState<T> {
+  const factory CheckoutSuccess(final CheckoutResponse checkout) =
+      _$CheckoutSuccessImpl<T>;
+
+  CheckoutResponse get checkout;
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CheckoutSuccessImplCopyWith<T, _$CheckoutSuccessImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CheckoutErrorImplCopyWith<T, $Res> {
+  factory _$$CheckoutErrorImplCopyWith(_$CheckoutErrorImpl<T> value,
+          $Res Function(_$CheckoutErrorImpl<T>) then) =
+      __$$CheckoutErrorImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$CheckoutErrorImplCopyWithImpl<T, $Res>
+    extends _$CheckoutStateCopyWithImpl<T, $Res, _$CheckoutErrorImpl<T>>
+    implements _$$CheckoutErrorImplCopyWith<T, $Res> {
+  __$$CheckoutErrorImplCopyWithImpl(_$CheckoutErrorImpl<T> _value,
+      $Res Function(_$CheckoutErrorImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$CheckoutErrorImpl<T>(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CheckoutErrorImpl<T> implements CheckoutError<T> {
+  const _$CheckoutErrorImpl(this.error);
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'CheckoutState<$T>.checkoutError(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CheckoutErrorImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CheckoutErrorImplCopyWith<T, _$CheckoutErrorImpl<T>> get copyWith =>
+      __$$CheckoutErrorImplCopyWithImpl<T, _$CheckoutErrorImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String countryCode) getCurrentCountryCode,
+    required TResult Function(int value) changeCheckoutHour,
+    required TResult Function(int value) changeCheckoutMinutes,
+    required TResult Function(String phoneNumber) onCountryChanged,
+    required TResult Function(String date) onDatePicked,
+    required TResult Function() checkoutLoading,
+    required TResult Function(CheckoutResponse checkout) checkoutSuccess,
+    required TResult Function(String error) checkoutError,
+  }) {
+    return checkoutError(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String countryCode)? getCurrentCountryCode,
+    TResult? Function(int value)? changeCheckoutHour,
+    TResult? Function(int value)? changeCheckoutMinutes,
+    TResult? Function(String phoneNumber)? onCountryChanged,
+    TResult? Function(String date)? onDatePicked,
+    TResult? Function()? checkoutLoading,
+    TResult? Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult? Function(String error)? checkoutError,
+  }) {
+    return checkoutError?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String countryCode)? getCurrentCountryCode,
+    TResult Function(int value)? changeCheckoutHour,
+    TResult Function(int value)? changeCheckoutMinutes,
+    TResult Function(String phoneNumber)? onCountryChanged,
+    TResult Function(String date)? onDatePicked,
+    TResult Function()? checkoutLoading,
+    TResult Function(CheckoutResponse checkout)? checkoutSuccess,
+    TResult Function(String error)? checkoutError,
+    required TResult orElse(),
+  }) {
+    if (checkoutError != null) {
+      return checkoutError(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(GetCurrentCountryCode<T> value)
+        getCurrentCountryCode,
+    required TResult Function(ChangeCheckoutHour<T> value) changeCheckoutHour,
+    required TResult Function(ChangeCheckoutMinutes<T> value)
+        changeCheckoutMinutes,
+    required TResult Function(_OnCountryChanged<T> value) onCountryChanged,
+    required TResult Function(_OnDatePicked<T> value) onDatePicked,
+    required TResult Function(CheckoutLoading<T> value) checkoutLoading,
+    required TResult Function(CheckoutSuccess<T> value) checkoutSuccess,
+    required TResult Function(CheckoutError<T> value) checkoutError,
+  }) {
+    return checkoutError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult? Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult? Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult? Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult? Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult? Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult? Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult? Function(CheckoutError<T> value)? checkoutError,
+  }) {
+    return checkoutError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(GetCurrentCountryCode<T> value)? getCurrentCountryCode,
+    TResult Function(ChangeCheckoutHour<T> value)? changeCheckoutHour,
+    TResult Function(ChangeCheckoutMinutes<T> value)? changeCheckoutMinutes,
+    TResult Function(_OnCountryChanged<T> value)? onCountryChanged,
+    TResult Function(_OnDatePicked<T> value)? onDatePicked,
+    TResult Function(CheckoutLoading<T> value)? checkoutLoading,
+    TResult Function(CheckoutSuccess<T> value)? checkoutSuccess,
+    TResult Function(CheckoutError<T> value)? checkoutError,
+    required TResult orElse(),
+  }) {
+    if (checkoutError != null) {
+      return checkoutError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CheckoutError<T> implements CheckoutState<T> {
+  const factory CheckoutError(final String error) = _$CheckoutErrorImpl<T>;
+
+  String get error;
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CheckoutErrorImplCopyWith<T, _$CheckoutErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
