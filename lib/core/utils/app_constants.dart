@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/core/models/storeify_user.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
+import 'package:store_ify/core/utils/app_assets.dart';
+import 'package:store_ify/features/checkout/data/models/payment_method.dart';
 
 bool isUserLoggedIn = false;
 bool isOnboardingVisited = false;
+StoreifyUser? currentUser;
 
 class AppConstants {
   static const ScrollPhysics physics = BouncingScrollPhysics();
@@ -32,6 +36,23 @@ class AppConstants {
         borderRadius: BorderRadius.circular(8.r),
         borderSide: BorderSide(color: AppColors.fontPrimaryColor, width: 1.w),
       );
-
   static const double mainButtonHorizontalMarginVal = 24.0;
+  static BoxShadow get itemBoxShadow => BoxShadow(
+        offset: Offset(0.w, 4.h),
+        blurRadius: 4.w,
+        spreadRadius: 0,
+        color: Colors.black.withOpacity(0.25),
+      );
+  static const List<PaymentMethod> paymentMethods = [
+    PaymentMethod(
+      id: 0,
+      name: LangKeys.creditCard,
+      image: AppAssets.imagesCreditCard,
+    ),
+    PaymentMethod(
+      id: 1,
+      name: LangKeys.cashOnDelivery,
+      image: AppAssets.imagesCash,
+    ),
+  ];
 }

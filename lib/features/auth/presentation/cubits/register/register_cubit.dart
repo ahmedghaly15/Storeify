@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/auth/data/models/register_params.dart';
 import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_state.dart';
@@ -59,7 +60,11 @@ class RegisterCubit extends Cubit<RegisterState> {
       _cancelToken,
     );
     result.when(
-      success: (data) => emit(RegisterState.success(data)),
+      success: (user) async {
+        await _authRepo.saveUserToken(user.token);
+        currentUser = user;
+        emit(RegisterState.success(user));
+      },
       error: (errorModel) => emit(RegisterState.error(errorModel.error ?? '')),
     );
   }

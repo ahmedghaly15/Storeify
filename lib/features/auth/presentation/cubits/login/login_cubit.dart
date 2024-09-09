@@ -1,10 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/api/dio_factory.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/helpers/shared_pref_helper.dart';
-import 'package:store_ify/core/helpers/shared_pref_keys.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/auth/data/models/login_params.dart';
 import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_state.dart';
@@ -49,16 +47,12 @@ class LoginCubit extends Cubit<LoginState> {
     );
     result.when(
       success: (user) async {
-        await _saveUserToken(user.token);
+        await _authRepo.saveUserToken(user.token);
+        currentUser = user;
         emit(LoginState.success(user));
       },
       error: (errorModel) => emit(LoginState.error(errorModel.error ?? '')),
     );
-  }
-
-  Future<void> _saveUserToken(String token) async {
-    await SharedPrefHelper.setSecuredString(SharedPrefKeys.userToken, token);
-    DioFactory.setTokenIntoHeadersAfterLogin(token);
   }
 
   void login(BuildContext context) {

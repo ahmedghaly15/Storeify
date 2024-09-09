@@ -1,7 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:store_ify/core/services/location_service.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/checkout/data/models/checkout_params.dart';
 import 'package:store_ify/features/checkout/data/repositories/checkout_repo.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_state.dart';
@@ -21,13 +23,14 @@ class CheckoutCubit extends Cubit<CheckoutState> {
   late final TextEditingController dateController;
   String phoneNumber = '';
   late final GlobalKey<FormState> formKey;
+  final CancelToken _cancelToken = CancelToken();
 
   void _initFormAttributes() {
     formKey = GlobalKey<FormState>();
-    // TODO: initialize it with current user name
     usernameController = TextEditingController();
     addressController = TextEditingController();
     dateController = TextEditingController();
+    usernameController.text = currentUser?.user.username ?? '';
   }
 
   String? countryCode;
@@ -72,22 +75,35 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     }
   }
 
-  void checkout() async {
+  void _checkout() async {
     emit(const CheckoutState.checkoutLoading());
     final result = await _checkoutRepo.checkout(
       CheckoutParams(
-        username: usernameController.text,
+        username: currentUser?.user.username ?? usernameController.text,
         address: addressController.text,
         phone: phoneNumber,
         date: dateController.text,
-        // TODO: make it zeroPad like this => 00:00
-        time: '$hours:$minutes',
+        time: _formatTime(hours, minutes),
       ),
+      _cancelToken,
     );
     result.when(
       success: (checkout) => emit(CheckoutState.checkoutSuccess(checkout)),
       error: (error) => emit(CheckoutState.checkoutError(error.error ?? '')),
     );
+  }
+
+  void checkoutAndValidateForm() {
+    if (formKey.currentState!.validate()) {
+      _checkout();
+    }
+  }
+
+  String _formatTime(int hour, int minute) {
+    String zeroPad(int value) => value.toString().padLeft(2, '0');
+    String formattedHour = zeroPad(hour);
+    String formattedMinute = zeroPad(minute);
+    return '$formattedHour:$formattedMinute';
   }
 
   void _disposeControllers() {
@@ -99,6 +115,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
   @override
   Future<void> close() {
     _disposeControllers();
+    _cancelToken.cancel();
     return super.close();
   }
 }

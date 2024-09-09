@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
 import 'package:store_ify/core/widgets/custom_toast.dart';
@@ -19,9 +21,7 @@ class CheckoutNextBlocConsumerButton extends StatelessWidget {
           current is CheckoutSuccess || current is CheckoutError,
       listener: (context, state) {
         state.whenOrNull(
-          checkoutSuccess: (_) {
-            // TODO: push to payment method route
-          },
+          checkoutSuccess: (_) => context.pushRoute(const PaymentMethodRoute()),
           checkoutError: (errorKey) => CustomToast.showToast(
             context: context,
             messageKey: errorKey,
@@ -39,7 +39,10 @@ class CheckoutNextBlocConsumerButton extends StatelessWidget {
             horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
             vertical: 40.h,
           ),
-          onPressed: () => context.read<CheckoutCubit>().checkout(),
+          onPressed: () {
+            // context.read<CheckoutCubit>().checkoutAndValidateForm();
+            context.pushRoute(const PaymentMethodRoute());
+          },
           child: circularIndicatorOrTextWidget(
             condition: state is CheckoutLoading,
             context: context,

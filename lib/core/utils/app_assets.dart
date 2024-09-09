@@ -58,6 +58,10 @@ class AppAssets {
   /// assets/images/Best_Selling.png
   static const String imagesBestSelling = "assets/images/Best_Selling.png";
 
+  /// Assets for imagesCash
+  /// assets/images/cash.png
+  static const String imagesCash = "assets/images/cash.png";
+
   /// Assets for imagesCategories
   /// assets/images/Categories.png
   static const String imagesCategories = "assets/images/Categories.png";
@@ -65,6 +69,10 @@ class AppAssets {
   /// Assets for imagesCircleColor
   /// assets/images/circle_color.png
   static const String imagesCircleColor = "assets/images/circle_color.png";
+
+  /// Assets for imagesCreditCard
+  /// assets/images/credit_card.png
+  static const String imagesCreditCard = "assets/images/credit_card.png";
 
   /// Assets for imagesDefaultError
   /// assets/images/default_error.png

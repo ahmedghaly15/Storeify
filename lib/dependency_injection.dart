@@ -19,6 +19,7 @@ import 'package:store_ify/features/categories/presentation/cubit/categories/cate
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_cubit.dart';
 import 'package:store_ify/features/checkout/data/repositories/checkout_repo.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_cubit.dart';
+import 'package:store_ify/features/checkout/presentation/cubits/payment_method/payment_method_cubit.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
@@ -122,5 +123,8 @@ void _setupDIForCubits() {
   );
   getIt.registerFactory<CheckoutCubit>(
     () => CheckoutCubit(getIt.get<CheckoutRepo>()),
+  );
+  getIt.registerFactory<PaymentMethodCubit>(
+    () => PaymentMethodCubit(),
   );
 }
