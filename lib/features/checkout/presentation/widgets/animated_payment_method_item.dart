@@ -38,11 +38,10 @@ class AnimatedPaymentMethodItem extends StatelessWidget {
         builder: (_, double translateY, __) => Transform.translate(
           offset: Offset(0.0, -translateY),
           child: Container(
-            width: double.infinity,
             margin: EdgeInsets.symmetric(
-              vertical: 40.h,
-              horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
+              vertical: 15.h,
             ),
+            width: double.infinity,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(Radius.circular(8.r)),
