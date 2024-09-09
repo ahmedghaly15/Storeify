@@ -232,7 +232,7 @@ class PaymentMethodRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const PaymentMethodView();
+      return WrappedRoute(child: const PaymentMethodView());
     },
   );
 }

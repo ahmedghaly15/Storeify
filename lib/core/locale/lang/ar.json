@@ -80,5 +80,7 @@
     "locationDenied": "الموقع غير مسموح به. الرجاء تفعيل الموقع.",
     "DATE_AFTER_TODAY": "التاريخ يجب ان يكون بعد اليوم.",
     "CART_EMPTY": "عربة التسوق فارغة.",
-    "howDoUWantToPay": "كيف تريد الدفع ؟"
+    "howDoUWantToPay": "كيف تريد الدفع ؟",
+    "creditCard": "بطاقة الائتمان",
+    "cashOnDelivery": "الدفع عند الاستلام"
 }

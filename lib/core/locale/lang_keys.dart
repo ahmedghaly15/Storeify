@@ -69,4 +69,6 @@ class LangKeys {
   static const String enableLocation = 'enableLocation';
   static const String locationDenied = 'locationDenied';
   static const String howDoUWantToPay = 'howDoUWantToPay';
+  static const String creditCard = 'creditCard';
+  static const String cashOnDelivery = 'cashOnDelivery';
 }

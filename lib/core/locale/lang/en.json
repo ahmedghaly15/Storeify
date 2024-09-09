@@ -80,5 +80,7 @@
     "locationDenied": "Location permission denied. Please grant location permission.",
     "DATE_AFTER_TODAY": "Date should be after today.",
     "CART_EMPTY": "Cart is empty.",
-    "howDoUWantToPay": "How do you want to Pay ?"
+    "howDoUWantToPay": "How do you want to Pay ?",
+    "creditCard": "Credit Card",
+    "cashOnDelivery": "Cash On Delivery"
 }

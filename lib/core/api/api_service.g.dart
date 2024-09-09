@@ -14,7 +14,7 @@ class _ApiService implements ApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://192.168.1.10:8081/api/';
+    baseUrl ??= 'http://192.168.1.51:8081/api/';
   }
 
   final Dio _dio;
@@ -42,7 +42,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/login',
+          'http://192.168.1.51:8081/api/login',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -82,7 +82,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/register',
+          'http://192.168.1.51:8081/api/register',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -122,7 +122,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/forget-password',
+          'http://192.168.1.51:8081/api/forget-password',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -154,7 +154,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/validate-otp',
+          'http://192.168.1.51:8081/api/validate-otp',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -186,7 +186,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/reset-password',
+          'http://192.168.1.51:8081/api/reset-password',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -213,7 +213,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/home',
+          'http://192.168.1.51:8081/api/home',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -249,7 +249,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/categories',
+          'http://192.168.1.51:8081/api/categories',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -288,7 +288,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/categories/${categoryId}/${subCategoryId}',
+          'http://192.168.1.51:8081/api/categories/${categoryId}/${subCategoryId}',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -323,7 +323,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/stores',
+          'http://192.168.1.51:8081/api/stores',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -361,7 +361,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/stores/${categoryId}',
+          'http://192.168.1.51:8081/api/stores/${categoryId}',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -399,7 +399,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/stores/branches/${storeId}',
+          'http://192.168.1.51:8081/api/stores/branches/${storeId}',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -437,7 +437,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/stores/category/${storeId}',
+          'http://192.168.1.51:8081/api/stores/category/${storeId}',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -475,7 +475,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/stores/offer/${storeId}',
+          'http://192.168.1.51:8081/api/stores/offer/${storeId}',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -514,7 +514,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/favorites/',
+          'http://192.168.1.51:8081/api/favorites/',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -544,7 +544,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/favorites/${productId}',
+          'http://192.168.1.51:8081/api/favorites/${productId}',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -572,7 +572,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/favorites/',
+          'http://192.168.1.51:8081/api/favorites/',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -611,7 +611,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/favoritesStore/',
+          'http://192.168.1.51:8081/api/favoritesStore/',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -641,7 +641,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/favoritesStore/${storeId}',
+          'http://192.168.1.51:8081/api/favoritesStore/${storeId}',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -669,7 +669,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/favoritesStore/',
+          'http://192.168.1.51:8081/api/favoritesStore/',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -709,7 +709,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/addProduct/${productId}',
+          'http://192.168.1.51:8081/api/addProduct/${productId}',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -736,7 +736,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/cart/',
+          'http://192.168.1.51:8081/api/cart/',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -774,7 +774,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/cart/${productId}',
+          'http://192.168.1.51:8081/api/cart/${productId}',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -805,7 +805,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/checkout',
+          'http://192.168.1.51:8081/api/checkout',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
