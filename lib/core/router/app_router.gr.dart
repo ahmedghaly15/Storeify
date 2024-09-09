@@ -219,6 +219,25 @@ class OnboardingRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [PaymentMethodView]
+class PaymentMethodRoute extends PageRouteInfo<void> {
+  const PaymentMethodRoute({List<PageRouteInfo>? children})
+      : super(
+          PaymentMethodRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PaymentMethodRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const PaymentMethodView();
+    },
+  );
+}
+
+/// generated route for
 /// [ResetPasswordView]
 class ResetPasswordRoute extends PageRouteInfo<ResetPasswordRouteArgs> {
   ResetPasswordRoute({

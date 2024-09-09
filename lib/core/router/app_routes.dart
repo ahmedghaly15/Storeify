@@ -39,6 +39,7 @@ List<AutoRoute> get appRoutes => [
       _buildCustomRoute(page: SubCategoriesRoute.page),
       _buildCustomRoute(page: StoreDetailsRoute.page),
       _buildCustomRoute(page: CheckoutRoute.page),
+      _buildCustomRoute(page: PaymentMethodRoute.page),
     ];
 
 CustomRoute _buildCustomRoute({

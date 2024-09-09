@@ -68,4 +68,5 @@ class LangKeys {
   static const String dateHint = 'dateHint';
   static const String enableLocation = 'enableLocation';
   static const String locationDenied = 'locationDenied';
+  static const String howDoUWantToPay = 'howDoUWantToPay';
 }
