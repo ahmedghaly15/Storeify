@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -21,6 +22,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
   late final TextEditingController dateController;
   String phoneNumber = '';
   late final GlobalKey<FormState> formKey;
+  final CancelToken _cancelToken = CancelToken();
 
   void _initFormAttributes() {
     formKey = GlobalKey<FormState>();
@@ -80,14 +82,21 @@ class CheckoutCubit extends Cubit<CheckoutState> {
         address: addressController.text,
         phone: phoneNumber,
         date: dateController.text,
-        // TODO: make it zeroPad like this => 00:00
-        time: '$hours:$minutes',
+        time: _formatTime(hours, minutes),
       ),
+      _cancelToken,
     );
     result.when(
       success: (checkout) => emit(CheckoutState.checkoutSuccess(checkout)),
       error: (error) => emit(CheckoutState.checkoutError(error.error ?? '')),
     );
+  }
+
+  String _formatTime(int hour, int minute) {
+    String zeroPad(int value) => value.toString().padLeft(2, '0');
+    String formattedHour = zeroPad(hour);
+    String formattedMinute = zeroPad(minute);
+    return '$formattedHour:$formattedMinute';
   }
 
   void _disposeControllers() {
@@ -99,6 +108,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
   @override
   Future<void> close() {
     _disposeControllers();
+    _cancelToken.cancel();
     return super.close();
   }
 }

@@ -34,4 +34,10 @@ class AppConstants {
       );
 
   static const double mainButtonHorizontalMarginVal = 24.0;
+  static BoxShadow get itemBoxShadow => BoxShadow(
+        offset: Offset(0.w, 4.h),
+        blurRadius: 4.w,
+        spreadRadius: 0,
+        color: Colors.black.withOpacity(0.25),
+      );
 }
