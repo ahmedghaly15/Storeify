@@ -39,7 +39,8 @@ class CheckoutNextBlocConsumerButton extends StatelessWidget {
             horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
             vertical: 40.h,
           ),
-          onPressed: () => context.read<CheckoutCubit>().checkout(),
+          onPressed: () =>
+              context.read<CheckoutCubit>().checkoutAndValidateForm(),
           child: circularIndicatorOrTextWidget(
             condition: state is CheckoutLoading,
             context: context,

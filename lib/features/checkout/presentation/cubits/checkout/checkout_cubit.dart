@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:store_ify/core/services/location_service.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/checkout/data/models/checkout_params.dart';
 import 'package:store_ify/features/checkout/data/repositories/checkout_repo.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_state.dart';
@@ -26,10 +27,10 @@ class CheckoutCubit extends Cubit<CheckoutState> {
 
   void _initFormAttributes() {
     formKey = GlobalKey<FormState>();
-    // TODO: initialize it with current user name
     usernameController = TextEditingController();
     addressController = TextEditingController();
     dateController = TextEditingController();
+    usernameController.text = currentUser?.user.username ?? '';
   }
 
   String? countryCode;
@@ -74,11 +75,11 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     }
   }
 
-  void checkout() async {
+  void _checkout() async {
     emit(const CheckoutState.checkoutLoading());
     final result = await _checkoutRepo.checkout(
       CheckoutParams(
-        username: usernameController.text,
+        username: currentUser?.user.username ?? usernameController.text,
         address: addressController.text,
         phone: phoneNumber,
         date: dateController.text,
@@ -90,6 +91,12 @@ class CheckoutCubit extends Cubit<CheckoutState> {
       success: (checkout) => emit(CheckoutState.checkoutSuccess(checkout)),
       error: (error) => emit(CheckoutState.checkoutError(error.error ?? '')),
     );
+  }
+
+  void checkoutAndValidateForm() {
+    if (formKey.currentState!.validate()) {
+      _checkout();
+    }
   }
 
   String _formatTime(int hour, int minute) {
