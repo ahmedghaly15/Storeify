@@ -125,6 +125,6 @@ void _setupDIForCubits() {
     () => CheckoutCubit(getIt.get<CheckoutRepo>()),
   );
   getIt.registerFactory<PaymentMethodCubit>(
-    () => PaymentMethodCubit(),
+    () => PaymentMethodCubit(getIt.get<CheckoutRepo>()),
   );
 }
