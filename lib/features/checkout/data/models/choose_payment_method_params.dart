@@ -1,11 +1,19 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'choose_payment_method_params.freezed.dart';
+part 'choose_payment_method_params.g.dart';
 
-@freezed
-class ChoosePaymentMethodParams with _$ChoosePaymentMethodParams {
-  const factory ChoosePaymentMethodParams({
-    required int paymentId,
-    required String paymentMethod,
-  }) = _ChoosePaymentMethodParams;
+@JsonSerializable()
+class ChoosePaymentMethodParams {
+  final int paymentId;
+  final String paymentMethod;
+
+  const ChoosePaymentMethodParams({
+    required this.paymentId,
+    required this.paymentMethod,
+  });
+
+  factory ChoosePaymentMethodParams.fromJson(Map<String, dynamic> json) =>
+      _$ChoosePaymentMethodParamsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ChoosePaymentMethodParamsToJson(this);
 }

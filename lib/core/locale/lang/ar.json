@@ -82,5 +82,7 @@
     "CART_EMPTY": "عربة التسوق فارغة.",
     "howDoUWantToPay": "كيف تريد الدفع ؟",
     "creditCard": "بطاقة الائتمان",
-    "cashOnDelivery": "الدفع عند الاستلام"
+    "cashOnDelivery": "الدفع عند الاستلام",
+    "continue": "متابعة",
+    "PAYMENT_METHOD_REQUIRED": "الرجاء تحديد طريقة الدفع"
 }

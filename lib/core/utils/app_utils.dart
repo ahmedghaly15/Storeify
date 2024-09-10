@@ -10,6 +10,4 @@ class AppUtils {
     Animation<double>,
     Widget,
   )? get transitionsBuilder => TransitionsBuilders.fadeIn;
-
-  static const int transitionDuration = 400;
 }

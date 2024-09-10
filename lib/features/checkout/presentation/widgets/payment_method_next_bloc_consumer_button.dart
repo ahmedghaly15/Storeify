@@ -21,7 +21,8 @@ class PaymentMethodNextBlocConsumerButton extends StatelessWidget {
       listener: (context, state) {
         state.whenOrNull(
           choosePaymentMethodSuccess: () {
-            // TODO: push to payment view
+            // TODO: if selectedPaymentMethod's name is creditCard push to payment view
+            // TODO: else show a dialog with OK like in UI
           },
           choosePaymentMethodError: (errorKey) => CustomToast.showToast(
             context: context,
@@ -33,7 +34,8 @@ class PaymentMethodNextBlocConsumerButton extends StatelessWidget {
       buildWhen: (_, current) =>
           current is ChoosePaymentMethodLoading ||
           current is ChoosePaymentMethodError ||
-          current is ChoosePaymentMethodSuccess,
+          current is ChoosePaymentMethodSuccess ||
+          current is UpdateSelectedPaymentMethod,
       builder: (context, state) => MainButton(
         margin: EdgeInsets.symmetric(
           horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
@@ -41,7 +43,11 @@ class PaymentMethodNextBlocConsumerButton extends StatelessWidget {
         child: circularIndicatorOrTextWidget(
           condition: state is ChoosePaymentMethodLoading,
           context: context,
-          textKey: LangKeys.next,
+          textKey:
+              context.read<PaymentMethodCubit>().selectedPaymentMethod.name ==
+                      LangKeys.creditCard
+                  ? LangKeys.continueKey
+                  : LangKeys.next,
         ),
         onPressed: () => context
             .read<PaymentMethodCubit>()
