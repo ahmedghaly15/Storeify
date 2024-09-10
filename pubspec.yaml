@@ -71,6 +71,8 @@ dependencies:
   hive_flutter: ^1.1.0
   # To get App directory
   path_provider: ^2.1.4
+  # To easily implement the Credit card's UI easily with the Card detection.
+  flutter_credit_card: ^4.0.1
 
 dev_dependencies:
   flutter_test:
