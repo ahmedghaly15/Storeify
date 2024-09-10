@@ -82,5 +82,7 @@
     "CART_EMPTY": "Cart is empty.",
     "howDoUWantToPay": "How do you want to Pay ?",
     "creditCard": "Credit Card",
-    "cashOnDelivery": "Cash On Delivery"
+    "cashOnDelivery": "Cash On Delivery",
+    "continue": "Continue",
+    "PAYMENT_METHOD_REQUIRED": "Payment method is required."
 }

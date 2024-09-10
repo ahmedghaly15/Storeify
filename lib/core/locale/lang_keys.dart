@@ -71,4 +71,5 @@ class LangKeys {
   static const String howDoUWantToPay = 'howDoUWantToPay';
   static const String creditCard = 'creditCard';
   static const String cashOnDelivery = 'cashOnDelivery';
+  static const String continueKey = 'continue';
 }

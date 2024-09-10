@@ -49,13 +49,12 @@ CustomRoute _buildCustomRoute({
   Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
       transitionsBuilder,
   int? durationInMilliseconds,
-}) {
-  return CustomRoute(
-    initial: initial,
-    page: page,
-    transitionsBuilder: transitionsBuilder ?? AppUtils.transitionsBuilder,
-    durationInMilliseconds:
-        durationInMilliseconds ?? AppUtils.transitionDuration,
-    children: children,
-  );
-}
+}) =>
+    CustomRoute(
+      initial: initial,
+      page: page,
+      transitionsBuilder: transitionsBuilder ?? AppUtils.transitionsBuilder,
+      durationInMilliseconds:
+          durationInMilliseconds ?? AppConstants.transitionDuration,
+      children: children,
+    );
