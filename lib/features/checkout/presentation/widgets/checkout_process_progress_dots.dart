@@ -3,7 +3,7 @@ import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/features/checkout/presentation/widgets/check_circle.dart';
 import 'package:store_ify/features/checkout/presentation/widgets/container_contains_dot.dart';
 import 'package:store_ify/features/checkout/presentation/widgets/custom_checkout_divider.dart';
-import 'package:store_ify/features/checkout/presentation/widgets/custom_checkout_progress_circle.dart';
+import 'package:store_ify/features/checkout/presentation/widgets/custom_progress_circle.dart';
 
 class CheckoutProcessProgressDots extends StatelessWidget {
   const CheckoutProcessProgressDots({super.key});
@@ -17,7 +17,7 @@ class CheckoutProcessProgressDots extends StatelessWidget {
         CustomCheckoutDivider(),
         ContainerContainsDot(),
         CustomCheckoutDivider(color: AppColors.colorD9D9D9),
-        CustomCheckoutProgressCircle(),
+        CustomProgressCircle(isColoredPrimary: false),
       ],
     );
   }

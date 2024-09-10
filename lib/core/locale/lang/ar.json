@@ -84,5 +84,9 @@
     "creditCard": "بطاقة الائتمان",
     "cashOnDelivery": "الدفع عند الاستلام",
     "continue": "متابعة",
-    "PAYMENT_METHOD_REQUIRED": "الرجاء تحديد طريقة الدفع"
+    "PAYMENT_METHOD_REQUIRED": "الرجاء تحديد طريقة الدفع",
+    "paymentWithCard": "الدفع عن طريق بطاقة الائتمان",
+    "payNow": "ادفع الان",
+    "saveCardDetails": "حفظ بيانات البطاقة",
+    "cardDetails": "تفاصيل البطاقة"
 }

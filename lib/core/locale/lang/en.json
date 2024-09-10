@@ -84,5 +84,9 @@
     "creditCard": "Credit Card",
     "cashOnDelivery": "Cash On Delivery",
     "continue": "Continue",
-    "PAYMENT_METHOD_REQUIRED": "Payment method is required."
+    "PAYMENT_METHOD_REQUIRED": "Payment method is required.",
+    "paymentWithCard": "Payment with Card",
+    "payNow": "Pay Now",
+    "saveCardDetails": "Save Card Details",
+    "cardDetails": "Card Details"
 }

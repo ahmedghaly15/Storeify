@@ -2,16 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 
-class CustomCheckoutProgressCircle extends StatelessWidget {
-  const CustomCheckoutProgressCircle({
+class CustomProgressCircle extends StatelessWidget {
+  const CustomProgressCircle({
     super.key,
-    this.borderColor = AppColors.colorD9D9D9,
-    this.color = Colors.white,
-    this.borderWidth = 1.08,
+    this.isColoredPrimary = true,
   });
 
-  final Color borderColor, color;
-  final double borderWidth;
+  final bool isColoredPrimary;
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +17,12 @@ class CustomCheckoutProgressCircle extends StatelessWidget {
       width: 25.87.h,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: color,
+        color:
+            isColoredPrimary ? AppColors.primaryColor : AppColors.colorD9D9D9,
         border: Border.all(
-          color: borderColor,
-          width: borderWidth.w,
+          color:
+              isColoredPrimary ? AppColors.primaryColor : AppColors.colorD9D9D9,
+          width: isColoredPrimary ? 0 : 1.08.w,
         ),
       ),
     );
