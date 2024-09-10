@@ -15,6 +15,7 @@ import 'package:store_ify/features/categories/data/models/fetch_categories_respo
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_response.dart';
 import 'package:store_ify/features/checkout/data/models/checkout_params.dart';
 import 'package:store_ify/features/checkout/data/models/checkout_response.dart';
+import 'package:store_ify/features/checkout/data/models/choose_payment_method_params.dart';
 import 'package:store_ify/features/favorites/data/models/fetch_fav_stores_response.dart';
 import 'package:store_ify/features/favorites/data/models/fetch_favorite_products_response.dart';
 import 'package:store_ify/features/favorites/data/models/prefer_params.dart';
@@ -166,6 +167,13 @@ abstract class ApiService {
   @POST(EndPoints.checkout)
   Future<CheckoutResponse> checkout(
     @Body() CheckoutParams params, [
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
+
+  @POST('${EndPoints.checkout}/{payment_id}/payment-method')
+  Future<void> choosePaymentMethod(
+    @Path('payment_id') int paymentId,
+    @Body() ChoosePaymentMethodParams params, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 }
