@@ -37,7 +37,8 @@ class AnimatedPaymentMethodItem extends StatelessWidget {
         ),
         builder: (_, double translateY, __) => Transform.translate(
           offset: Offset(0.0, -translateY),
-          child: Container(
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
             margin: EdgeInsets.symmetric(
               vertical: 15.h,
             ),
@@ -48,7 +49,7 @@ class AnimatedPaymentMethodItem extends StatelessWidget {
               border: isChosen
                   ? Border.all(
                       color: AppColors.primaryColor,
-                      width: 1.w,
+                      width: 2.w,
                     )
                   : null,
               boxShadow: [
