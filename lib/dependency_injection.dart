@@ -28,6 +28,7 @@ import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
 import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo.dart';
 import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo_impl.dart';
 import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_cubit.dart';
+import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
 import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubit.dart';
@@ -126,5 +127,8 @@ void _setupDIForCubits() {
   );
   getIt.registerFactory<PaymentMethodCubit>(
     () => PaymentMethodCubit(getIt.get<CheckoutRepo>()),
+  );
+  getIt.registerFactory<PaymentCubit>(
+    () => PaymentCubit(),
   );
 }
