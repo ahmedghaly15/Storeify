@@ -21,18 +21,27 @@ mixin _$PaymentMethodState<T> {
     required TResult Function() initial,
     required TResult Function(PaymentMethod paymentMethod)
         updateSelectedPaymentMethod,
+    required TResult Function() choosePaymentMethodLoading,
+    required TResult Function() choosePaymentMethodSuccess,
+    required TResult Function(String error) choosePaymentMethodError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
+    TResult? Function()? choosePaymentMethodLoading,
+    TResult? Function()? choosePaymentMethodSuccess,
+    TResult? Function(String error)? choosePaymentMethodError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
+    TResult Function()? choosePaymentMethodLoading,
+    TResult Function()? choosePaymentMethodSuccess,
+    TResult Function(String error)? choosePaymentMethodError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -41,6 +50,12 @@ mixin _$PaymentMethodState<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(UpdateSelectedPaymentMethod<T> value)
         updateSelectedPaymentMethod,
+    required TResult Function(ChoosePaymentMethodLoading<T> value)
+        choosePaymentMethodLoading,
+    required TResult Function(ChoosePaymentMethodSuccess<T> value)
+        choosePaymentMethodSuccess,
+    required TResult Function(ChoosePaymentMethodError<T> value)
+        choosePaymentMethodError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +63,12 @@ mixin _$PaymentMethodState<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(UpdateSelectedPaymentMethod<T> value)?
         updateSelectedPaymentMethod,
+    TResult? Function(ChoosePaymentMethodLoading<T> value)?
+        choosePaymentMethodLoading,
+    TResult? Function(ChoosePaymentMethodSuccess<T> value)?
+        choosePaymentMethodSuccess,
+    TResult? Function(ChoosePaymentMethodError<T> value)?
+        choosePaymentMethodError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +76,12 @@ mixin _$PaymentMethodState<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(UpdateSelectedPaymentMethod<T> value)?
         updateSelectedPaymentMethod,
+    TResult Function(ChoosePaymentMethodLoading<T> value)?
+        choosePaymentMethodLoading,
+    TResult Function(ChoosePaymentMethodSuccess<T> value)?
+        choosePaymentMethodSuccess,
+    TResult Function(ChoosePaymentMethodError<T> value)?
+        choosePaymentMethodError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,6 +153,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() initial,
     required TResult Function(PaymentMethod paymentMethod)
         updateSelectedPaymentMethod,
+    required TResult Function() choosePaymentMethodLoading,
+    required TResult Function() choosePaymentMethodSuccess,
+    required TResult Function(String error) choosePaymentMethodError,
   }) {
     return initial();
   }
@@ -135,6 +165,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
+    TResult? Function()? choosePaymentMethodLoading,
+    TResult? Function()? choosePaymentMethodSuccess,
+    TResult? Function(String error)? choosePaymentMethodError,
   }) {
     return initial?.call();
   }
@@ -144,6 +177,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
+    TResult Function()? choosePaymentMethodLoading,
+    TResult Function()? choosePaymentMethodSuccess,
+    TResult Function(String error)? choosePaymentMethodError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -158,6 +194,12 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(UpdateSelectedPaymentMethod<T> value)
         updateSelectedPaymentMethod,
+    required TResult Function(ChoosePaymentMethodLoading<T> value)
+        choosePaymentMethodLoading,
+    required TResult Function(ChoosePaymentMethodSuccess<T> value)
+        choosePaymentMethodSuccess,
+    required TResult Function(ChoosePaymentMethodError<T> value)
+        choosePaymentMethodError,
   }) {
     return initial(this);
   }
@@ -168,6 +210,12 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(UpdateSelectedPaymentMethod<T> value)?
         updateSelectedPaymentMethod,
+    TResult? Function(ChoosePaymentMethodLoading<T> value)?
+        choosePaymentMethodLoading,
+    TResult? Function(ChoosePaymentMethodSuccess<T> value)?
+        choosePaymentMethodSuccess,
+    TResult? Function(ChoosePaymentMethodError<T> value)?
+        choosePaymentMethodError,
   }) {
     return initial?.call(this);
   }
@@ -178,6 +226,12 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(UpdateSelectedPaymentMethod<T> value)?
         updateSelectedPaymentMethod,
+    TResult Function(ChoosePaymentMethodLoading<T> value)?
+        choosePaymentMethodLoading,
+    TResult Function(ChoosePaymentMethodSuccess<T> value)?
+        choosePaymentMethodSuccess,
+    TResult Function(ChoosePaymentMethodError<T> value)?
+        choosePaymentMethodError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -281,6 +335,9 @@ class _$UpdateSelectedPaymentMethodImpl<T>
     required TResult Function() initial,
     required TResult Function(PaymentMethod paymentMethod)
         updateSelectedPaymentMethod,
+    required TResult Function() choosePaymentMethodLoading,
+    required TResult Function() choosePaymentMethodSuccess,
+    required TResult Function(String error) choosePaymentMethodError,
   }) {
     return updateSelectedPaymentMethod(paymentMethod);
   }
@@ -290,6 +347,9 @@ class _$UpdateSelectedPaymentMethodImpl<T>
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
+    TResult? Function()? choosePaymentMethodLoading,
+    TResult? Function()? choosePaymentMethodSuccess,
+    TResult? Function(String error)? choosePaymentMethodError,
   }) {
     return updateSelectedPaymentMethod?.call(paymentMethod);
   }
@@ -299,6 +359,9 @@ class _$UpdateSelectedPaymentMethodImpl<T>
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
+    TResult Function()? choosePaymentMethodLoading,
+    TResult Function()? choosePaymentMethodSuccess,
+    TResult Function(String error)? choosePaymentMethodError,
     required TResult orElse(),
   }) {
     if (updateSelectedPaymentMethod != null) {
@@ -313,6 +376,12 @@ class _$UpdateSelectedPaymentMethodImpl<T>
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(UpdateSelectedPaymentMethod<T> value)
         updateSelectedPaymentMethod,
+    required TResult Function(ChoosePaymentMethodLoading<T> value)
+        choosePaymentMethodLoading,
+    required TResult Function(ChoosePaymentMethodSuccess<T> value)
+        choosePaymentMethodSuccess,
+    required TResult Function(ChoosePaymentMethodError<T> value)
+        choosePaymentMethodError,
   }) {
     return updateSelectedPaymentMethod(this);
   }
@@ -323,6 +392,12 @@ class _$UpdateSelectedPaymentMethodImpl<T>
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(UpdateSelectedPaymentMethod<T> value)?
         updateSelectedPaymentMethod,
+    TResult? Function(ChoosePaymentMethodLoading<T> value)?
+        choosePaymentMethodLoading,
+    TResult? Function(ChoosePaymentMethodSuccess<T> value)?
+        choosePaymentMethodSuccess,
+    TResult? Function(ChoosePaymentMethodError<T> value)?
+        choosePaymentMethodError,
   }) {
     return updateSelectedPaymentMethod?.call(this);
   }
@@ -333,6 +408,12 @@ class _$UpdateSelectedPaymentMethodImpl<T>
     TResult Function(_Initial<T> value)? initial,
     TResult Function(UpdateSelectedPaymentMethod<T> value)?
         updateSelectedPaymentMethod,
+    TResult Function(ChoosePaymentMethodLoading<T> value)?
+        choosePaymentMethodLoading,
+    TResult Function(ChoosePaymentMethodSuccess<T> value)?
+        choosePaymentMethodSuccess,
+    TResult Function(ChoosePaymentMethodError<T> value)?
+        choosePaymentMethodError,
     required TResult orElse(),
   }) {
     if (updateSelectedPaymentMethod != null) {
@@ -353,5 +434,465 @@ abstract class UpdateSelectedPaymentMethod<T> implements PaymentMethodState<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateSelectedPaymentMethodImplCopyWith<T,
           _$UpdateSelectedPaymentMethodImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChoosePaymentMethodLoadingImplCopyWith<T, $Res> {
+  factory _$$ChoosePaymentMethodLoadingImplCopyWith(
+          _$ChoosePaymentMethodLoadingImpl<T> value,
+          $Res Function(_$ChoosePaymentMethodLoadingImpl<T>) then) =
+      __$$ChoosePaymentMethodLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$ChoosePaymentMethodLoadingImplCopyWithImpl<T, $Res>
+    extends _$PaymentMethodStateCopyWithImpl<T, $Res,
+        _$ChoosePaymentMethodLoadingImpl<T>>
+    implements _$$ChoosePaymentMethodLoadingImplCopyWith<T, $Res> {
+  __$$ChoosePaymentMethodLoadingImplCopyWithImpl(
+      _$ChoosePaymentMethodLoadingImpl<T> _value,
+      $Res Function(_$ChoosePaymentMethodLoadingImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PaymentMethodState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ChoosePaymentMethodLoadingImpl<T>
+    implements ChoosePaymentMethodLoading<T> {
+  const _$ChoosePaymentMethodLoadingImpl();
+
+  @override
+  String toString() {
+    return 'PaymentMethodState<$T>.choosePaymentMethodLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChoosePaymentMethodLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(PaymentMethod paymentMethod)
+        updateSelectedPaymentMethod,
+    required TResult Function() choosePaymentMethodLoading,
+    required TResult Function() choosePaymentMethodSuccess,
+    required TResult Function(String error) choosePaymentMethodError,
+  }) {
+    return choosePaymentMethodLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
+    TResult? Function()? choosePaymentMethodLoading,
+    TResult? Function()? choosePaymentMethodSuccess,
+    TResult? Function(String error)? choosePaymentMethodError,
+  }) {
+    return choosePaymentMethodLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
+    TResult Function()? choosePaymentMethodLoading,
+    TResult Function()? choosePaymentMethodSuccess,
+    TResult Function(String error)? choosePaymentMethodError,
+    required TResult orElse(),
+  }) {
+    if (choosePaymentMethodLoading != null) {
+      return choosePaymentMethodLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(UpdateSelectedPaymentMethod<T> value)
+        updateSelectedPaymentMethod,
+    required TResult Function(ChoosePaymentMethodLoading<T> value)
+        choosePaymentMethodLoading,
+    required TResult Function(ChoosePaymentMethodSuccess<T> value)
+        choosePaymentMethodSuccess,
+    required TResult Function(ChoosePaymentMethodError<T> value)
+        choosePaymentMethodError,
+  }) {
+    return choosePaymentMethodLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(UpdateSelectedPaymentMethod<T> value)?
+        updateSelectedPaymentMethod,
+    TResult? Function(ChoosePaymentMethodLoading<T> value)?
+        choosePaymentMethodLoading,
+    TResult? Function(ChoosePaymentMethodSuccess<T> value)?
+        choosePaymentMethodSuccess,
+    TResult? Function(ChoosePaymentMethodError<T> value)?
+        choosePaymentMethodError,
+  }) {
+    return choosePaymentMethodLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(UpdateSelectedPaymentMethod<T> value)?
+        updateSelectedPaymentMethod,
+    TResult Function(ChoosePaymentMethodLoading<T> value)?
+        choosePaymentMethodLoading,
+    TResult Function(ChoosePaymentMethodSuccess<T> value)?
+        choosePaymentMethodSuccess,
+    TResult Function(ChoosePaymentMethodError<T> value)?
+        choosePaymentMethodError,
+    required TResult orElse(),
+  }) {
+    if (choosePaymentMethodLoading != null) {
+      return choosePaymentMethodLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChoosePaymentMethodLoading<T> implements PaymentMethodState<T> {
+  const factory ChoosePaymentMethodLoading() =
+      _$ChoosePaymentMethodLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$ChoosePaymentMethodSuccessImplCopyWith<T, $Res> {
+  factory _$$ChoosePaymentMethodSuccessImplCopyWith(
+          _$ChoosePaymentMethodSuccessImpl<T> value,
+          $Res Function(_$ChoosePaymentMethodSuccessImpl<T>) then) =
+      __$$ChoosePaymentMethodSuccessImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$ChoosePaymentMethodSuccessImplCopyWithImpl<T, $Res>
+    extends _$PaymentMethodStateCopyWithImpl<T, $Res,
+        _$ChoosePaymentMethodSuccessImpl<T>>
+    implements _$$ChoosePaymentMethodSuccessImplCopyWith<T, $Res> {
+  __$$ChoosePaymentMethodSuccessImplCopyWithImpl(
+      _$ChoosePaymentMethodSuccessImpl<T> _value,
+      $Res Function(_$ChoosePaymentMethodSuccessImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PaymentMethodState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ChoosePaymentMethodSuccessImpl<T>
+    implements ChoosePaymentMethodSuccess<T> {
+  const _$ChoosePaymentMethodSuccessImpl();
+
+  @override
+  String toString() {
+    return 'PaymentMethodState<$T>.choosePaymentMethodSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChoosePaymentMethodSuccessImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(PaymentMethod paymentMethod)
+        updateSelectedPaymentMethod,
+    required TResult Function() choosePaymentMethodLoading,
+    required TResult Function() choosePaymentMethodSuccess,
+    required TResult Function(String error) choosePaymentMethodError,
+  }) {
+    return choosePaymentMethodSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
+    TResult? Function()? choosePaymentMethodLoading,
+    TResult? Function()? choosePaymentMethodSuccess,
+    TResult? Function(String error)? choosePaymentMethodError,
+  }) {
+    return choosePaymentMethodSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
+    TResult Function()? choosePaymentMethodLoading,
+    TResult Function()? choosePaymentMethodSuccess,
+    TResult Function(String error)? choosePaymentMethodError,
+    required TResult orElse(),
+  }) {
+    if (choosePaymentMethodSuccess != null) {
+      return choosePaymentMethodSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(UpdateSelectedPaymentMethod<T> value)
+        updateSelectedPaymentMethod,
+    required TResult Function(ChoosePaymentMethodLoading<T> value)
+        choosePaymentMethodLoading,
+    required TResult Function(ChoosePaymentMethodSuccess<T> value)
+        choosePaymentMethodSuccess,
+    required TResult Function(ChoosePaymentMethodError<T> value)
+        choosePaymentMethodError,
+  }) {
+    return choosePaymentMethodSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(UpdateSelectedPaymentMethod<T> value)?
+        updateSelectedPaymentMethod,
+    TResult? Function(ChoosePaymentMethodLoading<T> value)?
+        choosePaymentMethodLoading,
+    TResult? Function(ChoosePaymentMethodSuccess<T> value)?
+        choosePaymentMethodSuccess,
+    TResult? Function(ChoosePaymentMethodError<T> value)?
+        choosePaymentMethodError,
+  }) {
+    return choosePaymentMethodSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(UpdateSelectedPaymentMethod<T> value)?
+        updateSelectedPaymentMethod,
+    TResult Function(ChoosePaymentMethodLoading<T> value)?
+        choosePaymentMethodLoading,
+    TResult Function(ChoosePaymentMethodSuccess<T> value)?
+        choosePaymentMethodSuccess,
+    TResult Function(ChoosePaymentMethodError<T> value)?
+        choosePaymentMethodError,
+    required TResult orElse(),
+  }) {
+    if (choosePaymentMethodSuccess != null) {
+      return choosePaymentMethodSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChoosePaymentMethodSuccess<T> implements PaymentMethodState<T> {
+  const factory ChoosePaymentMethodSuccess() =
+      _$ChoosePaymentMethodSuccessImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$ChoosePaymentMethodErrorImplCopyWith<T, $Res> {
+  factory _$$ChoosePaymentMethodErrorImplCopyWith(
+          _$ChoosePaymentMethodErrorImpl<T> value,
+          $Res Function(_$ChoosePaymentMethodErrorImpl<T>) then) =
+      __$$ChoosePaymentMethodErrorImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$ChoosePaymentMethodErrorImplCopyWithImpl<T, $Res>
+    extends _$PaymentMethodStateCopyWithImpl<T, $Res,
+        _$ChoosePaymentMethodErrorImpl<T>>
+    implements _$$ChoosePaymentMethodErrorImplCopyWith<T, $Res> {
+  __$$ChoosePaymentMethodErrorImplCopyWithImpl(
+      _$ChoosePaymentMethodErrorImpl<T> _value,
+      $Res Function(_$ChoosePaymentMethodErrorImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PaymentMethodState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$ChoosePaymentMethodErrorImpl<T>(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChoosePaymentMethodErrorImpl<T> implements ChoosePaymentMethodError<T> {
+  const _$ChoosePaymentMethodErrorImpl(this.error);
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'PaymentMethodState<$T>.choosePaymentMethodError(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChoosePaymentMethodErrorImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  /// Create a copy of PaymentMethodState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChoosePaymentMethodErrorImplCopyWith<T, _$ChoosePaymentMethodErrorImpl<T>>
+      get copyWith => __$$ChoosePaymentMethodErrorImplCopyWithImpl<T,
+          _$ChoosePaymentMethodErrorImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(PaymentMethod paymentMethod)
+        updateSelectedPaymentMethod,
+    required TResult Function() choosePaymentMethodLoading,
+    required TResult Function() choosePaymentMethodSuccess,
+    required TResult Function(String error) choosePaymentMethodError,
+  }) {
+    return choosePaymentMethodError(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
+    TResult? Function()? choosePaymentMethodLoading,
+    TResult? Function()? choosePaymentMethodSuccess,
+    TResult? Function(String error)? choosePaymentMethodError,
+  }) {
+    return choosePaymentMethodError?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
+    TResult Function()? choosePaymentMethodLoading,
+    TResult Function()? choosePaymentMethodSuccess,
+    TResult Function(String error)? choosePaymentMethodError,
+    required TResult orElse(),
+  }) {
+    if (choosePaymentMethodError != null) {
+      return choosePaymentMethodError(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(UpdateSelectedPaymentMethod<T> value)
+        updateSelectedPaymentMethod,
+    required TResult Function(ChoosePaymentMethodLoading<T> value)
+        choosePaymentMethodLoading,
+    required TResult Function(ChoosePaymentMethodSuccess<T> value)
+        choosePaymentMethodSuccess,
+    required TResult Function(ChoosePaymentMethodError<T> value)
+        choosePaymentMethodError,
+  }) {
+    return choosePaymentMethodError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(UpdateSelectedPaymentMethod<T> value)?
+        updateSelectedPaymentMethod,
+    TResult? Function(ChoosePaymentMethodLoading<T> value)?
+        choosePaymentMethodLoading,
+    TResult? Function(ChoosePaymentMethodSuccess<T> value)?
+        choosePaymentMethodSuccess,
+    TResult? Function(ChoosePaymentMethodError<T> value)?
+        choosePaymentMethodError,
+  }) {
+    return choosePaymentMethodError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(UpdateSelectedPaymentMethod<T> value)?
+        updateSelectedPaymentMethod,
+    TResult Function(ChoosePaymentMethodLoading<T> value)?
+        choosePaymentMethodLoading,
+    TResult Function(ChoosePaymentMethodSuccess<T> value)?
+        choosePaymentMethodSuccess,
+    TResult Function(ChoosePaymentMethodError<T> value)?
+        choosePaymentMethodError,
+    required TResult orElse(),
+  }) {
+    if (choosePaymentMethodError != null) {
+      return choosePaymentMethodError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChoosePaymentMethodError<T> implements PaymentMethodState<T> {
+  const factory ChoosePaymentMethodError(final String error) =
+      _$ChoosePaymentMethodErrorImpl<T>;
+
+  String get error;
+
+  /// Create a copy of PaymentMethodState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChoosePaymentMethodErrorImplCopyWith<T, _$ChoosePaymentMethodErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }

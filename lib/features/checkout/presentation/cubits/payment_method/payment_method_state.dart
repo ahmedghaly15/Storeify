@@ -8,4 +8,10 @@ class PaymentMethodState<T> with _$PaymentMethodState<T> {
   const factory PaymentMethodState.initial() = _Initial;
   const factory PaymentMethodState.updateSelectedPaymentMethod(
       PaymentMethod paymentMethod) = UpdateSelectedPaymentMethod<T>;
+  const factory PaymentMethodState.choosePaymentMethodLoading() =
+      ChoosePaymentMethodLoading;
+  const factory PaymentMethodState.choosePaymentMethodSuccess() =
+      ChoosePaymentMethodSuccess;
+  const factory PaymentMethodState.choosePaymentMethodError(String error) =
+      ChoosePaymentMethodError<T>;
 }
