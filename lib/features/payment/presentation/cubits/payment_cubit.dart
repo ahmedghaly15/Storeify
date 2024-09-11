@@ -14,8 +14,6 @@ class PaymentCubit extends Cubit<PaymentState> {
   late final TextEditingController cardHolderNumberController;
   late final TextEditingController expiryDateController;
   late final TextEditingController cvvController;
-  late final FocusNode cardTypeFocusNode;
-  late final FocusNode cardNumberFocusNode;
   late final FocusNode cardHolderNumberFocusNode;
   late final FocusNode expiryDateFocusNode;
   late final FocusNode cvvFocusNode;
@@ -36,8 +34,6 @@ class PaymentCubit extends Cubit<PaymentState> {
   }
 
   void _initFocusNodes() {
-    cardTypeFocusNode = FocusNode();
-    cardNumberFocusNode = FocusNode();
     cardHolderNumberFocusNode = FocusNode();
     expiryDateFocusNode = FocusNode();
     cvvFocusNode = FocusNode();
@@ -57,8 +53,6 @@ class PaymentCubit extends Cubit<PaymentState> {
   }
 
   void _disposeFocusNodes() {
-    cardTypeFocusNode.dispose();
-    cardNumberFocusNode.dispose();
     cardHolderNumberFocusNode.dispose();
     expiryDateFocusNode.dispose();
     cvvFocusNode.dispose();

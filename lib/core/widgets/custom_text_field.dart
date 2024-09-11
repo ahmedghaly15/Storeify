@@ -32,6 +32,7 @@ class CustomTextField extends StatelessWidget {
     this.errorBorder,
     this.focusedErrorBorder,
     this.hintStyle,
+    this.disabledBorder,
   });
 
   final TextInputType keyboardType;
@@ -55,6 +56,7 @@ class CustomTextField extends StatelessWidget {
   final InputBorder? focusedBorder;
   final InputBorder? errorBorder;
   final InputBorder? focusedErrorBorder;
+  final InputBorder? disabledBorder;
   final bool? enabled;
   final EdgeInsetsGeometry? margin;
 
@@ -81,6 +83,8 @@ class CustomTextField extends StatelessWidget {
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
           contentPadding: contentPadding ?? EdgeInsets.zero,
+          disabledBorder:
+              disabledBorder ?? AppConstants.textFieldOutlinedBorder,
           enabledBorder: enabledBorder ?? AppConstants.textFieldOutlinedBorder,
           focusedBorder: focusedBorder ?? AppConstants.textFieldOutlinedBorder,
           focusedErrorBorder:
