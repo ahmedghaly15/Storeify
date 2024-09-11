@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
-import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
+import 'package:store_ify/features/payment/presentation/widgets/card_type_text_field_bloc_builder.dart';
 import 'package:store_ify/features/payment/presentation/widgets/expiry_date_and_cvv_text_fields.dart';
 import 'package:store_ify/features/payment/presentation/widgets/payment_custom_text_field.dart';
 import 'package:store_ify/features/payment/presentation/widgets/payment_text_field_label.dart';
@@ -30,26 +30,7 @@ class PaymentForm extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const PaymentTextFieldLabel(labelKey: LangKeys.cardType),
-            PaymentCustomTextField(
-              enabled: false,
-              hintTextKey: LangKeys.visaCard,
-              controller: context.read<PaymentCubit>().cardTypeController,
-              prefixIcon: Image.asset(
-                AppAssets.imagesVisa,
-                width: 32.w,
-                height: 9.h,
-              ),
-              suffixIcon: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.arrow_drop_down,
-                  color: AppColors.primaryColor,
-                ),
-              ),
-              validate: (val) {
-                return null;
-              },
-            ),
+            const CardTypeTextFieldBlocBuilder(),
             MySizedBox.height19,
             const PaymentTextFieldLabel(labelKey: LangKeys.cardNumber),
             PaymentCustomTextField(
