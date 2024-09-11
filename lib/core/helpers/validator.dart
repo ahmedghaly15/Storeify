@@ -1,57 +1,61 @@
+import 'package:flutter/material.dart';
 import 'package:store_ify/core/helpers/app_regex.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:store_ify/core/locale/lang_keys.dart';
 
 class Validator {
-  static String? validatePasswordField({String? value}) {
+  static String? validatePasswordField(BuildContext context, {String? value}) {
     if (value == null || value.isEmpty) {
-      return "Password can't be blank!";
+      return context.translate(LangKeys.passwordRequired);
     } else if (value.length < 8) {
-      return 'Password must be at least 8 characters';
+      return context.translate(LangKeys.passwordInvalidLength);
     } else if (!AppRegex.passwordHasCapitalCharacter(value)) {
-      return 'Password must contain at least one uppercase letter';
+      return context.translate(LangKeys.passwordContainsUppercase);
     } else if (!AppRegex.passwordHasLowercaseCharacter(value)) {
-      return 'Password must contain at least one lowercase letter';
+      return context.translate(LangKeys.passwordContainsLowercase);
     } else if (!AppRegex.passwordHasNumber(value)) {
-      return 'Password must contain at least one number';
+      return context.translate(LangKeys.passwordContainsDigit);
     } else if (!AppRegex.passwordHasSpecialCharacter(value)) {
-      return 'Password must contain at least one special character';
+      return context.translate(LangKeys.passwordContainsSpecial);
     }
     return null;
   }
 
-  static String? validateEmailField({String? value}) {
+  static String? validateEmailField(BuildContext context, {String? value}) {
     if (value == null || value.isEmpty) {
-      return "Email can't be blank!";
+      return context.translate(LangKeys.emailRequired);
     } else if (!AppRegex.isEmailValid(value)) {
-      return "Please enter a valid email";
+      return context.translate(LangKeys.emailInvalid);
     }
     return null;
   }
 
-  static String? validateNameField({String? value}) {
+  static String? validateNameField(BuildContext context, {String? value}) {
     if (value!.isEmpty) {
-      return "Name can't be blank!";
+      return context.translate(LangKeys.nameRequired);
     }
     if (value.length < 3) {
-      return "Name must be more than 3 characters";
+      return context.translate(LangKeys.nameInvalidLength);
     }
     return null;
   }
 
-  static String? validateConfirmPasswordField({
+  static String? validateConfirmPasswordField(
+    BuildContext context, {
     String? value,
     required String password,
     required String confirmPassword,
   }) {
     if (value!.isEmpty || password != confirmPassword) {
-      return "Passwords don't match";
+      return context.translate(LangKeys.passwordsDontMatch);
     }
 
     return null;
   }
 
-  static String? validateField(String? value) {
+  static String? validateField(BuildContext context, String? value) {
     if (value!.isEmpty) {
-      return "Address can't be blank!";
+      return context.translate(LangKeys.fieldRequired);
     }
     return null;
   }

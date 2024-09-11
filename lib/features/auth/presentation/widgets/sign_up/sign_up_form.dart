@@ -23,7 +23,7 @@ class SignUpForm extends StatelessWidget {
           const TextFieldLabel(labelKey: LangKeys.email),
           CustomTextField(
             validate: (String? value) =>
-                Validator.validateEmailField(value: value),
+                Validator.validateEmailField(context, value: value),
             controller: context.read<RegisterCubit>().emailController,
             keyboardType: TextInputType.emailAddress,
             hintTextKey: LangKeys.examplegmailcom,
@@ -36,7 +36,7 @@ class SignUpForm extends StatelessWidget {
           const TextFieldLabel(labelKey: LangKeys.username),
           CustomTextField(
             validate: (String? value) =>
-                Validator.validateNameField(value: value),
+                Validator.validateNameField(context, value: value),
             controller: context.read<RegisterCubit>().usernameController,
             keyboardType: TextInputType.name,
             textCapitalization: TextCapitalization.words,
@@ -63,7 +63,7 @@ class SignUpForm extends StatelessWidget {
                 ),
               ),
               validate: (value) =>
-                  Validator.validatePasswordField(value: value),
+                  Validator.validatePasswordField(context, value: value),
               controller: context.read<RegisterCubit>().passwordController,
               keyboardType: TextInputType.visiblePassword,
               hintTextKey: LangKeys.passwordHint,
@@ -92,6 +92,7 @@ class SignUpForm extends StatelessWidget {
               ),
               onSubmit: (_) => context.read<RegisterCubit>().register(context),
               validate: (value) => Validator.validateConfirmPasswordField(
+                context,
                 value: value,
                 password: context.read<RegisterCubit>().passwordController.text,
                 confirmPassword:

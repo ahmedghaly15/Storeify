@@ -36,7 +36,7 @@ class ResetPasswordForm extends StatelessWidget {
                   ),
                 ),
                 validate: (value) =>
-                    Validator.validatePasswordField(value: value),
+                    Validator.validatePasswordField(context, value: value),
                 controller: context.read<ResetPasswordCubit>().passController,
                 keyboardType: TextInputType.visiblePassword,
                 hintTextKey: LangKeys.passwordHint,
@@ -50,6 +50,7 @@ class ResetPasswordForm extends StatelessWidget {
                 obscureText:
                     context.read<ResetPasswordCubit>().confirmPassObscured,
                 validate: (value) => Validator.validateConfirmPasswordField(
+                  context,
                   value: value,
                   password:
                       context.read<ResetPasswordCubit>().passController.text,

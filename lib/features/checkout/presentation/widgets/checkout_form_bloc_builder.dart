@@ -40,7 +40,7 @@ class CheckoutFormBlocBuilder extends StatelessWidget {
                   hintTextKey: LangKeys.enterYourUsername,
                   autofillHints: const <String>[AutofillHints.name],
                   validate: (String? value) =>
-                      Validator.validateNameField(value: value),
+                      Validator.validateNameField(context, value: value),
                 ),
                 MySizedBox.height10,
                 const TextFieldLabel(labelKey: LangKeys.yourAddress),
@@ -50,7 +50,8 @@ class CheckoutFormBlocBuilder extends StatelessWidget {
                   textCapitalization: TextCapitalization.sentences,
                   hintTextKey: LangKeys.enterYourAddress,
                   autofillHints: const <String>[AutofillHints.addressCity],
-                  validate: (String? value) => Validator.validateField(value),
+                  validate: (String? value) =>
+                      Validator.validateField(context, value),
                 ),
                 MySizedBox.height10,
                 const TextFieldLabel(labelKey: LangKeys.phone),
@@ -88,7 +89,8 @@ class CheckoutFormBlocBuilder extends StatelessWidget {
                     textCapitalization: TextCapitalization.none,
                     hintTextKey: LangKeys.dateHint,
                     autofillHints: const <String>[AutofillHints.birthday],
-                    validate: (String? value) => Validator.validateField(value),
+                    validate: (String? value) =>
+                        Validator.validateField(context, value),
                     suffixIcon: const Icon(
                       Icons.calendar_month,
                       color: AppColors.primaryColor,

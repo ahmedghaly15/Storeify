@@ -19,7 +19,7 @@ class ForgotPasswordForm extends StatelessWidget {
           const TextFieldLabel(labelKey: LangKeys.email),
           CustomTextField(
             validate: (String? value) =>
-                Validator.validateEmailField(value: value),
+                Validator.validateEmailField(context, value: value),
             controller: context.read<ForgotPasswordCubit>().emailController,
             keyboardType: TextInputType.emailAddress,
             hintTextKey: LangKeys.examplegmailcom,

@@ -98,5 +98,9 @@
     "masterCard": "بطاقة ماستر كارد",
     "payPal": "PayPal",
     "cardNumberHint": "xxxx xxxx xxxx xxxx",
-    "expiryDateHint": "mm/yyy"
+    "expiryDateHint": "mm/yyy",
+    "cardNumberRequired": "رقم البطاقة مطلوب",
+    "cardNumberDigitsOnly": "يجب ان يحتوي رقم البطاقة على ارقام فقط",
+    "cardNumberInvalidLength": "يجب ان يكون طول رقم البطاقة 16",
+    "cardNumberInvalid": "رقم البطاقة غير صالح"
 }

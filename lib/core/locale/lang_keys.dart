@@ -86,4 +86,20 @@ class LangKeys {
   static const String payPal = 'payPal';
   static const String cardNumberHint = 'cardNumberHint';
   static const String expiryDateHint = 'expiryDateHint';
+  static const String cardNumberRequired = 'cardNumberRequired';
+  static const String cardNumberDigitsOnly = 'cardNumberDigitsOnly';
+  static const String cardNumberInvalidLength = 'cardNumberInvalidLength';
+  static const String cardNumberInvalid = 'cardNumberInvalid';
+  static const String passwordRequired = 'passwordRequired';
+  static const String passwordInvalidLength = 'passwordInvalidLength';
+  static const String passwordContainsUppercase = 'passwordContainsUppercase';
+  static const String passwordContainsLowercase = 'passwordContainsLowercase';
+  static const String passwordContainsDigit = 'passwordContainsDigit';
+  static const String passwordContainsSpecial = 'passwordContainsSpecial';
+  static const String emailRequired = 'emailRequired';
+  static const String emailInvalid = 'emailInvalid';
+  static const String nameRequired = 'nameRequired';
+  static const String nameInvalidLength = 'nameInvalidLength';
+  static const String passwordsDontMatch = 'passwordsDontMatch';
+  static const String fieldRequired = 'fieldRequired';
 }
