@@ -102,4 +102,12 @@ class LangKeys {
   static const String nameInvalidLength = 'nameInvalidLength';
   static const String passwordsDontMatch = 'passwordsDontMatch';
   static const String fieldRequired = 'fieldRequired';
+  static const String cardHolderNumberRequired = 'cardHolderNumberRequired';
+  static const String cardHolderNumberDigitsOnly = 'cardHolderNumberDigitsOnly';
+  static const String cardHolderNumberInvalidLength =
+      'cardHolderNumberInvalidLength';
+  static const String cardHolderNumberInvalid = 'cardHolderNumberInvalid';
+  static const String cvvRequired = 'cvvRequired';
+  static const String cvvDigitsOnly = 'cvvDigitsOnly';
+  static const String cvvInvalidLength = 'cvvInvalidLength';
 }

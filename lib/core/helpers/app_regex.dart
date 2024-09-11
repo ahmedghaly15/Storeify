@@ -23,4 +23,8 @@ class AppRegex {
   static bool containsOnlyDigits(String val) {
     return RegExp(r'^[0-9]+$').hasMatch(val);
   }
+
+  static bool containsAlphabeticAndSpaces(String val) {
+    return RegExp(r'^[a-zA-Z\s]+$').hasMatch(val);
+  }
 }

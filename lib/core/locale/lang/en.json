@@ -114,5 +114,12 @@
     "nameRequired": "Name is required",
     "nameInvalidLength": "Name must be more than 3 characters",
     "passwordsDontMatch": "Passwords don't match",
-    "fieldRequired": "This field is required"
+    "fieldRequired": "This field is required",
+    "cardHolderNumberRequired": "Card holder number is required",
+    "cardHolderNumberDigitsOnly": "Card holder number must contain only digits",
+    "cardHolderNumberInvalidLength": "Invalid card holder number length",
+    "cardHolderNumberInvalid": "Invalid card holder number",
+    "cvvRequired": "CVV is required",
+    "cvvDigitsOnly": "CVV must contain only digits",
+    "cvvInvalidLength": "Invalid CVV length"
 }
