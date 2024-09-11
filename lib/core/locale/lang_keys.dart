@@ -76,4 +76,14 @@ class LangKeys {
   static const String payNow = 'payNow';
   static const String saveCardDetails = 'saveCardDetails';
   static const String cardDetails = 'cardDetails';
+  static const String cardType = 'cardType';
+  static const String cardNumber = 'cardNumber';
+  static const String expiryDate = 'expiryDate';
+  static const String cvv = 'cvv';
+  static const String cardHolderNumber = 'cardHolderNumber';
+  static const String visaCard = 'visaCard';
+  static const String masterCard = 'masterCard';
+  static const String payPal = 'payPal';
+  static const String cardNumberHint = 'cardNumberHint';
+  static const String expiryDateHint = 'expiryDateHint';
 }

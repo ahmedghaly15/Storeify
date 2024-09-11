@@ -88,5 +88,15 @@
     "paymentWithCard": "Payment with Card",
     "payNow": "Pay Now",
     "saveCardDetails": "Save Card Details",
-    "cardDetails": "Card Details"
+    "cardDetails": "Card Details",
+    "cardType": "Card Type",
+    "cardNumber": "Card Number",
+    "expiryDate": "Expiry Date",
+    "cvv": "CVV",
+    "cardHolderNumber": "Card Holder Number",
+    "visaCard": "Visa Card",
+    "masterCard": "Master Card",
+    "payPal": "PayPal",
+    "cardNumberHint": "xxxx xxxx xxxx xxxx",
+    "expiryDateHint": "mm/yyy"
 }

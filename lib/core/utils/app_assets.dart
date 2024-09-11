@@ -98,6 +98,10 @@ class AppAssets {
   /// assets/images/Google.png
   static const String imagesGoogle = "assets/images/Google.png";
 
+  /// Assets for imagesMasterCard
+  /// assets/images/master_card.png
+  static const String imagesMasterCard = "assets/images/master_card.png";
+
   /// Assets for imagesNoInternet
   /// assets/images/no_internet.png
   static const String imagesNoInternet = "assets/images/no_internet.png";
@@ -118,6 +122,10 @@ class AppAssets {
   /// assets/images/otp_verification.png
   static const String imagesOtpVerification =
       "assets/images/otp_verification.png";
+
+  /// Assets for imagesPaypal
+  /// assets/images/paypal.png
+  static const String imagesPaypal = "assets/images/paypal.png";
 
   /// Assets for imagesPerson
   /// assets/images/person.png
@@ -172,4 +180,8 @@ class AppAssets {
   /// Assets for imagesTwitter
   /// assets/images/twitter.png
   static const String imagesTwitter = "assets/images/twitter.png";
+
+  /// Assets for imagesVisa
+  /// assets/images/visa.png
+  static const String imagesVisa = "assets/images/visa.png";
 }
