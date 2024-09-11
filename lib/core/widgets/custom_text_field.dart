@@ -27,10 +27,16 @@ class CustomTextField extends StatelessWidget {
     this.enabledBorder,
     this.focusedBorder,
     this.enabled,
+    this.margin,
+    this.border,
+    this.errorBorder,
+    this.focusedErrorBorder,
+    this.hintStyle,
   });
 
   final TextInputType keyboardType;
   final String? hintTextKey;
+  final TextStyle? hintStyle;
   final TextEditingController? controller;
   final String? Function(String?)? validate;
   final Function(String)? onChanged;
@@ -45,13 +51,17 @@ class CustomTextField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
   final TextAlign textAlign;
   final InputBorder? enabledBorder;
+  final InputBorder? border;
   final InputBorder? focusedBorder;
+  final InputBorder? errorBorder;
+  final InputBorder? focusedErrorBorder;
   final bool? enabled;
+  final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 24.w),
+      margin: margin ?? EdgeInsets.symmetric(horizontal: 24.w),
       child: TextFormField(
         enabled: enabled,
         selectionHeightStyle: BoxHeightStyle.strut,
@@ -70,18 +80,19 @@ class CustomTextField extends StatelessWidget {
         decoration: InputDecoration(
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
-          contentPadding: contentPadding,
+          contentPadding: contentPadding ?? EdgeInsets.zero,
           enabledBorder: enabledBorder ?? AppConstants.textFieldOutlinedBorder,
           focusedBorder: focusedBorder ?? AppConstants.textFieldOutlinedBorder,
-          focusedErrorBorder: AppConstants.textFieldOutlinedBorder,
-          errorBorder: AppConstants.textFieldOutlinedBorder,
+          focusedErrorBorder:
+              focusedErrorBorder ?? AppConstants.textFieldOutlinedBorder,
+          errorBorder: errorBorder ?? AppConstants.textFieldOutlinedBorder,
           hintText: hintTextKey == null ? '' : context.translate(hintTextKey!),
-          hintStyle:
+          hintStyle: hintStyle ??
               AppTextStyles.textStyle16Medium.copyWith(color: Colors.grey),
           labelStyle: AppTextStyles.textStyle16Medium,
           filled: true,
           fillColor: Colors.white,
-          border: AppConstants.textFieldOutlinedBorder,
+          border: border ?? AppConstants.textFieldOutlinedBorder,
         ),
       ),
     );
