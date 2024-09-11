@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
+import 'package:store_ify/features/payment/data/models/card_type.dart';
 import 'package:store_ify/features/payment/data/models/pay_params.dart';
 import 'package:store_ify/features/payment/data/repositories/payment_repo.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_state.dart';
@@ -38,6 +40,15 @@ class PaymentCubit extends Cubit<PaymentState> {
       success: (_) => emit(const PaymentState.paySuccess()),
       error: (error) => emit(PaymentState.payError(error.error ?? '')),
     );
+  }
+
+  CardType selectedCardType = AppConstants.cardTypes[0];
+
+  void updateSelectedCardType(CardType cardType) {
+    if (selectedCardType != cardType) {
+      selectedCardType = cardType;
+      emit(PaymentState.updateSelectedCardType(cardType));
+    }
   }
 
   void _initControllers() {

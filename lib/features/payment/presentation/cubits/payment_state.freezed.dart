@@ -22,6 +22,7 @@ mixin _$PaymentState<T> {
     required TResult Function() payLoading,
     required TResult Function() paySuccess,
     required TResult Function(String error) payError,
+    required TResult Function(CardType cardType) updateSelectedCardType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$PaymentState<T> {
     TResult? Function()? payLoading,
     TResult? Function()? paySuccess,
     TResult? Function(String error)? payError,
+    TResult? Function(CardType cardType)? updateSelectedCardType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$PaymentState<T> {
     TResult Function()? payLoading,
     TResult Function()? paySuccess,
     TResult Function(String error)? payError,
+    TResult Function(CardType cardType)? updateSelectedCardType,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,8 @@ mixin _$PaymentState<T> {
     required TResult Function(PayLoading<T> value) payLoading,
     required TResult Function(PaySuccess<T> value) paySuccess,
     required TResult Function(PayError<T> value) payError,
+    required TResult Function(UpdateSelectedCardType<T> value)
+        updateSelectedCardType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +60,7 @@ mixin _$PaymentState<T> {
     TResult? Function(PayLoading<T> value)? payLoading,
     TResult? Function(PaySuccess<T> value)? paySuccess,
     TResult? Function(PayError<T> value)? payError,
+    TResult? Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +69,7 @@ mixin _$PaymentState<T> {
     TResult Function(PayLoading<T> value)? payLoading,
     TResult Function(PaySuccess<T> value)? paySuccess,
     TResult Function(PayError<T> value)? payError,
+    TResult Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +141,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() payLoading,
     required TResult Function() paySuccess,
     required TResult Function(String error) payError,
+    required TResult Function(CardType cardType) updateSelectedCardType,
   }) {
     return initial();
   }
@@ -145,6 +153,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? payLoading,
     TResult? Function()? paySuccess,
     TResult? Function(String error)? payError,
+    TResult? Function(CardType cardType)? updateSelectedCardType,
   }) {
     return initial?.call();
   }
@@ -156,6 +165,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? payLoading,
     TResult Function()? paySuccess,
     TResult Function(String error)? payError,
+    TResult Function(CardType cardType)? updateSelectedCardType,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -171,6 +181,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(PayLoading<T> value) payLoading,
     required TResult Function(PaySuccess<T> value) paySuccess,
     required TResult Function(PayError<T> value) payError,
+    required TResult Function(UpdateSelectedCardType<T> value)
+        updateSelectedCardType,
   }) {
     return initial(this);
   }
@@ -182,6 +194,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(PayLoading<T> value)? payLoading,
     TResult? Function(PaySuccess<T> value)? paySuccess,
     TResult? Function(PayError<T> value)? payError,
+    TResult? Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
   }) {
     return initial?.call(this);
   }
@@ -193,6 +206,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(PayLoading<T> value)? payLoading,
     TResult Function(PaySuccess<T> value)? paySuccess,
     TResult Function(PayError<T> value)? payError,
+    TResult Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -251,6 +265,7 @@ class _$PayLoadingImpl<T> implements PayLoading<T> {
     required TResult Function() payLoading,
     required TResult Function() paySuccess,
     required TResult Function(String error) payError,
+    required TResult Function(CardType cardType) updateSelectedCardType,
   }) {
     return payLoading();
   }
@@ -262,6 +277,7 @@ class _$PayLoadingImpl<T> implements PayLoading<T> {
     TResult? Function()? payLoading,
     TResult? Function()? paySuccess,
     TResult? Function(String error)? payError,
+    TResult? Function(CardType cardType)? updateSelectedCardType,
   }) {
     return payLoading?.call();
   }
@@ -273,6 +289,7 @@ class _$PayLoadingImpl<T> implements PayLoading<T> {
     TResult Function()? payLoading,
     TResult Function()? paySuccess,
     TResult Function(String error)? payError,
+    TResult Function(CardType cardType)? updateSelectedCardType,
     required TResult orElse(),
   }) {
     if (payLoading != null) {
@@ -288,6 +305,8 @@ class _$PayLoadingImpl<T> implements PayLoading<T> {
     required TResult Function(PayLoading<T> value) payLoading,
     required TResult Function(PaySuccess<T> value) paySuccess,
     required TResult Function(PayError<T> value) payError,
+    required TResult Function(UpdateSelectedCardType<T> value)
+        updateSelectedCardType,
   }) {
     return payLoading(this);
   }
@@ -299,6 +318,7 @@ class _$PayLoadingImpl<T> implements PayLoading<T> {
     TResult? Function(PayLoading<T> value)? payLoading,
     TResult? Function(PaySuccess<T> value)? paySuccess,
     TResult? Function(PayError<T> value)? payError,
+    TResult? Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
   }) {
     return payLoading?.call(this);
   }
@@ -310,6 +330,7 @@ class _$PayLoadingImpl<T> implements PayLoading<T> {
     TResult Function(PayLoading<T> value)? payLoading,
     TResult Function(PaySuccess<T> value)? paySuccess,
     TResult Function(PayError<T> value)? payError,
+    TResult Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
     required TResult orElse(),
   }) {
     if (payLoading != null) {
@@ -368,6 +389,7 @@ class _$PaySuccessImpl<T> implements PaySuccess<T> {
     required TResult Function() payLoading,
     required TResult Function() paySuccess,
     required TResult Function(String error) payError,
+    required TResult Function(CardType cardType) updateSelectedCardType,
   }) {
     return paySuccess();
   }
@@ -379,6 +401,7 @@ class _$PaySuccessImpl<T> implements PaySuccess<T> {
     TResult? Function()? payLoading,
     TResult? Function()? paySuccess,
     TResult? Function(String error)? payError,
+    TResult? Function(CardType cardType)? updateSelectedCardType,
   }) {
     return paySuccess?.call();
   }
@@ -390,6 +413,7 @@ class _$PaySuccessImpl<T> implements PaySuccess<T> {
     TResult Function()? payLoading,
     TResult Function()? paySuccess,
     TResult Function(String error)? payError,
+    TResult Function(CardType cardType)? updateSelectedCardType,
     required TResult orElse(),
   }) {
     if (paySuccess != null) {
@@ -405,6 +429,8 @@ class _$PaySuccessImpl<T> implements PaySuccess<T> {
     required TResult Function(PayLoading<T> value) payLoading,
     required TResult Function(PaySuccess<T> value) paySuccess,
     required TResult Function(PayError<T> value) payError,
+    required TResult Function(UpdateSelectedCardType<T> value)
+        updateSelectedCardType,
   }) {
     return paySuccess(this);
   }
@@ -416,6 +442,7 @@ class _$PaySuccessImpl<T> implements PaySuccess<T> {
     TResult? Function(PayLoading<T> value)? payLoading,
     TResult? Function(PaySuccess<T> value)? paySuccess,
     TResult? Function(PayError<T> value)? payError,
+    TResult? Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
   }) {
     return paySuccess?.call(this);
   }
@@ -427,6 +454,7 @@ class _$PaySuccessImpl<T> implements PaySuccess<T> {
     TResult Function(PayLoading<T> value)? payLoading,
     TResult Function(PaySuccess<T> value)? paySuccess,
     TResult Function(PayError<T> value)? payError,
+    TResult Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
     required TResult orElse(),
   }) {
     if (paySuccess != null) {
@@ -512,6 +540,7 @@ class _$PayErrorImpl<T> implements PayError<T> {
     required TResult Function() payLoading,
     required TResult Function() paySuccess,
     required TResult Function(String error) payError,
+    required TResult Function(CardType cardType) updateSelectedCardType,
   }) {
     return payError(error);
   }
@@ -523,6 +552,7 @@ class _$PayErrorImpl<T> implements PayError<T> {
     TResult? Function()? payLoading,
     TResult? Function()? paySuccess,
     TResult? Function(String error)? payError,
+    TResult? Function(CardType cardType)? updateSelectedCardType,
   }) {
     return payError?.call(error);
   }
@@ -534,6 +564,7 @@ class _$PayErrorImpl<T> implements PayError<T> {
     TResult Function()? payLoading,
     TResult Function()? paySuccess,
     TResult Function(String error)? payError,
+    TResult Function(CardType cardType)? updateSelectedCardType,
     required TResult orElse(),
   }) {
     if (payError != null) {
@@ -549,6 +580,8 @@ class _$PayErrorImpl<T> implements PayError<T> {
     required TResult Function(PayLoading<T> value) payLoading,
     required TResult Function(PaySuccess<T> value) paySuccess,
     required TResult Function(PayError<T> value) payError,
+    required TResult Function(UpdateSelectedCardType<T> value)
+        updateSelectedCardType,
   }) {
     return payError(this);
   }
@@ -560,6 +593,7 @@ class _$PayErrorImpl<T> implements PayError<T> {
     TResult? Function(PayLoading<T> value)? payLoading,
     TResult? Function(PaySuccess<T> value)? paySuccess,
     TResult? Function(PayError<T> value)? payError,
+    TResult? Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
   }) {
     return payError?.call(this);
   }
@@ -571,6 +605,7 @@ class _$PayErrorImpl<T> implements PayError<T> {
     TResult Function(PayLoading<T> value)? payLoading,
     TResult Function(PaySuccess<T> value)? paySuccess,
     TResult Function(PayError<T> value)? payError,
+    TResult Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
     required TResult orElse(),
   }) {
     if (payError != null) {
@@ -590,4 +625,180 @@ abstract class PayError<T> implements PaymentState<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PayErrorImplCopyWith<T, _$PayErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateSelectedCardTypeImplCopyWith<T, $Res> {
+  factory _$$UpdateSelectedCardTypeImplCopyWith(
+          _$UpdateSelectedCardTypeImpl<T> value,
+          $Res Function(_$UpdateSelectedCardTypeImpl<T>) then) =
+      __$$UpdateSelectedCardTypeImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({CardType cardType});
+
+  $CardTypeCopyWith<$Res> get cardType;
+}
+
+/// @nodoc
+class __$$UpdateSelectedCardTypeImplCopyWithImpl<T, $Res>
+    extends _$PaymentStateCopyWithImpl<T, $Res, _$UpdateSelectedCardTypeImpl<T>>
+    implements _$$UpdateSelectedCardTypeImplCopyWith<T, $Res> {
+  __$$UpdateSelectedCardTypeImplCopyWithImpl(
+      _$UpdateSelectedCardTypeImpl<T> _value,
+      $Res Function(_$UpdateSelectedCardTypeImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? cardType = null,
+  }) {
+    return _then(_$UpdateSelectedCardTypeImpl<T>(
+      null == cardType
+          ? _value.cardType
+          : cardType // ignore: cast_nullable_to_non_nullable
+              as CardType,
+    ));
+  }
+
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CardTypeCopyWith<$Res> get cardType {
+    return $CardTypeCopyWith<$Res>(_value.cardType, (value) {
+      return _then(_value.copyWith(cardType: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UpdateSelectedCardTypeImpl<T> implements UpdateSelectedCardType<T> {
+  const _$UpdateSelectedCardTypeImpl(this.cardType);
+
+  @override
+  final CardType cardType;
+
+  @override
+  String toString() {
+    return 'PaymentState<$T>.updateSelectedCardType(cardType: $cardType)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateSelectedCardTypeImpl<T> &&
+            (identical(other.cardType, cardType) ||
+                other.cardType == cardType));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, cardType);
+
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateSelectedCardTypeImplCopyWith<T, _$UpdateSelectedCardTypeImpl<T>>
+      get copyWith => __$$UpdateSelectedCardTypeImplCopyWithImpl<T,
+          _$UpdateSelectedCardTypeImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() payLoading,
+    required TResult Function() paySuccess,
+    required TResult Function(String error) payError,
+    required TResult Function(CardType cardType) updateSelectedCardType,
+  }) {
+    return updateSelectedCardType(cardType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? payLoading,
+    TResult? Function()? paySuccess,
+    TResult? Function(String error)? payError,
+    TResult? Function(CardType cardType)? updateSelectedCardType,
+  }) {
+    return updateSelectedCardType?.call(cardType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? payLoading,
+    TResult Function()? paySuccess,
+    TResult Function(String error)? payError,
+    TResult Function(CardType cardType)? updateSelectedCardType,
+    required TResult orElse(),
+  }) {
+    if (updateSelectedCardType != null) {
+      return updateSelectedCardType(cardType);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(PayLoading<T> value) payLoading,
+    required TResult Function(PaySuccess<T> value) paySuccess,
+    required TResult Function(PayError<T> value) payError,
+    required TResult Function(UpdateSelectedCardType<T> value)
+        updateSelectedCardType,
+  }) {
+    return updateSelectedCardType(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(PayLoading<T> value)? payLoading,
+    TResult? Function(PaySuccess<T> value)? paySuccess,
+    TResult? Function(PayError<T> value)? payError,
+    TResult? Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+  }) {
+    return updateSelectedCardType?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(PayLoading<T> value)? payLoading,
+    TResult Function(PaySuccess<T> value)? paySuccess,
+    TResult Function(PayError<T> value)? payError,
+    TResult Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+    required TResult orElse(),
+  }) {
+    if (updateSelectedCardType != null) {
+      return updateSelectedCardType(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateSelectedCardType<T> implements PaymentState<T> {
+  const factory UpdateSelectedCardType(final CardType cardType) =
+      _$UpdateSelectedCardTypeImpl<T>;
+
+  CardType get cardType;
+
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateSelectedCardTypeImplCopyWith<T, _$UpdateSelectedCardTypeImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
