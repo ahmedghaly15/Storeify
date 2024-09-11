@@ -110,4 +110,6 @@ class LangKeys {
   static const String cvvRequired = 'cvvRequired';
   static const String cvvDigitsOnly = 'cvvDigitsOnly';
   static const String cvvInvalidLength = 'cvvInvalidLength';
+  static const String paymentSuccessfully = 'paymentSuccessfully';
+  static const String backToHome = 'backToHome';
 }

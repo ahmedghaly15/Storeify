@@ -121,5 +121,7 @@
     "cardHolderNumberInvalid": "Invalid card holder number",
     "cvvRequired": "CVV is required",
     "cvvDigitsOnly": "CVV must contain only digits",
-    "cvvInvalidLength": "Invalid CVV length"
+    "cvvInvalidLength": "Invalid CVV length",
+    "paymentSuccessfully": "Payment successfully",
+    "backToHome": "Back to Home"
 }
