@@ -1,10 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/features/payment/data/models/pay_params.dart';
+import 'package:store_ify/features/payment/data/repositories/payment_repo.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_state.dart';
 
 class PaymentCubit extends Cubit<PaymentState> {
-  PaymentCubit() : super(const PaymentState.initial()) {
+  final PaymentRepo _paymentRepo;
+
+  PaymentCubit(this._paymentRepo) : super(const PaymentState.initial()) {
     _initFormAttributes();
   }
 
@@ -22,6 +26,18 @@ class PaymentCubit extends Cubit<PaymentState> {
   void _initFormAttributes() {
     _initControllers();
     _initFocusNodes();
+  }
+
+  void pay(PayParams params) async {
+    emit(const PaymentState.payLoading());
+    final result = await _paymentRepo.pay(
+      params,
+      _cancelToken,
+    );
+    result.when(
+      success: (_) => emit(const PaymentState.paySuccess()),
+      error: (error) => emit(PaymentState.payError(error.error ?? '')),
+    );
   }
 
   void _initControllers() {

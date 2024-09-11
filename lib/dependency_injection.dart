@@ -28,6 +28,7 @@ import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
 import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo.dart';
 import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo_impl.dart';
 import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_cubit.dart';
+import 'package:store_ify/features/payment/data/repositories/payment_repo.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
 import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_cubit.dart';
@@ -73,6 +74,9 @@ void _setupDIForRepos() {
   );
   getIt.registerLazySingleton<CheckoutRepo>(
     () => CheckoutRepoImpl(getIt.get<ApiService>()),
+  );
+  getIt.registerLazySingleton<PaymentRepo>(
+    () => PaymentRepoImpl(getIt.get<ApiService>()),
   );
 }
 
@@ -129,6 +133,6 @@ void _setupDIForCubits() {
     () => PaymentMethodCubit(getIt.get<CheckoutRepo>()),
   );
   getIt.registerFactory<PaymentCubit>(
-    () => PaymentCubit(),
+    () => PaymentCubit(getIt.get<PaymentRepo>()),
   );
 }
