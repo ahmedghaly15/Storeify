@@ -50,7 +50,8 @@ class PaymentValidator {
     return sum % 10 == 0;
   }
 
-  static String? cardHolderNumberField(BuildContext context, String? val) {
+  static String? validateCardHolderNumberField(
+      BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return context.translate(LangKeys.cardNumberRequired);
     } else if (!AppRegex.containsOnlyDigits(val)) {
@@ -61,7 +62,7 @@ class PaymentValidator {
     return null;
   }
 
-  static String? cvvField(BuildContext context, String? val) {
+  static String? validateCvvField(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return context.translate(LangKeys.cvvRequired);
     } else if (!AppRegex.containsOnlyDigits(val)) {
