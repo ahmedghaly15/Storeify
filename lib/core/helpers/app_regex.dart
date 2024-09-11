@@ -19,4 +19,8 @@ class AppRegex {
   static bool passwordHasNumber(String password) {
     return RegExp(r"\d").hasMatch(password);
   }
+
+  static bool containsOnlyDigits(String val) {
+    return RegExp(r'^[0-9]+$').hasMatch(val);
+  }
 }

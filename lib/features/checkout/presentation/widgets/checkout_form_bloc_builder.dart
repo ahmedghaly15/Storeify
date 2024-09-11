@@ -4,7 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:store_ify/core/helpers/validator.dart';
+import 'package:store_ify/core/helpers/auth_validator.dart';
+import 'package:store_ify/core/helpers/payment_validator.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
@@ -40,7 +41,7 @@ class CheckoutFormBlocBuilder extends StatelessWidget {
                   hintTextKey: LangKeys.enterYourUsername,
                   autofillHints: const <String>[AutofillHints.name],
                   validate: (String? value) =>
-                      Validator.validateNameField(context, value: value),
+                      AuthValidator.validateNameField(context, value: value),
                 ),
                 MySizedBox.height10,
                 const TextFieldLabel(labelKey: LangKeys.yourAddress),
@@ -51,7 +52,7 @@ class CheckoutFormBlocBuilder extends StatelessWidget {
                   hintTextKey: LangKeys.enterYourAddress,
                   autofillHints: const <String>[AutofillHints.addressCity],
                   validate: (String? value) =>
-                      Validator.validateField(context, value),
+                      PaymentValidator.validateField(context, value),
                 ),
                 MySizedBox.height10,
                 const TextFieldLabel(labelKey: LangKeys.phone),
@@ -90,7 +91,7 @@ class CheckoutFormBlocBuilder extends StatelessWidget {
                     hintTextKey: LangKeys.dateHint,
                     autofillHints: const <String>[AutofillHints.birthday],
                     validate: (String? value) =>
-                        Validator.validateField(context, value),
+                        PaymentValidator.validateField(context, value),
                     suffixIcon: const Icon(
                       Icons.calendar_month,
                       color: AppColors.primaryColor,

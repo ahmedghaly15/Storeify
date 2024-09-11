@@ -3,7 +3,7 @@ import 'package:store_ify/core/helpers/app_regex.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 
-class Validator {
+class AuthValidator {
   static String? validatePasswordField(BuildContext context, {String? value}) {
     if (value == null || value.isEmpty) {
       return context.translate(LangKeys.passwordRequired);
@@ -50,13 +50,6 @@ class Validator {
       return context.translate(LangKeys.passwordsDontMatch);
     }
 
-    return null;
-  }
-
-  static String? validateField(BuildContext context, String? value) {
-    if (value!.isEmpty) {
-      return context.translate(LangKeys.fieldRequired);
-    }
     return null;
   }
 }
