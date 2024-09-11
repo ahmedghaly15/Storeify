@@ -238,6 +238,25 @@ class PaymentMethodRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [PaymentSuccessfullyView]
+class PaymentSuccessfullyRoute extends PageRouteInfo<void> {
+  const PaymentSuccessfullyRoute({List<PageRouteInfo>? children})
+      : super(
+          PaymentSuccessfullyRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PaymentSuccessfullyRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const PaymentSuccessfullyView();
+    },
+  );
+}
+
+/// generated route for
 /// [PaymentView]
 class PaymentRoute extends PageRouteInfo<void> {
   const PaymentRoute({List<PageRouteInfo>? children})

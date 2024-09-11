@@ -123,6 +123,11 @@ class AppAssets {
   static const String imagesOtpVerification =
       "assets/images/otp_verification.png";
 
+  /// Assets for imagesPaymentSuccessfully
+  /// assets/images/payment_successfully.png
+  static const String imagesPaymentSuccessfully =
+      "assets/images/payment_successfully.png";
+
   /// Assets for imagesPaypal
   /// assets/images/paypal.png
   static const String imagesPaypal = "assets/images/paypal.png";

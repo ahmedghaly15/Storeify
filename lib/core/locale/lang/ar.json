@@ -121,5 +121,7 @@
     "cardHolderNumberInvalid": "رقم حامل البطاقة غير صالح",
     "cvvRequired": "رمز CVV مطلوب",
     "cvvDigitsOnly": "يجب أن يحتوي رمز CVV على أرقام فقط",
-    "cvvInvalidLength": "طول رمز CVV غير صحيح"
+    "cvvInvalidLength": "طول رمز CVV غير صحيح",
+    "paymentSuccessfully": "تم الدفع بنجاح",
+    "backToHome": "العودة للرئيسيه"
 }
