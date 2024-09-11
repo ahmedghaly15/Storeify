@@ -22,6 +22,9 @@ mixin _$PaymentState<T> {
     required TResult Function() payLoading,
     required TResult Function() paySuccess,
     required TResult Function(String error) payError,
+    required TResult Function(CardType cardType) updateSelectedCardType,
+    required TResult Function(AutovalidateMode mode) alwaysAutoValidateMode,
+    required TResult Function(bool? value) toggleCheckBox,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +33,9 @@ mixin _$PaymentState<T> {
     TResult? Function()? payLoading,
     TResult? Function()? paySuccess,
     TResult? Function(String error)? payError,
+    TResult? Function(CardType cardType)? updateSelectedCardType,
+    TResult? Function(AutovalidateMode mode)? alwaysAutoValidateMode,
+    TResult? Function(bool? value)? toggleCheckBox,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +44,9 @@ mixin _$PaymentState<T> {
     TResult Function()? payLoading,
     TResult Function()? paySuccess,
     TResult Function(String error)? payError,
+    TResult Function(CardType cardType)? updateSelectedCardType,
+    TResult Function(AutovalidateMode mode)? alwaysAutoValidateMode,
+    TResult Function(bool? value)? toggleCheckBox,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +56,11 @@ mixin _$PaymentState<T> {
     required TResult Function(PayLoading<T> value) payLoading,
     required TResult Function(PaySuccess<T> value) paySuccess,
     required TResult Function(PayError<T> value) payError,
+    required TResult Function(UpdateSelectedCardType<T> value)
+        updateSelectedCardType,
+    required TResult Function(AlwaysAutoValidateMode<T> value)
+        alwaysAutoValidateMode,
+    required TResult Function(ToggleCheckBox<T> value) toggleCheckBox,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +69,9 @@ mixin _$PaymentState<T> {
     TResult? Function(PayLoading<T> value)? payLoading,
     TResult? Function(PaySuccess<T> value)? paySuccess,
     TResult? Function(PayError<T> value)? payError,
+    TResult? Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+    TResult? Function(AlwaysAutoValidateMode<T> value)? alwaysAutoValidateMode,
+    TResult? Function(ToggleCheckBox<T> value)? toggleCheckBox,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +80,9 @@ mixin _$PaymentState<T> {
     TResult Function(PayLoading<T> value)? payLoading,
     TResult Function(PaySuccess<T> value)? paySuccess,
     TResult Function(PayError<T> value)? payError,
+    TResult Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+    TResult Function(AlwaysAutoValidateMode<T> value)? alwaysAutoValidateMode,
+    TResult Function(ToggleCheckBox<T> value)? toggleCheckBox,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +154,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() payLoading,
     required TResult Function() paySuccess,
     required TResult Function(String error) payError,
+    required TResult Function(CardType cardType) updateSelectedCardType,
+    required TResult Function(AutovalidateMode mode) alwaysAutoValidateMode,
+    required TResult Function(bool? value) toggleCheckBox,
   }) {
     return initial();
   }
@@ -145,6 +168,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? payLoading,
     TResult? Function()? paySuccess,
     TResult? Function(String error)? payError,
+    TResult? Function(CardType cardType)? updateSelectedCardType,
+    TResult? Function(AutovalidateMode mode)? alwaysAutoValidateMode,
+    TResult? Function(bool? value)? toggleCheckBox,
   }) {
     return initial?.call();
   }
@@ -156,6 +182,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? payLoading,
     TResult Function()? paySuccess,
     TResult Function(String error)? payError,
+    TResult Function(CardType cardType)? updateSelectedCardType,
+    TResult Function(AutovalidateMode mode)? alwaysAutoValidateMode,
+    TResult Function(bool? value)? toggleCheckBox,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -171,6 +200,11 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(PayLoading<T> value) payLoading,
     required TResult Function(PaySuccess<T> value) paySuccess,
     required TResult Function(PayError<T> value) payError,
+    required TResult Function(UpdateSelectedCardType<T> value)
+        updateSelectedCardType,
+    required TResult Function(AlwaysAutoValidateMode<T> value)
+        alwaysAutoValidateMode,
+    required TResult Function(ToggleCheckBox<T> value) toggleCheckBox,
   }) {
     return initial(this);
   }
@@ -182,6 +216,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(PayLoading<T> value)? payLoading,
     TResult? Function(PaySuccess<T> value)? paySuccess,
     TResult? Function(PayError<T> value)? payError,
+    TResult? Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+    TResult? Function(AlwaysAutoValidateMode<T> value)? alwaysAutoValidateMode,
+    TResult? Function(ToggleCheckBox<T> value)? toggleCheckBox,
   }) {
     return initial?.call(this);
   }
@@ -193,6 +230,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(PayLoading<T> value)? payLoading,
     TResult Function(PaySuccess<T> value)? paySuccess,
     TResult Function(PayError<T> value)? payError,
+    TResult Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+    TResult Function(AlwaysAutoValidateMode<T> value)? alwaysAutoValidateMode,
+    TResult Function(ToggleCheckBox<T> value)? toggleCheckBox,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -251,6 +291,9 @@ class _$PayLoadingImpl<T> implements PayLoading<T> {
     required TResult Function() payLoading,
     required TResult Function() paySuccess,
     required TResult Function(String error) payError,
+    required TResult Function(CardType cardType) updateSelectedCardType,
+    required TResult Function(AutovalidateMode mode) alwaysAutoValidateMode,
+    required TResult Function(bool? value) toggleCheckBox,
   }) {
     return payLoading();
   }
@@ -262,6 +305,9 @@ class _$PayLoadingImpl<T> implements PayLoading<T> {
     TResult? Function()? payLoading,
     TResult? Function()? paySuccess,
     TResult? Function(String error)? payError,
+    TResult? Function(CardType cardType)? updateSelectedCardType,
+    TResult? Function(AutovalidateMode mode)? alwaysAutoValidateMode,
+    TResult? Function(bool? value)? toggleCheckBox,
   }) {
     return payLoading?.call();
   }
@@ -273,6 +319,9 @@ class _$PayLoadingImpl<T> implements PayLoading<T> {
     TResult Function()? payLoading,
     TResult Function()? paySuccess,
     TResult Function(String error)? payError,
+    TResult Function(CardType cardType)? updateSelectedCardType,
+    TResult Function(AutovalidateMode mode)? alwaysAutoValidateMode,
+    TResult Function(bool? value)? toggleCheckBox,
     required TResult orElse(),
   }) {
     if (payLoading != null) {
@@ -288,6 +337,11 @@ class _$PayLoadingImpl<T> implements PayLoading<T> {
     required TResult Function(PayLoading<T> value) payLoading,
     required TResult Function(PaySuccess<T> value) paySuccess,
     required TResult Function(PayError<T> value) payError,
+    required TResult Function(UpdateSelectedCardType<T> value)
+        updateSelectedCardType,
+    required TResult Function(AlwaysAutoValidateMode<T> value)
+        alwaysAutoValidateMode,
+    required TResult Function(ToggleCheckBox<T> value) toggleCheckBox,
   }) {
     return payLoading(this);
   }
@@ -299,6 +353,9 @@ class _$PayLoadingImpl<T> implements PayLoading<T> {
     TResult? Function(PayLoading<T> value)? payLoading,
     TResult? Function(PaySuccess<T> value)? paySuccess,
     TResult? Function(PayError<T> value)? payError,
+    TResult? Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+    TResult? Function(AlwaysAutoValidateMode<T> value)? alwaysAutoValidateMode,
+    TResult? Function(ToggleCheckBox<T> value)? toggleCheckBox,
   }) {
     return payLoading?.call(this);
   }
@@ -310,6 +367,9 @@ class _$PayLoadingImpl<T> implements PayLoading<T> {
     TResult Function(PayLoading<T> value)? payLoading,
     TResult Function(PaySuccess<T> value)? paySuccess,
     TResult Function(PayError<T> value)? payError,
+    TResult Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+    TResult Function(AlwaysAutoValidateMode<T> value)? alwaysAutoValidateMode,
+    TResult Function(ToggleCheckBox<T> value)? toggleCheckBox,
     required TResult orElse(),
   }) {
     if (payLoading != null) {
@@ -368,6 +428,9 @@ class _$PaySuccessImpl<T> implements PaySuccess<T> {
     required TResult Function() payLoading,
     required TResult Function() paySuccess,
     required TResult Function(String error) payError,
+    required TResult Function(CardType cardType) updateSelectedCardType,
+    required TResult Function(AutovalidateMode mode) alwaysAutoValidateMode,
+    required TResult Function(bool? value) toggleCheckBox,
   }) {
     return paySuccess();
   }
@@ -379,6 +442,9 @@ class _$PaySuccessImpl<T> implements PaySuccess<T> {
     TResult? Function()? payLoading,
     TResult? Function()? paySuccess,
     TResult? Function(String error)? payError,
+    TResult? Function(CardType cardType)? updateSelectedCardType,
+    TResult? Function(AutovalidateMode mode)? alwaysAutoValidateMode,
+    TResult? Function(bool? value)? toggleCheckBox,
   }) {
     return paySuccess?.call();
   }
@@ -390,6 +456,9 @@ class _$PaySuccessImpl<T> implements PaySuccess<T> {
     TResult Function()? payLoading,
     TResult Function()? paySuccess,
     TResult Function(String error)? payError,
+    TResult Function(CardType cardType)? updateSelectedCardType,
+    TResult Function(AutovalidateMode mode)? alwaysAutoValidateMode,
+    TResult Function(bool? value)? toggleCheckBox,
     required TResult orElse(),
   }) {
     if (paySuccess != null) {
@@ -405,6 +474,11 @@ class _$PaySuccessImpl<T> implements PaySuccess<T> {
     required TResult Function(PayLoading<T> value) payLoading,
     required TResult Function(PaySuccess<T> value) paySuccess,
     required TResult Function(PayError<T> value) payError,
+    required TResult Function(UpdateSelectedCardType<T> value)
+        updateSelectedCardType,
+    required TResult Function(AlwaysAutoValidateMode<T> value)
+        alwaysAutoValidateMode,
+    required TResult Function(ToggleCheckBox<T> value) toggleCheckBox,
   }) {
     return paySuccess(this);
   }
@@ -416,6 +490,9 @@ class _$PaySuccessImpl<T> implements PaySuccess<T> {
     TResult? Function(PayLoading<T> value)? payLoading,
     TResult? Function(PaySuccess<T> value)? paySuccess,
     TResult? Function(PayError<T> value)? payError,
+    TResult? Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+    TResult? Function(AlwaysAutoValidateMode<T> value)? alwaysAutoValidateMode,
+    TResult? Function(ToggleCheckBox<T> value)? toggleCheckBox,
   }) {
     return paySuccess?.call(this);
   }
@@ -427,6 +504,9 @@ class _$PaySuccessImpl<T> implements PaySuccess<T> {
     TResult Function(PayLoading<T> value)? payLoading,
     TResult Function(PaySuccess<T> value)? paySuccess,
     TResult Function(PayError<T> value)? payError,
+    TResult Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+    TResult Function(AlwaysAutoValidateMode<T> value)? alwaysAutoValidateMode,
+    TResult Function(ToggleCheckBox<T> value)? toggleCheckBox,
     required TResult orElse(),
   }) {
     if (paySuccess != null) {
@@ -512,6 +592,9 @@ class _$PayErrorImpl<T> implements PayError<T> {
     required TResult Function() payLoading,
     required TResult Function() paySuccess,
     required TResult Function(String error) payError,
+    required TResult Function(CardType cardType) updateSelectedCardType,
+    required TResult Function(AutovalidateMode mode) alwaysAutoValidateMode,
+    required TResult Function(bool? value) toggleCheckBox,
   }) {
     return payError(error);
   }
@@ -523,6 +606,9 @@ class _$PayErrorImpl<T> implements PayError<T> {
     TResult? Function()? payLoading,
     TResult? Function()? paySuccess,
     TResult? Function(String error)? payError,
+    TResult? Function(CardType cardType)? updateSelectedCardType,
+    TResult? Function(AutovalidateMode mode)? alwaysAutoValidateMode,
+    TResult? Function(bool? value)? toggleCheckBox,
   }) {
     return payError?.call(error);
   }
@@ -534,6 +620,9 @@ class _$PayErrorImpl<T> implements PayError<T> {
     TResult Function()? payLoading,
     TResult Function()? paySuccess,
     TResult Function(String error)? payError,
+    TResult Function(CardType cardType)? updateSelectedCardType,
+    TResult Function(AutovalidateMode mode)? alwaysAutoValidateMode,
+    TResult Function(bool? value)? toggleCheckBox,
     required TResult orElse(),
   }) {
     if (payError != null) {
@@ -549,6 +638,11 @@ class _$PayErrorImpl<T> implements PayError<T> {
     required TResult Function(PayLoading<T> value) payLoading,
     required TResult Function(PaySuccess<T> value) paySuccess,
     required TResult Function(PayError<T> value) payError,
+    required TResult Function(UpdateSelectedCardType<T> value)
+        updateSelectedCardType,
+    required TResult Function(AlwaysAutoValidateMode<T> value)
+        alwaysAutoValidateMode,
+    required TResult Function(ToggleCheckBox<T> value) toggleCheckBox,
   }) {
     return payError(this);
   }
@@ -560,6 +654,9 @@ class _$PayErrorImpl<T> implements PayError<T> {
     TResult? Function(PayLoading<T> value)? payLoading,
     TResult? Function(PaySuccess<T> value)? paySuccess,
     TResult? Function(PayError<T> value)? payError,
+    TResult? Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+    TResult? Function(AlwaysAutoValidateMode<T> value)? alwaysAutoValidateMode,
+    TResult? Function(ToggleCheckBox<T> value)? toggleCheckBox,
   }) {
     return payError?.call(this);
   }
@@ -571,6 +668,9 @@ class _$PayErrorImpl<T> implements PayError<T> {
     TResult Function(PayLoading<T> value)? payLoading,
     TResult Function(PaySuccess<T> value)? paySuccess,
     TResult Function(PayError<T> value)? payError,
+    TResult Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+    TResult Function(AlwaysAutoValidateMode<T> value)? alwaysAutoValidateMode,
+    TResult Function(ToggleCheckBox<T> value)? toggleCheckBox,
     required TResult orElse(),
   }) {
     if (payError != null) {
@@ -589,5 +689,543 @@ abstract class PayError<T> implements PaymentState<T> {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PayErrorImplCopyWith<T, _$PayErrorImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateSelectedCardTypeImplCopyWith<T, $Res> {
+  factory _$$UpdateSelectedCardTypeImplCopyWith(
+          _$UpdateSelectedCardTypeImpl<T> value,
+          $Res Function(_$UpdateSelectedCardTypeImpl<T>) then) =
+      __$$UpdateSelectedCardTypeImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({CardType cardType});
+
+  $CardTypeCopyWith<$Res> get cardType;
+}
+
+/// @nodoc
+class __$$UpdateSelectedCardTypeImplCopyWithImpl<T, $Res>
+    extends _$PaymentStateCopyWithImpl<T, $Res, _$UpdateSelectedCardTypeImpl<T>>
+    implements _$$UpdateSelectedCardTypeImplCopyWith<T, $Res> {
+  __$$UpdateSelectedCardTypeImplCopyWithImpl(
+      _$UpdateSelectedCardTypeImpl<T> _value,
+      $Res Function(_$UpdateSelectedCardTypeImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? cardType = null,
+  }) {
+    return _then(_$UpdateSelectedCardTypeImpl<T>(
+      null == cardType
+          ? _value.cardType
+          : cardType // ignore: cast_nullable_to_non_nullable
+              as CardType,
+    ));
+  }
+
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CardTypeCopyWith<$Res> get cardType {
+    return $CardTypeCopyWith<$Res>(_value.cardType, (value) {
+      return _then(_value.copyWith(cardType: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UpdateSelectedCardTypeImpl<T> implements UpdateSelectedCardType<T> {
+  const _$UpdateSelectedCardTypeImpl(this.cardType);
+
+  @override
+  final CardType cardType;
+
+  @override
+  String toString() {
+    return 'PaymentState<$T>.updateSelectedCardType(cardType: $cardType)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateSelectedCardTypeImpl<T> &&
+            (identical(other.cardType, cardType) ||
+                other.cardType == cardType));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, cardType);
+
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateSelectedCardTypeImplCopyWith<T, _$UpdateSelectedCardTypeImpl<T>>
+      get copyWith => __$$UpdateSelectedCardTypeImplCopyWithImpl<T,
+          _$UpdateSelectedCardTypeImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() payLoading,
+    required TResult Function() paySuccess,
+    required TResult Function(String error) payError,
+    required TResult Function(CardType cardType) updateSelectedCardType,
+    required TResult Function(AutovalidateMode mode) alwaysAutoValidateMode,
+    required TResult Function(bool? value) toggleCheckBox,
+  }) {
+    return updateSelectedCardType(cardType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? payLoading,
+    TResult? Function()? paySuccess,
+    TResult? Function(String error)? payError,
+    TResult? Function(CardType cardType)? updateSelectedCardType,
+    TResult? Function(AutovalidateMode mode)? alwaysAutoValidateMode,
+    TResult? Function(bool? value)? toggleCheckBox,
+  }) {
+    return updateSelectedCardType?.call(cardType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? payLoading,
+    TResult Function()? paySuccess,
+    TResult Function(String error)? payError,
+    TResult Function(CardType cardType)? updateSelectedCardType,
+    TResult Function(AutovalidateMode mode)? alwaysAutoValidateMode,
+    TResult Function(bool? value)? toggleCheckBox,
+    required TResult orElse(),
+  }) {
+    if (updateSelectedCardType != null) {
+      return updateSelectedCardType(cardType);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(PayLoading<T> value) payLoading,
+    required TResult Function(PaySuccess<T> value) paySuccess,
+    required TResult Function(PayError<T> value) payError,
+    required TResult Function(UpdateSelectedCardType<T> value)
+        updateSelectedCardType,
+    required TResult Function(AlwaysAutoValidateMode<T> value)
+        alwaysAutoValidateMode,
+    required TResult Function(ToggleCheckBox<T> value) toggleCheckBox,
+  }) {
+    return updateSelectedCardType(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(PayLoading<T> value)? payLoading,
+    TResult? Function(PaySuccess<T> value)? paySuccess,
+    TResult? Function(PayError<T> value)? payError,
+    TResult? Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+    TResult? Function(AlwaysAutoValidateMode<T> value)? alwaysAutoValidateMode,
+    TResult? Function(ToggleCheckBox<T> value)? toggleCheckBox,
+  }) {
+    return updateSelectedCardType?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(PayLoading<T> value)? payLoading,
+    TResult Function(PaySuccess<T> value)? paySuccess,
+    TResult Function(PayError<T> value)? payError,
+    TResult Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+    TResult Function(AlwaysAutoValidateMode<T> value)? alwaysAutoValidateMode,
+    TResult Function(ToggleCheckBox<T> value)? toggleCheckBox,
+    required TResult orElse(),
+  }) {
+    if (updateSelectedCardType != null) {
+      return updateSelectedCardType(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateSelectedCardType<T> implements PaymentState<T> {
+  const factory UpdateSelectedCardType(final CardType cardType) =
+      _$UpdateSelectedCardTypeImpl<T>;
+
+  CardType get cardType;
+
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateSelectedCardTypeImplCopyWith<T, _$UpdateSelectedCardTypeImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AlwaysAutoValidateModeImplCopyWith<T, $Res> {
+  factory _$$AlwaysAutoValidateModeImplCopyWith(
+          _$AlwaysAutoValidateModeImpl<T> value,
+          $Res Function(_$AlwaysAutoValidateModeImpl<T>) then) =
+      __$$AlwaysAutoValidateModeImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({AutovalidateMode mode});
+}
+
+/// @nodoc
+class __$$AlwaysAutoValidateModeImplCopyWithImpl<T, $Res>
+    extends _$PaymentStateCopyWithImpl<T, $Res, _$AlwaysAutoValidateModeImpl<T>>
+    implements _$$AlwaysAutoValidateModeImplCopyWith<T, $Res> {
+  __$$AlwaysAutoValidateModeImplCopyWithImpl(
+      _$AlwaysAutoValidateModeImpl<T> _value,
+      $Res Function(_$AlwaysAutoValidateModeImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? mode = null,
+  }) {
+    return _then(_$AlwaysAutoValidateModeImpl<T>(
+      null == mode
+          ? _value.mode
+          : mode // ignore: cast_nullable_to_non_nullable
+              as AutovalidateMode,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AlwaysAutoValidateModeImpl<T> implements AlwaysAutoValidateMode<T> {
+  const _$AlwaysAutoValidateModeImpl(this.mode);
+
+  @override
+  final AutovalidateMode mode;
+
+  @override
+  String toString() {
+    return 'PaymentState<$T>.alwaysAutoValidateMode(mode: $mode)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AlwaysAutoValidateModeImpl<T> &&
+            (identical(other.mode, mode) || other.mode == mode));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, mode);
+
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AlwaysAutoValidateModeImplCopyWith<T, _$AlwaysAutoValidateModeImpl<T>>
+      get copyWith => __$$AlwaysAutoValidateModeImplCopyWithImpl<T,
+          _$AlwaysAutoValidateModeImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() payLoading,
+    required TResult Function() paySuccess,
+    required TResult Function(String error) payError,
+    required TResult Function(CardType cardType) updateSelectedCardType,
+    required TResult Function(AutovalidateMode mode) alwaysAutoValidateMode,
+    required TResult Function(bool? value) toggleCheckBox,
+  }) {
+    return alwaysAutoValidateMode(mode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? payLoading,
+    TResult? Function()? paySuccess,
+    TResult? Function(String error)? payError,
+    TResult? Function(CardType cardType)? updateSelectedCardType,
+    TResult? Function(AutovalidateMode mode)? alwaysAutoValidateMode,
+    TResult? Function(bool? value)? toggleCheckBox,
+  }) {
+    return alwaysAutoValidateMode?.call(mode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? payLoading,
+    TResult Function()? paySuccess,
+    TResult Function(String error)? payError,
+    TResult Function(CardType cardType)? updateSelectedCardType,
+    TResult Function(AutovalidateMode mode)? alwaysAutoValidateMode,
+    TResult Function(bool? value)? toggleCheckBox,
+    required TResult orElse(),
+  }) {
+    if (alwaysAutoValidateMode != null) {
+      return alwaysAutoValidateMode(mode);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(PayLoading<T> value) payLoading,
+    required TResult Function(PaySuccess<T> value) paySuccess,
+    required TResult Function(PayError<T> value) payError,
+    required TResult Function(UpdateSelectedCardType<T> value)
+        updateSelectedCardType,
+    required TResult Function(AlwaysAutoValidateMode<T> value)
+        alwaysAutoValidateMode,
+    required TResult Function(ToggleCheckBox<T> value) toggleCheckBox,
+  }) {
+    return alwaysAutoValidateMode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(PayLoading<T> value)? payLoading,
+    TResult? Function(PaySuccess<T> value)? paySuccess,
+    TResult? Function(PayError<T> value)? payError,
+    TResult? Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+    TResult? Function(AlwaysAutoValidateMode<T> value)? alwaysAutoValidateMode,
+    TResult? Function(ToggleCheckBox<T> value)? toggleCheckBox,
+  }) {
+    return alwaysAutoValidateMode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(PayLoading<T> value)? payLoading,
+    TResult Function(PaySuccess<T> value)? paySuccess,
+    TResult Function(PayError<T> value)? payError,
+    TResult Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+    TResult Function(AlwaysAutoValidateMode<T> value)? alwaysAutoValidateMode,
+    TResult Function(ToggleCheckBox<T> value)? toggleCheckBox,
+    required TResult orElse(),
+  }) {
+    if (alwaysAutoValidateMode != null) {
+      return alwaysAutoValidateMode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AlwaysAutoValidateMode<T> implements PaymentState<T> {
+  const factory AlwaysAutoValidateMode(final AutovalidateMode mode) =
+      _$AlwaysAutoValidateModeImpl<T>;
+
+  AutovalidateMode get mode;
+
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AlwaysAutoValidateModeImplCopyWith<T, _$AlwaysAutoValidateModeImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ToggleCheckBoxImplCopyWith<T, $Res> {
+  factory _$$ToggleCheckBoxImplCopyWith(_$ToggleCheckBoxImpl<T> value,
+          $Res Function(_$ToggleCheckBoxImpl<T>) then) =
+      __$$ToggleCheckBoxImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({bool? value});
+}
+
+/// @nodoc
+class __$$ToggleCheckBoxImplCopyWithImpl<T, $Res>
+    extends _$PaymentStateCopyWithImpl<T, $Res, _$ToggleCheckBoxImpl<T>>
+    implements _$$ToggleCheckBoxImplCopyWith<T, $Res> {
+  __$$ToggleCheckBoxImplCopyWithImpl(_$ToggleCheckBoxImpl<T> _value,
+      $Res Function(_$ToggleCheckBoxImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_$ToggleCheckBoxImpl<T>(
+      freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ToggleCheckBoxImpl<T> implements ToggleCheckBox<T> {
+  const _$ToggleCheckBoxImpl(this.value);
+
+  @override
+  final bool? value;
+
+  @override
+  String toString() {
+    return 'PaymentState<$T>.toggleCheckBox(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleCheckBoxImpl<T> &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ToggleCheckBoxImplCopyWith<T, _$ToggleCheckBoxImpl<T>> get copyWith =>
+      __$$ToggleCheckBoxImplCopyWithImpl<T, _$ToggleCheckBoxImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() payLoading,
+    required TResult Function() paySuccess,
+    required TResult Function(String error) payError,
+    required TResult Function(CardType cardType) updateSelectedCardType,
+    required TResult Function(AutovalidateMode mode) alwaysAutoValidateMode,
+    required TResult Function(bool? value) toggleCheckBox,
+  }) {
+    return toggleCheckBox(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? payLoading,
+    TResult? Function()? paySuccess,
+    TResult? Function(String error)? payError,
+    TResult? Function(CardType cardType)? updateSelectedCardType,
+    TResult? Function(AutovalidateMode mode)? alwaysAutoValidateMode,
+    TResult? Function(bool? value)? toggleCheckBox,
+  }) {
+    return toggleCheckBox?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? payLoading,
+    TResult Function()? paySuccess,
+    TResult Function(String error)? payError,
+    TResult Function(CardType cardType)? updateSelectedCardType,
+    TResult Function(AutovalidateMode mode)? alwaysAutoValidateMode,
+    TResult Function(bool? value)? toggleCheckBox,
+    required TResult orElse(),
+  }) {
+    if (toggleCheckBox != null) {
+      return toggleCheckBox(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(PayLoading<T> value) payLoading,
+    required TResult Function(PaySuccess<T> value) paySuccess,
+    required TResult Function(PayError<T> value) payError,
+    required TResult Function(UpdateSelectedCardType<T> value)
+        updateSelectedCardType,
+    required TResult Function(AlwaysAutoValidateMode<T> value)
+        alwaysAutoValidateMode,
+    required TResult Function(ToggleCheckBox<T> value) toggleCheckBox,
+  }) {
+    return toggleCheckBox(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(PayLoading<T> value)? payLoading,
+    TResult? Function(PaySuccess<T> value)? paySuccess,
+    TResult? Function(PayError<T> value)? payError,
+    TResult? Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+    TResult? Function(AlwaysAutoValidateMode<T> value)? alwaysAutoValidateMode,
+    TResult? Function(ToggleCheckBox<T> value)? toggleCheckBox,
+  }) {
+    return toggleCheckBox?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(PayLoading<T> value)? payLoading,
+    TResult Function(PaySuccess<T> value)? paySuccess,
+    TResult Function(PayError<T> value)? payError,
+    TResult Function(UpdateSelectedCardType<T> value)? updateSelectedCardType,
+    TResult Function(AlwaysAutoValidateMode<T> value)? alwaysAutoValidateMode,
+    TResult Function(ToggleCheckBox<T> value)? toggleCheckBox,
+    required TResult orElse(),
+  }) {
+    if (toggleCheckBox != null) {
+      return toggleCheckBox(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ToggleCheckBox<T> implements PaymentState<T> {
+  const factory ToggleCheckBox(final bool? value) = _$ToggleCheckBoxImpl<T>;
+
+  bool? get value;
+
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ToggleCheckBoxImplCopyWith<T, _$ToggleCheckBoxImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

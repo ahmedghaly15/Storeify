@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,26 +39,29 @@ class PaymentMethodNextBlocConsumerButton extends StatelessWidget {
           current is ChoosePaymentMethodError ||
           current is ChoosePaymentMethodSuccess ||
           current is UpdateSelectedPaymentMethod,
-      builder: (context, state) => MainButton(
-        margin: EdgeInsets.symmetric(
-          horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
+      builder: (context, state) => FadeInUp(
+        from: 30.h,
+        child: MainButton(
+          margin: EdgeInsets.symmetric(
+            horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
+          ),
+          child: circularIndicatorOrTextWidget(
+            condition: state is ChoosePaymentMethodLoading,
+            context: context,
+            textKey:
+                context.read<PaymentMethodCubit>().selectedPaymentMethod.name ==
+                        LangKeys.creditCard
+                    ? LangKeys.continueKey
+                    : LangKeys.next,
+          ),
+          onPressed: () {
+            context.pushRoute(const PaymentRoute());
+            // context
+            //   .read<PaymentMethodCubit>()
+            //   .choosePaymentMethod(1 // TODO: remember to change this
+            //       );
+          },
         ),
-        child: circularIndicatorOrTextWidget(
-          condition: state is ChoosePaymentMethodLoading,
-          context: context,
-          textKey:
-              context.read<PaymentMethodCubit>().selectedPaymentMethod.name ==
-                      LangKeys.creditCard
-                  ? LangKeys.continueKey
-                  : LangKeys.next,
-        ),
-        onPressed: () {
-          context.pushRoute(const PaymentRoute());
-          // context
-          //   .read<PaymentMethodCubit>()
-          //   .choosePaymentMethod(1 // TODO: remember to change this
-          //       );
-        },
       ),
     );
   }

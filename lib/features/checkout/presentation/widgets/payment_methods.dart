@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,10 +22,12 @@ class PaymentMethods extends StatelessWidget {
           AppConstants.paymentMethods.length,
           (index) => BlocBuilder<PaymentMethodCubit, PaymentMethodState>(
             buildWhen: (_, current) => current is UpdateSelectedPaymentMethod,
-            builder: (context, state) => AnimatedPaymentMethodItem(
-              isChosen: index ==
-                  context.read<PaymentMethodCubit>().selectedPaymentMethod.id,
-              paymentMethod: AppConstants.paymentMethods[index],
+            builder: (context, state) => FadeInRight(
+              child: AnimatedPaymentMethodItem(
+                isChosen: index ==
+                    context.read<PaymentMethodCubit>().selectedPaymentMethod.id,
+                paymentMethod: AppConstants.paymentMethods[index],
+              ),
             ),
           ),
         ),

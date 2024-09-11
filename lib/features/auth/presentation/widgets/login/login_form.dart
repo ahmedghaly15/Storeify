@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/helpers/validator.dart';
+import 'package:store_ify/core/helpers/auth_validator.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
@@ -23,7 +23,7 @@ class LoginForm extends StatelessWidget {
           const TextFieldLabel(labelKey: LangKeys.email),
           CustomTextField(
             validate: (String? value) =>
-                Validator.validateEmailField(value: value),
+                AuthValidator.validateEmailField(context, value: value),
             onEditingComplete: () => context
                 .requestFocus(context.read<LoginCubit>().passwordFocusNode),
             controller: context.read<LoginCubit>().emailController,
@@ -39,7 +39,7 @@ class LoginForm extends StatelessWidget {
             builder: (context, state) => CustomTextField(
               autofillHints: const <String>[AutofillHints.password],
               validate: (String? value) =>
-                  Validator.validatePasswordField(value: value),
+                  AuthValidator.validatePasswordField(context, value: value),
               focusNode: context.read<LoginCubit>().passwordFocusNode,
               onSubmit: (_) => context.read<LoginCubit>().login(context),
               controller: context.read<LoginCubit>().passwordController,

@@ -5,6 +5,7 @@ import 'package:store_ify/core/models/storeify_user.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:store_ify/features/checkout/data/models/payment_method.dart';
+import 'package:store_ify/features/payment/data/models/card_type.dart';
 
 bool isUserLoggedIn = false;
 bool isOnboardingVisited = false;
@@ -54,6 +55,21 @@ class AppConstants {
       id: 1,
       name: LangKeys.cashOnDelivery,
       image: AppAssets.imagesCash,
+    ),
+  ];
+
+  static const List<CardType> cardTypes = [
+    CardType(
+      image: AppAssets.imagesVisa,
+      nameKey: LangKeys.visaCard,
+    ),
+    CardType(
+      image: AppAssets.imagesMasterCard,
+      nameKey: LangKeys.masterCard,
+    ),
+    CardType(
+      image: AppAssets.imagesPaypal,
+      nameKey: LangKeys.payPal,
     ),
   ];
 }
