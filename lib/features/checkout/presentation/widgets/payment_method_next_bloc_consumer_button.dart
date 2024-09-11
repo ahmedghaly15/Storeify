@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
 import 'package:store_ify/core/widgets/custom_toast.dart';
@@ -49,10 +51,13 @@ class PaymentMethodNextBlocConsumerButton extends StatelessWidget {
                   ? LangKeys.continueKey
                   : LangKeys.next,
         ),
-        onPressed: () => context
-            .read<PaymentMethodCubit>()
-            .choosePaymentMethod(1 // TODO: remember to change this
-                ),
+        onPressed: () {
+          context.pushRoute(const PaymentRoute());
+          // context
+          //   .read<PaymentMethodCubit>()
+          //   .choosePaymentMethod(1 // TODO: remember to change this
+          //       );
+        },
       ),
     );
   }

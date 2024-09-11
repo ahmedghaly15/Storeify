@@ -32,7 +32,7 @@ class StoreifyApp extends StatelessWidget {
         ],
         child: BlocBuilder<LocaleCubit, LocaleState>(
           buildWhen: (previous, current) => previous != current,
-          builder: (context, state) => MaterialApp.router(
+          builder: (_, state) => MaterialApp.router(
             debugShowCheckedModeBanner: false,
             locale: state.locale,
             supportedLocales: AppLocalizationsSetup.supportedLocales,

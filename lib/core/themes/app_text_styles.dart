@@ -3,6 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 
 class AppTextStyles {
+  static TextStyle textStyle20Medium = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w500,
+    color: AppColors.fontPrimaryColor,
+  );
+
   static TextStyle textStyle24Medium = TextStyle(
     fontSize: 24.sp,
     fontWeight: FontWeight.w500,

@@ -84,5 +84,19 @@
     "creditCard": "بطاقة الائتمان",
     "cashOnDelivery": "الدفع عند الاستلام",
     "continue": "متابعة",
-    "PAYMENT_METHOD_REQUIRED": "الرجاء تحديد طريقة الدفع"
+    "PAYMENT_METHOD_REQUIRED": "الرجاء تحديد طريقة الدفع",
+    "paymentWithCard": "الدفع عن طريق بطاقة الائتمان",
+    "payNow": "ادفع الان",
+    "saveCardDetails": "حفظ بيانات البطاقة",
+    "cardDetails": "تفاصيل البطاقة",
+    "cardType": "نوع البطاقة",
+    "cardNumber": "رقم البطاقة",
+    "expiryDate": "تاريخ الانتهاء",
+    "cvv": "CVV",
+    "cardHolderNumber": "رقم صاحب البطاقة",
+    "visaCard": "بطاقة فيزا",
+    "masterCard": "بطاقة ماستر كارد",
+    "payPal": "PayPal",
+    "cardNumberHint": "xxxx xxxx xxxx xxxx",
+    "expiryDateHint": "mm/yyy"
 }

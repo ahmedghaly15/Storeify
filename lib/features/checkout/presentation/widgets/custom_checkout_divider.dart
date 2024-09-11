@@ -15,7 +15,7 @@ class CustomCheckoutDivider extends StatelessWidget {
     return Container(
       height: 2.h,
       width: 25.87.w,
-      margin: EdgeInsets.symmetric(horizontal: 8.w),
+      margin: EdgeInsets.symmetric(horizontal: 4.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(2.16.r)),
         color: color,
