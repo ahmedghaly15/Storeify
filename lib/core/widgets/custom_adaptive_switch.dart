@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAdaptiveSwitch extends StatelessWidget {
   const CustomAdaptiveSwitch({
@@ -17,9 +18,23 @@ class CustomAdaptiveSwitch extends StatelessWidget {
       onChanged: onChanged,
       activeColor: Colors.white,
       inactiveTrackColor: Colors.white38,
-      thumbColor: const WidgetStatePropertyAll(Colors.white),
       activeTrackColor: Colors.white60,
       trackOutlineColor: const WidgetStatePropertyAll(Colors.transparent),
+      thumbColor: const WidgetStatePropertyAll(Colors.white),
+      trackColor:
+          WidgetStateProperty.resolveWith<Color>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.selected)) {
+          return Colors.white60;
+        }
+        return Colors.white38;
+      }),
+      thumbIcon:
+          WidgetStateProperty.resolveWith<Icon?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.selected)) {
+          return Icon(Icons.check, color: Colors.white, size: 20.0.h);
+        }
+        return Icon(Icons.close, color: Colors.white, size: 20.0.h);
+      }),
     );
   }
 }
