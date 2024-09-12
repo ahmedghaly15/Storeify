@@ -24,24 +24,26 @@ class FavoritesView extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: CustomScrollView(
-        slivers: [
-          const CustomSliverAppBar(
-            titleKey: LangKeys.favorites,
-            hasLeading: false,
-          ),
-          SliverToBoxAdapter(
-            child: Container(
-              margin: AppConstants.categoryMargin,
-              height: 25.h,
-              child: const FavoriteCategoriesListView(),
+    return Scaffold(
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            const CustomSliverAppBar(
+              titleKey: LangKeys.favorites,
+              hasLeading: false,
             ),
-          ),
-          const SliverFillRemaining(
-            child: FavoritesGridViewBlocBuilder(),
-          ),
-        ],
+            SliverToBoxAdapter(
+              child: Container(
+                margin: AppConstants.categoryMargin,
+                height: 25.h,
+                child: const FavoriteCategoriesListView(),
+              ),
+            ),
+            const SliverFillRemaining(
+              child: FavoritesGridViewBlocBuilder(),
+            ),
+          ],
+        ),
       ),
     );
   }

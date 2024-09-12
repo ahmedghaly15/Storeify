@@ -13,19 +13,13 @@ class LocaleCubit extends Cubit<LocaleState> {
           const LocaleState.initial(Locale(AppStrings.englishLangCode)),
         );
 
-  String currentLang = AppStrings.englishLangCode;
-
   void getSavedLang() async {
     final savedLang = await _localeRepo.getSavedLang();
-    currentLang = savedLang;
     emit(LocaleState.changeLocale(Locale(savedLang)));
   }
 
   void _changeLang(String langCode) async {
-    if (currentLang == langCode) return;
-
     await _localeRepo.changeLang(langCode);
-    currentLang = langCode;
     emit(LocaleState.changeLocale(Locale(langCode)));
   }
 
@@ -34,6 +28,10 @@ class LocaleCubit extends Cubit<LocaleState> {
   void _toArabic() => _changeLang(AppStrings.arabicLangCode);
 
   void toggleLocale() {
-    currentLang == AppStrings.englishLangCode ? _toArabic() : _toEnglish();
+    state.locale.languageCode == AppStrings.englishLangCode
+        ? _toArabic()
+        : _toEnglish();
   }
+
+  bool get isArabic => state.locale.languageCode == AppStrings.arabicLangCode;
 }

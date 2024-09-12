@@ -2,7 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/router/app_router.dart';
+import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
+import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
 import 'package:store_ify/dependency_injection.dart';
 import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
 import 'package:store_ify/features/home/presentation/widgets/home_data_bloc_builder.dart';
@@ -28,6 +31,18 @@ class HomeView extends StatelessWidget implements AutoRouteWrapper {
       child: CustomScrollView(
         physics: AppConstants.physics,
         slivers: [
+          CustomSliverAppBar(
+            hasLeading: false,
+            actions: [
+              IconButton(
+                onPressed: () => context.pushRoute(const ProfileRoute()),
+                icon: const Icon(
+                  AppConstants.personIcon,
+                  color: AppColors.greyColor,
+                ),
+              ),
+            ],
+          ),
           SliverPadding(
             padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
             sliver: const SliverToBoxAdapter(

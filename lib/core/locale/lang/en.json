@@ -123,5 +123,13 @@
     "cvvDigitsOnly": "CVV must contain only digits",
     "cvvInvalidLength": "Invalid CVV length",
     "paymentSuccessfully": "Payment successfully",
-    "backToHome": "Back to Home"
+    "backToHome": "Back to Home",
+    "profile": "Profile",
+    "appSettings": "Application Settings",
+    "darkMode": "Dark Mode",
+    "myOrders": "My Orders",
+    "arabic": "Arabic Language",
+    "accountSettings": "Account Settings",
+    "paymentMethod": "Payment Method",
+    "logout": "Logout"
 }

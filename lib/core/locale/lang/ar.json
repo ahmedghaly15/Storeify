@@ -123,5 +123,13 @@
     "cvvDigitsOnly": "يجب أن يحتوي رمز CVV على أرقام فقط",
     "cvvInvalidLength": "طول رمز CVV غير صحيح",
     "paymentSuccessfully": "تم الدفع بنجاح",
-    "backToHome": "العودة للرئيسيه"
+    "backToHome": "العودة للرئيسيه",
+    "profile": "الملف الشخصي",
+    "appSettings": "اعدادات التطبيق",
+    "darkMode": "الوضع الداكن",
+    "myOrders": "طلباتي",
+    "arabic": "اللغة العربية",
+    "accountSettings": "اعدادات الحساب",
+    "paymentMethod": "طريقة الدفع",
+    "logout": "تسجيل خروج"
 }

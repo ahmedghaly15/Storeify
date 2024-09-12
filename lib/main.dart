@@ -18,5 +18,6 @@ void main() async {
   Bloc.observer = MyBlocObserver();
   await checkIfOnboardingIsVisited();
   await checkIfUserLoggedIn();
+  // TODO: add some animations to the whole app
   runApp(const StoreifyApp());
 }
