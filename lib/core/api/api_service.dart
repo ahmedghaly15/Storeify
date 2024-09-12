@@ -3,6 +3,7 @@ import 'package:retrofit/retrofit.dart';
 import 'package:retrofit/retrofit.dart' as retrofit;
 
 import 'package:store_ify/core/api/end_points.dart';
+import 'package:store_ify/core/locale/models/change_api_lang_params.dart';
 import 'package:store_ify/core/models/storeify_user.dart';
 import 'package:store_ify/features/auth/data/models/forgot_password_params.dart';
 import 'package:store_ify/features/auth/data/models/login_params.dart';
@@ -184,4 +185,7 @@ abstract class ApiService {
     @Body() PayParams params, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
+
+  @POST(EndPoints.changeLang)
+  Future<void> changeApiLang(@Body() ChangeApiLangParams params);
 }
