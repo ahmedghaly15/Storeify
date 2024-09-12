@@ -116,7 +116,6 @@ class LangKeys {
   static const String logout = 'logout';
   static const String appSettings = 'appSettings';
   static const String arabic = 'arabic';
-  static const String english = 'english';
   static const String darkMode = 'darkMode';
   static const String myOrders = 'myOrders';
   static const String accountSettings = 'accountSettings';
