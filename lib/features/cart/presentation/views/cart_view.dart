@@ -24,19 +24,21 @@ class CartView extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: CustomScrollView(
-        physics: AppConstants.physics,
-        slivers: [
-          CustomSliverAppBar(titleKey: LangKeys.cart),
-          CartProductsSliverListBlocBuilder(),
-          SliverToBoxAdapter(
-            child: CartSummaryBlocBuilder(),
-          ),
-          SliverToBoxAdapter(
-            child: CheckoutButtonBlocBuilder(),
-          ),
-        ],
+    return const Scaffold(
+      body: SafeArea(
+        child: CustomScrollView(
+          physics: AppConstants.physics,
+          slivers: [
+            CustomSliverAppBar(titleKey: LangKeys.cart),
+            CartProductsSliverListBlocBuilder(),
+            SliverToBoxAdapter(
+              child: CartSummaryBlocBuilder(),
+            ),
+            SliverToBoxAdapter(
+              child: CheckoutButtonBlocBuilder(),
+            ),
+          ],
+        ),
       ),
     );
   }

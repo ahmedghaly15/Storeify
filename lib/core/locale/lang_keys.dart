@@ -112,4 +112,13 @@ class LangKeys {
   static const String cvvInvalidLength = 'cvvInvalidLength';
   static const String paymentSuccessfully = 'paymentSuccessfully';
   static const String backToHome = 'backToHome';
+  static const String profile = 'profile';
+  static const String logout = 'logout';
+  static const String appSettings = 'appSettings';
+  static const String arabic = 'arabic';
+  static const String english = 'english';
+  static const String darkMode = 'darkMode';
+  static const String myOrders = 'myOrders';
+  static const String accountSettings = 'accountSettings';
+  static const String paymentMethod = 'paymentMethod';
 }
