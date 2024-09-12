@@ -50,7 +50,9 @@ void _setupDIForCore() {
 }
 
 void _setupDIForRepos() {
-  getIt.registerLazySingleton<LocaleRepo>(() => const LocaleRepo());
+  getIt.registerLazySingleton<LocaleRepo>(
+    () => LocaleRepoImpl(getIt.get<ApiService>()),
+  );
   getIt.registerLazySingleton<AuthRepo>(
     () => AuthRepo(getIt.get<ApiService>()),
   );
