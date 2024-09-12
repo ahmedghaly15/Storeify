@@ -10,6 +10,7 @@ import 'package:store_ify/core/widgets/custom_adaptive_switch.dart';
 import 'package:store_ify/features/checkout/data/models/payment_method.dart';
 import 'package:store_ify/features/payment/data/models/card_type.dart';
 import 'package:store_ify/features/profile/data/models/setting_item.dart';
+import 'package:store_ify/features/profile/presentation/widgets/language_switch_bloc_consumer.dart';
 
 bool isUserLoggedIn = false;
 bool isOnboardingVisited = false;
@@ -97,12 +98,9 @@ class AppConstants {
             context.pushRoute(const CartRoute());
           },
         ),
-        SettingItem(
+        const SettingItem(
           titleKey: LangKeys.arabic,
-          trailing: CustomAdaptiveSwitch(
-            value: true,
-            onChanged: (val) {},
-          ),
+          trailing: LanguageSwitchBlocConsumer(),
         ),
       ];
   static List<SettingItem> get profileAccountSettings => [
