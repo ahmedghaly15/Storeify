@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/helpers/shared_pref_helper.dart';
+import 'package:store_ify/core/helpers/shared_pref_keys.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/widgets/custom_adaptive_switch.dart';
@@ -21,9 +23,16 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(const ProfileState.logoutLoading());
     final result = await _profileRepo.logout();
     result.when(
-      success: (_) => emit(const ProfileState.logoutSuccess()),
+      success: (_) async {
+        await _removeUserToken();
+        emit(const ProfileState.logoutSuccess());
+      },
       error: (error) => emit(ProfileState.logoutError(error.error ?? '')),
     );
+  }
+
+  Future<void> _removeUserToken() async {
+    await SharedPrefHelper.removeSecuredData(SharedPrefKeys.userToken);
   }
 
   List<SettingItem> profileAppSetting(BuildContext context) => [
@@ -63,7 +72,10 @@ class ProfileCubit extends Cubit<ProfileState> {
               context: context,
               barrierDismissible: true,
               barrierLabel: '',
-              builder: (context) => const CustomLogoutAdaptiveDialog(),
+              builder: (context) => BlocProvider.value(
+                value: this,
+                child: const CustomLogoutAdaptiveDialog(),
+              ),
             );
           },
         ),
