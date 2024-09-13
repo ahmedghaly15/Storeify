@@ -30,6 +30,8 @@ import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo_
 import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:store_ify/features/payment/data/repositories/payment_repo.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
+import 'package:store_ify/features/profile/data/repos/profile_repo.dart';
+import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
 import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubit.dart';
@@ -79,6 +81,9 @@ void _setupDIForRepos() {
   );
   getIt.registerLazySingleton<PaymentRepo>(
     () => PaymentRepoImpl(getIt.get<ApiService>()),
+  );
+  getIt.registerLazySingleton<ProfileRepo>(
+    () => ProfileRepoImpl(getIt.get<ApiService>()),
   );
 }
 
@@ -136,5 +141,8 @@ void _setupDIForCubits() {
   );
   getIt.registerFactory<PaymentCubit>(
     () => PaymentCubit(getIt.get<PaymentRepo>()),
+  );
+  getIt.registerFactory<ProfileCubit>(
+    () => ProfileCubit(getIt.get<ProfileRepo>()),
   );
 }
