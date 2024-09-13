@@ -20,4 +20,6 @@ class EndPoints {
   static const String cart = '${baseUrl}cart/';
   static const String checkout = '${baseUrl}checkout';
   static const String pay = '${baseUrl}pay/';
+  static const String changeLang = '${baseUrl}change-lang/';
+  static const String logout = '${baseUrl}logout/';
 }

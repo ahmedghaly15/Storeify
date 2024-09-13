@@ -36,7 +36,7 @@ class ValidateOtpButtonBlocConsumer extends StatelessWidget {
         return MainButton(
           onPressed: () => context.read<ValidateOtpCubit>().validateOtp(email),
           child: circularIndicatorOrTextWidget(
-            condition: state is Loading,
+            isLoading: state is Loading,
             context: context,
             textKey: LangKeys.verify,
           ),

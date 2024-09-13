@@ -41,7 +41,7 @@ class VerifyEmailButtonBlocConsumer extends StatelessWidget {
         onPressed: () =>
             context.read<ForgotPasswordCubit>().forgotPassword(context),
         child: circularIndicatorOrTextWidget(
-          condition: state is Loading,
+          isLoading: state is Loading,
           context: context,
           textKey: LangKeys.verifyEmail,
         ),

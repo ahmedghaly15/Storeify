@@ -44,7 +44,7 @@ class CheckoutNextBlocConsumerButton extends StatelessWidget {
             context.pushRoute(const PaymentMethodRoute());
           },
           child: circularIndicatorOrTextWidget(
-            condition: state is CheckoutLoading,
+            isLoading: state is CheckoutLoading,
             context: context,
             textKey: LangKeys.next,
           ),

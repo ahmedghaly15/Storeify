@@ -56,7 +56,7 @@ class ResetPassButtonBlocConsumer extends StatelessWidget {
                 ),
               ),
           child: circularIndicatorOrTextWidget(
-            condition: state is Loading,
+            isLoading: state is Loading,
             context: context,
             textKey: LangKeys.resetPassword,
           ),

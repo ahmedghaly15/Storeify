@@ -46,7 +46,7 @@ class PaymentMethodNextBlocConsumerButton extends StatelessWidget {
             horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
           ),
           child: circularIndicatorOrTextWidget(
-            condition: state is ChoosePaymentMethodLoading,
+            isLoading: state is ChoosePaymentMethodLoading,
             context: context,
             textKey:
                 context.read<PaymentMethodCubit>().selectedPaymentMethod.name ==

@@ -131,5 +131,8 @@
     "arabic": "اللغة العربية",
     "accountSettings": "اعدادات الحساب",
     "paymentMethod": "طريقة الدفع",
-    "logout": "تسجيل خروج"
+    "logout": "تسجيل خروج",
+    "sureToLogout": "هل أنت متاكد من تسجيل الخروج؟",
+    "cancel": "الغاء",
+    "confirm": "تاكيد"
 }
