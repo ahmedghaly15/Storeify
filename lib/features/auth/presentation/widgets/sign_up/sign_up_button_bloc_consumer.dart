@@ -33,7 +33,7 @@ class SignUpButtonBlocConsumer extends StatelessWidget {
           bottom: 10.h,
         ),
         child: circularIndicatorOrTextWidget(
-          condition: state is Loading,
+          isLoading: state is Loading,
           context: context,
           textKey: LangKeys.signUp,
         ),

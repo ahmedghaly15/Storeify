@@ -43,7 +43,7 @@ class PayBlocConsumerButton extends StatelessWidget {
           horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
         ),
         child: circularIndicatorOrTextWidget(
-          condition: state is PayLoading,
+          isLoading: state is PayLoading,
           context: context,
           textKey: LangKeys.payNow,
         ),
