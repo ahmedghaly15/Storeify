@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
@@ -6,6 +7,7 @@ import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
+import 'package:store_ify/features/profile/presentation/widgets/confirm_logout_bloc_consumer_button.dart';
 
 class CustomLogoutAdaptiveDialog extends StatelessWidget {
   const CustomLogoutAdaptiveDialog({super.key});
@@ -28,15 +30,12 @@ class CustomLogoutAdaptiveDialog extends StatelessWidget {
       ),
       actions: [
         MainButton(
-          onPressed: () {},
+          onPressed: () => context.maybePop(),
           textKey: LangKeys.cancel,
           isOutlined: true,
         ),
         MySizedBox.height10,
-        MainButton(
-          onPressed: () {},
-          textKey: LangKeys.confirm,
-        ),
+        const ConfirmLogoutBlocConsumerButton(),
       ],
     );
   }
