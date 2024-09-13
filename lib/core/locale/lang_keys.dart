@@ -120,4 +120,7 @@ class LangKeys {
   static const String myOrders = 'myOrders';
   static const String accountSettings = 'accountSettings';
   static const String paymentMethod = 'paymentMethod';
+  static const String sureToLogout = 'sureToLogout';
+  static const String cancel = 'cancel';
+  static const String confirm = 'confirm';
 }

@@ -52,7 +52,7 @@ class ProfileView extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: SettingsSeparatedListView(
-                settings: AppConstants.profileAccountSettings,
+                settings: AppConstants.profileAccountSettings(context),
               ),
             ),
           ],

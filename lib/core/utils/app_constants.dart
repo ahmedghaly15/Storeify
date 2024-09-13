@@ -10,6 +10,7 @@ import 'package:store_ify/core/widgets/custom_adaptive_switch.dart';
 import 'package:store_ify/features/checkout/data/models/payment_method.dart';
 import 'package:store_ify/features/payment/data/models/card_type.dart';
 import 'package:store_ify/features/profile/data/models/setting_item.dart';
+import 'package:store_ify/features/profile/presentation/widgets/custom_logout_adaptive_dialog.dart';
 import 'package:store_ify/features/profile/presentation/widgets/language_switch_bloc_consumer.dart';
 
 bool isUserLoggedIn = false;
@@ -103,14 +104,21 @@ class AppConstants {
           trailing: LanguageSwitchBlocConsumer(),
         ),
       ];
-  static List<SettingItem> get profileAccountSettings => [
+  static List<SettingItem> profileAccountSettings(BuildContext context) => [
         SettingItem(
           titleKey: LangKeys.paymentMethod,
           onTap: () {},
         ),
         SettingItem(
           titleKey: LangKeys.logout,
-          onTap: () {},
+          onTap: () {
+            showAdaptiveDialog(
+              context: context,
+              barrierDismissible: true,
+              barrierLabel: '',
+              builder: (context) => const CustomLogoutAdaptiveDialog(),
+            );
+          },
         ),
       ];
 }
