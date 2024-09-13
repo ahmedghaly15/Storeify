@@ -20,7 +20,7 @@ class LanguageSwitchBlocConsumer extends StatelessWidget {
       buildWhen: (previous, current) => previous != current,
       builder: (context, state) => CustomAdaptiveSwitch(
         value: context.read<LocaleCubit>().isArabic ? true : false,
-        onChanged: (_) => context.read<LocaleCubit>().toggleLocale(),
+        onChanged: (_) => context.read<LocaleCubit>().toggleLocale(context),
       ),
     );
   }
