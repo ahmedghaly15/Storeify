@@ -1,17 +1,11 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/models/storeify_user.dart';
-import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
-import 'package:store_ify/core/widgets/custom_adaptive_switch.dart';
 import 'package:store_ify/features/checkout/data/models/payment_method.dart';
 import 'package:store_ify/features/payment/data/models/card_type.dart';
-import 'package:store_ify/features/profile/data/models/setting_item.dart';
-import 'package:store_ify/features/profile/presentation/widgets/custom_logout_adaptive_dialog.dart';
-import 'package:store_ify/features/profile/presentation/widgets/language_switch_bloc_consumer.dart';
 
 bool isUserLoggedIn = false;
 bool isOnboardingVisited = false;
@@ -79,46 +73,4 @@ class AppConstants {
     ),
   ];
   static const IconData personIcon = Icons.person_2;
-  static List<SettingItem> profileAppSetting(BuildContext context) => [
-        SettingItem(
-          titleKey: LangKeys.favorite,
-          onTap: () {
-            context.pushRoute(const FavoritesRoute());
-          },
-        ),
-        SettingItem(
-          titleKey: LangKeys.darkMode,
-          trailing: CustomAdaptiveSwitch(
-            value: true,
-            onChanged: (val) {},
-          ),
-        ),
-        SettingItem(
-          titleKey: LangKeys.myOrders,
-          onTap: () {
-            context.pushRoute(const CartRoute());
-          },
-        ),
-        const SettingItem(
-          titleKey: LangKeys.arabic,
-          trailing: LanguageSwitchBlocConsumer(),
-        ),
-      ];
-  static List<SettingItem> profileAccountSettings(BuildContext context) => [
-        SettingItem(
-          titleKey: LangKeys.paymentMethod,
-          onTap: () {},
-        ),
-        SettingItem(
-          titleKey: LangKeys.logout,
-          onTap: () {
-            showAdaptiveDialog(
-              context: context,
-              barrierDismissible: true,
-              barrierLabel: '',
-              builder: (context) => const CustomLogoutAdaptiveDialog(),
-            );
-          },
-        ),
-      ];
 }

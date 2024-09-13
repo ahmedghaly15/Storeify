@@ -188,4 +188,7 @@ abstract class ApiService {
 
   @POST(EndPoints.changeLang)
   Future<void> changeApiLang(@Body() ChangeApiLangParams params);
+
+  @POST(EndPoints.logout)
+  Future<void> logout();
 }
