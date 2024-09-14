@@ -108,7 +108,7 @@ void _setupDIForCubits() {
     () => ResetPasswordCubit(getIt.get<AuthRepo>()),
   );
   getIt.registerFactory<HomeCubit>(
-    () => HomeCubit(getIt.get<HomeRepoImpl>()),
+    () => HomeCubit(getIt.get<HomeRepo>()),
   );
   getIt.registerFactory<CategoriesCubit>(
     () => CategoriesCubit(getIt.get<CategoriesRepo>()),

@@ -3,6 +3,188 @@
 part of 'product.dart';
 
 // **************************************************************************
+// TypeAdapterGenerator
+// **************************************************************************
+
+class ProductAdapter extends TypeAdapter<Product> {
+  @override
+  final int typeId = 3;
+
+  @override
+  Product read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return Product(
+      id: fields[0] as int,
+      discount: fields[1] as int?,
+      name: fields[2] as String,
+      description: fields[3] as String,
+      price: fields[4] as double,
+      priceAfterDiscount: fields[5] as double,
+      storeImg: fields[6] as String?,
+      productImages: (fields[7] as List).cast<ProductImg>(),
+      isFavorited: fields[8] as bool,
+      subCategory: fields[9] as SubCategory?,
+      colors: (fields[10] as List?)?.cast<ProductColor>(),
+      sizes: (fields[11] as List?)?.cast<ProductSize>(),
+      store: fields[12] as Store?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, Product obj) {
+    writer
+      ..writeByte(13)
+      ..writeByte(0)
+      ..write(obj.id)
+      ..writeByte(1)
+      ..write(obj.discount)
+      ..writeByte(2)
+      ..write(obj.name)
+      ..writeByte(3)
+      ..write(obj.description)
+      ..writeByte(4)
+      ..write(obj.price)
+      ..writeByte(5)
+      ..write(obj.priceAfterDiscount)
+      ..writeByte(6)
+      ..write(obj.storeImg)
+      ..writeByte(7)
+      ..write(obj.productImages)
+      ..writeByte(8)
+      ..write(obj.isFavorited)
+      ..writeByte(9)
+      ..write(obj.subCategory)
+      ..writeByte(10)
+      ..write(obj.colors)
+      ..writeByte(11)
+      ..write(obj.sizes)
+      ..writeByte(12)
+      ..write(obj.store);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ProductAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class ProductImgAdapter extends TypeAdapter<ProductImg> {
+  @override
+  final int typeId = 4;
+
+  @override
+  ProductImg read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return ProductImg(
+      img: fields[0] as String,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, ProductImg obj) {
+    writer
+      ..writeByte(1)
+      ..writeByte(0)
+      ..write(obj.img);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ProductImgAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class ProductColorAdapter extends TypeAdapter<ProductColor> {
+  @override
+  final int typeId = 5;
+
+  @override
+  ProductColor read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return ProductColor(
+      id: fields[0] as int,
+      color: fields[1] as String,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, ProductColor obj) {
+    writer
+      ..writeByte(2)
+      ..writeByte(0)
+      ..write(obj.id)
+      ..writeByte(1)
+      ..write(obj.color);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ProductColorAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class ProductSizeAdapter extends TypeAdapter<ProductSize> {
+  @override
+  final int typeId = 6;
+
+  @override
+  ProductSize read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return ProductSize(
+      id: fields[0] as int,
+      size: fields[1] as String,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, ProductSize obj) {
+    writer
+      ..writeByte(2)
+      ..writeByte(0)
+      ..write(obj.id)
+      ..writeByte(1)
+      ..write(obj.size);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ProductSizeAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+// **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
