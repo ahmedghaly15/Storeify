@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
@@ -30,13 +29,12 @@ class HomeDataBlocBuilder extends StatelessWidget {
         fetchHomeDataLoading: () => const Center(
           child: CustomCircularProgressIndicator(),
         ),
-        fetchHomeDataError: (errorKey) =>
-            Center(child: Text(context.translate(errorKey))),
+        fetchHomeDataError: (errorKey) => CustomErrorWidget(
+          tryAgainOnPressed: () => context.read<HomeCubit>().fetchHomeData(),
+          errorKey: errorKey,
+        ),
         fetchHomeDataSuccess: (homeData) => Container(
-          margin: EdgeInsetsDirectional.only(
-            top: 40.h,
-            bottom: 16.h,
-          ),
+          margin: EdgeInsetsDirectional.only(bottom: 16.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -59,7 +57,6 @@ class HomeDataBlocBuilder extends StatelessWidget {
                     context.pushRoute(const CheckoutRoute()),
               ),
               TopStoresListView(topStores: homeData.topStores),
-              // CategoriesListView(categories: homeData.categories),
             ],
           ),
         ),

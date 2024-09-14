@@ -47,7 +47,7 @@ class LoginCubit extends Cubit<LoginState> {
     );
     result.when(
       success: (user) async {
-        await _authRepo.saveUserToken(user.token);
+        await _authRepo.cacheUserAndSetTokenIntoHeaders(user);
         currentUser = user;
         emit(LoginState.success(user));
       },

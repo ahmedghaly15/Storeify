@@ -24,15 +24,15 @@ class ProfileCubit extends Cubit<ProfileState> {
     final result = await _profileRepo.logout();
     result.when(
       success: (_) async {
-        await _removeUserToken();
+        await _removeCachedUser();
         emit(const ProfileState.logoutSuccess());
       },
       error: (error) => emit(ProfileState.logoutError(error.error ?? '')),
     );
   }
 
-  Future<void> _removeUserToken() async {
-    await SharedPrefHelper.removeSecuredData(SharedPrefKeys.userToken);
+  Future<void> _removeCachedUser() async {
+    await SharedPrefHelper.removeSecuredData(SharedPrefKeys.storeifyUser);
   }
 
   List<SettingItem> profileAppSetting(BuildContext context) => [

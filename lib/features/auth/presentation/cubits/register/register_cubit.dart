@@ -61,7 +61,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     );
     result.when(
       success: (user) async {
-        await _authRepo.saveUserToken(user.token);
+        await _authRepo.cacheUserAndSetTokenIntoHeaders(user);
         currentUser = user;
         emit(RegisterState.success(user));
       },
