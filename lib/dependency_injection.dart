@@ -26,6 +26,7 @@ import 'package:store_ify/features/checkout/data/repositories/checkout_repo.dart
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_cubit.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/payment_method/payment_method_cubit.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo.dart';
+import 'package:store_ify/features/favorites/data/repositories/favorites_repo_impl.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
 import 'package:store_ify/features/home/data/repos/home_repo.dart';
@@ -93,7 +94,7 @@ void _setupDIForRepos() {
     () => StoresRepo(getIt.get<ApiService>()),
   );
   getIt.registerLazySingleton<FavoritesRepo>(
-    () => FavoritesRepo(getIt.get<ApiService>()),
+    () => FavoritesRepoImpl(getIt.get<ApiService>()),
   );
   getIt.registerLazySingleton<OnboardingRepo>(
     () => const OnboardingRepoImpl(),
@@ -150,10 +151,10 @@ void _setupDIForCubits() {
     () => StoreDetailsCubit(getIt.get<StoresRepo>()),
   );
   getIt.registerFactory<FavoritesCubit>(
-    () => FavoritesCubit(getIt.get<FavoritesRepo>()),
+    () => FavoritesCubit(getIt.get<FavoritesRepoImpl>()),
   );
   getIt.registerFactory<FetchFavoritesCubit>(
-    () => FetchFavoritesCubit(getIt.get<FavoritesRepo>()),
+    () => FetchFavoritesCubit(getIt.get<FavoritesRepoImpl>()),
   );
   getIt.registerFactory<OnboardingCubit>(
     () => OnboardingCubit(getIt.get<OnboardingRepo>()),
