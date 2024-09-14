@@ -72,7 +72,7 @@ class ProfileCubit extends Cubit<ProfileState> {
               context: context,
               barrierDismissible: true,
               barrierLabel: '',
-              builder: (context) => BlocProvider.value(
+              builder: (_) => BlocProvider.value(
                 value: this,
                 child: const CustomLogoutAdaptiveDialog(),
               ),

@@ -29,7 +29,7 @@ class CartView extends StatelessWidget implements AutoRouteWrapper {
         child: CustomScrollView(
           physics: AppConstants.physics,
           slivers: [
-            CustomSliverAppBar(titleKey: LangKeys.cart),
+            CustomSliverAppBar(titleKey: LangKeys.cart, hasLeading: false),
             CartProductsSliverListBlocBuilder(),
             SliverToBoxAdapter(
               child: CartSummaryBlocBuilder(),

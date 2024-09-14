@@ -21,42 +21,44 @@ class CustomErrorWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 32.w),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          const Spacer(),
           if (errorKey == LangKeys.noInternet)
             Image.asset(
               AppAssets.imagesNoInternet,
               fit: BoxFit.cover,
             ),
-          if (errorKey == LangKeys.defaultError)
+          if (errorKey != LangKeys.noInternet)
             Image.asset(
               AppAssets.imagesDefaultError,
               fit: BoxFit.cover,
             ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 12.h),
-            child: Text(
-              context.translate(errorKey),
-              style: AppTextStyles.textStyle18Bold,
-              textAlign: TextAlign.center,
-            ),
+          Column(
+            children: [
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 12.h),
+                child: Text(
+                  context.translate(errorKey),
+                  style: AppTextStyles.textStyle18Bold,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              if (errorKey == LangKeys.noInternet)
+                Text(
+                  context.translate(LangKeys.ensureInternetConnection),
+                  style: AppTextStyles.textStyle14Regular,
+                  textAlign: TextAlign.center,
+                ),
+              if (errorKey != LangKeys.noInternet)
+                Text(
+                  context.translate(LangKeys.defaultErrorDescription),
+                  style: AppTextStyles.textStyle14Regular,
+                  textAlign: TextAlign.center,
+                ),
+            ],
           ),
-          if (errorKey == LangKeys.noInternet)
-            Text(
-              context.translate(LangKeys.ensureInternetConnection),
-              style: AppTextStyles.textStyle14Regular,
-              textAlign: TextAlign.center,
-            ),
-          if (errorKey == LangKeys.defaultError)
-            Text(
-              context.translate(LangKeys.defaultErrorDescription),
-              style: AppTextStyles.textStyle14Regular,
-              textAlign: TextAlign.center,
-            ),
-          const Spacer(),
           TryAgainButton(onPressed: tryAgainOnPressed),
-          const Spacer(),
         ],
       ),
     );
