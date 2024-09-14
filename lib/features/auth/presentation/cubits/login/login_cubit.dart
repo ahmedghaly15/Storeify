@@ -8,7 +8,7 @@ import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  final AuthRepoImpl _authRepo;
+  final AuthRepo _authRepo;
 
   LoginCubit(this._authRepo) : super(const LoginState.initial()) {
     _initFormAttributes();
@@ -47,7 +47,7 @@ class LoginCubit extends Cubit<LoginState> {
     );
     result.when(
       success: (user) async {
-        await _authRepo.saveUserToken(user.token);
+        await _authRepo.cacheUserAndSetTokenIntoHeaders(user);
         currentUser = user;
         emit(LoginState.success(user));
       },
