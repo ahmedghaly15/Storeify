@@ -1,6 +1,9 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:store_ify/core/models/pagination.dart';
 import 'package:store_ify/core/models/storeify_user.dart';
+import 'package:store_ify/features/cart/data/models/cart.dart';
+import 'package:store_ify/features/cart/data/models/cart_product.dart';
+import 'package:store_ify/features/cart/data/models/fetch_cart_response.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
 import 'package:store_ify/features/home/data/models/fetch_home_response.dart';
 import 'package:store_ify/features/home/data/models/product.dart';
@@ -22,5 +25,8 @@ class HiveHelper {
     Hive.registerAdapter(CategoryAdapter());
     Hive.registerAdapter(SubCategoryAdapter());
     Hive.registerAdapter(PaginationAdapter());
+    Hive.registerAdapter(CartProductAdapter());
+    Hive.registerAdapter(CartAdapter());
+    Hive.registerAdapter(FetchCartResponseAdapter());
   }
 }
