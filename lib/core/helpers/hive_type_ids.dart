@@ -12,4 +12,7 @@ class HiveTypeIds {
   static const int category = 8;
   static const int subCategory = 9;
   static const int pagination = 10;
+  static const int cartProduct = 11;
+  static const int cart = 12;
+  static const int fetchCartResponse = 13;
 }
