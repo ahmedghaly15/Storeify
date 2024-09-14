@@ -37,17 +37,23 @@ class CartRepoImpl implements CartRepo {
         await _localDatasource.retrieveCachedCart();
     if (cachedCart == null) {
       debugPrint('*********** NO CACHED CART ***********');
-      try {
-        final cart = await _apiService.fetchCart(cancelToken);
-        await _localDatasource.cacheCart(cart);
-        return ApiResult.success(cart);
-      } catch (error) {
-        debugPrint('********* ERROR FETCHING CART: $error *********');
-        return ApiResult.error(ApiErrorHandler.handle(error));
-      }
+      return await _fetchAndCacheCart(cancelToken);
     } else {
       debugPrint('*********** GOT CACHED CART ***********');
       return ApiResult.success(cachedCart);
+    }
+  }
+
+  Future<ApiResult<FetchCartResponse>> _fetchAndCacheCart(
+    CancelToken? cancelToken,
+  ) async {
+    try {
+      final cart = await _apiService.fetchCart(cancelToken);
+      await _localDatasource.cacheCart(cart);
+      return ApiResult.success(cart);
+    } catch (error) {
+      debugPrint('********* ERROR FETCHING CART: $error *********');
+      return ApiResult.error(ApiErrorHandler.handle(error));
     }
   }
 

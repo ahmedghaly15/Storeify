@@ -19,6 +19,7 @@ import 'package:store_ify/features/cart/data/repositories/cart_repo_impl.dart';
 import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:store_ify/features/categories/data/datasources/categories_local_datasource.dart';
 import 'package:store_ify/features/categories/data/repositories/categories_repo.dart';
+import 'package:store_ify/features/categories/data/repositories/categories_repo_impl.dart';
 import 'package:store_ify/features/categories/presentation/cubit/categories/categories_cubit.dart';
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_cubit.dart';
 import 'package:store_ify/features/checkout/data/repositories/checkout_repo.dart';
@@ -140,7 +141,7 @@ void _setupDIForCubits() {
     () => CategoriesCubit(getIt.get<CategoriesRepo>()),
   );
   getIt.registerFactory<SubCategoryCubit>(
-    () => SubCategoryCubit(getIt.get<CategoriesRepoImpl>()),
+    () => SubCategoryCubit(getIt.get<CategoriesRepo>()),
   );
   getIt.registerFactory<StoresCubit>(
     () => StoresCubit(getIt.get<StoresRepo>()),
