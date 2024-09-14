@@ -14,7 +14,7 @@ class AuthLocalDatasource {
     );
   }
 
-  static Future<StoreifyUser> getCachedUserToken() async {
+  static Future<StoreifyUser> getCachedUser() async {
     final cachedUser =
         await SharedPrefHelper.getSecuredString(SharedPrefKeys.storeifyUser);
     final StoreifyUser user = StoreifyUser.fromJson(json.decode(cachedUser));

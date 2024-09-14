@@ -33,10 +33,7 @@ class HomeDataBlocBuilder extends StatelessWidget {
         fetchHomeDataError: (errorKey) =>
             Center(child: Text(context.translate(errorKey))),
         fetchHomeDataSuccess: (homeData) => Container(
-          margin: EdgeInsetsDirectional.only(
-            top: 40.h,
-            bottom: 16.h,
-          ),
+          margin: EdgeInsetsDirectional.only(bottom: 16.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
