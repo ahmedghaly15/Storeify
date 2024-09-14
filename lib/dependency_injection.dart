@@ -7,6 +7,7 @@ import 'package:store_ify/core/locale/logic/locale_repo.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/services/location_service.dart';
 import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
+import 'package:store_ify/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forgot_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
@@ -56,7 +57,7 @@ void _setupDIForRepos() {
     () => LocaleRepoImpl(getIt.get<ApiService>()),
   );
   getIt.registerLazySingleton<AuthRepo>(
-    () => AuthRepo(getIt.get<ApiService>()),
+    () => AuthRepoImpl(getIt.get<ApiService>()),
   );
   getIt.registerLazySingleton<HomeRepo>(
     () => HomeRepo(getIt.get<ApiService>()),

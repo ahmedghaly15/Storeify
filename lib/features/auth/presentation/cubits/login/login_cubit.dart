@@ -8,7 +8,7 @@ import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  final AuthRepo _authRepo;
+  final AuthRepoImpl _authRepo;
 
   LoginCubit(this._authRepo) : super(const LoginState.initial()) {
     _initFormAttributes();
