@@ -13,6 +13,8 @@ abstract class AuthRepo {
     CancelToken? cancelToken,
   ]);
 
+  Future<void> cacheUserAndSetTokenIntoHeaders(StoreifyUser user);
+
   Future<ApiResult<StoreifyUser>> register(
     RegisterParams params, [
     CancelToken? cancelToken,

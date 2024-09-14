@@ -2,10 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:store_ify/core/api/api_result.dart';
 import 'package:store_ify/core/api/api_service.dart';
 import 'package:store_ify/core/api/dio_factory.dart';
-import 'package:store_ify/core/helpers/shared_pref_helper.dart';
-import 'package:store_ify/core/helpers/shared_pref_keys.dart';
 import 'package:store_ify/core/models/storeify_user.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
+import 'package:store_ify/features/auth/data/datasources/auth_local_datasource.dart';
 import 'package:store_ify/features/auth/data/models/forgot_password_params.dart';
 import 'package:store_ify/features/auth/data/models/login_params.dart';
 import 'package:store_ify/features/auth/data/models/register_params.dart';
@@ -18,16 +17,17 @@ class AuthRepoImpl implements AuthRepo {
 
   const AuthRepoImpl(this._apiService);
 
-  Future<void> saveUserToken(String token) async {
-    await SharedPrefHelper.setSecuredString(SharedPrefKeys.userToken, token);
-    DioFactory.setTokenIntoHeadersAfterLogin(token);
+  @override
+  Future<void> cacheUserAndSetTokenIntoHeaders(StoreifyUser user) async {
+    await AuthLocalDatasource.cacheUser(user);
+    DioFactory.setTokenIntoHeadersAfterLogin(user.token);
   }
 
   @override
   Future<ApiResult<StoreifyUser>> login(
     LoginParams params, [
     CancelToken? cancelToken,
-  ]) {
+  ]) async {
     return executeAndHandleErrors<StoreifyUser>(
       () async => await _apiService.login(params, cancelToken),
     );
