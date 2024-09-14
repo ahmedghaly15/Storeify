@@ -50,6 +50,10 @@ class AppAssets {
   static const String iconsIconParkCorrect =
       "assets/icons/icon-park_correct.png";
 
+  /// Assets for iconsLocationIcon
+  /// assets/icons/location_icon.png
+  static const String iconsLocationIcon = "assets/icons/location_icon.png";
+
   /// Assets for iconsSearch
   /// assets/icons/Search.png
   static const String iconsSearch = "assets/icons/Search.png";
