@@ -64,7 +64,7 @@ void _setupDIForRepos() {
     () => HomeRepoImpl(getIt.get<ApiService>()),
   );
   getIt.registerLazySingleton<CategoriesRepo>(
-    () => CategoriesRepo(getIt.get<ApiService>()),
+    () => CategoriesRepoImpl(getIt.get<ApiService>()),
   );
   getIt.registerLazySingleton<StoresRepo>(
     () => StoresRepo(getIt.get<ApiService>()),
@@ -115,7 +115,7 @@ void _setupDIForCubits() {
     () => CategoriesCubit(getIt.get<CategoriesRepo>()),
   );
   getIt.registerFactory<SubCategoryCubit>(
-    () => SubCategoryCubit(getIt.get<CategoriesRepo>()),
+    () => SubCategoryCubit(getIt.get<CategoriesRepoImpl>()),
   );
   getIt.registerFactory<StoresCubit>(
     () => StoresCubit(getIt.get<StoresRepo>()),

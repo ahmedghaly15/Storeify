@@ -9,7 +9,7 @@ class SubCategoryCubit extends Cubit<SubCategoryState> {
     this._categoriesRepo,
   ) : super(const SubCategoryState.initial());
 
-  final CategoriesRepo _categoriesRepo;
+  final CategoriesRepoImpl _categoriesRepo;
   final CancelToken _cancelToken = CancelToken();
 
   void fetchSubCategory(FetchSubCategoryParams params) async {

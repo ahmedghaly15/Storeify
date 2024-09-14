@@ -6,11 +6,22 @@ import 'package:store_ify/features/categories/data/models/fetch_categories_respo
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_params.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_response.dart';
 
-class CategoriesRepo {
+abstract class CategoriesRepo {
+  Future<ApiResult<FetchCategoriesResponse>> fetchCategories([
+    CancelToken? cancelToken,
+  ]);
+  Future<ApiResult<FetchSubCategoryResponse>> fetchSubCategory(
+    FetchSubCategoryParams params, [
+    CancelToken? cancelToken,
+  ]);
+}
+
+class CategoriesRepoImpl implements CategoriesRepo {
   final ApiService _apiService;
 
-  const CategoriesRepo(this._apiService);
+  const CategoriesRepoImpl(this._apiService);
 
+  @override
   Future<ApiResult<FetchCategoriesResponse>> fetchCategories([
     CancelToken? cancelToken,
   ]) {
@@ -19,6 +30,7 @@ class CategoriesRepo {
     );
   }
 
+  @override
   Future<ApiResult<FetchSubCategoryResponse>> fetchSubCategory(
     FetchSubCategoryParams params, [
     CancelToken? cancelToken,
