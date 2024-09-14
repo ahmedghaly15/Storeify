@@ -43,7 +43,7 @@ class DioFactory {
         await SharedPrefHelper.getSecuredString(SharedPrefKeys.storeifyUser);
 
     if (cachedUser.nullOrEmpty == false) {
-      final StoreifyUser user = await AuthLocalDatasource.getCachedUserToken();
+      final StoreifyUser user = await AuthLocalDatasource.getCachedUser();
       _dio?.options.headers = {
         'Accept': 'application/json',
         'Authorization': 'Bearer ${user.token}',
