@@ -9,6 +9,7 @@ import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
 import 'package:store_ify/dependency_injection.dart';
 import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
 import 'package:store_ify/features/home/presentation/widgets/home_data_bloc_builder.dart';
+import 'package:store_ify/features/home/presentation/widgets/show_location_dialog_bloc_listener.dart';
 import 'package:store_ify/features/home/presentation/widgets/user_info_and_search_field.dart';
 
 @RoutePage()
@@ -18,9 +19,7 @@ class HomeView extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider<HomeCubit>(
-      create: (context) => getIt.get<HomeCubit>()
-        ..fetchHomeData()
-        ..requestLocationPermission(),
+      create: (context) => getIt.get<HomeCubit>()..fetchHomeData(),
       child: this,
     );
   }
@@ -42,6 +41,9 @@ class HomeView extends StatelessWidget implements AutoRouteWrapper {
                 ),
               ),
             ],
+          ),
+          const SliverToBoxAdapter(
+            child: ShowLocationDialogBlocListener(),
           ),
           SliverPadding(
             padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
