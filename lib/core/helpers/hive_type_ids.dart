@@ -15,4 +15,6 @@ class HiveTypeIds {
   static const int cartProduct = 11;
   static const int cart = 12;
   static const int fetchCartResponse = 13;
+  static const int fetchCategoriesResponse = 14;
+  static const int fetchSubCategoryResponse = 15;
 }

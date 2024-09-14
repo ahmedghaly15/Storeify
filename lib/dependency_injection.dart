@@ -13,10 +13,13 @@ import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.da
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/validate_otp/validate_otp_cubit.dart';
+import 'package:store_ify/features/cart/data/datasources/cart_local_datasource.dart';
 import 'package:store_ify/features/cart/data/repositories/cart_repo.dart';
 import 'package:store_ify/features/cart/data/repositories/cart_repo_impl.dart';
 import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
+import 'package:store_ify/features/categories/data/datasources/categories_local_datasource.dart';
 import 'package:store_ify/features/categories/data/repositories/categories_repo.dart';
+import 'package:store_ify/features/categories/data/repositories/categories_repo_impl.dart';
 import 'package:store_ify/features/categories/presentation/cubit/categories/categories_cubit.dart';
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_cubit.dart';
 import 'package:store_ify/features/checkout/data/repositories/checkout_repo.dart';
@@ -26,6 +29,7 @@ import 'package:store_ify/features/favorites/data/repositories/favorites_repo.da
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
 import 'package:store_ify/features/home/data/repos/home_repo.dart';
+import 'package:store_ify/features/home/datasources/home_local_datasource.dart';
 import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
 import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo.dart';
 import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo_impl.dart';
@@ -42,6 +46,7 @@ final GetIt getIt = GetIt.instance;
 
 void setupDI() {
   _setupDIForCore();
+  _setupDIForDatasources();
   _setupDIForRepos();
   _setupDIForCubits();
 }
@@ -53,6 +58,18 @@ void _setupDIForCore() {
   getIt.registerLazySingleton<LocationService>(() => LocationService());
 }
 
+void _setupDIForDatasources() {
+  getIt.registerLazySingleton<CategoriesLocalDatasource>(
+    () => const CategoriesLocalDatasource(),
+  );
+  getIt.registerLazySingleton<HomeLocalDatasource>(
+    () => const HomeLocalDatasource(),
+  );
+  getIt.registerLazySingleton<CartLocalDatasource>(
+    () => const CartLocalDatasource(),
+  );
+}
+
 void _setupDIForRepos() {
   getIt.registerLazySingleton<LocaleRepo>(
     () => LocaleRepoImpl(getIt.get<ApiService>()),
@@ -61,10 +78,16 @@ void _setupDIForRepos() {
     () => AuthRepoImpl(getIt.get<ApiService>()),
   );
   getIt.registerLazySingleton<HomeRepo>(
-    () => HomeRepoImpl(getIt.get<ApiService>()),
+    () => HomeRepoImpl(
+      getIt.get<ApiService>(),
+      getIt.get<HomeLocalDatasource>(),
+    ),
   );
   getIt.registerLazySingleton<CategoriesRepo>(
-    () => CategoriesRepo(getIt.get<ApiService>()),
+    () => CategoriesRepoImpl(
+      getIt.get<ApiService>(),
+      getIt.get<CategoriesLocalDatasource>(),
+    ),
   );
   getIt.registerLazySingleton<StoresRepo>(
     () => StoresRepo(getIt.get<ApiService>()),
@@ -76,7 +99,10 @@ void _setupDIForRepos() {
     () => const OnboardingRepoImpl(),
   );
   getIt.registerLazySingleton<CartRepo>(
-    () => CartRepoImpl(getIt.get<ApiService>()),
+    () => CartRepoImpl(
+      getIt.get<ApiService>(),
+      getIt.get<CartLocalDatasource>(),
+    ),
   );
   getIt.registerLazySingleton<CheckoutRepo>(
     () => CheckoutRepoImpl(getIt.get<ApiService>()),

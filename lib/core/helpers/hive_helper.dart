@@ -5,6 +5,8 @@ import 'package:store_ify/features/cart/data/models/cart.dart';
 import 'package:store_ify/features/cart/data/models/cart_product.dart';
 import 'package:store_ify/features/cart/data/models/fetch_cart_response.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
+import 'package:store_ify/features/categories/data/models/fetch_categories_response.dart';
+import 'package:store_ify/features/categories/data/models/fetch_sub_category_response.dart';
 import 'package:store_ify/features/home/data/models/fetch_home_response.dart';
 import 'package:store_ify/features/home/data/models/product.dart';
 import 'package:store_ify/features/home/data/models/sub_category.dart';
@@ -28,5 +30,7 @@ class HiveHelper {
     Hive.registerAdapter(CartProductAdapter());
     Hive.registerAdapter(CartAdapter());
     Hive.registerAdapter(FetchCartResponseAdapter());
+    Hive.registerAdapter(FetchSubCategoryResponseAdapter());
+    Hive.registerAdapter(FetchCategoriesResponseAdapter());
   }
 }

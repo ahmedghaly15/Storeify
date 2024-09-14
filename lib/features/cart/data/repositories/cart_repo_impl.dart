@@ -10,9 +10,10 @@ import 'package:store_ify/features/cart/data/models/fetch_cart_response.dart';
 import 'package:store_ify/features/cart/data/repositories/cart_repo.dart';
 
 class CartRepoImpl implements CartRepo {
-  const CartRepoImpl(this._apiService);
-
   final ApiService _apiService;
+  final CartLocalDatasource _localDatasource;
+
+  const CartRepoImpl(this._apiService, this._localDatasource);
 
   @override
   Future<ApiResult<void>> addProductToCart(
@@ -33,20 +34,26 @@ class CartRepoImpl implements CartRepo {
     CancelToken? cancelToken,
   ]) async {
     final FetchCartResponse? cachedCart =
-        await CartLocalDatasource.retrieveCachedCart();
+        await _localDatasource.retrieveCachedCart();
     if (cachedCart == null) {
       debugPrint('*********** NO CACHED CART ***********');
-      try {
-        final cart = await _apiService.fetchCart(cancelToken);
-        await CartLocalDatasource.cacheCart(cart);
-        return ApiResult.success(cart);
-      } catch (error) {
-        debugPrint('********* ERROR FETCHING CART: $error *********');
-        return ApiResult.error(ApiErrorHandler.handle(error));
-      }
+      return await _fetchAndCacheCart(cancelToken);
     } else {
       debugPrint('*********** GOT CACHED CART ***********');
       return ApiResult.success(cachedCart);
+    }
+  }
+
+  Future<ApiResult<FetchCartResponse>> _fetchAndCacheCart(
+    CancelToken? cancelToken,
+  ) async {
+    try {
+      final cart = await _apiService.fetchCart(cancelToken);
+      await _localDatasource.cacheCart(cart);
+      return ApiResult.success(cart);
+    } catch (error) {
+      debugPrint('********* ERROR FETCHING CART: $error *********');
+      return ApiResult.error(ApiErrorHandler.handle(error));
     }
   }
 

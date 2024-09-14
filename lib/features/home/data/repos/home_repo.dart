@@ -13,30 +13,37 @@ abstract class HomeRepo {
 }
 
 class HomeRepoImpl implements HomeRepo {
-  const HomeRepoImpl(this._apiService);
-
   final ApiService _apiService;
+  final HomeLocalDatasource _localDatasource;
+
+  const HomeRepoImpl(this._apiService, this._localDatasource);
 
   @override
   Future<ApiResult<FetchHomeResponse>> fetchHomeData([
     CancelToken? cancelToken,
   ]) async {
     final FetchHomeResponse? cachedHomeResponse =
-        await HomeLocalDatasource.retrieveCachedHomeResponse();
+        await _localDatasource.retrieveCachedHomeResponse();
     if (cachedHomeResponse == null) {
       debugPrint('********* NO CACHED HOME RESPONSE *********');
-      try {
-        final FetchHomeResponse homeResponse =
-            await _apiService.fetchHomeData(cancelToken);
-        await HomeLocalDatasource.cacheHomeResponse(homeResponse);
-        return ApiResult.success(homeResponse);
-      } catch (error) {
-        debugPrint('********* ERROR FETCHING HOME RESPONSE: $error *********');
-        return ApiResult.error(ApiErrorHandler.handle(error));
-      }
+      return await _fetchAndCacheHomeData(cancelToken);
     } else {
       debugPrint('********* FETCHED CACHED HOME RESPONSE *********');
       return ApiResult.success(cachedHomeResponse);
+    }
+  }
+
+  Future<ApiResult<FetchHomeResponse>> _fetchAndCacheHomeData(
+    CancelToken? cancelToken,
+  ) async {
+    try {
+      final FetchHomeResponse homeResponse =
+          await _apiService.fetchHomeData(cancelToken);
+      await _localDatasource.cacheHomeResponse(homeResponse);
+      return ApiResult.success(homeResponse);
+    } catch (error) {
+      debugPrint('********* ERROR FETCHING HOME RESPONSE: $error *********');
+      return ApiResult.error(ApiErrorHandler.handle(error));
     }
   }
 }
