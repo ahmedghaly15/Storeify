@@ -60,7 +60,7 @@ void _setupDIForRepos() {
     () => AuthRepoImpl(getIt.get<ApiService>()),
   );
   getIt.registerLazySingleton<HomeRepo>(
-    () => HomeRepo(getIt.get<ApiService>()),
+    () => HomeRepoImpl(getIt.get<ApiService>()),
   );
   getIt.registerLazySingleton<CategoriesRepo>(
     () => CategoriesRepo(getIt.get<ApiService>()),
@@ -108,7 +108,7 @@ void _setupDIForCubits() {
     () => ResetPasswordCubit(getIt.get<AuthRepo>()),
   );
   getIt.registerFactory<HomeCubit>(
-    () => HomeCubit(getIt.get<HomeRepo>()),
+    () => HomeCubit(getIt.get<HomeRepoImpl>()),
   );
   getIt.registerFactory<CategoriesCubit>(
     () => CategoriesCubit(getIt.get<CategoriesRepo>()),

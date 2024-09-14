@@ -5,7 +5,7 @@ import 'package:store_ify/features/home/data/repos/home_repo.dart';
 import 'package:store_ify/features/home/presentation/cubit/home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  final HomeRepo _homeRepo;
+  final HomeRepoImpl _homeRepo;
 
   HomeCubit(this._homeRepo) : super(const HomeState.initial()) {
     _emitShowLocationDialog();
