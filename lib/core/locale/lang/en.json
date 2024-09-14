@@ -76,8 +76,8 @@
     "date": "Date",
     "dateHint": "MMM/DD/YYYY",
     "time": "Time",
-    "enableLocation": "Location is required. Please enable your location.",
-    "locationDenied": "Location permission denied. Please grant location permission.",
+    "locationGranted": "Location has been granted.",
+    "locationDenied": "Location permission denied. Please grant it.",
     "DATE_AFTER_TODAY": "Date should be after today.",
     "CART_EMPTY": "Cart is empty.",
     "howDoUWantToPay": "How do you want to Pay ?",
@@ -134,5 +134,7 @@
     "logout": "Logout",
     "sureToLogout": "Are you sure you want to log out?",
     "cancel": "Cancel",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "enableLocationPermission": "Grant permission for Store-ify to access the geographic location of this device?",
+    "ok": "Ok"
 }
