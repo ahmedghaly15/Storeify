@@ -20,20 +20,20 @@ abstract class CategoriesRepo {
 
 class CategoriesRepoImpl implements CategoriesRepo {
   final ApiService _apiService;
+  final CategoriesLocalDatasource _localDatasource;
 
-  const CategoriesRepoImpl(this._apiService);
+  const CategoriesRepoImpl(this._apiService, this._localDatasource);
 
   @override
   Future<ApiResult<FetchCategoriesResponse>> fetchCategories([
     CancelToken? cancelToken,
   ]) async {
-    final cachedCategories =
-        await CategoriesLocalDatasource.getCachedCategories();
+    final cachedCategories = await _localDatasource.getCachedCategories();
     if (cachedCategories == null) {
       debugPrint('********** CACHED CATEGORIES NOT FOUND **********');
       try {
         final categories = await _apiService.fetchCategories(cancelToken);
-        await CategoriesLocalDatasource.cacheCategories(categories);
+        await _localDatasource.cacheCategories(categories);
         return ApiResult.success(categories);
       } catch (error) {
         debugPrint(
@@ -51,8 +51,7 @@ class CategoriesRepoImpl implements CategoriesRepo {
     FetchSubCategoryParams params, [
     CancelToken? cancelToken,
   ]) async {
-    final cachedSubCategory =
-        await CategoriesLocalDatasource.getCachedSubCategory();
+    final cachedSubCategory = await _localDatasource.getCachedSubCategory();
     if (cachedSubCategory == null) {
       debugPrint('********** CACHED SUB CATEGORY NOT FOUND **********');
       try {
@@ -61,7 +60,7 @@ class CategoriesRepoImpl implements CategoriesRepo {
           params.subCategoryId,
           cancelToken,
         );
-        await CategoriesLocalDatasource.cacheSubCategory(subCategory);
+        await _localDatasource.cacheSubCategory(subCategory);
         return ApiResult.success(subCategory);
       } catch (error) {
         debugPrint(
