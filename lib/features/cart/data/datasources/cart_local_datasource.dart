@@ -1,5 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:store_ify/core/helpers/hive_boxes.dart';
+import 'package:store_ify/core/helpers/hive_keys.dart';
 import 'package:store_ify/features/cart/data/models/fetch_cart_response.dart';
 
 class CartLocalDatasource {
@@ -9,20 +10,13 @@ class CartLocalDatasource {
     final box = await Hive.openBox<FetchCartResponse>(
       HiveBoxes.cartResponseBox,
     );
-    await box.put(HiveBoxes.cartResponseBox, cartResponse);
+    await box.put(HiveKeys.cartResponse, cartResponse);
   }
 
   Future<FetchCartResponse?> retrieveCachedCart() async {
     final box = await Hive.openBox<FetchCartResponse>(
       HiveBoxes.cartResponseBox,
     );
-    return box.get(HiveBoxes.cartResponseBox);
-  }
-
-  Future<void> deleteCachedCart() async {
-    final box = await Hive.openBox<FetchCartResponse>(
-      HiveBoxes.cartResponseBox,
-    );
-    await box.delete(HiveBoxes.cartResponseBox);
+    return box.get(HiveKeys.cartResponse);
   }
 }
