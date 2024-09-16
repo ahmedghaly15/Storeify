@@ -22,6 +22,8 @@ import 'package:store_ify/features/favorites/data/models/fetch_favorite_products
 import 'package:store_ify/features/favorites/data/models/prefer_params.dart';
 import 'package:store_ify/features/home/data/models/fetch_home_response.dart';
 import 'package:store_ify/features/payment/data/models/pay_params.dart';
+import 'package:store_ify/features/search/data/models/search_params.dart';
+import 'package:store_ify/features/search/data/models/search_response.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_branches.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_categories_response.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_offers_response.dart';
@@ -191,4 +193,10 @@ abstract class ApiService {
 
   @POST(EndPoints.logout)
   Future<void> logout();
+
+  @POST(EndPoints.search)
+  Future<SearchResponse> search(
+    @Body() SearchParams params, [
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
 }
