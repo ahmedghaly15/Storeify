@@ -5,8 +5,8 @@ import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_cached_network_image.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
-import 'package:store_ify/features/cart/data/models/cart_product.dart';
 import 'package:store_ify/features/cart/presentation/widgets/quantity_and_price.dart';
+import 'package:store_ify/features/home/data/models/product.dart';
 
 class CartProductItem extends StatelessWidget {
   const CartProductItem({
@@ -14,7 +14,7 @@ class CartProductItem extends StatelessWidget {
     required this.product,
   });
 
-  final CartProduct product;
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
