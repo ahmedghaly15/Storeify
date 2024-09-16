@@ -40,7 +40,9 @@ import 'package:store_ify/features/payment/data/repositories/payment_repo.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
 import 'package:store_ify/features/profile/data/repos/profile_repo.dart';
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
+import 'package:store_ify/features/stores/data/datasources/stores_local_datasource.dart';
 import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
+import 'package:store_ify/features/stores/data/repositories/stores_repo_impl.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubit.dart';
 
@@ -73,6 +75,9 @@ void _setupDIForDatasources() {
   getIt.registerLazySingleton<FavoritesLocalDatasource>(
     () => const FavoritesLocalDatasource(),
   );
+  getIt.registerLazySingleton<StoresLocalDatasource>(
+    () => const StoresLocalDatasource(),
+  );
 }
 
 void _setupDIForRepos() {
@@ -95,7 +100,10 @@ void _setupDIForRepos() {
     ),
   );
   getIt.registerLazySingleton<StoresRepo>(
-    () => StoresRepo(getIt.get<ApiService>()),
+    () => StoresRepoImpl(
+      getIt.get<ApiService>(),
+      getIt.get<StoresLocalDatasource>(),
+    ),
   );
   getIt.registerLazySingleton<FavoritesRepo>(
     () => FavoritesRepoImpl(
@@ -158,10 +166,10 @@ void _setupDIForCubits() {
     () => StoreDetailsCubit(getIt.get<StoresRepo>()),
   );
   getIt.registerFactory<FavoritesCubit>(
-    () => FavoritesCubit(getIt.get<FavoritesRepoImpl>()),
+    () => FavoritesCubit(getIt.get<FavoritesRepo>()),
   );
   getIt.registerFactory<FetchFavoritesCubit>(
-    () => FetchFavoritesCubit(getIt.get<FavoritesRepoImpl>()),
+    () => FetchFavoritesCubit(getIt.get<FavoritesRepo>()),
   );
   getIt.registerFactory<OnboardingCubit>(
     () => OnboardingCubit(getIt.get<OnboardingRepo>()),

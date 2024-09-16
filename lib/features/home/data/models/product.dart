@@ -1,6 +1,8 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:store_ify/core/helpers/hive_type_ids.dart';
+import 'package:store_ify/core/models/color.dart';
+import 'package:store_ify/core/models/size.dart';
 import 'package:store_ify/features/home/data/models/sub_category.dart';
 import 'package:store_ify/features/stores/data/models/store.dart';
 
@@ -35,9 +37,9 @@ class Product {
   @JsonKey(name: 'sub_category')
   final SubCategory? subCategory;
   @HiveField(10)
-  final List<ProductColor>? colors;
+  final List<Color>? colors;
   @HiveField(11)
-  final List<ProductSize>? sizes;
+  final List<Size>? sizes;
   @HiveField(12)
   final Store? store;
 
@@ -73,34 +75,4 @@ class ProductImg {
   factory ProductImg.fromJson(Map<String, dynamic> json) =>
       _$ProductImgFromJson(json);
   Map<String, dynamic> toJson() => _$ProductImgToJson(this);
-}
-
-@HiveType(typeId: HiveTypeIds.productColor)
-@JsonSerializable()
-class ProductColor {
-  @HiveField(0)
-  final int id;
-  @HiveField(1)
-  final String color;
-
-  const ProductColor({required this.id, required this.color});
-
-  factory ProductColor.fromJson(Map<String, dynamic> json) =>
-      _$ProductColorFromJson(json);
-  Map<String, dynamic> toJson() => _$ProductColorToJson(this);
-}
-
-@HiveType(typeId: HiveTypeIds.productSize)
-@JsonSerializable()
-class ProductSize {
-  @HiveField(0)
-  final int id;
-  @HiveField(1)
-  final String size;
-
-  const ProductSize({required this.id, required this.size});
-
-  factory ProductSize.fromJson(Map<String, dynamic> json) =>
-      _$ProductSizeFromJson(json);
-  Map<String, dynamic> toJson() => _$ProductSizeToJson(this);
 }

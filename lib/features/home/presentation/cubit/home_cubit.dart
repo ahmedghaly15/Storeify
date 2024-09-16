@@ -11,14 +11,14 @@ class HomeCubit extends Cubit<HomeState> {
     _emitShowLocationDialog();
   }
 
+  final CancelToken _cancelToken = CancelToken();
+
   Future<void> _emitShowLocationDialog() async {
     if (await LocationService.isLocationPermissionDenied()) {
       await Future.delayed(const Duration(seconds: 1));
       emit(const HomeState.showLocationDialog());
     }
   }
-
-  final CancelToken _cancelToken = CancelToken();
 
   void fetchHomeData() async {
     emit(const HomeState.fetchHomeDataLoading());
