@@ -41,6 +41,7 @@ import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dar
 import 'package:store_ify/features/profile/data/repos/profile_repo.dart';
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
 import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
+import 'package:store_ify/features/stores/data/repositories/stores_repo_impl.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubit.dart';
 
@@ -95,7 +96,7 @@ void _setupDIForRepos() {
     ),
   );
   getIt.registerLazySingleton<StoresRepo>(
-    () => StoresRepo(getIt.get<ApiService>()),
+    () => StoresRepoImpl(getIt.get<ApiService>()),
   );
   getIt.registerLazySingleton<FavoritesRepo>(
     () => FavoritesRepoImpl(
