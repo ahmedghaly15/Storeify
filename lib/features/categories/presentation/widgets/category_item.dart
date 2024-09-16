@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:store_ify/core/models/product.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
@@ -8,7 +9,6 @@ import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_cached_network_image.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
-import 'package:store_ify/features/home/data/models/product.dart';
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem({
@@ -80,7 +80,7 @@ class CategoryItem extends StatelessWidget {
     if (products.isEmpty) {
       return 'No Products';
     } else if (products.length > 1) {
-      return products.map((e) => e.name).toList().join(', ');
+      return products.map((product) => product.name).toList().join(', ');
     }
     return products[0].name;
   }

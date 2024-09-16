@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/models/product.dart';
 import 'package:store_ify/core/widgets/product_item.dart';
-import 'package:store_ify/features/home/data/models/product.dart';
 import 'package:store_ify/features/home/presentation/widgets/horizontal_separated_list_view.dart';
 
 class BestSellingListView extends StatelessWidget {

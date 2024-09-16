@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:store_ify/core/helpers/hive_type_ids.dart';
 import 'package:store_ify/core/models/pagination.dart';
-import 'package:store_ify/features/home/data/models/product.dart';
+import 'package:store_ify/core/models/product.dart';
 import 'package:store_ify/features/home/data/models/sub_category.dart';
 
 part 'fetch_sub_category_response.g.dart';

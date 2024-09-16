@@ -2,7 +2,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:store_ify/core/helpers/hive_type_ids.dart';
 import 'package:store_ify/core/models/pagination.dart';
-import 'package:store_ify/features/home/data/models/product.dart';
+import 'package:store_ify/core/models/product.dart';
 
 part 'fetch_store_offers_response.g.dart';
 
