@@ -158,10 +158,10 @@ void _setupDIForCubits() {
     () => StoreDetailsCubit(getIt.get<StoresRepo>()),
   );
   getIt.registerFactory<FavoritesCubit>(
-    () => FavoritesCubit(getIt.get<FavoritesRepoImpl>()),
+    () => FavoritesCubit(getIt.get<FavoritesRepo>()),
   );
   getIt.registerFactory<FetchFavoritesCubit>(
-    () => FetchFavoritesCubit(getIt.get<FavoritesRepoImpl>()),
+    () => FetchFavoritesCubit(getIt.get<FavoritesRepo>()),
   );
   getIt.registerFactory<OnboardingCubit>(
     () => OnboardingCubit(getIt.get<OnboardingRepo>()),
