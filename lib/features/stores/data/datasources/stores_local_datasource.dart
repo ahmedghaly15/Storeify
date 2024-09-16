@@ -9,35 +9,35 @@ import 'package:store_ify/features/stores/data/models/fetch_stores_response.dart
 class StoresLocalDatasource {
   const StoresLocalDatasource();
 
-  Future<void> cacheFetchedStores(FetchStoresResponse stores) async {
+  Future<void> cacheStores(FetchStoresResponse stores) async {
     final box = await Hive.openBox<FetchStoresResponse>(
       HiveBoxes.fetchStoresBox,
     );
     await box.put(HiveKeys.fetchedStoresResponse, stores);
   }
 
-  Future<FetchStoresResponse?> retrieveFetchedStores() async {
+  Future<FetchStoresResponse?> retrieveCachedStores() async {
     final box = await Hive.openBox<FetchStoresResponse>(
       HiveBoxes.fetchStoresBox,
     );
     return box.get(HiveKeys.fetchedStoresResponse);
   }
 
-  Future<void> cacheFetchedCategoryStores(FetchStoresResponse stores) async {
+  Future<void> cacheCategoryStores(FetchStoresResponse stores) async {
     final box = await Hive.openBox<FetchStoresResponse>(
       HiveBoxes.fetchCategoryStoresBox,
     );
     await box.put(HiveKeys.fetchedCategoryStoresResponse, stores);
   }
 
-  Future<FetchStoresResponse?> retrieveFetchedCategoryStores() async {
+  Future<FetchStoresResponse?> retrieveCachedCategoryStores() async {
     final box = await Hive.openBox<FetchStoresResponse>(
       HiveBoxes.fetchCategoryStoresBox,
     );
     return box.get(HiveKeys.fetchedCategoryStoresResponse);
   }
 
-  Future<void> cacheFetchedStoreBranches(
+  Future<void> cacheStoreBranches(
     FetchStoreBranchesResponse storeBranches,
   ) async {
     final box = await Hive.openBox<FetchStoreBranchesResponse>(
@@ -46,14 +46,14 @@ class StoresLocalDatasource {
     await box.put(HiveKeys.fetchedStoreBranchesResponse, storeBranches);
   }
 
-  Future<FetchStoreBranchesResponse?> retrieveFetchedStoreBranches() async {
+  Future<FetchStoreBranchesResponse?> retrieveCachedStoreBranches() async {
     final box = await Hive.openBox<FetchStoreBranchesResponse>(
       HiveBoxes.fetchStoreBranchesBox,
     );
     return box.get(HiveKeys.fetchedStoreBranchesResponse);
   }
 
-  Future<void> cacheFetchedStoreCategories(
+  Future<void> cacheStoreCategories(
     FetchStoreCategoriesResponse storeCategories,
   ) async {
     final box = await Hive.openBox<FetchStoreCategoriesResponse>(
@@ -62,14 +62,14 @@ class StoresLocalDatasource {
     await box.put(HiveKeys.fetchedStoreCategoriesResponse, storeCategories);
   }
 
-  Future<FetchStoreCategoriesResponse?> retrieveFetchedStoreCategories() async {
+  Future<FetchStoreCategoriesResponse?> retrieveCachedStoreCategories() async {
     final box = await Hive.openBox<FetchStoreCategoriesResponse>(
       HiveBoxes.fetchStoreCategoriesBox,
     );
     return box.get(HiveKeys.fetchedStoreCategoriesResponse);
   }
 
-  Future<void> cacheFetchedStoreOffers(
+  Future<void> cacheStoreOffers(
     FetchStoreOffersResponse storeOffers,
   ) async {
     final box = await Hive.openBox<FetchStoreOffersResponse>(
@@ -78,7 +78,7 @@ class StoresLocalDatasource {
     await box.put(HiveKeys.fetchedStoreOffersResponse, storeOffers);
   }
 
-  Future<FetchStoreOffersResponse?> retrieveFetchedStoreOffers() async {
+  Future<FetchStoreOffersResponse?> retrieveCachedStoreOffers() async {
     final box = await Hive.openBox<FetchStoreOffersResponse>(
       HiveBoxes.fetchStoreOffersBox,
     );
