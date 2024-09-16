@@ -19,4 +19,8 @@ class HiveTypeIds {
   static const int fetchSubCategoryResponse = 15;
   static const int fetchFavoriteProductsResponse = 16;
   static const int fetchFavStoresResponse = 17;
+  static const int fetchStoreBranchesResponse = 18;
+  static const int fetchStoreCategoriesResponse = 19;
+  static const int fetchStoreOffersResponse = 20;
+  static const int storeBranch = 21;
 }
