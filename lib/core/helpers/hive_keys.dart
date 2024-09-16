@@ -7,4 +7,5 @@ class HiveKeys {
   static const String subCategoryResponse = 'subCategoryResponse';
   static const String favProductsResponse = 'favProductsResponse';
   static const String favStoresResponse = 'favStoresResponse';
+  static const String fetchedStoresResponse = 'fetchedStoresResponse';
 }
