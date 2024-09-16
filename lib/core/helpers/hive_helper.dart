@@ -15,6 +15,10 @@ import 'package:store_ify/features/favorites/data/models/fetch_favorite_products
 import 'package:store_ify/features/home/data/models/fetch_home_response.dart';
 import 'package:store_ify/features/home/data/models/product.dart';
 import 'package:store_ify/features/home/data/models/sub_category.dart';
+import 'package:store_ify/features/stores/data/models/fetch_store_branches.dart';
+import 'package:store_ify/features/stores/data/models/fetch_store_categories_response.dart';
+import 'package:store_ify/features/stores/data/models/fetch_store_offers_response.dart';
+import 'package:store_ify/features/stores/data/models/fetch_stores_response.dart';
 import 'package:store_ify/features/stores/data/models/store.dart';
 
 class HiveHelper {
@@ -38,6 +42,11 @@ class HiveHelper {
     Hive.registerAdapter(FetchCategoriesResponseAdapter());
     Hive.registerAdapter(FetchFavStoresResponseAdapter());
     Hive.registerAdapter(FetchFavoriteProductsResponseAdapter());
+    Hive.registerAdapter(FetchStoresResponseAdapter());
+    Hive.registerAdapter(StoreBranchAdapter());
+    Hive.registerAdapter(FetchStoreBranchesResponseAdapter());
+    Hive.registerAdapter(FetchStoreCategoriesResponseAdapter());
+    Hive.registerAdapter(FetchStoreOffersResponseAdapter());
   }
 
   static Future<void> clearAllBoxes() async {
