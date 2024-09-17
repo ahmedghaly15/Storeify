@@ -33,14 +33,16 @@ class SearchView extends StatelessWidget implements AutoRouteWrapper {
               ],
             ),
             SliverToBoxAdapter(
-              child: Hero(
-                tag: LangKeys.search,
-                child: BlocBuilder<SearchCubit, SearchState>(
-                  buildWhen: (_, current) => current is UpdateSearchText,
-                  builder: (context, state) => CustomSearchTextField(
-                    controller: context.read<SearchCubit>().searchController,
-                    onChanged: (newText) =>
-                        context.read<SearchCubit>().debouncedSearch(newText),
+              child: BlocBuilder<SearchCubit, SearchState>(
+                buildWhen: (_, current) => current is UpdateSearchText,
+                builder: (context, state) => Hero(
+                  tag: LangKeys.search,
+                  child: Material(
+                    child: CustomSearchTextField(
+                      controller: context.read<SearchCubit>().searchController,
+                      onChanged: (newText) =>
+                          context.read<SearchCubit>().debouncedSearch(newText),
+                    ),
                   ),
                 ),
               ),

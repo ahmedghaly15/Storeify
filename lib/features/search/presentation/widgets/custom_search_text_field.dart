@@ -40,6 +40,7 @@ class CustomSearchTextField extends StatelessWidget {
         enabled: enabled,
         controller: controller,
         hintTextKey: LangKeys.search,
+        textAlign: TextAlign.start,
         prefixIcon: Image.asset(AppAssets.iconsSearch),
         enabledBorder: AppConstants.searchFieldOutlineInputBorder,
         focusedBorder: AppConstants.searchFieldOutlineInputBorder,

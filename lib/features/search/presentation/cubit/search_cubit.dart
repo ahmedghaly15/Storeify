@@ -37,10 +37,8 @@ class SearchCubit extends Cubit<SearchState> {
   }
 
   void _updateSearchText(String text) {
-    if (searchController.text != text) {
-      searchController.text = text;
-      emit(SearchState.updateSearchText(searchController.text));
-    }
+    searchController.text = text;
+    emit(SearchState.updateSearchText(searchController.text));
   }
 
   void debouncedSearch(String text) {
