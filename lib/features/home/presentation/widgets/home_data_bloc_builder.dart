@@ -53,8 +53,7 @@ class HomeDataBlocBuilder extends StatelessWidget {
               MySizedBox.height13,
               PaddedTitleAndViewAllTextButton(
                 titleKey: LangKeys.topStores,
-                viewAllOnPressed: () =>
-                    context.pushRoute(const CheckoutRoute()),
+                viewAllOnPressed: () {},
               ),
               TopStoresListView(topStores: homeData.topStores),
             ],

@@ -6,6 +6,7 @@ import 'package:store_ify/core/locale/logic/cubit/locale_cubit.dart';
 import 'package:store_ify/core/locale/logic/locale_repo.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/services/location_service.dart';
+import 'package:store_ify/core/themes/theming_cubit.dart';
 import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
 import 'package:store_ify/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forgot_password_cubit.dart';
@@ -197,4 +198,5 @@ void _setupDIForCubits() {
   getIt.registerFactory<SearchCubit>(
     () => SearchCubit(getIt.get<SearchRepo>()),
   );
+  getIt.registerFactory<ThemingCubit>(() => ThemingCubit());
 }
