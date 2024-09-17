@@ -40,7 +40,7 @@ class StoreifyApp extends StatelessWidget {
                 AppLocalizationsSetup.localizationsDelegates,
             localeResolutionCallback:
                 AppLocalizationsSetup.localeResolutionCallback,
-            theme: AppThemes.lightTheme,
+            theme: AppThemes.lightMode,
             title: AppStrings.appTitle,
             routerConfig: getIt.get<AppRouter>().config(
                   navigatorObservers: () => [

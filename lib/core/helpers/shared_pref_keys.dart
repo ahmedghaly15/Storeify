@@ -4,4 +4,5 @@ class SharedPrefKeys {
   static const String locale = 'locale';
   static const String onboarding = 'onboarding';
   static const String storeifyUser = 'storeifyUser';
+  static const String appTheme = 'appTheme';
 }
