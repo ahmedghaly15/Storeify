@@ -73,4 +73,9 @@ class AppConstants {
     ),
   ];
   static const IconData personIcon = Icons.person_2;
+  static OutlineInputBorder get searchFieldOutlineInputBorder =>
+      OutlineInputBorder(
+        borderRadius: BorderRadius.circular(24.r),
+        borderSide: const BorderSide(color: Colors.white),
+      );
 }

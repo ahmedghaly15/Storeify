@@ -22,6 +22,7 @@ mixin _$SearchState<T> {
     required TResult Function() searchLoading,
     required TResult Function(SearchResponse searchResult) searchSuccess,
     required TResult Function(String error) searchError,
+    required TResult Function(String text) updateSearchText,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$SearchState<T> {
     TResult? Function()? searchLoading,
     TResult? Function(SearchResponse searchResult)? searchSuccess,
     TResult? Function(String error)? searchError,
+    TResult? Function(String text)? updateSearchText,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$SearchState<T> {
     TResult Function()? searchLoading,
     TResult Function(SearchResponse searchResult)? searchSuccess,
     TResult Function(String error)? searchError,
+    TResult Function(String text)? updateSearchText,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$SearchState<T> {
     required TResult Function(SearchLoading<T> value) searchLoading,
     required TResult Function(SearchSuccess<T> value) searchSuccess,
     required TResult Function(SearchError<T> value) searchError,
+    required TResult Function(UpdateSearchText<T> value) updateSearchText,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$SearchState<T> {
     TResult? Function(SearchLoading<T> value)? searchLoading,
     TResult? Function(SearchSuccess<T> value)? searchSuccess,
     TResult? Function(SearchError<T> value)? searchError,
+    TResult? Function(UpdateSearchText<T> value)? updateSearchText,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$SearchState<T> {
     TResult Function(SearchLoading<T> value)? searchLoading,
     TResult Function(SearchSuccess<T> value)? searchSuccess,
     TResult Function(SearchError<T> value)? searchError,
+    TResult Function(UpdateSearchText<T> value)? updateSearchText,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +140,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() searchLoading,
     required TResult Function(SearchResponse searchResult) searchSuccess,
     required TResult Function(String error) searchError,
+    required TResult Function(String text) updateSearchText,
   }) {
     return initial();
   }
@@ -145,6 +152,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? searchLoading,
     TResult? Function(SearchResponse searchResult)? searchSuccess,
     TResult? Function(String error)? searchError,
+    TResult? Function(String text)? updateSearchText,
   }) {
     return initial?.call();
   }
@@ -156,6 +164,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? searchLoading,
     TResult Function(SearchResponse searchResult)? searchSuccess,
     TResult Function(String error)? searchError,
+    TResult Function(String text)? updateSearchText,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -171,6 +180,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(SearchLoading<T> value) searchLoading,
     required TResult Function(SearchSuccess<T> value) searchSuccess,
     required TResult Function(SearchError<T> value) searchError,
+    required TResult Function(UpdateSearchText<T> value) updateSearchText,
   }) {
     return initial(this);
   }
@@ -182,6 +192,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(SearchLoading<T> value)? searchLoading,
     TResult? Function(SearchSuccess<T> value)? searchSuccess,
     TResult? Function(SearchError<T> value)? searchError,
+    TResult? Function(UpdateSearchText<T> value)? updateSearchText,
   }) {
     return initial?.call(this);
   }
@@ -193,6 +204,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(SearchLoading<T> value)? searchLoading,
     TResult Function(SearchSuccess<T> value)? searchSuccess,
     TResult Function(SearchError<T> value)? searchError,
+    TResult Function(UpdateSearchText<T> value)? updateSearchText,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -251,6 +263,7 @@ class _$SearchLoadingImpl<T> implements SearchLoading<T> {
     required TResult Function() searchLoading,
     required TResult Function(SearchResponse searchResult) searchSuccess,
     required TResult Function(String error) searchError,
+    required TResult Function(String text) updateSearchText,
   }) {
     return searchLoading();
   }
@@ -262,6 +275,7 @@ class _$SearchLoadingImpl<T> implements SearchLoading<T> {
     TResult? Function()? searchLoading,
     TResult? Function(SearchResponse searchResult)? searchSuccess,
     TResult? Function(String error)? searchError,
+    TResult? Function(String text)? updateSearchText,
   }) {
     return searchLoading?.call();
   }
@@ -273,6 +287,7 @@ class _$SearchLoadingImpl<T> implements SearchLoading<T> {
     TResult Function()? searchLoading,
     TResult Function(SearchResponse searchResult)? searchSuccess,
     TResult Function(String error)? searchError,
+    TResult Function(String text)? updateSearchText,
     required TResult orElse(),
   }) {
     if (searchLoading != null) {
@@ -288,6 +303,7 @@ class _$SearchLoadingImpl<T> implements SearchLoading<T> {
     required TResult Function(SearchLoading<T> value) searchLoading,
     required TResult Function(SearchSuccess<T> value) searchSuccess,
     required TResult Function(SearchError<T> value) searchError,
+    required TResult Function(UpdateSearchText<T> value) updateSearchText,
   }) {
     return searchLoading(this);
   }
@@ -299,6 +315,7 @@ class _$SearchLoadingImpl<T> implements SearchLoading<T> {
     TResult? Function(SearchLoading<T> value)? searchLoading,
     TResult? Function(SearchSuccess<T> value)? searchSuccess,
     TResult? Function(SearchError<T> value)? searchError,
+    TResult? Function(UpdateSearchText<T> value)? updateSearchText,
   }) {
     return searchLoading?.call(this);
   }
@@ -310,6 +327,7 @@ class _$SearchLoadingImpl<T> implements SearchLoading<T> {
     TResult Function(SearchLoading<T> value)? searchLoading,
     TResult Function(SearchSuccess<T> value)? searchSuccess,
     TResult Function(SearchError<T> value)? searchError,
+    TResult Function(UpdateSearchText<T> value)? updateSearchText,
     required TResult orElse(),
   }) {
     if (searchLoading != null) {
@@ -397,6 +415,7 @@ class _$SearchSuccessImpl<T> implements SearchSuccess<T> {
     required TResult Function() searchLoading,
     required TResult Function(SearchResponse searchResult) searchSuccess,
     required TResult Function(String error) searchError,
+    required TResult Function(String text) updateSearchText,
   }) {
     return searchSuccess(searchResult);
   }
@@ -408,6 +427,7 @@ class _$SearchSuccessImpl<T> implements SearchSuccess<T> {
     TResult? Function()? searchLoading,
     TResult? Function(SearchResponse searchResult)? searchSuccess,
     TResult? Function(String error)? searchError,
+    TResult? Function(String text)? updateSearchText,
   }) {
     return searchSuccess?.call(searchResult);
   }
@@ -419,6 +439,7 @@ class _$SearchSuccessImpl<T> implements SearchSuccess<T> {
     TResult Function()? searchLoading,
     TResult Function(SearchResponse searchResult)? searchSuccess,
     TResult Function(String error)? searchError,
+    TResult Function(String text)? updateSearchText,
     required TResult orElse(),
   }) {
     if (searchSuccess != null) {
@@ -434,6 +455,7 @@ class _$SearchSuccessImpl<T> implements SearchSuccess<T> {
     required TResult Function(SearchLoading<T> value) searchLoading,
     required TResult Function(SearchSuccess<T> value) searchSuccess,
     required TResult Function(SearchError<T> value) searchError,
+    required TResult Function(UpdateSearchText<T> value) updateSearchText,
   }) {
     return searchSuccess(this);
   }
@@ -445,6 +467,7 @@ class _$SearchSuccessImpl<T> implements SearchSuccess<T> {
     TResult? Function(SearchLoading<T> value)? searchLoading,
     TResult? Function(SearchSuccess<T> value)? searchSuccess,
     TResult? Function(SearchError<T> value)? searchError,
+    TResult? Function(UpdateSearchText<T> value)? updateSearchText,
   }) {
     return searchSuccess?.call(this);
   }
@@ -456,6 +479,7 @@ class _$SearchSuccessImpl<T> implements SearchSuccess<T> {
     TResult Function(SearchLoading<T> value)? searchLoading,
     TResult Function(SearchSuccess<T> value)? searchSuccess,
     TResult Function(SearchError<T> value)? searchError,
+    TResult Function(UpdateSearchText<T> value)? updateSearchText,
     required TResult orElse(),
   }) {
     if (searchSuccess != null) {
@@ -551,6 +575,7 @@ class _$SearchErrorImpl<T> implements SearchError<T> {
     required TResult Function() searchLoading,
     required TResult Function(SearchResponse searchResult) searchSuccess,
     required TResult Function(String error) searchError,
+    required TResult Function(String text) updateSearchText,
   }) {
     return searchError(error);
   }
@@ -562,6 +587,7 @@ class _$SearchErrorImpl<T> implements SearchError<T> {
     TResult? Function()? searchLoading,
     TResult? Function(SearchResponse searchResult)? searchSuccess,
     TResult? Function(String error)? searchError,
+    TResult? Function(String text)? updateSearchText,
   }) {
     return searchError?.call(error);
   }
@@ -573,6 +599,7 @@ class _$SearchErrorImpl<T> implements SearchError<T> {
     TResult Function()? searchLoading,
     TResult Function(SearchResponse searchResult)? searchSuccess,
     TResult Function(String error)? searchError,
+    TResult Function(String text)? updateSearchText,
     required TResult orElse(),
   }) {
     if (searchError != null) {
@@ -588,6 +615,7 @@ class _$SearchErrorImpl<T> implements SearchError<T> {
     required TResult Function(SearchLoading<T> value) searchLoading,
     required TResult Function(SearchSuccess<T> value) searchSuccess,
     required TResult Function(SearchError<T> value) searchError,
+    required TResult Function(UpdateSearchText<T> value) updateSearchText,
   }) {
     return searchError(this);
   }
@@ -599,6 +627,7 @@ class _$SearchErrorImpl<T> implements SearchError<T> {
     TResult? Function(SearchLoading<T> value)? searchLoading,
     TResult? Function(SearchSuccess<T> value)? searchSuccess,
     TResult? Function(SearchError<T> value)? searchError,
+    TResult? Function(UpdateSearchText<T> value)? updateSearchText,
   }) {
     return searchError?.call(this);
   }
@@ -610,6 +639,7 @@ class _$SearchErrorImpl<T> implements SearchError<T> {
     TResult Function(SearchLoading<T> value)? searchLoading,
     TResult Function(SearchSuccess<T> value)? searchSuccess,
     TResult Function(SearchError<T> value)? searchError,
+    TResult Function(UpdateSearchText<T> value)? updateSearchText,
     required TResult orElse(),
   }) {
     if (searchError != null) {
@@ -628,5 +658,164 @@ abstract class SearchError<T> implements SearchState<T> {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SearchErrorImplCopyWith<T, _$SearchErrorImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateSearchTextImplCopyWith<T, $Res> {
+  factory _$$UpdateSearchTextImplCopyWith(_$UpdateSearchTextImpl<T> value,
+          $Res Function(_$UpdateSearchTextImpl<T>) then) =
+      __$$UpdateSearchTextImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String text});
+}
+
+/// @nodoc
+class __$$UpdateSearchTextImplCopyWithImpl<T, $Res>
+    extends _$SearchStateCopyWithImpl<T, $Res, _$UpdateSearchTextImpl<T>>
+    implements _$$UpdateSearchTextImplCopyWith<T, $Res> {
+  __$$UpdateSearchTextImplCopyWithImpl(_$UpdateSearchTextImpl<T> _value,
+      $Res Function(_$UpdateSearchTextImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SearchState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? text = null,
+  }) {
+    return _then(_$UpdateSearchTextImpl<T>(
+      null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateSearchTextImpl<T> implements UpdateSearchText<T> {
+  const _$UpdateSearchTextImpl(this.text);
+
+  @override
+  final String text;
+
+  @override
+  String toString() {
+    return 'SearchState<$T>.updateSearchText(text: $text)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateSearchTextImpl<T> &&
+            (identical(other.text, text) || other.text == text));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, text);
+
+  /// Create a copy of SearchState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateSearchTextImplCopyWith<T, _$UpdateSearchTextImpl<T>> get copyWith =>
+      __$$UpdateSearchTextImplCopyWithImpl<T, _$UpdateSearchTextImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() searchLoading,
+    required TResult Function(SearchResponse searchResult) searchSuccess,
+    required TResult Function(String error) searchError,
+    required TResult Function(String text) updateSearchText,
+  }) {
+    return updateSearchText(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? searchLoading,
+    TResult? Function(SearchResponse searchResult)? searchSuccess,
+    TResult? Function(String error)? searchError,
+    TResult? Function(String text)? updateSearchText,
+  }) {
+    return updateSearchText?.call(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? searchLoading,
+    TResult Function(SearchResponse searchResult)? searchSuccess,
+    TResult Function(String error)? searchError,
+    TResult Function(String text)? updateSearchText,
+    required TResult orElse(),
+  }) {
+    if (updateSearchText != null) {
+      return updateSearchText(text);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(SearchLoading<T> value) searchLoading,
+    required TResult Function(SearchSuccess<T> value) searchSuccess,
+    required TResult Function(SearchError<T> value) searchError,
+    required TResult Function(UpdateSearchText<T> value) updateSearchText,
+  }) {
+    return updateSearchText(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(SearchLoading<T> value)? searchLoading,
+    TResult? Function(SearchSuccess<T> value)? searchSuccess,
+    TResult? Function(SearchError<T> value)? searchError,
+    TResult? Function(UpdateSearchText<T> value)? updateSearchText,
+  }) {
+    return updateSearchText?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(SearchLoading<T> value)? searchLoading,
+    TResult Function(SearchSuccess<T> value)? searchSuccess,
+    TResult Function(SearchError<T> value)? searchError,
+    TResult Function(UpdateSearchText<T> value)? updateSearchText,
+    required TResult orElse(),
+  }) {
+    if (updateSearchText != null) {
+      return updateSearchText(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateSearchText<T> implements SearchState<T> {
+  const factory UpdateSearchText(final String text) = _$UpdateSearchTextImpl<T>;
+
+  String get text;
+
+  /// Create a copy of SearchState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateSearchTextImplCopyWith<T, _$UpdateSearchTextImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

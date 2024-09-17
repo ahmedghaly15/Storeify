@@ -10,4 +10,5 @@ class SearchState<T> with _$SearchState<T> {
   const factory SearchState.searchSuccess(SearchResponse searchResult) =
       SearchSuccess<T>;
   const factory SearchState.searchError(String error) = SearchError<T>;
+  const factory SearchState.updateSearchText(String text) = UpdateSearchText<T>;
 }

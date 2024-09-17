@@ -11,8 +11,9 @@ SearchResponse _$SearchResponseFromJson(Map<String, dynamic> json) =>
       products: (json['products'] as List<dynamic>)
           .map((e) => Product.fromJson(e as Map<String, dynamic>))
           .toList(),
-      pagination:
-          Pagination.fromJson(json['pagination'] as Map<String, dynamic>),
+      pagination: json['pagination'] == null
+          ? null
+          : Pagination.fromJson(json['pagination'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$SearchResponseToJson(SearchResponse instance) =>

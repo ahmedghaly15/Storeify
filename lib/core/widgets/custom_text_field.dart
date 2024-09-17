@@ -40,11 +40,11 @@ class CustomTextField extends StatelessWidget {
   final TextStyle? hintStyle;
   final TextEditingController? controller;
   final String? Function(String?)? validate;
-  final Function(String)? onChanged;
+  final void Function(String)? onChanged;
   final bool? obscureText;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
-  final Function(String submittedText)? onSubmit;
+  final void Function(String submittedText)? onSubmit;
   final List<String>? autofillHints;
   final FocusNode? focusNode;
   final void Function()? onEditingComplete;
