@@ -7,7 +7,7 @@ part 'search_response.g.dart';
 @JsonSerializable()
 class SearchResponse {
   final List<Product> products;
-  final Pagination pagination;
+  final Pagination? pagination;
 
   const SearchResponse({
     required this.products,

@@ -43,6 +43,8 @@ class SearchCubit extends Cubit<SearchState> {
 
   void debouncedSearch(String text) {
     _debouncer.run(() {
+      debugPrint(
+          "************* Search executed after debounce: $text *************");
       _updateSearchText(text);
       _search();
     });
