@@ -21,6 +21,7 @@ import 'package:store_ify/features/onboarding/presentation/views/onboarding_view
 import 'package:store_ify/features/payment/presentation/views/payment_successfully_view.dart';
 import 'package:store_ify/features/payment/presentation/views/payment_view.dart';
 import 'package:store_ify/features/profile/presentation/views/profile_view.dart';
+import 'package:store_ify/features/search/presentation/views/search_view.dart';
 import 'package:store_ify/features/stores/data/models/store.dart';
 import 'package:store_ify/features/stores/presentation/view/store_details_view.dart';
 import 'package:store_ify/features/stores/presentation/view/stores_view.dart';
