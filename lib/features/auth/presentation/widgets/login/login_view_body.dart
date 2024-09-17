@@ -54,12 +54,16 @@ class LoginViewBody extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       TextButton(
+                        style: TextButton.styleFrom(
+                          foregroundColor: context.isDarkModeActive
+                              ? Colors.white
+                              : AppColors.greyColor,
+                        ),
                         onPressed: () =>
                             context.pushRoute(const ForgotPasswordRoute()),
                         child: Text(
                           context.translate(LangKeys.forgotPassword),
-                          style: AppTextStyles.textStyle16Regular
-                              .copyWith(color: AppColors.greyColor),
+                          style: AppTextStyles.textStyle16Regular,
                         ),
                       ),
                       const SignUpTextButton(),

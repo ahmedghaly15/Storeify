@@ -14,11 +14,11 @@ class AppThemes {
         appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
+            foregroundColor:
+                const WidgetStatePropertyAll(AppColors.primaryColor),
             padding: WidgetStateProperty.all(
               EdgeInsets.symmetric(horizontal: 8.w),
             ),
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            minimumSize: const WidgetStatePropertyAll(Size.zero),
           ),
         ),
         datePickerTheme: const DatePickerThemeData(
@@ -45,11 +45,11 @@ class AppThemes {
         appBarTheme: const AppBarTheme(backgroundColor: Colors.black),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
+            foregroundColor:
+                const WidgetStatePropertyAll(AppColors.primaryColor),
             padding: WidgetStateProperty.all(
               EdgeInsets.symmetric(horizontal: 8.w),
             ),
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            minimumSize: const WidgetStatePropertyAll(Size.zero),
           ),
         ),
         datePickerTheme: const DatePickerThemeData(
