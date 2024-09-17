@@ -22,19 +22,24 @@ class StoreCategoriesListView extends StatelessWidget {
       itemBuilder: (_, index) => BlocBuilder<StoresCubit, StoresState>(
         buildWhen: (_, current) => current is UpdateCurrentSelectedStore,
         builder: (context, state) {
-          int currentStoreIndex =
-              context.read<StoresCubit>().currentSelectedStore;
+          int selectedStore = context.read<StoresCubit>().currentSelectedStore;
           return CustomOutlinedButton(
             foregroundColor: _activeColor(
-                currentStoreIndex, fetchStoresResponse.stores[index].id),
+              selectedStore,
+              fetchStoresResponse.stores[index].id,
+            ),
             borderColor: _activeColor(
-                currentStoreIndex, fetchStoresResponse.stores[index].id),
+              selectedStore,
+              fetchStoresResponse.stores[index].id,
+            ),
             onPressed: () => _updateSelectedStoreAndItsIndex(context, index),
             child: Text(
               fetchStoresResponse.stores[index].name,
               style: AppTextStyles.textStyle10Medium.copyWith(
                 color: _activeColor(
-                    currentStoreIndex, fetchStoresResponse.stores[index].id),
+                  selectedStore,
+                  fetchStoresResponse.stores[index].id,
+                ),
               ),
             ),
           );
