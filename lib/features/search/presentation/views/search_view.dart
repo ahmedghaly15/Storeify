@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/widgets/app_bar_actions.dart';
 import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
 import 'package:store_ify/dependency_injection.dart';
-import 'package:store_ify/features/search/presentation/cubit/search_state.dart';
-import 'package:store_ify/features/search/presentation/widgets/custom_search_text_field.dart';
 import 'package:store_ify/features/search/presentation/cubit/search_cubit.dart';
+import 'package:store_ify/features/search/presentation/widgets/hero_search_field_bloc_builder.dart';
+import 'package:store_ify/features/search/presentation/widgets/search_result_bloc_builder.dart';
 
 @RoutePage()
 class SearchView extends StatelessWidget implements AutoRouteWrapper {
@@ -27,26 +27,18 @@ class SearchView extends StatelessWidget implements AutoRouteWrapper {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            const CustomSliverAppBar(
+            CustomSliverAppBar(
               actions: [
-                AppBarActions(),
+                Container(
+                  margin: EdgeInsetsDirectional.only(end: 16.w),
+                  child: const AppBarActions(),
+                ),
               ],
             ),
-            SliverToBoxAdapter(
-              child: BlocBuilder<SearchCubit, SearchState>(
-                buildWhen: (_, current) => current is UpdateSearchText,
-                builder: (context, state) => Hero(
-                  tag: LangKeys.search,
-                  child: Material(
-                    child: CustomSearchTextField(
-                      controller: context.read<SearchCubit>().searchController,
-                      onChanged: (newText) =>
-                          context.read<SearchCubit>().debouncedSearch(newText),
-                    ),
-                  ),
-                ),
-              ),
+            const SliverToBoxAdapter(
+              child: HeroSearchFieldBlocBuilder(),
             ),
+            const SearchResultBlocBuilder(),
           ],
         ),
       ),
