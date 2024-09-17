@@ -19,5 +19,6 @@ void main() async {
   await checkIfOnboardingIsVisited();
   await checkIfUserLoggedIn();
   // TODO: add some animations to the whole app
+  // TODO: remember to handle empty lists in the UI
   runApp(const StoreifyApp());
 }

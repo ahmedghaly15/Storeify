@@ -9,11 +9,11 @@ import 'package:store_ify/core/widgets/try_again_button.dart';
 class CustomErrorWidget extends StatelessWidget {
   const CustomErrorWidget({
     super.key,
-    required this.tryAgainOnPressed,
+    this.tryAgainOnPressed,
     required this.errorKey,
   });
 
-  final VoidCallback tryAgainOnPressed;
+  final VoidCallback? tryAgainOnPressed;
   final String errorKey;
 
   @override
@@ -58,7 +58,8 @@ class CustomErrorWidget extends StatelessWidget {
                 ),
             ],
           ),
-          TryAgainButton(onPressed: tryAgainOnPressed),
+          if (tryAgainOnPressed != null)
+            TryAgainButton(onPressed: tryAgainOnPressed),
         ],
       ),
     );
