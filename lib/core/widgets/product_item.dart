@@ -45,10 +45,10 @@ class ProductItem extends StatelessWidget {
                   imageUrl: product.productImages.isNotEmpty
                       ? product.productImages[0].img
                       : 'https://plus.unsplash.com/premium_photo-1675896084254-dcb626387e1e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D',
-                  imageBuilder: (_, imageProvider) => Container(
+                  imageBuilder: (_, img) => Container(
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: imageProvider,
+                        image: img,
                         fit: BoxFit.cover,
                       ),
                     ),

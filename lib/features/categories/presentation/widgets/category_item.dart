@@ -42,7 +42,6 @@ class CategoryItem extends StatelessWidget {
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         minWidth: 0,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
               child: ClipRRect(

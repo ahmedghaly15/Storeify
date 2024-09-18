@@ -12,16 +12,14 @@ import 'package:store_ify/core/widgets/prefer_store_bloc_listener_icon_button.da
 import 'package:store_ify/features/stores/data/models/store.dart';
 
 class StoreItem extends StatelessWidget {
-  const StoreItem({
-    super.key,
-    required this.store,
-  });
+  const StoreItem({super.key, required this.store});
 
   final Store store;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      constraints: BoxConstraints(maxWidth: 175.w),
       decoration: BoxDecoration(
         color:
             context.isDarkModeActive ? AppColors.itemDarkColor : Colors.white,
@@ -45,7 +43,14 @@ class StoreItem extends StatelessWidget {
                 borderRadius: BorderRadius.vertical(top: Radius.circular(10.r)),
                 child: CustomCachedNetworkImage(
                   imageUrl: store.img,
-                  fit: BoxFit.cover,
+                  imageBuilder: (_, img) => Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: img,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
