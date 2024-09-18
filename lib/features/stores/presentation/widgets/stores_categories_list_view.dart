@@ -19,6 +19,7 @@ class StoreCategoriesListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
       scrollDirection: Axis.horizontal,
+      physics: AppConstants.physics,
       padding: AppConstants.categoryPadding,
       itemBuilder: (_, index) => BlocBuilder<StoresCubit, StoresState>(
         buildWhen: (_, current) => current is UpdateCurrentSelectedStore,
