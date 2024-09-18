@@ -21,7 +21,9 @@ class PreferProductBlocListenerIconButton extends StatelessWidget {
     return BlocListener<FavoritesCubit, FavoritesState>(
       listenWhen: (_, current) =>
           current is RemoveProductFromFavsError ||
-          current is PreferProductError,
+          current is PreferProductError ||
+          current is PreferProductSuccess ||
+          current is RemoveProductFromFavsSuccess,
       listener: (context, state) => state.whenOrNull(
         removeProductFromFavsError: (errorKey) => CustomToast.showToast(
           context: context,
@@ -33,6 +35,10 @@ class PreferProductBlocListenerIconButton extends StatelessWidget {
           messageKey: errorKey,
           state: CustomToastState.error,
         ),
+        preferProductSuccess: () =>
+            context.read<FavoritesCubit>().deleteCachedFavProducts(),
+        removeProductFromFavsSuccess: () =>
+            context.read<FavoritesCubit>().deleteCachedFavProducts(),
       ),
       child: IconButton(
         onPressed: () => context.read<FavoritesCubit>().preferProductOrNot(
