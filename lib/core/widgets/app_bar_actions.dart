@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
@@ -13,9 +14,10 @@ class AppBarActions extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () => context.pushRoute(const ProfileRoute()),
-          icon: const Icon(
+          icon: Icon(
             AppConstants.personIcon,
-            color: AppColors.greyColor,
+            color:
+                context.isDarkModeActive ? Colors.white : AppColors.greyColor,
           ),
         ),
         IconButton(
@@ -24,7 +26,11 @@ class AppBarActions extends StatelessWidget {
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             minimumSize: const Size(0, 0),
           ),
-          icon: const Icon(Icons.notifications, color: AppColors.greyColor),
+          icon: Icon(
+            Icons.notifications,
+            color:
+                context.isDarkModeActive ? Colors.white : AppColors.greyColor,
+          ),
         ),
       ],
     );
