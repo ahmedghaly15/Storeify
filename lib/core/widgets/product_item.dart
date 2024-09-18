@@ -19,8 +19,9 @@ class ProductItem extends StatelessWidget {
     return Container(
       constraints: BoxConstraints(maxWidth: 175.w),
       decoration: BoxDecoration(
-        color:
-            context.isDarkModeActive ? AppColors.itemDarkColor : Colors.white,
+        color: context.isDarkModeActive
+            ? AppColors.secondaryDarkColor
+            : Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(10.r)),
         boxShadow: <BoxShadow>[
           AppConstants.itemBoxShadow,
