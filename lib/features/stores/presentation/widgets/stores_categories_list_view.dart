@@ -17,53 +17,44 @@ class StoreCategoriesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      scrollDirection: Axis.horizontal,
-      physics: AppConstants.physics,
-      padding: AppConstants.categoryPadding,
-      itemBuilder: (_, index) => BlocBuilder<StoresCubit, StoresState>(
-        buildWhen: (_, current) => current is UpdateCurrentSelectedStore,
-        builder: (context, state) => CustomOutlinedButton(
+    return BlocBuilder<StoresCubit, StoresState>(
+      buildWhen: (_, current) => current is UpdateCurrentSelectedStore,
+      builder: (context, state) => ListView.separated(
+        scrollDirection: Axis.horizontal,
+        physics: AppConstants.physics,
+        padding: AppConstants.categoryPadding,
+        itemBuilder: (_, index) => CustomOutlinedButton(
           backgroundColor: _backgroundColor(context, index),
-          foregroundColor: context.read<StoresCubit>().activeStoreColor(
-                stores[index].id,
-              ),
+          foregroundColor: context.read<StoresCubit>().activeStoreColor(index),
           borderColor: context.isDarkModeActive
               ? Colors.transparent
-              : context.read<StoresCubit>().activeStoreColor(
-                    stores[index].id,
-                  ),
+              : context.read<StoresCubit>().activeStoreColor(index),
           onPressed: () {
-            context.read<StoresCubit>().updateSelectedStoreAndItsIndex(
-                  storeId: stores[index].id,
-                  index: index,
-                );
+            context.read<StoresCubit>().updateCurrentSelectedStore(index);
           },
           child: Text(
             stores[index].name,
             style: AppTextStyles.textStyle10Medium.copyWith(
               color: context.isDarkModeActive
                   ? Colors.white
-                  : context.read<StoresCubit>().activeStoreColor(
-                        stores[index].id,
-                      ),
+                  : context.read<StoresCubit>().activeStoreColor(index),
             ),
           ),
         ),
+        separatorBuilder: (_, __) => MySizedBox.width8,
+        itemCount: stores.length,
       ),
-      separatorBuilder: (_, __) => MySizedBox.width8,
-      itemCount: stores.length,
     );
   }
 
-  Color? _backgroundColor(BuildContext context, int storeId) {
+  Color? _backgroundColor(BuildContext context, int index) {
     return context.isDarkModeActive
-        ? _darkModeBackgroundColor(context, storeId)
+        ? _darkModeBackgroundColor(context, index)
         : Colors.white;
   }
 
-  Color? _darkModeBackgroundColor(BuildContext context, int storeId) {
-    return context.read<StoresCubit>().isStoreActive(storeId)
+  Color? _darkModeBackgroundColor(BuildContext context, int index) {
+    return context.read<StoresCubit>().isStoreActive(index)
         ? AppColors.primaryColor
         : AppColors.secondaryDarkColor;
   }

@@ -16,7 +16,7 @@ class CategoryStoresGridViewBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<StoresCubit, StoresState>(
-      buildWhen: (_, current) => current is UpdateCurrentStoreIndex,
+      buildWhen: (_, current) => current is UpdateCurrentSelectedStore,
       builder: (context, state) => Expanded(
         child: GridView.builder(
           padding: AppConstants.categoryPadding,
