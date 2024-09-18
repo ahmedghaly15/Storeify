@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,7 +26,7 @@ class CustomSearchTextField extends StatelessWidget {
         vertical: 16.h,
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.isDarkModeActive ? Colors.black38 : Colors.white,
         borderRadius: BorderRadius.circular(24.r),
         boxShadow: <BoxShadow>[
           BoxShadow(
@@ -37,6 +38,7 @@ class CustomSearchTextField extends StatelessWidget {
         ],
       ),
       child: CustomTextField(
+        margin: EdgeInsets.zero,
         enabled: enabled,
         controller: controller,
         hintTextKey: LangKeys.search,
