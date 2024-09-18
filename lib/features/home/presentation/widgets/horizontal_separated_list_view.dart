@@ -20,7 +20,7 @@ class HorizontalSeparatedListView extends StatelessWidget {
       physics: AppConstants.physics,
       scrollDirection: Axis.horizontal,
       itemBuilder: itemBuilder,
-      separatorBuilder: ((context, index) => MySizedBox.width19),
+      separatorBuilder: ((_, __) => MySizedBox.width19),
       itemCount: itemCount,
     );
   }

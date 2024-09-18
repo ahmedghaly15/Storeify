@@ -29,7 +29,8 @@ class StoresBlocBuilder extends StatelessWidget {
               margin: AppConstants.categoryMargin,
               height: 25.h,
               child: StoreCategoriesListView(
-                  fetchStoresResponse: fetchStoresResponse),
+                stores: fetchStoresResponse.stores,
+              ),
             ),
             CategoryStoresGridViewBlocBuilder(
               stores: fetchStoresResponse.stores,

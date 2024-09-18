@@ -1,11 +1,10 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
+import 'package:store_ify/core/widgets/app_bar_actions.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 
 class HomeCustomAppBar extends StatelessWidget {
@@ -26,21 +25,7 @@ class HomeCustomAppBar extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          IconButton(
-            onPressed: () => context.pushRoute(const ProfileRoute()),
-            icon: const Icon(
-              AppConstants.personIcon,
-              color: AppColors.greyColor,
-            ),
-          ),
-          IconButton(
-            onPressed: () {},
-            style: IconButton.styleFrom(
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              minimumSize: const Size(0, 0),
-            ),
-            icon: const Icon(Icons.notifications, color: AppColors.greyColor),
-          ),
+          const AppBarActions(),
         ],
       ),
     );

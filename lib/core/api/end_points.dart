@@ -22,4 +22,5 @@ class EndPoints {
   static const String pay = '${baseUrl}pay/';
   static const String changeLang = '${baseUrl}change-lang/';
   static const String logout = '${baseUrl}logout/';
+  static const String search = '${baseUrl}search';
 }

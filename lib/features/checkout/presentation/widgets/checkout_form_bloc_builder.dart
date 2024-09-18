@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:store_ify/core/helpers/auth_validator.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/helpers/payment_validator.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/services/location_service.dart';
@@ -69,7 +70,9 @@ class CheckoutFormBlocBuilder extends StatelessWidget {
                       initialCountryCode: state.countryCode,
                       keyboardType: TextInputType.phone,
                       pickerDialogStyle: PickerDialogStyle(
-                        backgroundColor: Colors.white,
+                        backgroundColor: context.isDarkModeActive
+                            ? AppColors.secondaryDarkColor
+                            : Colors.white,
                       ),
                       decoration: InputDecoration(
                         enabledBorder: AppConstants.textFieldOutlinedBorder,
@@ -79,7 +82,9 @@ class CheckoutFormBlocBuilder extends StatelessWidget {
                             AppConstants.textFieldOutlinedBorder,
                         border: AppConstants.textFieldOutlinedBorder,
                         filled: true,
-                        fillColor: Colors.white,
+                        fillColor: context.isDarkModeActive
+                            ? Colors.transparent
+                            : Colors.white,
                       ),
                       onChanged: (phoneNumber) => context
                           .read<CheckoutCubit>()

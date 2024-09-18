@@ -12,7 +12,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
   final FavoritesRepo _favoritesRepo;
   final CancelToken _cancelToken = CancelToken();
 
-  void preferProduct(int productId) async {
+  void _preferProduct(int productId) async {
     emit(const FavoritesState.preferProductLoading());
     final result = await _favoritesRepo.preferItem(
       itemType: FavItemType.product,
@@ -26,7 +26,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
     );
   }
 
-  void removeProductFromFavs(int productId) async {
+  void _removeProductFromFavs(int productId) async {
     emit(const FavoritesState.removeProductFromFavsLoading());
     final result = await _favoritesRepo.removeItemFromFavs(
       itemId: productId,
@@ -41,7 +41,14 @@ class FavoritesCubit extends Cubit<FavoritesState> {
     );
   }
 
-  void preferStore(int storeId) async {
+  void preferProductOrNot({
+    required bool isFavorited,
+    required int productId,
+  }) {
+    isFavorited ? _removeProductFromFavs(productId) : _preferProduct(productId);
+  }
+
+  void _preferStore(int storeId) async {
     emit(const FavoritesState.preferStoreLoading());
     final result = await _favoritesRepo.preferItem(
       params: PreferParams(storeId: storeId),
@@ -56,7 +63,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
     );
   }
 
-  void removeStoreFromFavs(int storeId) async {
+  void _removeStoreFromFavs(int storeId) async {
     emit(const FavoritesState.removeStoreFromFavsLoading());
     final result = await _favoritesRepo.removeItemFromFavs(
       itemId: storeId,
@@ -69,6 +76,13 @@ class FavoritesCubit extends Cubit<FavoritesState> {
         FavoritesState.removeStoreFromFavsError(errorModel.error ?? ''),
       ),
     );
+  }
+
+  void preferStoreOrNot({
+    required bool isFavorited,
+    required int storeId,
+  }) {
+    isFavorited ? _removeStoreFromFavs(storeId) : _preferStore(storeId);
   }
 
   @override

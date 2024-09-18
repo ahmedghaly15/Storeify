@@ -2,8 +2,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:store_ify/core/helpers/hive_type_ids.dart';
 import 'package:store_ify/core/models/color.dart';
+import 'package:store_ify/core/models/product.dart';
 import 'package:store_ify/core/models/size.dart';
-import 'package:store_ify/features/home/data/models/product.dart';
 
 part 'cart.g.dart';
 

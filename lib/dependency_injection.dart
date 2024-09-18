@@ -6,6 +6,7 @@ import 'package:store_ify/core/locale/logic/cubit/locale_cubit.dart';
 import 'package:store_ify/core/locale/logic/locale_repo.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/services/location_service.dart';
+import 'package:store_ify/core/themes/theming_cubit.dart';
 import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
 import 'package:store_ify/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forgot_password_cubit.dart';
@@ -40,6 +41,8 @@ import 'package:store_ify/features/payment/data/repositories/payment_repo.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
 import 'package:store_ify/features/profile/data/repos/profile_repo.dart';
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
+import 'package:store_ify/features/search/data/repositories/search_repo.dart';
+import 'package:store_ify/features/search/presentation/cubit/search_cubit.dart';
 import 'package:store_ify/features/stores/data/datasources/stores_local_datasource.dart';
 import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
 import 'package:store_ify/features/stores/data/repositories/stores_repo_impl.dart';
@@ -129,6 +132,9 @@ void _setupDIForRepos() {
   getIt.registerLazySingleton<ProfileRepo>(
     () => ProfileRepoImpl(getIt.get<ApiService>()),
   );
+  getIt.registerLazySingleton<SearchRepo>(
+    () => SearchRepo(getIt.get<ApiService>()),
+  );
 }
 
 void _setupDIForCubits() {
@@ -189,4 +195,8 @@ void _setupDIForCubits() {
   getIt.registerFactory<ProfileCubit>(
     () => ProfileCubit(getIt.get<ProfileRepo>()),
   );
+  getIt.registerFactory<SearchCubit>(
+    () => SearchCubit(getIt.get<SearchRepo>()),
+  );
+  getIt.registerFactory<ThemingCubit>(() => ThemingCubit());
 }

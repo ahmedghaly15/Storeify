@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:store_ify/core/models/product.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
@@ -8,7 +10,6 @@ import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_cached_network_image.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
-import 'package:store_ify/features/home/data/models/product.dart';
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem({
@@ -23,19 +24,25 @@ class CategoryItem extends StatelessWidget {
     return Container(
       constraints: BoxConstraints(maxWidth: 170.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.isDarkModeActive
+            ? AppColors.secondaryDarkColor
+            : Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(10.r)),
         boxShadow: <BoxShadow>[
           AppConstants.itemBoxShadow,
         ],
       ),
       child: MaterialButton(
-        padding: EdgeInsets.zero,
         onPressed: () => context.pushRoute(
           SubCategoriesRoute(category: category),
         ),
+        padding: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.r),
+        ),
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        minWidth: 0,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
               child: ClipRRect(
@@ -45,7 +52,14 @@ class CategoryItem extends StatelessWidget {
                 child: CustomCachedNetworkImage(
                   imageUrl: category.img ??
                       'https://plus.unsplash.com/premium_photo-1675896084254-dcb626387e1e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D',
-                  fit: BoxFit.cover,
+                  imageBuilder: (_, img) => Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: img,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -58,29 +72,30 @@ class CategoryItem extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             MySizedBox.height5,
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w),
-              child: Text(
-                category.description ??
-                    _mergeProductsToOneString(category.products!),
-                style: AppTextStyles.textStyle10Medium,
-                textAlign: TextAlign.center,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+            if (category.description != null || category.products!.isNotEmpty)
+              Container(
+                margin: EdgeInsets.symmetric(
+                  horizontal: 8.w,
+                  vertical: 4.h,
+                ),
+                child: Text(
+                  category.description ??
+                      _mergeProductsIntoString(category.products!),
+                  style: AppTextStyles.textStyle10Medium,
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
-            ),
-            MySizedBox.height4,
           ],
         ),
       ),
     );
   }
 
-  String _mergeProductsToOneString(List<Product> products) {
-    if (products.isEmpty) {
-      return 'No Products';
-    } else if (products.length > 1) {
-      return products.map((e) => e.name).toList().join(', ');
+  String _mergeProductsIntoString(List<Product> products) {
+    if (products.length > 1) {
+      return products.map((product) => product.name).toList().join(', ');
     }
     return products[0].name;
   }

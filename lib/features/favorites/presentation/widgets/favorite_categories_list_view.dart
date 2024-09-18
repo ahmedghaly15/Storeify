@@ -20,48 +20,47 @@ class FavoriteCategoriesListView extends StatelessWidget {
       itemBuilder: (_, index) =>
           BlocBuilder<FetchFavoritesCubit, FetchFavoritesState>(
         buildWhen: (_, current) => current is UpdateSelectedFavCategory,
-        builder: (context, state) {
-          return CustomOutlinedButton(
-            foregroundColor: _activeColor(context, index),
-            borderColor: _activeColor(context, index),
-            onPressed: () =>
-                _updateSelectedFavCategoryAndFetchItsData(context, index),
-            child: Text(
-              context.translate(AppConstants.favoritesCategoriesKeys[index]),
-              style: AppTextStyles.textStyle10Medium.copyWith(
-                color: _activeColor(context, index),
-              ),
+        builder: (context, state) => CustomOutlinedButton(
+          backgroundColor: _backgroundColor(context, index),
+          foregroundColor: context
+              .read<FetchFavoritesCubit>()
+              .selectedFavCategoryColor(index),
+          borderColor: context.isDarkModeActive
+              ? Colors.transparent
+              : context
+                  .read<FetchFavoritesCubit>()
+                  .selectedFavCategoryColor(index),
+          onPressed: () {
+            context
+                .read<FetchFavoritesCubit>()
+                .updateSelectedFavCategoryAndFetchItsData(index);
+          },
+          child: Text(
+            context.translate(AppConstants.favoritesCategoriesKeys[index]),
+            style: AppTextStyles.textStyle10Medium.copyWith(
+              color: context.isDarkModeActive
+                  ? Colors.white
+                  : context
+                      .read<FetchFavoritesCubit>()
+                      .selectedFavCategoryColor(index),
             ),
-          );
-        },
+          ),
+        ),
       ),
       separatorBuilder: (_, __) => MySizedBox.width8,
       itemCount: AppConstants.favoritesCategoriesKeys.length,
     );
   }
 
-  void _updateSelectedFavCategoryAndFetchItsData(
-      BuildContext context, int index) {
-    context.read<FetchFavoritesCubit>().updateSelectedFavCategory(index);
-    _fetchFavorites(context);
+  Color? _backgroundColor(BuildContext context, int index) {
+    return context.isDarkModeActive
+        ? _darkModelBackground(context, index)
+        : Colors.white;
   }
 
-  void _fetchFavorites(BuildContext context) {
-    switch (context.read<FetchFavoritesCubit>().selectedFavCategory) {
-      case 0:
-        context.read<FetchFavoritesCubit>().fetchFavStores();
-      case 1:
-        context.read<FetchFavoritesCubit>().fetchFavProducts();
-    }
-  }
-
-  Color _activeColor(BuildContext context, int index) {
-    return _isActive(context, index)
+  Color? _darkModelBackground(BuildContext context, int index) {
+    return (context.read<FetchFavoritesCubit>().isActiveFavCategory(index)
         ? AppColors.primaryColor
-        : AppColors.blueColor;
-  }
-
-  bool _isActive(BuildContext context, int index) {
-    return context.read<FetchFavoritesCubit>().selectedFavCategory == index;
+        : AppColors.secondaryDarkColor);
   }
 }

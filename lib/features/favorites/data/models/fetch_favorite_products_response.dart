@@ -1,7 +1,7 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:store_ify/core/helpers/hive_type_ids.dart';
-import 'package:store_ify/features/home/data/models/product.dart';
+import 'package:store_ify/core/models/product.dart';
 
 part 'fetch_favorite_products_response.g.dart';
 
