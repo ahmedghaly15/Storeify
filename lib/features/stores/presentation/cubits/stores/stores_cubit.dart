@@ -36,34 +36,18 @@ class StoresCubit extends Cubit<StoresState> {
     );
   }
 
-  int currentSelectedStore = 1;
-  void _updateCurrentSelectedStore(int index) {
-    if (currentSelectedStore != index) {
-      currentSelectedStore = index;
+  int currentStoreIndex = 0;
+  void updateCurrentSelectedStore(int index) {
+    if (currentStoreIndex != index) {
+      currentStoreIndex = index;
       emit(StoresState.updateCurrentSelectedStore(index));
     }
   }
 
-  int currentStoreIndex = 0;
-  void _updateCurrentStoreIndex(int index) {
-    if (currentStoreIndex != index) {
-      currentStoreIndex = index;
-      emit(StoresState.updateCurrentStoreIndex(index));
-    }
-  }
+  bool isStoreActive(int index) => currentStoreIndex == index;
 
-  void updateSelectedStoreAndItsIndex({
-    required int index,
-    required int storeId,
-  }) {
-    _updateCurrentSelectedStore(storeId);
-    _updateCurrentStoreIndex(index);
-  }
-
-  bool isStoreActive(int storeId) => currentSelectedStore == storeId;
-
-  Color activeStoreColor(int storeId) =>
-      isStoreActive(storeId) ? AppColors.primaryColor : AppColors.blueColor;
+  Color activeStoreColor(int index) =>
+      isStoreActive(index) ? AppColors.primaryColor : AppColors.blueColor;
 
   @override
   Future<void> close() {
