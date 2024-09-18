@@ -4,32 +4,26 @@ import 'package:store_ify/features/favorites/data/models/fetch_fav_stores_respon
 import 'package:store_ify/features/favorites/data/models/fetch_favorite_products_response.dart';
 import 'package:store_ify/features/favorites/data/models/prefer_params.dart';
 
-abstract class FavoritesRepo {
-  Future<ApiResult<void>> preferProduct(
-    PreferParams params, [
-    CancelToken? cancelToken,
-  ]);
+enum FavItemType { product, store }
 
-  Future<ApiResult<void>> removeProductFromFavs(
-    int productId, [
+abstract class FavoritesRepo {
+  Future<ApiResult<void>> preferItem({
+    required PreferParams params,
+    required FavItemType itemType,
     CancelToken? cancelToken,
-  ]);
+  });
+
+  Future<ApiResult<void>> removeItemFromFavs({
+    required int itemId,
+    required FavItemType itemType,
+    CancelToken? cancelToken,
+  });
 
   Future<ApiResult<FetchFavoriteProductsResponse>> fetchFavoriteProducts([
     CancelToken? cancelToken,
   ]);
 
   Future<ApiResult<FetchFavStoresResponse>> fetchFavStores([
-    CancelToken? cancelToken,
-  ]);
-
-  Future<ApiResult<void>> preferStore(
-    PreferParams params, [
-    CancelToken? cancelToken,
-  ]);
-
-  Future<ApiResult<void>> removeStoreFromFavs(
-    int storeId, [
     CancelToken? cancelToken,
   ]);
 }

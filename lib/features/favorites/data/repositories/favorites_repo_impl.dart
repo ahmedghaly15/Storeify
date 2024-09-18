@@ -16,8 +16,7 @@ class FavoritesRepoImpl implements FavoritesRepo {
 
   const FavoritesRepoImpl(this._apiService, this._localDatasource);
 
-  @override
-  Future<ApiResult<void>> preferProduct(
+  Future<ApiResult<void>> _preferProduct(
     PreferParams params, [
     CancelToken? cancelToken,
   ]) {
@@ -29,8 +28,33 @@ class FavoritesRepoImpl implements FavoritesRepo {
     );
   }
 
+  Future<ApiResult<void>> _preferStore(
+    PreferParams params, [
+    CancelToken? cancelToken,
+  ]) {
+    return executeAndHandleErrors<void>(
+      () async => _apiService.preferStore(
+        params,
+        cancelToken,
+      ),
+    );
+  }
+
   @override
-  Future<ApiResult<void>> removeProductFromFavs(
+  Future<ApiResult<void>> preferItem({
+    required PreferParams params,
+    required FavItemType itemType,
+    CancelToken? cancelToken,
+  }) {
+    switch (itemType) {
+      case FavItemType.product:
+        return _preferProduct(params, cancelToken);
+      case FavItemType.store:
+        return _preferStore(params, cancelToken);
+    }
+  }
+
+  Future<ApiResult<void>> _removeProductFromFavs(
     int productId, [
     CancelToken? cancelToken,
   ]) {
@@ -40,6 +64,32 @@ class FavoritesRepoImpl implements FavoritesRepo {
         cancelToken,
       ),
     );
+  }
+
+  Future<ApiResult<void>> _removeStoreFromFavs(
+    int storeId, [
+    CancelToken? cancelToken,
+  ]) {
+    return executeAndHandleErrors<void>(
+      () async => await _apiService.removeStoreFromFavs(
+        storeId,
+        cancelToken,
+      ),
+    );
+  }
+
+  @override
+  Future<ApiResult<void>> removeItemFromFavs({
+    required int itemId,
+    required FavItemType itemType,
+    CancelToken? cancelToken,
+  }) {
+    switch (itemType) {
+      case FavItemType.product:
+        return _removeProductFromFavs(itemId, cancelToken);
+      case FavItemType.store:
+        return _removeStoreFromFavs(itemId, cancelToken);
+    }
   }
 
   @override
@@ -97,31 +147,5 @@ class FavoritesRepoImpl implements FavoritesRepo {
       debugPrint('********** ERROR FETCHING FAV STORES: $error **********');
       return ApiResult.error(ApiErrorHandler.handle(error));
     }
-  }
-
-  @override
-  Future<ApiResult<void>> preferStore(
-    PreferParams params, [
-    CancelToken? cancelToken,
-  ]) {
-    return executeAndHandleErrors<void>(
-      () async => _apiService.preferStore(
-        params,
-        cancelToken,
-      ),
-    );
-  }
-
-  @override
-  Future<ApiResult<void>> removeStoreFromFavs(
-    int storeId, [
-    CancelToken? cancelToken,
-  ]) {
-    return executeAndHandleErrors<void>(
-      () async => await _apiService.removeStoreFromFavs(
-        storeId,
-        cancelToken,
-      ),
-    );
   }
 }
