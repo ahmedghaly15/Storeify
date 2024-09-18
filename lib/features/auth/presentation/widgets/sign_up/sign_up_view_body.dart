@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
-import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/auth/presentation/widgets/sign_up/sign_up_button_bloc_consumer.dart';
@@ -41,20 +40,15 @@ class SignUpViewBody extends StatelessWidget {
             hasScrollBody: false,
             child: Column(
               children: [
-                const Spacer(),
                 const SignUpForm(),
                 MySizedBox.height24,
                 const SignUpButtonBlocConsumer(),
-                Align(
+                Container(
+                  margin: EdgeInsetsDirectional.only(end: 16.w),
                   alignment: AlignmentDirectional.centerEnd,
                   child: TextButton(
                     onPressed: () => context.maybePop(),
-                    child: Text(
-                      context.translate(LangKeys.login),
-                      style: AppTextStyles.textStyle16Regular.copyWith(
-                        color: AppColors.primaryColor,
-                      ),
-                    ),
+                    child: Text(context.translate(LangKeys.login)),
                   ),
                 ),
               ],

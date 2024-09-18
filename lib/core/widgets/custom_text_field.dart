@@ -76,7 +76,7 @@ class CustomTextField extends StatelessWidget {
         controller: controller,
         focusNode: focusNode,
         keyboardType: keyboardType,
-        cursorColor: Colors.black,
+        cursorColor: context.isDarkModeActive ? Colors.white : Colors.black,
         textCapitalization: textCapitalization,
         textAlign: textAlign,
         decoration: InputDecoration(
@@ -92,10 +92,13 @@ class CustomTextField extends StatelessWidget {
           errorBorder: errorBorder ?? AppConstants.textFieldOutlinedBorder,
           hintText: hintTextKey == null ? '' : context.translate(hintTextKey!),
           hintStyle: hintStyle ??
-              AppTextStyles.textStyle16Medium.copyWith(color: Colors.grey),
+              AppTextStyles.textStyle16Medium.copyWith(
+                color:
+                    context.isDarkModeActive ? Colors.grey[400] : Colors.grey,
+              ),
           labelStyle: AppTextStyles.textStyle16Medium,
           filled: true,
-          fillColor: Colors.white,
+          fillColor: context.isDarkModeActive ? Colors.black38 : Colors.white,
           border: border ?? AppConstants.textFieldOutlinedBorder,
         ),
       ),

@@ -9,19 +9,21 @@ class CustomOutlinedButton extends StatelessWidget {
     required this.child,
     this.foregroundColor,
     this.borderColor,
+    this.backgroundColor = Colors.white,
   });
 
   final Widget child;
   final void Function()? onPressed;
   final Color? foregroundColor;
   final Color? borderColor;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
       style: OutlinedButton.styleFrom(
         foregroundColor: foregroundColor,
-        backgroundColor: Colors.white,
+        backgroundColor: backgroundColor,
         side: BorderSide(
           width: 1.w,
           color: borderColor ?? AppColors.primaryColor,

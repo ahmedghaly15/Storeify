@@ -31,6 +31,7 @@ class CustomHeroSearchTextField extends StatelessWidget {
         }
       },
       child: Material(
+        color: Colors.transparent,
         child: GestureDetector(
           onTap: () => context.pushRoute(const SearchRoute()),
           child: const CustomSearchTextField(enabled: false),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
-import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 
 class ViewAllTextButton extends StatelessWidget {
@@ -21,8 +20,7 @@ class ViewAllTextButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           context.translate(LangKeys.viewAll),
-          style: AppTextStyles.textStyle16Regular
-              .copyWith(color: AppColors.greyColor),
+          style: AppTextStyles.textStyle16Regular,
         ),
       ),
     );
