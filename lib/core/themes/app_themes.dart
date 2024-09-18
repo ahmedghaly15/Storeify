@@ -61,7 +61,7 @@ class AppThemes {
             foregroundColor: WidgetStatePropertyAll(Colors.white),
           ),
           headerBackgroundColor: AppColors.primaryColor,
-          headerForegroundColor: Colors.black,
+          headerForegroundColor: Colors.white,
           dividerColor: Colors.black,
         ),
       );

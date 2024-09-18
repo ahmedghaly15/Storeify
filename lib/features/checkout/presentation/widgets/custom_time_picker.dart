@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:numberpicker/numberpicker.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_cubit.dart';
@@ -17,7 +18,8 @@ class CustomTimePicker extends StatelessWidget {
       children: [
         BlocBuilder<CheckoutCubit, CheckoutState>(
           buildWhen: (_, current) => current is ChangeCheckoutHour,
-          builder: (_, __) => _buildCustomTimePicker(
+          builder: (context, __) => _buildCustomTimePicker(
+            context,
             minValue: 1,
             maxValue: 12,
             value: context.read<CheckoutCubit>().hours,
@@ -37,6 +39,7 @@ class CustomTimePicker extends StatelessWidget {
         BlocBuilder<CheckoutCubit, CheckoutState>(
           buildWhen: (_, current) => current is ChangeCheckoutMinutes,
           builder: (_, __) => _buildCustomTimePicker(
+            context,
             minValue: 00,
             maxValue: 59,
             value: context.read<CheckoutCubit>().minutes,
@@ -48,7 +51,8 @@ class CustomTimePicker extends StatelessWidget {
     );
   }
 
-  Widget _buildCustomTimePicker({
+  Widget _buildCustomTimePicker(
+    BuildContext context, {
     required int minValue,
     required int maxValue,
     required int value,
@@ -57,7 +61,7 @@ class CustomTimePicker extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(8.r)),
-        color: Colors.white,
+        color: context.isDarkModeActive ? Colors.transparent : Colors.white,
         border: Border.all(
           color: AppColors.fontPrimaryColor,
           width: 1.08.w,

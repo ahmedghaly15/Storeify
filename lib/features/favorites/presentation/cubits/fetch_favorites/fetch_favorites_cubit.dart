@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_state.dart';
 
@@ -23,12 +25,6 @@ class FetchFavoritesCubit extends Cubit<FetchFavoritesState> {
     );
   }
 
-  int selectedFavCategory = 0;
-  void updateSelectedFavCategory(int index) {
-    selectedFavCategory = index;
-    emit(FetchFavoritesState.updateSelectedFavCategory(index));
-  }
-
   void fetchFavStores() async {
     emit(const FetchFavoritesState.fetchFavStoresLoading());
     final result = await _favoritesRepo.fetchFavStores(_cancelToken);
@@ -38,6 +34,38 @@ class FetchFavoritesCubit extends Cubit<FetchFavoritesState> {
       error: (error) =>
           emit(FetchFavoritesState.fetchFavStoresError(error.error ?? '')),
     );
+  }
+
+  int selectedFavCategory = 0;
+  void _updateSelectedFavCategory(int index) {
+    if (selectedFavCategory != index) {
+      selectedFavCategory = index;
+      emit(FetchFavoritesState.updateSelectedFavCategory(index));
+    }
+  }
+
+  void updateSelectedFavCategoryAndFetchItsData(int index) {
+    _updateSelectedFavCategory(index);
+    _fetchFavorites();
+  }
+
+  void _fetchFavorites() {
+    switch (selectedFavCategory) {
+      case 0:
+        fetchFavStores();
+      case 1:
+        fetchFavProducts();
+    }
+  }
+
+  Color selectedFavCategoryColor(int index) {
+    return isActiveFavCategory(index)
+        ? AppColors.primaryColor
+        : AppColors.blueColor;
+  }
+
+  bool isActiveFavCategory(int index) {
+    return selectedFavCategory == index;
   }
 
   @override
