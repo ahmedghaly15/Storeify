@@ -148,4 +148,14 @@ class FavoritesRepoImpl implements FavoritesRepo {
       return ApiResult.error(ApiErrorHandler.handle(error));
     }
   }
+
+  @override
+  Future<void> deleteCachedFavProducts() async {
+    await _localDatasource.deleteCachedFavProducts();
+  }
+
+  @override
+  Future<void> deleteCachedFavStores() async {
+    await _localDatasource.deleteCachedFavStores();
+  }
 }

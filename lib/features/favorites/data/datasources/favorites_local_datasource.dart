@@ -36,4 +36,18 @@ class FavoritesLocalDatasource {
     );
     return box.get(HiveKeys.favStoresResponse);
   }
+
+  Future<void> deleteCachedFavProducts() async {
+    final box = await Hive.openBox<FetchFavoriteProductsResponse>(
+      HiveBoxes.favProductsBox,
+    );
+    await box.delete(HiveKeys.favProductsResponse);
+  }
+
+  Future<void> deleteCachedFavStores() async {
+    final box = await Hive.openBox<FetchFavStoresResponse>(
+      HiveBoxes.favStoresBox,
+    );
+    await box.delete(HiveKeys.favStoresResponse);
+  }
 }

@@ -26,4 +26,7 @@ abstract class FavoritesRepo {
   Future<ApiResult<FetchFavStoresResponse>> fetchFavStores([
     CancelToken? cancelToken,
   ]);
+
+  Future<void> deleteCachedFavProducts();
+  Future<void> deleteCachedFavStores();
 }
