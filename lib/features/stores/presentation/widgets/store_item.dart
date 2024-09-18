@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
@@ -25,15 +26,21 @@ class StoreItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color:
+            context.isDarkModeActive ? AppColors.itemDarkColor : Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(10.r)),
         boxShadow: <BoxShadow>[
           AppConstants.itemBoxShadow,
         ],
       ),
       child: MaterialButton(
-        padding: EdgeInsets.zero,
         onPressed: () => context.pushRoute(StoreDetailsRoute(store: store)),
+        padding: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10.r)),
+        ),
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        minWidth: 0,
         child: Column(
           children: <Widget>[
             Expanded(
@@ -45,70 +52,68 @@ class StoreItem extends StatelessWidget {
                 ),
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+            MySizedBox.height6,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                MySizedBox.height6,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      store.name,
-                      style: AppTextStyles.textStyle14Regular.copyWith(
-                        color: AppColors.primaryColor,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    BlocListener<FavoritesCubit, FavoritesState>(
-                      listenWhen: (_, current) =>
-                          current is PreferStoreError ||
-                          current is RemoveStoreFromFavsError,
-                      listener: (context, state) => state.whenOrNull(
-                        preferStoreError: (errorKey) => CustomToast.showToast(
-                          context: context,
-                          messageKey: errorKey,
-                          state: CustomToastState.error,
-                        ),
-                        removeStoreFromFavsError: (errorKey) =>
-                            CustomToast.showToast(
-                          context: context,
-                          messageKey: errorKey,
-                          state: CustomToastState.error,
-                        ),
-                      ),
-                      child: IconButton(
-                        onPressed: () {
-                          // TODO: handle add / remove store from favorites logic
-                        },
-                        icon: Icon(
-                          Icons.favorite_border_outlined,
-                          size: 19.w,
-                          color: AppColors.primaryColor,
-                        ),
-                      ),
-                    ),
-                  ],
+                Text(
+                  store.name,
+                  style: AppTextStyles.textStyle14Regular.copyWith(
+                    color: AppColors.primaryColor,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
-                // RatingBar.builder(
-                //   initialRating: store.rate,
-                //   minRating: 0,
-                //   direction: Axis.horizontal,
-                //   allowHalfRating: true,
-                //   itemCount: 5,
-                //   itemSize: 12.w,
-                //   itemPadding: EdgeInsets.only(right: 3.w),
-                //   itemBuilder: (context, _) => const Icon(
-                //     Icons.star,
-                //     color: Color(0xffFFE600),
-                //   ),
-                //   onRatingUpdate: (rating) {
-                //     rating = store.rate;
-                //   },
-                // ),
+                PreferStoreBlocConsumerIconButton(
+                  storeId: store.id,
+                  // TODO:
+                  // isFavorited: store.isFavorited,
+                ),
               ],
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class PreferStoreBlocConsumerIconButton extends StatelessWidget {
+  const PreferStoreBlocConsumerIconButton({
+    super.key,
+    this.isFavorited = false,
+    required this.storeId,
+  });
+
+  final bool isFavorited;
+  final int storeId;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocListener<FavoritesCubit, FavoritesState>(
+      listenWhen: (_, current) =>
+          current is PreferStoreError || current is RemoveStoreFromFavsError,
+      listener: (context, state) => state.whenOrNull(
+        preferStoreError: (errorKey) => CustomToast.showToast(
+          context: context,
+          messageKey: errorKey,
+          state: CustomToastState.error,
+        ),
+        removeStoreFromFavsError: (errorKey) => CustomToast.showToast(
+          context: context,
+          messageKey: errorKey,
+          state: CustomToastState.error,
+        ),
+      ),
+      child: IconButton(
+        onPressed: () => context.read<FavoritesCubit>().preferStoreOrNot(
+              storeId: storeId,
+              isFavorited: isFavorited,
+            ),
+        icon: Icon(
+          isFavorited ? Icons.favorite : Icons.favorite_border_outlined,
+          size: 19.w,
+          color: AppColors.primaryColor,
         ),
       ),
     );
