@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
-import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
-import 'package:store_ify/core/widgets/product_item_shimmer.dart';
 import 'package:store_ify/core/widgets/stores_grid_view_shimmer.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_state.dart';
 import 'package:store_ify/features/favorites/presentation/widgets/favorite_products_grid_view.dart';
 import 'package:store_ify/features/favorites/presentation/widgets/favorite_stores_grid_view.dart';
+import 'package:store_ify/features/favorites/presentation/widgets/products_grid_view_shimmer.dart';
 
 class FavoritesGridViewBlocBuilder extends StatelessWidget {
   const FavoritesGridViewBlocBuilder({super.key});
@@ -33,12 +32,7 @@ class FavoritesGridViewBlocBuilder extends StatelessWidget {
               context.read<FetchFavoritesCubit>().fetchFavStores(),
           errorKey: errorKey,
         ),
-        fetchFavoriteProductsLoading: () => GridView.builder(
-          gridDelegate: AppConstants.favProductsGridDelegate,
-          padding: AppConstants.categoryPadding,
-          itemCount: 10,
-          itemBuilder: (_, __) => const ProductItemShimmer(),
-        ),
+        fetchFavoriteProductsLoading: () => const ProductsGridViewShimmer(),
         fetchFavoriteProductsSuccess: (favProductsResponse) =>
             FavoriteProductsGridView(products: favProductsResponse.products),
         fetchFavoriteProductsError: (errorKey) => CustomErrorWidget(
