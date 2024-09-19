@@ -79,4 +79,9 @@ class AppConstants {
         borderRadius: BorderRadius.circular(24.r),
         borderSide: const BorderSide(color: Colors.white),
       );
+  static EdgeInsetsGeometry get categoriesGridPadding => EdgeInsets.only(
+        left: 16.w,
+        right: 16.w,
+        bottom: 16.h,
+      );
 }
