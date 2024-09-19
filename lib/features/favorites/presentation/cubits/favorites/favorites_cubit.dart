@@ -85,11 +85,11 @@ class FavoritesCubit extends Cubit<FavoritesState> {
     isFavorited ? _removeStoreFromFavs(storeId) : _preferStore(storeId);
   }
 
-  void deleteCachedFavProducts() async {
+  Future<void> deleteCachedFavProducts() async {
     await _favoritesRepo.deleteCachedFavProducts();
   }
 
-  void deleteCachedFavStores() async {
+  Future<void> deleteCachedFavStores() async {
     await _favoritesRepo.deleteCachedFavStores();
   }
 

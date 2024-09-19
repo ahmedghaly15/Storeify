@@ -17,6 +17,7 @@ class FavoriteProductsGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       itemCount: products.length,
+      physics: AppConstants.physics,
       padding: AppConstants.categoryPadding,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: AppConstants.gridCrossAxisCount,
