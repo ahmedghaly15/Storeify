@@ -84,4 +84,9 @@ class AppConstants {
         right: 16.w,
         bottom: 16.h,
       );
+  static EdgeInsetsGeometry get cartItemMargin => EdgeInsetsDirectional.only(
+        start: 8.w,
+        end: 8.w,
+        bottom: 16.h,
+      );
 }
