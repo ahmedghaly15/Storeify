@@ -10,7 +10,12 @@ class LayoutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      routes: const [HomeRoute(), StoresRoute(), CartRoute(), FavoritesRoute()],
+      routes: [
+        const HomeRouteBody(),
+        StoresRouteBody(),
+        CartRouteBody(),
+        FavoritesRouteBody()
+      ],
       bottomNavigationBuilder: (_, tabsRouter) => CustomBottomNavBar(
         currentIndex: tabsRouter.activeIndex,
         onTap: tabsRouter.setActiveIndex,

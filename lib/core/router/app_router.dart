@@ -15,7 +15,7 @@ import 'package:store_ify/features/categories/presentation/view/sub_categories_v
 import 'package:store_ify/features/checkout/presentation/views/checkout_view.dart';
 import 'package:store_ify/features/checkout/presentation/views/payment_method_view.dart';
 import 'package:store_ify/features/favorites/presentation/views/favorites_view.dart';
-import 'package:store_ify/features/home/presentation/view/home_view.dart';
+import 'package:store_ify/features/home/presentation/widgets/home_view_body.dart';
 import 'package:store_ify/features/layout/presentation/views/layout_view.dart';
 import 'package:store_ify/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:store_ify/features/payment/presentation/views/payment_successfully_view.dart';
