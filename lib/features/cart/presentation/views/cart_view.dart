@@ -25,20 +25,47 @@ class CartView extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: SafeArea(
-        child: CustomScrollView(
-          physics: AppConstants.physics,
-          slivers: [
-            CustomSliverAppBar(titleKey: LangKeys.cart, hasLeading: false),
-            CartProductsSliverListBlocBuilder(),
-            SliverToBoxAdapter(
-              child: CartSummaryBlocBuilder(),
-            ),
-            SliverToBoxAdapter(
-              child: CheckoutButtonBlocBuilder(),
-            ),
-          ],
-        ),
+      // Extracted it as it's used as a route in Layout
+      body: CartViewBody(isAppBarHasLeading: true),
+    );
+  }
+}
+
+@RoutePage()
+class CartViewBody extends StatelessWidget implements AutoRouteWrapper {
+  const CartViewBody({
+    super.key,
+    this.isAppBarHasLeading = false,
+  });
+
+  final bool isAppBarHasLeading;
+
+  @override
+  Widget wrappedRoute(BuildContext context) {
+    return BlocProvider<CartCubit>(
+      create: (_) => getIt.get<CartCubit>()..fetchCart(),
+      child: this,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: CustomScrollView(
+        physics: AppConstants.physics,
+        slivers: [
+          CustomSliverAppBar(
+            titleKey: LangKeys.cart,
+            hasLeading: isAppBarHasLeading,
+          ),
+          const CartProductsSliverListBlocBuilder(),
+          const SliverToBoxAdapter(
+            child: CartSummaryBlocBuilder(),
+          ),
+          const SliverToBoxAdapter(
+            child: CheckoutButtonBlocBuilder(),
+          ),
+        ],
       ),
     );
   }

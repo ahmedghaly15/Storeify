@@ -24,26 +24,49 @@ class FavoritesView extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            const CustomSliverAppBar(
-              titleKey: LangKeys.favorites,
-              hasLeading: false,
+    return const Scaffold(
+      body: FavoritesViewBody(isAppBarHasLeading: true),
+    );
+  }
+}
+
+@RoutePage()
+class FavoritesViewBody extends StatelessWidget implements AutoRouteWrapper {
+  const FavoritesViewBody({
+    super.key,
+    this.isAppBarHasLeading = false,
+  });
+
+  @override
+  Widget wrappedRoute(BuildContext context) {
+    return BlocProvider<FetchFavoritesCubit>(
+      create: (_) => getIt.get<FetchFavoritesCubit>()..fetchFavStores(),
+      child: this,
+    );
+  }
+
+  final bool isAppBarHasLeading;
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: CustomScrollView(
+        slivers: [
+          CustomSliverAppBar(
+            titleKey: LangKeys.favorites,
+            hasLeading: isAppBarHasLeading,
+          ),
+          SliverToBoxAdapter(
+            child: Container(
+              margin: AppConstants.categoryMargin,
+              height: 25.h,
+              child: const FavoriteCategoriesListView(),
             ),
-            SliverToBoxAdapter(
-              child: Container(
-                margin: AppConstants.categoryMargin,
-                height: 25.h,
-                child: const FavoriteCategoriesListView(),
-              ),
-            ),
-            const SliverFillRemaining(
-              child: FavoritesGridViewBlocBuilder(),
-            ),
-          ],
-        ),
+          ),
+          const SliverFillRemaining(
+            child: FavoritesGridViewBlocBuilder(),
+          ),
+        ],
       ),
     );
   }

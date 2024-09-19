@@ -11,8 +11,8 @@ import 'package:store_ify/features/home/presentation/widgets/show_location_dialo
 import 'package:store_ify/features/home/presentation/widgets/home_custom_app_bar.dart';
 
 @RoutePage()
-class HomeView extends StatelessWidget implements AutoRouteWrapper {
-  const HomeView({super.key});
+class HomeViewBody extends StatelessWidget implements AutoRouteWrapper {
+  const HomeViewBody({super.key});
 
   @override
   Widget wrappedRoute(BuildContext context) {
@@ -24,29 +24,27 @@ class HomeView extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
-        child: CustomScrollView(
-          physics: AppConstants.physics,
-          slivers: [
-            SliverToBoxAdapter(
-              child: HomeCustomAppBar(),
-            ),
-            SliverToBoxAdapter(
-              child: CustomHeroSearchTextField(),
-            ),
-            SliverToBoxAdapter(
-              child: ShowLocationDialogBlocListener(),
-            ),
-            SliverToBoxAdapter(
-              child: FavoritesActionBlocListener(),
-            ),
-            SliverFillRemaining(
-              hasScrollBody: false,
-              child: HomeDataBlocBuilder(),
-            ),
-          ],
-        ),
+    return const SafeArea(
+      child: CustomScrollView(
+        physics: AppConstants.physics,
+        slivers: [
+          SliverToBoxAdapter(
+            child: HomeCustomAppBar(),
+          ),
+          SliverToBoxAdapter(
+            child: CustomHeroSearchTextField(),
+          ),
+          SliverToBoxAdapter(
+            child: ShowLocationDialogBlocListener(),
+          ),
+          SliverToBoxAdapter(
+            child: FavoritesActionBlocListener(),
+          ),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: HomeDataBlocBuilder(),
+          ),
+        ],
       ),
     );
   }
