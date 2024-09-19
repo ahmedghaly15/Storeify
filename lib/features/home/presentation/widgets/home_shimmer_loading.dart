@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/widgets/product_item_shimmer.dart';
 import 'package:store_ify/core/widgets/shimmer_widget.dart';
 import 'package:store_ify/features/home/presentation/widgets/horizontal_separated_list_view.dart';
 
@@ -40,25 +41,11 @@ class ShimmerTitleAndListView extends StatelessWidget {
           SizedBox(
             height: 209.h,
             child: HorizontalSeparatedListView(
-              itemBuilder: (_, __) => const ProductShimmerItem(),
+              itemBuilder: (_, __) => const ProductItemShimmer(),
               itemCount: 6,
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class ProductShimmerItem extends StatelessWidget {
-  const ProductShimmerItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ShimmerWidget(
-      constraints: BoxConstraints(
-        maxWidth: 145.w,
-        maxHeight: 209.h,
       ),
     );
   }

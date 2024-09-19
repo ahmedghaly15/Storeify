@@ -51,6 +51,7 @@ class FavoritesViewBody extends StatelessWidget implements AutoRouteWrapper {
   Widget build(BuildContext context) {
     return SafeArea(
       child: CustomScrollView(
+        physics: AppConstants.physics,
         slivers: [
           CustomSliverAppBar(
             titleKey: LangKeys.favorites,

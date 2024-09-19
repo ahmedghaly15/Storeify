@@ -89,4 +89,10 @@ class AppConstants {
         end: 8.w,
         bottom: 16.h,
       );
+  static SliverGridDelegate get favProductsGridDelegate =>
+      SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: gridCrossAxisCount,
+        crossAxisSpacing: 15.w,
+        mainAxisSpacing: 10.h,
+      );
 }

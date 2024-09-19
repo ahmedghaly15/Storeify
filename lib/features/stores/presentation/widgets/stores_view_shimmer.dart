@@ -3,10 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/core/widgets/shimmer_widget.dart';
+import 'package:store_ify/core/widgets/stores_grid_view_shimmer.dart';
 import 'package:store_ify/features/home/presentation/widgets/horizontal_separated_list_view.dart';
 
-class StoresGridShimmerLoading extends StatelessWidget {
-  const StoresGridShimmerLoading({super.key});
+class StoresViewShimmer extends StatelessWidget {
+  const StoresViewShimmer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,20 +27,8 @@ class StoresGridShimmerLoading extends StatelessWidget {
             itemCount: 5,
           ),
         ),
-        Expanded(
-          child: GridView.builder(
-            itemCount: 10,
-            padding: AppConstants.categoryPadding,
-            physics: AppConstants.physics,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: AppConstants.gridCrossAxisCount,
-              crossAxisSpacing: 8.w,
-              mainAxisSpacing: 16.h,
-            ),
-            itemBuilder: (_, __) => ShimmerWidget(
-              constraints: BoxConstraints(maxHeight: 165.h, maxWidth: 170.w),
-            ),
-          ),
+        const Expanded(
+          child: StoresGridViewShimmer(),
         ),
         MySizedBox.height16,
       ],

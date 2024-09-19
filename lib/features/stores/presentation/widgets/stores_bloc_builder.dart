@@ -8,7 +8,7 @@ import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubi
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_state.dart';
 import 'package:store_ify/features/stores/presentation/widgets/category_stores_grid_view_bloc_builder.dart';
 import 'package:store_ify/features/stores/presentation/widgets/stores_categories_list_view.dart';
-import 'package:store_ify/features/stores/presentation/widgets/stores_grid_shimmer_loading.dart';
+import 'package:store_ify/features/stores/presentation/widgets/stores_view_shimmer.dart';
 
 class StoresBlocBuilder extends StatelessWidget {
   const StoresBlocBuilder({super.key});
@@ -21,7 +21,7 @@ class StoresBlocBuilder extends StatelessWidget {
           current is FetchStoresSuccess ||
           current is FetchStoresError,
       builder: (context, state) => state.maybeWhen(
-        fetchStoresLoading: () => const StoresGridShimmerLoading(),
+        fetchStoresLoading: () => const StoresViewShimmer(),
         fetchStoresSuccess: (fetchStoresResponse) => Column(
           children: [
             Container(
