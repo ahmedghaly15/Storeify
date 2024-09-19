@@ -23,7 +23,7 @@ class PreferStoreBlocListenerIconButton extends StatelessWidget {
           current is PreferStoreError ||
           current is RemoveStoreFromFavsError ||
           current is PreferStoreSuccess ||
-          current is RemoveStoreFromFavsLoSuccess,
+          current is RemoveStoreFromFavsSuccess,
       listener: (context, state) => state.whenOrNull(
         preferStoreError: (errorKey) => CustomToast.showToast(
           context: context,
