@@ -40,16 +40,25 @@ class ShimmerTitleAndListView extends StatelessWidget {
           SizedBox(
             height: 209.h,
             child: HorizontalSeparatedListView(
-              itemBuilder: (_, __) => ShimmerWidget(
-                constraints: BoxConstraints(
-                  maxWidth: 145.w,
-                  maxHeight: 209.h,
-                ),
-              ),
+              itemBuilder: (_, __) => const ProductShimmerItem(),
               itemCount: 6,
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ProductShimmerItem extends StatelessWidget {
+  const ProductShimmerItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ShimmerWidget(
+      constraints: BoxConstraints(
+        maxWidth: 145.w,
+        maxHeight: 209.h,
       ),
     );
   }
