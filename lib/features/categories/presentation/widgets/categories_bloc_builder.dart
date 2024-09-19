@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
+import 'package:store_ify/core/widgets/custom_error_widget.dart';
 import 'package:store_ify/features/categories/presentation/cubit/categories/categories_cubit.dart';
 import 'package:store_ify/features/categories/presentation/cubit/categories/categories_state.dart';
 import 'package:store_ify/features/categories/presentation/widgets/category_item.dart';
@@ -26,8 +27,10 @@ class CategoriesBlocBuilder extends StatelessWidget {
           ),
         ),
         fetchCategoriesError: (errorKey) => SliverFillRemaining(
-          child: Center(
-            child: Text(context.translate(errorKey)),
+          child: CustomErrorWidget(
+            tryAgainOnPressed: () =>
+                context.read<CategoriesCubit>().fetchCategories(),
+            errorKey: errorKey,
           ),
         ),
         fetchCategoriesSuccess: (fetchCategoriesResponse) => SliverPadding(
@@ -57,9 +60,11 @@ class CategoriesBlocBuilder extends StatelessWidget {
             ),
           ),
         ),
-        orElse: () => const SliverFillRemaining(
-          child: Center(
-            child: CustomCircularProgressIndicator(),
+        orElse: () => SliverFillRemaining(
+          child: CustomErrorWidget(
+            tryAgainOnPressed: () =>
+                context.read<CategoriesCubit>().fetchCategories(),
+            errorKey: LangKeys.defaultError,
           ),
         ),
       ),

@@ -5,7 +5,7 @@ import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
 import 'package:store_ify/dependency_injection.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_cubit.dart';
-import 'package:store_ify/features/checkout/presentation/widgets/checkout_form_bloc_builder.dart';
+import 'package:store_ify/features/checkout/presentation/widgets/checkout_form.dart';
 import 'package:store_ify/features/checkout/presentation/widgets/checkout_process_progress_dots.dart';
 
 @RoutePage()
@@ -32,7 +32,7 @@ class CheckoutView extends StatelessWidget implements AutoRouteWrapper {
             ),
             SliverFillRemaining(
               hasScrollBody: false,
-              child: CheckoutFormBlocBuilder(),
+              child: CheckoutForm(),
             ),
           ],
         ),

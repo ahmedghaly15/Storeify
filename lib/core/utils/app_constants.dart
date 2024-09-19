@@ -10,6 +10,7 @@ import 'package:store_ify/features/payment/data/models/card_type.dart';
 bool isUserLoggedIn = false;
 bool isOnboardingVisited = false;
 StoreifyUser? currentUser;
+String? countryCode;
 
 class AppConstants {
   static const ScrollPhysics physics = BouncingScrollPhysics();

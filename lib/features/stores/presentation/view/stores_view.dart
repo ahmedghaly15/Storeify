@@ -21,14 +21,37 @@ class StoresView extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return const Scaffold(
+      // Extracted it as it's used as a route in Layout
+      body: StoresViewBody(isAppBarHasLeading: true),
+    );
+  }
+}
+
+@RoutePage()
+class StoresViewBody extends StatelessWidget implements AutoRouteWrapper {
+  const StoresViewBody({super.key, this.isAppBarHasLeading = false});
+
+  final bool isAppBarHasLeading;
+
+  @override
+  Widget wrappedRoute(BuildContext context) {
+    return BlocProvider<StoresCubit>(
+      create: (_) => getIt.get<StoresCubit>()..fetchStores(),
+      child: this,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
       child: CustomScrollView(
         slivers: [
           CustomSliverAppBar(
             titleKey: LangKeys.stores,
-            hasLeading: false,
+            hasLeading: isAppBarHasLeading,
           ),
-          SliverFillRemaining(
+          const SliverFillRemaining(
             child: StoresBlocBuilder(),
           )
         ],
