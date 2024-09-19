@@ -17,9 +17,14 @@ void main() async {
   await HiveHelper.registerAdapters();
   setupDI();
   Bloc.observer = MyBlocObserver();
-  await checkIfOnboardingIsVisited();
-  await checkIfUserLoggedIn();
-  await getAndCacheCountryCode();
+  await Future.wait([
+    checkIfOnboardingIsVisited(),
+    checkIfUserIsLoggedIn(),
+    getAndCacheCountryCode(),
+  ]);
+  // await checkIfOnboardingIsVisited();
+  // await checkIfUserIsLoggedIn();
+  // await getAndCacheCountryCode();
   // TODO: add some animations to the whole app
   // TODO: remember to handle empty lists in the UI
   runApp(const StoreifyApp());
