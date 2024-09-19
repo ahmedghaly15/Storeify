@@ -33,6 +33,7 @@ class CustomTextField extends StatelessWidget {
     this.focusedErrorBorder,
     this.hintStyle,
     this.disabledBorder,
+    this.autofocus = false,
   });
 
   final TextInputType keyboardType;
@@ -59,12 +60,14 @@ class CustomTextField extends StatelessWidget {
   final InputBorder? disabledBorder;
   final bool? enabled;
   final EdgeInsetsGeometry? margin;
+  final bool autofocus;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: margin ?? EdgeInsets.symmetric(horizontal: 24.w),
       child: TextFormField(
+        autofocus: autofocus,
         enabled: enabled,
         selectionHeightStyle: BoxHeightStyle.strut,
         obscureText: obscureText ?? false,

@@ -6,6 +6,7 @@ import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_outlined_button.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
+import 'package:store_ify/features/home/presentation/widgets/horizontal_separated_list_view.dart';
 import 'package:store_ify/features/stores/data/models/store.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_state.dart';
@@ -19,10 +20,10 @@ class StoreCategoriesListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<StoresCubit, StoresState>(
       buildWhen: (_, current) => current is UpdateCurrentSelectedStore,
-      builder: (context, state) => ListView.separated(
-        scrollDirection: Axis.horizontal,
-        physics: AppConstants.physics,
+      builder: (context, state) => HorizontalSeparatedListView(
         padding: AppConstants.categoryPadding,
+        separatorWidget: MySizedBox.width8,
+        itemCount: stores.length,
         itemBuilder: (_, index) => CustomOutlinedButton(
           backgroundColor: _backgroundColor(context, index),
           foregroundColor: context.read<StoresCubit>().activeStoreColor(index),
@@ -41,8 +42,6 @@ class StoreCategoriesListView extends StatelessWidget {
             ),
           ),
         ),
-        separatorBuilder: (_, __) => MySizedBox.width8,
-        itemCount: stores.length,
       ),
     );
   }

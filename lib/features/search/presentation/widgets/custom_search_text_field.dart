@@ -12,11 +12,13 @@ class CustomSearchTextField extends StatelessWidget {
     this.enabled = true,
     this.onChanged,
     this.controller,
+    this.autofocus = false,
   });
 
   final bool enabled;
   final void Function(String)? onChanged;
   final TextEditingController? controller;
+  final bool autofocus;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +41,7 @@ class CustomSearchTextField extends StatelessWidget {
       ),
       child: CustomTextField(
         margin: EdgeInsets.zero,
+        autofocus: autofocus,
         enabled: enabled,
         controller: controller,
         hintTextKey: LangKeys.search,
