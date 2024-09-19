@@ -30,6 +30,11 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
+  void deleteCachedAndFetchHomeData() async {
+    await _homeRepo.deleteHomeCachedData();
+    fetchHomeData();
+  }
+
   @override
   Future<void> close() {
     _cancelToken.cancel();

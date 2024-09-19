@@ -10,6 +10,8 @@ abstract class HomeRepo {
   Future<ApiResult<FetchHomeResponse>> fetchHomeData([
     CancelToken? cancelToken,
   ]);
+
+  Future<void> deleteHomeCachedData();
 }
 
 class HomeRepoImpl implements HomeRepo {
@@ -45,5 +47,10 @@ class HomeRepoImpl implements HomeRepo {
       debugPrint('********* ERROR FETCHING HOME RESPONSE: $error *********');
       return ApiResult.error(ApiErrorHandler.handle(error));
     }
+  }
+
+  @override
+  Future<void> deleteHomeCachedData() async {
+    await _localDatasource.deleteHomeCachedResponse();
   }
 }

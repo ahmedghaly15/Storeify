@@ -19,4 +19,10 @@ class HomeLocalDatasource {
         await Hive.openBox<FetchHomeResponse>(HiveBoxes.homeResponseBox);
     return box.get(HiveKeys.homeResponse);
   }
+
+  Future<void> deleteHomeCachedResponse() async {
+    final box =
+        await Hive.openBox<FetchHomeResponse>(HiveBoxes.homeResponseBox);
+    await box.delete(HiveKeys.homeResponse);
+  }
 }
