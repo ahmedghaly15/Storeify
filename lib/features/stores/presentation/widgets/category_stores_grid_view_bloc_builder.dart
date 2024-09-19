@@ -20,6 +20,7 @@ class CategoryStoresGridViewBlocBuilder extends StatelessWidget {
       builder: (context, state) => Expanded(
         child: GridView.builder(
           padding: AppConstants.categoryPadding,
+          physics: AppConstants.physics,
           itemCount: stores[context.read<StoresCubit>().currentStoreIndex]
               .categories!
               .length,
