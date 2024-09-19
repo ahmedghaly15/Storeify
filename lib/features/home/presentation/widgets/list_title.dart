@@ -16,7 +16,7 @@ class ListTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: bottomPadding.h, left: 16.w),
+      padding: EdgeInsetsDirectional.only(bottom: bottomPadding.h, start: 16.w),
       child: Text(
         context.translate(titleKey),
         style: AppTextStyles.textStyle16Regular,

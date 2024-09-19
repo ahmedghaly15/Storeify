@@ -16,7 +16,7 @@ class HorizontalSeparatedListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      padding: EdgeInsets.only(left: 16.w, bottom: 8.h),
+      padding: EdgeInsetsDirectional.only(end: 16.w, start: 16.w, bottom: 8.h),
       physics: AppConstants.physics,
       scrollDirection: Axis.horizontal,
       itemBuilder: itemBuilder,
