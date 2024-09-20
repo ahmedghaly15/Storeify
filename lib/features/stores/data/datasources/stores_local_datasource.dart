@@ -1,6 +1,7 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:store_ify/core/helpers/hive_boxes.dart';
 import 'package:store_ify/core/helpers/hive_keys.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_branches.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_categories_response.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_offers_response.dart';
@@ -13,28 +14,36 @@ class StoresLocalDatasource {
     final box = await Hive.openLazyBox<FetchStoresResponse>(
       HiveBoxes.fetchStoresBox,
     );
-    await box.put(HiveKeys.fetchedStoresResponse, stores);
+    await box.put(
+      '${HiveKeys.fetchedStoresResponse}_${currentUser!.token}',
+      stores,
+    );
   }
 
   Future<FetchStoresResponse?> retrieveCachedStores() async {
     final box = await Hive.openLazyBox<FetchStoresResponse>(
       HiveBoxes.fetchStoresBox,
     );
-    return box.get(HiveKeys.fetchedStoresResponse);
+    return box.get('${HiveKeys.fetchedStoresResponse}_${currentUser!.token}');
   }
 
   Future<void> cacheCategoryStores(FetchStoresResponse stores) async {
     final box = await Hive.openLazyBox<FetchStoresResponse>(
       HiveBoxes.fetchCategoryStoresBox,
     );
-    await box.put(HiveKeys.fetchedCategoryStoresResponse, stores);
+    await box.put(
+      '${HiveKeys.fetchedCategoryStoresResponse}_${currentUser!.token}',
+      stores,
+    );
   }
 
   Future<FetchStoresResponse?> retrieveCachedCategoryStores() async {
     final box = await Hive.openLazyBox<FetchStoresResponse>(
       HiveBoxes.fetchCategoryStoresBox,
     );
-    return box.get(HiveKeys.fetchedCategoryStoresResponse);
+    return box.get(
+      '${HiveKeys.fetchedCategoryStoresResponse}_${currentUser!.token}',
+    );
   }
 
   Future<void> cacheStoreBranches(
@@ -45,7 +54,9 @@ class StoresLocalDatasource {
       HiveBoxes.fetchStoreBranchesBox,
     );
     await box.put(
-        '${HiveKeys.fetchedStoreBranchesResponse}_$storeId', storeBranches);
+      '${HiveKeys.fetchedStoreBranchesResponse}_${storeId}_${currentUser!.token}',
+      storeBranches,
+    );
   }
 
   Future<FetchStoreBranchesResponse?> retrieveCachedStoreBranches(
@@ -54,7 +65,9 @@ class StoresLocalDatasource {
     final box = await Hive.openLazyBox<FetchStoreBranchesResponse>(
       HiveBoxes.fetchStoreBranchesBox,
     );
-    return box.get('${HiveKeys.fetchedStoreBranchesResponse}_$storeId');
+    return box.get(
+      '${HiveKeys.fetchedStoreBranchesResponse}_${storeId}_${currentUser!.token}',
+    );
   }
 
   Future<void> cacheStoreCategories(
@@ -65,7 +78,9 @@ class StoresLocalDatasource {
       HiveBoxes.fetchStoreCategoriesBox,
     );
     await box.put(
-        '${HiveKeys.fetchedStoreCategoriesResponse}_$storeId', storeCategories);
+      '${HiveKeys.fetchedStoreCategoriesResponse}_${storeId}_${currentUser!.token}',
+      storeCategories,
+    );
   }
 
   Future<FetchStoreCategoriesResponse?> retrieveCachedStoreCategories(
@@ -74,7 +89,9 @@ class StoresLocalDatasource {
     final box = await Hive.openLazyBox<FetchStoreCategoriesResponse>(
       HiveBoxes.fetchStoreCategoriesBox,
     );
-    return box.get('${HiveKeys.fetchedStoreCategoriesResponse}_$storeId');
+    return box.get(
+      '${HiveKeys.fetchedStoreCategoriesResponse}_${storeId}_${currentUser!.token}',
+    );
   }
 
   Future<void> cacheStoreOffers(
@@ -85,7 +102,9 @@ class StoresLocalDatasource {
       HiveBoxes.fetchStoreOffersBox,
     );
     await box.put(
-        '${HiveKeys.fetchedStoreOffersResponse}_$storeId', storeOffers);
+      '${HiveKeys.fetchedStoreOffersResponse}_${storeId}_${currentUser!.token}',
+      storeOffers,
+    );
   }
 
   Future<FetchStoreOffersResponse?> retrieveCachedStoreOffers(
@@ -94,6 +113,8 @@ class StoresLocalDatasource {
     final box = await Hive.openLazyBox<FetchStoreOffersResponse>(
       HiveBoxes.fetchStoreOffersBox,
     );
-    return box.get('${HiveKeys.fetchedStoreOffersResponse}_$storeId');
+    return box.get(
+      '${HiveKeys.fetchedStoreOffersResponse}_${storeId}_${currentUser!.token}',
+    );
   }
 }
