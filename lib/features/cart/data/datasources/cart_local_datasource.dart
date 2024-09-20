@@ -7,14 +7,14 @@ class CartLocalDatasource {
   const CartLocalDatasource();
 
   Future<void> cacheCart(FetchCartResponse cartResponse) async {
-    final box = await Hive.openBox<FetchCartResponse>(
+    final box = await Hive.openLazyBox<FetchCartResponse>(
       HiveBoxes.cartResponseBox,
     );
     await box.put(HiveKeys.cartResponse, cartResponse);
   }
 
   Future<FetchCartResponse?> retrieveCachedCart() async {
-    final box = await Hive.openBox<FetchCartResponse>(
+    final box = await Hive.openLazyBox<FetchCartResponse>(
       HiveBoxes.cartResponseBox,
     );
     return box.get(HiveKeys.cartResponse);
