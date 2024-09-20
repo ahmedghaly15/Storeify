@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
@@ -79,7 +80,8 @@ class CustomTextField extends StatelessWidget {
         controller: controller,
         focusNode: focusNode,
         keyboardType: keyboardType,
-        cursorColor: context.isDarkModeActive ? Colors.white : Colors.black,
+        cursorColor:
+            context.isDarkModeActive ? Colors.white : AppColors.darkColor,
         textCapitalization: textCapitalization,
         textAlign: textAlign,
         decoration: InputDecoration(
