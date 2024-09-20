@@ -9,6 +9,7 @@ import 'package:store_ify/core/widgets/custom_error_widget.dart';
 import 'package:store_ify/features/categories/presentation/widgets/category_item.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_state.dart';
+import 'package:store_ify/features/stores/presentation/widgets/categories_grid_view_shimmer.dart';
 
 class StoreCategoriesGridViewBlocBuilder extends StatelessWidget {
   const StoreCategoriesGridViewBlocBuilder({super.key, required this.storeId});
@@ -23,9 +24,7 @@ class StoreCategoriesGridViewBlocBuilder extends StatelessWidget {
           current is FetchStoreCategoriesSuccess ||
           current is FetchStoreCategoriesError,
       builder: (context, state) => state.maybeWhen(
-        fetchStoreCategoriesLoading: () => const Center(
-          child: CustomCircularProgressIndicator(),
-        ),
+        fetchStoreCategoriesLoading: () => const CategoriesGridViewShimmer(),
         fetchStoreCategoriesSuccess: (result) => GridView.builder(
           padding: AppConstants.categoryPadding,
           itemCount: result.categories.length,

@@ -39,10 +39,10 @@ class AppThemes {
         colorScheme: const ColorScheme.dark(primary: AppColors.primaryColor),
         primaryColor: AppColors.primaryColor,
         useMaterial3: true,
-        scaffoldBackgroundColor: Colors.black,
+        scaffoldBackgroundColor: AppColors.darkColor,
         fontFamily: AppStrings.fontFamily,
         brightness: Brightness.dark,
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.black),
+        appBarTheme: const AppBarTheme(backgroundColor: AppColors.darkColor),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
             foregroundColor:
@@ -53,7 +53,7 @@ class AppThemes {
           ),
         ),
         datePickerTheme: const DatePickerThemeData(
-          backgroundColor: Colors.black,
+          backgroundColor: AppColors.darkColor,
           cancelButtonStyle: ButtonStyle(
             foregroundColor: WidgetStatePropertyAll(Colors.white),
           ),
@@ -62,7 +62,7 @@ class AppThemes {
           ),
           headerBackgroundColor: AppColors.primaryColor,
           headerForegroundColor: Colors.white,
-          dividerColor: Colors.black,
+          dividerColor: AppColors.darkColor,
         ),
       );
 }
