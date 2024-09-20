@@ -7,7 +7,7 @@ import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_state.dart';
 import 'package:store_ify/features/favorites/presentation/widgets/favorite_products_grid_view.dart';
 import 'package:store_ify/features/favorites/presentation/widgets/favorite_stores_grid_view.dart';
-import 'package:store_ify/features/favorites/presentation/widgets/products_grid_view_shimmer.dart';
+import 'package:store_ify/core/widgets/products_grid_view_shimmer.dart';
 
 class FavoritesGridViewBlocBuilder extends StatelessWidget {
   const FavoritesGridViewBlocBuilder({super.key});

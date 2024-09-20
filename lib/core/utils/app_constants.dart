@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/models/storeify_user.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
@@ -44,7 +45,7 @@ class AppConstants {
         offset: Offset(0.w, 4.h),
         blurRadius: 4.w,
         spreadRadius: 0,
-        color: Colors.black.withOpacity(0.25),
+        color: AppColors.darkColor.withOpacity(0.25),
       );
   static const List<PaymentMethod> paymentMethods = [
     PaymentMethod(
@@ -95,4 +96,17 @@ class AppConstants {
         crossAxisSpacing: 15.w,
         mainAxisSpacing: 10.h,
       );
+
+  static BoxDecoration storeBranchItemDecoration(BuildContext context) {
+    return BoxDecoration(
+      color: context.isDarkModeActive ? AppColors.darkColor : Colors.white,
+      border: Border.all(
+        color: AppColors.primaryColor,
+        width: 1.w,
+      ),
+      borderRadius: BorderRadius.all(Radius.circular(10.r)),
+    );
+  }
+
+  static EdgeInsetsGeometry get storeBranchItemPadding => EdgeInsets.all(10.h);
 }

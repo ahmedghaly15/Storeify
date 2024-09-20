@@ -7,6 +7,7 @@ import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_state.dart';
 import 'package:store_ify/features/stores/presentation/widgets/store_branch_item.dart';
+import 'package:store_ify/features/stores/presentation/widgets/store_branches_list_shimmer.dart';
 
 class StoreBranchesListViewBlocBuilder extends StatelessWidget {
   const StoreBranchesListViewBlocBuilder({super.key});
@@ -19,9 +20,7 @@ class StoreBranchesListViewBlocBuilder extends StatelessWidget {
           current is FetchStoreBranchesSuccess ||
           current is FetchStoreBranchesError,
       builder: (context, state) => state.maybeWhen(
-        fetchStoreBranchesLoading: () => const Center(
-          child: CustomCircularProgressIndicator(),
-        ),
+        fetchStoreBranchesLoading: () => const StoreBranchesListShimmer(),
         fetchStoreBranchesSuccess: (result) => result.branches.isNotEmpty
             ? ListView.separated(
                 padding: AppConstants.categoryPadding,

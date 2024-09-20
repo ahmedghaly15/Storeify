@@ -17,7 +17,7 @@ class ShimmerWidget extends StatelessWidget {
   });
 
   final double? height, width, circularRadiusVal;
-  final BorderRadius? borderRadius;
+  final BorderRadiusGeometry? borderRadius;
   final EdgeInsetsGeometry? margin, padding;
   final BoxShape? shape;
   final BoxConstraints? constraints;
