@@ -7,6 +7,7 @@ import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_outlined_button.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
+import 'package:store_ify/features/home/presentation/widgets/horizontal_separated_list_view.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_state.dart';
 
@@ -20,55 +21,45 @@ class StoreDetailsCategoriesListView extends StatelessWidget {
     return Container(
       margin: AppConstants.categoryMargin,
       height: 25.h,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
+      child: HorizontalSeparatedListView(
         padding: AppConstants.categoryPadding,
         itemBuilder: (_, index) {
           return BlocBuilder<StoreDetailsCubit, StoreDetailsState>(
             buildWhen: (_, current) => current is UpdateCurrentDetailsIndex,
             builder: (context, state) {
-              int currentStoreDetail =
-                  context.read<StoreDetailsCubit>().currentSubDetailsIndex;
               return CustomOutlinedButton(
-                onPressed: () =>
-                    _updateCurrentStoreAndFetchItsData(context, index),
-                foregroundColor: _activeColor(currentStoreDetail, index),
-                borderColor: _activeColor(currentStoreDetail, index),
+                backgroundColor: context.isDarkModeActive
+                    ? AppColors.secondaryDarkColor
+                    : Colors.white,
+                onPressed: () => context
+                    .read<StoreDetailsCubit>()
+                    .updateCurrentStoreAndFetchItsData(
+                      index: index,
+                      storeId: storeId,
+                    ),
+                foregroundColor: context
+                    .read<StoreDetailsCubit>()
+                    .selectedStoreDetailColor(context, index),
+                borderColor: context
+                    .read<StoreDetailsCubit>()
+                    .selectedStoreDetailColor(context, index),
                 child: Text(
                   context.translate(
-                      AppConstants.storeDetailsCategoriesKeys[index]),
+                    AppConstants.storeDetailsCategoriesKeys[index],
+                  ),
                   style: AppTextStyles.textStyle10Medium.copyWith(
-                    color: _activeColor(currentStoreDetail, index),
+                    color: context
+                        .read<StoreDetailsCubit>()
+                        .storeDetailTextColor(context, index),
                   ),
                 ),
               );
             },
           );
         },
-        separatorBuilder: (_, __) => MySizedBox.width8,
+        separatorWidget: MySizedBox.width8,
         itemCount: AppConstants.storeDetailsCategoriesKeys.length,
       ),
     );
   }
-
-  void _updateCurrentStoreAndFetchItsData(BuildContext context, int index) {
-    context.read<StoreDetailsCubit>().updateCurrentStoreDetailIndex(index);
-    _fetchStoreData(context);
-  }
-
-  void _fetchStoreData(BuildContext context) {
-    switch (context.read<StoreDetailsCubit>().currentSubDetailsIndex) {
-      case 0:
-        context.read<StoreDetailsCubit>().fetchStoreOffers(storeId);
-      case 1:
-        context.read<StoreDetailsCubit>().fetchStoreBranches(storeId);
-      case 2:
-        context.read<StoreDetailsCubit>().fetchStoreCategories(storeId);
-    }
-  }
-
-  Color _activeColor(int currentStoreDetail, int index) =>
-      currentStoreDetail == index
-          ? AppColors.primaryColor
-          : AppColors.blueColor;
 }
