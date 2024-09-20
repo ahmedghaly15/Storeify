@@ -10,28 +10,28 @@ class StoresLocalDatasource {
   const StoresLocalDatasource();
 
   Future<void> cacheStores(FetchStoresResponse stores) async {
-    final box = await Hive.openBox<FetchStoresResponse>(
+    final box = await Hive.openLazyBox<FetchStoresResponse>(
       HiveBoxes.fetchStoresBox,
     );
     await box.put(HiveKeys.fetchedStoresResponse, stores);
   }
 
   Future<FetchStoresResponse?> retrieveCachedStores() async {
-    final box = await Hive.openBox<FetchStoresResponse>(
+    final box = await Hive.openLazyBox<FetchStoresResponse>(
       HiveBoxes.fetchStoresBox,
     );
     return box.get(HiveKeys.fetchedStoresResponse);
   }
 
   Future<void> cacheCategoryStores(FetchStoresResponse stores) async {
-    final box = await Hive.openBox<FetchStoresResponse>(
+    final box = await Hive.openLazyBox<FetchStoresResponse>(
       HiveBoxes.fetchCategoryStoresBox,
     );
     await box.put(HiveKeys.fetchedCategoryStoresResponse, stores);
   }
 
   Future<FetchStoresResponse?> retrieveCachedCategoryStores() async {
-    final box = await Hive.openBox<FetchStoresResponse>(
+    final box = await Hive.openLazyBox<FetchStoresResponse>(
       HiveBoxes.fetchCategoryStoresBox,
     );
     return box.get(HiveKeys.fetchedCategoryStoresResponse);
@@ -39,49 +39,61 @@ class StoresLocalDatasource {
 
   Future<void> cacheStoreBranches(
     FetchStoreBranchesResponse storeBranches,
+    int storeId,
   ) async {
-    final box = await Hive.openBox<FetchStoreBranchesResponse>(
+    final box = await Hive.openLazyBox<FetchStoreBranchesResponse>(
       HiveBoxes.fetchStoreBranchesBox,
     );
-    await box.put(HiveKeys.fetchedStoreBranchesResponse, storeBranches);
+    await box.put(
+        '${HiveKeys.fetchedStoreBranchesResponse}_$storeId', storeBranches);
   }
 
-  Future<FetchStoreBranchesResponse?> retrieveCachedStoreBranches() async {
-    final box = await Hive.openBox<FetchStoreBranchesResponse>(
+  Future<FetchStoreBranchesResponse?> retrieveCachedStoreBranches(
+    int storeId,
+  ) async {
+    final box = await Hive.openLazyBox<FetchStoreBranchesResponse>(
       HiveBoxes.fetchStoreBranchesBox,
     );
-    return box.get(HiveKeys.fetchedStoreBranchesResponse);
+    return box.get('${HiveKeys.fetchedStoreBranchesResponse}_$storeId');
   }
 
   Future<void> cacheStoreCategories(
     FetchStoreCategoriesResponse storeCategories,
+    int storeId,
   ) async {
-    final box = await Hive.openBox<FetchStoreCategoriesResponse>(
+    final box = await Hive.openLazyBox<FetchStoreCategoriesResponse>(
       HiveBoxes.fetchStoreCategoriesBox,
     );
-    await box.put(HiveKeys.fetchedStoreCategoriesResponse, storeCategories);
+    await box.put(
+        '${HiveKeys.fetchedStoreCategoriesResponse}_$storeId', storeCategories);
   }
 
-  Future<FetchStoreCategoriesResponse?> retrieveCachedStoreCategories() async {
-    final box = await Hive.openBox<FetchStoreCategoriesResponse>(
+  Future<FetchStoreCategoriesResponse?> retrieveCachedStoreCategories(
+    int storeId,
+  ) async {
+    final box = await Hive.openLazyBox<FetchStoreCategoriesResponse>(
       HiveBoxes.fetchStoreCategoriesBox,
     );
-    return box.get(HiveKeys.fetchedStoreCategoriesResponse);
+    return box.get('${HiveKeys.fetchedStoreCategoriesResponse}_$storeId');
   }
 
   Future<void> cacheStoreOffers(
     FetchStoreOffersResponse storeOffers,
+    int storeId,
   ) async {
-    final box = await Hive.openBox<FetchStoreOffersResponse>(
+    final box = await Hive.openLazyBox<FetchStoreOffersResponse>(
       HiveBoxes.fetchStoreOffersBox,
     );
-    await box.put(HiveKeys.fetchedStoreOffersResponse, storeOffers);
+    await box.put(
+        '${HiveKeys.fetchedStoreOffersResponse}_$storeId', storeOffers);
   }
 
-  Future<FetchStoreOffersResponse?> retrieveCachedStoreOffers() async {
-    final box = await Hive.openBox<FetchStoreOffersResponse>(
+  Future<FetchStoreOffersResponse?> retrieveCachedStoreOffers(
+    int storeId,
+  ) async {
+    final box = await Hive.openLazyBox<FetchStoreOffersResponse>(
       HiveBoxes.fetchStoreOffersBox,
     );
-    return box.get(HiveKeys.fetchedStoreOffersResponse);
+    return box.get('${HiveKeys.fetchedStoreOffersResponse}_$storeId');
   }
 }

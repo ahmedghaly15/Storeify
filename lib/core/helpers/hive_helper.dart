@@ -50,23 +50,40 @@ class HiveHelper {
   }
 
   static Future<void> clearAllBoxes() async {
-    final homeResponseBox = await Hive.openBox<FetchHomeResponse>(
+    final homeResponseBox = await Hive.openLazyBox<FetchHomeResponse>(
       HiveBoxes.homeResponseBox,
     );
-    final cartResponseBox = await Hive.openBox<FetchCartResponse>(
+    final cartResponseBox = await Hive.openLazyBox<FetchCartResponse>(
       HiveBoxes.cartResponseBox,
     );
-    final categoriesResponseBox = await Hive.openBox<FetchCategoriesResponse>(
+    final categoriesResponseBox =
+        await Hive.openLazyBox<FetchCategoriesResponse>(
       HiveBoxes.categoriesResponseBox,
     );
-    final subCategoryBox = await Hive.openBox<FetchSubCategoryResponse>(
+    final subCategoryBox = await Hive.openLazyBox<FetchSubCategoryResponse>(
       HiveBoxes.subCategoryBox,
     );
-    final favProductsBox = await Hive.openBox<FetchFavoriteProductsResponse>(
+    final favProductsBox =
+        await Hive.openLazyBox<FetchFavoriteProductsResponse>(
       HiveBoxes.favProductsBox,
     );
-    final favStoresBox = await Hive.openBox<FetchFavStoresResponse>(
+    final favStoresBox = await Hive.openLazyBox<FetchFavStoresResponse>(
       HiveBoxes.favStoresBox,
+    );
+    final storesBox = await Hive.openLazyBox<FetchStoresResponse>(
+      HiveBoxes.fetchStoresBox,
+    );
+    final storeBranchesBox = await Hive.openLazyBox<FetchStoreBranchesResponse>(
+      HiveBoxes.fetchStoreBranchesBox,
+    );
+    final storeCategoriesBox =
+        await Hive.openLazyBox<FetchStoreCategoriesResponse>(
+      HiveBoxes.fetchStoreCategoriesBox,
+    );
+    final storeOffersBox = await Hive.openLazyBox<FetchStoreOffersResponse>(
+        HiveBoxes.fetchStoreOffersBox);
+    final countryCodeBox = await Hive.openLazyBox<String>(
+      HiveBoxes.countryCodeBox,
     );
 
     debugPrint('********** ALL BOXES CLEARED **********');
@@ -78,6 +95,11 @@ class HiveHelper {
       subCategoryBox.clear(),
       favProductsBox.clear(),
       favStoresBox.clear(),
+      storesBox.clear(),
+      storeBranchesBox.clear(),
+      storeCategoriesBox.clear(),
+      storeOffersBox.clear(),
+      countryCodeBox.clear(),
     ]);
   }
 }

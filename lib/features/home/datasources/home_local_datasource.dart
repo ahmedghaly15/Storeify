@@ -9,20 +9,20 @@ class HomeLocalDatasource {
 
   Future<void> cacheHomeResponse(FetchHomeResponse homeResponse) async {
     final box =
-        await Hive.openBox<FetchHomeResponse>(HiveBoxes.homeResponseBox);
+        await Hive.openLazyBox<FetchHomeResponse>(HiveBoxes.homeResponseBox);
     debugPrint('********* CACHED HOME RESPONSE *********');
     await box.put(HiveKeys.homeResponse, homeResponse);
   }
 
   Future<FetchHomeResponse?> retrieveCachedHomeResponse() async {
     final box =
-        await Hive.openBox<FetchHomeResponse>(HiveBoxes.homeResponseBox);
+        await Hive.openLazyBox<FetchHomeResponse>(HiveBoxes.homeResponseBox);
     return box.get(HiveKeys.homeResponse);
   }
 
   Future<void> deleteHomeCachedResponse() async {
     final box =
-        await Hive.openBox<FetchHomeResponse>(HiveBoxes.homeResponseBox);
+        await Hive.openLazyBox<FetchHomeResponse>(HiveBoxes.homeResponseBox);
     await box.delete(HiveKeys.homeResponse);
   }
 }

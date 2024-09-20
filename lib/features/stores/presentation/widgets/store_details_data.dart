@@ -8,7 +8,9 @@ import 'package:store_ify/features/stores/presentation/widgets/store_categories_
 import 'package:store_ify/features/stores/presentation/widgets/store_offers_grid_view_bloc_builder.dart';
 
 class StoreDetailsData extends StatelessWidget {
-  const StoreDetailsData({super.key});
+  const StoreDetailsData({super.key, required this.storeId});
+
+  final int storeId;
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +21,11 @@ class StoreDetailsData extends StatelessWidget {
             context.read<StoreDetailsCubit>().currentSubDetailsIndex;
         switch (currentDetail) {
           case 0:
-            return const StoreOffersGridViewBlocBuilder();
+            return StoreOffersGridViewBlocBuilder(storeId: storeId);
           case 1:
-            return const StoreBranchesListViewBlocBuilder();
+            return StoreBranchesListViewBlocBuilder(storeId: storeId);
           case 2:
-            return const StoreCategoriesGridViewBlocBuilder();
+            return StoreCategoriesGridViewBlocBuilder(storeId: storeId);
           default:
             return const Center(
               child: CustomCircularProgressIndicator(),

@@ -83,7 +83,7 @@ class StoresRepoImpl implements StoresRepo {
     CancelToken? cancelToken,
   ]) async {
     final cachedStoreBranches =
-        await _localDatasource.retrieveCachedStoreBranches();
+        await _localDatasource.retrieveCachedStoreBranches(storeId);
     if (cachedStoreBranches == null) {
       debugPrint('*********** NO CACHED STORE BRANCHES ***********');
       return await _fetchAndCacheStoreBranches(storeId, cancelToken);
@@ -102,7 +102,7 @@ class StoresRepoImpl implements StoresRepo {
         storeId,
         cancelToken,
       );
-      await _localDatasource.cacheStoreBranches(storeBranches);
+      await _localDatasource.cacheStoreBranches(storeBranches, storeId);
       return ApiResult.success(storeBranches);
     } catch (error) {
       debugPrint('****** ERROR FETCHING CACHED STORE BRANCHES: $error ******');
@@ -116,7 +116,7 @@ class StoresRepoImpl implements StoresRepo {
     CancelToken? cancelToken,
   ]) async {
     final cachedStoreCategories =
-        await _localDatasource.retrieveCachedStoreCategories();
+        await _localDatasource.retrieveCachedStoreCategories(storeId);
     if (cachedStoreCategories == null) {
       debugPrint('*********** NO CACHED STORE CATEGORIES ***********');
       return await _fetchAndCacheStoreCategories(storeId, cancelToken);
@@ -135,7 +135,7 @@ class StoresRepoImpl implements StoresRepo {
         storeId,
         cancelToken,
       );
-      await _localDatasource.cacheStoreCategories(storeCategories);
+      await _localDatasource.cacheStoreCategories(storeCategories, storeId);
       return ApiResult.success(storeCategories);
     } catch (error) {
       debugPrint(
@@ -150,7 +150,7 @@ class StoresRepoImpl implements StoresRepo {
     CancelToken? cancelToken,
   ]) async {
     final cachedStoreOffers =
-        await _localDatasource.retrieveCachedStoreOffers();
+        await _localDatasource.retrieveCachedStoreOffers(storeId);
     if (cachedStoreOffers == null) {
       debugPrint('*********** NO CACHED STORE OFFERS ***********');
       return await _fetchAndCacheStoreOffers(storeId, cancelToken);
@@ -169,7 +169,7 @@ class StoresRepoImpl implements StoresRepo {
         storeId,
         cancelToken,
       );
-      await _localDatasource.cacheStoreOffers(storeOffers);
+      await _localDatasource.cacheStoreOffers(storeOffers, storeId);
       return ApiResult.success(storeOffers);
     } catch (error) {
       debugPrint('****** ERROR FETCHING CACHED STORE OFFERS: $error ******');

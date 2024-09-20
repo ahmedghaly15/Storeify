@@ -8,28 +8,28 @@ class CategoriesLocalDatasource {
   const CategoriesLocalDatasource();
 
   Future<void> cacheCategories(FetchCategoriesResponse categories) async {
-    final box = await Hive.openBox<FetchCategoriesResponse>(
+    final box = await Hive.openLazyBox<FetchCategoriesResponse>(
       HiveBoxes.categoriesResponseBox,
     );
     await box.put(HiveKeys.categoriesResponse, categories);
   }
 
   Future<FetchCategoriesResponse?> getCachedCategories() async {
-    final box = await Hive.openBox<FetchCategoriesResponse>(
+    final box = await Hive.openLazyBox<FetchCategoriesResponse>(
       HiveBoxes.categoriesResponseBox,
     );
     return box.get(HiveKeys.categoriesResponse);
   }
 
   Future<void> cacheSubCategory(FetchSubCategoryResponse subCategory) async {
-    final box =
-        await Hive.openBox<FetchSubCategoryResponse>(HiveBoxes.subCategoryBox);
+    final box = await Hive.openLazyBox<FetchSubCategoryResponse>(
+        HiveBoxes.subCategoryBox);
     await box.put(HiveKeys.subCategoryResponse, subCategory);
   }
 
   Future<FetchSubCategoryResponse?> getCachedSubCategory() async {
-    final box =
-        await Hive.openBox<FetchSubCategoryResponse>(HiveBoxes.subCategoryBox);
+    final box = await Hive.openLazyBox<FetchSubCategoryResponse>(
+        HiveBoxes.subCategoryBox);
     return box.get(HiveKeys.subCategoryResponse);
   }
 }
