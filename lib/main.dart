@@ -27,5 +27,6 @@ void main() async {
   // await getAndCacheCountryCode();
   // TODO: add some animations to the whole app
   // TODO: remember to handle empty lists in the UI
+  // TODO: handle save card details logic using hive
   runApp(const StoreifyApp());
 }
