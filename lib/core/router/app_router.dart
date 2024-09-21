@@ -5,7 +5,7 @@ import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:store_ify/features/auth/presentation/views/login_view.dart';
 import 'package:store_ify/features/auth/presentation/views/reset_password_view.dart';
-import 'package:store_ify/features/auth/presentation/views/sign_up_view.dart';
+import 'package:store_ify/features/auth/presentation/views/register_view.dart';
 import 'package:store_ify/features/auth/presentation/views/verification_view.dart';
 import 'package:store_ify/features/cart/presentation/views/cart_view.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';

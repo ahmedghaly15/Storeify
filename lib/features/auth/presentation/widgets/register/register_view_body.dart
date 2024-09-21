@@ -5,11 +5,11 @@ import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
-import 'package:store_ify/features/auth/presentation/widgets/sign_up/sign_up_button_bloc_consumer.dart';
-import 'package:store_ify/features/auth/presentation/widgets/sign_up/sign_up_form.dart';
+import 'package:store_ify/features/auth/presentation/widgets/register/register_button_bloc_consumer.dart';
+import 'package:store_ify/features/auth/presentation/widgets/register/register_form.dart';
 
-class SignUpViewBody extends StatelessWidget {
-  const SignUpViewBody({super.key});
+class RegisterViewBody extends StatelessWidget {
+  const RegisterViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +40,9 @@ class SignUpViewBody extends StatelessWidget {
             hasScrollBody: false,
             child: Column(
               children: [
-                const SignUpForm(),
+                const RegisterForm(),
                 MySizedBox.height24,
-                const SignUpButtonBlocConsumer(),
+                const RegisterButtonBlocConsumer(),
                 Container(
                   margin: EdgeInsetsDirectional.only(end: 16.w),
                   alignment: AlignmentDirectional.centerEnd,

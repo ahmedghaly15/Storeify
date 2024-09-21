@@ -9,16 +9,17 @@ import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_state.dart';
 
-class SignUpButtonBlocConsumer extends StatelessWidget {
-  const SignUpButtonBlocConsumer({super.key});
+class RegisterButtonBlocConsumer extends StatelessWidget {
+  const RegisterButtonBlocConsumer({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterCubit, RegisterState>(
-      listenWhen: (_, current) => current is Error || current is Success,
+      listenWhen: (_, current) =>
+          current is RegisterError || current is RegisterSuccess,
       listener: (context, state) {
         state.whenOrNull(
-          success: (_) {
+          registerSuccess: (_) {
             CustomToast.showToast(
               context: context,
               messageKey: LangKeys.accountCreatedSuccessfully,
@@ -26,7 +27,7 @@ class SignUpButtonBlocConsumer extends StatelessWidget {
             );
             context.maybePop();
           },
-          error: (error) => CustomToast.showToast(
+          registerError: (error) => CustomToast.showToast(
             context: context,
             messageKey: error,
             state: CustomToastState.error,
@@ -34,7 +35,9 @@ class SignUpButtonBlocConsumer extends StatelessWidget {
         );
       },
       buildWhen: (_, current) =>
-          current is Loading || current is Error || current is Success,
+          current is RegisterLoading ||
+          current is RegisterError ||
+          current is RegisterSuccess,
       builder: (context, state) => MainButton(
         margin: EdgeInsetsDirectional.only(
           start: 24.w,
@@ -42,7 +45,7 @@ class SignUpButtonBlocConsumer extends StatelessWidget {
           bottom: 10.h,
         ),
         child: circularIndicatorOrTextWidget(
-          isLoading: state is Loading,
+          isLoading: state is RegisterLoading,
           context: context,
           textKey: LangKeys.signUp,
         ),

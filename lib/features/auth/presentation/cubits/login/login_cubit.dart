@@ -38,7 +38,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   void _login() async {
-    emit(const LoginState.loading());
+    emit(const LoginState.loginLoading());
     final result = await _loginRepo.login(
       LoginParams(
         email: emailController.text.trim(),
@@ -50,9 +50,10 @@ class LoginCubit extends Cubit<LoginState> {
       success: (user) async {
         await AuthLocalDatasource.cacheUserAndSetTokenIntoHeaders(user);
         currentUser = user;
-        emit(LoginState.success(user));
+        emit(LoginState.loginSuccess(user));
       },
-      error: (errorModel) => emit(LoginState.error(errorModel.error ?? '')),
+      error: (errorModel) =>
+          emit(LoginState.loginError(errorModel.error ?? '')),
     );
   }
 
