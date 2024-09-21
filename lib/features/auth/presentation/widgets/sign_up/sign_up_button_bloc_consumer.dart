@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,9 +15,17 @@ class SignUpButtonBlocConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterCubit, RegisterState>(
-      listenWhen: (_, current) => current is Error,
+      listenWhen: (_, current) => current is Error || current is Success,
       listener: (context, state) {
         state.whenOrNull(
+          success: (_) {
+            CustomToast.showToast(
+              context: context,
+              messageKey: LangKeys.accountCreatedSuccessfully,
+              state: CustomToastState.success,
+            );
+            context.maybePop();
+          },
           error: (error) => CustomToast.showToast(
             context: context,
             messageKey: error,
