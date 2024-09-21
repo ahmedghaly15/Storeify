@@ -10,8 +10,8 @@ import 'package:store_ify/features/auth/presentation/cubits/register/register_cu
 import 'package:store_ify/features/auth/presentation/cubits/register/register_state.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_label.dart';
 
-class SignUpForm extends StatelessWidget {
-  const SignUpForm({super.key});
+class RegisterForm extends StatelessWidget {
+  const RegisterForm({super.key});
 
   @override
   Widget build(BuildContext context) {

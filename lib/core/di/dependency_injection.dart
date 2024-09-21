@@ -7,8 +7,11 @@ import 'package:store_ify/core/locale/logic/locale_repo.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/services/location_service.dart';
 import 'package:store_ify/core/themes/theming_cubit.dart';
+import 'package:store_ify/features/auth/data/api/login_api_service.dart';
+import 'package:store_ify/features/auth/data/api/register_api_service.dart';
 import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
-import 'package:store_ify/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:store_ify/features/auth/data/repos/login_repo.dart';
+import 'package:store_ify/features/auth/data/repos/register_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forgot_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
@@ -53,16 +56,23 @@ final GetIt getIt = GetIt.instance;
 
 void setupDI() {
   _setupDIForCore();
+  _setupForApiServices();
   _setupDIForDatasources();
   _setupDIForRepos();
   _setupDIForCubits();
 }
 
 void _setupDIForCore() {
-  final Dio dio = DioFactory.getDio();
-  getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
   getIt.registerSingleton<AppRouter>(AppRouter());
   getIt.registerLazySingleton<LocationService>(() => LocationService());
+}
+
+void _setupForApiServices() {
+  final Dio dio = DioFactory.getDio();
+  getIt.registerLazySingleton<LoginApiService>(() => LoginApiService(dio));
+  getIt.registerLazySingleton<RegisterApiService>(
+    () => RegisterApiService(dio),
+  );
 }
 
 void _setupDIForDatasources() {
@@ -87,8 +97,11 @@ void _setupDIForRepos() {
   getIt.registerLazySingleton<LocaleRepo>(
     () => LocaleRepoImpl(getIt.get<ApiService>()),
   );
-  getIt.registerLazySingleton<AuthRepo>(
-    () => AuthRepoImpl(getIt.get<ApiService>()),
+  getIt.registerLazySingleton<LoginRepo>(
+    () => LoginRepo(getIt.get<LoginApiService>()),
+  );
+  getIt.registerLazySingleton<RegisterRepo>(
+    () => RegisterRepo(getIt.get<RegisterApiService>()),
   );
   getIt.registerLazySingleton<HomeRepo>(
     () => HomeRepoImpl(
@@ -142,10 +155,10 @@ void _setupDIForCubits() {
     () => LocaleCubit(getIt.get<LocaleRepo>()),
   );
   getIt.registerFactory<LoginCubit>(
-    () => LoginCubit(getIt.get<AuthRepo>()),
+    () => LoginCubit(getIt.get<LoginRepo>()),
   );
   getIt.registerFactory<RegisterCubit>(
-    () => RegisterCubit(getIt.get<AuthRepo>()),
+    () => RegisterCubit(getIt.get<RegisterRepo>()),
   );
   getIt.registerFactory<ForgotPasswordCubit>(
     () => ForgotPasswordCubit(getIt.get<AuthRepo>()),

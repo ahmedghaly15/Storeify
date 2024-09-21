@@ -19,27 +19,27 @@ mixin _$RegisterState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(StoreifyUser data) success,
-    required TResult Function(String error) error,
+    required TResult Function() registerLoading,
+    required TResult Function(StoreifyUser data) registerSuccess,
+    required TResult Function(String error) registerError,
     required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(StoreifyUser data)? success,
-    TResult? Function(String error)? error,
+    TResult? Function()? registerLoading,
+    TResult? Function(StoreifyUser data)? registerSuccess,
+    TResult? Function(String error)? registerError,
     TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(StoreifyUser data)? success,
-    TResult Function(String error)? error,
+    TResult Function()? registerLoading,
+    TResult Function(StoreifyUser data)? registerSuccess,
+    TResult Function(String error)? registerError,
     TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
     required TResult orElse(),
   }) =>
@@ -47,9 +47,9 @@ mixin _$RegisterState<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(RegisterLoading<T> value) registerLoading,
+    required TResult Function(RegisterSuccess<T> value) registerSuccess,
+    required TResult Function(RegisterError<T> value) registerError,
     required TResult Function(InvertPasswordVisibility<T> value)
         invertPasswordVisibility,
   }) =>
@@ -57,9 +57,9 @@ mixin _$RegisterState<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(RegisterLoading<T> value)? registerLoading,
+    TResult? Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult? Function(RegisterError<T> value)? registerError,
     TResult? Function(InvertPasswordVisibility<T> value)?
         invertPasswordVisibility,
   }) =>
@@ -67,9 +67,9 @@ mixin _$RegisterState<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(RegisterLoading<T> value)? registerLoading,
+    TResult Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult Function(RegisterError<T> value)? registerError,
     TResult Function(InvertPasswordVisibility<T> value)?
         invertPasswordVisibility,
     required TResult orElse(),
@@ -140,9 +140,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(StoreifyUser data) success,
-    required TResult Function(String error) error,
+    required TResult Function() registerLoading,
+    required TResult Function(StoreifyUser data) registerSuccess,
+    required TResult Function(String error) registerError,
     required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
   }) {
     return initial();
@@ -152,9 +152,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(StoreifyUser data)? success,
-    TResult? Function(String error)? error,
+    TResult? Function()? registerLoading,
+    TResult? Function(StoreifyUser data)? registerSuccess,
+    TResult? Function(String error)? registerError,
     TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
   }) {
     return initial?.call();
@@ -164,9 +164,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(StoreifyUser data)? success,
-    TResult Function(String error)? error,
+    TResult Function()? registerLoading,
+    TResult Function(StoreifyUser data)? registerSuccess,
+    TResult Function(String error)? registerError,
     TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
     required TResult orElse(),
   }) {
@@ -180,9 +180,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(RegisterLoading<T> value) registerLoading,
+    required TResult Function(RegisterSuccess<T> value) registerSuccess,
+    required TResult Function(RegisterError<T> value) registerError,
     required TResult Function(InvertPasswordVisibility<T> value)
         invertPasswordVisibility,
   }) {
@@ -193,9 +193,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(RegisterLoading<T> value)? registerLoading,
+    TResult? Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult? Function(RegisterError<T> value)? registerError,
     TResult? Function(InvertPasswordVisibility<T> value)?
         invertPasswordVisibility,
   }) {
@@ -206,9 +206,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(RegisterLoading<T> value)? registerLoading,
+    TResult Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult Function(RegisterError<T> value)? registerError,
     TResult Function(InvertPasswordVisibility<T> value)?
         invertPasswordVisibility,
     required TResult orElse(),
@@ -225,18 +225,18 @@ abstract class _Initial<T> implements RegisterState<T> {
 }
 
 /// @nodoc
-abstract class _$$LoadingImplCopyWith<T, $Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl<T> value, $Res Function(_$LoadingImpl<T>) then) =
-      __$$LoadingImplCopyWithImpl<T, $Res>;
+abstract class _$$RegisterLoadingImplCopyWith<T, $Res> {
+  factory _$$RegisterLoadingImplCopyWith(_$RegisterLoadingImpl<T> value,
+          $Res Function(_$RegisterLoadingImpl<T>) then) =
+      __$$RegisterLoadingImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$LoadingImplCopyWithImpl<T, $Res>
-    extends _$RegisterStateCopyWithImpl<T, $Res, _$LoadingImpl<T>>
-    implements _$$LoadingImplCopyWith<T, $Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl<T> _value, $Res Function(_$LoadingImpl<T>) _then)
+class __$$RegisterLoadingImplCopyWithImpl<T, $Res>
+    extends _$RegisterStateCopyWithImpl<T, $Res, _$RegisterLoadingImpl<T>>
+    implements _$$RegisterLoadingImplCopyWith<T, $Res> {
+  __$$RegisterLoadingImplCopyWithImpl(_$RegisterLoadingImpl<T> _value,
+      $Res Function(_$RegisterLoadingImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of RegisterState
@@ -245,18 +245,18 @@ class __$$LoadingImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$LoadingImpl<T> implements Loading<T> {
-  const _$LoadingImpl();
+class _$RegisterLoadingImpl<T> implements RegisterLoading<T> {
+  const _$RegisterLoadingImpl();
 
   @override
   String toString() {
-    return 'RegisterState<$T>.loading()';
+    return 'RegisterState<$T>.registerLoading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl<T>);
+        (other.runtimeType == runtimeType && other is _$RegisterLoadingImpl<T>);
   }
 
   @override
@@ -266,38 +266,38 @@ class _$LoadingImpl<T> implements Loading<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(StoreifyUser data) success,
-    required TResult Function(String error) error,
+    required TResult Function() registerLoading,
+    required TResult Function(StoreifyUser data) registerSuccess,
+    required TResult Function(String error) registerError,
     required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
   }) {
-    return loading();
+    return registerLoading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(StoreifyUser data)? success,
-    TResult? Function(String error)? error,
+    TResult? Function()? registerLoading,
+    TResult? Function(StoreifyUser data)? registerSuccess,
+    TResult? Function(String error)? registerError,
     TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
   }) {
-    return loading?.call();
+    return registerLoading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(StoreifyUser data)? success,
-    TResult Function(String error)? error,
+    TResult Function()? registerLoading,
+    TResult Function(StoreifyUser data)? registerSuccess,
+    TResult Function(String error)? registerError,
     TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
     required TResult orElse(),
   }) {
-    if (loading != null) {
-      return loading();
+    if (registerLoading != null) {
+      return registerLoading();
     }
     return orElse();
   }
@@ -306,65 +306,65 @@ class _$LoadingImpl<T> implements Loading<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(RegisterLoading<T> value) registerLoading,
+    required TResult Function(RegisterSuccess<T> value) registerSuccess,
+    required TResult Function(RegisterError<T> value) registerError,
     required TResult Function(InvertPasswordVisibility<T> value)
         invertPasswordVisibility,
   }) {
-    return loading(this);
+    return registerLoading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(RegisterLoading<T> value)? registerLoading,
+    TResult? Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult? Function(RegisterError<T> value)? registerError,
     TResult? Function(InvertPasswordVisibility<T> value)?
         invertPasswordVisibility,
   }) {
-    return loading?.call(this);
+    return registerLoading?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(RegisterLoading<T> value)? registerLoading,
+    TResult Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult Function(RegisterError<T> value)? registerError,
     TResult Function(InvertPasswordVisibility<T> value)?
         invertPasswordVisibility,
     required TResult orElse(),
   }) {
-    if (loading != null) {
-      return loading(this);
+    if (registerLoading != null) {
+      return registerLoading(this);
     }
     return orElse();
   }
 }
 
-abstract class Loading<T> implements RegisterState<T> {
-  const factory Loading() = _$LoadingImpl<T>;
+abstract class RegisterLoading<T> implements RegisterState<T> {
+  const factory RegisterLoading() = _$RegisterLoadingImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$SuccessImplCopyWith<T, $Res> {
-  factory _$$SuccessImplCopyWith(
-          _$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
-      __$$SuccessImplCopyWithImpl<T, $Res>;
+abstract class _$$RegisterSuccessImplCopyWith<T, $Res> {
+  factory _$$RegisterSuccessImplCopyWith(_$RegisterSuccessImpl<T> value,
+          $Res Function(_$RegisterSuccessImpl<T>) then) =
+      __$$RegisterSuccessImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({StoreifyUser data});
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<T, $Res>
-    extends _$RegisterStateCopyWithImpl<T, $Res, _$SuccessImpl<T>>
-    implements _$$SuccessImplCopyWith<T, $Res> {
-  __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl<T> _value, $Res Function(_$SuccessImpl<T>) _then)
+class __$$RegisterSuccessImplCopyWithImpl<T, $Res>
+    extends _$RegisterStateCopyWithImpl<T, $Res, _$RegisterSuccessImpl<T>>
+    implements _$$RegisterSuccessImplCopyWith<T, $Res> {
+  __$$RegisterSuccessImplCopyWithImpl(_$RegisterSuccessImpl<T> _value,
+      $Res Function(_$RegisterSuccessImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of RegisterState
@@ -374,7 +374,7 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$SuccessImpl<T>(
+    return _then(_$RegisterSuccessImpl<T>(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -385,22 +385,22 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$SuccessImpl<T> implements Success<T> {
-  const _$SuccessImpl(this.data);
+class _$RegisterSuccessImpl<T> implements RegisterSuccess<T> {
+  const _$RegisterSuccessImpl(this.data);
 
   @override
   final StoreifyUser data;
 
   @override
   String toString() {
-    return 'RegisterState<$T>.success(data: $data)';
+    return 'RegisterState<$T>.registerSuccess(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SuccessImpl<T> &&
+            other is _$RegisterSuccessImpl<T> &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -412,45 +412,46 @@ class _$SuccessImpl<T> implements Success<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
-      __$$SuccessImplCopyWithImpl<T, _$SuccessImpl<T>>(this, _$identity);
+  _$$RegisterSuccessImplCopyWith<T, _$RegisterSuccessImpl<T>> get copyWith =>
+      __$$RegisterSuccessImplCopyWithImpl<T, _$RegisterSuccessImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(StoreifyUser data) success,
-    required TResult Function(String error) error,
+    required TResult Function() registerLoading,
+    required TResult Function(StoreifyUser data) registerSuccess,
+    required TResult Function(String error) registerError,
     required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
   }) {
-    return success(data);
+    return registerSuccess(data);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(StoreifyUser data)? success,
-    TResult? Function(String error)? error,
+    TResult? Function()? registerLoading,
+    TResult? Function(StoreifyUser data)? registerSuccess,
+    TResult? Function(String error)? registerError,
     TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
   }) {
-    return success?.call(data);
+    return registerSuccess?.call(data);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(StoreifyUser data)? success,
-    TResult Function(String error)? error,
+    TResult Function()? registerLoading,
+    TResult Function(StoreifyUser data)? registerSuccess,
+    TResult Function(String error)? registerError,
     TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(data);
+    if (registerSuccess != null) {
+      return registerSuccess(data);
     }
     return orElse();
   }
@@ -459,73 +460,74 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(RegisterLoading<T> value) registerLoading,
+    required TResult Function(RegisterSuccess<T> value) registerSuccess,
+    required TResult Function(RegisterError<T> value) registerError,
     required TResult Function(InvertPasswordVisibility<T> value)
         invertPasswordVisibility,
   }) {
-    return success(this);
+    return registerSuccess(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(RegisterLoading<T> value)? registerLoading,
+    TResult? Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult? Function(RegisterError<T> value)? registerError,
     TResult? Function(InvertPasswordVisibility<T> value)?
         invertPasswordVisibility,
   }) {
-    return success?.call(this);
+    return registerSuccess?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(RegisterLoading<T> value)? registerLoading,
+    TResult Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult Function(RegisterError<T> value)? registerError,
     TResult Function(InvertPasswordVisibility<T> value)?
         invertPasswordVisibility,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(this);
+    if (registerSuccess != null) {
+      return registerSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class Success<T> implements RegisterState<T> {
-  const factory Success(final StoreifyUser data) = _$SuccessImpl<T>;
+abstract class RegisterSuccess<T> implements RegisterState<T> {
+  const factory RegisterSuccess(final StoreifyUser data) =
+      _$RegisterSuccessImpl<T>;
 
   StoreifyUser get data;
 
   /// Create a copy of RegisterState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
+  _$$RegisterSuccessImplCopyWith<T, _$RegisterSuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ErrorImplCopyWith<T, $Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl<T> value, $Res Function(_$ErrorImpl<T>) then) =
-      __$$ErrorImplCopyWithImpl<T, $Res>;
+abstract class _$$RegisterErrorImplCopyWith<T, $Res> {
+  factory _$$RegisterErrorImplCopyWith(_$RegisterErrorImpl<T> value,
+          $Res Function(_$RegisterErrorImpl<T>) then) =
+      __$$RegisterErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$$ErrorImplCopyWithImpl<T, $Res>
-    extends _$RegisterStateCopyWithImpl<T, $Res, _$ErrorImpl<T>>
-    implements _$$ErrorImplCopyWith<T, $Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl<T> _value, $Res Function(_$ErrorImpl<T>) _then)
+class __$$RegisterErrorImplCopyWithImpl<T, $Res>
+    extends _$RegisterStateCopyWithImpl<T, $Res, _$RegisterErrorImpl<T>>
+    implements _$$RegisterErrorImplCopyWith<T, $Res> {
+  __$$RegisterErrorImplCopyWithImpl(_$RegisterErrorImpl<T> _value,
+      $Res Function(_$RegisterErrorImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of RegisterState
@@ -535,7 +537,7 @@ class __$$ErrorImplCopyWithImpl<T, $Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_$ErrorImpl<T>(
+    return _then(_$RegisterErrorImpl<T>(
       null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -546,22 +548,22 @@ class __$$ErrorImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$ErrorImpl<T> implements Error<T> {
-  const _$ErrorImpl(this.error);
+class _$RegisterErrorImpl<T> implements RegisterError<T> {
+  const _$RegisterErrorImpl(this.error);
 
   @override
   final String error;
 
   @override
   String toString() {
-    return 'RegisterState<$T>.error(error: $error)';
+    return 'RegisterState<$T>.registerError(error: $error)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ErrorImpl<T> &&
+            other is _$RegisterErrorImpl<T> &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -573,45 +575,46 @@ class _$ErrorImpl<T> implements Error<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
-      __$$ErrorImplCopyWithImpl<T, _$ErrorImpl<T>>(this, _$identity);
+  _$$RegisterErrorImplCopyWith<T, _$RegisterErrorImpl<T>> get copyWith =>
+      __$$RegisterErrorImplCopyWithImpl<T, _$RegisterErrorImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(StoreifyUser data) success,
-    required TResult Function(String error) error,
+    required TResult Function() registerLoading,
+    required TResult Function(StoreifyUser data) registerSuccess,
+    required TResult Function(String error) registerError,
     required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
   }) {
-    return error(this.error);
+    return registerError(error);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(StoreifyUser data)? success,
-    TResult? Function(String error)? error,
+    TResult? Function()? registerLoading,
+    TResult? Function(StoreifyUser data)? registerSuccess,
+    TResult? Function(String error)? registerError,
     TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
   }) {
-    return error?.call(this.error);
+    return registerError?.call(error);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(StoreifyUser data)? success,
-    TResult Function(String error)? error,
+    TResult Function()? registerLoading,
+    TResult Function(StoreifyUser data)? registerSuccess,
+    TResult Function(String error)? registerError,
     TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(this.error);
+    if (registerError != null) {
+      return registerError(error);
     }
     return orElse();
   }
@@ -620,55 +623,55 @@ class _$ErrorImpl<T> implements Error<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(RegisterLoading<T> value) registerLoading,
+    required TResult Function(RegisterSuccess<T> value) registerSuccess,
+    required TResult Function(RegisterError<T> value) registerError,
     required TResult Function(InvertPasswordVisibility<T> value)
         invertPasswordVisibility,
   }) {
-    return error(this);
+    return registerError(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(RegisterLoading<T> value)? registerLoading,
+    TResult? Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult? Function(RegisterError<T> value)? registerError,
     TResult? Function(InvertPasswordVisibility<T> value)?
         invertPasswordVisibility,
   }) {
-    return error?.call(this);
+    return registerError?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(RegisterLoading<T> value)? registerLoading,
+    TResult Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult Function(RegisterError<T> value)? registerError,
     TResult Function(InvertPasswordVisibility<T> value)?
         invertPasswordVisibility,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(this);
+    if (registerError != null) {
+      return registerError(this);
     }
     return orElse();
   }
 }
 
-abstract class Error<T> implements RegisterState<T> {
-  const factory Error(final String error) = _$ErrorImpl<T>;
+abstract class RegisterError<T> implements RegisterState<T> {
+  const factory RegisterError(final String error) = _$RegisterErrorImpl<T>;
 
   String get error;
 
   /// Create a copy of RegisterState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
+  _$$RegisterErrorImplCopyWith<T, _$RegisterErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -746,9 +749,9 @@ class _$InvertPasswordVisibilityImpl<T> implements InvertPasswordVisibility<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(StoreifyUser data) success,
-    required TResult Function(String error) error,
+    required TResult Function() registerLoading,
+    required TResult Function(StoreifyUser data) registerSuccess,
+    required TResult Function(String error) registerError,
     required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
   }) {
     return invertPasswordVisibility(isPasswordVisible);
@@ -758,9 +761,9 @@ class _$InvertPasswordVisibilityImpl<T> implements InvertPasswordVisibility<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(StoreifyUser data)? success,
-    TResult? Function(String error)? error,
+    TResult? Function()? registerLoading,
+    TResult? Function(StoreifyUser data)? registerSuccess,
+    TResult? Function(String error)? registerError,
     TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
   }) {
     return invertPasswordVisibility?.call(isPasswordVisible);
@@ -770,9 +773,9 @@ class _$InvertPasswordVisibilityImpl<T> implements InvertPasswordVisibility<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(StoreifyUser data)? success,
-    TResult Function(String error)? error,
+    TResult Function()? registerLoading,
+    TResult Function(StoreifyUser data)? registerSuccess,
+    TResult Function(String error)? registerError,
     TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
     required TResult orElse(),
   }) {
@@ -786,9 +789,9 @@ class _$InvertPasswordVisibilityImpl<T> implements InvertPasswordVisibility<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(RegisterLoading<T> value) registerLoading,
+    required TResult Function(RegisterSuccess<T> value) registerSuccess,
+    required TResult Function(RegisterError<T> value) registerError,
     required TResult Function(InvertPasswordVisibility<T> value)
         invertPasswordVisibility,
   }) {
@@ -799,9 +802,9 @@ class _$InvertPasswordVisibilityImpl<T> implements InvertPasswordVisibility<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(RegisterLoading<T> value)? registerLoading,
+    TResult? Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult? Function(RegisterError<T> value)? registerError,
     TResult? Function(InvertPasswordVisibility<T> value)?
         invertPasswordVisibility,
   }) {
@@ -812,9 +815,9 @@ class _$InvertPasswordVisibilityImpl<T> implements InvertPasswordVisibility<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(RegisterLoading<T> value)? registerLoading,
+    TResult Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult Function(RegisterError<T> value)? registerError,
     TResult Function(InvertPasswordVisibility<T> value)?
         invertPasswordVisibility,
     required TResult orElse(),

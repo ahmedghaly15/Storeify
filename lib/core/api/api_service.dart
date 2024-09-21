@@ -4,10 +4,7 @@ import 'package:retrofit/retrofit.dart' as retrofit;
 
 import 'package:store_ify/core/api/end_points.dart';
 import 'package:store_ify/core/locale/models/change_api_lang_params.dart';
-import 'package:store_ify/core/models/storeify_user.dart';
 import 'package:store_ify/features/auth/data/models/forgot_password_params.dart';
-import 'package:store_ify/features/auth/data/models/login_params.dart';
-import 'package:store_ify/features/auth/data/models/register_params.dart';
 import 'package:store_ify/features/auth/data/models/reset_password_params.dart';
 import 'package:store_ify/features/auth/data/models/validate_otp_params.dart';
 import 'package:store_ify/features/cart/data/models/add_product_to_cart_params.dart';
@@ -34,13 +31,6 @@ part 'api_service.g.dart';
 @RestApi(baseUrl: EndPoints.baseUrl)
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
-
-  @POST(EndPoints.register)
-  @retrofit.Headers({'Accept-Language': 'en'})
-  Future<StoreifyUser> register(
-    @Body() RegisterParams params, [
-    @CancelRequest() CancelToken? cancelToken,
-  ]);
 
   @POST(EndPoints.forgotPassword)
   @retrofit.Headers({'Accept-Language': 'en'})

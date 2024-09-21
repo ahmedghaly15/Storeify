@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
-import 'package:store_ify/features/auth/presentation/widgets/sign_up/sign_up_view_body.dart';
+import 'package:store_ify/features/auth/presentation/widgets/register/register_view_body.dart';
 
 @RoutePage()
-class SignUpView extends StatelessWidget implements AutoRouteWrapper {
-  const SignUpView({super.key});
+class RegisterView extends StatelessWidget implements AutoRouteWrapper {
+  const RegisterView({super.key});
 
   @override
   Widget wrappedRoute(BuildContext context) {
@@ -20,7 +20,7 @@ class SignUpView extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: SignUpViewBody(),
+      body: RegisterViewBody(),
     );
   }
 }

@@ -457,7 +457,7 @@ class SearchRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [SignUpView]
+/// [RegisterView]
 class SignUpRoute extends PageRouteInfo<void> {
   const SignUpRoute({List<PageRouteInfo>? children})
       : super(
@@ -470,7 +470,7 @@ class SignUpRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return WrappedRoute(child: const SignUpView());
+      return WrappedRoute(child: const RegisterView());
     },
   );
 }
