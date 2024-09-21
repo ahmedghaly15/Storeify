@@ -32,13 +32,6 @@ part 'api_service.g.dart';
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
-  @POST(EndPoints.validateOtp)
-  @retrofit.Headers({'Accept-Language': 'en'})
-  Future<void> validateOtp(
-    @Body() ValidateOtpParams params, [
-    @CancelRequest() CancelToken? cancelToken,
-  ]);
-
   @POST(EndPoints.resetPassword)
   @retrofit.Headers({'Accept-Language': 'en'})
   Future<void> resetPassword(
