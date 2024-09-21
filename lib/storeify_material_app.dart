@@ -8,7 +8,7 @@ import 'package:store_ify/core/locale/logic/cubit/locale_state.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/theming_cubit.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
-import 'package:store_ify/dependency_injection.dart';
+import 'package:store_ify/core/di/dependency_injection.dart';
 
 class StoreifyMaterialApp extends StatelessWidget {
   const StoreifyMaterialApp({super.key});

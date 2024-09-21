@@ -5,7 +5,7 @@ import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
-import 'package:store_ify/dependency_injection.dart';
+import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/widgets/reset_password/reset_pass_button_bloc_consumer.dart';
 import 'package:store_ify/features/auth/presentation/widgets/reset_password/reset_password_form.dart';
