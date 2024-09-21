@@ -3,8 +3,6 @@ import 'package:retrofit/retrofit.dart';
 
 import 'package:store_ify/core/api/end_points.dart';
 import 'package:store_ify/core/locale/models/change_api_lang_params.dart';
-import 'package:store_ify/features/cart/data/models/add_product_to_cart_params.dart';
-import 'package:store_ify/features/cart/data/models/fetch_cart_response.dart';
 import 'package:store_ify/features/categories/data/models/fetch_categories_response.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_response.dart';
 import 'package:store_ify/features/checkout/data/models/checkout_params.dart';
@@ -30,18 +28,6 @@ abstract class ApiService {
 
   @GET(EndPoints.fetchHomeData)
   Future<FetchHomeResponse> fetchHomeData([
-    @CancelRequest() CancelToken? cancelToken,
-  ]);
-
-  @GET(EndPoints.fetchCategories)
-  Future<FetchCategoriesResponse> fetchCategories([
-    @CancelRequest() CancelToken? cancelToken,
-  ]);
-
-  @GET('${EndPoints.fetchCategories}/{category_id}/{sub_category_id}')
-  Future<FetchSubCategoryResponse> fetchSubCategory(
-    @Path('category_id') int categoryId,
-    @Path('sub_category_id') int subCategoryId, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 
@@ -105,37 +91,6 @@ abstract class ApiService {
 
   @GET(EndPoints.favoriteStores)
   Future<FetchFavStoresResponse> fetchFavStores([
-    @CancelRequest() CancelToken? cancelToken,
-  ]);
-
-  @POST('${EndPoints.addProductToCart}{productId}')
-  Future<void> addProductToCart(
-    @Path('productId') int productId,
-    @Body() AddProductToCartParams params, [
-    @CancelRequest() CancelToken? cancelToken,
-  ]);
-
-  @GET(EndPoints.cart)
-  Future<FetchCartResponse> fetchCart([
-    @CancelRequest() CancelToken? cancelToken,
-  ]);
-
-  @DELETE('${EndPoints.cart}{product_id}')
-  Future<void> removeProductFromCart(
-    @Path('product_id') int productId, [
-    @CancelRequest() CancelToken? cancelToken,
-  ]);
-
-  @POST(EndPoints.checkout)
-  Future<CheckoutResponse> checkout(
-    @Body() CheckoutParams params, [
-    @CancelRequest() CancelToken? cancelToken,
-  ]);
-
-  @POST('${EndPoints.checkout}/{payment_id}/payment-method')
-  Future<void> choosePaymentMethod(
-    @Path('payment_id') int paymentId,
-    @Body() ChoosePaymentMethodParams params, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 

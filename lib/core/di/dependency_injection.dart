@@ -22,15 +22,18 @@ import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.da
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/validate_otp/validate_otp_cubit.dart';
+import 'package:store_ify/features/cart/data/api/cart_api_service.dart';
 import 'package:store_ify/features/cart/data/datasources/cart_local_datasource.dart';
 import 'package:store_ify/features/cart/data/repositories/cart_repo.dart';
 import 'package:store_ify/features/cart/data/repositories/cart_repo_impl.dart';
 import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
+import 'package:store_ify/features/categories/data/api/categories_api_service.dart';
 import 'package:store_ify/features/categories/data/datasources/categories_local_datasource.dart';
 import 'package:store_ify/features/categories/data/repositories/categories_repo.dart';
 import 'package:store_ify/features/categories/data/repositories/categories_repo_impl.dart';
 import 'package:store_ify/features/categories/presentation/cubit/categories/categories_cubit.dart';
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_cubit.dart';
+import 'package:store_ify/features/checkout/data/api/checkout_api_service.dart';
 import 'package:store_ify/features/checkout/data/repositories/checkout_repo.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_cubit.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/payment_method/payment_method_cubit.dart';
@@ -45,6 +48,7 @@ import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
 import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo.dart';
 import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo_impl.dart';
 import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_cubit.dart';
+import 'package:store_ify/features/payment/data/api/payment_api_service.dart';
 import 'package:store_ify/features/payment/data/repositories/payment_repo.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
 import 'package:store_ify/features/profile/data/repos/profile_repo.dart';
@@ -68,6 +72,8 @@ void setupDI() {
 }
 
 void _setupDIForCore() {
+  final Dio dio = DioFactory.getDio();
+  getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
   getIt.registerSingleton<AppRouter>(AppRouter());
   getIt.registerLazySingleton<LocationService>(() => LocationService());
 }
@@ -86,6 +92,16 @@ void _setupForApiServices() {
   );
   getIt.registerLazySingleton<ResetPasswordApiService>(
     () => ResetPasswordApiService(dio),
+  );
+  getIt.registerLazySingleton<CartApiService>(() => CartApiService(dio));
+  getIt.registerLazySingleton<CategoriesApiService>(
+    () => CategoriesApiService(dio),
+  );
+  getIt.registerLazySingleton<CheckoutApiService>(
+    () => CheckoutApiService(dio),
+  );
+  getIt.registerLazySingleton<PaymentApiService>(
+    () => PaymentApiService(dio),
   );
 }
 
@@ -134,7 +150,7 @@ void _setupDIForRepos() {
   );
   getIt.registerLazySingleton<CategoriesRepo>(
     () => CategoriesRepoImpl(
-      getIt.get<ApiService>(),
+      getIt.get<CategoriesApiService>(),
       getIt.get<CategoriesLocalDatasource>(),
     ),
   );
@@ -155,15 +171,15 @@ void _setupDIForRepos() {
   );
   getIt.registerLazySingleton<CartRepo>(
     () => CartRepoImpl(
-      getIt.get<ApiService>(),
+      getIt.get<CartApiService>(),
       getIt.get<CartLocalDatasource>(),
     ),
   );
   getIt.registerLazySingleton<CheckoutRepo>(
-    () => CheckoutRepoImpl(getIt.get<ApiService>()),
+    () => CheckoutRepoImpl(getIt.get<CheckoutApiService>()),
   );
   getIt.registerLazySingleton<PaymentRepo>(
-    () => PaymentRepoImpl(getIt.get<ApiService>()),
+    () => PaymentRepoImpl(getIt.get<PaymentApiService>()),
   );
   getIt.registerLazySingleton<ProfileRepo>(
     () => ProfileRepoImpl(getIt.get<ApiService>()),
