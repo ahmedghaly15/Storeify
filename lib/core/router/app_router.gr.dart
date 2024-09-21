@@ -391,6 +391,25 @@ class ProfileRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [RegisterView]
+class RegisterRoute extends PageRouteInfo<void> {
+  const RegisterRoute({List<PageRouteInfo>? children})
+      : super(
+          RegisterRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RegisterRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const RegisterView());
+    },
+  );
+}
+
+/// generated route for
 /// [ResetPasswordView]
 class ResetPasswordRoute extends PageRouteInfo<ResetPasswordRouteArgs> {
   ResetPasswordRoute({
@@ -452,25 +471,6 @@ class SearchRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return WrappedRoute(child: const SearchView());
-    },
-  );
-}
-
-/// generated route for
-/// [RegisterView]
-class SignUpRoute extends PageRouteInfo<void> {
-  const SignUpRoute({List<PageRouteInfo>? children})
-      : super(
-          SignUpRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'SignUpRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return WrappedRoute(child: const RegisterView());
     },
   );
 }

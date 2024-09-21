@@ -14,23 +14,26 @@ class VerifyEmailButtonBlocConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ForgotPasswordCubit, ForgotPasswordState>(
-      listenWhen: (_, current) => current is Success || current is Error,
+      listenWhen: (_, current) =>
+          current is ForgotPasswordSuccess || current is ForgotPasswordError,
       listener: (context, state) {
         state.whenOrNull(
-          success: () => CustomToast.showToast(
+          forgotPasswordSuccess: () => CustomToast.showToast(
             context: context,
             messageKey: LangKeys.emailSent,
             state: CustomToastState.success,
           ),
-          error: (error) => CustomToast.showToast(
+          forgotPasswordError: (errorKey) => CustomToast.showToast(
             context: context,
-            messageKey: error,
+            messageKey: errorKey,
             state: CustomToastState.error,
           ),
         );
       },
       buildWhen: (_, current) =>
-          current is Loading || current is Error || current is Success,
+          current is ForgotPasswordLoading ||
+          current is ForgotPasswordError ||
+          current is ForgotPasswordSuccess,
       builder: (context, state) => MainButton(
         margin: EdgeInsetsDirectional.only(
           top: 32.h,
@@ -41,7 +44,7 @@ class VerifyEmailButtonBlocConsumer extends StatelessWidget {
         onPressed: () =>
             context.read<ForgotPasswordCubit>().forgotPassword(context),
         child: circularIndicatorOrTextWidget(
-          isLoading: state is Loading,
+          isLoading: state is ForgotPasswordLoading,
           context: context,
           textKey: LangKeys.verifyEmail,
         ),
