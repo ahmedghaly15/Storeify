@@ -13,7 +13,7 @@ class CategoriesLocalDatasource {
       HiveBoxes.categoriesResponseBox,
     );
     await box.put(
-      '${HiveKeys.categoriesResponse}_${currentUser!.token}',
+      '${HiveKeys.categoriesResponse}_${currentUser!.user.username}',
       categories,
     );
   }
@@ -22,14 +22,16 @@ class CategoriesLocalDatasource {
     final box = await Hive.openLazyBox<FetchCategoriesResponse>(
       HiveBoxes.categoriesResponseBox,
     );
-    return box.get('${HiveKeys.categoriesResponse}_${currentUser!.token}');
+    return box.get(
+      '${HiveKeys.categoriesResponse}_${currentUser!.user.username}',
+    );
   }
 
   Future<void> cacheSubCategory(FetchSubCategoryResponse subCategory) async {
     final box = await Hive.openLazyBox<FetchSubCategoryResponse>(
         HiveBoxes.subCategoryBox);
     await box.put(
-      '${HiveKeys.subCategoryResponse}_${currentUser!.token}',
+      '${HiveKeys.subCategoryResponse}_${currentUser!.user.username}',
       subCategory,
     );
   }
@@ -37,6 +39,8 @@ class CategoriesLocalDatasource {
   Future<FetchSubCategoryResponse?> getCachedSubCategory() async {
     final box = await Hive.openLazyBox<FetchSubCategoryResponse>(
         HiveBoxes.subCategoryBox);
-    return box.get('${HiveKeys.subCategoryResponse}_${currentUser!.token}');
+    return box.get(
+      '${HiveKeys.subCategoryResponse}_${currentUser!.user.username}',
+    );
   }
 }

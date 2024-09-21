@@ -15,7 +15,7 @@ class StoresLocalDatasource {
       HiveBoxes.fetchStoresBox,
     );
     await box.put(
-      '${HiveKeys.fetchedStoresResponse}_${currentUser!.token}',
+      '${HiveKeys.fetchedStoresResponse}_${currentUser!.user.username}',
       stores,
     );
   }
@@ -24,7 +24,8 @@ class StoresLocalDatasource {
     final box = await Hive.openLazyBox<FetchStoresResponse>(
       HiveBoxes.fetchStoresBox,
     );
-    return box.get('${HiveKeys.fetchedStoresResponse}_${currentUser!.token}');
+    return box
+        .get('${HiveKeys.fetchedStoresResponse}_${currentUser!.user.username}');
   }
 
   Future<void> cacheCategoryStores(FetchStoresResponse stores) async {
@@ -32,7 +33,7 @@ class StoresLocalDatasource {
       HiveBoxes.fetchCategoryStoresBox,
     );
     await box.put(
-      '${HiveKeys.fetchedCategoryStoresResponse}_${currentUser!.token}',
+      '${HiveKeys.fetchedCategoryStoresResponse}_${currentUser!.user.username}',
       stores,
     );
   }
@@ -42,7 +43,7 @@ class StoresLocalDatasource {
       HiveBoxes.fetchCategoryStoresBox,
     );
     return box.get(
-      '${HiveKeys.fetchedCategoryStoresResponse}_${currentUser!.token}',
+      '${HiveKeys.fetchedCategoryStoresResponse}_${currentUser!.user.username}',
     );
   }
 
@@ -54,7 +55,7 @@ class StoresLocalDatasource {
       HiveBoxes.fetchStoreBranchesBox,
     );
     await box.put(
-      '${HiveKeys.fetchedStoreBranchesResponse}_${storeId}_${currentUser!.token}',
+      '${HiveKeys.fetchedStoreBranchesResponse}_${storeId}_${currentUser!.user.username}',
       storeBranches,
     );
   }
@@ -66,7 +67,7 @@ class StoresLocalDatasource {
       HiveBoxes.fetchStoreBranchesBox,
     );
     return box.get(
-      '${HiveKeys.fetchedStoreBranchesResponse}_${storeId}_${currentUser!.token}',
+      '${HiveKeys.fetchedStoreBranchesResponse}_${storeId}_${currentUser!.user.username}',
     );
   }
 
@@ -78,7 +79,7 @@ class StoresLocalDatasource {
       HiveBoxes.fetchStoreCategoriesBox,
     );
     await box.put(
-      '${HiveKeys.fetchedStoreCategoriesResponse}_${storeId}_${currentUser!.token}',
+      '${HiveKeys.fetchedStoreCategoriesResponse}_${storeId}_${currentUser!.user.username}',
       storeCategories,
     );
   }
@@ -90,7 +91,7 @@ class StoresLocalDatasource {
       HiveBoxes.fetchStoreCategoriesBox,
     );
     return box.get(
-      '${HiveKeys.fetchedStoreCategoriesResponse}_${storeId}_${currentUser!.token}',
+      '${HiveKeys.fetchedStoreCategoriesResponse}_${storeId}_${currentUser!.user.username}',
     );
   }
 
@@ -102,7 +103,7 @@ class StoresLocalDatasource {
       HiveBoxes.fetchStoreOffersBox,
     );
     await box.put(
-      '${HiveKeys.fetchedStoreOffersResponse}_${storeId}_${currentUser!.token}',
+      '${HiveKeys.fetchedStoreOffersResponse}_${storeId}_${currentUser!.user.username}',
       storeOffers,
     );
   }
@@ -114,7 +115,7 @@ class StoresLocalDatasource {
       HiveBoxes.fetchStoreOffersBox,
     );
     return box.get(
-      '${HiveKeys.fetchedStoreOffersResponse}_${storeId}_${currentUser!.token}',
+      '${HiveKeys.fetchedStoreOffersResponse}_${storeId}_${currentUser!.user.username}',
     );
   }
 }

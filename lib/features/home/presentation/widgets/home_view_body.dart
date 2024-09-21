@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
-import 'package:store_ify/dependency_injection.dart';
+import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
 import 'package:store_ify/features/home/presentation/widgets/custom_hero_search_text_field.dart';
 import 'package:store_ify/features/home/presentation/widgets/favorites_action_bloc_listener.dart';

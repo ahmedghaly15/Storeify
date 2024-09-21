@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
-import 'package:store_ify/dependency_injection.dart';
+import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubit.dart';
 import 'package:store_ify/features/stores/presentation/widgets/stores_bloc_builder.dart';
 

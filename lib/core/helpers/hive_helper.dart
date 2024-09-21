@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:store_ify/core/helpers/hive_boxes.dart';
 import 'package:store_ify/core/models/color.dart';
 import 'package:store_ify/core/models/pagination.dart';
 import 'package:store_ify/core/models/product.dart';
@@ -47,59 +45,5 @@ class HiveHelper {
     Hive.registerAdapter(FetchStoreBranchesResponseAdapter());
     Hive.registerAdapter(FetchStoreCategoriesResponseAdapter());
     Hive.registerAdapter(FetchStoreOffersResponseAdapter());
-  }
-
-  static Future<void> clearAllBoxes() async {
-    final homeResponseBox = await Hive.openLazyBox<FetchHomeResponse>(
-      HiveBoxes.homeResponseBox,
-    );
-    final cartResponseBox = await Hive.openLazyBox<FetchCartResponse>(
-      HiveBoxes.cartResponseBox,
-    );
-    final categoriesResponseBox =
-        await Hive.openLazyBox<FetchCategoriesResponse>(
-      HiveBoxes.categoriesResponseBox,
-    );
-    final subCategoryBox = await Hive.openLazyBox<FetchSubCategoryResponse>(
-      HiveBoxes.subCategoryBox,
-    );
-    final favProductsBox =
-        await Hive.openLazyBox<FetchFavoriteProductsResponse>(
-      HiveBoxes.favProductsBox,
-    );
-    final favStoresBox = await Hive.openLazyBox<FetchFavStoresResponse>(
-      HiveBoxes.favStoresBox,
-    );
-    final storesBox = await Hive.openLazyBox<FetchStoresResponse>(
-      HiveBoxes.fetchStoresBox,
-    );
-    final storeBranchesBox = await Hive.openLazyBox<FetchStoreBranchesResponse>(
-      HiveBoxes.fetchStoreBranchesBox,
-    );
-    final storeCategoriesBox =
-        await Hive.openLazyBox<FetchStoreCategoriesResponse>(
-      HiveBoxes.fetchStoreCategoriesBox,
-    );
-    final storeOffersBox = await Hive.openLazyBox<FetchStoreOffersResponse>(
-        HiveBoxes.fetchStoreOffersBox);
-    final countryCodeBox = await Hive.openLazyBox<String>(
-      HiveBoxes.countryCodeBox,
-    );
-
-    debugPrint('********** ALL BOXES CLEARED **********');
-
-    await Future.wait([
-      homeResponseBox.clear(),
-      cartResponseBox.clear(),
-      categoriesResponseBox.clear(),
-      subCategoryBox.clear(),
-      favProductsBox.clear(),
-      favStoresBox.clear(),
-      storesBox.clear(),
-      storeBranchesBox.clear(),
-      storeCategoriesBox.clear(),
-      storeOffersBox.clear(),
-      countryCodeBox.clear(),
-    ]);
   }
 }

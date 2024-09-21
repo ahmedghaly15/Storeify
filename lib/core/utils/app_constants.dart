@@ -15,7 +15,6 @@ String? countryCode;
 
 class AppConstants {
   static const ScrollPhysics physics = BouncingScrollPhysics();
-  static const int transitionDuration = 400;
   static const int gridCrossAxisCount = 2;
   static double get gridCrossAxisSpacing => 10.w;
   static double get gridMainAxisSpacing => 16.h;

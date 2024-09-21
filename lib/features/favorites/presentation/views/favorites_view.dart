@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
-import 'package:store_ify/dependency_injection.dart';
+import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/widgets/favorite_categories_list_view.dart';
 import 'package:store_ify/features/favorites/presentation/widgets/favorites_grid_view_bloc_builder.dart';

@@ -60,8 +60,7 @@ CustomRoute _buildCustomRoute({
     CustomRoute(
       initial: initial,
       page: page,
-      transitionsBuilder: transitionsBuilder ?? AppUtils.transitionsBuilder,
-      durationInMilliseconds:
-          durationInMilliseconds ?? AppConstants.transitionDuration,
+      transitionsBuilder: transitionsBuilder ?? TransitionsBuilders.fadeIn,
+      durationInMilliseconds: durationInMilliseconds ?? 400,
       children: children,
     );
