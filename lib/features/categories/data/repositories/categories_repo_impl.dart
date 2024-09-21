@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:store_ify/core/api/api_error_handler.dart';
 import 'package:store_ify/core/api/api_result.dart';
-import 'package:store_ify/core/api/api_service.dart';
+import 'package:store_ify/features/categories/data/api/categories_api_service.dart';
 import 'package:store_ify/features/categories/data/datasources/categories_local_datasource.dart';
 import 'package:store_ify/features/categories/data/models/fetch_categories_response.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_params.dart';
@@ -10,10 +10,10 @@ import 'package:store_ify/features/categories/data/models/fetch_sub_category_res
 import 'package:store_ify/features/categories/data/repositories/categories_repo.dart';
 
 class CategoriesRepoImpl implements CategoriesRepo {
-  final ApiService _apiService;
+  final CategoriesApiService _categoriesApiService;
   final CategoriesLocalDatasource _localDatasource;
 
-  const CategoriesRepoImpl(this._apiService, this._localDatasource);
+  const CategoriesRepoImpl(this._categoriesApiService, this._localDatasource);
 
   @override
   Future<ApiResult<FetchCategoriesResponse>> fetchCategories([
@@ -33,7 +33,8 @@ class CategoriesRepoImpl implements CategoriesRepo {
     CancelToken? cancelToken,
   ) async {
     try {
-      final categories = await _apiService.fetchCategories(cancelToken);
+      final categories =
+          await _categoriesApiService.fetchCategories(cancelToken);
       await _localDatasource.cacheCategories(categories);
       return ApiResult.success(categories);
     } catch (error) {
@@ -63,7 +64,7 @@ class CategoriesRepoImpl implements CategoriesRepo {
     CancelToken? cancelToken,
   ) async {
     try {
-      final subCategory = await _apiService.fetchSubCategory(
+      final subCategory = await _categoriesApiService.fetchSubCategory(
         params.categoryId,
         params.subCategoryId,
         cancelToken,

@@ -27,6 +27,7 @@ import 'package:store_ify/features/cart/data/datasources/cart_local_datasource.d
 import 'package:store_ify/features/cart/data/repositories/cart_repo.dart';
 import 'package:store_ify/features/cart/data/repositories/cart_repo_impl.dart';
 import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
+import 'package:store_ify/features/categories/data/api/categories_api_service.dart';
 import 'package:store_ify/features/categories/data/datasources/categories_local_datasource.dart';
 import 'package:store_ify/features/categories/data/repositories/categories_repo.dart';
 import 'package:store_ify/features/categories/data/repositories/categories_repo_impl.dart';
@@ -91,6 +92,9 @@ void _setupForApiServices() {
     () => ResetPasswordApiService(dio),
   );
   getIt.registerLazySingleton<CartApiService>(() => CartApiService(dio));
+  getIt.registerLazySingleton<CategoriesApiService>(
+    () => CategoriesApiService(dio),
+  );
 }
 
 void _setupDIForDatasources() {
@@ -138,7 +142,7 @@ void _setupDIForRepos() {
   );
   getIt.registerLazySingleton<CategoriesRepo>(
     () => CategoriesRepoImpl(
-      getIt.get<ApiService>(),
+      getIt.get<CategoriesApiService>(),
       getIt.get<CategoriesLocalDatasource>(),
     ),
   );
