@@ -10,10 +10,13 @@ import 'package:store_ify/core/themes/theming_cubit.dart';
 import 'package:store_ify/features/auth/data/api/forgot_password_api_service.dart';
 import 'package:store_ify/features/auth/data/api/login_api_service.dart';
 import 'package:store_ify/features/auth/data/api/register_api_service.dart';
-import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
+import 'package:store_ify/features/auth/data/api/reset_password_api_service.dart';
+import 'package:store_ify/features/auth/data/api/validate_otp_api_service.dart';
 import 'package:store_ify/features/auth/data/repos/forgot_password_repo.dart';
 import 'package:store_ify/features/auth/data/repos/login_repo.dart';
 import 'package:store_ify/features/auth/data/repos/register_repo.dart';
+import 'package:store_ify/features/auth/data/repos/reset_password_repo.dart';
+import 'package:store_ify/features/auth/data/repos/validate_otp_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forgot_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
@@ -76,7 +79,14 @@ void _setupForApiServices() {
     () => RegisterApiService(dio),
   );
   getIt.registerLazySingleton<ForgotPasswordApiService>(
-      () => ForgotPasswordApiService(dio));
+    () => ForgotPasswordApiService(dio),
+  );
+  getIt.registerLazySingleton<ValidateOtpApiService>(
+    () => ValidateOtpApiService(dio),
+  );
+  getIt.registerLazySingleton<ResetPasswordApiService>(
+    () => ResetPasswordApiService(dio),
+  );
 }
 
 void _setupDIForDatasources() {
@@ -109,6 +119,12 @@ void _setupDIForRepos() {
   );
   getIt.registerLazySingleton<ForgotPasswordRepo>(
     () => ForgotPasswordRepo(getIt.get<ForgotPasswordApiService>()),
+  );
+  getIt.registerLazySingleton<ValidateOtpRepo>(
+    () => ValidateOtpRepo(getIt.get<ValidateOtpApiService>()),
+  );
+  getIt.registerLazySingleton<ResetPasswordRepo>(
+    () => ResetPasswordRepo(getIt.get<ResetPasswordApiService>()),
   );
   getIt.registerLazySingleton<HomeRepo>(
     () => HomeRepoImpl(
@@ -171,10 +187,10 @@ void _setupDIForCubits() {
     () => ForgotPasswordCubit(getIt.get<ForgotPasswordRepo>()),
   );
   getIt.registerFactory<ValidateOtpCubit>(
-    () => ValidateOtpCubit(getIt.get<AuthRepo>()),
+    () => ValidateOtpCubit(getIt.get<ValidateOtpRepo>()),
   );
   getIt.registerFactory<ResetPasswordCubit>(
-    () => ResetPasswordCubit(getIt.get<AuthRepo>()),
+    () => ResetPasswordCubit(getIt.get<ResetPasswordRepo>()),
   );
   getIt.registerFactory<HomeCubit>(
     () => HomeCubit(getIt.get<HomeRepo>()),

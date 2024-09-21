@@ -19,50 +19,50 @@ mixin _$ValidateOtpState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function(String error) error,
+    required TResult Function() validateOtpLoading,
+    required TResult Function() validateOtpSuccess,
+    required TResult Function(String error) validateOtpError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function(String error)? error,
+    TResult? Function()? validateOtpLoading,
+    TResult? Function()? validateOtpSuccess,
+    TResult? Function(String error)? validateOtpError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function(String error)? error,
+    TResult Function()? validateOtpLoading,
+    TResult Function()? validateOtpSuccess,
+    TResult Function(String error)? validateOtpError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(ValidateOtpLoading<T> value) validateOtpLoading,
+    required TResult Function(ValidateOtpSuccess<T> value) validateOtpSuccess,
+    required TResult Function(ValidateOtpError<T> value) validateOtpError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(ValidateOtpLoading<T> value)? validateOtpLoading,
+    TResult? Function(ValidateOtpSuccess<T> value)? validateOtpSuccess,
+    TResult? Function(ValidateOtpError<T> value)? validateOtpError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(ValidateOtpLoading<T> value)? validateOtpLoading,
+    TResult Function(ValidateOtpSuccess<T> value)? validateOtpSuccess,
+    TResult Function(ValidateOtpError<T> value)? validateOtpError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -131,9 +131,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function(String error) error,
+    required TResult Function() validateOtpLoading,
+    required TResult Function() validateOtpSuccess,
+    required TResult Function(String error) validateOtpError,
   }) {
     return initial();
   }
@@ -142,9 +142,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function(String error)? error,
+    TResult? Function()? validateOtpLoading,
+    TResult? Function()? validateOtpSuccess,
+    TResult? Function(String error)? validateOtpError,
   }) {
     return initial?.call();
   }
@@ -153,9 +153,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function(String error)? error,
+    TResult Function()? validateOtpLoading,
+    TResult Function()? validateOtpSuccess,
+    TResult Function(String error)? validateOtpError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -168,9 +168,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(ValidateOtpLoading<T> value) validateOtpLoading,
+    required TResult Function(ValidateOtpSuccess<T> value) validateOtpSuccess,
+    required TResult Function(ValidateOtpError<T> value) validateOtpError,
   }) {
     return initial(this);
   }
@@ -179,9 +179,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(ValidateOtpLoading<T> value)? validateOtpLoading,
+    TResult? Function(ValidateOtpSuccess<T> value)? validateOtpSuccess,
+    TResult? Function(ValidateOtpError<T> value)? validateOtpError,
   }) {
     return initial?.call(this);
   }
@@ -190,9 +190,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(ValidateOtpLoading<T> value)? validateOtpLoading,
+    TResult Function(ValidateOtpSuccess<T> value)? validateOtpSuccess,
+    TResult Function(ValidateOtpError<T> value)? validateOtpError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -207,18 +207,18 @@ abstract class _Initial<T> implements ValidateOtpState<T> {
 }
 
 /// @nodoc
-abstract class _$$LoadingImplCopyWith<T, $Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl<T> value, $Res Function(_$LoadingImpl<T>) then) =
-      __$$LoadingImplCopyWithImpl<T, $Res>;
+abstract class _$$ValidateOtpLoadingImplCopyWith<T, $Res> {
+  factory _$$ValidateOtpLoadingImplCopyWith(_$ValidateOtpLoadingImpl<T> value,
+          $Res Function(_$ValidateOtpLoadingImpl<T>) then) =
+      __$$ValidateOtpLoadingImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$LoadingImplCopyWithImpl<T, $Res>
-    extends _$ValidateOtpStateCopyWithImpl<T, $Res, _$LoadingImpl<T>>
-    implements _$$LoadingImplCopyWith<T, $Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl<T> _value, $Res Function(_$LoadingImpl<T>) _then)
+class __$$ValidateOtpLoadingImplCopyWithImpl<T, $Res>
+    extends _$ValidateOtpStateCopyWithImpl<T, $Res, _$ValidateOtpLoadingImpl<T>>
+    implements _$$ValidateOtpLoadingImplCopyWith<T, $Res> {
+  __$$ValidateOtpLoadingImplCopyWithImpl(_$ValidateOtpLoadingImpl<T> _value,
+      $Res Function(_$ValidateOtpLoadingImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of ValidateOtpState
@@ -227,18 +227,19 @@ class __$$LoadingImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$LoadingImpl<T> implements Loading<T> {
-  const _$LoadingImpl();
+class _$ValidateOtpLoadingImpl<T> implements ValidateOtpLoading<T> {
+  const _$ValidateOtpLoadingImpl();
 
   @override
   String toString() {
-    return 'ValidateOtpState<$T>.loading()';
+    return 'ValidateOtpState<$T>.validateOtpLoading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl<T>);
+        (other.runtimeType == runtimeType &&
+            other is _$ValidateOtpLoadingImpl<T>);
   }
 
   @override
@@ -248,35 +249,35 @@ class _$LoadingImpl<T> implements Loading<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function(String error) error,
+    required TResult Function() validateOtpLoading,
+    required TResult Function() validateOtpSuccess,
+    required TResult Function(String error) validateOtpError,
   }) {
-    return loading();
+    return validateOtpLoading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function(String error)? error,
+    TResult? Function()? validateOtpLoading,
+    TResult? Function()? validateOtpSuccess,
+    TResult? Function(String error)? validateOtpError,
   }) {
-    return loading?.call();
+    return validateOtpLoading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function(String error)? error,
+    TResult Function()? validateOtpLoading,
+    TResult Function()? validateOtpSuccess,
+    TResult Function(String error)? validateOtpError,
     required TResult orElse(),
   }) {
-    if (loading != null) {
-      return loading();
+    if (validateOtpLoading != null) {
+      return validateOtpLoading();
     }
     return orElse();
   }
@@ -285,57 +286,57 @@ class _$LoadingImpl<T> implements Loading<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(ValidateOtpLoading<T> value) validateOtpLoading,
+    required TResult Function(ValidateOtpSuccess<T> value) validateOtpSuccess,
+    required TResult Function(ValidateOtpError<T> value) validateOtpError,
   }) {
-    return loading(this);
+    return validateOtpLoading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(ValidateOtpLoading<T> value)? validateOtpLoading,
+    TResult? Function(ValidateOtpSuccess<T> value)? validateOtpSuccess,
+    TResult? Function(ValidateOtpError<T> value)? validateOtpError,
   }) {
-    return loading?.call(this);
+    return validateOtpLoading?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(ValidateOtpLoading<T> value)? validateOtpLoading,
+    TResult Function(ValidateOtpSuccess<T> value)? validateOtpSuccess,
+    TResult Function(ValidateOtpError<T> value)? validateOtpError,
     required TResult orElse(),
   }) {
-    if (loading != null) {
-      return loading(this);
+    if (validateOtpLoading != null) {
+      return validateOtpLoading(this);
     }
     return orElse();
   }
 }
 
-abstract class Loading<T> implements ValidateOtpState<T> {
-  const factory Loading() = _$LoadingImpl<T>;
+abstract class ValidateOtpLoading<T> implements ValidateOtpState<T> {
+  const factory ValidateOtpLoading() = _$ValidateOtpLoadingImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$SuccessImplCopyWith<T, $Res> {
-  factory _$$SuccessImplCopyWith(
-          _$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
-      __$$SuccessImplCopyWithImpl<T, $Res>;
+abstract class _$$ValidateOtpSuccessImplCopyWith<T, $Res> {
+  factory _$$ValidateOtpSuccessImplCopyWith(_$ValidateOtpSuccessImpl<T> value,
+          $Res Function(_$ValidateOtpSuccessImpl<T>) then) =
+      __$$ValidateOtpSuccessImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<T, $Res>
-    extends _$ValidateOtpStateCopyWithImpl<T, $Res, _$SuccessImpl<T>>
-    implements _$$SuccessImplCopyWith<T, $Res> {
-  __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl<T> _value, $Res Function(_$SuccessImpl<T>) _then)
+class __$$ValidateOtpSuccessImplCopyWithImpl<T, $Res>
+    extends _$ValidateOtpStateCopyWithImpl<T, $Res, _$ValidateOtpSuccessImpl<T>>
+    implements _$$ValidateOtpSuccessImplCopyWith<T, $Res> {
+  __$$ValidateOtpSuccessImplCopyWithImpl(_$ValidateOtpSuccessImpl<T> _value,
+      $Res Function(_$ValidateOtpSuccessImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of ValidateOtpState
@@ -344,18 +345,19 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$SuccessImpl<T> implements Success<T> {
-  const _$SuccessImpl();
+class _$ValidateOtpSuccessImpl<T> implements ValidateOtpSuccess<T> {
+  const _$ValidateOtpSuccessImpl();
 
   @override
   String toString() {
-    return 'ValidateOtpState<$T>.success()';
+    return 'ValidateOtpState<$T>.validateOtpSuccess()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SuccessImpl<T>);
+        (other.runtimeType == runtimeType &&
+            other is _$ValidateOtpSuccessImpl<T>);
   }
 
   @override
@@ -365,35 +367,35 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function(String error) error,
+    required TResult Function() validateOtpLoading,
+    required TResult Function() validateOtpSuccess,
+    required TResult Function(String error) validateOtpError,
   }) {
-    return success();
+    return validateOtpSuccess();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function(String error)? error,
+    TResult? Function()? validateOtpLoading,
+    TResult? Function()? validateOtpSuccess,
+    TResult? Function(String error)? validateOtpError,
   }) {
-    return success?.call();
+    return validateOtpSuccess?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function(String error)? error,
+    TResult Function()? validateOtpLoading,
+    TResult Function()? validateOtpSuccess,
+    TResult Function(String error)? validateOtpError,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success();
+    if (validateOtpSuccess != null) {
+      return validateOtpSuccess();
     }
     return orElse();
   }
@@ -402,59 +404,59 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(ValidateOtpLoading<T> value) validateOtpLoading,
+    required TResult Function(ValidateOtpSuccess<T> value) validateOtpSuccess,
+    required TResult Function(ValidateOtpError<T> value) validateOtpError,
   }) {
-    return success(this);
+    return validateOtpSuccess(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(ValidateOtpLoading<T> value)? validateOtpLoading,
+    TResult? Function(ValidateOtpSuccess<T> value)? validateOtpSuccess,
+    TResult? Function(ValidateOtpError<T> value)? validateOtpError,
   }) {
-    return success?.call(this);
+    return validateOtpSuccess?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(ValidateOtpLoading<T> value)? validateOtpLoading,
+    TResult Function(ValidateOtpSuccess<T> value)? validateOtpSuccess,
+    TResult Function(ValidateOtpError<T> value)? validateOtpError,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(this);
+    if (validateOtpSuccess != null) {
+      return validateOtpSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class Success<T> implements ValidateOtpState<T> {
-  const factory Success() = _$SuccessImpl<T>;
+abstract class ValidateOtpSuccess<T> implements ValidateOtpState<T> {
+  const factory ValidateOtpSuccess() = _$ValidateOtpSuccessImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$ErrorImplCopyWith<T, $Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl<T> value, $Res Function(_$ErrorImpl<T>) then) =
-      __$$ErrorImplCopyWithImpl<T, $Res>;
+abstract class _$$ValidateOtpErrorImplCopyWith<T, $Res> {
+  factory _$$ValidateOtpErrorImplCopyWith(_$ValidateOtpErrorImpl<T> value,
+          $Res Function(_$ValidateOtpErrorImpl<T>) then) =
+      __$$ValidateOtpErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$$ErrorImplCopyWithImpl<T, $Res>
-    extends _$ValidateOtpStateCopyWithImpl<T, $Res, _$ErrorImpl<T>>
-    implements _$$ErrorImplCopyWith<T, $Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl<T> _value, $Res Function(_$ErrorImpl<T>) _then)
+class __$$ValidateOtpErrorImplCopyWithImpl<T, $Res>
+    extends _$ValidateOtpStateCopyWithImpl<T, $Res, _$ValidateOtpErrorImpl<T>>
+    implements _$$ValidateOtpErrorImplCopyWith<T, $Res> {
+  __$$ValidateOtpErrorImplCopyWithImpl(_$ValidateOtpErrorImpl<T> _value,
+      $Res Function(_$ValidateOtpErrorImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of ValidateOtpState
@@ -464,7 +466,7 @@ class __$$ErrorImplCopyWithImpl<T, $Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_$ErrorImpl<T>(
+    return _then(_$ValidateOtpErrorImpl<T>(
       null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -475,22 +477,22 @@ class __$$ErrorImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$ErrorImpl<T> implements Error<T> {
-  const _$ErrorImpl(this.error);
+class _$ValidateOtpErrorImpl<T> implements ValidateOtpError<T> {
+  const _$ValidateOtpErrorImpl(this.error);
 
   @override
   final String error;
 
   @override
   String toString() {
-    return 'ValidateOtpState<$T>.error(error: $error)';
+    return 'ValidateOtpState<$T>.validateOtpError(error: $error)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ErrorImpl<T> &&
+            other is _$ValidateOtpErrorImpl<T> &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -502,42 +504,43 @@ class _$ErrorImpl<T> implements Error<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
-      __$$ErrorImplCopyWithImpl<T, _$ErrorImpl<T>>(this, _$identity);
+  _$$ValidateOtpErrorImplCopyWith<T, _$ValidateOtpErrorImpl<T>> get copyWith =>
+      __$$ValidateOtpErrorImplCopyWithImpl<T, _$ValidateOtpErrorImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function(String error) error,
+    required TResult Function() validateOtpLoading,
+    required TResult Function() validateOtpSuccess,
+    required TResult Function(String error) validateOtpError,
   }) {
-    return error(this.error);
+    return validateOtpError(error);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function(String error)? error,
+    TResult? Function()? validateOtpLoading,
+    TResult? Function()? validateOtpSuccess,
+    TResult? Function(String error)? validateOtpError,
   }) {
-    return error?.call(this.error);
+    return validateOtpError?.call(error);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function(String error)? error,
+    TResult Function()? validateOtpLoading,
+    TResult Function()? validateOtpSuccess,
+    TResult Function(String error)? validateOtpError,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(this.error);
+    if (validateOtpError != null) {
+      return validateOtpError(error);
     }
     return orElse();
   }
@@ -546,48 +549,49 @@ class _$ErrorImpl<T> implements Error<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(ValidateOtpLoading<T> value) validateOtpLoading,
+    required TResult Function(ValidateOtpSuccess<T> value) validateOtpSuccess,
+    required TResult Function(ValidateOtpError<T> value) validateOtpError,
   }) {
-    return error(this);
+    return validateOtpError(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(ValidateOtpLoading<T> value)? validateOtpLoading,
+    TResult? Function(ValidateOtpSuccess<T> value)? validateOtpSuccess,
+    TResult? Function(ValidateOtpError<T> value)? validateOtpError,
   }) {
-    return error?.call(this);
+    return validateOtpError?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(ValidateOtpLoading<T> value)? validateOtpLoading,
+    TResult Function(ValidateOtpSuccess<T> value)? validateOtpSuccess,
+    TResult Function(ValidateOtpError<T> value)? validateOtpError,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(this);
+    if (validateOtpError != null) {
+      return validateOtpError(this);
     }
     return orElse();
   }
 }
 
-abstract class Error<T> implements ValidateOtpState<T> {
-  const factory Error(final String error) = _$ErrorImpl<T>;
+abstract class ValidateOtpError<T> implements ValidateOtpState<T> {
+  const factory ValidateOtpError(final String error) =
+      _$ValidateOtpErrorImpl<T>;
 
   String get error;
 
   /// Create a copy of ValidateOtpState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
+  _$$ValidateOtpErrorImplCopyWith<T, _$ValidateOtpErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
