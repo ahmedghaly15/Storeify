@@ -1,22 +1,21 @@
 import 'package:dio/dio.dart';
 import 'package:store_ify/core/api/api_result.dart';
-import 'package:store_ify/core/api/api_service.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
+import 'package:store_ify/features/auth/data/api/reset_password_api_service.dart';
 import 'package:store_ify/features/auth/data/models/reset_password_params.dart';
-import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
 
-class AuthRepoImpl implements AuthRepo {
-  final ApiService _apiService;
+class ResetPasswordRepo {
+  final ResetPasswordApiService _resetPasswordApiService;
 
-  const AuthRepoImpl(this._apiService);
+  ResetPasswordRepo(this._resetPasswordApiService);
 
-  @override
   Future<ApiResult<void>> resetPassword(
     ResetPasswordParams params, [
     CancelToken? cancelToken,
   ]) {
     return executeAndHandleErrors<void>(
-      () async => await _apiService.resetPassword(params, cancelToken),
+      () async =>
+          await _resetPasswordApiService.resetPassword(params, cancelToken),
     );
   }
 }

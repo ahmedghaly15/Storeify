@@ -24,38 +24,6 @@ class _ApiService implements ApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<void> resetPassword(
-    ResetPasswordParams params, [
-    CancelToken? cancelToken,
-  ]) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept-Language': 'en'};
-    _headers.removeWhere((k, v) => v == null);
-    final _data = <String, dynamic>{};
-    _data.addAll(params.toJson());
-    final _options = _setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          'http://192.168.1.10:8081/api/reset-password',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
-    await _dio.fetch<void>(_options);
-  }
-
-  @override
   Future<FetchHomeResponse> fetchHomeData([CancelToken? cancelToken]) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
