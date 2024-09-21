@@ -2,18 +2,18 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:store_ify/core/api/api_error_handler.dart';
 import 'package:store_ify/core/api/api_result.dart';
-import 'package:store_ify/core/api/api_service.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
+import 'package:store_ify/features/cart/data/api/cart_api_service.dart';
 import 'package:store_ify/features/cart/data/datasources/cart_local_datasource.dart';
 import 'package:store_ify/features/cart/data/models/add_product_to_cart_params.dart';
 import 'package:store_ify/features/cart/data/models/fetch_cart_response.dart';
 import 'package:store_ify/features/cart/data/repositories/cart_repo.dart';
 
 class CartRepoImpl implements CartRepo {
-  final ApiService _apiService;
+  final CartApiService _cartApiService;
   final CartLocalDatasource _localDatasource;
 
-  const CartRepoImpl(this._apiService, this._localDatasource);
+  const CartRepoImpl(this._cartApiService, this._localDatasource);
 
   @override
   Future<ApiResult<void>> addProductToCart(
@@ -21,7 +21,7 @@ class CartRepoImpl implements CartRepo {
     CancelToken? cancelToken,
   ]) {
     return executeAndHandleErrors<void>(
-      () async => await _apiService.addProductToCart(
+      () async => await _cartApiService.addProductToCart(
         params.productId,
         params,
         cancelToken,
@@ -48,7 +48,7 @@ class CartRepoImpl implements CartRepo {
     CancelToken? cancelToken,
   ) async {
     try {
-      final cart = await _apiService.fetchCart(cancelToken);
+      final cart = await _cartApiService.fetchCart(cancelToken);
       await _localDatasource.cacheCart(cart);
       return ApiResult.success(cart);
     } catch (error) {
@@ -63,7 +63,7 @@ class CartRepoImpl implements CartRepo {
     CancelToken? cancelToken,
   ]) {
     return executeAndHandleErrors<void>(
-      () async => await _apiService.removeProductFromCart(
+      () async => await _cartApiService.removeProductFromCart(
         productId,
         cancelToken,
       ),

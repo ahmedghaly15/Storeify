@@ -108,24 +108,6 @@ abstract class ApiService {
     @CancelRequest() CancelToken? cancelToken,
   ]);
 
-  @POST('${EndPoints.addProductToCart}{productId}')
-  Future<void> addProductToCart(
-    @Path('productId') int productId,
-    @Body() AddProductToCartParams params, [
-    @CancelRequest() CancelToken? cancelToken,
-  ]);
-
-  @GET(EndPoints.cart)
-  Future<FetchCartResponse> fetchCart([
-    @CancelRequest() CancelToken? cancelToken,
-  ]);
-
-  @DELETE('${EndPoints.cart}{product_id}')
-  Future<void> removeProductFromCart(
-    @Path('product_id') int productId, [
-    @CancelRequest() CancelToken? cancelToken,
-  ]);
-
   @POST(EndPoints.checkout)
   Future<CheckoutResponse> checkout(
     @Body() CheckoutParams params, [

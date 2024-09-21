@@ -22,6 +22,7 @@ import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.da
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/validate_otp/validate_otp_cubit.dart';
+import 'package:store_ify/features/cart/data/api/cart_api_service.dart';
 import 'package:store_ify/features/cart/data/datasources/cart_local_datasource.dart';
 import 'package:store_ify/features/cart/data/repositories/cart_repo.dart';
 import 'package:store_ify/features/cart/data/repositories/cart_repo_impl.dart';
@@ -68,6 +69,8 @@ void setupDI() {
 }
 
 void _setupDIForCore() {
+  final Dio dio = DioFactory.getDio();
+  getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
   getIt.registerSingleton<AppRouter>(AppRouter());
   getIt.registerLazySingleton<LocationService>(() => LocationService());
 }
@@ -87,6 +90,7 @@ void _setupForApiServices() {
   getIt.registerLazySingleton<ResetPasswordApiService>(
     () => ResetPasswordApiService(dio),
   );
+  getIt.registerLazySingleton<CartApiService>(() => CartApiService(dio));
 }
 
 void _setupDIForDatasources() {
@@ -155,7 +159,7 @@ void _setupDIForRepos() {
   );
   getIt.registerLazySingleton<CartRepo>(
     () => CartRepoImpl(
-      getIt.get<ApiService>(),
+      getIt.get<CartApiService>(),
       getIt.get<CartLocalDatasource>(),
     ),
   );
