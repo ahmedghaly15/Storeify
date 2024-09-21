@@ -33,6 +33,7 @@ import 'package:store_ify/features/categories/data/repositories/categories_repo.
 import 'package:store_ify/features/categories/data/repositories/categories_repo_impl.dart';
 import 'package:store_ify/features/categories/presentation/cubit/categories/categories_cubit.dart';
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_cubit.dart';
+import 'package:store_ify/features/checkout/data/api/checkout_api_service.dart';
 import 'package:store_ify/features/checkout/data/repositories/checkout_repo.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_cubit.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/payment_method/payment_method_cubit.dart';
@@ -47,6 +48,7 @@ import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
 import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo.dart';
 import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo_impl.dart';
 import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_cubit.dart';
+import 'package:store_ify/features/payment/data/api/payment_api_service.dart';
 import 'package:store_ify/features/payment/data/repositories/payment_repo.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
 import 'package:store_ify/features/profile/data/repos/profile_repo.dart';
@@ -94,6 +96,12 @@ void _setupForApiServices() {
   getIt.registerLazySingleton<CartApiService>(() => CartApiService(dio));
   getIt.registerLazySingleton<CategoriesApiService>(
     () => CategoriesApiService(dio),
+  );
+  getIt.registerLazySingleton<CheckoutApiService>(
+    () => CheckoutApiService(dio),
+  );
+  getIt.registerLazySingleton<PaymentApiService>(
+    () => PaymentApiService(dio),
   );
 }
 
@@ -168,10 +176,10 @@ void _setupDIForRepos() {
     ),
   );
   getIt.registerLazySingleton<CheckoutRepo>(
-    () => CheckoutRepoImpl(getIt.get<ApiService>()),
+    () => CheckoutRepoImpl(getIt.get<CheckoutApiService>()),
   );
   getIt.registerLazySingleton<PaymentRepo>(
-    () => PaymentRepoImpl(getIt.get<ApiService>()),
+    () => PaymentRepoImpl(getIt.get<PaymentApiService>()),
   );
   getIt.registerLazySingleton<ProfileRepo>(
     () => ProfileRepoImpl(getIt.get<ApiService>()),

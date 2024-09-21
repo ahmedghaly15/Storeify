@@ -94,19 +94,6 @@ abstract class ApiService {
     @CancelRequest() CancelToken? cancelToken,
   ]);
 
-  @POST(EndPoints.checkout)
-  Future<CheckoutResponse> checkout(
-    @Body() CheckoutParams params, [
-    @CancelRequest() CancelToken? cancelToken,
-  ]);
-
-  @POST('${EndPoints.checkout}/{payment_id}/payment-method')
-  Future<void> choosePaymentMethod(
-    @Path('payment_id') int paymentId,
-    @Body() ChoosePaymentMethodParams params, [
-    @CancelRequest() CancelToken? cancelToken,
-  ]);
-
   @POST('${EndPoints.pay}{orderId}')
   Future<void> orderPay(
     @Path('orderId') int orderId,
