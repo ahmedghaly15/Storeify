@@ -6,7 +6,7 @@ import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_state.dart';
 
-class PreferProductBlocListenerIconButton extends StatelessWidget {
+class PreferProductBlocListenerIconButton extends StatefulWidget {
   const PreferProductBlocListenerIconButton({
     super.key,
     required this.isFavorited,
@@ -15,6 +15,31 @@ class PreferProductBlocListenerIconButton extends StatelessWidget {
 
   final bool isFavorited;
   final int productId;
+
+  @override
+  State<PreferProductBlocListenerIconButton> createState() =>
+      _PreferProductBlocListenerIconButtonState();
+}
+
+class _PreferProductBlocListenerIconButtonState
+    extends State<PreferProductBlocListenerIconButton> {
+  late bool isFavoritedLocal;
+
+  @override
+  void initState() {
+    super.initState();
+    isFavoritedLocal = widget.isFavorited;
+  }
+
+  void _toggleFavorite() {
+    setState(() {
+      isFavoritedLocal = !isFavoritedLocal;
+    });
+    context.read<FavoritesCubit>().preferProductOrNot(
+          productId: widget.productId,
+          isFavorited: isFavoritedLocal,
+        );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +51,27 @@ class PreferProductBlocListenerIconButton extends StatelessWidget {
           current is RemoveProductFromFavsSuccess,
       listener: (context, state) {
         state.whenOrNull(
-          removeProductFromFavsError: (errorKey) => CustomToast.showToast(
-            context: context,
-            messageKey: errorKey,
-            state: CustomToastState.error,
-          ),
-          preferProductError: (errorKey) => CustomToast.showToast(
-            context: context,
-            messageKey: errorKey,
-            state: CustomToastState.error,
-          ),
+          removeProductFromFavsError: (errorKey) {
+            CustomToast.showToast(
+              context: context,
+              messageKey: errorKey,
+              state: CustomToastState.error,
+            );
+            // Rollback the change if an error occurs
+            setState(() {
+              isFavoritedLocal = !isFavoritedLocal;
+            });
+          },
+          preferProductError: (errorKey) {
+            CustomToast.showToast(
+              context: context,
+              messageKey: errorKey,
+              state: CustomToastState.error,
+            );
+            setState(() {
+              isFavoritedLocal = !isFavoritedLocal;
+            });
+          },
           preferProductSuccess: () {
             context.read<FavoritesCubit>().deleteCachedFavProducts();
           },
@@ -45,12 +81,9 @@ class PreferProductBlocListenerIconButton extends StatelessWidget {
         );
       },
       child: IconButton(
-        onPressed: () => context.read<FavoritesCubit>().preferProductOrNot(
-              productId: productId,
-              isFavorited: isFavorited,
-            ),
+        onPressed: _toggleFavorite,
         icon: Icon(
-          isFavorited ? Icons.favorite : Icons.favorite_border_outlined,
+          isFavoritedLocal ? Icons.favorite : Icons.favorite_border_outlined,
           size: 18.w,
           color: AppColors.primaryColor,
         ),
