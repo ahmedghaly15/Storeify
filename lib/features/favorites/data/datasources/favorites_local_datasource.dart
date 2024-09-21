@@ -15,7 +15,7 @@ class FavoritesLocalDatasource {
       HiveBoxes.favProductsBox,
     );
     await box.put(
-      '${HiveKeys.favProductsResponse}_${currentUser!.token}',
+      '${HiveKeys.favProductsResponse}_${currentUser!.user.username}',
       favProducts,
     );
   }
@@ -24,7 +24,8 @@ class FavoritesLocalDatasource {
     final box = await Hive.openLazyBox<FetchFavoriteProductsResponse>(
       HiveBoxes.favProductsBox,
     );
-    return box.get('${HiveKeys.favProductsResponse}_${currentUser!.token}');
+    return box
+        .get('${HiveKeys.favProductsResponse}_${currentUser!.user.username}');
   }
 
   Future<void> cacheFetchedFavStores(FetchFavStoresResponse favStores) async {
@@ -32,7 +33,7 @@ class FavoritesLocalDatasource {
       HiveBoxes.favStoresBox,
     );
     await box.put(
-      '${HiveKeys.favStoresResponse}_${currentUser!.token}',
+      '${HiveKeys.favStoresResponse}_${currentUser!.user.username}',
       favStores,
     );
   }
@@ -41,20 +42,23 @@ class FavoritesLocalDatasource {
     final box = await Hive.openLazyBox<FetchFavStoresResponse>(
       HiveBoxes.favStoresBox,
     );
-    return box.get('${HiveKeys.favStoresResponse}_${currentUser!.token}');
+    return box
+        .get('${HiveKeys.favStoresResponse}_${currentUser!.user.username}');
   }
 
   Future<void> deleteCachedFavProducts() async {
     final box = await Hive.openLazyBox<FetchFavoriteProductsResponse>(
       HiveBoxes.favProductsBox,
     );
-    await box.delete('${HiveKeys.favProductsResponse}_${currentUser!.token}');
+    await box.delete(
+        '${HiveKeys.favProductsResponse}_${currentUser!.user.username}');
   }
 
   Future<void> deleteCachedFavStores() async {
     final box = await Hive.openLazyBox<FetchFavStoresResponse>(
       HiveBoxes.favStoresBox,
     );
-    await box.delete('${HiveKeys.favStoresResponse}_${currentUser!.token}');
+    await box
+        .delete('${HiveKeys.favStoresResponse}_${currentUser!.user.username}');
   }
 }

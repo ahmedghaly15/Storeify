@@ -12,13 +12,13 @@ class CartLocalDatasource {
       HiveBoxes.cartResponseBox,
     );
     await box.put(
-        '${HiveKeys.cartResponse}_${currentUser!.token}', cartResponse);
+        '${HiveKeys.cartResponse}_${currentUser!.user.username}', cartResponse);
   }
 
   Future<FetchCartResponse?> retrieveCachedCart() async {
     final box = await Hive.openLazyBox<FetchCartResponse>(
       HiveBoxes.cartResponseBox,
     );
-    return box.get('${HiveKeys.cartResponse}_${currentUser!.token}');
+    return box.get('${HiveKeys.cartResponse}_${currentUser!.user.username}');
   }
 }
