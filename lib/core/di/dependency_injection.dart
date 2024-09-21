@@ -7,9 +7,11 @@ import 'package:store_ify/core/locale/logic/locale_repo.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/services/location_service.dart';
 import 'package:store_ify/core/themes/theming_cubit.dart';
+import 'package:store_ify/features/auth/data/api/forgot_password_api_service.dart';
 import 'package:store_ify/features/auth/data/api/login_api_service.dart';
 import 'package:store_ify/features/auth/data/api/register_api_service.dart';
 import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
+import 'package:store_ify/features/auth/data/repos/forgot_password_repo.dart';
 import 'package:store_ify/features/auth/data/repos/login_repo.dart';
 import 'package:store_ify/features/auth/data/repos/register_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forgot_password_cubit.dart';
@@ -73,6 +75,8 @@ void _setupForApiServices() {
   getIt.registerLazySingleton<RegisterApiService>(
     () => RegisterApiService(dio),
   );
+  getIt.registerLazySingleton<ForgotPasswordApiService>(
+      () => ForgotPasswordApiService(dio));
 }
 
 void _setupDIForDatasources() {
@@ -102,6 +106,9 @@ void _setupDIForRepos() {
   );
   getIt.registerLazySingleton<RegisterRepo>(
     () => RegisterRepo(getIt.get<RegisterApiService>()),
+  );
+  getIt.registerLazySingleton<ForgotPasswordRepo>(
+    () => ForgotPasswordRepo(getIt.get<ForgotPasswordApiService>()),
   );
   getIt.registerLazySingleton<HomeRepo>(
     () => HomeRepoImpl(
@@ -161,7 +168,7 @@ void _setupDIForCubits() {
     () => RegisterCubit(getIt.get<RegisterRepo>()),
   );
   getIt.registerFactory<ForgotPasswordCubit>(
-    () => ForgotPasswordCubit(getIt.get<AuthRepo>()),
+    () => ForgotPasswordCubit(getIt.get<ForgotPasswordRepo>()),
   );
   getIt.registerFactory<ValidateOtpCubit>(
     () => ValidateOtpCubit(getIt.get<AuthRepo>()),
