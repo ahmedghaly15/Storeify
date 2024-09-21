@@ -24,46 +24,6 @@ class _ApiService implements ApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<StoreifyUser> login(
-    LoginParams params, [
-    CancelToken? cancelToken,
-  ]) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept-Language': 'en'};
-    _headers.removeWhere((k, v) => v == null);
-    final _data = <String, dynamic>{};
-    _data.addAll(params.toJson());
-    final _options = _setStreamType<StoreifyUser>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          'http://192.168.1.10:8081/api/login',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late StoreifyUser _value;
-    try {
-      _value = StoreifyUser.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
   Future<StoreifyUser> register(
     RegisterParams params, [
     CancelToken? cancelToken,

@@ -35,13 +35,6 @@ part 'api_service.g.dart';
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
-  @POST(EndPoints.login)
-  @retrofit.Headers({'Accept-Language': 'en'})
-  Future<StoreifyUser> login(
-    @Body() LoginParams params, [
-    @CancelRequest() CancelToken? cancelToken,
-  ]);
-
   @POST(EndPoints.register)
   @retrofit.Headers({'Accept-Language': 'en'})
   Future<StoreifyUser> register(
