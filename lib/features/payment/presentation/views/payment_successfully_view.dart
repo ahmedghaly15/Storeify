@@ -30,6 +30,7 @@ class PaymentSuccessfullyView extends StatelessWidget {
                 style: AppTextStyles.textStyle24Medium,
               ),
               MainButton(
+                width: double.infinity,
                 margin: EdgeInsets.symmetric(
                   horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
                   vertical: 24.h,
