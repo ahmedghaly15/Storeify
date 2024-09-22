@@ -4,7 +4,7 @@ import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
-import 'package:store_ify/core/widgets/custom_outlined_button.dart';
+import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/home/presentation/widgets/horizontal_separated_list_view.dart';
 import 'package:store_ify/features/stores/data/models/store.dart';
@@ -24,9 +24,10 @@ class StoreCategoriesListView extends StatelessWidget {
         padding: AppConstants.categoryPadding,
         separatorWidget: MySizedBox.width8,
         itemCount: stores.length,
-        itemBuilder: (_, index) => CustomOutlinedButton(
+        itemBuilder: (_, index) => MainButton(
+          isOutlined: true,
           backgroundColor: _backgroundColor(context, index),
-          foregroundColor: context.read<StoresCubit>().activeStoreColor(index),
+          borderRadius: 34,
           borderColor: context.isDarkModeActive
               ? Colors.transparent
               : context.read<StoresCubit>().activeStoreColor(index),

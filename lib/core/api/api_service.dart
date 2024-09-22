@@ -3,11 +3,6 @@ import 'package:retrofit/retrofit.dart';
 
 import 'package:store_ify/core/api/end_points.dart';
 import 'package:store_ify/core/locale/models/change_api_lang_params.dart';
-import 'package:store_ify/features/categories/data/models/fetch_categories_response.dart';
-import 'package:store_ify/features/categories/data/models/fetch_sub_category_response.dart';
-import 'package:store_ify/features/checkout/data/models/checkout_params.dart';
-import 'package:store_ify/features/checkout/data/models/checkout_response.dart';
-import 'package:store_ify/features/checkout/data/models/choose_payment_method_params.dart';
 import 'package:store_ify/features/favorites/data/models/fetch_fav_stores_response.dart';
 import 'package:store_ify/features/favorites/data/models/fetch_favorite_products_response.dart';
 import 'package:store_ify/features/favorites/data/models/prefer_params.dart';
@@ -91,13 +86,6 @@ abstract class ApiService {
 
   @GET(EndPoints.favoriteStores)
   Future<FetchFavStoresResponse> fetchFavStores([
-    @CancelRequest() CancelToken? cancelToken,
-  ]);
-
-  @POST('${EndPoints.pay}{orderId}')
-  Future<void> orderPay(
-    @Path('orderId') int orderId,
-    @Body() PayParams params, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
 

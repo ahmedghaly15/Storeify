@@ -5,7 +5,7 @@ import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
-import 'package:store_ify/core/widgets/custom_outlined_button.dart';
+import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/home/presentation/widgets/horizontal_separated_list_view.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_cubit.dart';
@@ -27,7 +27,8 @@ class StoreDetailsCategoriesListView extends StatelessWidget {
           return BlocBuilder<StoreDetailsCubit, StoreDetailsState>(
             buildWhen: (_, current) => current is UpdateCurrentDetailsIndex,
             builder: (context, state) {
-              return CustomOutlinedButton(
+              return MainButton(
+                isOutlined: true,
                 backgroundColor: context.isDarkModeActive
                     ? AppColors.secondaryDarkColor
                     : Colors.white,
@@ -37,9 +38,7 @@ class StoreDetailsCategoriesListView extends StatelessWidget {
                       index: index,
                       storeId: storeId,
                     ),
-                foregroundColor: context
-                    .read<StoreDetailsCubit>()
-                    .selectedStoreDetailColor(context, index),
+                borderRadius: 34,
                 borderColor: context
                     .read<StoreDetailsCubit>()
                     .selectedStoreDetailColor(context, index),
