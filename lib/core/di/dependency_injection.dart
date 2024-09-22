@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:store_ify/core/api/api_service.dart';
 import 'package:store_ify/core/api/dio_factory.dart';
 import 'package:store_ify/core/locale/logic/cubit/locale_cubit.dart';
 import 'package:store_ify/core/locale/logic/locale_repo.dart';
@@ -37,13 +36,15 @@ import 'package:store_ify/features/checkout/data/api/checkout_api_service.dart';
 import 'package:store_ify/features/checkout/data/repositories/checkout_repo.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_cubit.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/payment_method/payment_method_cubit.dart';
+import 'package:store_ify/features/favorites/data/api/favorites_api_service.dart';
 import 'package:store_ify/features/favorites/data/datasources/favorites_local_datasource.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo_impl.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
+import 'package:store_ify/features/home/data/api/home_api_service.dart';
 import 'package:store_ify/features/home/data/repos/home_repo.dart';
-import 'package:store_ify/features/home/datasources/home_local_datasource.dart';
+import 'package:store_ify/features/home/data/datasources/home_local_datasource.dart';
 import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
 import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo.dart';
 import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo_impl.dart';
@@ -51,10 +52,13 @@ import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_cubi
 import 'package:store_ify/features/payment/data/api/payment_api_service.dart';
 import 'package:store_ify/features/payment/data/repositories/payment_repo.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
+import 'package:store_ify/features/profile/data/api/profile_api_service.dart';
 import 'package:store_ify/features/profile/data/repos/profile_repo.dart';
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
+import 'package:store_ify/features/search/data/api/search_api_service.dart';
 import 'package:store_ify/features/search/data/repositories/search_repo.dart';
 import 'package:store_ify/features/search/presentation/cubit/search_cubit.dart';
+import 'package:store_ify/features/stores/data/api/stores_api_service.dart';
 import 'package:store_ify/features/stores/data/datasources/stores_local_datasource.dart';
 import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
 import 'package:store_ify/features/stores/data/repositories/stores_repo_impl.dart';
@@ -72,8 +76,6 @@ void setupDI() {
 }
 
 void _setupDIForCore() {
-  final Dio dio = DioFactory.getDio();
-  getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
   getIt.registerSingleton<AppRouter>(AppRouter());
   getIt.registerLazySingleton<LocationService>(() => LocationService());
 }
@@ -103,6 +105,19 @@ void _setupForApiServices() {
   getIt.registerLazySingleton<PaymentApiService>(
     () => PaymentApiService(dio),
   );
+  getIt.registerLazySingleton<FavoritesApiService>(
+    () => FavoritesApiService(dio),
+  );
+  getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
+  getIt.registerLazySingleton<ProfileApiService>(
+    () => ProfileApiService(dio),
+  );
+  getIt.registerLazySingleton<StoresApiService>(
+    () => StoresApiService(dio),
+  );
+  getIt.registerLazySingleton<SearchApiService>(
+    () => SearchApiService(dio),
+  );
 }
 
 void _setupDIForDatasources() {
@@ -125,7 +140,7 @@ void _setupDIForDatasources() {
 
 void _setupDIForRepos() {
   getIt.registerLazySingleton<LocaleRepo>(
-    () => LocaleRepoImpl(getIt.get<ApiService>()),
+    () => LocaleRepoImpl(getIt.get<ProfileApiService>()),
   );
   getIt.registerLazySingleton<LoginRepo>(
     () => LoginRepo(getIt.get<LoginApiService>()),
@@ -144,7 +159,7 @@ void _setupDIForRepos() {
   );
   getIt.registerLazySingleton<HomeRepo>(
     () => HomeRepoImpl(
-      getIt.get<ApiService>(),
+      getIt.get<HomeApiService>(),
       getIt.get<HomeLocalDatasource>(),
     ),
   );
@@ -156,13 +171,13 @@ void _setupDIForRepos() {
   );
   getIt.registerLazySingleton<StoresRepo>(
     () => StoresRepoImpl(
-      getIt.get<ApiService>(),
+      getIt.get<StoresApiService>(),
       getIt.get<StoresLocalDatasource>(),
     ),
   );
   getIt.registerLazySingleton<FavoritesRepo>(
     () => FavoritesRepoImpl(
-      getIt.get<ApiService>(),
+      getIt.get<FavoritesApiService>(),
       getIt.get<FavoritesLocalDatasource>(),
     ),
   );
@@ -182,10 +197,10 @@ void _setupDIForRepos() {
     () => PaymentRepoImpl(getIt.get<PaymentApiService>()),
   );
   getIt.registerLazySingleton<ProfileRepo>(
-    () => ProfileRepoImpl(getIt.get<ApiService>()),
+    () => ProfileRepoImpl(getIt.get<ProfileApiService>()),
   );
   getIt.registerLazySingleton<SearchRepo>(
-    () => SearchRepo(getIt.get<ApiService>()),
+    () => SearchRepo(getIt.get<SearchApiService>()),
   );
 }
 
