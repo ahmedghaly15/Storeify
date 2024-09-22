@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
@@ -11,7 +12,14 @@ class AppThemes {
         scaffoldBackgroundColor: Colors.white,
         fontFamily: AppStrings.fontFamily,
         brightness: Brightness.light,
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: Colors.white,
+            statusBarBrightness: Brightness.light,
+            statusBarIconBrightness: Brightness.dark,
+          ),
+        ),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
             foregroundColor:
@@ -39,10 +47,18 @@ class AppThemes {
         colorScheme: const ColorScheme.dark(primary: AppColors.primaryColor),
         primaryColor: AppColors.primaryColor,
         useMaterial3: true,
-        scaffoldBackgroundColor: Colors.black,
+        scaffoldBackgroundColor: AppColors.darkColor,
         fontFamily: AppStrings.fontFamily,
         brightness: Brightness.dark,
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.black),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: AppColors.darkColor,
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: AppColors.darkColor,
+            statusBarBrightness: Brightness.dark,
+            statusBarIconBrightness: Brightness.light,
+            // systemNavigationBarIconBrightness: Brightness.dark,
+          ),
+        ),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
             foregroundColor:
@@ -53,7 +69,7 @@ class AppThemes {
           ),
         ),
         datePickerTheme: const DatePickerThemeData(
-          backgroundColor: Colors.black,
+          backgroundColor: AppColors.darkColor,
           cancelButtonStyle: ButtonStyle(
             foregroundColor: WidgetStatePropertyAll(Colors.white),
           ),
@@ -62,7 +78,7 @@ class AppThemes {
           ),
           headerBackgroundColor: AppColors.primaryColor,
           headerForegroundColor: Colors.white,
-          dividerColor: Colors.black,
+          dividerColor: AppColors.darkColor,
         ),
       );
 }
