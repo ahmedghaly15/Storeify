@@ -38,7 +38,7 @@ class StoreCategoriesListView extends StatelessWidget {
             stores[index].name,
             style: AppTextStyles.textStyle10Medium.copyWith(
               color: context.isDarkModeActive
-                  ? Colors.white
+                  ? AppColors.lightModeColor
                   : context.read<StoresCubit>().activeStoreColor(index),
             ),
           ),
@@ -50,7 +50,7 @@ class StoreCategoriesListView extends StatelessWidget {
   Color? _backgroundColor(BuildContext context, int index) {
     return context.isDarkModeActive
         ? _darkModeBackgroundColor(context, index)
-        : Colors.white;
+        : AppColors.lightModeColor;
   }
 
   Color? _darkModeBackgroundColor(BuildContext context, int index) {

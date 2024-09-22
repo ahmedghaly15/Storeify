@@ -60,7 +60,7 @@ class CheckoutForm extends StatelessWidget {
                 pickerDialogStyle: PickerDialogStyle(
                   backgroundColor: context.isDarkModeActive
                       ? AppColors.secondaryDarkColor
-                      : Colors.white,
+                      : AppColors.lightModeColor,
                 ),
                 decoration: InputDecoration(
                   enabledBorder: AppConstants.textFieldOutlinedBorder,
@@ -71,7 +71,7 @@ class CheckoutForm extends StatelessWidget {
                   filled: true,
                   fillColor: context.isDarkModeActive
                       ? Colors.transparent
-                      : Colors.white,
+                      : AppColors.lightModeColor,
                 ),
                 onChanged: (phoneNumber) => context
                     .read<CheckoutCubit>()

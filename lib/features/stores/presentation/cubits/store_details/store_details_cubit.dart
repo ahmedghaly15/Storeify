@@ -101,7 +101,9 @@ class StoreDetailsCubit extends Cubit<StoreDetailsState> {
   }
 
   Color _darkModeTextColor(BuildContext context) {
-    return (context.isDarkModeActive ? Colors.white : AppColors.blueColor);
+    return (context.isDarkModeActive
+        ? AppColors.lightModeColor
+        : AppColors.blueColor);
   }
 
   @override
