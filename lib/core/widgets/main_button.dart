@@ -22,6 +22,8 @@ class MainButton extends StatelessWidget {
     this.isOutlined = false,
     this.fontSize,
     this.margin,
+    this.borderColor = AppColors.primaryColor,
+    this.borderWidth = 1,
   });
 
   final String? textKey;
@@ -39,25 +41,25 @@ class MainButton extends StatelessWidget {
   final bool isOutlined;
   final double? fontSize;
   final EdgeInsetsGeometry? margin;
+  final Color borderColor;
+  final double borderWidth;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width?.w ?? double.infinity,
+      width: width?.w,
       height: height?.h ?? 42.0.h,
       margin: margin,
       decoration: BoxDecoration(
-        color: isOutlined
-            ? Colors.white
-            : backgroundColor ?? AppColors.primaryColor,
+        color: _backgroundColor(context),
         borderRadius: BorderRadiusDirectional.circular(
-          borderRadius ?? 10.0.r,
+          borderRadius?.r ?? 10.0.r,
         ),
         boxShadow: boxShadow,
         border: isOutlined
             ? Border.all(
-                color: AppColors.primaryColor,
-                width: 1.w,
+                color: borderColor,
+                width: borderWidth.w,
               )
             : border,
       ),
@@ -66,7 +68,7 @@ class MainButton extends StatelessWidget {
         onPressed: onPressed,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusDirectional.circular(
-            borderRadius ?? 10.0.r,
+            borderRadius?.r ?? 10.0.r,
           ),
         ),
         child: child ??
@@ -85,4 +87,13 @@ class MainButton extends StatelessWidget {
       ),
     );
   }
+
+  Color _backgroundColor(BuildContext context) {
+    return isOutlined
+        ? _outlinedBackgroundColor(context)
+        : backgroundColor ?? AppColors.primaryColor;
+  }
+
+  Color _outlinedBackgroundColor(BuildContext context) =>
+      (context.isDarkModeActive ? AppColors.darkColor : Colors.white);
 }

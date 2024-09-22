@@ -4,7 +4,7 @@ import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
-import 'package:store_ify/core/widgets/custom_outlined_button.dart';
+import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_state.dart';
@@ -20,11 +20,10 @@ class FavoriteCategoriesListView extends StatelessWidget {
       itemBuilder: (_, index) =>
           BlocBuilder<FetchFavoritesCubit, FetchFavoritesState>(
         buildWhen: (_, current) => current is UpdateSelectedFavCategory,
-        builder: (context, state) => CustomOutlinedButton(
+        builder: (context, state) => MainButton(
+          isOutlined: true,
           backgroundColor: _backgroundColor(context, index),
-          foregroundColor: context
-              .read<FetchFavoritesCubit>()
-              .selectedFavCategoryColor(index),
+          borderRadius: 34,
           borderColor: context.isDarkModeActive
               ? Colors.transparent
               : context

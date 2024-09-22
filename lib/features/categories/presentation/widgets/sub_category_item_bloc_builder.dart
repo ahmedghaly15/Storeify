@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
-import 'package:store_ify/core/widgets/custom_outlined_button.dart';
+import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_params.dart';
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_cubit.dart';
@@ -26,8 +26,8 @@ class SubCategoryItemBlocBuilder extends StatelessWidget {
         int currentSubCategory =
             context.read<SubCategoryCubit>().currentSubCategoryIndex;
 
-        return CustomOutlinedButton(
-          foregroundColor: _activeColor(currentSubCategory),
+        return MainButton(
+          isOutlined: true,
           borderColor: _activeColor(currentSubCategory),
           onPressed: () {
             _updateCurrentSubCategoryAndFetchIt(context);

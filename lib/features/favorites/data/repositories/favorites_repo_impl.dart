@@ -2,8 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import 'package:store_ify/core/api/api_error_handler.dart';
 import 'package:store_ify/core/api/api_result.dart';
-import 'package:store_ify/core/api/api_service.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
+import 'package:store_ify/features/favorites/data/api/favorites_api_service.dart';
 import 'package:store_ify/features/favorites/data/datasources/favorites_local_datasource.dart';
 import 'package:store_ify/features/favorites/data/models/fetch_fav_stores_response.dart';
 import 'package:store_ify/features/favorites/data/models/fetch_favorite_products_response.dart';
@@ -11,17 +11,17 @@ import 'package:store_ify/features/favorites/data/models/prefer_params.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo.dart';
 
 class FavoritesRepoImpl implements FavoritesRepo {
-  final ApiService _apiService;
+  final FavoritesApiService _favoritesApiService;
   final FavoritesLocalDatasource _localDatasource;
 
-  const FavoritesRepoImpl(this._apiService, this._localDatasource);
+  const FavoritesRepoImpl(this._favoritesApiService, this._localDatasource);
 
   Future<ApiResult<void>> _preferProduct(
     PreferParams params, [
     CancelToken? cancelToken,
   ]) {
     return executeAndHandleErrors<void>(
-      () async => await _apiService.preferProduct(
+      () async => await _favoritesApiService.preferProduct(
         params,
         cancelToken,
       ),
@@ -33,7 +33,7 @@ class FavoritesRepoImpl implements FavoritesRepo {
     CancelToken? cancelToken,
   ]) {
     return executeAndHandleErrors<void>(
-      () async => _apiService.preferStore(
+      () async => _favoritesApiService.preferStore(
         params,
         cancelToken,
       ),
@@ -59,7 +59,7 @@ class FavoritesRepoImpl implements FavoritesRepo {
     CancelToken? cancelToken,
   ]) {
     return executeAndHandleErrors<void>(
-      () async => await _apiService.removeProductFromFavs(
+      () async => await _favoritesApiService.removeProductFromFavs(
         productId,
         cancelToken,
       ),
@@ -71,7 +71,7 @@ class FavoritesRepoImpl implements FavoritesRepo {
     CancelToken? cancelToken,
   ]) {
     return executeAndHandleErrors<void>(
-      () async => await _apiService.removeStoreFromFavs(
+      () async => await _favoritesApiService.removeStoreFromFavs(
         storeId,
         cancelToken,
       ),
@@ -112,7 +112,7 @@ class FavoritesRepoImpl implements FavoritesRepo {
   ) async {
     try {
       final FetchFavoriteProductsResponse favProducts =
-          await _apiService.fetchFavoriteProducts(cancelToken);
+          await _favoritesApiService.fetchFavoriteProducts(cancelToken);
       await _localDatasource.cacheFetchedFavProducts(favProducts);
       return ApiResult.success(favProducts);
     } catch (error) {
@@ -140,7 +140,7 @@ class FavoritesRepoImpl implements FavoritesRepo {
       CancelToken? cancelToken) async {
     try {
       final FetchFavStoresResponse favStores =
-          await _apiService.fetchFavStores(cancelToken);
+          await _favoritesApiService.fetchFavStores(cancelToken);
       await _localDatasource.cacheFetchedFavStores(favStores);
       return ApiResult.success(favStores);
     } catch (error) {

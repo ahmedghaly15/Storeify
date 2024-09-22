@@ -41,6 +41,7 @@ class VerifyEmailButtonBlocConsumer extends StatelessWidget {
           start: 24.w,
           end: 24.w,
         ),
+        width: double.infinity,
         onPressed: () =>
             context.read<ForgotPasswordCubit>().forgotPassword(context),
         child: circularIndicatorOrTextWidget(
