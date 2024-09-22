@@ -61,7 +61,9 @@ class CustomTimePicker extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(8.r)),
-        color: context.isDarkModeActive ? Colors.transparent : Colors.white,
+        color: context.isDarkModeActive
+            ? Colors.transparent
+            : AppColors.lightModeColor,
         border: Border.all(
           color: AppColors.fontPrimaryColor,
           width: 1.08.w,

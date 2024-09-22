@@ -31,8 +31,9 @@ class HomeCustomAppBar extends StatelessWidget {
             onPressed: () => context.pushRoute(const ProfileRoute()),
             icon: Icon(
               AppConstants.personIcon,
-              color:
-                  context.isDarkModeActive ? Colors.white : AppColors.greyColor,
+              color: context.isDarkModeActive
+                  ? AppColors.lightModeColor
+                  : AppColors.greyColor,
             ),
           ),
           IconButton(
@@ -43,8 +44,9 @@ class HomeCustomAppBar extends StatelessWidget {
             ),
             icon: Icon(
               Icons.notifications,
-              color:
-                  context.isDarkModeActive ? Colors.white : AppColors.greyColor,
+              color: context.isDarkModeActive
+                  ? AppColors.lightModeColor
+                  : AppColors.greyColor,
             ),
           ),
         ],

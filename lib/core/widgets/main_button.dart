@@ -95,5 +95,7 @@ class MainButton extends StatelessWidget {
   }
 
   Color _outlinedBackgroundColor(BuildContext context) =>
-      (context.isDarkModeActive ? AppColors.darkColor : Colors.white);
+      (context.isDarkModeActive
+          ? AppColors.darkColor
+          : AppColors.lightModeColor);
 }

@@ -38,7 +38,7 @@ class FavoriteCategoriesListView extends StatelessWidget {
             context.translate(AppConstants.favoritesCategoriesKeys[index]),
             style: AppTextStyles.textStyle10Medium.copyWith(
               color: context.isDarkModeActive
-                  ? Colors.white
+                  ? AppColors.lightModeColor
                   : context
                       .read<FetchFavoritesCubit>()
                       .selectedFavCategoryColor(index),
@@ -54,7 +54,7 @@ class FavoriteCategoriesListView extends StatelessWidget {
   Color? _backgroundColor(BuildContext context, int index) {
     return context.isDarkModeActive
         ? _darkModelBackground(context, index)
-        : Colors.white;
+        : AppColors.lightModeColor;
   }
 
   Color? _darkModelBackground(BuildContext context, int index) {

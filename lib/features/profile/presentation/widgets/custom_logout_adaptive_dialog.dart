@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:store_ify/core/widgets/cancel_outlined_button.dart';
@@ -19,7 +20,9 @@ class CustomLogoutAdaptiveDialog extends StatelessWidget {
         width: 48.w,
         height: 48.h,
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: context.isDarkModeActive
+          ? AppColors.darkColor
+          : AppColors.lightModeColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16.r),
       ),

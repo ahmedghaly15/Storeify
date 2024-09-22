@@ -21,7 +21,7 @@ class ProductItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: context.isDarkModeActive
             ? AppColors.secondaryDarkColor
-            : Colors.white,
+            : AppColors.lightModeColor,
         borderRadius: BorderRadius.all(Radius.circular(10.r)),
         boxShadow: <BoxShadow>[
           AppConstants.itemBoxShadow,
