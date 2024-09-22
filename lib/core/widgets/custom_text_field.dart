@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
@@ -33,6 +34,7 @@ class CustomTextField extends StatelessWidget {
     this.focusedErrorBorder,
     this.hintStyle,
     this.disabledBorder,
+    this.autofocus = false,
   });
 
   final TextInputType keyboardType;
@@ -59,12 +61,14 @@ class CustomTextField extends StatelessWidget {
   final InputBorder? disabledBorder;
   final bool? enabled;
   final EdgeInsetsGeometry? margin;
+  final bool autofocus;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: margin ?? EdgeInsets.symmetric(horizontal: 24.w),
       child: TextFormField(
+        autofocus: autofocus,
         enabled: enabled,
         selectionHeightStyle: BoxHeightStyle.strut,
         obscureText: obscureText ?? false,
@@ -76,7 +80,8 @@ class CustomTextField extends StatelessWidget {
         controller: controller,
         focusNode: focusNode,
         keyboardType: keyboardType,
-        cursorColor: context.isDarkModeActive ? Colors.white : Colors.black,
+        cursorColor:
+            context.isDarkModeActive ? Colors.white : AppColors.darkColor,
         textCapitalization: textCapitalization,
         textAlign: textAlign,
         decoration: InputDecoration(

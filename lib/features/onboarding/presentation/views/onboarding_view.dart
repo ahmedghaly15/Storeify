@@ -8,7 +8,7 @@ import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
-import 'package:store_ify/dependency_injection.dart';
+import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:store_ify/features/onboarding/presentation/widgets/page_view_item.dart';
 

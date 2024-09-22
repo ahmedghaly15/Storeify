@@ -87,7 +87,7 @@ mixin _$FavoritesState<T> {
     required TResult Function(PreferStoreError<T> value) preferStoreError,
     required TResult Function(RemoveStoreFromFavsLoading<T> value)
         removeStoreFromFavsLoading,
-    required TResult Function(RemoveStoreFromFavsLoSuccess<T> value)
+    required TResult Function(RemoveStoreFromFavsSuccess<T> value)
         removeStoreFromFavsSuccess,
     required TResult Function(RemoveStoreFromFavsError<T> value)
         removeStoreFromFavsError,
@@ -110,7 +110,7 @@ mixin _$FavoritesState<T> {
     TResult? Function(PreferStoreError<T> value)? preferStoreError,
     TResult? Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult? Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult? Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult? Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -133,7 +133,7 @@ mixin _$FavoritesState<T> {
     TResult Function(PreferStoreError<T> value)? preferStoreError,
     TResult Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -285,7 +285,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(PreferStoreError<T> value) preferStoreError,
     required TResult Function(RemoveStoreFromFavsLoading<T> value)
         removeStoreFromFavsLoading,
-    required TResult Function(RemoveStoreFromFavsLoSuccess<T> value)
+    required TResult Function(RemoveStoreFromFavsSuccess<T> value)
         removeStoreFromFavsSuccess,
     required TResult Function(RemoveStoreFromFavsError<T> value)
         removeStoreFromFavsError,
@@ -311,7 +311,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(PreferStoreError<T> value)? preferStoreError,
     TResult? Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult? Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult? Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult? Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -337,7 +337,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(PreferStoreError<T> value)? preferStoreError,
     TResult Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -478,7 +478,7 @@ class _$PreferProductLoadingImpl<T> implements PreferProductLoading<T> {
     required TResult Function(PreferStoreError<T> value) preferStoreError,
     required TResult Function(RemoveStoreFromFavsLoading<T> value)
         removeStoreFromFavsLoading,
-    required TResult Function(RemoveStoreFromFavsLoSuccess<T> value)
+    required TResult Function(RemoveStoreFromFavsSuccess<T> value)
         removeStoreFromFavsSuccess,
     required TResult Function(RemoveStoreFromFavsError<T> value)
         removeStoreFromFavsError,
@@ -504,7 +504,7 @@ class _$PreferProductLoadingImpl<T> implements PreferProductLoading<T> {
     TResult? Function(PreferStoreError<T> value)? preferStoreError,
     TResult? Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult? Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult? Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult? Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -530,7 +530,7 @@ class _$PreferProductLoadingImpl<T> implements PreferProductLoading<T> {
     TResult Function(PreferStoreError<T> value)? preferStoreError,
     TResult Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -671,7 +671,7 @@ class _$PreferProductSuccessImpl<T> implements PreferProductSuccess<T> {
     required TResult Function(PreferStoreError<T> value) preferStoreError,
     required TResult Function(RemoveStoreFromFavsLoading<T> value)
         removeStoreFromFavsLoading,
-    required TResult Function(RemoveStoreFromFavsLoSuccess<T> value)
+    required TResult Function(RemoveStoreFromFavsSuccess<T> value)
         removeStoreFromFavsSuccess,
     required TResult Function(RemoveStoreFromFavsError<T> value)
         removeStoreFromFavsError,
@@ -697,7 +697,7 @@ class _$PreferProductSuccessImpl<T> implements PreferProductSuccess<T> {
     TResult? Function(PreferStoreError<T> value)? preferStoreError,
     TResult? Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult? Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult? Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult? Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -723,7 +723,7 @@ class _$PreferProductSuccessImpl<T> implements PreferProductSuccess<T> {
     TResult Function(PreferStoreError<T> value)? preferStoreError,
     TResult Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -890,7 +890,7 @@ class _$PreferProductErrorImpl<T> implements PreferProductError<T> {
     required TResult Function(PreferStoreError<T> value) preferStoreError,
     required TResult Function(RemoveStoreFromFavsLoading<T> value)
         removeStoreFromFavsLoading,
-    required TResult Function(RemoveStoreFromFavsLoSuccess<T> value)
+    required TResult Function(RemoveStoreFromFavsSuccess<T> value)
         removeStoreFromFavsSuccess,
     required TResult Function(RemoveStoreFromFavsError<T> value)
         removeStoreFromFavsError,
@@ -916,7 +916,7 @@ class _$PreferProductErrorImpl<T> implements PreferProductError<T> {
     TResult? Function(PreferStoreError<T> value)? preferStoreError,
     TResult? Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult? Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult? Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult? Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -942,7 +942,7 @@ class _$PreferProductErrorImpl<T> implements PreferProductError<T> {
     TResult Function(PreferStoreError<T> value)? preferStoreError,
     TResult Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -1095,7 +1095,7 @@ class _$RemoveProductFromFavsLoadingImpl<T>
     required TResult Function(PreferStoreError<T> value) preferStoreError,
     required TResult Function(RemoveStoreFromFavsLoading<T> value)
         removeStoreFromFavsLoading,
-    required TResult Function(RemoveStoreFromFavsLoSuccess<T> value)
+    required TResult Function(RemoveStoreFromFavsSuccess<T> value)
         removeStoreFromFavsSuccess,
     required TResult Function(RemoveStoreFromFavsError<T> value)
         removeStoreFromFavsError,
@@ -1121,7 +1121,7 @@ class _$RemoveProductFromFavsLoadingImpl<T>
     TResult? Function(PreferStoreError<T> value)? preferStoreError,
     TResult? Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult? Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult? Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult? Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -1147,7 +1147,7 @@ class _$RemoveProductFromFavsLoadingImpl<T>
     TResult Function(PreferStoreError<T> value)? preferStoreError,
     TResult Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -1292,7 +1292,7 @@ class _$RemoveProductFromFavsSuccessImpl<T>
     required TResult Function(PreferStoreError<T> value) preferStoreError,
     required TResult Function(RemoveStoreFromFavsLoading<T> value)
         removeStoreFromFavsLoading,
-    required TResult Function(RemoveStoreFromFavsLoSuccess<T> value)
+    required TResult Function(RemoveStoreFromFavsSuccess<T> value)
         removeStoreFromFavsSuccess,
     required TResult Function(RemoveStoreFromFavsError<T> value)
         removeStoreFromFavsError,
@@ -1318,7 +1318,7 @@ class _$RemoveProductFromFavsSuccessImpl<T>
     TResult? Function(PreferStoreError<T> value)? preferStoreError,
     TResult? Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult? Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult? Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult? Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -1344,7 +1344,7 @@ class _$RemoveProductFromFavsSuccessImpl<T>
     TResult Function(PreferStoreError<T> value)? preferStoreError,
     TResult Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -1517,7 +1517,7 @@ class _$RemoveProductFromFavsErrorImpl<T>
     required TResult Function(PreferStoreError<T> value) preferStoreError,
     required TResult Function(RemoveStoreFromFavsLoading<T> value)
         removeStoreFromFavsLoading,
-    required TResult Function(RemoveStoreFromFavsLoSuccess<T> value)
+    required TResult Function(RemoveStoreFromFavsSuccess<T> value)
         removeStoreFromFavsSuccess,
     required TResult Function(RemoveStoreFromFavsError<T> value)
         removeStoreFromFavsError,
@@ -1543,7 +1543,7 @@ class _$RemoveProductFromFavsErrorImpl<T>
     TResult? Function(PreferStoreError<T> value)? preferStoreError,
     TResult? Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult? Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult? Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult? Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -1569,7 +1569,7 @@ class _$RemoveProductFromFavsErrorImpl<T>
     TResult Function(PreferStoreError<T> value)? preferStoreError,
     TResult Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -1719,7 +1719,7 @@ class _$PreferStoreLoadingImpl<T> implements PreferStoreLoading<T> {
     required TResult Function(PreferStoreError<T> value) preferStoreError,
     required TResult Function(RemoveStoreFromFavsLoading<T> value)
         removeStoreFromFavsLoading,
-    required TResult Function(RemoveStoreFromFavsLoSuccess<T> value)
+    required TResult Function(RemoveStoreFromFavsSuccess<T> value)
         removeStoreFromFavsSuccess,
     required TResult Function(RemoveStoreFromFavsError<T> value)
         removeStoreFromFavsError,
@@ -1745,7 +1745,7 @@ class _$PreferStoreLoadingImpl<T> implements PreferStoreLoading<T> {
     TResult? Function(PreferStoreError<T> value)? preferStoreError,
     TResult? Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult? Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult? Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult? Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -1771,7 +1771,7 @@ class _$PreferStoreLoadingImpl<T> implements PreferStoreLoading<T> {
     TResult Function(PreferStoreError<T> value)? preferStoreError,
     TResult Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -1911,7 +1911,7 @@ class _$PreferStoreSuccessImpl<T> implements PreferStoreSuccess<T> {
     required TResult Function(PreferStoreError<T> value) preferStoreError,
     required TResult Function(RemoveStoreFromFavsLoading<T> value)
         removeStoreFromFavsLoading,
-    required TResult Function(RemoveStoreFromFavsLoSuccess<T> value)
+    required TResult Function(RemoveStoreFromFavsSuccess<T> value)
         removeStoreFromFavsSuccess,
     required TResult Function(RemoveStoreFromFavsError<T> value)
         removeStoreFromFavsError,
@@ -1937,7 +1937,7 @@ class _$PreferStoreSuccessImpl<T> implements PreferStoreSuccess<T> {
     TResult? Function(PreferStoreError<T> value)? preferStoreError,
     TResult? Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult? Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult? Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult? Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -1963,7 +1963,7 @@ class _$PreferStoreSuccessImpl<T> implements PreferStoreSuccess<T> {
     TResult Function(PreferStoreError<T> value)? preferStoreError,
     TResult Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -2130,7 +2130,7 @@ class _$PreferStoreErrorImpl<T> implements PreferStoreError<T> {
     required TResult Function(PreferStoreError<T> value) preferStoreError,
     required TResult Function(RemoveStoreFromFavsLoading<T> value)
         removeStoreFromFavsLoading,
-    required TResult Function(RemoveStoreFromFavsLoSuccess<T> value)
+    required TResult Function(RemoveStoreFromFavsSuccess<T> value)
         removeStoreFromFavsSuccess,
     required TResult Function(RemoveStoreFromFavsError<T> value)
         removeStoreFromFavsError,
@@ -2156,7 +2156,7 @@ class _$PreferStoreErrorImpl<T> implements PreferStoreError<T> {
     TResult? Function(PreferStoreError<T> value)? preferStoreError,
     TResult? Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult? Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult? Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult? Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -2182,7 +2182,7 @@ class _$PreferStoreErrorImpl<T> implements PreferStoreError<T> {
     TResult Function(PreferStoreError<T> value)? preferStoreError,
     TResult Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -2335,7 +2335,7 @@ class _$RemoveStoreFromFavsLoadingImpl<T>
     required TResult Function(PreferStoreError<T> value) preferStoreError,
     required TResult Function(RemoveStoreFromFavsLoading<T> value)
         removeStoreFromFavsLoading,
-    required TResult Function(RemoveStoreFromFavsLoSuccess<T> value)
+    required TResult Function(RemoveStoreFromFavsSuccess<T> value)
         removeStoreFromFavsSuccess,
     required TResult Function(RemoveStoreFromFavsError<T> value)
         removeStoreFromFavsError,
@@ -2361,7 +2361,7 @@ class _$RemoveStoreFromFavsLoadingImpl<T>
     TResult? Function(PreferStoreError<T> value)? preferStoreError,
     TResult? Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult? Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult? Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult? Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -2387,7 +2387,7 @@ class _$RemoveStoreFromFavsLoadingImpl<T>
     TResult Function(PreferStoreError<T> value)? preferStoreError,
     TResult Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -2406,21 +2406,21 @@ abstract class RemoveStoreFromFavsLoading<T> implements FavoritesState<T> {
 }
 
 /// @nodoc
-abstract class _$$RemoveStoreFromFavsLoSuccessImplCopyWith<T, $Res> {
-  factory _$$RemoveStoreFromFavsLoSuccessImplCopyWith(
-          _$RemoveStoreFromFavsLoSuccessImpl<T> value,
-          $Res Function(_$RemoveStoreFromFavsLoSuccessImpl<T>) then) =
-      __$$RemoveStoreFromFavsLoSuccessImplCopyWithImpl<T, $Res>;
+abstract class _$$RemoveStoreFromFavsSuccessImplCopyWith<T, $Res> {
+  factory _$$RemoveStoreFromFavsSuccessImplCopyWith(
+          _$RemoveStoreFromFavsSuccessImpl<T> value,
+          $Res Function(_$RemoveStoreFromFavsSuccessImpl<T>) then) =
+      __$$RemoveStoreFromFavsSuccessImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$RemoveStoreFromFavsLoSuccessImplCopyWithImpl<T, $Res>
+class __$$RemoveStoreFromFavsSuccessImplCopyWithImpl<T, $Res>
     extends _$FavoritesStateCopyWithImpl<T, $Res,
-        _$RemoveStoreFromFavsLoSuccessImpl<T>>
-    implements _$$RemoveStoreFromFavsLoSuccessImplCopyWith<T, $Res> {
-  __$$RemoveStoreFromFavsLoSuccessImplCopyWithImpl(
-      _$RemoveStoreFromFavsLoSuccessImpl<T> _value,
-      $Res Function(_$RemoveStoreFromFavsLoSuccessImpl<T>) _then)
+        _$RemoveStoreFromFavsSuccessImpl<T>>
+    implements _$$RemoveStoreFromFavsSuccessImplCopyWith<T, $Res> {
+  __$$RemoveStoreFromFavsSuccessImplCopyWithImpl(
+      _$RemoveStoreFromFavsSuccessImpl<T> _value,
+      $Res Function(_$RemoveStoreFromFavsSuccessImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of FavoritesState
@@ -2429,9 +2429,9 @@ class __$$RemoveStoreFromFavsLoSuccessImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$RemoveStoreFromFavsLoSuccessImpl<T>
-    implements RemoveStoreFromFavsLoSuccess<T> {
-  const _$RemoveStoreFromFavsLoSuccessImpl();
+class _$RemoveStoreFromFavsSuccessImpl<T>
+    implements RemoveStoreFromFavsSuccess<T> {
+  const _$RemoveStoreFromFavsSuccessImpl();
 
   @override
   String toString() {
@@ -2442,7 +2442,7 @@ class _$RemoveStoreFromFavsLoSuccessImpl<T>
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RemoveStoreFromFavsLoSuccessImpl<T>);
+            other is _$RemoveStoreFromFavsSuccessImpl<T>);
   }
 
   @override
@@ -2532,7 +2532,7 @@ class _$RemoveStoreFromFavsLoSuccessImpl<T>
     required TResult Function(PreferStoreError<T> value) preferStoreError,
     required TResult Function(RemoveStoreFromFavsLoading<T> value)
         removeStoreFromFavsLoading,
-    required TResult Function(RemoveStoreFromFavsLoSuccess<T> value)
+    required TResult Function(RemoveStoreFromFavsSuccess<T> value)
         removeStoreFromFavsSuccess,
     required TResult Function(RemoveStoreFromFavsError<T> value)
         removeStoreFromFavsError,
@@ -2558,7 +2558,7 @@ class _$RemoveStoreFromFavsLoSuccessImpl<T>
     TResult? Function(PreferStoreError<T> value)? preferStoreError,
     TResult? Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult? Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult? Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult? Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -2584,7 +2584,7 @@ class _$RemoveStoreFromFavsLoSuccessImpl<T>
     TResult Function(PreferStoreError<T> value)? preferStoreError,
     TResult Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -2597,9 +2597,9 @@ class _$RemoveStoreFromFavsLoSuccessImpl<T>
   }
 }
 
-abstract class RemoveStoreFromFavsLoSuccess<T> implements FavoritesState<T> {
-  const factory RemoveStoreFromFavsLoSuccess() =
-      _$RemoveStoreFromFavsLoSuccessImpl<T>;
+abstract class RemoveStoreFromFavsSuccess<T> implements FavoritesState<T> {
+  const factory RemoveStoreFromFavsSuccess() =
+      _$RemoveStoreFromFavsSuccessImpl<T>;
 }
 
 /// @nodoc
@@ -2755,7 +2755,7 @@ class _$RemoveStoreFromFavsErrorImpl<T> implements RemoveStoreFromFavsError<T> {
     required TResult Function(PreferStoreError<T> value) preferStoreError,
     required TResult Function(RemoveStoreFromFavsLoading<T> value)
         removeStoreFromFavsLoading,
-    required TResult Function(RemoveStoreFromFavsLoSuccess<T> value)
+    required TResult Function(RemoveStoreFromFavsSuccess<T> value)
         removeStoreFromFavsSuccess,
     required TResult Function(RemoveStoreFromFavsError<T> value)
         removeStoreFromFavsError,
@@ -2781,7 +2781,7 @@ class _$RemoveStoreFromFavsErrorImpl<T> implements RemoveStoreFromFavsError<T> {
     TResult? Function(PreferStoreError<T> value)? preferStoreError,
     TResult? Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult? Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult? Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult? Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,
@@ -2807,7 +2807,7 @@ class _$RemoveStoreFromFavsErrorImpl<T> implements RemoveStoreFromFavsError<T> {
     TResult Function(PreferStoreError<T> value)? preferStoreError,
     TResult Function(RemoveStoreFromFavsLoading<T> value)?
         removeStoreFromFavsLoading,
-    TResult Function(RemoveStoreFromFavsLoSuccess<T> value)?
+    TResult Function(RemoveStoreFromFavsSuccess<T> value)?
         removeStoreFromFavsSuccess,
     TResult Function(RemoveStoreFromFavsError<T> value)?
         removeStoreFromFavsError,

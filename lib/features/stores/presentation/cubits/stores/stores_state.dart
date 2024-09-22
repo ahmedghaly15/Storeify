@@ -19,6 +19,4 @@ class StoresState<T> with _$StoresState<T> {
       FetchCategoryStoresError<T>;
   const factory StoresState.updateCurrentSelectedStore(int currentIndex) =
       UpdateCurrentSelectedStore<T>;
-  const factory StoresState.updateCurrentStoreIndex(int currentIndex) =
-      UpdateCurrentStoreIndex<T>;
 }

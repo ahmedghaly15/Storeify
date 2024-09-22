@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:store_ify/core/api/api_error_handler.dart';
 import 'package:store_ify/core/api/api_result.dart';
-import 'package:store_ify/core/api/api_service.dart';
+import 'package:store_ify/features/stores/data/api/stores_api_service.dart';
 import 'package:store_ify/features/stores/data/datasources/stores_local_datasource.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_branches.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_categories_response.dart';
@@ -11,10 +11,10 @@ import 'package:store_ify/features/stores/data/models/fetch_stores_response.dart
 import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
 
 class StoresRepoImpl implements StoresRepo {
-  final ApiService _apiService;
+  final StoresApiService _storesApiService;
   final StoresLocalDatasource _localDatasource;
 
-  const StoresRepoImpl(this._apiService, this._localDatasource);
+  const StoresRepoImpl(this._storesApiService, this._localDatasource);
 
   @override
   Future<ApiResult<FetchStoresResponse>> fetchStores([
@@ -35,7 +35,7 @@ class StoresRepoImpl implements StoresRepo {
     CancelToken? cancelToken,
   ) async {
     try {
-      final stores = await _apiService.fetchStores(cancelToken);
+      final stores = await _storesApiService.fetchStores(cancelToken);
       await _localDatasource.cacheStores(stores);
       return ApiResult.success(stores);
     } catch (error) {
@@ -65,7 +65,7 @@ class StoresRepoImpl implements StoresRepo {
     CancelToken? cancelToken,
   ) async {
     try {
-      final categoryStores = await _apiService.fetchCategoryStores(
+      final categoryStores = await _storesApiService.fetchCategoryStores(
         categoryId,
         cancelToken,
       );
@@ -83,7 +83,7 @@ class StoresRepoImpl implements StoresRepo {
     CancelToken? cancelToken,
   ]) async {
     final cachedStoreBranches =
-        await _localDatasource.retrieveCachedStoreBranches();
+        await _localDatasource.retrieveCachedStoreBranches(storeId);
     if (cachedStoreBranches == null) {
       debugPrint('*********** NO CACHED STORE BRANCHES ***********');
       return await _fetchAndCacheStoreBranches(storeId, cancelToken);
@@ -98,11 +98,11 @@ class StoresRepoImpl implements StoresRepo {
     CancelToken? cancelToken,
   ) async {
     try {
-      final storeBranches = await _apiService.fetchStoreBranches(
+      final storeBranches = await _storesApiService.fetchStoreBranches(
         storeId,
         cancelToken,
       );
-      await _localDatasource.cacheStoreBranches(storeBranches);
+      await _localDatasource.cacheStoreBranches(storeBranches, storeId);
       return ApiResult.success(storeBranches);
     } catch (error) {
       debugPrint('****** ERROR FETCHING CACHED STORE BRANCHES: $error ******');
@@ -116,7 +116,7 @@ class StoresRepoImpl implements StoresRepo {
     CancelToken? cancelToken,
   ]) async {
     final cachedStoreCategories =
-        await _localDatasource.retrieveCachedStoreCategories();
+        await _localDatasource.retrieveCachedStoreCategories(storeId);
     if (cachedStoreCategories == null) {
       debugPrint('*********** NO CACHED STORE CATEGORIES ***********');
       return await _fetchAndCacheStoreCategories(storeId, cancelToken);
@@ -131,11 +131,11 @@ class StoresRepoImpl implements StoresRepo {
     CancelToken? cancelToken,
   ) async {
     try {
-      final storeCategories = await _apiService.fetchStoreCategories(
+      final storeCategories = await _storesApiService.fetchStoreCategories(
         storeId,
         cancelToken,
       );
-      await _localDatasource.cacheStoreCategories(storeCategories);
+      await _localDatasource.cacheStoreCategories(storeCategories, storeId);
       return ApiResult.success(storeCategories);
     } catch (error) {
       debugPrint(
@@ -150,7 +150,7 @@ class StoresRepoImpl implements StoresRepo {
     CancelToken? cancelToken,
   ]) async {
     final cachedStoreOffers =
-        await _localDatasource.retrieveCachedStoreOffers();
+        await _localDatasource.retrieveCachedStoreOffers(storeId);
     if (cachedStoreOffers == null) {
       debugPrint('*********** NO CACHED STORE OFFERS ***********');
       return await _fetchAndCacheStoreOffers(storeId, cancelToken);
@@ -165,11 +165,11 @@ class StoresRepoImpl implements StoresRepo {
     CancelToken? cancelToken,
   ) async {
     try {
-      final storeOffers = await _apiService.fetchStoreOffers(
+      final storeOffers = await _storesApiService.fetchStoreOffers(
         storeId,
         cancelToken,
       );
-      await _localDatasource.cacheStoreOffers(storeOffers);
+      await _localDatasource.cacheStoreOffers(storeOffers, storeId);
       return ApiResult.success(storeOffers);
     } catch (error) {
       debugPrint('****** ERROR FETCHING CACHED STORE OFFERS: $error ******');

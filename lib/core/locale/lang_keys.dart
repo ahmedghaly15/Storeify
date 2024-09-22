@@ -125,4 +125,5 @@ class LangKeys {
   static const String confirm = 'confirm';
   static const String enableLocationPermission = 'enableLocationPermission';
   static const String ok = 'ok';
+  static const String accountCreatedSuccessfully = 'accountCreatedSuccessfully';
 }

@@ -7,7 +7,7 @@ import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
-import 'package:store_ify/dependency_injection.dart';
+import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
 import 'package:store_ify/features/profile/presentation/widgets/current_user_data.dart';
 import 'package:store_ify/features/profile/presentation/widgets/profile_settings_title.dart';

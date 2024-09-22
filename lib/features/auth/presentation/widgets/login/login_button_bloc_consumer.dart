@@ -17,26 +17,30 @@ class LoginButtonBlocConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<LoginCubit, LoginState>(
-      listenWhen: (_, current) => current is Error || current is Success,
+      listenWhen: (_, current) =>
+          current is LoginError || current is LoginSuccess,
       listener: (context, state) {
         state.whenOrNull(
-          success: (_) => context.replaceRoute(const BottomNavBarRoute()),
-          error: (error) => CustomToast.showToast(
+          loginSuccess: (_) => context.replaceRoute(const BottomNavBarRoute()),
+          loginError: (errorKey) => CustomToast.showToast(
             context: context,
-            messageKey: error,
+            messageKey: errorKey,
             state: CustomToastState.error,
           ),
         );
       },
       buildWhen: (_, current) =>
-          current is Loading || current is Success || current is Error,
+          current is LoginLoading ||
+          current is LoginSuccess ||
+          current is LoginError,
       builder: (context, state) {
         return MainButton(
           margin: EdgeInsets.symmetric(
             horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
           ),
+          width: double.infinity,
           child: circularIndicatorOrTextWidget(
-            isLoading: state is Loading,
+            isLoading: state is LoginLoading,
             context: context,
             textKey: LangKeys.login,
           ),

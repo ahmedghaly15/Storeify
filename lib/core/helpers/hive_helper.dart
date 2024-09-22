@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:store_ify/core/helpers/hive_boxes.dart';
 import 'package:store_ify/core/models/color.dart';
 import 'package:store_ify/core/models/pagination.dart';
 import 'package:store_ify/core/models/product.dart';
@@ -47,37 +45,5 @@ class HiveHelper {
     Hive.registerAdapter(FetchStoreBranchesResponseAdapter());
     Hive.registerAdapter(FetchStoreCategoriesResponseAdapter());
     Hive.registerAdapter(FetchStoreOffersResponseAdapter());
-  }
-
-  static Future<void> clearAllBoxes() async {
-    final homeResponseBox = await Hive.openBox<FetchHomeResponse>(
-      HiveBoxes.homeResponseBox,
-    );
-    final cartResponseBox = await Hive.openBox<FetchCartResponse>(
-      HiveBoxes.cartResponseBox,
-    );
-    final categoriesResponseBox = await Hive.openBox<FetchCategoriesResponse>(
-      HiveBoxes.categoriesResponseBox,
-    );
-    final subCategoryBox = await Hive.openBox<FetchSubCategoryResponse>(
-      HiveBoxes.subCategoryBox,
-    );
-    final favProductsBox = await Hive.openBox<FetchFavoriteProductsResponse>(
-      HiveBoxes.favProductsBox,
-    );
-    final favStoresBox = await Hive.openBox<FetchFavStoresResponse>(
-      HiveBoxes.favStoresBox,
-    );
-
-    debugPrint('********** ALL BOXES CLEARED **********');
-
-    await Future.wait([
-      homeResponseBox.clear(),
-      cartResponseBox.clear(),
-      categoriesResponseBox.clear(),
-      subCategoryBox.clear(),
-      favProductsBox.clear(),
-      favStoresBox.clear(),
-    ]);
   }
 }

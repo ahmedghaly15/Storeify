@@ -56,7 +56,6 @@ class AppThemes {
             statusBarColor: AppColors.darkColor,
             statusBarBrightness: Brightness.dark,
             statusBarIconBrightness: Brightness.light,
-            // systemNavigationBarIconBrightness: Brightness.dark,
           ),
         ),
         textButtonTheme: TextButtonThemeData(

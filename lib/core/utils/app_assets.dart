@@ -52,6 +52,15 @@ class AppAssets {
   /// assets/images/credit_card.png
   static const String imagesCreditCard = "assets/images/credit_card.png";
 
+  /// Assets for imagesDarkSplash
+  /// assets/images/dark_splash.png
+  static const String imagesDarkSplash = "assets/images/dark_splash.png";
+
+  /// Assets for imagesDarkSplashAndroid12
+  /// assets/images/dark_splash_android_12.png
+  static const String imagesDarkSplashAndroid12 =
+      "assets/images/dark_splash_android_12.png";
+
   /// Assets for imagesDefaultError
   /// assets/images/default_error.png
   static const String imagesDefaultError = "assets/images/default_error.png";
@@ -93,6 +102,10 @@ class AppAssets {
   /// Assets for imagesPerson
   /// assets/images/person.png
   static const String imagesPerson = "assets/images/person.png";
+
+  /// Assets for imagesPlaceholder
+  /// assets/images/placeholder.png
+  static const String imagesPlaceholder = "assets/images/placeholder.png";
 
   /// Assets for imagesSplash
   /// assets/images/splash.png

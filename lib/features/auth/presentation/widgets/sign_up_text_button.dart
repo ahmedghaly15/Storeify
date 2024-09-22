@@ -12,7 +12,7 @@ class SignUpTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () => context.pushRoute(const SignUpRoute()),
+      onPressed: () => context.pushRoute(const RegisterRoute()),
       child: Text(
         context.translate(LangKeys.signUp),
         style: AppTextStyles.textStyle16Regular

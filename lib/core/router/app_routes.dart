@@ -13,7 +13,7 @@ List<AutoRoute> get appRoutes => [
             initial: true,
             page: LoginRoute.page,
           ),
-          _buildCustomRoute(page: SignUpRoute.page),
+          _buildCustomRoute(page: RegisterRoute.page),
           _buildCustomRoute(page: ForgotPasswordRoute.page),
           _buildCustomRoute(page: VerificationRoute.page),
           _buildCustomRoute(page: ResetPasswordRoute.page),
@@ -27,10 +27,10 @@ List<AutoRoute> get appRoutes => [
             page: LayoutRoute.page,
             initial: true,
             children: [
-              _buildCustomRoute(page: HomeRoute.page, initial: true),
-              _buildCustomRoute(page: StoresRoute.page),
-              _buildCustomRoute(page: CartRoute.page),
-              _buildCustomRoute(page: FavoritesRoute.page),
+              _buildCustomRoute(page: HomeRouteBody.page, initial: true),
+              _buildCustomRoute(page: StoresRouteBody.page),
+              _buildCustomRoute(page: CartRouteBody.page),
+              _buildCustomRoute(page: FavoritesRouteBody.page),
             ],
           ),
         ],
@@ -44,6 +44,9 @@ List<AutoRoute> get appRoutes => [
       _buildCustomRoute(page: PaymentSuccessfullyRoute.page),
       _buildCustomRoute(page: ProfileRoute.page),
       _buildCustomRoute(page: SearchRoute.page),
+      _buildCustomRoute(page: StoresRoute.page),
+      _buildCustomRoute(page: CartRoute.page),
+      _buildCustomRoute(page: FavoritesRoute.page),
     ];
 
 CustomRoute _buildCustomRoute({
@@ -57,8 +60,7 @@ CustomRoute _buildCustomRoute({
     CustomRoute(
       initial: initial,
       page: page,
-      transitionsBuilder: transitionsBuilder ?? AppUtils.transitionsBuilder,
-      durationInMilliseconds:
-          durationInMilliseconds ?? AppConstants.transitionDuration,
+      transitionsBuilder: transitionsBuilder ?? TransitionsBuilders.fadeIn,
+      durationInMilliseconds: durationInMilliseconds ?? 400,
       children: children,
     );

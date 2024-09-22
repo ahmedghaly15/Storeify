@@ -136,5 +136,6 @@
     "cancel": "الغاء",
     "confirm": "تاكيد",
     "enableLocationPermission": "منح إذن لتطبيق Store-ify للوصول إلى موقع هذا الجهاز الجغرافي؟",
-    "ok": "موافق"
+    "ok": "موافق",
+    "accountCreatedSuccessfully": "تم انشاء الحساب بنجاح. يرجى تسجيل الدخول."
 }
