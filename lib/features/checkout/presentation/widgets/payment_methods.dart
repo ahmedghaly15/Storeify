@@ -22,16 +22,31 @@ class PaymentMethods extends StatelessWidget {
           AppConstants.paymentMethods.length,
           (index) => BlocBuilder<PaymentMethodCubit, PaymentMethodState>(
             buildWhen: (_, current) => current is UpdateSelectedPaymentMethod,
-            builder: (context, state) => FadeInRight(
-              child: AnimatedPaymentMethodItem(
-                isChosen: index ==
-                    context.read<PaymentMethodCubit>().selectedPaymentMethod.id,
-                paymentMethod: AppConstants.paymentMethods[index],
-              ),
-            ),
+            builder: (context, _) =>
+                _buildAnimatedPaymentMethodItem(index, context),
           ),
         ),
       ),
     );
+  }
+
+  Widget _buildAnimatedPaymentMethodItem(int index, BuildContext context) {
+    return index % 2 == 0
+        ? FadeInDown(
+            from: 60,
+            child: AnimatedPaymentMethodItem(
+              paymentMethod: AppConstants.paymentMethods[index],
+              isChosen: index ==
+                  context.read<PaymentMethodCubit>().selectedPaymentMethod.id,
+            ),
+          )
+        : FadeInUp(
+            from: 60,
+            child: AnimatedPaymentMethodItem(
+              isChosen: index ==
+                  context.read<PaymentMethodCubit>().selectedPaymentMethod.id,
+              paymentMethod: AppConstants.paymentMethods[index],
+            ),
+          );
   }
 }

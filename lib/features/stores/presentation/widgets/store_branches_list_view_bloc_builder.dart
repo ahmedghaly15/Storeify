@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
-import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_state.dart';
 import 'package:store_ify/features/stores/presentation/widgets/store_branch_item.dart';
+import 'package:store_ify/features/stores/presentation/widgets/store_branches_list_shimmer.dart';
 
 class StoreBranchesListViewBlocBuilder extends StatelessWidget {
-  const StoreBranchesListViewBlocBuilder({super.key});
+  const StoreBranchesListViewBlocBuilder({super.key, required this.storeId});
+
+  final int storeId;
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +22,7 @@ class StoreBranchesListViewBlocBuilder extends StatelessWidget {
           current is FetchStoreBranchesSuccess ||
           current is FetchStoreBranchesError,
       builder: (context, state) => state.maybeWhen(
-        fetchStoreBranchesLoading: () => const Center(
-          child: CustomCircularProgressIndicator(),
-        ),
+        fetchStoreBranchesLoading: () => const StoreBranchesListShimmer(),
         fetchStoreBranchesSuccess: (result) => result.branches.isNotEmpty
             ? ListView.separated(
                 padding: AppConstants.categoryPadding,
@@ -36,12 +37,15 @@ class StoreBranchesListViewBlocBuilder extends StatelessWidget {
               ),
         fetchStoreBranchesError: (errorKey) => CustomErrorWidget(
           tryAgainOnPressed: () {
-            // TODO: add try again function
+            context.read<StoreDetailsCubit>().fetchStoreBranches(storeId);
           },
           errorKey: errorKey,
         ),
-        orElse: () => const Center(
-          child: CustomCircularProgressIndicator(),
+        orElse: () => CustomErrorWidget(
+          tryAgainOnPressed: () {
+            context.read<StoreDetailsCubit>().fetchStoreBranches(storeId);
+          },
+          errorKey: LangKeys.defaultError,
         ),
       ),
     );

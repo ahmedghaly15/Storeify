@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_state.dart';
 
@@ -34,17 +36,18 @@ class StoresCubit extends Cubit<StoresState> {
     );
   }
 
-  int currentSelectedStore = 1;
+  int currentStoreIndex = 0;
   void updateCurrentSelectedStore(int index) {
-    currentSelectedStore = index;
-    emit(StoresState.updateCurrentSelectedStore(index));
+    if (currentStoreIndex != index) {
+      currentStoreIndex = index;
+      emit(StoresState.updateCurrentSelectedStore(index));
+    }
   }
 
-  int currentStoreIndex = 0;
-  void updateCurrentStoreIndex(int index) {
-    currentStoreIndex = index;
-    emit(StoresState.updateCurrentStoreIndex(index));
-  }
+  bool isStoreActive(int index) => currentStoreIndex == index;
+
+  Color activeStoreColor(int index) =>
+      isStoreActive(index) ? AppColors.primaryColor : AppColors.blueColor;
 
   @override
   Future<void> close() {

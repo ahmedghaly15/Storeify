@@ -1,11 +1,11 @@
 import 'package:store_ify/core/api/api_result.dart';
-import 'package:store_ify/core/api/api_service.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/helpers/shared_pref_helper.dart';
 import 'package:store_ify/core/helpers/shared_pref_keys.dart';
 import 'package:store_ify/core/locale/models/change_api_lang_params.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
+import 'package:store_ify/features/profile/data/api/profile_api_service.dart';
 
 abstract class LocaleRepo {
   Future<String> getSavedLang();
@@ -14,9 +14,9 @@ abstract class LocaleRepo {
 }
 
 class LocaleRepoImpl implements LocaleRepo {
-  final ApiService _apiService;
+  final ProfileApiService _profileApiService;
 
-  const LocaleRepoImpl(this._apiService);
+  const LocaleRepoImpl(this._profileApiService);
 
   @override
   Future<bool> changeLang(String langCode) async {
@@ -33,7 +33,7 @@ class LocaleRepoImpl implements LocaleRepo {
   @override
   Future<ApiResult<void>> changeApiLang(ChangeApiLangParams params) {
     return executeAndHandleErrors<void>(
-      () async => await _apiService.changeApiLang(params),
+      () async => await _profileApiService.changeApiLang(params),
     );
   }
 }

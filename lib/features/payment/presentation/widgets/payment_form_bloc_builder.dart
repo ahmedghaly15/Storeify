@@ -19,7 +19,9 @@ class PaymentFormBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.colorF6F6F6,
+      color: context.isDarkModeActive
+          ? AppColors.secondaryDarkColor
+          : AppColors.colorF6F6F6,
       padding: EdgeInsetsDirectional.only(
         top: 32.h,
         bottom: 32.h,

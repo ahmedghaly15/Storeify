@@ -10,8 +10,8 @@ Widget circularIndicatorOrTextWidget({
   required String textKey,
 }) {
   return isLoading
-      ? Container(
-          margin: EdgeInsets.symmetric(vertical: 4.h),
+      ? SizedBox.square(
+          dimension: 24.h,
           child: const CustomCircularProgressIndicator(
             color: Colors.white,
           ),

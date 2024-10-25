@@ -12,4 +12,5 @@ class HiveBoxes {
   static const String fetchStoreBranchesBox = 'fetchStoreBranchesBox';
   static const String fetchStoreCategoriesBox = 'fetchStoreCategoriesBox';
   static const String fetchStoreOffersBox = 'fetchStoreOffersBox';
+  static const String countryCodeBox = 'countryCodeBox';
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/models/product.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
@@ -19,14 +20,12 @@ class CartProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsetsDirectional.only(
-        start: 8.w,
-        end: 8.w,
-        bottom: 16.h,
-      ),
+      margin: AppConstants.cartItemMargin,
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.isDarkModeActive
+            ? AppColors.secondaryDarkColor
+            : Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(10.r)),
         boxShadow: [
           AppConstants.itemBoxShadow,

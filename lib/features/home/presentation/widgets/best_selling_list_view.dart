@@ -17,7 +17,7 @@ class BestSellingListView extends StatelessWidget {
     return SizedBox(
       height: 210.h,
       child: HorizontalSeparatedListView(
-        itemBuilder: (context, index) => ProductItem(
+        itemBuilder: (_, index) => ProductItem(
           product: bestSelling[index],
         ),
         itemCount: bestSelling.length,

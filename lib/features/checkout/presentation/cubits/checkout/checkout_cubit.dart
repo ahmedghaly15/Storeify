@@ -2,8 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
-import 'package:store_ify/core/services/location_service.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/checkout/data/models/checkout_params.dart';
 import 'package:store_ify/features/checkout/data/repositories/checkout_repo.dart';
@@ -15,7 +13,6 @@ class CheckoutCubit extends Cubit<CheckoutState> {
   CheckoutCubit(
     this._checkoutRepo,
   ) : super(const CheckoutState.initial()) {
-    checkLocationPermissionAndGetCountryCode();
     _initFormAttributes();
   }
 
@@ -32,24 +29,6 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     addressController = TextEditingController();
     dateController = TextEditingController();
     usernameController.text = currentUser?.user.username ?? '';
-  }
-
-  String? countryCode;
-
-  void checkLocationPermissionAndGetCountryCode() async {
-    emit(const CheckoutState.checkLocationPermission());
-    if (await LocationService.isLocationPermissionDenied()) {
-      emit(
-        const CheckoutState.locationPermissionDenied(LangKeys.locationDenied),
-      );
-    } else {
-      _getCountryCode();
-    }
-  }
-
-  void _getCountryCode() async {
-    countryCode = await LocationService.getCountryCode();
-    emit(CheckoutState.getCurrentCountryCode(countryCode!));
   }
 
   int hours = 4;

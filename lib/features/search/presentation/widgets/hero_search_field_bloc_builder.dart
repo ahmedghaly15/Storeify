@@ -15,7 +15,9 @@ class HeroSearchFieldBlocBuilder extends StatelessWidget {
       builder: (context, state) => Hero(
         tag: LangKeys.search,
         child: Material(
+          color: Colors.transparent,
           child: CustomSearchTextField(
+            autofocus: true,
             controller: context.read<SearchCubit>().searchController,
             onChanged: (newText) =>
                 context.read<SearchCubit>().debouncedSearch(newText),

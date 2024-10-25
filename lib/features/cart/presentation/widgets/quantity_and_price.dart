@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/features/cart/presentation/widgets/control_cart_product_quantity.dart';
@@ -29,7 +30,9 @@ class QuantityAndPrice extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(6.h),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: context.isDarkModeActive
+                    ? AppColors.secondaryDarkColor
+                    : Colors.white,
                 border: Border.all(
                   color: AppColors.primaryColor,
                   width: 1.w,
