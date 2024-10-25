@@ -64,5 +64,9 @@ class SettingItem {
             );
           },
         ),
+        SettingItem(
+          titleKey: LangKeys.changePassword,
+          onTap: (context) {},
+        ),
       ];
 }

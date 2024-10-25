@@ -138,5 +138,6 @@
     "enableLocationPermission": "Grant permission for Store-ify to access the geographic location of this device?",
     "ok": "Ok",
     "accountCreatedSuccessfully": "Account created successfully. Please login.",
-    "PASSWORD_INCORRECT": "Password is incorrect. Please try again."
+    "PASSWORD_INCORRECT": "Password is incorrect. Please try again.",
+    "changePassword": "Change Password"
 }

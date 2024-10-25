@@ -53,14 +53,9 @@ class ProfileView extends StatelessWidget implements AutoRouteWrapper {
                 settings: SettingItem.profileAppSetting,
               ),
             ),
+            const SliverToBoxAdapter(child: MySizedBox.height16),
             const SliverToBoxAdapter(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  MySizedBox.height16,
-                  ProfileSettingsTitle(titleKey: LangKeys.accountSettings),
-                ],
-              ),
+              child: ProfileSettingsTitle(titleKey: LangKeys.accountSettings),
             ),
             SliverToBoxAdapter(
               child: SettingsSeparatedListView(

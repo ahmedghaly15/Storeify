@@ -126,4 +126,5 @@ class LangKeys {
   static const String enableLocationPermission = 'enableLocationPermission';
   static const String ok = 'ok';
   static const String accountCreatedSuccessfully = 'accountCreatedSuccessfully';
+  static const String changePassword = 'changePassword';
 }
