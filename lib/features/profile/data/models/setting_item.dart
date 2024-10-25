@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/router/app_router.dart';
+import 'package:store_ify/core/widgets/cancel_outlined_button.dart';
+import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
-import 'package:store_ify/features/profile/presentation/widgets/custom_logout_adaptive_dialog.dart';
+import 'package:store_ify/features/profile/presentation/widgets/confirm_logout_bloc_consumer_button.dart';
+import 'package:store_ify/core/widgets/custom_adaptive_dialog.dart';
 import 'package:store_ify/features/profile/presentation/widgets/dark_mode_switch_bloc_builder.dart';
 import 'package:store_ify/features/profile/presentation/widgets/language_switch_bloc_consumer.dart';
 
@@ -59,14 +62,21 @@ class SettingItem {
               barrierLabel: '',
               builder: (_) => BlocProvider.value(
                 value: context.read<ProfileCubit>(),
-                child: const CustomLogoutAdaptiveDialog(),
+                child: const CustomAdaptiveDialog(
+                  contentText: LangKeys.sureToLogout,
+                  actions: [
+                    CancelOutlinedButton(),
+                    MySizedBox.height10,
+                    ConfirmLogoutBlocConsumerButton(),
+                  ],
+                ),
               ),
             );
           },
         ),
         SettingItem(
           titleKey: LangKeys.changePassword,
-          onTap: (context) {},
+          onTap: (context) => context.pushRoute(const ChangePasswordRoute()),
         ),
       ];
 }

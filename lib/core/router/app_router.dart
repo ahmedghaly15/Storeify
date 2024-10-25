@@ -19,6 +19,7 @@ import 'package:store_ify/features/layout/presentation/views/layout_view.dart';
 import 'package:store_ify/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:store_ify/features/payment/presentation/views/payment_successfully_view.dart';
 import 'package:store_ify/features/payment/presentation/views/payment_view.dart';
+import 'package:store_ify/features/profile/presentation/views/change_password_view.dart';
 import 'package:store_ify/features/profile/presentation/views/profile_view.dart';
 import 'package:store_ify/features/search/presentation/views/search_view.dart';
 import 'package:store_ify/features/stores/data/models/store.dart';
