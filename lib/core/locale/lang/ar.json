@@ -137,5 +137,6 @@
     "confirm": "تاكيد",
     "enableLocationPermission": "منح إذن لتطبيق Store-ify للوصول إلى موقع هذا الجهاز الجغرافي؟",
     "ok": "موافق",
-    "accountCreatedSuccessfully": "تم انشاء الحساب بنجاح. يرجى تسجيل الدخول."
+    "accountCreatedSuccessfully": "تم انشاء الحساب بنجاح. يرجى تسجيل الدخول.",
+    "PASSWORD_INCORRECT": "كلمة المرور غير صحيحة. الرجاء المحاولة مرة أخرى."
 }

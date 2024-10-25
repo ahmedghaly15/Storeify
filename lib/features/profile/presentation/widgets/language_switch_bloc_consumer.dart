@@ -42,6 +42,9 @@ class LanguageSwitchBlocConsumer extends StatelessWidget {
           state: CustomToastState.error,
         );
         break;
+
+      default:
+        break;
     }
   }
 }
