@@ -14,11 +14,6 @@ class AppThemes {
         brightness: Brightness.light,
         appBarTheme: const AppBarTheme(
           backgroundColor: AppColors.lightModeColor,
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: AppColors.lightModeColor,
-            statusBarBrightness: Brightness.light,
-            statusBarIconBrightness: Brightness.dark,
-          ),
         ),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
@@ -52,11 +47,6 @@ class AppThemes {
         brightness: Brightness.dark,
         appBarTheme: const AppBarTheme(
           backgroundColor: AppColors.darkColor,
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: AppColors.darkColor,
-            statusBarBrightness: Brightness.dark,
-            statusBarIconBrightness: Brightness.light,
-          ),
         ),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
