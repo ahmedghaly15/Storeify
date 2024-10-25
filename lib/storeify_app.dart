@@ -9,6 +9,7 @@ import 'package:store_ify/core/locale/logic/cubit/locale_state.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_themes.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
+import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/dependency_injection.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_cubit.dart';
 
@@ -30,11 +31,15 @@ class StoreifyApp extends StatelessWidget {
             create: (_) => getIt.get<FavoritesCubit>(),
           ),
         ],
-        child: BlocBuilder<LocaleCubit, LocaleState>(
-          buildWhen: (previous, current) => previous != current,
-          builder: (_, state) => MaterialApp.router(
+        child: BlocConsumer<LocaleCubit, LocaleState>(
+          listenWhen: (_, current) =>
+              current.status == LocaleStateStatus.changeLocaleLocally ||
+              current.status == LocaleStateStatus.changeApiLocaleFailure,
+          listener: (context, state) => _localeCubitListener(state, context),
+          buildWhen: (previous, current) => previous.locale != current.locale,
+          builder: (_, localeState) => MaterialApp.router(
             debugShowCheckedModeBanner: false,
-            locale: state.locale,
+            locale: localeState.locale,
             supportedLocales: AppLocalizationsSetup.supportedLocales,
             localizationsDelegates:
                 AppLocalizationsSetup.localizationsDelegates,
@@ -52,5 +57,21 @@ class StoreifyApp extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _localeCubitListener(LocaleState<dynamic> state, BuildContext context) {
+    switch (state.status) {
+      case LocaleStateStatus.changeLocaleLocally:
+        context.read<LocaleCubit>().changeApiLang(state.locale.languageCode);
+        break;
+
+      case LocaleStateStatus.changeApiLocaleFailure:
+        CustomToast.showToast(
+          context: context,
+          messageKey: state.error ?? '',
+          state: CustomToastState.error,
+        );
+        break;
+    }
   }
 }
