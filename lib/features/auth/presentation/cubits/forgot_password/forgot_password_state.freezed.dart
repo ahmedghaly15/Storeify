@@ -19,50 +19,52 @@ mixin _$ForgotPasswordState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function(String error) error,
+    required TResult Function() forgotPasswordLoading,
+    required TResult Function() forgotPasswordSuccess,
+    required TResult Function(String error) forgotPasswordError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function(String error)? error,
+    TResult? Function()? forgotPasswordLoading,
+    TResult? Function()? forgotPasswordSuccess,
+    TResult? Function(String error)? forgotPasswordError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function(String error)? error,
+    TResult Function()? forgotPasswordLoading,
+    TResult Function()? forgotPasswordSuccess,
+    TResult Function(String error)? forgotPasswordError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(ForgotPasswordLoading<T> value)
+        forgotPasswordLoading,
+    required TResult Function(ForgotPasswordSuccess<T> value)
+        forgotPasswordSuccess,
+    required TResult Function(ForgotPasswordError<T> value) forgotPasswordError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(ForgotPasswordLoading<T> value)? forgotPasswordLoading,
+    TResult? Function(ForgotPasswordSuccess<T> value)? forgotPasswordSuccess,
+    TResult? Function(ForgotPasswordError<T> value)? forgotPasswordError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(ForgotPasswordLoading<T> value)? forgotPasswordLoading,
+    TResult Function(ForgotPasswordSuccess<T> value)? forgotPasswordSuccess,
+    TResult Function(ForgotPasswordError<T> value)? forgotPasswordError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -85,6 +87,9 @@ class _$ForgotPasswordStateCopyWithImpl<T, $Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ForgotPasswordState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -101,6 +106,9 @@ class __$$InitialImplCopyWithImpl<T, $Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of ForgotPasswordState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -126,9 +134,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function(String error) error,
+    required TResult Function() forgotPasswordLoading,
+    required TResult Function() forgotPasswordSuccess,
+    required TResult Function(String error) forgotPasswordError,
   }) {
     return initial();
   }
@@ -137,9 +145,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function(String error)? error,
+    TResult? Function()? forgotPasswordLoading,
+    TResult? Function()? forgotPasswordSuccess,
+    TResult? Function(String error)? forgotPasswordError,
   }) {
     return initial?.call();
   }
@@ -148,9 +156,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function(String error)? error,
+    TResult Function()? forgotPasswordLoading,
+    TResult Function()? forgotPasswordSuccess,
+    TResult Function(String error)? forgotPasswordError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -163,9 +171,11 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(ForgotPasswordLoading<T> value)
+        forgotPasswordLoading,
+    required TResult Function(ForgotPasswordSuccess<T> value)
+        forgotPasswordSuccess,
+    required TResult Function(ForgotPasswordError<T> value) forgotPasswordError,
   }) {
     return initial(this);
   }
@@ -174,9 +184,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(ForgotPasswordLoading<T> value)? forgotPasswordLoading,
+    TResult? Function(ForgotPasswordSuccess<T> value)? forgotPasswordSuccess,
+    TResult? Function(ForgotPasswordError<T> value)? forgotPasswordError,
   }) {
     return initial?.call(this);
   }
@@ -185,9 +195,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(ForgotPasswordLoading<T> value)? forgotPasswordLoading,
+    TResult Function(ForgotPasswordSuccess<T> value)? forgotPasswordSuccess,
+    TResult Function(ForgotPasswordError<T> value)? forgotPasswordError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -202,35 +212,42 @@ abstract class _Initial<T> implements ForgotPasswordState<T> {
 }
 
 /// @nodoc
-abstract class _$$LoadingImplCopyWith<T, $Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl<T> value, $Res Function(_$LoadingImpl<T>) then) =
-      __$$LoadingImplCopyWithImpl<T, $Res>;
+abstract class _$$ForgotPasswordLoadingImplCopyWith<T, $Res> {
+  factory _$$ForgotPasswordLoadingImplCopyWith(
+          _$ForgotPasswordLoadingImpl<T> value,
+          $Res Function(_$ForgotPasswordLoadingImpl<T>) then) =
+      __$$ForgotPasswordLoadingImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$LoadingImplCopyWithImpl<T, $Res>
-    extends _$ForgotPasswordStateCopyWithImpl<T, $Res, _$LoadingImpl<T>>
-    implements _$$LoadingImplCopyWith<T, $Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl<T> _value, $Res Function(_$LoadingImpl<T>) _then)
+class __$$ForgotPasswordLoadingImplCopyWithImpl<T, $Res>
+    extends _$ForgotPasswordStateCopyWithImpl<T, $Res,
+        _$ForgotPasswordLoadingImpl<T>>
+    implements _$$ForgotPasswordLoadingImplCopyWith<T, $Res> {
+  __$$ForgotPasswordLoadingImplCopyWithImpl(
+      _$ForgotPasswordLoadingImpl<T> _value,
+      $Res Function(_$ForgotPasswordLoadingImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of ForgotPasswordState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$LoadingImpl<T> implements Loading<T> {
-  const _$LoadingImpl();
+class _$ForgotPasswordLoadingImpl<T> implements ForgotPasswordLoading<T> {
+  const _$ForgotPasswordLoadingImpl();
 
   @override
   String toString() {
-    return 'ForgotPasswordState<$T>.loading()';
+    return 'ForgotPasswordState<$T>.forgotPasswordLoading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl<T>);
+        (other.runtimeType == runtimeType &&
+            other is _$ForgotPasswordLoadingImpl<T>);
   }
 
   @override
@@ -240,35 +257,35 @@ class _$LoadingImpl<T> implements Loading<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function(String error) error,
+    required TResult Function() forgotPasswordLoading,
+    required TResult Function() forgotPasswordSuccess,
+    required TResult Function(String error) forgotPasswordError,
   }) {
-    return loading();
+    return forgotPasswordLoading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function(String error)? error,
+    TResult? Function()? forgotPasswordLoading,
+    TResult? Function()? forgotPasswordSuccess,
+    TResult? Function(String error)? forgotPasswordError,
   }) {
-    return loading?.call();
+    return forgotPasswordLoading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function(String error)? error,
+    TResult Function()? forgotPasswordLoading,
+    TResult Function()? forgotPasswordSuccess,
+    TResult Function(String error)? forgotPasswordError,
     required TResult orElse(),
   }) {
-    if (loading != null) {
-      return loading();
+    if (forgotPasswordLoading != null) {
+      return forgotPasswordLoading();
     }
     return orElse();
   }
@@ -277,74 +294,83 @@ class _$LoadingImpl<T> implements Loading<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(ForgotPasswordLoading<T> value)
+        forgotPasswordLoading,
+    required TResult Function(ForgotPasswordSuccess<T> value)
+        forgotPasswordSuccess,
+    required TResult Function(ForgotPasswordError<T> value) forgotPasswordError,
   }) {
-    return loading(this);
+    return forgotPasswordLoading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(ForgotPasswordLoading<T> value)? forgotPasswordLoading,
+    TResult? Function(ForgotPasswordSuccess<T> value)? forgotPasswordSuccess,
+    TResult? Function(ForgotPasswordError<T> value)? forgotPasswordError,
   }) {
-    return loading?.call(this);
+    return forgotPasswordLoading?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(ForgotPasswordLoading<T> value)? forgotPasswordLoading,
+    TResult Function(ForgotPasswordSuccess<T> value)? forgotPasswordSuccess,
+    TResult Function(ForgotPasswordError<T> value)? forgotPasswordError,
     required TResult orElse(),
   }) {
-    if (loading != null) {
-      return loading(this);
+    if (forgotPasswordLoading != null) {
+      return forgotPasswordLoading(this);
     }
     return orElse();
   }
 }
 
-abstract class Loading<T> implements ForgotPasswordState<T> {
-  const factory Loading() = _$LoadingImpl<T>;
+abstract class ForgotPasswordLoading<T> implements ForgotPasswordState<T> {
+  const factory ForgotPasswordLoading() = _$ForgotPasswordLoadingImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$SuccessImplCopyWith<T, $Res> {
-  factory _$$SuccessImplCopyWith(
-          _$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
-      __$$SuccessImplCopyWithImpl<T, $Res>;
+abstract class _$$ForgotPasswordSuccessImplCopyWith<T, $Res> {
+  factory _$$ForgotPasswordSuccessImplCopyWith(
+          _$ForgotPasswordSuccessImpl<T> value,
+          $Res Function(_$ForgotPasswordSuccessImpl<T>) then) =
+      __$$ForgotPasswordSuccessImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<T, $Res>
-    extends _$ForgotPasswordStateCopyWithImpl<T, $Res, _$SuccessImpl<T>>
-    implements _$$SuccessImplCopyWith<T, $Res> {
-  __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl<T> _value, $Res Function(_$SuccessImpl<T>) _then)
+class __$$ForgotPasswordSuccessImplCopyWithImpl<T, $Res>
+    extends _$ForgotPasswordStateCopyWithImpl<T, $Res,
+        _$ForgotPasswordSuccessImpl<T>>
+    implements _$$ForgotPasswordSuccessImplCopyWith<T, $Res> {
+  __$$ForgotPasswordSuccessImplCopyWithImpl(
+      _$ForgotPasswordSuccessImpl<T> _value,
+      $Res Function(_$ForgotPasswordSuccessImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of ForgotPasswordState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$SuccessImpl<T> implements Success<T> {
-  const _$SuccessImpl();
+class _$ForgotPasswordSuccessImpl<T> implements ForgotPasswordSuccess<T> {
+  const _$ForgotPasswordSuccessImpl();
 
   @override
   String toString() {
-    return 'ForgotPasswordState<$T>.success()';
+    return 'ForgotPasswordState<$T>.forgotPasswordSuccess()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SuccessImpl<T>);
+        (other.runtimeType == runtimeType &&
+            other is _$ForgotPasswordSuccessImpl<T>);
   }
 
   @override
@@ -354,35 +380,35 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function(String error) error,
+    required TResult Function() forgotPasswordLoading,
+    required TResult Function() forgotPasswordSuccess,
+    required TResult Function(String error) forgotPasswordError,
   }) {
-    return success();
+    return forgotPasswordSuccess();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function(String error)? error,
+    TResult? Function()? forgotPasswordLoading,
+    TResult? Function()? forgotPasswordSuccess,
+    TResult? Function(String error)? forgotPasswordError,
   }) {
-    return success?.call();
+    return forgotPasswordSuccess?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function(String error)? error,
+    TResult Function()? forgotPasswordLoading,
+    TResult Function()? forgotPasswordSuccess,
+    TResult Function(String error)? forgotPasswordError,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success();
+    if (forgotPasswordSuccess != null) {
+      return forgotPasswordSuccess();
     }
     return orElse();
   }
@@ -391,67 +417,72 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(ForgotPasswordLoading<T> value)
+        forgotPasswordLoading,
+    required TResult Function(ForgotPasswordSuccess<T> value)
+        forgotPasswordSuccess,
+    required TResult Function(ForgotPasswordError<T> value) forgotPasswordError,
   }) {
-    return success(this);
+    return forgotPasswordSuccess(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(ForgotPasswordLoading<T> value)? forgotPasswordLoading,
+    TResult? Function(ForgotPasswordSuccess<T> value)? forgotPasswordSuccess,
+    TResult? Function(ForgotPasswordError<T> value)? forgotPasswordError,
   }) {
-    return success?.call(this);
+    return forgotPasswordSuccess?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(ForgotPasswordLoading<T> value)? forgotPasswordLoading,
+    TResult Function(ForgotPasswordSuccess<T> value)? forgotPasswordSuccess,
+    TResult Function(ForgotPasswordError<T> value)? forgotPasswordError,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(this);
+    if (forgotPasswordSuccess != null) {
+      return forgotPasswordSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class Success<T> implements ForgotPasswordState<T> {
-  const factory Success() = _$SuccessImpl<T>;
+abstract class ForgotPasswordSuccess<T> implements ForgotPasswordState<T> {
+  const factory ForgotPasswordSuccess() = _$ForgotPasswordSuccessImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$ErrorImplCopyWith<T, $Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl<T> value, $Res Function(_$ErrorImpl<T>) then) =
-      __$$ErrorImplCopyWithImpl<T, $Res>;
+abstract class _$$ForgotPasswordErrorImplCopyWith<T, $Res> {
+  factory _$$ForgotPasswordErrorImplCopyWith(_$ForgotPasswordErrorImpl<T> value,
+          $Res Function(_$ForgotPasswordErrorImpl<T>) then) =
+      __$$ForgotPasswordErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$$ErrorImplCopyWithImpl<T, $Res>
-    extends _$ForgotPasswordStateCopyWithImpl<T, $Res, _$ErrorImpl<T>>
-    implements _$$ErrorImplCopyWith<T, $Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl<T> _value, $Res Function(_$ErrorImpl<T>) _then)
+class __$$ForgotPasswordErrorImplCopyWithImpl<T, $Res>
+    extends _$ForgotPasswordStateCopyWithImpl<T, $Res,
+        _$ForgotPasswordErrorImpl<T>>
+    implements _$$ForgotPasswordErrorImplCopyWith<T, $Res> {
+  __$$ForgotPasswordErrorImplCopyWithImpl(_$ForgotPasswordErrorImpl<T> _value,
+      $Res Function(_$ForgotPasswordErrorImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of ForgotPasswordState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? error = null,
   }) {
-    return _then(_$ErrorImpl<T>(
+    return _then(_$ForgotPasswordErrorImpl<T>(
       null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -462,67 +493,70 @@ class __$$ErrorImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$ErrorImpl<T> implements Error<T> {
-  const _$ErrorImpl(this.error);
+class _$ForgotPasswordErrorImpl<T> implements ForgotPasswordError<T> {
+  const _$ForgotPasswordErrorImpl(this.error);
 
   @override
   final String error;
 
   @override
   String toString() {
-    return 'ForgotPasswordState<$T>.error(error: $error)';
+    return 'ForgotPasswordState<$T>.forgotPasswordError(error: $error)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ErrorImpl<T> &&
+            other is _$ForgotPasswordErrorImpl<T> &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ForgotPasswordState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
-      __$$ErrorImplCopyWithImpl<T, _$ErrorImpl<T>>(this, _$identity);
+  _$$ForgotPasswordErrorImplCopyWith<T, _$ForgotPasswordErrorImpl<T>>
+      get copyWith => __$$ForgotPasswordErrorImplCopyWithImpl<T,
+          _$ForgotPasswordErrorImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function(String error) error,
+    required TResult Function() forgotPasswordLoading,
+    required TResult Function() forgotPasswordSuccess,
+    required TResult Function(String error) forgotPasswordError,
   }) {
-    return error(this.error);
+    return forgotPasswordError(error);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function(String error)? error,
+    TResult? Function()? forgotPasswordLoading,
+    TResult? Function()? forgotPasswordSuccess,
+    TResult? Function(String error)? forgotPasswordError,
   }) {
-    return error?.call(this.error);
+    return forgotPasswordError?.call(error);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function(String error)? error,
+    TResult Function()? forgotPasswordLoading,
+    TResult Function()? forgotPasswordSuccess,
+    TResult Function(String error)? forgotPasswordError,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(this.error);
+    if (forgotPasswordError != null) {
+      return forgotPasswordError(error);
     }
     return orElse();
   }
@@ -531,45 +565,51 @@ class _$ErrorImpl<T> implements Error<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(ForgotPasswordLoading<T> value)
+        forgotPasswordLoading,
+    required TResult Function(ForgotPasswordSuccess<T> value)
+        forgotPasswordSuccess,
+    required TResult Function(ForgotPasswordError<T> value) forgotPasswordError,
   }) {
-    return error(this);
+    return forgotPasswordError(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(ForgotPasswordLoading<T> value)? forgotPasswordLoading,
+    TResult? Function(ForgotPasswordSuccess<T> value)? forgotPasswordSuccess,
+    TResult? Function(ForgotPasswordError<T> value)? forgotPasswordError,
   }) {
-    return error?.call(this);
+    return forgotPasswordError?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(ForgotPasswordLoading<T> value)? forgotPasswordLoading,
+    TResult Function(ForgotPasswordSuccess<T> value)? forgotPasswordSuccess,
+    TResult Function(ForgotPasswordError<T> value)? forgotPasswordError,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(this);
+    if (forgotPasswordError != null) {
+      return forgotPasswordError(this);
     }
     return orElse();
   }
 }
 
-abstract class Error<T> implements ForgotPasswordState<T> {
-  const factory Error(final String error) = _$ErrorImpl<T>;
+abstract class ForgotPasswordError<T> implements ForgotPasswordState<T> {
+  const factory ForgotPasswordError(final String error) =
+      _$ForgotPasswordErrorImpl<T>;
 
   String get error;
-  @JsonKey(ignore: true)
-  _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of ForgotPasswordState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ForgotPasswordErrorImplCopyWith<T, _$ForgotPasswordErrorImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

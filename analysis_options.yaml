@@ -6,3 +6,4 @@ analyzer:
     - "**/*.freezed.dart"
   errors:
     invalid_annotation_target: ignore
+    use_build_context_synchronously: ignore

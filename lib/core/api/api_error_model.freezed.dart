@@ -20,11 +20,15 @@ ApiErrorModel _$ApiErrorModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ApiErrorModel {
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'code')
   String? get error => throw _privateConstructorUsedError;
 
+  /// Serializes this ApiErrorModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ApiErrorModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ApiErrorModelCopyWith<ApiErrorModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -35,7 +39,7 @@ abstract class $ApiErrorModelCopyWith<$Res> {
           ApiErrorModel value, $Res Function(ApiErrorModel) then) =
       _$ApiErrorModelCopyWithImpl<$Res, ApiErrorModel>;
   @useResult
-  $Res call({@JsonKey(name: 'data') String? error});
+  $Res call({@JsonKey(name: 'code') String? error});
 }
 
 /// @nodoc
@@ -48,6 +52,8 @@ class _$ApiErrorModelCopyWithImpl<$Res, $Val extends ApiErrorModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ApiErrorModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -70,7 +76,7 @@ abstract class _$$ApiErrorModelImplCopyWith<$Res>
       __$$ApiErrorModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'data') String? error});
+  $Res call({@JsonKey(name: 'code') String? error});
 }
 
 /// @nodoc
@@ -81,6 +87,8 @@ class __$$ApiErrorModelImplCopyWithImpl<$Res>
       _$ApiErrorModelImpl _value, $Res Function(_$ApiErrorModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ApiErrorModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -98,13 +106,13 @@ class __$$ApiErrorModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ApiErrorModelImpl implements _ApiErrorModel {
-  const _$ApiErrorModelImpl({@JsonKey(name: 'data') this.error});
+  const _$ApiErrorModelImpl({@JsonKey(name: 'code') this.error});
 
   factory _$ApiErrorModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ApiErrorModelImplFromJson(json);
 
   @override
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'code')
   final String? error;
 
   @override
@@ -120,11 +128,13 @@ class _$ApiErrorModelImpl implements _ApiErrorModel {
             (identical(other.error, error) || other.error == error));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ApiErrorModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ApiErrorModelImplCopyWith<_$ApiErrorModelImpl> get copyWith =>
@@ -139,17 +149,20 @@ class _$ApiErrorModelImpl implements _ApiErrorModel {
 }
 
 abstract class _ApiErrorModel implements ApiErrorModel {
-  const factory _ApiErrorModel({@JsonKey(name: 'data') final String? error}) =
+  const factory _ApiErrorModel({@JsonKey(name: 'code') final String? error}) =
       _$ApiErrorModelImpl;
 
   factory _ApiErrorModel.fromJson(Map<String, dynamic> json) =
       _$ApiErrorModelImpl.fromJson;
 
   @override
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'code')
   String? get error;
+
+  /// Create a copy of ApiErrorModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ApiErrorModelImplCopyWith<_$ApiErrorModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

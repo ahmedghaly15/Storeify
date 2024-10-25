@@ -17,13 +17,14 @@ class ValidateOtpButtonBlocConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ValidateOtpCubit, ValidateOtpState>(
-      listenWhen: (_, current) => current is Success || current is Error,
+      listenWhen: (_, current) =>
+          current is ValidateOtpSuccess || current is ValidateOtpError,
       listener: (context, state) {
         state.whenOrNull(
-          success: () {
+          validateOtpSuccess: () {
             context.pushRoute(ResetPasswordRoute(email: email));
           },
-          error: (errorKey) => CustomToast.showToast(
+          validateOtpError: (errorKey) => CustomToast.showToast(
             context: context,
             messageKey: errorKey,
             state: CustomToastState.error,
@@ -31,12 +32,14 @@ class ValidateOtpButtonBlocConsumer extends StatelessWidget {
         );
       },
       buildWhen: (_, current) =>
-          current is Loading || current is Error || current is Success,
+          current is ValidateOtpLoading ||
+          current is ValidateOtpError ||
+          current is ValidateOtpSuccess,
       builder: (context, state) {
         return MainButton(
           onPressed: () => context.read<ValidateOtpCubit>().validateOtp(email),
           child: circularIndicatorOrTextWidget(
-            condition: state is Loading,
+            isLoading: state is ValidateOtpLoading,
             context: context,
             textKey: LangKeys.verify,
           ),

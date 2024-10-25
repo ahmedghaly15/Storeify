@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/themes/app_colors.dart';
+import 'package:store_ify/core/utils/app_assets.dart';
 
 class CustomCachedNetworkImage extends StatelessWidget {
   const CustomCachedNetworkImage({
@@ -32,10 +31,9 @@ class CustomCachedNetworkImage extends StatelessWidget {
       imageBuilder: imageBuilder,
       fadeInDuration: fadeInDuration,
       fadeOutDuration: fadeOutDuration,
-      errorWidget: (_, __, ___) => Icon(
-        Icons.error,
-        size: 22.h,
-        color: AppColors.primaryColor,
+      errorWidget: (_, __, ___) => Image.asset(
+        AppAssets.imagesPlaceholder,
+        fit: BoxFit.cover,
       ),
     );
   }

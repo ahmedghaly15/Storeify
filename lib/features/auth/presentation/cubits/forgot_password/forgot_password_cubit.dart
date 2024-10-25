@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/features/auth/data/models/forgot_password_params.dart';
-import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
+import 'package:store_ify/features/auth/data/repos/forgot_password_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forgot_password_state.dart';
 
 class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
-  final AuthRepo _authRepo;
+  final ForgotPasswordRepo _forgotPasswordRepo;
 
   ForgotPasswordCubit(
-    this._authRepo,
+    this._forgotPasswordRepo,
   ) : super(const ForgotPasswordState.initial()) {
     _initFormAttributes();
   }
@@ -32,15 +32,15 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
   }
 
   void _forgotPassword() async {
-    emit(const ForgotPasswordState.loading());
-    final result = await _authRepo.forgotPassword(
+    emit(const ForgotPasswordState.forgotPasswordLoading());
+    final result = await _forgotPasswordRepo.forgotPassword(
       ForgotPasswordParams(email: emailController.text.trim()),
       _cancelToken,
     );
     result.when(
-      success: (_) => emit(const ForgotPasswordState.success()),
-      error: (error) =>
-          emit(ForgotPasswordState.error(error.apiErrorModel.error ?? '')),
+      success: (_) => emit(const ForgotPasswordState.forgotPasswordSuccess()),
+      error: (errorModel) =>
+          emit(ForgotPasswordState.forgotPasswordError(errorModel.error ?? '')),
     );
   }
 

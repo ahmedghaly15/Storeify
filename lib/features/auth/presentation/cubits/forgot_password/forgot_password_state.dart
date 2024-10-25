@@ -5,7 +5,10 @@ part 'forgot_password_state.freezed.dart';
 @freezed
 class ForgotPasswordState<T> with _$ForgotPasswordState<T> {
   const factory ForgotPasswordState.initial() = _Initial;
-  const factory ForgotPasswordState.loading() = Loading;
-  const factory ForgotPasswordState.success() = Success;
-  const factory ForgotPasswordState.error(String error) = Error<T>;
+  const factory ForgotPasswordState.forgotPasswordLoading() =
+      ForgotPasswordLoading;
+  const factory ForgotPasswordState.forgotPasswordSuccess() =
+      ForgotPasswordSuccess;
+  const factory ForgotPasswordState.forgotPasswordError(String error) =
+      ForgotPasswordError<T>;
 }

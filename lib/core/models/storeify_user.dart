@@ -1,16 +1,20 @@
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:store_ify/core/helpers/hive_type_ids.dart';
 
 part 'storeify_user.g.dart';
 
+@HiveType(typeId: HiveTypeIds.storeifyUser)
 @JsonSerializable()
 class StoreifyUser {
-  final String code, token;
-  final UserData data;
+  @HiveField(0)
+  final String token;
+  @HiveField(1)
+  final UserData user;
 
   const StoreifyUser({
-    required this.code,
     required this.token,
-    required this.data,
+    required this.user,
   });
 
   factory StoreifyUser.fromJson(Map<String, dynamic> json) =>
@@ -18,10 +22,15 @@ class StoreifyUser {
   Map<String, dynamic> toJson() => _$StoreifyUserToJson(this);
 }
 
+@HiveType(typeId: HiveTypeIds.storeifyUserData)
 @JsonSerializable()
 class UserData {
+  @HiveField(0)
   final int id;
-  final String username, email;
+  @HiveField(1)
+  final String username;
+  @HiveField(2)
+  final String email;
 
   const UserData({
     required this.id,

@@ -43,10 +43,7 @@ class LoginViewBody extends StatelessWidget {
                 MySizedBox.height22,
                 const LoginForm(),
                 MySizedBox.height32,
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 24.w),
-                  child: const LoginButtonBlocConsumer(),
-                ),
+                const LoginButtonBlocConsumer(),
                 Container(
                   margin: EdgeInsetsDirectional.only(
                     start: 24.w,
@@ -57,12 +54,16 @@ class LoginViewBody extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       TextButton(
+                        style: TextButton.styleFrom(
+                          foregroundColor: context.isDarkModeActive
+                              ? Colors.white
+                              : AppColors.greyColor,
+                        ),
                         onPressed: () =>
                             context.pushRoute(const ForgotPasswordRoute()),
                         child: Text(
                           context.translate(LangKeys.forgotPassword),
-                          style: AppTextStyles.textStyle16Regular
-                              .copyWith(color: AppColors.greyColor),
+                          style: AppTextStyles.textStyle16Regular,
                         ),
                       ),
                       const SignUpTextButton(),

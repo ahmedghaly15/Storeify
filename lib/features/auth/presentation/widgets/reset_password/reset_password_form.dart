@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
-import 'package:store_ify/core/helpers/auth_helper.dart';
+import 'package:store_ify/core/helpers/auth_validator.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
@@ -36,7 +36,7 @@ class ResetPasswordForm extends StatelessWidget {
                   ),
                 ),
                 validate: (value) =>
-                    AuthHelper.validatePasswordField(value: value),
+                    AuthValidator.validatePasswordField(context, value: value),
                 controller: context.read<ResetPasswordCubit>().passController,
                 keyboardType: TextInputType.visiblePassword,
                 hintTextKey: LangKeys.passwordHint,
@@ -49,7 +49,8 @@ class ResetPasswordForm extends StatelessWidget {
               CustomTextField(
                 obscureText:
                     context.read<ResetPasswordCubit>().confirmPassObscured,
-                validate: (value) => AuthHelper.validateConfirmPasswordField(
+                validate: (value) => AuthValidator.validateConfirmPasswordField(
+                  context,
                   value: value,
                   password:
                       context.read<ResetPasswordCubit>().passController.text,
