@@ -26,7 +26,7 @@ class SettingsSeparatedListView extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(15.r)),
           ),
-          onTap: settings[index].onTap,
+          onTap: () => settings[index].onTap(context),
           contentPadding: EdgeInsets.symmetric(horizontal: 16.w),
           title: Text(
             context.translate(settings[index].titleKey),

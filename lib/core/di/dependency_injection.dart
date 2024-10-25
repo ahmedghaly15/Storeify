@@ -197,7 +197,7 @@ void _setupDIForRepos() {
     () => PaymentRepoImpl(getIt.get<PaymentApiService>()),
   );
   getIt.registerLazySingleton<ProfileRepo>(
-    () => ProfileRepoImpl(getIt.get<ProfileApiService>()),
+    () => ProfileRepo(getIt.get<ProfileApiService>()),
   );
   getIt.registerLazySingleton<SearchRepo>(
     () => SearchRepo(getIt.get<SearchApiService>()),
