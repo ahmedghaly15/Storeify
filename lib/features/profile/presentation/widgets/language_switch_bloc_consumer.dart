@@ -10,17 +10,21 @@ class LanguageSwitchBlocConsumer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localeCubit = context.read<LocaleCubit>();
     return BlocConsumer<LocaleCubit, LocaleState>(
-      listenWhen: (previous, current) => previous != current,
+      listenWhen: (_, current) =>
+          current.status == LocaleStateStatus.changeLocaleLocally,
       listener: (context, state) {
-        state.whenOrNull(
-          changeLocale: (_) => context.maybePop(),
-        );
+        switch (state.status) {
+          case LocaleStateStatus.changeLocaleLocally:
+            context.maybePop();
+            break;
+        }
       },
-      buildWhen: (previous, current) => previous != current,
+      buildWhen: (previous, current) => previous.locale != current.locale,
       builder: (context, state) => CustomAdaptiveSwitch(
-        value: context.read<LocaleCubit>().isArabic ? true : false,
-        onChanged: (_) => context.read<LocaleCubit>().toggleLocale(context),
+        value: localeCubit.isArabic ? true : false,
+        onChanged: (_) => localeCubit.toggleLocale(),
       ),
     );
   }

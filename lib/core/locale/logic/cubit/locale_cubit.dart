@@ -4,55 +4,58 @@ import 'package:store_ify/core/locale/logic/cubit/locale_state.dart';
 import 'package:store_ify/core/locale/logic/locale_repo.dart';
 import 'package:store_ify/core/locale/models/change_api_lang_params.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
-import 'package:store_ify/core/widgets/custom_toast.dart';
 
 class LocaleCubit extends Cubit<LocaleState> {
   final LocaleRepo _localeRepo;
 
   LocaleCubit(
     this._localeRepo,
-  ) : super(
-          const LocaleState.initial(Locale(AppStrings.englishLangCode)),
-        );
+  ) : super(LocaleState.initial());
 
   void getSavedLang() async {
     final savedLang = await _localeRepo.getSavedLang();
-    emit(LocaleState.changeLocale(Locale(savedLang)));
-  }
-
-  Future<void> _changeLang(String langCode) async {
-    await _localeRepo.changeLang(langCode);
-  }
-
-  void _changeApiLang(String langCode, BuildContext context) async {
-    final result = await _localeRepo.changeApiLang(
-      ChangeApiLangParams(lang: langCode),
-    );
-    result.when(
-      success: (_) async => await _emitNewLocale(langCode),
-      error: (error) => CustomToast.showToast(
-        context: context,
-        messageKey: error.error ?? '',
-        state: CustomToastState.error,
+    emit(
+      state.copyWith(
+        status: LocaleStateStatus.changeLocaleLocally,
+        locale: Locale(savedLang),
       ),
     );
   }
 
-  Future<void> _emitNewLocale(String langCode) async {
-    await _changeLang(langCode);
-    emit(LocaleState.changeLocale(Locale(langCode)));
+  Future<void> _changeLangLocally(String langCode) async {
+    await _localeRepo.changeLang(langCode);
+    emit(
+      state.copyWith(
+        status: LocaleStateStatus.changeLocaleLocally,
+        locale: Locale(langCode),
+      ),
+    );
   }
 
-  void _toEnglish(BuildContext context) =>
-      _changeApiLang(AppStrings.englishLangCode, context);
+  void changeApiLang(String langCode) async {
+    final result = await _localeRepo.changeApiLang(
+      ChangeApiLangParams(lang: langCode),
+    );
+    result.when(
+      success: (_) => emit(
+          state.copyWith(status: LocaleStateStatus.changeApiLocaleSuccess)),
+      error: (error) => emit(
+        state.copyWith(
+          status: LocaleStateStatus.changeApiLocaleFailure,
+          error: error.error ?? '',
+        ),
+      ),
+    );
+  }
 
-  void _toArabic(BuildContext context) =>
-      _changeApiLang(AppStrings.arabicLangCode, context);
+  void _toEnglish() => _changeLangLocally(AppStrings.englishLangCode);
 
-  void toggleLocale(BuildContext context) {
+  void _toArabic() => _changeLangLocally(AppStrings.arabicLangCode);
+
+  void toggleLocale() {
     state.locale.languageCode == AppStrings.englishLangCode
-        ? _toArabic(context)
-        : _toEnglish(context);
+        ? _toArabic()
+        : _toEnglish();
   }
 
   bool get isArabic => state.locale.languageCode == AppStrings.arabicLangCode;
