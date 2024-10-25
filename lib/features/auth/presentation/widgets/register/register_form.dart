@@ -15,8 +15,9 @@ class RegisterForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final registerCubit = context.read<RegisterCubit>();
     return Form(
-      key: context.read<RegisterCubit>().formKey,
+      key: registerCubit.formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -24,39 +25,38 @@ class RegisterForm extends StatelessWidget {
           CustomTextField(
             validate: (String? value) =>
                 AuthValidator.validateEmailField(context, value: value),
-            controller: context.read<RegisterCubit>().emailController,
+            controller: registerCubit.emailController,
             keyboardType: TextInputType.emailAddress,
             hintTextKey: LangKeys.examplegmailcom,
             autofillHints: const <String>[AutofillHints.email],
-            focusNode: context.read<RegisterCubit>().emailFocusNode,
-            onEditingComplete: () => context
-                .requestFocus(context.read<RegisterCubit>().usernameFocusNode),
+            focusNode: registerCubit.emailFocusNode,
+            onEditingComplete: () =>
+                context.requestFocus(registerCubit.usernameFocusNode),
           ),
           MySizedBox.height24,
           const TextFieldLabel(labelKey: LangKeys.username),
           CustomTextField(
             validate: (String? value) =>
                 AuthValidator.validateNameField(context, value: value),
-            controller: context.read<RegisterCubit>().usernameController,
+            controller: registerCubit.usernameController,
             keyboardType: TextInputType.name,
             textCapitalization: TextCapitalization.words,
             hintTextKey: LangKeys.enterYourUsername,
             autofillHints: const <String>[AutofillHints.name],
-            focusNode: context.read<RegisterCubit>().usernameFocusNode,
-            onEditingComplete: () => context
-                .requestFocus(context.read<RegisterCubit>().passwordFocusNode),
+            focusNode: registerCubit.usernameFocusNode,
+            onEditingComplete: () =>
+                context.requestFocus(registerCubit.passwordFocusNode),
           ),
           MySizedBox.height24,
           const TextFieldLabel(labelKey: LangKeys.password),
           BlocBuilder<RegisterCubit, RegisterState>(
             buildWhen: (_, current) => current is InvertPasswordVisibility,
             builder: (context, state) => CustomTextField(
-              obscureText: context.read<RegisterCubit>().isPasswordVisible,
+              obscureText: registerCubit.isPasswordVisible,
               suffixIcon: IconButton(
-                onPressed: () =>
-                    context.read<RegisterCubit>().invertPasswordVisibility(),
+                onPressed: () => registerCubit.invertPasswordVisibility(),
                 icon: Icon(
-                  context.read<RegisterCubit>().isPasswordVisible
+                  registerCubit.isPasswordVisible
                       ? Icons.visibility_outlined
                       : Icons.visibility_off_outlined,
                   color: AppColors.primaryColor,
@@ -64,13 +64,13 @@ class RegisterForm extends StatelessWidget {
               ),
               validate: (value) =>
                   AuthValidator.validatePasswordField(context, value: value),
-              controller: context.read<RegisterCubit>().passwordController,
+              controller: registerCubit.passwordController,
               keyboardType: TextInputType.visiblePassword,
               hintTextKey: LangKeys.passwordHint,
               autofillHints: const <String>[AutofillHints.password],
-              focusNode: context.read<RegisterCubit>().passwordFocusNode,
-              onEditingComplete: () => context.requestFocus(
-                  context.read<RegisterCubit>().confirmPasswordFocusNode),
+              focusNode: registerCubit.passwordFocusNode,
+              onEditingComplete: () =>
+                  context.requestFocus(registerCubit.confirmPasswordFocusNode),
             ),
           ),
           MySizedBox.height24,
@@ -78,31 +78,29 @@ class RegisterForm extends StatelessWidget {
           BlocBuilder<RegisterCubit, RegisterState>(
             buildWhen: (_, current) => current is InvertPasswordVisibility,
             builder: (context, state) => CustomTextField(
-              obscureText: context.read<RegisterCubit>().isConfirmPassVisible,
+              obscureText: registerCubit.isConfirmPassVisible,
               suffixIcon: IconButton(
-                onPressed: () => context
-                    .read<RegisterCubit>()
-                    .invertConfirmPasswordVisibility(),
+                onPressed: () =>
+                    registerCubit.invertConfirmPasswordVisibility(),
                 icon: Icon(
-                  context.read<RegisterCubit>().isConfirmPassVisible
+                  registerCubit.isConfirmPassVisible
                       ? Icons.visibility_outlined
                       : Icons.visibility_off_outlined,
                   color: AppColors.primaryColor,
                 ),
               ),
-              onSubmit: (_) => context.read<RegisterCubit>().register(context),
+              onSubmit: (_) => registerCubit.register(),
               validate: (value) => AuthValidator.validateConfirmPasswordField(
                 context,
                 value: value,
-                password: context.read<RegisterCubit>().passwordController.text,
-                confirmPassword:
-                    context.read<RegisterCubit>().confirmController.text,
+                password: registerCubit.passwordController.text,
+                confirmPassword: registerCubit.confirmController.text,
               ),
-              controller: context.read<RegisterCubit>().confirmController,
+              controller: registerCubit.confirmController,
               keyboardType: TextInputType.visiblePassword,
               hintTextKey: LangKeys.passwordHint,
               autofillHints: const <String>[AutofillHints.password],
-              focusNode: context.read<RegisterCubit>().confirmPasswordFocusNode,
+              focusNode: registerCubit.confirmPasswordFocusNode,
             ),
           ),
         ],

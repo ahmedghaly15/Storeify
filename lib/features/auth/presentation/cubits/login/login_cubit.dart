@@ -1,9 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/utils/app_constants.dart';
-import 'package:store_ify/features/auth/data/datasources/auth_local_datasource.dart';
 import 'package:store_ify/features/auth/data/models/login_params.dart';
 import 'package:store_ify/features/auth/data/repos/login_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_state.dart';
@@ -39,27 +36,20 @@ class LoginCubit extends Cubit<LoginState> {
 
   void _login() async {
     emit(const LoginState.loginLoading());
-    final result = await _loginRepo.login(
-      LoginParams(
-        email: emailController.text.trim(),
-        password: passwordController.text,
-      ),
-      _cancelToken,
+    final loginParams = LoginParams(
+      email: emailController.text.trim(),
+      password: passwordController.text,
     );
+    final result = await _loginRepo.login(loginParams, _cancelToken);
     result.when(
-      success: (user) async {
-        await AuthLocalDatasource.cacheUserAndSetTokenIntoHeaders(user);
-        currentUser = user;
-        emit(LoginState.loginSuccess(user));
-      },
+      success: (user) => emit(LoginState.loginSuccess(user)),
       error: (errorModel) =>
           emit(LoginState.loginError(errorModel.error ?? '')),
     );
   }
 
-  void login(BuildContext context) {
+  void login() {
     if (formKey.currentState!.validate()) {
-      context.unfocusKeyboard();
       _login();
     }
   }
