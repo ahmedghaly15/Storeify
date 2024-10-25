@@ -14,7 +14,7 @@ class _CartApiService implements CartApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://192.168.1.10:8081/api/';
+    baseUrl ??= 'http://192.168.1.7:8081/api/';
   }
 
   final Dio _dio;
@@ -42,7 +42,7 @@ class _CartApiService implements CartApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/addProduct/${productId}',
+          'http://192.168.1.7:8081/api/addProduct/${productId}',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -69,7 +69,7 @@ class _CartApiService implements CartApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/cart/',
+          'http://192.168.1.7:8081/api/cart/',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -107,7 +107,7 @@ class _CartApiService implements CartApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/cart/${productId}',
+          'http://192.168.1.7:8081/api/cart/${productId}',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
