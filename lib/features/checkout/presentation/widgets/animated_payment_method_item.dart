@@ -44,7 +44,9 @@ class AnimatedPaymentMethodItem extends StatelessWidget {
             ),
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: context.isDarkModeActive
+                  ? AppColors.secondaryDarkColor
+                  : AppColors.lightModeColor,
               borderRadius: BorderRadius.all(Radius.circular(8.r)),
               border: isChosen
                   ? Border.all(

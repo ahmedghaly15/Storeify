@@ -15,8 +15,9 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loginCubit = context.read<LoginCubit>();
     return Form(
-      key: context.read<LoginCubit>().formKey,
+      key: loginCubit.formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -24,10 +25,10 @@ class LoginForm extends StatelessWidget {
           CustomTextField(
             validate: (String? value) =>
                 AuthValidator.validateEmailField(context, value: value),
-            onEditingComplete: () => context
-                .requestFocus(context.read<LoginCubit>().passwordFocusNode),
-            controller: context.read<LoginCubit>().emailController,
-            focusNode: context.read<LoginCubit>().emailFocusNode,
+            onEditingComplete: () =>
+                context.requestFocus(loginCubit.passwordFocusNode),
+            controller: loginCubit.emailController,
+            focusNode: loginCubit.emailFocusNode,
             keyboardType: TextInputType.emailAddress,
             hintTextKey: LangKeys.examplegmailcom,
             autofillHints: const [AutofillHints.email],
@@ -36,22 +37,20 @@ class LoginForm extends StatelessWidget {
           const TextFieldLabel(labelKey: LangKeys.password),
           BlocBuilder<LoginCubit, LoginState>(
             buildWhen: (_, current) => current is InvertPasswordVisibility,
-            builder: (context, state) => CustomTextField(
+            builder: (context, _) => CustomTextField(
               autofillHints: const <String>[AutofillHints.password],
               validate: (String? value) =>
                   AuthValidator.validatePasswordField(context, value: value),
-              focusNode: context.read<LoginCubit>().passwordFocusNode,
-              onSubmit: (_) => context.read<LoginCubit>().login(context),
-              controller: context.read<LoginCubit>().passwordController,
+              focusNode: loginCubit.passwordFocusNode,
+              onSubmit: (_) => context.read<LoginCubit>().login(),
+              controller: loginCubit.passwordController,
               keyboardType: TextInputType.visiblePassword,
               hintTextKey: LangKeys.passwordHint,
-              obscureText: context.read<LoginCubit>().isPasswordVisible,
+              obscureText: loginCubit.isPasswordVisible,
               suffixIcon: IconButton(
-                onPressed: () {
-                  context.read<LoginCubit>().invertPasswordVisibility();
-                },
+                onPressed: () => loginCubit.invertPasswordVisibility(),
                 icon: Icon(
-                  context.read<LoginCubit>().isPasswordVisible
+                  loginCubit.isPasswordVisible
                       ? Icons.visibility_outlined
                       : Icons.visibility_off_outlined,
                   color: AppColors.primaryColor,

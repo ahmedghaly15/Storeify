@@ -1,16 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/auth/data/models/register_params.dart';
-import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
+import 'package:store_ify/features/auth/data/repos/register_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
-  final AuthRepo _authRepo;
+  final RegisterRepo _registerRepo;
 
-  RegisterCubit(this._authRepo) : super(const RegisterState.initial()) {
+  RegisterCubit(this._registerRepo) : super(const RegisterState.initial()) {
     _initFormAttributes();
   }
 
@@ -49,29 +47,23 @@ class RegisterCubit extends Cubit<RegisterState> {
   }
 
   void _register() async {
-    emit(const RegisterState.loading());
-    final result = await _authRepo.register(
-      RegisterParams(
-        username: usernameController.text.trim(),
-        email: emailController.text.trim(),
-        password: passwordController.text,
-        passwordConfirmation: confirmController.text,
-      ),
-      _cancelToken,
+    emit(const RegisterState.registerLoading());
+    final registerParams = RegisterParams(
+      username: usernameController.text.trim(),
+      email: emailController.text.trim(),
+      password: passwordController.text,
+      passwordConfirmation: confirmController.text,
     );
+    final result = await _registerRepo.register(registerParams, _cancelToken);
     result.when(
-      success: (user) async {
-        await _authRepo.saveUserToken(user.token);
-        currentUser = user;
-        emit(RegisterState.success(user));
-      },
-      error: (errorModel) => emit(RegisterState.error(errorModel.error ?? '')),
+      success: (user) => emit(RegisterState.registerSuccess(user)),
+      error: (errorModel) =>
+          emit(RegisterState.registerError(errorModel.error ?? '')),
     );
   }
 
-  void register(BuildContext context) {
+  void register() {
     if (formKey.currentState!.validate()) {
-      context.unfocusKeyboard();
       _register();
     }
   }

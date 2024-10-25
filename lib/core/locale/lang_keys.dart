@@ -66,7 +66,7 @@ class LangKeys {
   static const String time = 'time';
   static const String enterYourAddress = 'enterYourAddress';
   static const String dateHint = 'dateHint';
-  static const String enableLocation = 'enableLocation';
+  static const String locationGranted = 'locationGranted';
   static const String locationDenied = 'locationDenied';
   static const String howDoUWantToPay = 'howDoUWantToPay';
   static const String creditCard = 'creditCard';
@@ -123,4 +123,7 @@ class LangKeys {
   static const String sureToLogout = 'sureToLogout';
   static const String cancel = 'cancel';
   static const String confirm = 'confirm';
+  static const String enableLocationPermission = 'enableLocationPermission';
+  static const String ok = 'ok';
+  static const String accountCreatedSuccessfully = 'accountCreatedSuccessfully';
 }

@@ -1,16 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/auth/data/models/login_params.dart';
-import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
+import 'package:store_ify/features/auth/data/repos/login_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  final AuthRepo _authRepo;
+  final LoginRepo _loginRepo;
 
-  LoginCubit(this._authRepo) : super(const LoginState.initial()) {
+  LoginCubit(this._loginRepo) : super(const LoginState.initial()) {
     _initFormAttributes();
   }
 
@@ -37,27 +35,21 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   void _login() async {
-    emit(const LoginState.loading());
-    final result = await _authRepo.login(
-      LoginParams(
-        email: emailController.text.trim(),
-        password: passwordController.text,
-      ),
-      _cancelToken,
+    emit(const LoginState.loginLoading());
+    final loginParams = LoginParams(
+      email: emailController.text.trim(),
+      password: passwordController.text,
     );
+    final result = await _loginRepo.login(loginParams, _cancelToken);
     result.when(
-      success: (user) async {
-        await _authRepo.saveUserToken(user.token);
-        currentUser = user;
-        emit(LoginState.success(user));
-      },
-      error: (errorModel) => emit(LoginState.error(errorModel.error ?? '')),
+      success: (user) => emit(LoginState.loginSuccess(user)),
+      error: (errorModel) =>
+          emit(LoginState.loginError(errorModel.error ?? '')),
     );
   }
 
-  void login(BuildContext context) {
+  void login() {
     if (formKey.currentState!.validate()) {
-      context.unfocusKeyboard();
       _login();
     }
   }

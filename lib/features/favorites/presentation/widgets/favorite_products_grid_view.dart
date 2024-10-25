@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:store_ify/core/models/product.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/product_item.dart';
-import 'package:store_ify/features/home/data/models/product.dart';
 
 class FavoriteProductsGridView extends StatelessWidget {
   const FavoriteProductsGridView({
@@ -17,12 +16,9 @@ class FavoriteProductsGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       itemCount: products.length,
+      physics: AppConstants.physics,
       padding: AppConstants.categoryPadding,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: AppConstants.gridCrossAxisCount,
-        crossAxisSpacing: 15.w,
-        mainAxisSpacing: 10.h,
-      ),
+      gridDelegate: AppConstants.favProductsGridDelegate,
       itemBuilder: (_, index) => AnimationConfiguration.staggeredGrid(
         position: index,
         columnCount: products.length,

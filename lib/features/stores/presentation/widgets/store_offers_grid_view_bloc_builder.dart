@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
-import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
 import 'package:store_ify/core/widgets/product_item.dart';
+import 'package:store_ify/core/widgets/products_grid_view_shimmer.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_state.dart';
 
 class StoreOffersGridViewBlocBuilder extends StatelessWidget {
-  const StoreOffersGridViewBlocBuilder({super.key});
+  const StoreOffersGridViewBlocBuilder({super.key, required this.storeId});
+
+  final int storeId;
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +23,7 @@ class StoreOffersGridViewBlocBuilder extends StatelessWidget {
           current is FetchStoreOffersSuccess ||
           current is FetchStoreOffersError,
       builder: (context, state) => state.maybeWhen(
-        fetchStoreOffersLoading: () => const Center(
-          child: CustomCircularProgressIndicator(),
-        ),
+        fetchStoreOffersLoading: () => const ProductsGridViewShimmer(),
         fetchStoreOffersSuccess: (result) => result.products.isNotEmpty
             ? GridView.builder(
                 itemCount: result.products.length,
@@ -49,12 +50,15 @@ class StoreOffersGridViewBlocBuilder extends StatelessWidget {
               ),
         fetchStoreOffersError: (errorKey) => CustomErrorWidget(
           tryAgainOnPressed: () {
-            // TODO: add try again function
+            context.read<StoreDetailsCubit>().fetchStoreOffers(storeId);
           },
           errorKey: errorKey,
         ),
-        orElse: () => const Center(
-          child: CustomCircularProgressIndicator(),
+        orElse: () => CustomErrorWidget(
+          tryAgainOnPressed: () {
+            context.read<StoreDetailsCubit>().fetchStoreOffers(storeId);
+          },
+          errorKey: LangKeys.defaultError,
         ),
       ),
     );

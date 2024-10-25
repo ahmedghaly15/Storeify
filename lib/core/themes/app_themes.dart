@@ -1,33 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 
 class AppThemes {
-  static ThemeData get lightTheme => ThemeData(
+  static ThemeData get lightMode => ThemeData(
         colorScheme: const ColorScheme.light(primary: AppColors.primaryColor),
         primaryColor: AppColors.primaryColor,
         useMaterial3: true,
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: AppColors.lightModeColor,
         fontFamily: AppStrings.fontFamily,
         brightness: Brightness.light,
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: AppColors.lightModeColor,
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: AppColors.lightModeColor,
+            statusBarBrightness: Brightness.light,
+            statusBarIconBrightness: Brightness.dark,
+          ),
+        ),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
+            foregroundColor:
+                const WidgetStatePropertyAll(AppColors.primaryColor),
             padding: WidgetStateProperty.all(
               EdgeInsets.symmetric(horizontal: 8.w),
             ),
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          ),
-        ),
-        iconButtonTheme: IconButtonThemeData(
-          style: ButtonStyle(
-            padding: WidgetStateProperty.all(EdgeInsets.zero),
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
         ),
         datePickerTheme: const DatePickerThemeData(
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.lightModeColor,
           cancelButtonStyle: ButtonStyle(
             foregroundColor: WidgetStatePropertyAll(AppColors.primaryColor),
           ),
@@ -35,8 +38,46 @@ class AppThemes {
             foregroundColor: WidgetStatePropertyAll(AppColors.primaryColor),
           ),
           headerBackgroundColor: AppColors.primaryColor,
-          headerForegroundColor: Colors.white,
-          dividerColor: Colors.white,
+          headerForegroundColor: AppColors.lightModeColor,
+          dividerColor: AppColors.lightModeColor,
+        ),
+      );
+
+  static ThemeData get darkMode => ThemeData(
+        colorScheme: const ColorScheme.dark(primary: AppColors.primaryColor),
+        primaryColor: AppColors.primaryColor,
+        useMaterial3: true,
+        scaffoldBackgroundColor: AppColors.darkColor,
+        fontFamily: AppStrings.fontFamily,
+        brightness: Brightness.dark,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: AppColors.darkColor,
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: AppColors.darkColor,
+            statusBarBrightness: Brightness.dark,
+            statusBarIconBrightness: Brightness.light,
+          ),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            foregroundColor:
+                const WidgetStatePropertyAll(AppColors.primaryColor),
+            padding: WidgetStateProperty.all(
+              EdgeInsets.symmetric(horizontal: 8.w),
+            ),
+          ),
+        ),
+        datePickerTheme: const DatePickerThemeData(
+          backgroundColor: AppColors.darkColor,
+          cancelButtonStyle: ButtonStyle(
+            foregroundColor: WidgetStatePropertyAll(AppColors.lightModeColor),
+          ),
+          confirmButtonStyle: ButtonStyle(
+            foregroundColor: WidgetStatePropertyAll(AppColors.lightModeColor),
+          ),
+          headerBackgroundColor: AppColors.primaryColor,
+          headerForegroundColor: AppColors.lightModeColor,
+          dividerColor: AppColors.darkColor,
         ),
       );
 }

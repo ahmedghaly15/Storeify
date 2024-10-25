@@ -76,8 +76,8 @@
     "time": "الوقت",
     "enterYourAddress": "ادخل عنوانك",
     "dateHint": "MMM/DD/YYYY",
-    "enableLocation": "الموقع مطلوب. الرجاء تفعيل الموقع.",
-    "locationDenied": "الموقع غير مسموح به. الرجاء تفعيل الموقع.",
+    "locationGranted": "تم تفعيل الموقع.",
+    "locationDenied": "الموقع غير مسموح به. الرجاء تفعيله.",
     "DATE_AFTER_TODAY": "التاريخ يجب ان يكون بعد اليوم.",
     "CART_EMPTY": "عربة التسوق فارغة.",
     "howDoUWantToPay": "كيف تريد الدفع ؟",
@@ -134,5 +134,8 @@
     "logout": "تسجيل خروج",
     "sureToLogout": "هل أنت متاكد من تسجيل الخروج؟",
     "cancel": "الغاء",
-    "confirm": "تاكيد"
+    "confirm": "تاكيد",
+    "enableLocationPermission": "منح إذن لتطبيق Store-ify للوصول إلى موقع هذا الجهاز الجغرافي؟",
+    "ok": "موافق",
+    "accountCreatedSuccessfully": "تم انشاء الحساب بنجاح. يرجى تسجيل الدخول."
 }

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
+import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
+import 'package:store_ify/core/widgets/stores_grid_view_shimmer.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_state.dart';
 import 'package:store_ify/features/favorites/presentation/widgets/favorite_products_grid_view.dart';
 import 'package:store_ify/features/favorites/presentation/widgets/favorite_stores_grid_view.dart';
+import 'package:store_ify/core/widgets/products_grid_view_shimmer.dart';
 
 class FavoritesGridViewBlocBuilder extends StatelessWidget {
   const FavoritesGridViewBlocBuilder({super.key});
@@ -22,9 +24,7 @@ class FavoritesGridViewBlocBuilder extends StatelessWidget {
           current is FetchFavoriteProductsSuccess ||
           current is FetchFavoriteProductsError,
       builder: (context, state) => state.maybeWhen(
-        fetchFavStoresLoading: () => const Center(
-          child: CustomCircularProgressIndicator(),
-        ),
+        fetchFavStoresLoading: () => const StoresGridViewShimmer(),
         fetchFavStoresSuccess: (favStoresResponse) =>
             FavoriteStoresGridView(stores: favStoresResponse.stores),
         fetchFavStoresError: (errorKey) => CustomErrorWidget(
@@ -32,9 +32,7 @@ class FavoritesGridViewBlocBuilder extends StatelessWidget {
               context.read<FetchFavoritesCubit>().fetchFavStores(),
           errorKey: errorKey,
         ),
-        fetchFavoriteProductsLoading: () => const Center(
-          child: CustomCircularProgressIndicator(),
-        ),
+        fetchFavoriteProductsLoading: () => const ProductsGridViewShimmer(),
         fetchFavoriteProductsSuccess: (favProductsResponse) =>
             FavoriteProductsGridView(products: favProductsResponse.products),
         fetchFavoriteProductsError: (errorKey) => CustomErrorWidget(
@@ -42,8 +40,8 @@ class FavoritesGridViewBlocBuilder extends StatelessWidget {
               context.read<FetchFavoritesCubit>().fetchFavProducts(),
           errorKey: errorKey,
         ),
-        orElse: () => const Center(
-          child: CustomCircularProgressIndicator(),
+        orElse: () => const CustomErrorWidget(
+          errorKey: LangKeys.defaultError,
         ),
       ),
     );

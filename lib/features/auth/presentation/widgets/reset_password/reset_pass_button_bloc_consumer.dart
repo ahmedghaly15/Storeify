@@ -49,6 +49,7 @@ class ResetPassButtonBlocConsumer extends StatelessWidget {
           margin: EdgeInsetsDirectional.symmetric(
             horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
           ),
+          width: double.infinity,
           onPressed: () => context.read<ResetPasswordCubit>().resetPassword(
                 ResetPasswordRequirements(
                   email: email,

@@ -3,6 +3,45 @@
 part of 'fetch_fav_stores_response.dart';
 
 // **************************************************************************
+// TypeAdapterGenerator
+// **************************************************************************
+
+class FetchFavStoresResponseAdapter
+    extends TypeAdapter<FetchFavStoresResponse> {
+  @override
+  final int typeId = 17;
+
+  @override
+  FetchFavStoresResponse read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return FetchFavStoresResponse(
+      stores: (fields[0] as List).cast<Store>(),
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, FetchFavStoresResponse obj) {
+    writer
+      ..writeByte(1)
+      ..writeByte(0)
+      ..write(obj.stores);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is FetchFavStoresResponseAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+// **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 

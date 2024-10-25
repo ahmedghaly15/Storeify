@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_state.dart';
 
@@ -54,9 +57,53 @@ class StoreDetailsCubit extends Cubit<StoreDetailsState> {
   }
 
   int currentSubDetailsIndex = 0;
-  void updateCurrentStoreDetailIndex(int index) {
-    currentSubDetailsIndex = index;
-    emit(StoreDetailsState.updateCurrentDetailsIndex(currentSubDetailsIndex));
+  void _updateCurrentStoreDetailIndex(int index) {
+    if (currentSubDetailsIndex != index) {
+      currentSubDetailsIndex = index;
+      emit(StoreDetailsState.updateCurrentDetailsIndex(currentSubDetailsIndex));
+    }
+  }
+
+  void updateCurrentStoreAndFetchItsData({
+    required int index,
+    required int storeId,
+  }) {
+    _updateCurrentStoreDetailIndex(index);
+    _fetchStoreData(storeId);
+  }
+
+  void _fetchStoreData(int storeId) {
+    switch (currentSubDetailsIndex) {
+      case 0:
+        fetchStoreOffers(storeId);
+      case 1:
+        fetchStoreBranches(storeId);
+      case 2:
+        fetchStoreCategories(storeId);
+    }
+  }
+
+  Color selectedStoreDetailColor(BuildContext context, int index) =>
+      _isActive(index) ? AppColors.primaryColor : _darkModeColor(context);
+
+  Color _darkModeColor(BuildContext context) {
+    return (context.isDarkModeActive
+        ? AppColors.secondaryDarkColor!
+        : AppColors.blueColor);
+  }
+
+  bool _isActive(int index) => currentSubDetailsIndex == index;
+
+  Color storeDetailTextColor(BuildContext context, int index) {
+    return _isActive(index)
+        ? AppColors.primaryColor
+        : _darkModeTextColor(context);
+  }
+
+  Color _darkModeTextColor(BuildContext context) {
+    return (context.isDarkModeActive
+        ? AppColors.lightModeColor
+        : AppColors.blueColor);
   }
 
   @override

@@ -19,6 +19,7 @@ mixin _$HomeState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() showLocationDialog,
     required TResult Function() fetchHomeDataLoading,
     required TResult Function(FetchHomeResponse homeResponse)
         fetchHomeDataSuccess,
@@ -28,6 +29,7 @@ mixin _$HomeState<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? showLocationDialog,
     TResult? Function()? fetchHomeDataLoading,
     TResult? Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
     TResult? Function(String error)? fetchHomeDataError,
@@ -36,6 +38,7 @@ mixin _$HomeState<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? showLocationDialog,
     TResult Function()? fetchHomeDataLoading,
     TResult Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
     TResult Function(String error)? fetchHomeDataError,
@@ -45,6 +48,7 @@ mixin _$HomeState<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ShowLocationDialog<T> value) showLocationDialog,
     required TResult Function(FetchHomeDataLoading<T> value)
         fetchHomeDataLoading,
     required TResult Function(FetchHomeDataSuccess<T> value)
@@ -55,6 +59,7 @@ mixin _$HomeState<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ShowLocationDialog<T> value)? showLocationDialog,
     TResult? Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
     TResult? Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
     TResult? Function(FetchHomeDataError<T> value)? fetchHomeDataError,
@@ -63,6 +68,7 @@ mixin _$HomeState<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
+    TResult Function(ShowLocationDialog<T> value)? showLocationDialog,
     TResult Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
     TResult Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
     TResult Function(FetchHomeDataError<T> value)? fetchHomeDataError,
@@ -134,6 +140,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() showLocationDialog,
     required TResult Function() fetchHomeDataLoading,
     required TResult Function(FetchHomeResponse homeResponse)
         fetchHomeDataSuccess,
@@ -146,6 +153,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? showLocationDialog,
     TResult? Function()? fetchHomeDataLoading,
     TResult? Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
     TResult? Function(String error)? fetchHomeDataError,
@@ -157,6 +165,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? showLocationDialog,
     TResult Function()? fetchHomeDataLoading,
     TResult Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
     TResult Function(String error)? fetchHomeDataError,
@@ -172,6 +181,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ShowLocationDialog<T> value) showLocationDialog,
     required TResult Function(FetchHomeDataLoading<T> value)
         fetchHomeDataLoading,
     required TResult Function(FetchHomeDataSuccess<T> value)
@@ -185,6 +195,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ShowLocationDialog<T> value)? showLocationDialog,
     TResult? Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
     TResult? Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
     TResult? Function(FetchHomeDataError<T> value)? fetchHomeDataError,
@@ -196,6 +207,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
+    TResult Function(ShowLocationDialog<T> value)? showLocationDialog,
     TResult Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
     TResult Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
     TResult Function(FetchHomeDataError<T> value)? fetchHomeDataError,
@@ -210,6 +222,133 @@ class _$InitialImpl<T> implements _Initial<T> {
 
 abstract class _Initial<T> implements HomeState<T> {
   const factory _Initial() = _$InitialImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$ShowLocationDialogImplCopyWith<T, $Res> {
+  factory _$$ShowLocationDialogImplCopyWith(_$ShowLocationDialogImpl<T> value,
+          $Res Function(_$ShowLocationDialogImpl<T>) then) =
+      __$$ShowLocationDialogImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$ShowLocationDialogImplCopyWithImpl<T, $Res>
+    extends _$HomeStateCopyWithImpl<T, $Res, _$ShowLocationDialogImpl<T>>
+    implements _$$ShowLocationDialogImplCopyWith<T, $Res> {
+  __$$ShowLocationDialogImplCopyWithImpl(_$ShowLocationDialogImpl<T> _value,
+      $Res Function(_$ShowLocationDialogImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ShowLocationDialogImpl<T> implements ShowLocationDialog<T> {
+  const _$ShowLocationDialogImpl();
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.showLocationDialog()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ShowLocationDialogImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() showLocationDialog,
+    required TResult Function() fetchHomeDataLoading,
+    required TResult Function(FetchHomeResponse homeResponse)
+        fetchHomeDataSuccess,
+    required TResult Function(String error) fetchHomeDataError,
+  }) {
+    return showLocationDialog();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? showLocationDialog,
+    TResult? Function()? fetchHomeDataLoading,
+    TResult? Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
+    TResult? Function(String error)? fetchHomeDataError,
+  }) {
+    return showLocationDialog?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? showLocationDialog,
+    TResult Function()? fetchHomeDataLoading,
+    TResult Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
+    TResult Function(String error)? fetchHomeDataError,
+    required TResult orElse(),
+  }) {
+    if (showLocationDialog != null) {
+      return showLocationDialog();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ShowLocationDialog<T> value) showLocationDialog,
+    required TResult Function(FetchHomeDataLoading<T> value)
+        fetchHomeDataLoading,
+    required TResult Function(FetchHomeDataSuccess<T> value)
+        fetchHomeDataSuccess,
+    required TResult Function(FetchHomeDataError<T> value) fetchHomeDataError,
+  }) {
+    return showLocationDialog(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ShowLocationDialog<T> value)? showLocationDialog,
+    TResult? Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
+    TResult? Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
+    TResult? Function(FetchHomeDataError<T> value)? fetchHomeDataError,
+  }) {
+    return showLocationDialog?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ShowLocationDialog<T> value)? showLocationDialog,
+    TResult Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
+    TResult Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
+    TResult Function(FetchHomeDataError<T> value)? fetchHomeDataError,
+    required TResult orElse(),
+  }) {
+    if (showLocationDialog != null) {
+      return showLocationDialog(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ShowLocationDialog<T> implements HomeState<T> {
+  const factory ShowLocationDialog() = _$ShowLocationDialogImpl<T>;
 }
 
 /// @nodoc
@@ -256,6 +395,7 @@ class _$FetchHomeDataLoadingImpl<T> implements FetchHomeDataLoading<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() showLocationDialog,
     required TResult Function() fetchHomeDataLoading,
     required TResult Function(FetchHomeResponse homeResponse)
         fetchHomeDataSuccess,
@@ -268,6 +408,7 @@ class _$FetchHomeDataLoadingImpl<T> implements FetchHomeDataLoading<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? showLocationDialog,
     TResult? Function()? fetchHomeDataLoading,
     TResult? Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
     TResult? Function(String error)? fetchHomeDataError,
@@ -279,6 +420,7 @@ class _$FetchHomeDataLoadingImpl<T> implements FetchHomeDataLoading<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? showLocationDialog,
     TResult Function()? fetchHomeDataLoading,
     TResult Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
     TResult Function(String error)? fetchHomeDataError,
@@ -294,6 +436,7 @@ class _$FetchHomeDataLoadingImpl<T> implements FetchHomeDataLoading<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ShowLocationDialog<T> value) showLocationDialog,
     required TResult Function(FetchHomeDataLoading<T> value)
         fetchHomeDataLoading,
     required TResult Function(FetchHomeDataSuccess<T> value)
@@ -307,6 +450,7 @@ class _$FetchHomeDataLoadingImpl<T> implements FetchHomeDataLoading<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ShowLocationDialog<T> value)? showLocationDialog,
     TResult? Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
     TResult? Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
     TResult? Function(FetchHomeDataError<T> value)? fetchHomeDataError,
@@ -318,6 +462,7 @@ class _$FetchHomeDataLoadingImpl<T> implements FetchHomeDataLoading<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
+    TResult Function(ShowLocationDialog<T> value)? showLocationDialog,
     TResult Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
     TResult Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
     TResult Function(FetchHomeDataError<T> value)? fetchHomeDataError,
@@ -406,6 +551,7 @@ class _$FetchHomeDataSuccessImpl<T> implements FetchHomeDataSuccess<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() showLocationDialog,
     required TResult Function() fetchHomeDataLoading,
     required TResult Function(FetchHomeResponse homeResponse)
         fetchHomeDataSuccess,
@@ -418,6 +564,7 @@ class _$FetchHomeDataSuccessImpl<T> implements FetchHomeDataSuccess<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? showLocationDialog,
     TResult? Function()? fetchHomeDataLoading,
     TResult? Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
     TResult? Function(String error)? fetchHomeDataError,
@@ -429,6 +576,7 @@ class _$FetchHomeDataSuccessImpl<T> implements FetchHomeDataSuccess<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? showLocationDialog,
     TResult Function()? fetchHomeDataLoading,
     TResult Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
     TResult Function(String error)? fetchHomeDataError,
@@ -444,6 +592,7 @@ class _$FetchHomeDataSuccessImpl<T> implements FetchHomeDataSuccess<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ShowLocationDialog<T> value) showLocationDialog,
     required TResult Function(FetchHomeDataLoading<T> value)
         fetchHomeDataLoading,
     required TResult Function(FetchHomeDataSuccess<T> value)
@@ -457,6 +606,7 @@ class _$FetchHomeDataSuccessImpl<T> implements FetchHomeDataSuccess<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ShowLocationDialog<T> value)? showLocationDialog,
     TResult? Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
     TResult? Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
     TResult? Function(FetchHomeDataError<T> value)? fetchHomeDataError,
@@ -468,6 +618,7 @@ class _$FetchHomeDataSuccessImpl<T> implements FetchHomeDataSuccess<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
+    TResult Function(ShowLocationDialog<T> value)? showLocationDialog,
     TResult Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
     TResult Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
     TResult Function(FetchHomeDataError<T> value)? fetchHomeDataError,
@@ -563,6 +714,7 @@ class _$FetchHomeDataErrorImpl<T> implements FetchHomeDataError<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() showLocationDialog,
     required TResult Function() fetchHomeDataLoading,
     required TResult Function(FetchHomeResponse homeResponse)
         fetchHomeDataSuccess,
@@ -575,6 +727,7 @@ class _$FetchHomeDataErrorImpl<T> implements FetchHomeDataError<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? showLocationDialog,
     TResult? Function()? fetchHomeDataLoading,
     TResult? Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
     TResult? Function(String error)? fetchHomeDataError,
@@ -586,6 +739,7 @@ class _$FetchHomeDataErrorImpl<T> implements FetchHomeDataError<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? showLocationDialog,
     TResult Function()? fetchHomeDataLoading,
     TResult Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
     TResult Function(String error)? fetchHomeDataError,
@@ -601,6 +755,7 @@ class _$FetchHomeDataErrorImpl<T> implements FetchHomeDataError<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ShowLocationDialog<T> value) showLocationDialog,
     required TResult Function(FetchHomeDataLoading<T> value)
         fetchHomeDataLoading,
     required TResult Function(FetchHomeDataSuccess<T> value)
@@ -614,6 +769,7 @@ class _$FetchHomeDataErrorImpl<T> implements FetchHomeDataError<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ShowLocationDialog<T> value)? showLocationDialog,
     TResult? Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
     TResult? Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
     TResult? Function(FetchHomeDataError<T> value)? fetchHomeDataError,
@@ -625,6 +781,7 @@ class _$FetchHomeDataErrorImpl<T> implements FetchHomeDataError<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
+    TResult Function(ShowLocationDialog<T> value)? showLocationDialog,
     TResult Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
     TResult Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
     TResult Function(FetchHomeDataError<T> value)? fetchHomeDataError,
