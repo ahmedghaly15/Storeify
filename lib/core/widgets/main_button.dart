@@ -48,7 +48,7 @@ class MainButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width?.w,
-      height: height?.h ?? 42.0.h,
+      height: height?.h,
       margin: margin,
       decoration: BoxDecoration(
         color: _backgroundColor(context),
@@ -64,7 +64,7 @@ class MainButton extends StatelessWidget {
             : border,
       ),
       child: MaterialButton(
-        padding: padding,
+        padding: EdgeInsets.symmetric(vertical: 16.h),
         onPressed: onPressed,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusDirectional.circular(

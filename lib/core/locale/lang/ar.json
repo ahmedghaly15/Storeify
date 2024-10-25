@@ -137,5 +137,11 @@
     "confirm": "تاكيد",
     "enableLocationPermission": "منح إذن لتطبيق Store-ify للوصول إلى موقع هذا الجهاز الجغرافي؟",
     "ok": "موافق",
-    "accountCreatedSuccessfully": "تم انشاء الحساب بنجاح. يرجى تسجيل الدخول."
+    "accountCreatedSuccessfully": "تم انشاء الحساب بنجاح. يرجى تسجيل الدخول.",
+    "PASSWORD_INCORRECT": "كلمة المرور غير صحيحة. الرجاء المحاولة مرة أخرى.",
+    "changePassword": "تغيير كلمة المرور",
+    "oldPassword": "كلمة المرور القديمة",
+    "newPassword": "كلمة المرور الجديدة",
+    "confirmNewPassword": "تاكيد كلمة المرور الجديدة",
+    "passChangedSuccessfully": "تم تغيير كلمة المرور بنجاح"
 }

@@ -68,16 +68,16 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
   }
 
-  bool isPasswordVisible = true;
-  void invertPasswordVisibility() {
-    isPasswordVisible = !isPasswordVisible;
-    emit(RegisterState.invertPasswordVisibility(isPasswordVisible));
+  bool isPassObscured = true;
+  void togglePassVisibility() {
+    isPassObscured = !isPassObscured;
+    emit(RegisterState.togglePassVisibility(isPassObscured));
   }
 
-  bool isConfirmPassVisible = true;
-  void invertConfirmPasswordVisibility() {
-    isConfirmPassVisible = !isConfirmPassVisible;
-    emit(RegisterState.invertPasswordVisibility(isConfirmPassVisible));
+  bool isConfirmPassObscured = true;
+  void toggleConfirmPassVisibility() {
+    isConfirmPassObscured = !isConfirmPassObscured;
+    emit(RegisterState.toggleConfirmPassVisibility(isConfirmPassObscured));
   }
 
   @override

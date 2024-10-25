@@ -22,7 +22,9 @@ mixin _$RegisterState<T> {
     required TResult Function() registerLoading,
     required TResult Function(StoreifyUser data) registerSuccess,
     required TResult Function(String error) registerError,
-    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
+    required TResult Function(bool isPassObscured) togglePassVisibility,
+    required TResult Function(bool isConfirmPassObscured)
+        toggleConfirmPassVisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +33,8 @@ mixin _$RegisterState<T> {
     TResult? Function()? registerLoading,
     TResult? Function(StoreifyUser data)? registerSuccess,
     TResult? Function(String error)? registerError,
-    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
+    TResult? Function(bool isPassObscured)? togglePassVisibility,
+    TResult? Function(bool isConfirmPassObscured)? toggleConfirmPassVisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +43,8 @@ mixin _$RegisterState<T> {
     TResult Function()? registerLoading,
     TResult Function(StoreifyUser data)? registerSuccess,
     TResult Function(String error)? registerError,
-    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
+    TResult Function(bool isPassObscured)? togglePassVisibility,
+    TResult Function(bool isConfirmPassObscured)? toggleConfirmPassVisibility,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,8 +54,10 @@ mixin _$RegisterState<T> {
     required TResult Function(RegisterLoading<T> value) registerLoading,
     required TResult Function(RegisterSuccess<T> value) registerSuccess,
     required TResult Function(RegisterError<T> value) registerError,
-    required TResult Function(InvertPasswordVisibility<T> value)
-        invertPasswordVisibility,
+    required TResult Function(TogglePassVisibility<T> value)
+        togglePassVisibility,
+    required TResult Function(ToggleConfirmPassVisibility<T> value)
+        toggleConfirmPassVisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,8 +66,9 @@ mixin _$RegisterState<T> {
     TResult? Function(RegisterLoading<T> value)? registerLoading,
     TResult? Function(RegisterSuccess<T> value)? registerSuccess,
     TResult? Function(RegisterError<T> value)? registerError,
-    TResult? Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
+    TResult? Function(TogglePassVisibility<T> value)? togglePassVisibility,
+    TResult? Function(ToggleConfirmPassVisibility<T> value)?
+        toggleConfirmPassVisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,8 +77,9 @@ mixin _$RegisterState<T> {
     TResult Function(RegisterLoading<T> value)? registerLoading,
     TResult Function(RegisterSuccess<T> value)? registerSuccess,
     TResult Function(RegisterError<T> value)? registerError,
-    TResult Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
+    TResult Function(TogglePassVisibility<T> value)? togglePassVisibility,
+    TResult Function(ToggleConfirmPassVisibility<T> value)?
+        toggleConfirmPassVisibility,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -143,7 +151,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() registerLoading,
     required TResult Function(StoreifyUser data) registerSuccess,
     required TResult Function(String error) registerError,
-    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
+    required TResult Function(bool isPassObscured) togglePassVisibility,
+    required TResult Function(bool isConfirmPassObscured)
+        toggleConfirmPassVisibility,
   }) {
     return initial();
   }
@@ -155,7 +165,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? registerLoading,
     TResult? Function(StoreifyUser data)? registerSuccess,
     TResult? Function(String error)? registerError,
-    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
+    TResult? Function(bool isPassObscured)? togglePassVisibility,
+    TResult? Function(bool isConfirmPassObscured)? toggleConfirmPassVisibility,
   }) {
     return initial?.call();
   }
@@ -167,7 +178,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? registerLoading,
     TResult Function(StoreifyUser data)? registerSuccess,
     TResult Function(String error)? registerError,
-    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
+    TResult Function(bool isPassObscured)? togglePassVisibility,
+    TResult Function(bool isConfirmPassObscured)? toggleConfirmPassVisibility,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -183,8 +195,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(RegisterLoading<T> value) registerLoading,
     required TResult Function(RegisterSuccess<T> value) registerSuccess,
     required TResult Function(RegisterError<T> value) registerError,
-    required TResult Function(InvertPasswordVisibility<T> value)
-        invertPasswordVisibility,
+    required TResult Function(TogglePassVisibility<T> value)
+        togglePassVisibility,
+    required TResult Function(ToggleConfirmPassVisibility<T> value)
+        toggleConfirmPassVisibility,
   }) {
     return initial(this);
   }
@@ -196,8 +210,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(RegisterLoading<T> value)? registerLoading,
     TResult? Function(RegisterSuccess<T> value)? registerSuccess,
     TResult? Function(RegisterError<T> value)? registerError,
-    TResult? Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
+    TResult? Function(TogglePassVisibility<T> value)? togglePassVisibility,
+    TResult? Function(ToggleConfirmPassVisibility<T> value)?
+        toggleConfirmPassVisibility,
   }) {
     return initial?.call(this);
   }
@@ -209,8 +224,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(RegisterLoading<T> value)? registerLoading,
     TResult Function(RegisterSuccess<T> value)? registerSuccess,
     TResult Function(RegisterError<T> value)? registerError,
-    TResult Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
+    TResult Function(TogglePassVisibility<T> value)? togglePassVisibility,
+    TResult Function(ToggleConfirmPassVisibility<T> value)?
+        toggleConfirmPassVisibility,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -269,7 +285,9 @@ class _$RegisterLoadingImpl<T> implements RegisterLoading<T> {
     required TResult Function() registerLoading,
     required TResult Function(StoreifyUser data) registerSuccess,
     required TResult Function(String error) registerError,
-    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
+    required TResult Function(bool isPassObscured) togglePassVisibility,
+    required TResult Function(bool isConfirmPassObscured)
+        toggleConfirmPassVisibility,
   }) {
     return registerLoading();
   }
@@ -281,7 +299,8 @@ class _$RegisterLoadingImpl<T> implements RegisterLoading<T> {
     TResult? Function()? registerLoading,
     TResult? Function(StoreifyUser data)? registerSuccess,
     TResult? Function(String error)? registerError,
-    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
+    TResult? Function(bool isPassObscured)? togglePassVisibility,
+    TResult? Function(bool isConfirmPassObscured)? toggleConfirmPassVisibility,
   }) {
     return registerLoading?.call();
   }
@@ -293,7 +312,8 @@ class _$RegisterLoadingImpl<T> implements RegisterLoading<T> {
     TResult Function()? registerLoading,
     TResult Function(StoreifyUser data)? registerSuccess,
     TResult Function(String error)? registerError,
-    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
+    TResult Function(bool isPassObscured)? togglePassVisibility,
+    TResult Function(bool isConfirmPassObscured)? toggleConfirmPassVisibility,
     required TResult orElse(),
   }) {
     if (registerLoading != null) {
@@ -309,8 +329,10 @@ class _$RegisterLoadingImpl<T> implements RegisterLoading<T> {
     required TResult Function(RegisterLoading<T> value) registerLoading,
     required TResult Function(RegisterSuccess<T> value) registerSuccess,
     required TResult Function(RegisterError<T> value) registerError,
-    required TResult Function(InvertPasswordVisibility<T> value)
-        invertPasswordVisibility,
+    required TResult Function(TogglePassVisibility<T> value)
+        togglePassVisibility,
+    required TResult Function(ToggleConfirmPassVisibility<T> value)
+        toggleConfirmPassVisibility,
   }) {
     return registerLoading(this);
   }
@@ -322,8 +344,9 @@ class _$RegisterLoadingImpl<T> implements RegisterLoading<T> {
     TResult? Function(RegisterLoading<T> value)? registerLoading,
     TResult? Function(RegisterSuccess<T> value)? registerSuccess,
     TResult? Function(RegisterError<T> value)? registerError,
-    TResult? Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
+    TResult? Function(TogglePassVisibility<T> value)? togglePassVisibility,
+    TResult? Function(ToggleConfirmPassVisibility<T> value)?
+        toggleConfirmPassVisibility,
   }) {
     return registerLoading?.call(this);
   }
@@ -335,8 +358,9 @@ class _$RegisterLoadingImpl<T> implements RegisterLoading<T> {
     TResult Function(RegisterLoading<T> value)? registerLoading,
     TResult Function(RegisterSuccess<T> value)? registerSuccess,
     TResult Function(RegisterError<T> value)? registerError,
-    TResult Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
+    TResult Function(TogglePassVisibility<T> value)? togglePassVisibility,
+    TResult Function(ToggleConfirmPassVisibility<T> value)?
+        toggleConfirmPassVisibility,
     required TResult orElse(),
   }) {
     if (registerLoading != null) {
@@ -423,7 +447,9 @@ class _$RegisterSuccessImpl<T> implements RegisterSuccess<T> {
     required TResult Function() registerLoading,
     required TResult Function(StoreifyUser data) registerSuccess,
     required TResult Function(String error) registerError,
-    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
+    required TResult Function(bool isPassObscured) togglePassVisibility,
+    required TResult Function(bool isConfirmPassObscured)
+        toggleConfirmPassVisibility,
   }) {
     return registerSuccess(data);
   }
@@ -435,7 +461,8 @@ class _$RegisterSuccessImpl<T> implements RegisterSuccess<T> {
     TResult? Function()? registerLoading,
     TResult? Function(StoreifyUser data)? registerSuccess,
     TResult? Function(String error)? registerError,
-    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
+    TResult? Function(bool isPassObscured)? togglePassVisibility,
+    TResult? Function(bool isConfirmPassObscured)? toggleConfirmPassVisibility,
   }) {
     return registerSuccess?.call(data);
   }
@@ -447,7 +474,8 @@ class _$RegisterSuccessImpl<T> implements RegisterSuccess<T> {
     TResult Function()? registerLoading,
     TResult Function(StoreifyUser data)? registerSuccess,
     TResult Function(String error)? registerError,
-    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
+    TResult Function(bool isPassObscured)? togglePassVisibility,
+    TResult Function(bool isConfirmPassObscured)? toggleConfirmPassVisibility,
     required TResult orElse(),
   }) {
     if (registerSuccess != null) {
@@ -463,8 +491,10 @@ class _$RegisterSuccessImpl<T> implements RegisterSuccess<T> {
     required TResult Function(RegisterLoading<T> value) registerLoading,
     required TResult Function(RegisterSuccess<T> value) registerSuccess,
     required TResult Function(RegisterError<T> value) registerError,
-    required TResult Function(InvertPasswordVisibility<T> value)
-        invertPasswordVisibility,
+    required TResult Function(TogglePassVisibility<T> value)
+        togglePassVisibility,
+    required TResult Function(ToggleConfirmPassVisibility<T> value)
+        toggleConfirmPassVisibility,
   }) {
     return registerSuccess(this);
   }
@@ -476,8 +506,9 @@ class _$RegisterSuccessImpl<T> implements RegisterSuccess<T> {
     TResult? Function(RegisterLoading<T> value)? registerLoading,
     TResult? Function(RegisterSuccess<T> value)? registerSuccess,
     TResult? Function(RegisterError<T> value)? registerError,
-    TResult? Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
+    TResult? Function(TogglePassVisibility<T> value)? togglePassVisibility,
+    TResult? Function(ToggleConfirmPassVisibility<T> value)?
+        toggleConfirmPassVisibility,
   }) {
     return registerSuccess?.call(this);
   }
@@ -489,8 +520,9 @@ class _$RegisterSuccessImpl<T> implements RegisterSuccess<T> {
     TResult Function(RegisterLoading<T> value)? registerLoading,
     TResult Function(RegisterSuccess<T> value)? registerSuccess,
     TResult Function(RegisterError<T> value)? registerError,
-    TResult Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
+    TResult Function(TogglePassVisibility<T> value)? togglePassVisibility,
+    TResult Function(ToggleConfirmPassVisibility<T> value)?
+        toggleConfirmPassVisibility,
     required TResult orElse(),
   }) {
     if (registerSuccess != null) {
@@ -586,7 +618,9 @@ class _$RegisterErrorImpl<T> implements RegisterError<T> {
     required TResult Function() registerLoading,
     required TResult Function(StoreifyUser data) registerSuccess,
     required TResult Function(String error) registerError,
-    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
+    required TResult Function(bool isPassObscured) togglePassVisibility,
+    required TResult Function(bool isConfirmPassObscured)
+        toggleConfirmPassVisibility,
   }) {
     return registerError(error);
   }
@@ -598,7 +632,8 @@ class _$RegisterErrorImpl<T> implements RegisterError<T> {
     TResult? Function()? registerLoading,
     TResult? Function(StoreifyUser data)? registerSuccess,
     TResult? Function(String error)? registerError,
-    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
+    TResult? Function(bool isPassObscured)? togglePassVisibility,
+    TResult? Function(bool isConfirmPassObscured)? toggleConfirmPassVisibility,
   }) {
     return registerError?.call(error);
   }
@@ -610,7 +645,8 @@ class _$RegisterErrorImpl<T> implements RegisterError<T> {
     TResult Function()? registerLoading,
     TResult Function(StoreifyUser data)? registerSuccess,
     TResult Function(String error)? registerError,
-    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
+    TResult Function(bool isPassObscured)? togglePassVisibility,
+    TResult Function(bool isConfirmPassObscured)? toggleConfirmPassVisibility,
     required TResult orElse(),
   }) {
     if (registerError != null) {
@@ -626,8 +662,10 @@ class _$RegisterErrorImpl<T> implements RegisterError<T> {
     required TResult Function(RegisterLoading<T> value) registerLoading,
     required TResult Function(RegisterSuccess<T> value) registerSuccess,
     required TResult Function(RegisterError<T> value) registerError,
-    required TResult Function(InvertPasswordVisibility<T> value)
-        invertPasswordVisibility,
+    required TResult Function(TogglePassVisibility<T> value)
+        togglePassVisibility,
+    required TResult Function(ToggleConfirmPassVisibility<T> value)
+        toggleConfirmPassVisibility,
   }) {
     return registerError(this);
   }
@@ -639,8 +677,9 @@ class _$RegisterErrorImpl<T> implements RegisterError<T> {
     TResult? Function(RegisterLoading<T> value)? registerLoading,
     TResult? Function(RegisterSuccess<T> value)? registerSuccess,
     TResult? Function(RegisterError<T> value)? registerError,
-    TResult? Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
+    TResult? Function(TogglePassVisibility<T> value)? togglePassVisibility,
+    TResult? Function(ToggleConfirmPassVisibility<T> value)?
+        toggleConfirmPassVisibility,
   }) {
     return registerError?.call(this);
   }
@@ -652,8 +691,9 @@ class _$RegisterErrorImpl<T> implements RegisterError<T> {
     TResult Function(RegisterLoading<T> value)? registerLoading,
     TResult Function(RegisterSuccess<T> value)? registerSuccess,
     TResult Function(RegisterError<T> value)? registerError,
-    TResult Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
+    TResult Function(TogglePassVisibility<T> value)? togglePassVisibility,
+    TResult Function(ToggleConfirmPassVisibility<T> value)?
+        toggleConfirmPassVisibility,
     required TResult orElse(),
   }) {
     if (registerError != null) {
@@ -676,23 +716,21 @@ abstract class RegisterError<T> implements RegisterState<T> {
 }
 
 /// @nodoc
-abstract class _$$InvertPasswordVisibilityImplCopyWith<T, $Res> {
-  factory _$$InvertPasswordVisibilityImplCopyWith(
-          _$InvertPasswordVisibilityImpl<T> value,
-          $Res Function(_$InvertPasswordVisibilityImpl<T>) then) =
-      __$$InvertPasswordVisibilityImplCopyWithImpl<T, $Res>;
+abstract class _$$TogglePassVisibilityImplCopyWith<T, $Res> {
+  factory _$$TogglePassVisibilityImplCopyWith(
+          _$TogglePassVisibilityImpl<T> value,
+          $Res Function(_$TogglePassVisibilityImpl<T>) then) =
+      __$$TogglePassVisibilityImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({bool isPasswordVisible});
+  $Res call({bool isPassObscured});
 }
 
 /// @nodoc
-class __$$InvertPasswordVisibilityImplCopyWithImpl<T, $Res>
-    extends _$RegisterStateCopyWithImpl<T, $Res,
-        _$InvertPasswordVisibilityImpl<T>>
-    implements _$$InvertPasswordVisibilityImplCopyWith<T, $Res> {
-  __$$InvertPasswordVisibilityImplCopyWithImpl(
-      _$InvertPasswordVisibilityImpl<T> _value,
-      $Res Function(_$InvertPasswordVisibilityImpl<T>) _then)
+class __$$TogglePassVisibilityImplCopyWithImpl<T, $Res>
+    extends _$RegisterStateCopyWithImpl<T, $Res, _$TogglePassVisibilityImpl<T>>
+    implements _$$TogglePassVisibilityImplCopyWith<T, $Res> {
+  __$$TogglePassVisibilityImplCopyWithImpl(_$TogglePassVisibilityImpl<T> _value,
+      $Res Function(_$TogglePassVisibilityImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of RegisterState
@@ -700,12 +738,12 @@ class __$$InvertPasswordVisibilityImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isPasswordVisible = null,
+    Object? isPassObscured = null,
   }) {
-    return _then(_$InvertPasswordVisibilityImpl<T>(
-      null == isPasswordVisible
-          ? _value.isPasswordVisible
-          : isPasswordVisible // ignore: cast_nullable_to_non_nullable
+    return _then(_$TogglePassVisibilityImpl<T>(
+      null == isPassObscured
+          ? _value.isPassObscured
+          : isPassObscured // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -713,37 +751,37 @@ class __$$InvertPasswordVisibilityImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$InvertPasswordVisibilityImpl<T> implements InvertPasswordVisibility<T> {
-  const _$InvertPasswordVisibilityImpl(this.isPasswordVisible);
+class _$TogglePassVisibilityImpl<T> implements TogglePassVisibility<T> {
+  const _$TogglePassVisibilityImpl(this.isPassObscured);
 
   @override
-  final bool isPasswordVisible;
+  final bool isPassObscured;
 
   @override
   String toString() {
-    return 'RegisterState<$T>.invertPasswordVisibility(isPasswordVisible: $isPasswordVisible)';
+    return 'RegisterState<$T>.togglePassVisibility(isPassObscured: $isPassObscured)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InvertPasswordVisibilityImpl<T> &&
-            (identical(other.isPasswordVisible, isPasswordVisible) ||
-                other.isPasswordVisible == isPasswordVisible));
+            other is _$TogglePassVisibilityImpl<T> &&
+            (identical(other.isPassObscured, isPassObscured) ||
+                other.isPassObscured == isPassObscured));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isPasswordVisible);
+  int get hashCode => Object.hash(runtimeType, isPassObscured);
 
   /// Create a copy of RegisterState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$InvertPasswordVisibilityImplCopyWith<T, _$InvertPasswordVisibilityImpl<T>>
-      get copyWith => __$$InvertPasswordVisibilityImplCopyWithImpl<T,
-          _$InvertPasswordVisibilityImpl<T>>(this, _$identity);
+  _$$TogglePassVisibilityImplCopyWith<T, _$TogglePassVisibilityImpl<T>>
+      get copyWith => __$$TogglePassVisibilityImplCopyWithImpl<T,
+          _$TogglePassVisibilityImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -752,9 +790,11 @@ class _$InvertPasswordVisibilityImpl<T> implements InvertPasswordVisibility<T> {
     required TResult Function() registerLoading,
     required TResult Function(StoreifyUser data) registerSuccess,
     required TResult Function(String error) registerError,
-    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
+    required TResult Function(bool isPassObscured) togglePassVisibility,
+    required TResult Function(bool isConfirmPassObscured)
+        toggleConfirmPassVisibility,
   }) {
-    return invertPasswordVisibility(isPasswordVisible);
+    return togglePassVisibility(isPassObscured);
   }
 
   @override
@@ -764,9 +804,10 @@ class _$InvertPasswordVisibilityImpl<T> implements InvertPasswordVisibility<T> {
     TResult? Function()? registerLoading,
     TResult? Function(StoreifyUser data)? registerSuccess,
     TResult? Function(String error)? registerError,
-    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
+    TResult? Function(bool isPassObscured)? togglePassVisibility,
+    TResult? Function(bool isConfirmPassObscured)? toggleConfirmPassVisibility,
   }) {
-    return invertPasswordVisibility?.call(isPasswordVisible);
+    return togglePassVisibility?.call(isPassObscured);
   }
 
   @override
@@ -776,11 +817,12 @@ class _$InvertPasswordVisibilityImpl<T> implements InvertPasswordVisibility<T> {
     TResult Function()? registerLoading,
     TResult Function(StoreifyUser data)? registerSuccess,
     TResult Function(String error)? registerError,
-    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
+    TResult Function(bool isPassObscured)? togglePassVisibility,
+    TResult Function(bool isConfirmPassObscured)? toggleConfirmPassVisibility,
     required TResult orElse(),
   }) {
-    if (invertPasswordVisibility != null) {
-      return invertPasswordVisibility(isPasswordVisible);
+    if (togglePassVisibility != null) {
+      return togglePassVisibility(isPassObscured);
     }
     return orElse();
   }
@@ -792,10 +834,12 @@ class _$InvertPasswordVisibilityImpl<T> implements InvertPasswordVisibility<T> {
     required TResult Function(RegisterLoading<T> value) registerLoading,
     required TResult Function(RegisterSuccess<T> value) registerSuccess,
     required TResult Function(RegisterError<T> value) registerError,
-    required TResult Function(InvertPasswordVisibility<T> value)
-        invertPasswordVisibility,
+    required TResult Function(TogglePassVisibility<T> value)
+        togglePassVisibility,
+    required TResult Function(ToggleConfirmPassVisibility<T> value)
+        toggleConfirmPassVisibility,
   }) {
-    return invertPasswordVisibility(this);
+    return togglePassVisibility(this);
   }
 
   @override
@@ -805,10 +849,11 @@ class _$InvertPasswordVisibilityImpl<T> implements InvertPasswordVisibility<T> {
     TResult? Function(RegisterLoading<T> value)? registerLoading,
     TResult? Function(RegisterSuccess<T> value)? registerSuccess,
     TResult? Function(RegisterError<T> value)? registerError,
-    TResult? Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
+    TResult? Function(TogglePassVisibility<T> value)? togglePassVisibility,
+    TResult? Function(ToggleConfirmPassVisibility<T> value)?
+        toggleConfirmPassVisibility,
   }) {
-    return invertPasswordVisibility?.call(this);
+    return togglePassVisibility?.call(this);
   }
 
   @override
@@ -818,26 +863,205 @@ class _$InvertPasswordVisibilityImpl<T> implements InvertPasswordVisibility<T> {
     TResult Function(RegisterLoading<T> value)? registerLoading,
     TResult Function(RegisterSuccess<T> value)? registerSuccess,
     TResult Function(RegisterError<T> value)? registerError,
-    TResult Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
+    TResult Function(TogglePassVisibility<T> value)? togglePassVisibility,
+    TResult Function(ToggleConfirmPassVisibility<T> value)?
+        toggleConfirmPassVisibility,
     required TResult orElse(),
   }) {
-    if (invertPasswordVisibility != null) {
-      return invertPasswordVisibility(this);
+    if (togglePassVisibility != null) {
+      return togglePassVisibility(this);
     }
     return orElse();
   }
 }
 
-abstract class InvertPasswordVisibility<T> implements RegisterState<T> {
-  const factory InvertPasswordVisibility(final bool isPasswordVisible) =
-      _$InvertPasswordVisibilityImpl<T>;
+abstract class TogglePassVisibility<T> implements RegisterState<T> {
+  const factory TogglePassVisibility(final bool isPassObscured) =
+      _$TogglePassVisibilityImpl<T>;
 
-  bool get isPasswordVisible;
+  bool get isPassObscured;
 
   /// Create a copy of RegisterState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$InvertPasswordVisibilityImplCopyWith<T, _$InvertPasswordVisibilityImpl<T>>
+  _$$TogglePassVisibilityImplCopyWith<T, _$TogglePassVisibilityImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ToggleConfirmPassVisibilityImplCopyWith<T, $Res> {
+  factory _$$ToggleConfirmPassVisibilityImplCopyWith(
+          _$ToggleConfirmPassVisibilityImpl<T> value,
+          $Res Function(_$ToggleConfirmPassVisibilityImpl<T>) then) =
+      __$$ToggleConfirmPassVisibilityImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({bool isConfirmPassObscured});
+}
+
+/// @nodoc
+class __$$ToggleConfirmPassVisibilityImplCopyWithImpl<T, $Res>
+    extends _$RegisterStateCopyWithImpl<T, $Res,
+        _$ToggleConfirmPassVisibilityImpl<T>>
+    implements _$$ToggleConfirmPassVisibilityImplCopyWith<T, $Res> {
+  __$$ToggleConfirmPassVisibilityImplCopyWithImpl(
+      _$ToggleConfirmPassVisibilityImpl<T> _value,
+      $Res Function(_$ToggleConfirmPassVisibilityImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of RegisterState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isConfirmPassObscured = null,
+  }) {
+    return _then(_$ToggleConfirmPassVisibilityImpl<T>(
+      null == isConfirmPassObscured
+          ? _value.isConfirmPassObscured
+          : isConfirmPassObscured // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ToggleConfirmPassVisibilityImpl<T>
+    implements ToggleConfirmPassVisibility<T> {
+  const _$ToggleConfirmPassVisibilityImpl(this.isConfirmPassObscured);
+
+  @override
+  final bool isConfirmPassObscured;
+
+  @override
+  String toString() {
+    return 'RegisterState<$T>.toggleConfirmPassVisibility(isConfirmPassObscured: $isConfirmPassObscured)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleConfirmPassVisibilityImpl<T> &&
+            (identical(other.isConfirmPassObscured, isConfirmPassObscured) ||
+                other.isConfirmPassObscured == isConfirmPassObscured));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isConfirmPassObscured);
+
+  /// Create a copy of RegisterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ToggleConfirmPassVisibilityImplCopyWith<T,
+          _$ToggleConfirmPassVisibilityImpl<T>>
+      get copyWith => __$$ToggleConfirmPassVisibilityImplCopyWithImpl<T,
+          _$ToggleConfirmPassVisibilityImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() registerLoading,
+    required TResult Function(StoreifyUser data) registerSuccess,
+    required TResult Function(String error) registerError,
+    required TResult Function(bool isPassObscured) togglePassVisibility,
+    required TResult Function(bool isConfirmPassObscured)
+        toggleConfirmPassVisibility,
+  }) {
+    return toggleConfirmPassVisibility(isConfirmPassObscured);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? registerLoading,
+    TResult? Function(StoreifyUser data)? registerSuccess,
+    TResult? Function(String error)? registerError,
+    TResult? Function(bool isPassObscured)? togglePassVisibility,
+    TResult? Function(bool isConfirmPassObscured)? toggleConfirmPassVisibility,
+  }) {
+    return toggleConfirmPassVisibility?.call(isConfirmPassObscured);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? registerLoading,
+    TResult Function(StoreifyUser data)? registerSuccess,
+    TResult Function(String error)? registerError,
+    TResult Function(bool isPassObscured)? togglePassVisibility,
+    TResult Function(bool isConfirmPassObscured)? toggleConfirmPassVisibility,
+    required TResult orElse(),
+  }) {
+    if (toggleConfirmPassVisibility != null) {
+      return toggleConfirmPassVisibility(isConfirmPassObscured);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(RegisterLoading<T> value) registerLoading,
+    required TResult Function(RegisterSuccess<T> value) registerSuccess,
+    required TResult Function(RegisterError<T> value) registerError,
+    required TResult Function(TogglePassVisibility<T> value)
+        togglePassVisibility,
+    required TResult Function(ToggleConfirmPassVisibility<T> value)
+        toggleConfirmPassVisibility,
+  }) {
+    return toggleConfirmPassVisibility(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(RegisterLoading<T> value)? registerLoading,
+    TResult? Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult? Function(RegisterError<T> value)? registerError,
+    TResult? Function(TogglePassVisibility<T> value)? togglePassVisibility,
+    TResult? Function(ToggleConfirmPassVisibility<T> value)?
+        toggleConfirmPassVisibility,
+  }) {
+    return toggleConfirmPassVisibility?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(RegisterLoading<T> value)? registerLoading,
+    TResult Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult Function(RegisterError<T> value)? registerError,
+    TResult Function(TogglePassVisibility<T> value)? togglePassVisibility,
+    TResult Function(ToggleConfirmPassVisibility<T> value)?
+        toggleConfirmPassVisibility,
+    required TResult orElse(),
+  }) {
+    if (toggleConfirmPassVisibility != null) {
+      return toggleConfirmPassVisibility(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ToggleConfirmPassVisibility<T> implements RegisterState<T> {
+  const factory ToggleConfirmPassVisibility(final bool isConfirmPassObscured) =
+      _$ToggleConfirmPassVisibilityImpl<T>;
+
+  bool get isConfirmPassObscured;
+
+  /// Create a copy of RegisterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ToggleConfirmPassVisibilityImplCopyWith<T,
+          _$ToggleConfirmPassVisibilityImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }

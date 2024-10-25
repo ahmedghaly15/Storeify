@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/auth_validator.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
-import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
+import 'package:store_ify/core/widgets/pass_text_form_field.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_state.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_label.dart';
@@ -50,45 +50,24 @@ class RegisterForm extends StatelessWidget {
           MySizedBox.height24,
           const TextFieldLabel(labelKey: LangKeys.password),
           BlocBuilder<RegisterCubit, RegisterState>(
-            buildWhen: (_, current) => current is InvertPasswordVisibility,
-            builder: (context, state) => CustomTextField(
-              obscureText: registerCubit.isPasswordVisible,
-              suffixIcon: IconButton(
-                onPressed: () => registerCubit.invertPasswordVisibility(),
-                icon: Icon(
-                  registerCubit.isPasswordVisible
-                      ? Icons.visibility_outlined
-                      : Icons.visibility_off_outlined,
-                  color: AppColors.primaryColor,
-                ),
-              ),
-              validate: (value) =>
-                  AuthValidator.validatePasswordField(context, value: value),
+            buildWhen: (_, current) => current is TogglePassVisibility,
+            builder: (context, state) => PassTextFormField(
               controller: registerCubit.passwordController,
-              keyboardType: TextInputType.visiblePassword,
               hintTextKey: LangKeys.passwordHint,
-              autofillHints: const <String>[AutofillHints.password],
               focusNode: registerCubit.passwordFocusNode,
-              onEditingComplete: () =>
-                  context.requestFocus(registerCubit.confirmPasswordFocusNode),
+              nextFocusNode: registerCubit.confirmPasswordFocusNode,
+              obscureText: registerCubit.isPassObscured,
+              suffixOnPressed: () => registerCubit.togglePassVisibility(),
             ),
           ),
           MySizedBox.height24,
           const TextFieldLabel(labelKey: LangKeys.confirmPassword),
           BlocBuilder<RegisterCubit, RegisterState>(
-            buildWhen: (_, current) => current is InvertPasswordVisibility,
-            builder: (context, state) => CustomTextField(
-              obscureText: registerCubit.isConfirmPassVisible,
-              suffixIcon: IconButton(
-                onPressed: () =>
-                    registerCubit.invertConfirmPasswordVisibility(),
-                icon: Icon(
-                  registerCubit.isConfirmPassVisible
-                      ? Icons.visibility_outlined
-                      : Icons.visibility_off_outlined,
-                  color: AppColors.primaryColor,
-                ),
-              ),
+            buildWhen: (_, current) => current is ToggleConfirmPassVisibility,
+            builder: (context, state) => PassTextFormField(
+              obscureText: registerCubit.isConfirmPassObscured,
+              suffixOnPressed: () =>
+                  registerCubit.toggleConfirmPassVisibility(),
               onSubmit: (_) => registerCubit.register(),
               validate: (value) => AuthValidator.validateConfirmPasswordField(
                 context,
@@ -99,7 +78,7 @@ class RegisterForm extends StatelessWidget {
               controller: registerCubit.confirmController,
               keyboardType: TextInputType.visiblePassword,
               hintTextKey: LangKeys.passwordHint,
-              autofillHints: const <String>[AutofillHints.password],
+              autofillHints: const <String>[AutofillHints.newPassword],
               focusNode: registerCubit.confirmPasswordFocusNode,
             ),
           ),

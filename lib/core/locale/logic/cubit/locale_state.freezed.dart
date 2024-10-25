@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LocaleState<T> {
-  LocaleSateStatus get status => throw _privateConstructorUsedError;
+  LocaleStateStatus get status => throw _privateConstructorUsedError;
   Locale get locale => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
 
@@ -33,7 +33,7 @@ abstract class $LocaleStateCopyWith<T, $Res> {
           LocaleState<T> value, $Res Function(LocaleState<T>) then) =
       _$LocaleStateCopyWithImpl<T, $Res, LocaleState<T>>;
   @useResult
-  $Res call({LocaleSateStatus status, Locale locale, String? error});
+  $Res call({LocaleStateStatus status, Locale locale, String? error});
 }
 
 /// @nodoc
@@ -59,7 +59,7 @@ class _$LocaleStateCopyWithImpl<T, $Res, $Val extends LocaleState<T>>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as LocaleSateStatus,
+              as LocaleStateStatus,
       locale: null == locale
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
@@ -80,7 +80,7 @@ abstract class _$$LocaleStateImplCopyWith<T, $Res>
       __$$LocaleStateImplCopyWithImpl<T, $Res>;
   @override
   @useResult
-  $Res call({LocaleSateStatus status, Locale locale, String? error});
+  $Res call({LocaleStateStatus status, Locale locale, String? error});
 }
 
 /// @nodoc
@@ -104,7 +104,7 @@ class __$$LocaleStateImplCopyWithImpl<T, $Res>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as LocaleSateStatus,
+              as LocaleStateStatus,
       locale: null == locale
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
@@ -126,7 +126,7 @@ class _$LocaleStateImpl<T> implements _LocaleState<T> {
       this.error});
 
   @override
-  final LocaleSateStatus status;
+  final LocaleStateStatus status;
   @override
   @JsonKey()
   final Locale locale;
@@ -163,12 +163,12 @@ class _$LocaleStateImpl<T> implements _LocaleState<T> {
 
 abstract class _LocaleState<T> implements LocaleState<T> {
   const factory _LocaleState(
-      {required final LocaleSateStatus status,
+      {required final LocaleStateStatus status,
       final Locale locale,
       final String? error}) = _$LocaleStateImpl<T>;
 
   @override
-  LocaleSateStatus get status;
+  LocaleStateStatus get status;
   @override
   Locale get locale;
   @override

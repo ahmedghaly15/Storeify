@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/auth_validator.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
-import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
+import 'package:store_ify/core/widgets/pass_text_form_field.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_state.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_label.dart';
@@ -37,25 +37,13 @@ class LoginForm extends StatelessWidget {
           const TextFieldLabel(labelKey: LangKeys.password),
           BlocBuilder<LoginCubit, LoginState>(
             buildWhen: (_, current) => current is InvertPasswordVisibility,
-            builder: (context, _) => CustomTextField(
-              autofillHints: const <String>[AutofillHints.password],
-              validate: (String? value) =>
-                  AuthValidator.validatePasswordField(context, value: value),
-              focusNode: loginCubit.passwordFocusNode,
-              onSubmit: (_) => context.read<LoginCubit>().login(),
-              controller: loginCubit.passwordController,
-              keyboardType: TextInputType.visiblePassword,
+            builder: (context, _) => PassTextFormField(
               hintTextKey: LangKeys.passwordHint,
+              controller: loginCubit.passwordController,
+              focusNode: loginCubit.passwordFocusNode,
               obscureText: loginCubit.isPasswordVisible,
-              suffixIcon: IconButton(
-                onPressed: () => loginCubit.invertPasswordVisibility(),
-                icon: Icon(
-                  loginCubit.isPasswordVisible
-                      ? Icons.visibility_outlined
-                      : Icons.visibility_off_outlined,
-                  color: AppColors.primaryColor,
-                ),
-              ),
+              suffixOnPressed: () => loginCubit.invertPasswordVisibility(),
+              onSubmit: (_) => loginCubit.login(),
             ),
           ),
         ],
