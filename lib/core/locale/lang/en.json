@@ -139,5 +139,9 @@
     "ok": "Ok",
     "accountCreatedSuccessfully": "Account created successfully. Please login.",
     "PASSWORD_INCORRECT": "Password is incorrect. Please try again.",
-    "changePassword": "Change Password"
+    "changePassword": "Change Password",
+    "oldPassword": "Old Password",
+    "newPassword": "New Password",
+    "confirmNewPassword": "Confirm New Password",
+    "passChangedSuccessfully": "Password changed successfully"
 }

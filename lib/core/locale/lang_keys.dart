@@ -127,4 +127,8 @@ class LangKeys {
   static const String ok = 'ok';
   static const String accountCreatedSuccessfully = 'accountCreatedSuccessfully';
   static const String changePassword = 'changePassword';
+  static const String oldPassword = 'oldPassword';
+  static const String newPassword = 'newPassword';
+  static const String confirmNewPassword = 'confirmNewPassword';
+  static const String passChangedSuccessfully = 'passChangedSuccessfully';
 }

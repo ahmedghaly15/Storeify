@@ -82,6 +82,8 @@ class CustomTextField extends StatelessWidget {
         keyboardType: keyboardType,
         cursorColor:
             context.isDarkModeActive ? Colors.white : AppColors.darkColor,
+        cursorErrorColor:
+            context.isDarkModeActive ? Colors.white : AppColors.darkColor,
         textCapitalization: textCapitalization,
         textAlign: textAlign,
         decoration: InputDecoration(
