@@ -1,50 +1,65 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/themes/app_colors.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
-import 'package:store_ify/core/utils/app_strings.dart';
+import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:store_ify/core/widgets/try_again_button.dart';
 
 class CustomErrorWidget extends StatelessWidget {
   const CustomErrorWidget({
     super.key,
-    required this.onPressed,
-    required this.error,
+    this.tryAgainOnPressed,
+    required this.errorKey,
   });
 
-  final VoidCallback onPressed;
-  final String error;
+  final VoidCallback? tryAgainOnPressed;
+  final String errorKey;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      padding: EdgeInsets.symmetric(horizontal: 32.w),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          const Spacer(),
-          Icon(
-            Icons.refresh,
-            color: AppColors.primaryColor,
-            size: 150.h,
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 12.h),
-            child: Text(
-              error == AppStrings.noInternet ? '$error. Tap to try' : error,
-              style: AppTextStyles.textStyle18Bold,
-              textAlign: TextAlign.center,
+          if (errorKey == LangKeys.noInternet)
+            Image.asset(
+              AppAssets.imagesNoInternet,
+              fit: BoxFit.cover,
             ),
-          ),
-          if (error == AppStrings.noInternet)
-            Text(
-              'Connect to the internet and try again.',
-              style: AppTextStyles.textStyle14Regular,
-              textAlign: TextAlign.center,
+          if (errorKey != LangKeys.noInternet)
+            Image.asset(
+              AppAssets.imagesDefaultError,
+              fit: BoxFit.cover,
             ),
-          const Spacer(),
-          TryAgainButton(onPressed: onPressed),
-          const Spacer(),
+          Column(
+            children: [
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 12.h),
+                child: Text(
+                  context.translate(errorKey),
+                  style: AppTextStyles.textStyle18Bold,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              if (errorKey == LangKeys.noInternet)
+                Text(
+                  context.translate(LangKeys.ensureInternetConnection),
+                  style: AppTextStyles.textStyle14Regular,
+                  textAlign: TextAlign.center,
+                ),
+              if (errorKey != LangKeys.noInternet)
+                Text(
+                  context.translate(LangKeys.defaultErrorDescription),
+                  style: AppTextStyles.textStyle14Regular,
+                  textAlign: TextAlign.center,
+                ),
+            ],
+          ),
+          if (tryAgainOnPressed != null)
+            TryAgainButton(onPressed: tryAgainOnPressed),
         ],
       ),
     );

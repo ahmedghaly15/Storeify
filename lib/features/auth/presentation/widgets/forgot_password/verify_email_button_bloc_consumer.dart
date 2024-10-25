@@ -1,8 +1,7 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
-import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
 import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
@@ -15,31 +14,38 @@ class VerifyEmailButtonBlocConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ForgotPasswordCubit, ForgotPasswordState>(
-      listenWhen: (_, current) => current is Success || current is Error,
+      listenWhen: (_, current) =>
+          current is ForgotPasswordSuccess || current is ForgotPasswordError,
       listener: (context, state) {
         state.whenOrNull(
-          success: () => CustomToast.showToast(
+          forgotPasswordSuccess: () => CustomToast.showToast(
             context: context,
             messageKey: LangKeys.emailSent,
             state: CustomToastState.success,
           ),
-          error: (error) => CustomToast.showToast(
+          forgotPasswordError: (errorKey) => CustomToast.showToast(
             context: context,
-            messageKey: error,
+            messageKey: errorKey,
             state: CustomToastState.error,
           ),
         );
       },
       buildWhen: (_, current) =>
-          current is Loading || current is Error || current is Success,
+          current is ForgotPasswordLoading ||
+          current is ForgotPasswordError ||
+          current is ForgotPasswordSuccess,
       builder: (context, state) => MainButton(
-        onPressed: () {
-          // context.read<ForgotPasswordCubit>().forgotPassword(context);
-          context.pushRoute(VerificationRoute(
-              email: context.read<ForgotPasswordCubit>().emailController.text));
-        },
+        margin: EdgeInsetsDirectional.only(
+          top: 32.h,
+          bottom: 20.h,
+          start: 24.w,
+          end: 24.w,
+        ),
+        width: double.infinity,
+        onPressed: () =>
+            context.read<ForgotPasswordCubit>().forgotPassword(context),
         child: circularIndicatorOrTextWidget(
-          condition: state is Loading,
+          isLoading: state is ForgotPasswordLoading,
           context: context,
           textKey: LangKeys.verifyEmail,
         ),

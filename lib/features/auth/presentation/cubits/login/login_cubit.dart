@@ -2,18 +2,20 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
+import 'package:store_ify/features/auth/data/datasources/auth_local_datasource.dart';
 import 'package:store_ify/features/auth/data/models/login_params.dart';
-import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
+import 'package:store_ify/features/auth/data/repos/login_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  final AuthRepo _authRepo;
+  final LoginRepo _loginRepo;
 
-  LoginCubit(this._authRepo) : super(const LoginState.initial()) {
+  LoginCubit(this._loginRepo) : super(const LoginState.initial()) {
     _initFormAttributes();
   }
 
-  final _cancelToken = CancelToken();
+  final CancelToken _cancelToken = CancelToken();
   late final TextEditingController emailController;
   late final TextEditingController passwordController;
   late final FocusNode emailFocusNode;
@@ -36,8 +38,8 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   void _login() async {
-    emit(const LoginState.loading());
-    final result = await _authRepo.login(
+    emit(const LoginState.loginLoading());
+    final result = await _loginRepo.login(
       LoginParams(
         email: emailController.text.trim(),
         password: passwordController.text,
@@ -45,8 +47,13 @@ class LoginCubit extends Cubit<LoginState> {
       _cancelToken,
     );
     result.when(
-      success: (data) => emit(LoginState.success(data)),
-      error: (error) => emit(LoginState.error(error.apiErrorModel.error ?? '')),
+      success: (user) async {
+        await AuthLocalDatasource.cacheUserAndSetTokenIntoHeaders(user);
+        currentUser = user;
+        emit(LoginState.loginSuccess(user));
+      },
+      error: (errorModel) =>
+          emit(LoginState.loginError(errorModel.error ?? '')),
     );
   }
 

@@ -9,67 +9,6 @@
 
 part of 'app_router.dart';
 
-abstract class _$AppRouter extends RootStackRouter {
-  // ignore: unused_element
-  _$AppRouter({super.navigatorKey});
-
-  @override
-  final Map<String, PageFactory> pagesMap = {
-    AuthRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const Auth(),
-      );
-    },
-    BottomNavBarRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const BottomNavBar(),
-      );
-    },
-    ForgotPasswordRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(child: const ForgotPasswordView()),
-      );
-    },
-    LoginRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(child: const LoginView()),
-      );
-    },
-    ResetPasswordRoute.name: (routeData) {
-      final args = routeData.argsAs<ResetPasswordRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(
-            child: ResetPasswordView(
-          key: args.key,
-          email: args.email,
-        )),
-      );
-    },
-    SignUpRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(child: const SignUpView()),
-      );
-    },
-    VerificationRoute.name: (routeData) {
-      final args = routeData.argsAs<VerificationRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(
-            child: VerificationView(
-          key: args.key,
-          email: args.email,
-        )),
-      );
-    },
-  };
-}
-
 /// generated route for
 /// [Auth]
 class AuthRoute extends PageRouteInfo<void> {
@@ -81,7 +20,12 @@ class AuthRoute extends PageRouteInfo<void> {
 
   static const String name = 'AuthRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const Auth();
+    },
+  );
 }
 
 /// generated route for
@@ -95,7 +39,184 @@ class BottomNavBarRoute extends PageRouteInfo<void> {
 
   static const String name = 'BottomNavBarRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const BottomNavBar();
+    },
+  );
+}
+
+/// generated route for
+/// [CartView]
+class CartRoute extends PageRouteInfo<void> {
+  const CartRoute({List<PageRouteInfo>? children})
+      : super(
+          CartRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CartRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const CartView());
+    },
+  );
+}
+
+/// generated route for
+/// [CartViewBody]
+class CartRouteBody extends PageRouteInfo<CartRouteBodyArgs> {
+  CartRouteBody({
+    Key? key,
+    bool isAppBarHasLeading = false,
+    List<PageRouteInfo>? children,
+  }) : super(
+          CartRouteBody.name,
+          args: CartRouteBodyArgs(
+            key: key,
+            isAppBarHasLeading: isAppBarHasLeading,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'CartRouteBody';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<CartRouteBodyArgs>(
+          orElse: () => const CartRouteBodyArgs());
+      return WrappedRoute(
+          child: CartViewBody(
+        key: args.key,
+        isAppBarHasLeading: args.isAppBarHasLeading,
+      ));
+    },
+  );
+}
+
+class CartRouteBodyArgs {
+  const CartRouteBodyArgs({
+    this.key,
+    this.isAppBarHasLeading = false,
+  });
+
+  final Key? key;
+
+  final bool isAppBarHasLeading;
+
+  @override
+  String toString() {
+    return 'CartRouteBodyArgs{key: $key, isAppBarHasLeading: $isAppBarHasLeading}';
+  }
+}
+
+/// generated route for
+/// [CategoriesView]
+class CategoriesRoute extends PageRouteInfo<void> {
+  const CategoriesRoute({List<PageRouteInfo>? children})
+      : super(
+          CategoriesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CategoriesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const CategoriesView());
+    },
+  );
+}
+
+/// generated route for
+/// [CheckoutView]
+class CheckoutRoute extends PageRouteInfo<void> {
+  const CheckoutRoute({List<PageRouteInfo>? children})
+      : super(
+          CheckoutRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CheckoutRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const CheckoutView());
+    },
+  );
+}
+
+/// generated route for
+/// [FavoritesView]
+class FavoritesRoute extends PageRouteInfo<void> {
+  const FavoritesRoute({List<PageRouteInfo>? children})
+      : super(
+          FavoritesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'FavoritesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const FavoritesView());
+    },
+  );
+}
+
+/// generated route for
+/// [FavoritesViewBody]
+class FavoritesRouteBody extends PageRouteInfo<FavoritesRouteBodyArgs> {
+  FavoritesRouteBody({
+    Key? key,
+    bool isAppBarHasLeading = false,
+    List<PageRouteInfo>? children,
+  }) : super(
+          FavoritesRouteBody.name,
+          args: FavoritesRouteBodyArgs(
+            key: key,
+            isAppBarHasLeading: isAppBarHasLeading,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'FavoritesRouteBody';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<FavoritesRouteBodyArgs>(
+          orElse: () => const FavoritesRouteBodyArgs());
+      return WrappedRoute(
+          child: FavoritesViewBody(
+        key: args.key,
+        isAppBarHasLeading: args.isAppBarHasLeading,
+      ));
+    },
+  );
+}
+
+class FavoritesRouteBodyArgs {
+  const FavoritesRouteBodyArgs({
+    this.key,
+    this.isAppBarHasLeading = false,
+  });
+
+  final Key? key;
+
+  final bool isAppBarHasLeading;
+
+  @override
+  String toString() {
+    return 'FavoritesRouteBodyArgs{key: $key, isAppBarHasLeading: $isAppBarHasLeading}';
+  }
 }
 
 /// generated route for
@@ -109,7 +230,50 @@ class ForgotPasswordRoute extends PageRouteInfo<void> {
 
   static const String name = 'ForgotPasswordRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const ForgotPasswordView());
+    },
+  );
+}
+
+/// generated route for
+/// [HomeViewBody]
+class HomeRouteBody extends PageRouteInfo<void> {
+  const HomeRouteBody({List<PageRouteInfo>? children})
+      : super(
+          HomeRouteBody.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeRouteBody';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const HomeViewBody());
+    },
+  );
+}
+
+/// generated route for
+/// [LayoutView]
+class LayoutRoute extends PageRouteInfo<void> {
+  const LayoutRoute({List<PageRouteInfo>? children})
+      : super(
+          LayoutRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LayoutRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const LayoutView();
+    },
+  );
 }
 
 /// generated route for
@@ -123,7 +287,126 @@ class LoginRoute extends PageRouteInfo<void> {
 
   static const String name = 'LoginRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const LoginView());
+    },
+  );
+}
+
+/// generated route for
+/// [OnboardingView]
+class OnboardingRoute extends PageRouteInfo<void> {
+  const OnboardingRoute({List<PageRouteInfo>? children})
+      : super(
+          OnboardingRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OnboardingRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const OnboardingView());
+    },
+  );
+}
+
+/// generated route for
+/// [PaymentMethodView]
+class PaymentMethodRoute extends PageRouteInfo<void> {
+  const PaymentMethodRoute({List<PageRouteInfo>? children})
+      : super(
+          PaymentMethodRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PaymentMethodRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const PaymentMethodView());
+    },
+  );
+}
+
+/// generated route for
+/// [PaymentSuccessfullyView]
+class PaymentSuccessfullyRoute extends PageRouteInfo<void> {
+  const PaymentSuccessfullyRoute({List<PageRouteInfo>? children})
+      : super(
+          PaymentSuccessfullyRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PaymentSuccessfullyRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const PaymentSuccessfullyView();
+    },
+  );
+}
+
+/// generated route for
+/// [PaymentView]
+class PaymentRoute extends PageRouteInfo<void> {
+  const PaymentRoute({List<PageRouteInfo>? children})
+      : super(
+          PaymentRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PaymentRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const PaymentView());
+    },
+  );
+}
+
+/// generated route for
+/// [ProfileView]
+class ProfileRoute extends PageRouteInfo<void> {
+  const ProfileRoute({List<PageRouteInfo>? children})
+      : super(
+          ProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const ProfileView());
+    },
+  );
+}
+
+/// generated route for
+/// [RegisterView]
+class RegisterRoute extends PageRouteInfo<void> {
+  const RegisterRoute({List<PageRouteInfo>? children})
+      : super(
+          RegisterRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RegisterRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const RegisterView());
+    },
+  );
 }
 
 /// generated route for
@@ -144,8 +427,17 @@ class ResetPasswordRoute extends PageRouteInfo<ResetPasswordRouteArgs> {
 
   static const String name = 'ResetPasswordRoute';
 
-  static const PageInfo<ResetPasswordRouteArgs> page =
-      PageInfo<ResetPasswordRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<ResetPasswordRouteArgs>();
+      return WrappedRoute(
+          child: ResetPasswordView(
+        key: args.key,
+        email: args.email,
+      ));
+    },
+  );
 }
 
 class ResetPasswordRouteArgs {
@@ -165,17 +457,183 @@ class ResetPasswordRouteArgs {
 }
 
 /// generated route for
-/// [SignUpView]
-class SignUpRoute extends PageRouteInfo<void> {
-  const SignUpRoute({List<PageRouteInfo>? children})
+/// [SearchView]
+class SearchRoute extends PageRouteInfo<void> {
+  const SearchRoute({List<PageRouteInfo>? children})
       : super(
-          SignUpRoute.name,
+          SearchRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'SignUpRoute';
+  static const String name = 'SearchRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const SearchView());
+    },
+  );
+}
+
+/// generated route for
+/// [StoreDetailsView]
+class StoreDetailsRoute extends PageRouteInfo<StoreDetailsRouteArgs> {
+  StoreDetailsRoute({
+    Key? key,
+    required Store store,
+    List<PageRouteInfo>? children,
+  }) : super(
+          StoreDetailsRoute.name,
+          args: StoreDetailsRouteArgs(
+            key: key,
+            store: store,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'StoreDetailsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<StoreDetailsRouteArgs>();
+      return WrappedRoute(
+          child: StoreDetailsView(
+        key: args.key,
+        store: args.store,
+      ));
+    },
+  );
+}
+
+class StoreDetailsRouteArgs {
+  const StoreDetailsRouteArgs({
+    this.key,
+    required this.store,
+  });
+
+  final Key? key;
+
+  final Store store;
+
+  @override
+  String toString() {
+    return 'StoreDetailsRouteArgs{key: $key, store: $store}';
+  }
+}
+
+/// generated route for
+/// [StoresView]
+class StoresRoute extends PageRouteInfo<void> {
+  const StoresRoute({List<PageRouteInfo>? children})
+      : super(
+          StoresRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'StoresRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const StoresView());
+    },
+  );
+}
+
+/// generated route for
+/// [StoresViewBody]
+class StoresRouteBody extends PageRouteInfo<StoresRouteBodyArgs> {
+  StoresRouteBody({
+    Key? key,
+    bool isAppBarHasLeading = false,
+    List<PageRouteInfo>? children,
+  }) : super(
+          StoresRouteBody.name,
+          args: StoresRouteBodyArgs(
+            key: key,
+            isAppBarHasLeading: isAppBarHasLeading,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'StoresRouteBody';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<StoresRouteBodyArgs>(
+          orElse: () => const StoresRouteBodyArgs());
+      return WrappedRoute(
+          child: StoresViewBody(
+        key: args.key,
+        isAppBarHasLeading: args.isAppBarHasLeading,
+      ));
+    },
+  );
+}
+
+class StoresRouteBodyArgs {
+  const StoresRouteBodyArgs({
+    this.key,
+    this.isAppBarHasLeading = false,
+  });
+
+  final Key? key;
+
+  final bool isAppBarHasLeading;
+
+  @override
+  String toString() {
+    return 'StoresRouteBodyArgs{key: $key, isAppBarHasLeading: $isAppBarHasLeading}';
+  }
+}
+
+/// generated route for
+/// [SubCategoriesView]
+class SubCategoriesRoute extends PageRouteInfo<SubCategoriesRouteArgs> {
+  SubCategoriesRoute({
+    Key? key,
+    required Category category,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SubCategoriesRoute.name,
+          args: SubCategoriesRouteArgs(
+            key: key,
+            category: category,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'SubCategoriesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<SubCategoriesRouteArgs>();
+      return WrappedRoute(
+          child: SubCategoriesView(
+        key: args.key,
+        category: args.category,
+      ));
+    },
+  );
+}
+
+class SubCategoriesRouteArgs {
+  const SubCategoriesRouteArgs({
+    this.key,
+    required this.category,
+  });
+
+  final Key? key;
+
+  final Category category;
+
+  @override
+  String toString() {
+    return 'SubCategoriesRouteArgs{key: $key, category: $category}';
+  }
 }
 
 /// generated route for
@@ -196,8 +654,17 @@ class VerificationRoute extends PageRouteInfo<VerificationRouteArgs> {
 
   static const String name = 'VerificationRoute';
 
-  static const PageInfo<VerificationRouteArgs> page =
-      PageInfo<VerificationRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<VerificationRouteArgs>();
+      return WrappedRoute(
+          child: VerificationView(
+        key: args.key,
+        email: args.email,
+      ));
+    },
+  );
 }
 
 class VerificationRouteArgs {

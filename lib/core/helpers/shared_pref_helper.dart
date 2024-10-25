@@ -75,16 +75,23 @@ class SharedPrefHelper {
   }
 
   /// Gets an String value from FlutterSecureStorage with given [key].
-  static getSecuredString(String key) async {
+  static Future<String> getSecuredString(String key) async {
     const flutterSecureStorage = FlutterSecureStorage();
-    debugPrint('FlutterSecureStorage : getSecuredString with key :');
+    debugPrint('FlutterSecureStorage : getSecuredString with $key :');
     return await flutterSecureStorage.read(key: key) ?? '';
+  }
+
+  /// Removes a value from FlutterSecureStorage with given [key].
+  static removeSecuredData(String key) async {
+    const flutterSecureStorage = FlutterSecureStorage();
+    debugPrint('FlutterSecureStorage : data with key : $key has been removed');
+    await flutterSecureStorage.delete(key: key);
   }
 
   /// Removes all keys and values in the FlutterSecureStorage
   static clearAllSecuredData() async {
-    debugPrint('FlutterSecureStorage : all data has been cleared');
     const flutterSecureStorage = FlutterSecureStorage();
+    debugPrint('FlutterSecureStorage : all data has been cleared');
     await flutterSecureStorage.deleteAll();
   }
 }

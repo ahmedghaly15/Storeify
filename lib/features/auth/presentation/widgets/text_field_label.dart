@@ -8,17 +8,21 @@ class TextFieldLabel extends StatelessWidget {
   const TextFieldLabel({
     super.key,
     required this.labelKey,
+    this.textStyle,
+    this.margin,
   });
 
   final String labelKey;
+  final TextStyle? textStyle;
+  final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsetsDirectional.only(bottom: 9.h, start: 9.w),
+      margin: margin ?? EdgeInsetsDirectional.only(bottom: 9.h, start: 9.w),
       child: Text(
         context.translate(labelKey),
-        style: AppTextStyles.textStyle16Regular
+        style: textStyle ?? AppTextStyles.textStyle16Regular
             .copyWith(color: AppColors.primaryColor),
       ),
     );

@@ -1,20 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:store_ify/core/themes/app_text_styles.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/widgets/get_back_icon_button.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
-  const CustomSliverAppBar({super.key, required this.title});
+  const CustomSliverAppBar({
+    super.key,
+    this.titleKey,
+    this.actions,
+    this.titleWidget,
+    this.leading,
+    this.hasLeading = true,
+  });
 
-  final String title;
+  final String? titleKey;
+  final List<Widget>? actions;
+  final Widget? titleWidget;
+  final Widget? leading;
+  final bool hasLeading;
 
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      leading: const GetBackIconButton(),
-      title: Text(
-        title,
-        style: AppTextStyles.textStyle16Regular,
-      ),
+      // title: titleWidget ?? Text(titleKey ?? ''),
+      title: titleWidget ??
+          Text(titleKey == null ? '' : context.translate(titleKey!)),
+      leading: hasLeading ? leading ?? const GetBackIconButton() : null,
+      actions: actions,
     );
   }
 }

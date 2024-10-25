@@ -2,14 +2,16 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
+import 'package:store_ify/features/auth/data/datasources/auth_local_datasource.dart';
 import 'package:store_ify/features/auth/data/models/register_params.dart';
-import 'package:store_ify/features/auth/data/repos/auth_repo.dart';
+import 'package:store_ify/features/auth/data/repos/register_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
-  final AuthRepo _authRepo;
+  final RegisterRepo _registerRepo;
 
-  RegisterCubit(this._authRepo) : super(const RegisterState.initial()) {
+  RegisterCubit(this._registerRepo) : super(const RegisterState.initial()) {
     _initFormAttributes();
   }
 
@@ -48,8 +50,8 @@ class RegisterCubit extends Cubit<RegisterState> {
   }
 
   void _register() async {
-    emit(const RegisterState.loading());
-    final result = await _authRepo.register(
+    emit(const RegisterState.registerLoading());
+    final result = await _registerRepo.register(
       RegisterParams(
         username: usernameController.text.trim(),
         email: emailController.text.trim(),
@@ -59,9 +61,13 @@ class RegisterCubit extends Cubit<RegisterState> {
       _cancelToken,
     );
     result.when(
-      success: (data) => emit(RegisterState.success(data)),
-      error: (error) =>
-          emit(RegisterState.error(error.apiErrorModel.error ?? '')),
+      success: (user) async {
+        await AuthLocalDatasource.cacheUserAndSetTokenIntoHeaders(user);
+        currentUser = user;
+        emit(RegisterState.registerSuccess(user));
+      },
+      error: (errorModel) =>
+          emit(RegisterState.registerError(errorModel.error ?? '')),
     );
   }
 
