@@ -34,7 +34,10 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(const ProfileState.deleteAccountLoading());
     final result = await _profileRepo.deleteAccount(_cancelToken);
     result.when(
-      success: (_) => emit(const ProfileState.deleteAccountSuccess()),
+      success: (_) async {
+        await _removeCachedUser();
+        emit(const ProfileState.deleteAccountSuccess());
+      },
       error: (error) =>
           emit(ProfileState.deleteAccountError(error.error ?? '')),
     );
