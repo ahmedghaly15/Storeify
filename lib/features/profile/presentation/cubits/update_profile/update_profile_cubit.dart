@@ -14,18 +14,12 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
   UpdateProfileCubit(
     this._profileRepo,
   ) : super(UpdateProfileState.initial()) {
-    _initFormAttributes();
+    _initControllers();
   }
 
   final CancelToken _cancelToken = CancelToken();
-  late final GlobalKey<FormState> formKey;
   late final TextEditingController usernameController;
   late final TextEditingController emailController;
-
-  void _initFormAttributes() {
-    formKey = GlobalKey<FormState>();
-    _initControllers();
-  }
 
   void _initControllers() {
     usernameController = TextEditingController();
@@ -39,22 +33,26 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
     ));
   }
 
-  void _updateProfile() async {
+  void updateProfile() async {
     emit(state.copyWith(
       status: UpdateProfileStateStatus.updateProfileLoading,
     ));
     final params = UpdateProfileParams(
-      username: usernameController.text,
-      email: emailController.text,
-      img: state.selectedImg!,
+      username: usernameController.text.isEmpty
+          ? currentUser!.user.username
+          : usernameController.text,
+      email: emailController.text.isEmpty
+          ? currentUser!.user.email
+          : emailController.text,
+      img: state.selectedImg,
     );
     final result = await _profileRepo.updateProfile(params, _cancelToken);
     result.when(
-      success: (userData) {
+      success: (user) {
         emit(state.copyWith(
           status: UpdateProfileStateStatus.updateProfileSuccess,
           updatedUser: currentUser?.copyWith(
-            user: userData,
+            user: user.user,
           ),
         ));
       },
@@ -63,12 +61,6 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
         error: error.error,
       )),
     );
-  }
-
-  void validateFormAndUpdateProfile() {
-    if (formKey.currentState!.validate()) {
-      _updateProfile();
-    }
   }
 
   void _disposeControllers() {
