@@ -132,6 +132,60 @@ class _ProfileApiService implements ProfileApiService {
     await _dio.fetch<void>(_options);
   }
 
+  @override
+  Future<void> updateProfile({
+    String? username,
+    String? email,
+    File? img,
+    CancelToken? cancelToken,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final _data = FormData();
+    if (username != null) {
+      _data.fields.add(MapEntry(
+        'username',
+        username,
+      ));
+    }
+    if (email != null) {
+      _data.fields.add(MapEntry(
+        'email',
+        email,
+      ));
+    }
+    if (img != null) {
+      _data.files.add(MapEntry(
+        'img',
+        MultipartFile.fromFileSync(
+          img.path,
+          filename: img.path.split(Platform.pathSeparator).last,
+        ),
+      ));
+    }
+    final _options = _setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'multipart/form-data',
+    )
+        .compose(
+          _dio.options,
+          'profile/update',
+          queryParameters: queryParameters,
+          data: _data,
+          cancelToken: cancelToken,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    await _dio.fetch<void>(_options);
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

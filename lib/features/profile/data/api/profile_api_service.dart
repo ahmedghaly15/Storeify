@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:store_ify/core/api/end_points.dart';
@@ -26,4 +28,13 @@ abstract class ProfileApiService {
   Future<void> deleteAccount([
     @CancelRequest() CancelToken? cancelToken,
   ]);
+
+  @MultiPart()
+  @POST(EndPoints.updateProfile)
+  Future<void> updateProfile({
+    @Part(name: 'username') String? username,
+    @Part(name: 'email') String? email,
+    @Part(name: 'img') File? img,
+    @CancelRequest() CancelToken? cancelToken,
+  });
 }

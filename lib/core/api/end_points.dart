@@ -25,5 +25,5 @@ class EndPoints {
   static const String profile = 'profile/';
   static const String changePassword = '${profile}change-password';
   static const String search = '${baseUrl}search';
-
+  static const String updateProfile = '${profile}update';
 }
