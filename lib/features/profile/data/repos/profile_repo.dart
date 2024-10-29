@@ -23,4 +23,12 @@ class ProfileRepo {
       () async => await _profileApiService.changePassword(params, cancelToken),
     );
   }
+
+  Future<ApiResult<void>> deleteAccount([
+    CancelToken? cancelToken,
+  ]) {
+    return executeAndHandleErrors<void>(
+      () async => await _profileApiService.deleteAccount(cancelToken),
+    );
+  }
 }

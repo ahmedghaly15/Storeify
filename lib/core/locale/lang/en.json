@@ -143,5 +143,7 @@
     "oldPassword": "Old Password",
     "newPassword": "New Password",
     "confirmNewPassword": "Confirm New Password",
-    "passChangedSuccessfully": "Password changed successfully"
+    "passChangedSuccessfully": "Password changed successfully",
+    "deleteAccount": "Delete Account",
+    "sureToDeleteAccount": "Are you sure you want to delete your account?"
 }

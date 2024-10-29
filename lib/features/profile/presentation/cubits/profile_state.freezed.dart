@@ -22,6 +22,9 @@ mixin _$ProfileState<T> {
     required TResult Function() logoutLoading,
     required TResult Function() logoutSuccess,
     required TResult Function(String error) logoutError,
+    required TResult Function() deleteAccountLoading,
+    required TResult Function() deleteAccountSuccess,
+    required TResult Function(String error) deleteAccountError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +33,9 @@ mixin _$ProfileState<T> {
     TResult? Function()? logoutLoading,
     TResult? Function()? logoutSuccess,
     TResult? Function(String error)? logoutError,
+    TResult? Function()? deleteAccountLoading,
+    TResult? Function()? deleteAccountSuccess,
+    TResult? Function(String error)? deleteAccountError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +44,9 @@ mixin _$ProfileState<T> {
     TResult Function()? logoutLoading,
     TResult Function()? logoutSuccess,
     TResult Function(String error)? logoutError,
+    TResult Function()? deleteAccountLoading,
+    TResult Function()? deleteAccountSuccess,
+    TResult Function(String error)? deleteAccountError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +56,11 @@ mixin _$ProfileState<T> {
     required TResult Function(LogoutLoading<T> value) logoutLoading,
     required TResult Function(LogoutSuccess<T> value) logoutSuccess,
     required TResult Function(LogoutError<T> value) logoutError,
+    required TResult Function(DeleteAccountLoading<T> value)
+        deleteAccountLoading,
+    required TResult Function(DeleteAccountSuccess<T> value)
+        deleteAccountSuccess,
+    required TResult Function(DeleteAccountError<T> value) deleteAccountError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +69,9 @@ mixin _$ProfileState<T> {
     TResult? Function(LogoutLoading<T> value)? logoutLoading,
     TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult? Function(LogoutError<T> value)? logoutError,
+    TResult? Function(DeleteAccountLoading<T> value)? deleteAccountLoading,
+    TResult? Function(DeleteAccountSuccess<T> value)? deleteAccountSuccess,
+    TResult? Function(DeleteAccountError<T> value)? deleteAccountError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +80,9 @@ mixin _$ProfileState<T> {
     TResult Function(LogoutLoading<T> value)? logoutLoading,
     TResult Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult Function(LogoutError<T> value)? logoutError,
+    TResult Function(DeleteAccountLoading<T> value)? deleteAccountLoading,
+    TResult Function(DeleteAccountSuccess<T> value)? deleteAccountSuccess,
+    TResult Function(DeleteAccountError<T> value)? deleteAccountError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +154,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() logoutLoading,
     required TResult Function() logoutSuccess,
     required TResult Function(String error) logoutError,
+    required TResult Function() deleteAccountLoading,
+    required TResult Function() deleteAccountSuccess,
+    required TResult Function(String error) deleteAccountError,
   }) {
     return initial();
   }
@@ -145,6 +168,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? logoutLoading,
     TResult? Function()? logoutSuccess,
     TResult? Function(String error)? logoutError,
+    TResult? Function()? deleteAccountLoading,
+    TResult? Function()? deleteAccountSuccess,
+    TResult? Function(String error)? deleteAccountError,
   }) {
     return initial?.call();
   }
@@ -156,6 +182,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? logoutLoading,
     TResult Function()? logoutSuccess,
     TResult Function(String error)? logoutError,
+    TResult Function()? deleteAccountLoading,
+    TResult Function()? deleteAccountSuccess,
+    TResult Function(String error)? deleteAccountError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -171,6 +200,11 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(LogoutLoading<T> value) logoutLoading,
     required TResult Function(LogoutSuccess<T> value) logoutSuccess,
     required TResult Function(LogoutError<T> value) logoutError,
+    required TResult Function(DeleteAccountLoading<T> value)
+        deleteAccountLoading,
+    required TResult Function(DeleteAccountSuccess<T> value)
+        deleteAccountSuccess,
+    required TResult Function(DeleteAccountError<T> value) deleteAccountError,
   }) {
     return initial(this);
   }
@@ -182,6 +216,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(LogoutLoading<T> value)? logoutLoading,
     TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult? Function(LogoutError<T> value)? logoutError,
+    TResult? Function(DeleteAccountLoading<T> value)? deleteAccountLoading,
+    TResult? Function(DeleteAccountSuccess<T> value)? deleteAccountSuccess,
+    TResult? Function(DeleteAccountError<T> value)? deleteAccountError,
   }) {
     return initial?.call(this);
   }
@@ -193,6 +230,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(LogoutLoading<T> value)? logoutLoading,
     TResult Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult Function(LogoutError<T> value)? logoutError,
+    TResult Function(DeleteAccountLoading<T> value)? deleteAccountLoading,
+    TResult Function(DeleteAccountSuccess<T> value)? deleteAccountSuccess,
+    TResult Function(DeleteAccountError<T> value)? deleteAccountError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -251,6 +291,9 @@ class _$LogoutLoadingImpl<T> implements LogoutLoading<T> {
     required TResult Function() logoutLoading,
     required TResult Function() logoutSuccess,
     required TResult Function(String error) logoutError,
+    required TResult Function() deleteAccountLoading,
+    required TResult Function() deleteAccountSuccess,
+    required TResult Function(String error) deleteAccountError,
   }) {
     return logoutLoading();
   }
@@ -262,6 +305,9 @@ class _$LogoutLoadingImpl<T> implements LogoutLoading<T> {
     TResult? Function()? logoutLoading,
     TResult? Function()? logoutSuccess,
     TResult? Function(String error)? logoutError,
+    TResult? Function()? deleteAccountLoading,
+    TResult? Function()? deleteAccountSuccess,
+    TResult? Function(String error)? deleteAccountError,
   }) {
     return logoutLoading?.call();
   }
@@ -273,6 +319,9 @@ class _$LogoutLoadingImpl<T> implements LogoutLoading<T> {
     TResult Function()? logoutLoading,
     TResult Function()? logoutSuccess,
     TResult Function(String error)? logoutError,
+    TResult Function()? deleteAccountLoading,
+    TResult Function()? deleteAccountSuccess,
+    TResult Function(String error)? deleteAccountError,
     required TResult orElse(),
   }) {
     if (logoutLoading != null) {
@@ -288,6 +337,11 @@ class _$LogoutLoadingImpl<T> implements LogoutLoading<T> {
     required TResult Function(LogoutLoading<T> value) logoutLoading,
     required TResult Function(LogoutSuccess<T> value) logoutSuccess,
     required TResult Function(LogoutError<T> value) logoutError,
+    required TResult Function(DeleteAccountLoading<T> value)
+        deleteAccountLoading,
+    required TResult Function(DeleteAccountSuccess<T> value)
+        deleteAccountSuccess,
+    required TResult Function(DeleteAccountError<T> value) deleteAccountError,
   }) {
     return logoutLoading(this);
   }
@@ -299,6 +353,9 @@ class _$LogoutLoadingImpl<T> implements LogoutLoading<T> {
     TResult? Function(LogoutLoading<T> value)? logoutLoading,
     TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult? Function(LogoutError<T> value)? logoutError,
+    TResult? Function(DeleteAccountLoading<T> value)? deleteAccountLoading,
+    TResult? Function(DeleteAccountSuccess<T> value)? deleteAccountSuccess,
+    TResult? Function(DeleteAccountError<T> value)? deleteAccountError,
   }) {
     return logoutLoading?.call(this);
   }
@@ -310,6 +367,9 @@ class _$LogoutLoadingImpl<T> implements LogoutLoading<T> {
     TResult Function(LogoutLoading<T> value)? logoutLoading,
     TResult Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult Function(LogoutError<T> value)? logoutError,
+    TResult Function(DeleteAccountLoading<T> value)? deleteAccountLoading,
+    TResult Function(DeleteAccountSuccess<T> value)? deleteAccountSuccess,
+    TResult Function(DeleteAccountError<T> value)? deleteAccountError,
     required TResult orElse(),
   }) {
     if (logoutLoading != null) {
@@ -368,6 +428,9 @@ class _$LogoutSuccessImpl<T> implements LogoutSuccess<T> {
     required TResult Function() logoutLoading,
     required TResult Function() logoutSuccess,
     required TResult Function(String error) logoutError,
+    required TResult Function() deleteAccountLoading,
+    required TResult Function() deleteAccountSuccess,
+    required TResult Function(String error) deleteAccountError,
   }) {
     return logoutSuccess();
   }
@@ -379,6 +442,9 @@ class _$LogoutSuccessImpl<T> implements LogoutSuccess<T> {
     TResult? Function()? logoutLoading,
     TResult? Function()? logoutSuccess,
     TResult? Function(String error)? logoutError,
+    TResult? Function()? deleteAccountLoading,
+    TResult? Function()? deleteAccountSuccess,
+    TResult? Function(String error)? deleteAccountError,
   }) {
     return logoutSuccess?.call();
   }
@@ -390,6 +456,9 @@ class _$LogoutSuccessImpl<T> implements LogoutSuccess<T> {
     TResult Function()? logoutLoading,
     TResult Function()? logoutSuccess,
     TResult Function(String error)? logoutError,
+    TResult Function()? deleteAccountLoading,
+    TResult Function()? deleteAccountSuccess,
+    TResult Function(String error)? deleteAccountError,
     required TResult orElse(),
   }) {
     if (logoutSuccess != null) {
@@ -405,6 +474,11 @@ class _$LogoutSuccessImpl<T> implements LogoutSuccess<T> {
     required TResult Function(LogoutLoading<T> value) logoutLoading,
     required TResult Function(LogoutSuccess<T> value) logoutSuccess,
     required TResult Function(LogoutError<T> value) logoutError,
+    required TResult Function(DeleteAccountLoading<T> value)
+        deleteAccountLoading,
+    required TResult Function(DeleteAccountSuccess<T> value)
+        deleteAccountSuccess,
+    required TResult Function(DeleteAccountError<T> value) deleteAccountError,
   }) {
     return logoutSuccess(this);
   }
@@ -416,6 +490,9 @@ class _$LogoutSuccessImpl<T> implements LogoutSuccess<T> {
     TResult? Function(LogoutLoading<T> value)? logoutLoading,
     TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult? Function(LogoutError<T> value)? logoutError,
+    TResult? Function(DeleteAccountLoading<T> value)? deleteAccountLoading,
+    TResult? Function(DeleteAccountSuccess<T> value)? deleteAccountSuccess,
+    TResult? Function(DeleteAccountError<T> value)? deleteAccountError,
   }) {
     return logoutSuccess?.call(this);
   }
@@ -427,6 +504,9 @@ class _$LogoutSuccessImpl<T> implements LogoutSuccess<T> {
     TResult Function(LogoutLoading<T> value)? logoutLoading,
     TResult Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult Function(LogoutError<T> value)? logoutError,
+    TResult Function(DeleteAccountLoading<T> value)? deleteAccountLoading,
+    TResult Function(DeleteAccountSuccess<T> value)? deleteAccountSuccess,
+    TResult Function(DeleteAccountError<T> value)? deleteAccountError,
     required TResult orElse(),
   }) {
     if (logoutSuccess != null) {
@@ -513,6 +593,9 @@ class _$LogoutErrorImpl<T> implements LogoutError<T> {
     required TResult Function() logoutLoading,
     required TResult Function() logoutSuccess,
     required TResult Function(String error) logoutError,
+    required TResult Function() deleteAccountLoading,
+    required TResult Function() deleteAccountSuccess,
+    required TResult Function(String error) deleteAccountError,
   }) {
     return logoutError(error);
   }
@@ -524,6 +607,9 @@ class _$LogoutErrorImpl<T> implements LogoutError<T> {
     TResult? Function()? logoutLoading,
     TResult? Function()? logoutSuccess,
     TResult? Function(String error)? logoutError,
+    TResult? Function()? deleteAccountLoading,
+    TResult? Function()? deleteAccountSuccess,
+    TResult? Function(String error)? deleteAccountError,
   }) {
     return logoutError?.call(error);
   }
@@ -535,6 +621,9 @@ class _$LogoutErrorImpl<T> implements LogoutError<T> {
     TResult Function()? logoutLoading,
     TResult Function()? logoutSuccess,
     TResult Function(String error)? logoutError,
+    TResult Function()? deleteAccountLoading,
+    TResult Function()? deleteAccountSuccess,
+    TResult Function(String error)? deleteAccountError,
     required TResult orElse(),
   }) {
     if (logoutError != null) {
@@ -550,6 +639,11 @@ class _$LogoutErrorImpl<T> implements LogoutError<T> {
     required TResult Function(LogoutLoading<T> value) logoutLoading,
     required TResult Function(LogoutSuccess<T> value) logoutSuccess,
     required TResult Function(LogoutError<T> value) logoutError,
+    required TResult Function(DeleteAccountLoading<T> value)
+        deleteAccountLoading,
+    required TResult Function(DeleteAccountSuccess<T> value)
+        deleteAccountSuccess,
+    required TResult Function(DeleteAccountError<T> value) deleteAccountError,
   }) {
     return logoutError(this);
   }
@@ -561,6 +655,9 @@ class _$LogoutErrorImpl<T> implements LogoutError<T> {
     TResult? Function(LogoutLoading<T> value)? logoutLoading,
     TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult? Function(LogoutError<T> value)? logoutError,
+    TResult? Function(DeleteAccountLoading<T> value)? deleteAccountLoading,
+    TResult? Function(DeleteAccountSuccess<T> value)? deleteAccountSuccess,
+    TResult? Function(DeleteAccountError<T> value)? deleteAccountError,
   }) {
     return logoutError?.call(this);
   }
@@ -572,6 +669,9 @@ class _$LogoutErrorImpl<T> implements LogoutError<T> {
     TResult Function(LogoutLoading<T> value)? logoutLoading,
     TResult Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult Function(LogoutError<T> value)? logoutError,
+    TResult Function(DeleteAccountLoading<T> value)? deleteAccountLoading,
+    TResult Function(DeleteAccountSuccess<T> value)? deleteAccountSuccess,
+    TResult Function(DeleteAccountError<T> value)? deleteAccountError,
     required TResult orElse(),
   }) {
     if (logoutError != null) {
@@ -591,4 +691,456 @@ abstract class LogoutError<T> implements ProfileState<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LogoutErrorImplCopyWith<T, _$LogoutErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteAccountLoadingImplCopyWith<T, $Res> {
+  factory _$$DeleteAccountLoadingImplCopyWith(
+          _$DeleteAccountLoadingImpl<T> value,
+          $Res Function(_$DeleteAccountLoadingImpl<T>) then) =
+      __$$DeleteAccountLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$DeleteAccountLoadingImplCopyWithImpl<T, $Res>
+    extends _$ProfileStateCopyWithImpl<T, $Res, _$DeleteAccountLoadingImpl<T>>
+    implements _$$DeleteAccountLoadingImplCopyWith<T, $Res> {
+  __$$DeleteAccountLoadingImplCopyWithImpl(_$DeleteAccountLoadingImpl<T> _value,
+      $Res Function(_$DeleteAccountLoadingImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$DeleteAccountLoadingImpl<T> implements DeleteAccountLoading<T> {
+  const _$DeleteAccountLoadingImpl();
+
+  @override
+  String toString() {
+    return 'ProfileState<$T>.deleteAccountLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteAccountLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String error) logoutError,
+    required TResult Function() deleteAccountLoading,
+    required TResult Function() deleteAccountSuccess,
+    required TResult Function(String error) deleteAccountError,
+  }) {
+    return deleteAccountLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String error)? logoutError,
+    TResult? Function()? deleteAccountLoading,
+    TResult? Function()? deleteAccountSuccess,
+    TResult? Function(String error)? deleteAccountError,
+  }) {
+    return deleteAccountLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String error)? logoutError,
+    TResult Function()? deleteAccountLoading,
+    TResult Function()? deleteAccountSuccess,
+    TResult Function(String error)? deleteAccountError,
+    required TResult orElse(),
+  }) {
+    if (deleteAccountLoading != null) {
+      return deleteAccountLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(LogoutLoading<T> value) logoutLoading,
+    required TResult Function(LogoutSuccess<T> value) logoutSuccess,
+    required TResult Function(LogoutError<T> value) logoutError,
+    required TResult Function(DeleteAccountLoading<T> value)
+        deleteAccountLoading,
+    required TResult Function(DeleteAccountSuccess<T> value)
+        deleteAccountSuccess,
+    required TResult Function(DeleteAccountError<T> value) deleteAccountError,
+  }) {
+    return deleteAccountLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(LogoutLoading<T> value)? logoutLoading,
+    TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
+    TResult? Function(LogoutError<T> value)? logoutError,
+    TResult? Function(DeleteAccountLoading<T> value)? deleteAccountLoading,
+    TResult? Function(DeleteAccountSuccess<T> value)? deleteAccountSuccess,
+    TResult? Function(DeleteAccountError<T> value)? deleteAccountError,
+  }) {
+    return deleteAccountLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(LogoutLoading<T> value)? logoutLoading,
+    TResult Function(LogoutSuccess<T> value)? logoutSuccess,
+    TResult Function(LogoutError<T> value)? logoutError,
+    TResult Function(DeleteAccountLoading<T> value)? deleteAccountLoading,
+    TResult Function(DeleteAccountSuccess<T> value)? deleteAccountSuccess,
+    TResult Function(DeleteAccountError<T> value)? deleteAccountError,
+    required TResult orElse(),
+  }) {
+    if (deleteAccountLoading != null) {
+      return deleteAccountLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteAccountLoading<T> implements ProfileState<T> {
+  const factory DeleteAccountLoading() = _$DeleteAccountLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$DeleteAccountSuccessImplCopyWith<T, $Res> {
+  factory _$$DeleteAccountSuccessImplCopyWith(
+          _$DeleteAccountSuccessImpl<T> value,
+          $Res Function(_$DeleteAccountSuccessImpl<T>) then) =
+      __$$DeleteAccountSuccessImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$DeleteAccountSuccessImplCopyWithImpl<T, $Res>
+    extends _$ProfileStateCopyWithImpl<T, $Res, _$DeleteAccountSuccessImpl<T>>
+    implements _$$DeleteAccountSuccessImplCopyWith<T, $Res> {
+  __$$DeleteAccountSuccessImplCopyWithImpl(_$DeleteAccountSuccessImpl<T> _value,
+      $Res Function(_$DeleteAccountSuccessImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$DeleteAccountSuccessImpl<T> implements DeleteAccountSuccess<T> {
+  const _$DeleteAccountSuccessImpl();
+
+  @override
+  String toString() {
+    return 'ProfileState<$T>.deleteAccountSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteAccountSuccessImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String error) logoutError,
+    required TResult Function() deleteAccountLoading,
+    required TResult Function() deleteAccountSuccess,
+    required TResult Function(String error) deleteAccountError,
+  }) {
+    return deleteAccountSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String error)? logoutError,
+    TResult? Function()? deleteAccountLoading,
+    TResult? Function()? deleteAccountSuccess,
+    TResult? Function(String error)? deleteAccountError,
+  }) {
+    return deleteAccountSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String error)? logoutError,
+    TResult Function()? deleteAccountLoading,
+    TResult Function()? deleteAccountSuccess,
+    TResult Function(String error)? deleteAccountError,
+    required TResult orElse(),
+  }) {
+    if (deleteAccountSuccess != null) {
+      return deleteAccountSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(LogoutLoading<T> value) logoutLoading,
+    required TResult Function(LogoutSuccess<T> value) logoutSuccess,
+    required TResult Function(LogoutError<T> value) logoutError,
+    required TResult Function(DeleteAccountLoading<T> value)
+        deleteAccountLoading,
+    required TResult Function(DeleteAccountSuccess<T> value)
+        deleteAccountSuccess,
+    required TResult Function(DeleteAccountError<T> value) deleteAccountError,
+  }) {
+    return deleteAccountSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(LogoutLoading<T> value)? logoutLoading,
+    TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
+    TResult? Function(LogoutError<T> value)? logoutError,
+    TResult? Function(DeleteAccountLoading<T> value)? deleteAccountLoading,
+    TResult? Function(DeleteAccountSuccess<T> value)? deleteAccountSuccess,
+    TResult? Function(DeleteAccountError<T> value)? deleteAccountError,
+  }) {
+    return deleteAccountSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(LogoutLoading<T> value)? logoutLoading,
+    TResult Function(LogoutSuccess<T> value)? logoutSuccess,
+    TResult Function(LogoutError<T> value)? logoutError,
+    TResult Function(DeleteAccountLoading<T> value)? deleteAccountLoading,
+    TResult Function(DeleteAccountSuccess<T> value)? deleteAccountSuccess,
+    TResult Function(DeleteAccountError<T> value)? deleteAccountError,
+    required TResult orElse(),
+  }) {
+    if (deleteAccountSuccess != null) {
+      return deleteAccountSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteAccountSuccess<T> implements ProfileState<T> {
+  const factory DeleteAccountSuccess() = _$DeleteAccountSuccessImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$DeleteAccountErrorImplCopyWith<T, $Res> {
+  factory _$$DeleteAccountErrorImplCopyWith(_$DeleteAccountErrorImpl<T> value,
+          $Res Function(_$DeleteAccountErrorImpl<T>) then) =
+      __$$DeleteAccountErrorImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$DeleteAccountErrorImplCopyWithImpl<T, $Res>
+    extends _$ProfileStateCopyWithImpl<T, $Res, _$DeleteAccountErrorImpl<T>>
+    implements _$$DeleteAccountErrorImplCopyWith<T, $Res> {
+  __$$DeleteAccountErrorImplCopyWithImpl(_$DeleteAccountErrorImpl<T> _value,
+      $Res Function(_$DeleteAccountErrorImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$DeleteAccountErrorImpl<T>(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteAccountErrorImpl<T> implements DeleteAccountError<T> {
+  const _$DeleteAccountErrorImpl(this.error);
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'ProfileState<$T>.deleteAccountError(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteAccountErrorImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteAccountErrorImplCopyWith<T, _$DeleteAccountErrorImpl<T>>
+      get copyWith => __$$DeleteAccountErrorImplCopyWithImpl<T,
+          _$DeleteAccountErrorImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String error) logoutError,
+    required TResult Function() deleteAccountLoading,
+    required TResult Function() deleteAccountSuccess,
+    required TResult Function(String error) deleteAccountError,
+  }) {
+    return deleteAccountError(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String error)? logoutError,
+    TResult? Function()? deleteAccountLoading,
+    TResult? Function()? deleteAccountSuccess,
+    TResult? Function(String error)? deleteAccountError,
+  }) {
+    return deleteAccountError?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String error)? logoutError,
+    TResult Function()? deleteAccountLoading,
+    TResult Function()? deleteAccountSuccess,
+    TResult Function(String error)? deleteAccountError,
+    required TResult orElse(),
+  }) {
+    if (deleteAccountError != null) {
+      return deleteAccountError(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(LogoutLoading<T> value) logoutLoading,
+    required TResult Function(LogoutSuccess<T> value) logoutSuccess,
+    required TResult Function(LogoutError<T> value) logoutError,
+    required TResult Function(DeleteAccountLoading<T> value)
+        deleteAccountLoading,
+    required TResult Function(DeleteAccountSuccess<T> value)
+        deleteAccountSuccess,
+    required TResult Function(DeleteAccountError<T> value) deleteAccountError,
+  }) {
+    return deleteAccountError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(LogoutLoading<T> value)? logoutLoading,
+    TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
+    TResult? Function(LogoutError<T> value)? logoutError,
+    TResult? Function(DeleteAccountLoading<T> value)? deleteAccountLoading,
+    TResult? Function(DeleteAccountSuccess<T> value)? deleteAccountSuccess,
+    TResult? Function(DeleteAccountError<T> value)? deleteAccountError,
+  }) {
+    return deleteAccountError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(LogoutLoading<T> value)? logoutLoading,
+    TResult Function(LogoutSuccess<T> value)? logoutSuccess,
+    TResult Function(LogoutError<T> value)? logoutError,
+    TResult Function(DeleteAccountLoading<T> value)? deleteAccountLoading,
+    TResult Function(DeleteAccountSuccess<T> value)? deleteAccountSuccess,
+    TResult Function(DeleteAccountError<T> value)? deleteAccountError,
+    required TResult orElse(),
+  }) {
+    if (deleteAccountError != null) {
+      return deleteAccountError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteAccountError<T> implements ProfileState<T> {
+  const factory DeleteAccountError(final String error) =
+      _$DeleteAccountErrorImpl<T>;
+
+  String get error;
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeleteAccountErrorImplCopyWith<T, _$DeleteAccountErrorImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -21,4 +21,9 @@ abstract class ProfileApiService {
     @Body() ChangePasswordParams params, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
+
+  @DELETE(EndPoints.profile)
+  Future<void> deleteAccount([
+    @CancelRequest() CancelToken? cancelToken,
+  ]);
 }
