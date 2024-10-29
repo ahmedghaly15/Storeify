@@ -19,18 +19,22 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
       listenWhen: (_, current) => _listenWhen(current),
       listener: (context, state) async => await _listener(state, context),
       buildWhen: (_, current) => _buildWhen(current),
-      builder: (context, state) {
-        return MainButton(
-          margin: EdgeInsets.symmetric(vertical: 16.h, horizontal: 24.w),
-          onPressed: () {},
-          child: circularIndicatorOrTextWidget(
-            isLoading:
-                state.status == UpdateProfileStateStatus.updateProfileLoading,
-            context: context,
-            textKey: LangKeys.confirm,
-          ),
-        );
-      },
+      builder: (context, state) => MainButton(
+        width: double.infinity,
+        margin: EdgeInsetsDirectional.only(
+          start: 24.w,
+          end: 24.w,
+          top: 24.h,
+        ),
+        onPressed: () =>
+            context.read<UpdateProfileCubit>().validateFormAndUpdateProfile(),
+        child: circularIndicatorOrTextWidget(
+          isLoading:
+              state.status == UpdateProfileStateStatus.updateProfileLoading,
+          context: context,
+          textKey: LangKeys.confirm,
+        ),
+      ),
     );
   }
 

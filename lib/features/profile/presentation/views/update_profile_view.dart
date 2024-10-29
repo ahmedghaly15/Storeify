@@ -28,13 +28,14 @@ class UpdateProfileView extends StatelessWidget implements AutoRouteWrapper {
         child: CustomScrollView(
           slivers: [
             CustomSliverAppBar(titleKey: LangKeys.updateProfile),
-            SliverToBoxAdapter(child: CurrentUserData()),
-            SliverToBoxAdapter(child: UpdateProfileForm()),
             SliverFillRemaining(
               hasScrollBody: false,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Spacer(),
+                  CurrentUserData(),
+                  UpdateProfileForm(),
                   ConfirmUpdateProfileBlocConsumer(),
                 ],
               ),

@@ -23,6 +23,7 @@ class UpdateProfileForm extends StatelessWidget {
             emailController: updateProfileCubit.emailController,
           ),
           MySizedBox.height24,
+          const TextFieldLabel(labelKey: LangKeys.username),
           UsernameTextFormField(
             controller: updateProfileCubit.usernameController,
           ),
