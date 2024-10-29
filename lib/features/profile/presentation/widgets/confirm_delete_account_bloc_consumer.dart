@@ -24,8 +24,9 @@ class ConfirmDeleteAccountBlocConsumer extends StatelessWidget {
             messageKey: error,
             state: CustomToastState.error,
           ),
-          deleteAccountSuccess: () => context.router.popUntil(
-            (route) => route.settings.name == AuthRoute.name,
+          deleteAccountSuccess: () => context.router.pushAndPopUntil(
+            const AuthRoute(),
+            predicate: (route) => route.settings.name == BottomNavBarRoute.name,
           ),
         );
       },
