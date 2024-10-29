@@ -8,7 +8,7 @@ import 'package:store_ify/core/models/storeify_user.dart';
 class AuthLocalDatasource {
   AuthLocalDatasource._();
 
-  static Future<void> _cacheUser(StoreifyUser user) async {
+  static Future<void> cacheUser(StoreifyUser user) async {
     await SharedPrefHelper.setSecuredString(
       SharedPrefKeys.storeifyUser,
       json.encode(user.toJson()),
@@ -16,7 +16,7 @@ class AuthLocalDatasource {
   }
 
   static Future<void> cacheUserAndSetTokenIntoHeaders(StoreifyUser user) async {
-    await _cacheUser(user);
+    await cacheUser(user);
     DioFactory.setTokenIntoHeadersAfterLogin(user.token);
   }
 

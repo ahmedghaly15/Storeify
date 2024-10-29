@@ -7,12 +7,12 @@ import 'package:store_ify/core/widgets/custom_text_field.dart';
 class UsernameTextFormField extends StatelessWidget {
   const UsernameTextFormField({
     super.key,
-    this.usernameController,
+    this.controller,
     this.usernameFocusNode,
     this.nextFocusNode,
   });
 
-  final TextEditingController? usernameController;
+  final TextEditingController? controller;
   final FocusNode? usernameFocusNode, nextFocusNode;
 
   @override
@@ -20,7 +20,7 @@ class UsernameTextFormField extends StatelessWidget {
     return CustomTextField(
       validate: (String? value) =>
           AuthValidator.validateNameField(context, value: value),
-      controller: usernameController,
+      controller: controller,
       keyboardType: TextInputType.name,
       textCapitalization: TextCapitalization.words,
       hintTextKey: LangKeys.enterYourUsername,

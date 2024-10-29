@@ -30,7 +30,7 @@ class RegisterForm extends StatelessWidget {
           MySizedBox.height24,
           const TextFieldLabel(labelKey: LangKeys.username),
           UsernameTextFormField(
-            usernameController: registerCubit.usernameController,
+            controller: registerCubit.usernameController,
             usernameFocusNode: registerCubit.usernameFocusNode,
             nextFocusNode: registerCubit.passwordFocusNode,
           ),

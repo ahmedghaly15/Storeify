@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$UpdateProfileState<T> {
   UpdateProfileStateStatus get status => throw _privateConstructorUsedError;
-  UserData? get updatedUserData => throw _privateConstructorUsedError;
+  StoreifyUser? get updatedUser => throw _privateConstructorUsedError;
   File? get selectedImg => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
 
@@ -36,9 +36,11 @@ abstract class $UpdateProfileStateCopyWith<T, $Res> {
   @useResult
   $Res call(
       {UpdateProfileStateStatus status,
-      UserData? updatedUserData,
+      StoreifyUser? updatedUser,
       File? selectedImg,
       String? error});
+
+  $StoreifyUserCopyWith<$Res>? get updatedUser;
 }
 
 /// @nodoc
@@ -58,7 +60,7 @@ class _$UpdateProfileStateCopyWithImpl<T, $Res,
   @override
   $Res call({
     Object? status = null,
-    Object? updatedUserData = freezed,
+    Object? updatedUser = freezed,
     Object? selectedImg = freezed,
     Object? error = freezed,
   }) {
@@ -67,10 +69,10 @@ class _$UpdateProfileStateCopyWithImpl<T, $Res,
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as UpdateProfileStateStatus,
-      updatedUserData: freezed == updatedUserData
-          ? _value.updatedUserData
-          : updatedUserData // ignore: cast_nullable_to_non_nullable
-              as UserData?,
+      updatedUser: freezed == updatedUser
+          ? _value.updatedUser
+          : updatedUser // ignore: cast_nullable_to_non_nullable
+              as StoreifyUser?,
       selectedImg: freezed == selectedImg
           ? _value.selectedImg
           : selectedImg // ignore: cast_nullable_to_non_nullable
@@ -80,6 +82,20 @@ class _$UpdateProfileStateCopyWithImpl<T, $Res,
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
+  }
+
+  /// Create a copy of UpdateProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StoreifyUserCopyWith<$Res>? get updatedUser {
+    if (_value.updatedUser == null) {
+      return null;
+    }
+
+    return $StoreifyUserCopyWith<$Res>(_value.updatedUser!, (value) {
+      return _then(_value.copyWith(updatedUser: value) as $Val);
+    });
   }
 }
 
@@ -93,9 +109,12 @@ abstract class _$$UpdateProfileStateImplCopyWith<T, $Res>
   @useResult
   $Res call(
       {UpdateProfileStateStatus status,
-      UserData? updatedUserData,
+      StoreifyUser? updatedUser,
       File? selectedImg,
       String? error});
+
+  @override
+  $StoreifyUserCopyWith<$Res>? get updatedUser;
 }
 
 /// @nodoc
@@ -113,7 +132,7 @@ class __$$UpdateProfileStateImplCopyWithImpl<T, $Res>
   @override
   $Res call({
     Object? status = null,
-    Object? updatedUserData = freezed,
+    Object? updatedUser = freezed,
     Object? selectedImg = freezed,
     Object? error = freezed,
   }) {
@@ -122,10 +141,10 @@ class __$$UpdateProfileStateImplCopyWithImpl<T, $Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as UpdateProfileStateStatus,
-      updatedUserData: freezed == updatedUserData
-          ? _value.updatedUserData
-          : updatedUserData // ignore: cast_nullable_to_non_nullable
-              as UserData?,
+      updatedUser: freezed == updatedUser
+          ? _value.updatedUser
+          : updatedUser // ignore: cast_nullable_to_non_nullable
+              as StoreifyUser?,
       selectedImg: freezed == selectedImg
           ? _value.selectedImg
           : selectedImg // ignore: cast_nullable_to_non_nullable
@@ -142,15 +161,12 @@ class __$$UpdateProfileStateImplCopyWithImpl<T, $Res>
 
 class _$UpdateProfileStateImpl<T> implements _UpdateProfileState<T> {
   const _$UpdateProfileStateImpl(
-      {required this.status,
-      this.updatedUserData,
-      this.selectedImg,
-      this.error});
+      {required this.status, this.updatedUser, this.selectedImg, this.error});
 
   @override
   final UpdateProfileStateStatus status;
   @override
-  final UserData? updatedUserData;
+  final StoreifyUser? updatedUser;
   @override
   final File? selectedImg;
   @override
@@ -158,7 +174,7 @@ class _$UpdateProfileStateImpl<T> implements _UpdateProfileState<T> {
 
   @override
   String toString() {
-    return 'UpdateProfileState<$T>(status: $status, updatedUserData: $updatedUserData, selectedImg: $selectedImg, error: $error)';
+    return 'UpdateProfileState<$T>(status: $status, updatedUser: $updatedUser, selectedImg: $selectedImg, error: $error)';
   }
 
   @override
@@ -167,8 +183,8 @@ class _$UpdateProfileStateImpl<T> implements _UpdateProfileState<T> {
         (other.runtimeType == runtimeType &&
             other is _$UpdateProfileStateImpl<T> &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.updatedUserData, updatedUserData) ||
-                other.updatedUserData == updatedUserData) &&
+            (identical(other.updatedUser, updatedUser) ||
+                other.updatedUser == updatedUser) &&
             (identical(other.selectedImg, selectedImg) ||
                 other.selectedImg == selectedImg) &&
             (identical(other.error, error) || other.error == error));
@@ -176,7 +192,7 @@ class _$UpdateProfileStateImpl<T> implements _UpdateProfileState<T> {
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, status, updatedUserData, selectedImg, error);
+      Object.hash(runtimeType, status, updatedUser, selectedImg, error);
 
   /// Create a copy of UpdateProfileState
   /// with the given fields replaced by the non-null parameter values.
@@ -191,14 +207,14 @@ class _$UpdateProfileStateImpl<T> implements _UpdateProfileState<T> {
 abstract class _UpdateProfileState<T> implements UpdateProfileState<T> {
   const factory _UpdateProfileState(
       {required final UpdateProfileStateStatus status,
-      final UserData? updatedUserData,
+      final StoreifyUser? updatedUser,
       final File? selectedImg,
       final String? error}) = _$UpdateProfileStateImpl<T>;
 
   @override
   UpdateProfileStateStatus get status;
   @override
-  UserData? get updatedUserData;
+  StoreifyUser? get updatedUser;
   @override
   File? get selectedImg;
   @override

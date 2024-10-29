@@ -17,7 +17,7 @@ enum UpdateProfileStateStatus {
 class UpdateProfileState<T> with _$UpdateProfileState<T> {
   const factory UpdateProfileState({
     required UpdateProfileStateStatus status,
-    UserData? updatedUserData,
+    StoreifyUser? updatedUser,
     File? selectedImg,
     String? error,
   }) = _UpdateProfileState;

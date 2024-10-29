@@ -51,12 +51,11 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
     final result = await _profileRepo.updateProfile(params, _cancelToken);
     result.when(
       success: (userData) {
-        currentUser = currentUser?.copyWith(
-          user: userData,
-        );
         emit(state.copyWith(
           status: UpdateProfileStateStatus.updateProfileSuccess,
-          updatedUserData: userData,
+          updatedUser: currentUser?.copyWith(
+            user: userData,
+          ),
         ));
       },
       error: (error) => emit(state.copyWith(
