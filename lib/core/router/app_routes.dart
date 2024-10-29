@@ -48,6 +48,7 @@ List<AutoRoute> get appRoutes => [
       _buildCustomRoute(page: CartRoute.page),
       _buildCustomRoute(page: FavoritesRoute.page),
       _buildCustomRoute(page: ChangePasswordRoute.page),
+      _buildCustomRoute(page: UpdateProfileRoute.page),
     ];
 
 CustomRoute _buildCustomRoute({

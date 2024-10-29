@@ -6,6 +6,7 @@ import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/widgets/cancel_outlined_button.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
+import 'package:store_ify/features/profile/presentation/widgets/confirm_delete_account_bloc_consumer.dart';
 import 'package:store_ify/features/profile/presentation/widgets/confirm_logout_bloc_consumer_button.dart';
 import 'package:store_ify/core/widgets/custom_adaptive_dialog.dart';
 import 'package:store_ify/features/profile/presentation/widgets/dark_mode_switch_bloc_builder.dart';
@@ -77,6 +78,25 @@ class SettingItem {
         SettingItem(
           titleKey: LangKeys.changePassword,
           onTap: (context) => context.pushRoute(const ChangePasswordRoute()),
+        ),
+        SettingItem(
+          titleKey: LangKeys.deleteAccount,
+          onTap: (context) => showAdaptiveDialog(
+            context: context,
+            barrierDismissible: true,
+            barrierLabel: '',
+            builder: (_) => BlocProvider.value(
+              value: context.read<ProfileCubit>(),
+              child: const CustomAdaptiveDialog(
+                contentText: LangKeys.sureToLogout,
+                actions: [
+                  CancelOutlinedButton(),
+                  MySizedBox.height10,
+                  ConfirmDeleteAccountBlocConsumer(),
+                ],
+              ),
+            ),
+          ),
         ),
       ];
 }

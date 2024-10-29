@@ -131,4 +131,9 @@ class LangKeys {
   static const String newPassword = 'newPassword';
   static const String confirmNewPassword = 'confirmNewPassword';
   static const String passChangedSuccessfully = 'passChangedSuccessfully';
+  static const String deleteAccount = 'deleteAccount';
+  static const String sureToDeleteAccount = 'sureToDeleteAccount';
+  static const String updateProfile = 'updateProfile';
+  static const String profileUpdatedSuccessfully = 'profileUpdatedSuccessfully';
+  static const String nothingChangedToUpdate = 'nothingChangedToUpdate';
 }

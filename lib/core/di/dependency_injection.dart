@@ -56,6 +56,7 @@ import 'package:store_ify/features/profile/data/api/profile_api_service.dart';
 import 'package:store_ify/features/profile/data/repos/profile_repo.dart';
 import 'package:store_ify/features/profile/presentation/cubits/change_pass/change_pass_cubit.dart';
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
+import 'package:store_ify/features/profile/presentation/cubits/update_profile/update_profile_cubit.dart';
 import 'package:store_ify/features/search/data/api/search_api_service.dart';
 import 'package:store_ify/features/search/data/repositories/search_repo.dart';
 import 'package:store_ify/features/search/presentation/cubit/search_cubit.dart';
@@ -269,5 +270,8 @@ void _setupDIForCubits() {
   );
   getIt.registerFactory<ChangePassCubit>(
     () => ChangePassCubit(getIt.get<ProfileRepo>()),
+  );
+  getIt.registerFactory<UpdateProfileCubit>(
+    () => UpdateProfileCubit(getIt.get<ProfileRepo>()),
   );
 }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/auth_validator.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
-import 'package:store_ify/core/widgets/custom_text_field.dart';
+import 'package:store_ify/core/widgets/email_text_form_field.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/core/widgets/pass_text_form_field.dart';
+import 'package:store_ify/core/widgets/username_text_form_field.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_state.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_label.dart';
@@ -22,30 +22,21 @@ class RegisterForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           const TextFieldLabel(labelKey: LangKeys.email),
-          CustomTextField(
+          EmailTextFormField(
+            emailController: registerCubit.emailController,
+            emailFocusNode: registerCubit.emailFocusNode,
+            nextFocusNode: registerCubit.usernameFocusNode,
             validate: (String? value) =>
                 AuthValidator.validateEmailField(context, value: value),
-            controller: registerCubit.emailController,
-            keyboardType: TextInputType.emailAddress,
-            hintTextKey: LangKeys.examplegmailcom,
-            autofillHints: const <String>[AutofillHints.email],
-            focusNode: registerCubit.emailFocusNode,
-            onEditingComplete: () =>
-                context.requestFocus(registerCubit.usernameFocusNode),
           ),
           MySizedBox.height24,
           const TextFieldLabel(labelKey: LangKeys.username),
-          CustomTextField(
+          UsernameTextFormField(
+            controller: registerCubit.usernameController,
+            usernameFocusNode: registerCubit.usernameFocusNode,
+            nextFocusNode: registerCubit.passwordFocusNode,
             validate: (String? value) =>
                 AuthValidator.validateNameField(context, value: value),
-            controller: registerCubit.usernameController,
-            keyboardType: TextInputType.name,
-            textCapitalization: TextCapitalization.words,
-            hintTextKey: LangKeys.enterYourUsername,
-            autofillHints: const <String>[AutofillHints.name],
-            focusNode: registerCubit.usernameFocusNode,
-            onEditingComplete: () =>
-                context.requestFocus(registerCubit.passwordFocusNode),
           ),
           MySizedBox.height24,
           const TextFieldLabel(labelKey: LangKeys.password),

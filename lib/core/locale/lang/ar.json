@@ -143,5 +143,10 @@
     "oldPassword": "كلمة المرور القديمة",
     "newPassword": "كلمة المرور الجديدة",
     "confirmNewPassword": "تاكيد كلمة المرور الجديدة",
-    "passChangedSuccessfully": "تم تغيير كلمة المرور بنجاح"
+    "passChangedSuccessfully": "تم تغيير كلمة المرور بنجاح",
+    "deleteAccount": "حذف الحساب",
+    "sureToDeleteAccount": "هل أنت متاكد من حذف الحساب؟",
+    "updateProfile": "تحديث الملف الشخصي",
+    "profileUpdatedSuccessfully": "تم تحديث الملف الشخصي بنجاح",
+    "nothingChangedToUpdate": "لا توجد تغييرات للتحديث"
 }
