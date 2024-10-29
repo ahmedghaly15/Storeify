@@ -381,6 +381,8 @@ abstract class _$$RegisterSuccessImplCopyWith<T, $Res> {
       __$$RegisterSuccessImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({StoreifyUser data});
+
+  $StoreifyUserCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -404,6 +406,16 @@ class __$$RegisterSuccessImplCopyWithImpl<T, $Res>
           : data // ignore: cast_nullable_to_non_nullable
               as StoreifyUser,
     ));
+  }
+
+  /// Create a copy of RegisterState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StoreifyUserCopyWith<$Res> get data {
+    return $StoreifyUserCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
   }
 }
 

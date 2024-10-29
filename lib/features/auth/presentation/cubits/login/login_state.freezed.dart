@@ -357,6 +357,8 @@ abstract class _$$LoginSuccessImplCopyWith<T, $Res> {
       __$$LoginSuccessImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({StoreifyUser data});
+
+  $StoreifyUserCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -380,6 +382,16 @@ class __$$LoginSuccessImplCopyWithImpl<T, $Res>
           : data // ignore: cast_nullable_to_non_nullable
               as StoreifyUser,
     ));
+  }
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StoreifyUserCopyWith<$Res> get data {
+    return $StoreifyUserCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
   }
 }
 
