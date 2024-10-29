@@ -10,7 +10,7 @@ part 'storeify_user.g.dart';
 class StoreifyUser with _$StoreifyUser {
   @JsonSerializable(explicitToJson: true)
   const factory StoreifyUser({
-    @HiveField(0) required String token,
+    @HiveField(0) String? token,
     @HiveField(1) required UserData user,
   }) = _StoreifyUser;
 

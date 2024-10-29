@@ -32,7 +32,7 @@ abstract class ProfileApiService {
 
   @MultiPart()
   @POST(EndPoints.updateProfile)
-  Future<UserData> updateProfile({
+  Future<StoreifyUser> updateProfile({
     @Part(name: 'username') String? username,
     @Part(name: 'email') String? email,
     @Part(name: 'img') File? img,

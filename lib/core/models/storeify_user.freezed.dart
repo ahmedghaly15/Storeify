@@ -21,7 +21,7 @@ StoreifyUser _$StoreifyUserFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$StoreifyUser {
   @HiveField(0)
-  String get token => throw _privateConstructorUsedError;
+  String? get token => throw _privateConstructorUsedError;
   @HiveField(1)
   UserData get user => throw _privateConstructorUsedError;
 
@@ -41,7 +41,7 @@ abstract class $StoreifyUserCopyWith<$Res> {
           StoreifyUser value, $Res Function(StoreifyUser) then) =
       _$StoreifyUserCopyWithImpl<$Res, StoreifyUser>;
   @useResult
-  $Res call({@HiveField(0) String token, @HiveField(1) UserData user});
+  $Res call({@HiveField(0) String? token, @HiveField(1) UserData user});
 }
 
 /// @nodoc
@@ -59,14 +59,14 @@ class _$StoreifyUserCopyWithImpl<$Res, $Val extends StoreifyUser>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? token = null,
+    Object? token = freezed,
     Object? user = null,
   }) {
     return _then(_value.copyWith(
-      token: null == token
+      token: freezed == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -83,7 +83,7 @@ abstract class _$$StoreifyUserImplCopyWith<$Res>
       __$$StoreifyUserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@HiveField(0) String token, @HiveField(1) UserData user});
+  $Res call({@HiveField(0) String? token, @HiveField(1) UserData user});
 }
 
 /// @nodoc
@@ -99,14 +99,14 @@ class __$$StoreifyUserImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? token = null,
+    Object? token = freezed,
     Object? user = null,
   }) {
     return _then(_$StoreifyUserImpl(
-      token: null == token
+      token: freezed == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -120,14 +120,14 @@ class __$$StoreifyUserImplCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true)
 class _$StoreifyUserImpl implements _StoreifyUser {
   const _$StoreifyUserImpl(
-      {@HiveField(0) required this.token, @HiveField(1) required this.user});
+      {@HiveField(0) this.token, @HiveField(1) required this.user});
 
   factory _$StoreifyUserImpl.fromJson(Map<String, dynamic> json) =>
       _$$StoreifyUserImplFromJson(json);
 
   @override
   @HiveField(0)
-  final String token;
+  final String? token;
   @override
   @HiveField(1)
   final UserData user;
@@ -168,7 +168,7 @@ class _$StoreifyUserImpl implements _StoreifyUser {
 
 abstract class _StoreifyUser implements StoreifyUser {
   const factory _StoreifyUser(
-      {@HiveField(0) required final String token,
+      {@HiveField(0) final String? token,
       @HiveField(1) required final UserData user}) = _$StoreifyUserImpl;
 
   factory _StoreifyUser.fromJson(Map<String, dynamic> json) =
@@ -176,7 +176,7 @@ abstract class _StoreifyUser implements StoreifyUser {
 
   @override
   @HiveField(0)
-  String get token;
+  String? get token;
   @override
   @HiveField(1)
   UserData get user;

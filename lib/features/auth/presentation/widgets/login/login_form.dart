@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/helpers/auth_validator.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/widgets/email_text_form_field.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
@@ -24,6 +25,8 @@ class LoginForm extends StatelessWidget {
             emailController: loginCubit.emailController,
             emailFocusNode: loginCubit.emailFocusNode,
             nextFocusNode: loginCubit.passwordFocusNode,
+            validate: (String? value) =>
+                AuthValidator.validateEmailField(context, value: value),
           ),
           MySizedBox.height24,
           const TextFieldLabel(labelKey: LangKeys.password),

@@ -34,11 +34,11 @@ class ProfileRepo {
     );
   }
 
-  Future<ApiResult<UserData>> updateProfile(
+  Future<ApiResult<StoreifyUser>> updateProfile(
     UpdateProfileParams params, [
     CancelToken? cancelToken,
   ]) {
-    return executeAndHandleErrors<UserData>(
+    return executeAndHandleErrors<StoreifyUser>(
       () async => await _profileApiService.updateProfile(
         username: params.username,
         email: params.email,

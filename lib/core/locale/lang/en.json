@@ -147,5 +147,6 @@
     "deleteAccount": "Delete Account",
     "sureToDeleteAccount": "Are you sure you want to delete your account?",
     "updateProfile": "Update Profile",
-    "profileUpdatedSuccessfully": "Profile updated successfully"
+    "profileUpdatedSuccessfully": "Profile updated successfully",
+    "nothingChangedToUpdate": "Nothing changed to update"
 }

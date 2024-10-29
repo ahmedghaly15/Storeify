@@ -133,7 +133,7 @@ class _ProfileApiService implements ProfileApiService {
   }
 
   @override
-  Future<UserData> updateProfile({
+  Future<StoreifyUser> updateProfile({
     String? username,
     String? email,
     File? img,
@@ -165,7 +165,7 @@ class _ProfileApiService implements ProfileApiService {
         ),
       ));
     }
-    final _options = _setStreamType<UserData>(Options(
+    final _options = _setStreamType<StoreifyUser>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -184,9 +184,9 @@ class _ProfileApiService implements ProfileApiService {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late UserData _value;
+    late StoreifyUser _value;
     try {
-      _value = UserData.fromJson(_result.data!);
+      _value = StoreifyUser.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:store_ify/core/helpers/auth_validator.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
@@ -10,16 +9,17 @@ class UsernameTextFormField extends StatelessWidget {
     this.controller,
     this.usernameFocusNode,
     this.nextFocusNode,
+    this.validate,
   });
 
   final TextEditingController? controller;
   final FocusNode? usernameFocusNode, nextFocusNode;
+  final String? Function(String?)? validate;
 
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
-      validate: (String? value) =>
-          AuthValidator.validateNameField(context, value: value),
+      validate: validate,
       controller: controller,
       keyboardType: TextInputType.name,
       textCapitalization: TextCapitalization.words,

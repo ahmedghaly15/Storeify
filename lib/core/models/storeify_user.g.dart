@@ -17,7 +17,7 @@ class StoreifyUserAdapter extends TypeAdapter<StoreifyUser> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return StoreifyUser(
-      token: fields[0] as String,
+      token: fields[0] as String?,
       user: fields[1] as UserData,
     );
   }
@@ -106,7 +106,7 @@ Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
 
 _$StoreifyUserImpl _$$StoreifyUserImplFromJson(Map<String, dynamic> json) =>
     _$StoreifyUserImpl(
-      token: json['token'] as String,
+      token: json['token'] as String?,
       user: UserData.fromJson(json['user'] as Map<String, dynamic>),
     );
 

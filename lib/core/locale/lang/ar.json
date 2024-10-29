@@ -147,5 +147,6 @@
     "deleteAccount": "حذف الحساب",
     "sureToDeleteAccount": "هل أنت متاكد من حذف الحساب؟",
     "updateProfile": "تحديث الملف الشخصي",
-    "profileUpdatedSuccessfully": "تم تحديث الملف الشخصي بنجاح"
+    "profileUpdatedSuccessfully": "تم تحديث الملف الشخصي بنجاح",
+    "nothingChangedToUpdate": "لا توجد تغييرات للتحديث"
 }

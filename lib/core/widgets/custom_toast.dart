@@ -69,16 +69,16 @@ class CustomToast {
         children: [
           Icon(icon,
               color: context.isDarkModeActive
-                  ? AppColors.darkColor
-                  : AppColors.lightModeColor),
+                  ? AppColors.lightModeColor
+                  : AppColors.darkColor),
           MySizedBox.width12,
           Expanded(
             child: Text(
               context.translate(messageKey),
               style: TextStyle(
                   color: context.isDarkModeActive
-                      ? AppColors.darkColor
-                      : AppColors.lightModeColor),
+                      ? AppColors.lightModeColor
+                      : AppColors.darkColor),
             ),
           ),
         ],

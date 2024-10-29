@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:store_ify/core/helpers/auth_validator.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
@@ -10,16 +9,17 @@ class EmailTextFormField extends StatelessWidget {
     this.emailController,
     this.emailFocusNode,
     this.nextFocusNode,
+    this.validate,
   });
 
   final TextEditingController? emailController;
   final FocusNode? emailFocusNode, nextFocusNode;
+  final String? Function(String?)? validate;
 
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
-      validate: (String? value) =>
-          AuthValidator.validateEmailField(context, value: value),
+      validate: validate,
       controller: emailController,
       keyboardType: TextInputType.emailAddress,
       hintTextKey: LangKeys.examplegmailcom,

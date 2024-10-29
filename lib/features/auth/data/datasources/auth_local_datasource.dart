@@ -17,7 +17,7 @@ class AuthLocalDatasource {
 
   static Future<void> cacheUserAndSetTokenIntoHeaders(StoreifyUser user) async {
     await cacheUser(user);
-    DioFactory.setTokenIntoHeadersAfterLogin(user.token);
+    DioFactory.setTokenIntoHeadersAfterLogin(user.token!);
   }
 
   static Future<StoreifyUser> getCachedUser() async {

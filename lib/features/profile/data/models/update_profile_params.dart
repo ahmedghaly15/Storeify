@@ -5,8 +5,8 @@ class UpdateProfileParams {
   final File? img;
 
   const UpdateProfileParams({
-    required this.username,
-    required this.email,
-    required this.img,
+    this.username,
+    this.email,
+    this.img,
   });
 }
