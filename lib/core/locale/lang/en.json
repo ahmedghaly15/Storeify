@@ -145,5 +145,7 @@
     "confirmNewPassword": "Confirm New Password",
     "passChangedSuccessfully": "Password changed successfully",
     "deleteAccount": "Delete Account",
-    "sureToDeleteAccount": "Are you sure you want to delete your account?"
+    "sureToDeleteAccount": "Are you sure you want to delete your account?",
+    "updateProfile": "Update Profile",
+    "profileUpdatedSuccessfully": "Profile updated successfully"
 }

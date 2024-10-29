@@ -133,4 +133,6 @@ class LangKeys {
   static const String passChangedSuccessfully = 'passChangedSuccessfully';
   static const String deleteAccount = 'deleteAccount';
   static const String sureToDeleteAccount = 'sureToDeleteAccount';
+  static const String updateProfile = 'updateProfile';
+  static const String profileUpdatedSuccessfully = 'profileUpdatedSuccessfully';
 }
