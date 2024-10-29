@@ -656,6 +656,25 @@ class SubCategoriesRouteArgs {
 }
 
 /// generated route for
+/// [UpdateProfileView]
+class UpdateProfileRoute extends PageRouteInfo<void> {
+  const UpdateProfileRoute({List<PageRouteInfo>? children})
+      : super(
+          UpdateProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'UpdateProfileRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const UpdateProfileView());
+    },
+  );
+}
+
+/// generated route for
 /// [VerificationView]
 class VerificationRoute extends PageRouteInfo<VerificationRouteArgs> {
   VerificationRoute({

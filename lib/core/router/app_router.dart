@@ -21,6 +21,7 @@ import 'package:store_ify/features/payment/presentation/views/payment_successful
 import 'package:store_ify/features/payment/presentation/views/payment_view.dart';
 import 'package:store_ify/features/profile/presentation/views/change_password_view.dart';
 import 'package:store_ify/features/profile/presentation/views/profile_view.dart';
+import 'package:store_ify/features/profile/presentation/views/update_profile_view.dart';
 import 'package:store_ify/features/search/presentation/views/search_view.dart';
 import 'package:store_ify/features/stores/data/models/store.dart';
 import 'package:store_ify/features/stores/presentation/view/store_details_view.dart';
