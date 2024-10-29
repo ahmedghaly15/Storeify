@@ -13,22 +13,19 @@ class UpdateProfileForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final updateProfileCubit = context.read<UpdateProfileCubit>();
-    return Form(
-      key: updateProfileCubit.formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const TextFieldLabel(labelKey: LangKeys.email),
-          EmailTextFormField(
-            emailController: updateProfileCubit.emailController,
-          ),
-          MySizedBox.height24,
-          const TextFieldLabel(labelKey: LangKeys.username),
-          UsernameTextFormField(
-            controller: updateProfileCubit.usernameController,
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const TextFieldLabel(labelKey: LangKeys.email),
+        EmailTextFormField(
+          emailController: updateProfileCubit.emailController,
+        ),
+        MySizedBox.height24,
+        const TextFieldLabel(labelKey: LangKeys.username),
+        UsernameTextFormField(
+          controller: updateProfileCubit.usernameController,
+        ),
+      ],
     );
   }
 }

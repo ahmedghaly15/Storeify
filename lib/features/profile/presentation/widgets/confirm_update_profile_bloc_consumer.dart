@@ -26,8 +26,7 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
           end: 24.w,
           top: 24.h,
         ),
-        onPressed: () =>
-            context.read<UpdateProfileCubit>().validateFormAndUpdateProfile(),
+        onPressed: () => _updateProfile(context),
         child: circularIndicatorOrTextWidget(
           isLoading:
               state.status == UpdateProfileStateStatus.updateProfileLoading,
@@ -36,6 +35,20 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _updateProfile(BuildContext context) {
+    final updateProfileCubit = context.read<UpdateProfileCubit>();
+    if (updateProfileCubit.emailController.text.isNotEmpty ||
+        updateProfileCubit.usernameController.text.isNotEmpty) {
+      updateProfileCubit.updateProfile();
+    } else {
+      CustomToast.showToast(
+        context: context,
+        messageKey: LangKeys.nothingChangedToUpdate,
+        state: CustomToastState.warning,
+      );
+    }
   }
 
   Future<void> _listener(
