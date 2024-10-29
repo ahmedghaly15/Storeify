@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:store_ify/core/api/api_result.dart';
+import 'package:store_ify/core/models/storeify_user.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
 import 'package:store_ify/features/profile/data/api/profile_api_service.dart';
 import 'package:store_ify/features/profile/data/models/change_password_params.dart';
@@ -33,11 +34,11 @@ class ProfileRepo {
     );
   }
 
-  Future<ApiResult<void>> updateProfile(
+  Future<ApiResult<UserData>> updateProfile(
     UpdateProfileParams params, [
     CancelToken? cancelToken,
   ]) {
-    return executeAndHandleErrors<void>(
+    return executeAndHandleErrors<UserData>(
       () async => await _profileApiService.updateProfile(
         username: params.username,
         email: params.email,

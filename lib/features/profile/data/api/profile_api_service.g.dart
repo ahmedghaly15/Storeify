@@ -133,7 +133,7 @@ class _ProfileApiService implements ProfileApiService {
   }
 
   @override
-  Future<void> updateProfile({
+  Future<UserData> updateProfile({
     String? username,
     String? email,
     File? img,
@@ -165,7 +165,7 @@ class _ProfileApiService implements ProfileApiService {
         ),
       ));
     }
-    final _options = _setStreamType<void>(Options(
+    final _options = _setStreamType<UserData>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -183,7 +183,15 @@ class _ProfileApiService implements ProfileApiService {
           _dio.options.baseUrl,
           baseUrl,
         )));
-    await _dio.fetch<void>(_options);
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late UserData _value;
+    try {
+      _value = UserData.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
