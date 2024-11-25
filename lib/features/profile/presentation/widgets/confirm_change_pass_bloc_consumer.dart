@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
 import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
@@ -27,7 +27,7 @@ class ConfirmChangePassBlocConsumer extends StatelessWidget {
             context.maybePop();
             CustomToast.showToast(
               context: context,
-              messageKey: LangKeys.passChangedSuccessfully,
+              messageKey: LocaleKeys.passChangedSuccessfully,
               state: CustomToastState.success,
             );
           },
@@ -50,7 +50,7 @@ class ConfirmChangePassBlocConsumer extends StatelessWidget {
         child: circularIndicatorOrTextWidget(
           isLoading: state is ChangePasswordLoading,
           context: context,
-          textKey: LangKeys.confirm,
+          textKey: LocaleKeys.confirm,
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
@@ -20,7 +21,7 @@ Widget circularIndicatorOrTextWidget({
           ),
         )
       : Text(
-          context.translate(textKey),
+          context.tr(textKey),
           style: AppTextStyles.mainButtonTextStyle,
         );
 }

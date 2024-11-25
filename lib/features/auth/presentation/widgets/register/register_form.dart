@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/auth_validator.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/widgets/email_text_form_field.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/core/widgets/pass_text_form_field.dart';
@@ -9,6 +8,7 @@ import 'package:store_ify/core/widgets/username_text_form_field.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_state.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_label.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class RegisterForm extends StatelessWidget {
   const RegisterForm({super.key});
@@ -21,7 +21,7 @@ class RegisterForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          const TextFieldLabel(labelKey: LangKeys.email),
+          const TextFieldLabel(labelKey: LocaleKeys.email),
           EmailTextFormField(
             emailController: registerCubit.emailController,
             emailFocusNode: registerCubit.emailFocusNode,
@@ -30,7 +30,7 @@ class RegisterForm extends StatelessWidget {
                 AuthValidator.validateEmailField(context, value: value),
           ),
           MySizedBox.height24,
-          const TextFieldLabel(labelKey: LangKeys.username),
+          const TextFieldLabel(labelKey: LocaleKeys.username),
           UsernameTextFormField(
             controller: registerCubit.usernameController,
             usernameFocusNode: registerCubit.usernameFocusNode,
@@ -39,12 +39,12 @@ class RegisterForm extends StatelessWidget {
                 AuthValidator.validateNameField(context, value: value),
           ),
           MySizedBox.height24,
-          const TextFieldLabel(labelKey: LangKeys.password),
+          const TextFieldLabel(labelKey: LocaleKeys.password),
           BlocBuilder<RegisterCubit, RegisterState>(
             buildWhen: (_, current) => current is TogglePassVisibility,
             builder: (context, state) => PassTextFormField(
               controller: registerCubit.passwordController,
-              hintTextKey: LangKeys.passwordHint,
+              hintTextKey: LocaleKeys.passwordHint,
               focusNode: registerCubit.passwordFocusNode,
               nextFocusNode: registerCubit.confirmPasswordFocusNode,
               obscureText: registerCubit.isPassObscured,
@@ -52,7 +52,7 @@ class RegisterForm extends StatelessWidget {
             ),
           ),
           MySizedBox.height24,
-          const TextFieldLabel(labelKey: LangKeys.confirmPassword),
+          const TextFieldLabel(labelKey: LocaleKeys.confirmPassword),
           BlocBuilder<RegisterCubit, RegisterState>(
             buildWhen: (_, current) => current is ToggleConfirmPassVisibility,
             builder: (context, state) => PassTextFormField(
@@ -68,7 +68,7 @@ class RegisterForm extends StatelessWidget {
               ),
               controller: registerCubit.confirmController,
               keyboardType: TextInputType.visiblePassword,
-              hintTextKey: LangKeys.passwordHint,
+              hintTextKey: LocaleKeys.passwordHint,
               autofillHints: const <String>[AutofillHints.newPassword],
               focusNode: registerCubit.confirmPasswordFocusNode,
             ),

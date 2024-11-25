@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
@@ -74,7 +75,7 @@ class CustomToast {
           MySizedBox.width12,
           Expanded(
             child: Text(
-              context.translate(messageKey),
+              context.tr(messageKey),
               style: TextStyle(
                   color: context.isDarkModeActive
                       ? AppColors.lightModeColor

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_state.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class NextButtonBlocBuilder extends StatelessWidget {
   const NextButtonBlocBuilder({super.key});
@@ -18,8 +18,8 @@ class NextButtonBlocBuilder extends StatelessWidget {
         onPressed: () =>
             context.read<OnboardingCubit>().navigateBetweenPages(context),
         textKey: context.read<OnboardingCubit>().isLastOnboarding
-            ? LangKeys.getStarted
-            : LangKeys.next,
+            ? LocaleKeys.getStarted
+            : LocaleKeys.next,
       ),
     );
   }

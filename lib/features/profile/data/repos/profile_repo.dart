@@ -3,6 +3,7 @@ import 'package:store_ify/core/api/api_result.dart';
 import 'package:store_ify/core/models/storeify_user.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
 import 'package:store_ify/features/profile/data/api/profile_api_service.dart';
+import 'package:store_ify/features/profile/data/models/change_api_lang_params.dart';
 import 'package:store_ify/features/profile/data/models/change_password_params.dart';
 import 'package:store_ify/features/profile/data/models/update_profile_params.dart';
 
@@ -45,6 +46,12 @@ class ProfileRepo {
         img: params.img,
         cancelToken: cancelToken,
       ),
+    );
+  }
+
+  Future<ApiResult<void>> changeApiLang(ChangeApiLangParams params) {
+    return executeAndHandleErrors<void>(
+      () async => await _profileApiService.changeApiLang(params),
     );
   }
 }

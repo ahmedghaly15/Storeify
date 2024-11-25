@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
 import 'package:store_ify/core/widgets/custom_toast.dart';
@@ -39,7 +39,7 @@ class ConfirmLogoutBlocConsumerButton extends StatelessWidget {
         child: circularIndicatorOrTextWidget(
           isLoading: state is LogoutLoading,
           context: context,
-          textKey: LangKeys.confirm,
+          textKey: LocaleKeys.confirm,
         ),
       ),
     );

@@ -43,6 +43,22 @@ class ProfileCubit extends Cubit<ProfileState> {
     );
   }
 
+  // void changeApiLang(String langCode) async {
+  //   final result = await _localeRepo.changeApiLang(
+  //     ChangeApiLangParams(lang: langCode),
+  //   );
+  //   result.when(
+  //     success: (_) => emit(
+  //         state.copyWith(status: LocaleStateStatus.changeApiLocaleSuccess)),
+  //     error: (error) => emit(
+  //       state.copyWith(
+  //         status: LocaleStateStatus.changeApiLocaleFailure,
+  //         error: error.error ?? '',
+  //       ),
+  //     ),
+  //   );
+  // }
+
   @override
   Future<void> close() {
     _cancelToken.cancel();

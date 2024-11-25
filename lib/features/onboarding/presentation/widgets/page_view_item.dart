@@ -1,6 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
@@ -65,8 +65,8 @@ class PageViewItem extends StatelessWidget {
     required TextStyle textStyle,
   }) {
     List<TextSpan> spans = <TextSpan>[];
-    String translatedText = context.translate(textKey);
-    List<String> words = translatedText.split(' ');
+    String trdText = context.tr(textKey);
+    List<String> words = trdText.split(' ');
 
     for (String word in words) {
       if (word == AppStrings.appTitle) {
@@ -77,7 +77,9 @@ class PageViewItem extends StatelessWidget {
           ),
         );
       } else {
-        spans.add(TextSpan(text: '$word '));
+        spans.add(
+          TextSpan(text: '$word '),
+        );
       }
     }
     return spans;

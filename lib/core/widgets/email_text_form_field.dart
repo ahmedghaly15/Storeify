@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class EmailTextFormField extends StatelessWidget {
   const EmailTextFormField({
@@ -22,7 +22,7 @@ class EmailTextFormField extends StatelessWidget {
       validate: validate,
       controller: emailController,
       keyboardType: TextInputType.emailAddress,
-      hintTextKey: LangKeys.examplegmailcom,
+      hintTextKey: LocaleKeys.emailFieldHint,
       autofillHints: const <String>[AutofillHints.email],
       focusNode: emailFocusNode,
       onEditingComplete: nextFocusNode != null

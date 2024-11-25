@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
@@ -39,13 +40,13 @@ class CustomAdaptiveDialog extends StatelessWidget {
       title: title ??
           (titleText != null
               ? Text(
-                  context.translate(titleText!),
+                  context.tr(titleText!),
                   style: AppTextStyles.textStyle20Medium,
                 )
               : null),
       content: content ??
           Text(
-            context.translate(contentText!),
+            context.tr(contentText!),
             style: AppTextStyles.textStyle16Medium,
           ),
       actions: actions,

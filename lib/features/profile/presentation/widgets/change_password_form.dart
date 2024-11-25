@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/auth_validator.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/core/widgets/pass_text_form_field.dart';
 import 'package:store_ify/features/profile/presentation/cubits/change_pass/change_pass_cubit.dart';
@@ -23,7 +23,7 @@ class ChangePasswordForm extends StatelessWidget {
             buildWhen: (_, current) => current is ToggleOldPassVisibility,
             builder: (context, state) => PassTextFormField(
               controller: changePassCubit.passController,
-              hintTextKey: LangKeys.oldPassword,
+              hintTextKey: LocaleKeys.oldPassword,
               obscureText: changePassCubit.oldPasswordObscured,
               suffixOnPressed: () =>
                   changePassCubit.toggleOldPasswordVisibility(),
@@ -34,7 +34,7 @@ class ChangePasswordForm extends StatelessWidget {
             buildWhen: (_, current) => current is ToggleNewPassVisibility,
             builder: (context, state) => PassTextFormField(
               controller: changePassCubit.newPassController,
-              hintTextKey: LangKeys.newPassword,
+              hintTextKey: LocaleKeys.newPassword,
               obscureText: changePassCubit.newPasswordObscured,
               suffixOnPressed: () => changePassCubit.toggleNewPassVisibility(),
               autofillHints: const [AutofillHints.newPassword],
@@ -46,7 +46,7 @@ class ChangePasswordForm extends StatelessWidget {
                 current is ToggleConfirmNewPassVisibility,
             builder: (context, state) => PassTextFormField(
               controller: changePassCubit.confirmPassController,
-              hintTextKey: LangKeys.confirmNewPassword,
+              hintTextKey: LocaleKeys.confirmNewPassword,
               obscureText: changePassCubit.confirmNewPassObscured,
               suffixOnPressed: () =>
                   changePassCubit.toggleConfirmPassVisibility(),

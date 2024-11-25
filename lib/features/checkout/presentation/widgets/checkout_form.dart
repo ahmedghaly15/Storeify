@@ -7,7 +7,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:store_ify/core/helpers/auth_validator.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/helpers/payment_validator.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
@@ -29,29 +29,29 @@ class CheckoutForm extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const TextFieldLabel(labelKey: LangKeys.username),
+            const TextFieldLabel(labelKey: LocaleKeys.username),
             CustomTextField(
               controller: context.read<CheckoutCubit>().usernameController,
               keyboardType: TextInputType.name,
               textCapitalization: TextCapitalization.none,
-              hintTextKey: LangKeys.enterYourUsername,
+              hintTextKey: LocaleKeys.enterYourUsername,
               autofillHints: const <String>[AutofillHints.name],
               validate: (String? value) =>
                   AuthValidator.validateNameField(context, value: value),
             ),
             MySizedBox.height10,
-            const TextFieldLabel(labelKey: LangKeys.yourAddress),
+            const TextFieldLabel(labelKey: LocaleKeys.yourAddress),
             CustomTextField(
               controller: context.read<CheckoutCubit>().addressController,
               keyboardType: TextInputType.streetAddress,
               textCapitalization: TextCapitalization.sentences,
-              hintTextKey: LangKeys.enterYourAddress,
+              hintTextKey: LocaleKeys.enterYourAddress,
               autofillHints: const <String>[AutofillHints.addressCity],
               validate: (String? value) =>
                   PaymentValidator.validateField(context, value),
             ),
             MySizedBox.height10,
-            const TextFieldLabel(labelKey: LangKeys.phone),
+            const TextFieldLabel(labelKey: LocaleKeys.phone),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 24.w),
               child: IntlPhoneField(
@@ -80,7 +80,7 @@ class CheckoutForm extends StatelessWidget {
               ),
             ),
             MySizedBox.height10,
-            const TextFieldLabel(labelKey: LangKeys.date),
+            const TextFieldLabel(labelKey: LocaleKeys.date),
             InkWell(
               onTap: () => context.read<CheckoutCubit>().pickDate(context),
               child: CustomTextField(
@@ -88,7 +88,7 @@ class CheckoutForm extends StatelessWidget {
                 controller: context.read<CheckoutCubit>().dateController,
                 keyboardType: TextInputType.datetime,
                 textCapitalization: TextCapitalization.none,
-                hintTextKey: LangKeys.dateHint,
+                hintTextKey: LocaleKeys.dateHint,
                 autofillHints: const <String>[AutofillHints.birthday],
                 validate: (String? value) =>
                     PaymentValidator.validateField(context, value),
@@ -99,7 +99,7 @@ class CheckoutForm extends StatelessWidget {
               ),
             ),
             MySizedBox.height10,
-            const TextFieldLabel(labelKey: LangKeys.time),
+            const TextFieldLabel(labelKey: LocaleKeys.time),
             const CustomTimePicker(),
             const CheckoutNextBlocConsumerButton(),
           ],

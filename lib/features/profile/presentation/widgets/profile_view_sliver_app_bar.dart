@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
@@ -12,7 +12,7 @@ class ProfileViewSliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomSliverAppBar(
-      titleKey: LangKeys.profile,
+      titleKey: LocaleKeys.profile,
       actions: [
         const Icon(
           AppConstants.personIcon,
