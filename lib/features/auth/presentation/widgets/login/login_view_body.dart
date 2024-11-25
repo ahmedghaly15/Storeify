@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
@@ -10,6 +10,7 @@ import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/auth/presentation/widgets/login/login_button_bloc_consumer.dart';
 import 'package:store_ify/features/auth/presentation/widgets/login/login_form.dart';
 import 'package:store_ify/features/auth/presentation/widgets/sign_up_text_button.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
@@ -28,7 +29,7 @@ class LoginViewBody extends StatelessWidget {
                 Container(
                   margin: EdgeInsetsDirectional.only(start: 9.w),
                   child: Text(
-                    context.translate(LangKeys.signInToContinue),
+                    context.tr(LocaleKeys.signInToContinue),
                     style: AppTextStyles.textStyle24Medium,
                   ),
                 ),
@@ -36,7 +37,7 @@ class LoginViewBody extends StatelessWidget {
                 Container(
                   margin: EdgeInsetsDirectional.only(start: 9.w),
                   child: Text(
-                    context.translate(LangKeys.welcome),
+                    context.tr(LocaleKeys.welcome),
                     style: AppTextStyles.textStyle16Medium,
                   ),
                 ),
@@ -62,7 +63,7 @@ class LoginViewBody extends StatelessWidget {
                         onPressed: () =>
                             context.pushRoute(const ForgotPasswordRoute()),
                         child: Text(
-                          context.translate(LangKeys.forgotPassword),
+                          context.tr(LocaleKeys.forgotPassword),
                           style: AppTextStyles.textStyle16Regular,
                         ),
                       ),

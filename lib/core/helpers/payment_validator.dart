@@ -1,27 +1,27 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:store_ify/core/helpers/app_regex.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class PaymentValidator {
   PaymentValidator._();
 
   static String? validateField(BuildContext context, String? value) {
     if (value!.isEmpty) {
-      return context.translate(LangKeys.fieldRequired);
+      return context.tr(LocaleKeys.fieldRequired);
     }
     return null;
   }
 
   static String? validateCardNumberField(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return context.translate(LangKeys.cardNumberRequired);
+      return context.tr(LocaleKeys.cardNumberRequired);
     } else if (!AppRegex.containsOnlyDigits(val)) {
-      return context.translate(LangKeys.cardNumberDigitsOnly);
+      return context.tr(LocaleKeys.cardNumberDigitsOnly);
     } else if (val.length != 16) {
-      return context.translate(LangKeys.cardNumberInvalidLength);
+      return context.tr(LocaleKeys.cardNumberInvalidLength);
     } else if (!_isValidCardNumber(val)) {
-      return context.translate(LangKeys.cardNumberInvalid);
+      return context.tr(LocaleKeys.cardNumberInvalid);
     }
     return null;
   }
@@ -53,22 +53,22 @@ class PaymentValidator {
   static String? validateCardHolderNumberField(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return context.translate(LangKeys.cardNumberRequired);
+      return context.tr(LocaleKeys.cardNumberRequired);
     } else if (!AppRegex.containsOnlyDigits(val)) {
-      return context.translate(LangKeys.cardNumberDigitsOnly);
+      return context.tr(LocaleKeys.cardNumberDigitsOnly);
     } else if (val.length < 13 || val.length > 19) {
-      return context.translate(LangKeys.cardNumberInvalidLength);
+      return context.tr(LocaleKeys.cardNumberInvalidLength);
     }
     return null;
   }
 
   static String? validateCvvField(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return context.translate(LangKeys.cvvRequired);
+      return context.tr(LocaleKeys.cvvRequired);
     } else if (!AppRegex.containsOnlyDigits(val)) {
-      return context.translate(LangKeys.cvvDigitsOnly);
+      return context.tr(LocaleKeys.cvvDigitsOnly);
     } else if (val.length < 3 || val.length > 4) {
-      return context.translate(LangKeys.cvvInvalidLength);
+      return context.tr(LocaleKeys.cvvInvalidLength);
     }
     return null;
   }

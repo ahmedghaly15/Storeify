@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/widgets/cancel_outlined_button.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
@@ -31,31 +31,31 @@ class SettingItem {
 
   static List<SettingItem> get profileAppSetting => [
         SettingItem(
-          titleKey: LangKeys.favorite,
+          titleKey: LocaleKeys.favorite,
           onTap: (context) => context.pushRoute(const FavoritesRoute()),
         ),
         SettingItem(
-          titleKey: LangKeys.darkMode,
+          titleKey: LocaleKeys.darkMode,
           onTap: (_) {},
           trailing: const DarkModeSwitchBlocBuilder(),
         ),
         SettingItem(
-          titleKey: LangKeys.myOrders,
+          titleKey: LocaleKeys.myOrders,
           onTap: (context) => context.pushRoute(const CartRoute()),
         ),
         SettingItem(
-          titleKey: LangKeys.arabic,
+          titleKey: LocaleKeys.arabic,
           onTap: (_) {},
           trailing: const LanguageSwitchBlocConsumer(),
         ),
       ];
   static List<SettingItem> get profileAccountSettings => [
         SettingItem(
-          titleKey: LangKeys.paymentMethod,
+          titleKey: LocaleKeys.paymentMethod,
           onTap: (_) {},
         ),
         SettingItem(
-          titleKey: LangKeys.logout,
+          titleKey: LocaleKeys.logout,
           onTap: (context) {
             showAdaptiveDialog(
               context: context,
@@ -64,7 +64,7 @@ class SettingItem {
               builder: (_) => BlocProvider.value(
                 value: context.read<ProfileCubit>(),
                 child: const CustomAdaptiveDialog(
-                  contentText: LangKeys.sureToLogout,
+                  contentText: LocaleKeys.sureToLogout,
                   actions: [
                     CancelOutlinedButton(),
                     MySizedBox.height10,
@@ -76,11 +76,11 @@ class SettingItem {
           },
         ),
         SettingItem(
-          titleKey: LangKeys.changePassword,
+          titleKey: LocaleKeys.changePassword,
           onTap: (context) => context.pushRoute(const ChangePasswordRoute()),
         ),
         SettingItem(
-          titleKey: LangKeys.deleteAccount,
+          titleKey: LocaleKeys.deleteAccount,
           onTap: (context) => showAdaptiveDialog(
             context: context,
             barrierDismissible: true,
@@ -88,7 +88,7 @@ class SettingItem {
             builder: (_) => BlocProvider.value(
               value: context.read<ProfileCubit>(),
               child: const CustomAdaptiveDialog(
-                contentText: LangKeys.sureToLogout,
+                contentText: LocaleKeys.sureToLogout,
                 actions: [
                   CancelOutlinedButton(),
                   MySizedBox.height10,

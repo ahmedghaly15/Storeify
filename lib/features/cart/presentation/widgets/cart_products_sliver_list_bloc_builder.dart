@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
 import 'package:store_ify/features/cart/data/models/fetch_cart_response.dart';
 import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:store_ify/features/cart/presentation/cubit/cart_state.dart';
 import 'package:store_ify/features/cart/presentation/widgets/cart_product_item.dart';
 import 'package:store_ify/features/cart/presentation/widgets/cart_sliver_shimmer_loading.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class CartProductsSliverListBlocBuilder extends StatelessWidget {
   const CartProductsSliverListBlocBuilder({super.key});
@@ -31,7 +31,7 @@ class CartProductsSliverListBlocBuilder extends StatelessWidget {
         orElse: () => SliverFillRemaining(
           child: CustomErrorWidget(
             tryAgainOnPressed: () => context.read<CartCubit>().fetchCart(),
-            errorKey: LangKeys.defaultError,
+            errorKey: LocaleKeys.defaultError,
           ),
         ),
       ),

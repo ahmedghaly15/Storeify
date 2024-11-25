@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
 import 'package:store_ify/core/widgets/stores_grid_view_shimmer.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
@@ -41,7 +41,7 @@ class FavoritesGridViewBlocBuilder extends StatelessWidget {
           errorKey: errorKey,
         ),
         orElse: () => const CustomErrorWidget(
-          errorKey: LangKeys.defaultError,
+          errorKey: LocaleKeys.defaultError,
         ),
       ),
     );

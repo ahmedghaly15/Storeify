@@ -14,7 +14,7 @@ class _StoresApiService implements StoresApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://192.168.1.7:8081/api/';
+    baseUrl ??= 'http://192.168.1.9:8081/api/';
   }
 
   final Dio _dio;
@@ -37,7 +37,7 @@ class _StoresApiService implements StoresApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.7:8081/api/stores',
+          'stores/',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -75,7 +75,7 @@ class _StoresApiService implements StoresApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.7:8081/api/stores/${categoryId}',
+          'stores//${categoryId}',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -113,7 +113,7 @@ class _StoresApiService implements StoresApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.7:8081/api/stores/branches/${storeId}',
+          'stores/branches/${storeId}',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -151,7 +151,7 @@ class _StoresApiService implements StoresApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.7:8081/api/stores/category/${storeId}',
+          'stores/category/${storeId}',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -189,7 +189,7 @@ class _StoresApiService implements StoresApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.7:8081/api/stores/offer/${storeId}',
+          'stores/offer/${storeId}',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,

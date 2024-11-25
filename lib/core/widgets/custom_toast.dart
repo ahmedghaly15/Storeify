@@ -1,8 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 
 enum CustomToastState { success, warning, error, info }
@@ -67,18 +66,12 @@ class CustomToast {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon,
-              color: context.isDarkModeActive
-                  ? AppColors.lightModeColor
-                  : AppColors.darkColor),
+          Icon(icon, color: Colors.white),
           MySizedBox.width12,
           Expanded(
             child: Text(
-              context.translate(messageKey),
-              style: TextStyle(
-                  color: context.isDarkModeActive
-                      ? AppColors.lightModeColor
-                      : AppColors.darkColor),
+              context.tr(messageKey),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         ],

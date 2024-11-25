@@ -3,7 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
@@ -50,9 +50,9 @@ class PaymentMethodNextBlocConsumerButton extends StatelessWidget {
             context: context,
             textKey:
                 context.read<PaymentMethodCubit>().selectedPaymentMethod.name ==
-                        LangKeys.creditCard
-                    ? LangKeys.continueKey
-                    : LangKeys.next,
+                        LocaleKeys.creditCard
+                    ? LocaleKeys.continueWord
+                    : LocaleKeys.next,
           ),
           onPressed: () {
             context.pushRoute(const PaymentRoute());

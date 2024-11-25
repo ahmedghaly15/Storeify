@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
 import 'package:store_ify/features/categories/presentation/widgets/category_item.dart';
@@ -55,7 +55,7 @@ class StoreCategoriesGridViewBlocBuilder extends StatelessWidget {
           tryAgainOnPressed: () {
             context.read<StoreDetailsCubit>().fetchStoreCategories(storeId);
           },
-          errorKey: LangKeys.defaultError,
+          errorKey: LocaleKeys.defaultError,
         ),
       ),
     );

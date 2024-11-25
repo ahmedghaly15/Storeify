@@ -2,8 +2,8 @@ import 'package:animate_do/animate_do.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
@@ -26,7 +26,7 @@ class PaymentSuccessfullyView extends StatelessWidget {
               Image.asset(AppAssets.imagesPaymentSuccessfully),
               MySizedBox.height24,
               Text(
-                context.translate(LangKeys.paymentSuccessfully),
+                context.tr(LocaleKeys.paymentSuccessfully),
                 style: AppTextStyles.textStyle24Medium,
               ),
               MainButton(
@@ -38,7 +38,7 @@ class PaymentSuccessfullyView extends StatelessWidget {
                 onPressed: () {
                   context.router.popUntilRouteWithName(BottomNavBarRoute.name);
                 },
-                textKey: LangKeys.backToHome,
+                textKey: LocaleKeys.backToHome,
               ),
             ],
           ),

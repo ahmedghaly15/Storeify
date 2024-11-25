@@ -2,7 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:store_ify/core/services/location_service.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
@@ -30,7 +31,7 @@ class EnableLocationPermissionAdaptiveDialog extends StatelessWidget {
         borderRadius: BorderRadius.circular(40.r),
       ),
       content: Text(
-        context.translate(LangKeys.enableLocationPermission),
+        context.tr(LocaleKeys.enableLocationPermission),
         style: AppTextStyles.textStyle16Medium,
         textAlign: TextAlign.center,
       ),
@@ -38,7 +39,7 @@ class EnableLocationPermissionAdaptiveDialog extends StatelessWidget {
         MainButton(
           onPressed: () async =>
               await _requestLocationPermissionAndShowGrantedToast(context),
-          textKey: LangKeys.ok,
+          textKey: LocaleKeys.ok,
           width: double.infinity,
         ),
         MySizedBox.height8,
@@ -56,13 +57,13 @@ class EnableLocationPermissionAdaptiveDialog extends StatelessWidget {
     if (await LocationService.isLocationPermissionDenied()) {
       CustomToast.showToast(
         context: context,
-        messageKey: LangKeys.locationDenied,
+        messageKey: LocaleKeys.locationDenied,
         state: CustomToastState.error,
       );
     } else {
       CustomToast.showToast(
         context: context,
-        messageKey: LangKeys.locationGranted,
+        messageKey: LocaleKeys.locationGranted,
         state: CustomToastState.success,
       );
     }
@@ -73,7 +74,7 @@ class EnableLocationPermissionAdaptiveDialog extends StatelessWidget {
     await context.maybePop();
     CustomToast.showToast(
       context: context,
-      messageKey: LangKeys.locationDenied,
+      messageKey: LocaleKeys.locationDenied,
       state: CustomToastState.error,
     );
   }

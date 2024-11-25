@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
@@ -11,6 +10,7 @@ import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/auth/data/models/reset_password_requirements.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_state.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class ResetPassButtonBlocConsumer extends StatelessWidget {
   const ResetPassButtonBlocConsumer({
@@ -29,7 +29,7 @@ class ResetPassButtonBlocConsumer extends StatelessWidget {
           success: () {
             CustomToast.showToast(
               context: context,
-              messageKey: LangKeys.passwordResetSuccess,
+              messageKey: LocaleKeys.passwordResetSuccess,
               state: CustomToastState.success,
             );
             context.router
@@ -59,7 +59,7 @@ class ResetPassButtonBlocConsumer extends StatelessWidget {
           child: circularIndicatorOrTextWidget(
             isLoading: state is Loading,
             context: context,
-            textKey: LangKeys.resetPassword,
+            textKey: LocaleKeys.resetPassword,
           ),
         );
       },

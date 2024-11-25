@@ -1,13 +1,13 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/auth/presentation/widgets/verification/validate_otp_button_bloc_consumer.dart';
 import 'package:store_ify/features/auth/presentation/widgets/verification/validate_otp_pin_put.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class VerificationViewBody extends StatelessWidget {
   const VerificationViewBody({
@@ -31,12 +31,12 @@ class VerificationViewBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    context.translate(LangKeys.otpVerification),
+                    context.tr(LocaleKeys.OtpVerification),
                     style: AppTextStyles.textStyle24Medium,
                   ),
                   MySizedBox.height8,
                   Text(
-                    "${context.translate(LangKeys.weSentCodeTo)} $email",
+                    "${context.tr(LocaleKeys.WeSentCodeTo)} $email",
                     style: AppTextStyles.textStyle16Regular
                         .copyWith(color: AppColors.subTitleColor),
                     textAlign: TextAlign.center,
@@ -48,7 +48,7 @@ class VerificationViewBody extends StatelessWidget {
                   ),
                   MySizedBox.height19,
                   Text(
-                    context.translate(LangKeys.otpCode),
+                    context.tr(LocaleKeys.otpCode),
                     style: AppTextStyles.textStyle16Medium,
                   ),
                   MySizedBox.height13,

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/helpers/payment_validator.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
@@ -36,12 +36,12 @@ class PaymentFormBlocBuilder extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const PaymentTextFieldLabel(labelKey: LangKeys.cardType),
+              const PaymentTextFieldLabel(labelKey: LocaleKeys.cardType),
               const CardTypeTextFieldBlocBuilder(),
               MySizedBox.height19,
-              const PaymentTextFieldLabel(labelKey: LangKeys.cardNumber),
+              const PaymentTextFieldLabel(labelKey: LocaleKeys.cardNumber),
               PaymentCustomTextField(
-                hintTextKey: LangKeys.cardNumberHint,
+                hintTextKey: LocaleKeys.cardNumberHint,
                 controller: context.read<PaymentCubit>().cardNumberController,
                 keyboardType: TextInputType.number,
                 autofillHints: const [AutofillHints.creditCardNumber],
@@ -52,9 +52,10 @@ class PaymentFormBlocBuilder extends StatelessWidget {
                     PaymentValidator.validateCardNumberField(context, val),
               ),
               MySizedBox.height19,
-              const PaymentTextFieldLabel(labelKey: LangKeys.cardHolderNumber),
+              const PaymentTextFieldLabel(
+                  labelKey: LocaleKeys.cardHolderNumber),
               PaymentCustomTextField(
-                hintTextKey: LangKeys.cardHolderNumber,
+                hintTextKey: LocaleKeys.cardHolderNumber,
                 controller:
                     context.read<PaymentCubit>().cardHolderNumberController,
                 keyboardType: TextInputType.number,

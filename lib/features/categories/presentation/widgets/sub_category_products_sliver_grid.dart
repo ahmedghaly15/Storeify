@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
 import 'package:store_ify/core/widgets/product_item.dart';
@@ -27,7 +27,7 @@ class SubCategoryProductsSliverGrid extends StatelessWidget {
         ),
         fetchSubCategoryError: (errorKey) => SliverFillRemaining(
           child: Center(
-            child: Text(context.translate(errorKey)),
+            child: Text(context.tr(errorKey)),
           ),
         ),
         fetchSubCategorySuccess: (subCategory) => SliverPadding(

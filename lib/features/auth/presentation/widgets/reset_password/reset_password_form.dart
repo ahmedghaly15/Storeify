@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/helpers/auth_validator.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_state.dart';
 import 'package:store_ify/features/auth/presentation/widgets/text_field_label.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class ResetPasswordForm extends StatelessWidget {
   const ResetPasswordForm({super.key});
@@ -21,7 +21,7 @@ class ResetPasswordForm extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              const TextFieldLabel(labelKey: LangKeys.password),
+              const TextFieldLabel(labelKey: LocaleKeys.password),
               CustomTextField(
                 obscureText: true,
                 suffixIcon: IconButton(
@@ -39,13 +39,13 @@ class ResetPasswordForm extends StatelessWidget {
                     AuthValidator.validatePasswordField(context, value: value),
                 controller: context.read<ResetPasswordCubit>().passController,
                 keyboardType: TextInputType.visiblePassword,
-                hintTextKey: LangKeys.passwordHint,
+                hintTextKey: LocaleKeys.passwordHint,
                 autofillHints: const <String>[AutofillHints.password],
                 focusNode: context.read<ResetPasswordCubit>().passFocusNode,
                 onEditingComplete: () => context.requestFocus(
                     context.read<ResetPasswordCubit>().confirmPassFocusNode),
               ),
-              const TextFieldLabel(labelKey: LangKeys.confirmPassword),
+              const TextFieldLabel(labelKey: LocaleKeys.confirmPassword),
               CustomTextField(
                 obscureText:
                     context.read<ResetPasswordCubit>().confirmPassObscured,
@@ -73,7 +73,7 @@ class ResetPasswordForm extends StatelessWidget {
                 controller:
                     context.read<ResetPasswordCubit>().confirmPassController,
                 keyboardType: TextInputType.visiblePassword,
-                hintTextKey: LangKeys.passwordHint,
+                hintTextKey: LocaleKeys.passwordHint,
                 autofillHints: const <String>[AutofillHints.password],
                 focusNode:
                     context.read<ResetPasswordCubit>().confirmPassFocusNode,

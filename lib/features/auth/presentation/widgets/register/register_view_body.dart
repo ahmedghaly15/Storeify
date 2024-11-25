@@ -1,12 +1,12 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/auth/presentation/widgets/register/register_button_bloc_consumer.dart';
 import 'package:store_ify/features/auth/presentation/widgets/register/register_form.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class RegisterViewBody extends StatelessWidget {
   const RegisterViewBody({super.key});
@@ -23,12 +23,12 @@ class RegisterViewBody extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    context.translate(LangKeys.signUp),
+                    context.tr(LocaleKeys.signUp),
                     style: AppTextStyles.textStyle24Medium,
                   ),
                   MySizedBox.height5,
                   Text(
-                    context.translate(LangKeys.createAccount),
+                    context.tr(LocaleKeys.createAccount),
                     style: AppTextStyles.textStyle16Medium,
                   ),
                   MySizedBox.height45,
@@ -48,7 +48,7 @@ class RegisterViewBody extends StatelessWidget {
                   alignment: AlignmentDirectional.centerEnd,
                   child: TextButton(
                     onPressed: () => context.maybePop(),
-                    child: Text(context.translate(LangKeys.login)),
+                    child: Text(context.tr(LocaleKeys.login)),
                   ),
                 ),
               ],

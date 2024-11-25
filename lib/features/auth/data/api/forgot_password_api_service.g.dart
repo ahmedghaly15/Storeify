@@ -14,7 +14,7 @@ class _ForgotPasswordApiService implements ForgotPasswordApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://192.168.1.7:8081/api/';
+    baseUrl ??= 'http://192.168.1.9:8081/api/';
   }
 
   final Dio _dio;
@@ -42,7 +42,7 @@ class _ForgotPasswordApiService implements ForgotPasswordApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.7:8081/api/forget-password',
+          'forget-password',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,

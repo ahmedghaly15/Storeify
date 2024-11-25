@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
@@ -41,7 +41,7 @@ class CardTypeTextFieldBlocBuilder extends StatelessWidget {
                     children: [
                       Image.asset(cardType.image),
                       Text(
-                        context.translate(cardType.nameKey),
+                        context.tr(cardType.nameKey),
                         style: AppTextStyles.textStyle10Medium,
                       ),
                     ],

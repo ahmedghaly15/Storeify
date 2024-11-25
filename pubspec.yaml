@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
   
   # For in-app localization
-  flutter_localization: ^0.2.0
+  easy_localization: ^3.0.7
   # A declarative routing solution for navigation
   auto_route: ^9.2.2
   # Networking
@@ -105,8 +105,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/icons/
-    - lib/core/locale/lang/ar.json
-    - lib/core/locale/lang/en.json
+    - assets/translations/
 
   fonts:
     - family: Poppins

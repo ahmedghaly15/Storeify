@@ -1,10 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:store_ify/core/widgets/try_again_button.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class CustomErrorWidget extends StatelessWidget {
   const CustomErrorWidget({
@@ -24,12 +24,12 @@ class CustomErrorWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          if (errorKey == LangKeys.noInternet)
+          if (errorKey == LocaleKeys.noInternet)
             Image.asset(
               AppAssets.imagesNoInternet,
               fit: BoxFit.cover,
             ),
-          if (errorKey != LangKeys.noInternet)
+          if (errorKey != LocaleKeys.noInternet)
             Image.asset(
               AppAssets.imagesDefaultError,
               fit: BoxFit.cover,
@@ -39,20 +39,20 @@ class CustomErrorWidget extends StatelessWidget {
               Container(
                 margin: EdgeInsets.symmetric(vertical: 12.h),
                 child: Text(
-                  context.translate(errorKey),
+                  context.tr(errorKey),
                   style: AppTextStyles.textStyle18Bold,
                   textAlign: TextAlign.center,
                 ),
               ),
-              if (errorKey == LangKeys.noInternet)
+              if (errorKey == LocaleKeys.noInternet)
                 Text(
-                  context.translate(LangKeys.ensureInternetConnection),
+                  context.tr(LocaleKeys.ensureInternetConnection),
                   style: AppTextStyles.textStyle14Regular,
                   textAlign: TextAlign.center,
                 ),
-              if (errorKey != LangKeys.noInternet)
+              if (errorKey != LocaleKeys.noInternet)
                 Text(
-                  context.translate(LangKeys.defaultErrorDescription),
+                  context.tr(LocaleKeys.defaultErrorDescription),
                   style: AppTextStyles.textStyle14Regular,
                   textAlign: TextAlign.center,
                 ),

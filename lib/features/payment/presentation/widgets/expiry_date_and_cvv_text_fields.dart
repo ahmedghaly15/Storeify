@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/helpers/payment_validator.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
 import 'package:store_ify/features/payment/presentation/widgets/payment_custom_text_field.dart';
@@ -21,10 +21,10 @@ class ExpiryDateAndCvvTextFields extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               const PaymentTextFieldLabel(
-                labelKey: LangKeys.expiryDate,
+                labelKey: LocaleKeys.expiryDate,
               ),
               PaymentCustomTextField(
-                hintTextKey: LangKeys.expiryDateHint,
+                hintTextKey: LocaleKeys.expiryDateHint,
                 controller: context.read<PaymentCubit>().expiryDateController,
                 keyboardType: TextInputType.datetime,
                 focusNode: context.read<PaymentCubit>().expiryDateFocusNode,
@@ -43,9 +43,9 @@ class ExpiryDateAndCvvTextFields extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              const PaymentTextFieldLabel(labelKey: LangKeys.cvv),
+              const PaymentTextFieldLabel(labelKey: LocaleKeys.cvv),
               PaymentCustomTextField(
-                hintTextKey: LangKeys.cvv,
+                hintTextKey: LocaleKeys.cvv,
                 controller: context.read<PaymentCubit>().cvvController,
                 keyboardType: TextInputType.number,
                 focusNode: context.read<PaymentCubit>().cvvFocusNode,

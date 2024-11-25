@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/models/storeify_user.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:store_ify/features/checkout/data/models/payment_method.dart';
 import 'package:store_ify/features/payment/data/models/card_type.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 bool isUserLoggedIn = false;
 bool isOnboardingVisited = false;
@@ -24,13 +24,13 @@ class AppConstants {
   static EdgeInsetsGeometry categoryPadding =
       EdgeInsetsDirectional.symmetric(horizontal: 16.w);
   static const List<String> storeDetailsCategoriesKeys = [
-    LangKeys.allOffers,
-    LangKeys.branches,
-    LangKeys.categories,
+    LocaleKeys.allOffers,
+    LocaleKeys.branches,
+    LocaleKeys.categories,
   ];
   static const List<String> favoritesCategoriesKeys = [
-    LangKeys.stores,
-    LangKeys.products,
+    LocaleKeys.stores,
+    LocaleKeys.products,
   ];
   static const Duration onboardingAnimationDuration =
       Duration(milliseconds: 475);
@@ -49,12 +49,12 @@ class AppConstants {
   static const List<PaymentMethod> paymentMethods = [
     PaymentMethod(
       id: 0,
-      name: LangKeys.creditCard,
+      name: LocaleKeys.creditCard,
       image: AppAssets.imagesCreditCard,
     ),
     PaymentMethod(
       id: 1,
-      name: LangKeys.cashOnDelivery,
+      name: LocaleKeys.cashOnDelivery,
       image: AppAssets.imagesCash,
     ),
   ];
@@ -62,15 +62,15 @@ class AppConstants {
   static const List<CardType> cardTypes = [
     CardType(
       image: AppAssets.imagesVisa,
-      nameKey: LangKeys.visaCard,
+      nameKey: LocaleKeys.visaCard,
     ),
     CardType(
       image: AppAssets.imagesMasterCard,
-      nameKey: LangKeys.masterCard,
+      nameKey: LocaleKeys.masterCard,
     ),
     CardType(
       image: AppAssets.imagesPaypal,
-      nameKey: LangKeys.payPal,
+      nameKey: LocaleKeys.payPal,
     ),
   ];
   static const IconData personIcon = Icons.person_2;

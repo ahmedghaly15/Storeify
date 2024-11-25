@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
@@ -45,7 +45,7 @@ class StoreBranchesListViewBlocBuilder extends StatelessWidget {
           tryAgainOnPressed: () {
             context.read<StoreDetailsCubit>().fetchStoreBranches(storeId);
           },
-          errorKey: LangKeys.defaultError,
+          errorKey: LocaleKeys.defaultError,
         ),
       ),
     );

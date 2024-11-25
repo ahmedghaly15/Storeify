@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
@@ -35,7 +36,7 @@ class FavoriteCategoriesListView extends StatelessWidget {
                 .updateSelectedFavCategoryAndFetchItsData(index);
           },
           child: Text(
-            context.translate(AppConstants.favoritesCategoriesKeys[index]),
+            context.tr(AppConstants.favoritesCategoriesKeys[index]),
             style: AppTextStyles.textStyle10Medium.copyWith(
               color: context.isDarkModeActive
                   ? AppColors.lightModeColor

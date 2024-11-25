@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:store_ify/core/api/dio_factory.dart';
-import 'package:store_ify/core/locale/logic/cubit/locale_cubit.dart';
-import 'package:store_ify/core/locale/logic/locale_repo.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/services/location_service.dart';
 import 'package:store_ify/core/themes/theming_cubit.dart';
@@ -141,9 +139,6 @@ void _setupDIForDatasources() {
 }
 
 void _setupDIForRepos() {
-  getIt.registerLazySingleton<LocaleRepo>(
-    () => LocaleRepoImpl(getIt.get<ProfileApiService>()),
-  );
   getIt.registerLazySingleton<LoginRepo>(
     () => LoginRepo(getIt.get<LoginApiService>()),
   );
@@ -208,9 +203,6 @@ void _setupDIForRepos() {
 
 void _setupDIForCubits() {
   getIt.registerLazySingleton<ThemingCubit>(() => ThemingCubit());
-  getIt.registerLazySingleton<LocaleCubit>(
-    () => LocaleCubit(getIt.get<LocaleRepo>()),
-  );
   getIt.registerFactory<LoginCubit>(
     () => LoginCubit(getIt.get<LoginRepo>()),
   );

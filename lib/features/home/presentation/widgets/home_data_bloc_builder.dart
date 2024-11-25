@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
@@ -37,20 +37,20 @@ class HomeDataBlocBuilder extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const ListTitle(
-                titleKey: LangKeys.bestSelling,
+                titleKey: LocaleKeys.bestSelling,
                 bottomPadding: 25,
               ),
               BestSellingListView(bestSelling: homeData.bestSelling),
               MySizedBox.height13,
               PaddedTitleAndViewAllTextButton(
-                titleKey: LangKeys.categories,
+                titleKey: LocaleKeys.categories,
                 viewAllOnPressed: () =>
                     context.pushRoute(const CategoriesRoute()),
               ),
               CategoriesListView(categories: homeData.categories),
               MySizedBox.height13,
               PaddedTitleAndViewAllTextButton(
-                titleKey: LangKeys.topStores,
+                titleKey: LocaleKeys.topStores,
                 viewAllOnPressed: () => context.pushRoute(const StoresRoute()),
               ),
               TopStoresListView(topStores: homeData.topStores),
@@ -59,7 +59,7 @@ class HomeDataBlocBuilder extends StatelessWidget {
         ),
         orElse: () => CustomErrorWidget(
           tryAgainOnPressed: () => context.read<HomeCubit>().fetchHomeData(),
-          errorKey: LangKeys.defaultError,
+          errorKey: LocaleKeys.defaultError,
         ),
       ),
     );

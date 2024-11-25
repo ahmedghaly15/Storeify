@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
@@ -97,7 +98,7 @@ class CustomTextField extends StatelessWidget {
           focusedErrorBorder:
               focusedErrorBorder ?? AppConstants.textFieldOutlinedBorder,
           errorBorder: errorBorder ?? AppConstants.textFieldOutlinedBorder,
-          hintText: hintTextKey == null ? '' : context.translate(hintTextKey!),
+          hintText: hintTextKey == null ? '' : context.tr(hintTextKey!),
           hintStyle: hintStyle ??
               AppTextStyles.textStyle16Medium.copyWith(
                 color:
