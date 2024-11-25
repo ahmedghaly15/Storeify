@@ -17,7 +17,7 @@ class StoreifyUserAdapter extends TypeAdapter<StoreifyUser> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return StoreifyUser(
-      token: fields[0] as String,
+      token: fields[0] as String?,
       user: fields[1] as UserData,
     );
   }
@@ -57,19 +57,22 @@ class UserDataAdapter extends TypeAdapter<UserData> {
       id: fields[0] as int,
       username: fields[1] as String,
       email: fields[2] as String,
+      img: fields[3] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, UserData obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
       ..write(obj.username)
       ..writeByte(2)
-      ..write(obj.email);
+      ..write(obj.email)
+      ..writeByte(3)
+      ..write(obj.img);
   }
 
   @override
@@ -87,25 +90,28 @@ class UserDataAdapter extends TypeAdapter<UserData> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-StoreifyUser _$StoreifyUserFromJson(Map<String, dynamic> json) => StoreifyUser(
-      token: json['token'] as String,
-      user: UserData.fromJson(json['user'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$StoreifyUserToJson(StoreifyUser instance) =>
-    <String, dynamic>{
-      'token': instance.token,
-      'user': instance.user,
-    };
-
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       id: (json['id'] as num).toInt(),
       username: json['username'] as String,
       email: json['email'] as String,
+      img: json['img'] as String?,
     );
 
 Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
       'id': instance.id,
       'username': instance.username,
       'email': instance.email,
+      'img': instance.img,
+    };
+
+_$StoreifyUserImpl _$$StoreifyUserImplFromJson(Map<String, dynamic> json) =>
+    _$StoreifyUserImpl(
+      token: json['token'] as String?,
+      user: UserData.fromJson(json['user'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$StoreifyUserImplToJson(_$StoreifyUserImpl instance) =>
+    <String, dynamic>{
+      'token': instance.token,
+      'user': instance.user.toJson(),
     };

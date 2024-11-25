@@ -70,6 +70,6 @@ class PaymentCustomTextField extends StatelessWidget {
 
   OutlineInputBorder _buildOutlineInputBorder() => OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.r),
-        borderSide: const BorderSide(color: Colors.white, width: 0),
+        borderSide: const BorderSide(color: AppColors.lightModeColor, width: 0),
       );
 }

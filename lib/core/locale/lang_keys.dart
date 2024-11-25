@@ -126,4 +126,14 @@ class LangKeys {
   static const String enableLocationPermission = 'enableLocationPermission';
   static const String ok = 'ok';
   static const String accountCreatedSuccessfully = 'accountCreatedSuccessfully';
+  static const String changePassword = 'changePassword';
+  static const String oldPassword = 'oldPassword';
+  static const String newPassword = 'newPassword';
+  static const String confirmNewPassword = 'confirmNewPassword';
+  static const String passChangedSuccessfully = 'passChangedSuccessfully';
+  static const String deleteAccount = 'deleteAccount';
+  static const String sureToDeleteAccount = 'sureToDeleteAccount';
+  static const String updateProfile = 'updateProfile';
+  static const String profileUpdatedSuccessfully = 'profileUpdatedSuccessfully';
+  static const String nothingChangedToUpdate = 'nothingChangedToUpdate';
 }

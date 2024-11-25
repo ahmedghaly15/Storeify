@@ -10,6 +10,9 @@ class RegisterState<T> with _$RegisterState<T> {
   const factory RegisterState.registerSuccess(StoreifyUser data) =
       RegisterSuccess<T>;
   const factory RegisterState.registerError(String error) = RegisterError<T>;
-  const factory RegisterState.invertPasswordVisibility(bool isPasswordVisible) =
-      InvertPasswordVisibility<T>;
+  const factory RegisterState.togglePassVisibility(bool isPassObscured) =
+      TogglePassVisibility<T>;
+  const factory RegisterState.toggleConfirmPassVisibility(
+    bool isConfirmPassObscured,
+  ) = ToggleConfirmPassVisibility<T>;
 }

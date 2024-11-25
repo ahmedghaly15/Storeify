@@ -31,7 +31,7 @@ class StoreDetailsCategoriesListView extends StatelessWidget {
                 isOutlined: true,
                 backgroundColor: context.isDarkModeActive
                     ? AppColors.secondaryDarkColor
-                    : Colors.white,
+                    : AppColors.lightModeColor,
                 onPressed: () => context
                     .read<StoreDetailsCubit>()
                     .updateCurrentStoreAndFetchItsData(

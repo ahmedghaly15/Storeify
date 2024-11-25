@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/services/location_service.dart';
+import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:store_ify/core/widgets/cancel_outlined_button.dart';
@@ -22,7 +23,9 @@ class EnableLocationPermissionAdaptiveDialog extends StatelessWidget {
         height: 100.h,
         width: 100.w,
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: context.isDarkModeActive
+          ? AppColors.darkColor
+          : AppColors.lightModeColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(40.r),
       ),

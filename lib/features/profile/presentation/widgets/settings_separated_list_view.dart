@@ -26,18 +26,18 @@ class SettingsSeparatedListView extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(15.r)),
           ),
-          onTap: settings[index].onTap,
+          onTap: () => settings[index].onTap(context),
           contentPadding: EdgeInsets.symmetric(horizontal: 16.w),
           title: Text(
             context.translate(settings[index].titleKey),
             style: AppTextStyles.textStyle16Regular.copyWith(
-              color: Colors.white,
+              color: AppColors.lightModeColor,
             ),
           ),
           trailing: settings[index].trailing,
         ),
         separatorBuilder: (_, __) => Divider(
-          color: Colors.white,
+          color: AppColors.lightModeColor,
           thickness: 1.w,
           height: 1.h,
         ),

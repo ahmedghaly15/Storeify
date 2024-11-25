@@ -14,7 +14,7 @@ class _RegisterApiService implements RegisterApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://192.168.1.10:8081/api/';
+    baseUrl ??= 'http://192.168.1.7:8081/api/';
   }
 
   final Dio _dio;
@@ -42,7 +42,7 @@ class _RegisterApiService implements RegisterApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/register',
+          'http://192.168.1.7:8081/api/register',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,

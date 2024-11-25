@@ -14,7 +14,7 @@ class _ValidateOtpApiService implements ValidateOtpApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://192.168.1.10:8081/api/';
+    baseUrl ??= 'http://192.168.1.7:8081/api/';
   }
 
   final Dio _dio;
@@ -42,7 +42,7 @@ class _ValidateOtpApiService implements ValidateOtpApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/validate-otp',
+          'http://192.168.1.7:8081/api/validate-otp',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,

@@ -16,45 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LocaleState<T> {
+  LocaleStateStatus get status => throw _privateConstructorUsedError;
   Locale get locale => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Locale locale) initial,
-    required TResult Function(Locale locale) changeLocale,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Locale locale)? initial,
-    TResult? Function(Locale locale)? changeLocale,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Locale locale)? initial,
-    TResult Function(Locale locale)? changeLocale,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(_ChangeLocale<T> value) changeLocale,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(_ChangeLocale<T> value)? changeLocale,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(_ChangeLocale<T> value)? changeLocale,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  String? get error => throw _privateConstructorUsedError;
 
   /// Create a copy of LocaleState
   /// with the given fields replaced by the non-null parameter values.
@@ -69,7 +33,7 @@ abstract class $LocaleStateCopyWith<T, $Res> {
           LocaleState<T> value, $Res Function(LocaleState<T>) then) =
       _$LocaleStateCopyWithImpl<T, $Res, LocaleState<T>>;
   @useResult
-  $Res call({Locale locale});
+  $Res call({LocaleStateStatus status, Locale locale, String? error});
 }
 
 /// @nodoc
@@ -87,34 +51,44 @@ class _$LocaleStateCopyWithImpl<T, $Res, $Val extends LocaleState<T>>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? status = null,
     Object? locale = null,
+    Object? error = freezed,
   }) {
     return _then(_value.copyWith(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as LocaleStateStatus,
       locale: null == locale
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as Locale,
+      error: freezed == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<T, $Res>
+abstract class _$$LocaleStateImplCopyWith<T, $Res>
     implements $LocaleStateCopyWith<T, $Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl<T> value, $Res Function(_$InitialImpl<T>) then) =
-      __$$InitialImplCopyWithImpl<T, $Res>;
+  factory _$$LocaleStateImplCopyWith(_$LocaleStateImpl<T> value,
+          $Res Function(_$LocaleStateImpl<T>) then) =
+      __$$LocaleStateImplCopyWithImpl<T, $Res>;
   @override
   @useResult
-  $Res call({Locale locale});
+  $Res call({LocaleStateStatus status, Locale locale, String? error});
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$LocaleStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
-    implements _$$InitialImplCopyWith<T, $Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
+class __$$LocaleStateImplCopyWithImpl<T, $Res>
+    extends _$LocaleStateCopyWithImpl<T, $Res, _$LocaleStateImpl<T>>
+    implements _$$LocaleStateImplCopyWith<T, $Res> {
+  __$$LocaleStateImplCopyWithImpl(
+      _$LocaleStateImpl<T> _value, $Res Function(_$LocaleStateImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of LocaleState
@@ -122,267 +96,88 @@ class __$$InitialImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? status = null,
     Object? locale = null,
+    Object? error = freezed,
   }) {
-    return _then(_$InitialImpl<T>(
-      null == locale
+    return _then(_$LocaleStateImpl<T>(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as LocaleStateStatus,
+      locale: null == locale
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as Locale,
+      error: freezed == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$InitialImpl<T> implements _Initial<T> {
-  const _$InitialImpl(this.locale);
+class _$LocaleStateImpl<T> implements _LocaleState<T> {
+  const _$LocaleStateImpl(
+      {required this.status,
+      this.locale = const Locale(AppStrings.englishLangCode),
+      this.error});
 
   @override
+  final LocaleStateStatus status;
+  @override
+  @JsonKey()
   final Locale locale;
+  @override
+  final String? error;
 
   @override
   String toString() {
-    return 'LocaleState<$T>.initial(locale: $locale)';
+    return 'LocaleState<$T>(status: $status, locale: $locale, error: $error)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InitialImpl<T> &&
-            (identical(other.locale, locale) || other.locale == locale));
+            other is _$LocaleStateImpl<T> &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.locale, locale) || other.locale == locale) &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, locale);
+  int get hashCode => Object.hash(runtimeType, status, locale, error);
 
   /// Create a copy of LocaleState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$InitialImplCopyWith<T, _$InitialImpl<T>> get copyWith =>
-      __$$InitialImplCopyWithImpl<T, _$InitialImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Locale locale) initial,
-    required TResult Function(Locale locale) changeLocale,
-  }) {
-    return initial(locale);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Locale locale)? initial,
-    TResult? Function(Locale locale)? changeLocale,
-  }) {
-    return initial?.call(locale);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Locale locale)? initial,
-    TResult Function(Locale locale)? changeLocale,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(locale);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(_ChangeLocale<T> value) changeLocale,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(_ChangeLocale<T> value)? changeLocale,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(_ChangeLocale<T> value)? changeLocale,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial<T> implements LocaleState<T> {
-  const factory _Initial(final Locale locale) = _$InitialImpl<T>;
-
-  @override
-  Locale get locale;
-
-  /// Create a copy of LocaleState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$InitialImplCopyWith<T, _$InitialImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ChangeLocaleImplCopyWith<T, $Res>
-    implements $LocaleStateCopyWith<T, $Res> {
-  factory _$$ChangeLocaleImplCopyWith(_$ChangeLocaleImpl<T> value,
-          $Res Function(_$ChangeLocaleImpl<T>) then) =
-      __$$ChangeLocaleImplCopyWithImpl<T, $Res>;
-  @override
-  @useResult
-  $Res call({Locale locale});
-}
-
-/// @nodoc
-class __$$ChangeLocaleImplCopyWithImpl<T, $Res>
-    extends _$LocaleStateCopyWithImpl<T, $Res, _$ChangeLocaleImpl<T>>
-    implements _$$ChangeLocaleImplCopyWith<T, $Res> {
-  __$$ChangeLocaleImplCopyWithImpl(
-      _$ChangeLocaleImpl<T> _value, $Res Function(_$ChangeLocaleImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of LocaleState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? locale = null,
-  }) {
-    return _then(_$ChangeLocaleImpl<T>(
-      null == locale
-          ? _value.locale
-          : locale // ignore: cast_nullable_to_non_nullable
-              as Locale,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ChangeLocaleImpl<T> implements _ChangeLocale<T> {
-  const _$ChangeLocaleImpl(this.locale);
-
-  @override
-  final Locale locale;
-
-  @override
-  String toString() {
-    return 'LocaleState<$T>.changeLocale(locale: $locale)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChangeLocaleImpl<T> &&
-            (identical(other.locale, locale) || other.locale == locale));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, locale);
-
-  /// Create a copy of LocaleState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ChangeLocaleImplCopyWith<T, _$ChangeLocaleImpl<T>> get copyWith =>
-      __$$ChangeLocaleImplCopyWithImpl<T, _$ChangeLocaleImpl<T>>(
+  _$$LocaleStateImplCopyWith<T, _$LocaleStateImpl<T>> get copyWith =>
+      __$$LocaleStateImplCopyWithImpl<T, _$LocaleStateImpl<T>>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Locale locale) initial,
-    required TResult Function(Locale locale) changeLocale,
-  }) {
-    return changeLocale(locale);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Locale locale)? initial,
-    TResult? Function(Locale locale)? changeLocale,
-  }) {
-    return changeLocale?.call(locale);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Locale locale)? initial,
-    TResult Function(Locale locale)? changeLocale,
-    required TResult orElse(),
-  }) {
-    if (changeLocale != null) {
-      return changeLocale(locale);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(_ChangeLocale<T> value) changeLocale,
-  }) {
-    return changeLocale(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(_ChangeLocale<T> value)? changeLocale,
-  }) {
-    return changeLocale?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(_ChangeLocale<T> value)? changeLocale,
-    required TResult orElse(),
-  }) {
-    if (changeLocale != null) {
-      return changeLocale(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class _ChangeLocale<T> implements LocaleState<T> {
-  const factory _ChangeLocale(final Locale locale) = _$ChangeLocaleImpl<T>;
+abstract class _LocaleState<T> implements LocaleState<T> {
+  const factory _LocaleState(
+      {required final LocaleStateStatus status,
+      final Locale locale,
+      final String? error}) = _$LocaleStateImpl<T>;
 
   @override
+  LocaleStateStatus get status;
+  @override
   Locale get locale;
+  @override
+  String? get error;
 
   /// Create a copy of LocaleState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ChangeLocaleImplCopyWith<T, _$ChangeLocaleImpl<T>> get copyWith =>
+  _$$LocaleStateImplCopyWith<T, _$LocaleStateImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

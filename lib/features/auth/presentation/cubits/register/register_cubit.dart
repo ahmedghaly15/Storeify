@@ -1,9 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/utils/app_constants.dart';
-import 'package:store_ify/features/auth/data/datasources/auth_local_datasource.dart';
 import 'package:store_ify/features/auth/data/models/register_params.dart';
 import 'package:store_ify/features/auth/data/repos/register_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_state.dart';
@@ -51,43 +48,36 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   void _register() async {
     emit(const RegisterState.registerLoading());
-    final result = await _registerRepo.register(
-      RegisterParams(
-        username: usernameController.text.trim(),
-        email: emailController.text.trim(),
-        password: passwordController.text,
-        passwordConfirmation: confirmController.text,
-      ),
-      _cancelToken,
+    final registerParams = RegisterParams(
+      username: usernameController.text.trim(),
+      email: emailController.text.trim(),
+      password: passwordController.text,
+      passwordConfirmation: confirmController.text,
     );
+    final result = await _registerRepo.register(registerParams, _cancelToken);
     result.when(
-      success: (user) async {
-        await AuthLocalDatasource.cacheUserAndSetTokenIntoHeaders(user);
-        currentUser = user;
-        emit(RegisterState.registerSuccess(user));
-      },
+      success: (user) => emit(RegisterState.registerSuccess(user)),
       error: (errorModel) =>
           emit(RegisterState.registerError(errorModel.error ?? '')),
     );
   }
 
-  void register(BuildContext context) {
+  void register() {
     if (formKey.currentState!.validate()) {
-      context.unfocusKeyboard();
       _register();
     }
   }
 
-  bool isPasswordVisible = true;
-  void invertPasswordVisibility() {
-    isPasswordVisible = !isPasswordVisible;
-    emit(RegisterState.invertPasswordVisibility(isPasswordVisible));
+  bool isPassObscured = true;
+  void togglePassVisibility() {
+    isPassObscured = !isPassObscured;
+    emit(RegisterState.togglePassVisibility(isPassObscured));
   }
 
-  bool isConfirmPassVisible = true;
-  void invertConfirmPasswordVisibility() {
-    isConfirmPassVisible = !isConfirmPassVisible;
-    emit(RegisterState.invertPasswordVisibility(isConfirmPassVisible));
+  bool isConfirmPassObscured = true;
+  void toggleConfirmPassVisibility() {
+    isConfirmPassObscured = !isConfirmPassObscured;
+    emit(RegisterState.toggleConfirmPassVisibility(isConfirmPassObscured));
   }
 
   @override

@@ -134,6 +134,25 @@ class CategoriesRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [ChangePasswordView]
+class ChangePasswordRoute extends PageRouteInfo<void> {
+  const ChangePasswordRoute({List<PageRouteInfo>? children})
+      : super(
+          ChangePasswordRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ChangePasswordRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const ChangePasswordView());
+    },
+  );
+}
+
+/// generated route for
 /// [CheckoutView]
 class CheckoutRoute extends PageRouteInfo<void> {
   const CheckoutRoute({List<PageRouteInfo>? children})
@@ -634,6 +653,25 @@ class SubCategoriesRouteArgs {
   String toString() {
     return 'SubCategoriesRouteArgs{key: $key, category: $category}';
   }
+}
+
+/// generated route for
+/// [UpdateProfileView]
+class UpdateProfileRoute extends PageRouteInfo<void> {
+  const UpdateProfileRoute({List<PageRouteInfo>? children})
+      : super(
+          UpdateProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'UpdateProfileRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const UpdateProfileView());
+    },
+  );
 }
 
 /// generated route for
