@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+
 import 'package:store_ify/core/api/dio_factory.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/services/location_service.dart';
@@ -41,11 +42,10 @@ import 'package:store_ify/features/favorites/data/repositories/favorites_repo_im
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
 import 'package:store_ify/features/home/data/api/home_api_service.dart';
-import 'package:store_ify/features/home/data/repos/home_repo.dart';
 import 'package:store_ify/features/home/data/datasources/home_local_datasource.dart';
+import 'package:store_ify/features/home/data/repos/home_repo.dart';
 import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
 import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo.dart';
-import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo_impl.dart';
 import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:store_ify/features/payment/data/api/payment_api_service.dart';
 import 'package:store_ify/features/payment/data/repositories/payment_repo.dart';
@@ -178,9 +178,7 @@ void _setupDIForRepos() {
       getIt.get<FavoritesLocalDatasource>(),
     ),
   );
-  getIt.registerLazySingleton<OnboardingRepo>(
-    () => const OnboardingRepoImpl(),
-  );
+  getIt.registerLazySingleton<OnboardingRepo>(() => OnboardingRepo());
   getIt.registerLazySingleton<CartRepo>(
     () => CartRepoImpl(
       getIt.get<CartApiService>(),
