@@ -151,5 +151,6 @@ abstract class  LocaleKeys {
   static const updateProfile = 'updateProfile';
   static const profileUpdatedSuccessfully = 'profileUpdatedSuccessfully';
   static const nothingChangedToUpdate = 'nothingChangedToUpdate';
+  static const changingApiLangError = 'changingApiLangError';
 
 }

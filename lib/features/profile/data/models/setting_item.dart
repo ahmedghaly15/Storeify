@@ -43,11 +43,11 @@ class SettingItem {
           titleKey: LocaleKeys.myOrders,
           onTap: (context) => context.pushRoute(const CartRoute()),
         ),
-        // SettingItem(
-        //   titleKey: LocaleKeys.arabic,
-        //   onTap: (_) {},
-        //   trailing: const LanguageSwitchBlocConsumer(),
-        // ),
+        SettingItem(
+          titleKey: LocaleKeys.arabic,
+          onTap: (_) {},
+          trailing: const LanguageSwitchBlocConsumer(),
+        ),
       ];
   static List<SettingItem> get profileAccountSettings => [
         SettingItem(

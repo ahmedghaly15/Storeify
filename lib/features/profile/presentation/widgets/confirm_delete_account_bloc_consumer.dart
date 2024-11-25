@@ -15,30 +15,42 @@ class ConfirmDeleteAccountBlocConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ProfileCubit, ProfileState>(
-      listenWhen: (_, current) =>
-          current is DeleteAccountError || current is DeleteAccountSuccess,
-      listener: (context, state) {
-        state.whenOrNull(
-          deleteAccountError: (error) => CustomToast.showToast(
-            context: context,
-            messageKey: error,
-            state: CustomToastState.error,
-          ),
-          deleteAccountSuccess: () => context.router.pushAndPopUntil(
-            const AuthRoute(),
-            predicate: (route) => route.settings.name == BottomNavBarRoute.name,
-          ),
-        );
-      },
+      listenWhen: (_, current) => _listenWhen(current.status),
+      listener: (context, state) => _listener(state, context),
       builder: (context, state) => MainButton(
         onPressed: () => context.read<ProfileCubit>().deleteAccount(),
         width: double.infinity,
         child: circularIndicatorOrTextWidget(
-          isLoading: state is DeleteAccountLoading,
+          isLoading: state.status == ProfileStateStatus.deleteAccountLoading,
           context: context,
           textKey: LocaleKeys.confirm,
         ),
       ),
     );
+  }
+
+  void _listener(ProfileState state, BuildContext context) {
+    switch (state.status) {
+      case ProfileStateStatus.deleteAccountError:
+        CustomToast.showToast(
+          context: context,
+          messageKey: state.error!,
+          state: CustomToastState.error,
+        );
+        break;
+      case ProfileStateStatus.deleteAccountSuccess:
+        context.router.pushAndPopUntil(
+          const AuthRoute(),
+          predicate: (route) => route.settings.name == BottomNavBarRoute.name,
+        );
+        break;
+      default:
+        break;
+    }
+  }
+
+  bool _listenWhen(ProfileStateStatus status) {
+    return status == ProfileStateStatus.deleteAccountError ||
+        status == ProfileStateStatus.deleteAccountSuccess;
   }
 }

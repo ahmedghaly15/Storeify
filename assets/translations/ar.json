@@ -148,5 +148,6 @@
     "sureToDeleteAccount": "هل أنت متاكد من حذف الحساب؟",
     "updateProfile": "تحديث الملف الشخصي",
     "profileUpdatedSuccessfully": "تم تحديث الملف الشخصي بنجاح",
-    "nothingChangedToUpdate": "لا توجد تغييرات للتحديث"
+    "nothingChangedToUpdate": "لا توجد تغييرات للتحديث",
+    "changingApiLangError": "حدث خطأ أثناء تغيير اللغة من الخادم. الرجاء المحاولة مرة أخرى لاحقاً."
 }

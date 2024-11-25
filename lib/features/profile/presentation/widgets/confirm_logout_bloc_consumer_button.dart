@@ -15,33 +15,44 @@ class ConfirmLogoutBlocConsumerButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ProfileCubit, ProfileState>(
-      listenWhen: (_, current) =>
-          current is LogoutError || current is LogoutSuccess,
-      listener: (context, state) {
-        state.whenOrNull(
-          logoutSuccess: () {
-            context.router.replaceAll([const LoginRoute()]);
-          },
-          logoutError: (errorKey) => CustomToast.showToast(
-            context: context,
-            messageKey: errorKey,
-            state: CustomToastState.error,
-          ),
-        );
-      },
-      buildWhen: (_, current) =>
-          current is LogoutLoading ||
-          current is LogoutSuccess ||
-          current is LogoutError,
+      listenWhen: (_, current) => _listenWhen(current.status),
+      listener: (context, state) => _listener(state, context),
+      buildWhen: (_, current) => _buildWhen(current.status),
       builder: (context, state) => MainButton(
         onPressed: () => context.read<ProfileCubit>().logout(),
         width: double.infinity,
         child: circularIndicatorOrTextWidget(
-          isLoading: state is LogoutLoading,
+          isLoading: state.status == ProfileStateStatus.logoutLoading,
           context: context,
           textKey: LocaleKeys.confirm,
         ),
       ),
     );
+  }
+
+  bool _buildWhen(ProfileStateStatus status) {
+    return status == ProfileStateStatus.logoutError ||
+        status == ProfileStateStatus.logoutSuccess ||
+        status == ProfileStateStatus.logoutLoading;
+  }
+
+  void _listener(ProfileState state, BuildContext context) {
+    switch (state.status) {
+      case ProfileStateStatus.logoutError:
+        CustomToast.showToast(
+          context: context,
+          messageKey: state.error!,
+          state: CustomToastState.error,
+        );
+      case ProfileStateStatus.logoutSuccess:
+        context.router.replaceAll([const LoginRoute()]);
+      default:
+        break;
+    }
+  }
+
+  bool _listenWhen(ProfileStateStatus status) {
+    return status == ProfileStateStatus.logoutError ||
+        status == ProfileStateStatus.logoutSuccess;
   }
 }

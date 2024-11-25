@@ -164,7 +164,8 @@ class CodegenLoader extends AssetLoader{
   "sureToDeleteAccount": "هل أنت متاكد من حذف الحساب؟",
   "updateProfile": "تحديث الملف الشخصي",
   "profileUpdatedSuccessfully": "تم تحديث الملف الشخصي بنجاح",
-  "nothingChangedToUpdate": "لا توجد تغييرات للتحديث"
+  "nothingChangedToUpdate": "لا توجد تغييرات للتحديث",
+  "changingApiLangError": "حدث خطأ أثناء تغيير اللغة من الخادم. الرجاء المحاولة مرة أخرى لاحقاً."
 };
 static const Map<String,dynamic> en = {
   "signInToContinue": "Sign in to continue",
@@ -316,7 +317,8 @@ static const Map<String,dynamic> en = {
   "sureToDeleteAccount": "Are you sure you want to delete your account?",
   "updateProfile": "Update Profile",
   "profileUpdatedSuccessfully": "Profile updated successfully",
-  "nothingChangedToUpdate": "Nothing changed to update"
+  "nothingChangedToUpdate": "Nothing changed to update",
+  "changingApiLangError": "An error occurred while changing the language from the server. Please try again later."
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

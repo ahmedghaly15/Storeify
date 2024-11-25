@@ -148,5 +148,6 @@
     "sureToDeleteAccount": "Are you sure you want to delete your account?",
     "updateProfile": "Update Profile",
     "profileUpdatedSuccessfully": "Profile updated successfully",
-    "nothingChangedToUpdate": "Nothing changed to update"
+    "nothingChangedToUpdate": "Nothing changed to update",
+    "changingApiLangError": "An error occurred while changing the language from the server. Please try again later."
 }

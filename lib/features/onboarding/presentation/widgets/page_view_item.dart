@@ -30,7 +30,9 @@ class PageViewItem extends StatelessWidget {
               textKey: pageInfo.titleKey,
               textStyle: AppTextStyles.textStyle16Medium,
             ),
-            style: AppTextStyles.textStyle16Medium,
+            style: AppTextStyles.textStyle16Medium.copyWith(
+              color: Colors.black,
+            ),
           ),
           textAlign: TextAlign.center,
         ),
