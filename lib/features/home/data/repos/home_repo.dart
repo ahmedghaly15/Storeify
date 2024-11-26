@@ -20,7 +20,11 @@ class HomeRepo {
     if (cachedHomeResponse == null) {
       debugPrint('********** NO CACHED HOME RESPONSE **********');
       return executeAndHandleErrors<FetchHomeResponse>(
-        () async => await _homeApiService.fetchHomeData(cancelToken),
+        () async {
+          final homeResponse = await _homeApiService.fetchHomeData(cancelToken);
+          await _localDatasource.cacheHomeResponse(homeResponse);
+          return homeResponse;
+        },
       );
     } else {
       debugPrint('********* FETCHED CACHED HOME RESPONSE *********');

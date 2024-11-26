@@ -3,20 +3,28 @@ import 'package:store_ify/features/stores/data/models/fetch_stores_response.dart
 
 part 'stores_state.freezed.dart';
 
+enum StoresStateStatus {
+  initial,
+  fetchStoresLoading,
+  fetchStoresSuccess,
+  fetchStoresError,
+  fetchCategoryStoresLoading,
+  fetchCategoryStoresSuccess,
+  fetchCategoryStoresError,
+  updateCurrentSelectedStore
+}
+
 @freezed
-class StoresState<T> with _$StoresState<T> {
-  const factory StoresState.initial() = _Initial;
-  const factory StoresState.fetchStoresLoading() = FetchStoresLoading;
-  const factory StoresState.fetchStoresSuccess(FetchStoresResponse stores) =
-      FetchStoresSuccess<T>;
-  const factory StoresState.fetchStoresError(String error) =
-      FetchStoresError<T>;
-  const factory StoresState.fetchCategoryStoresLoading() =
-      FetchCategoryStoresLoading;
-  const factory StoresState.fetchCategoryStoresSuccess(
-      FetchStoresResponse categoryStores) = FetchCategoryStoresSuccess<T>;
-  const factory StoresState.fetchCategoryStoresError(String error) =
-      FetchCategoryStoresError<T>;
-  const factory StoresState.updateCurrentSelectedStore(int currentIndex) =
-      UpdateCurrentSelectedStore<T>;
+class StoresState with _$StoresState {
+  const factory StoresState({
+    required StoresStateStatus status,
+    FetchStoresResponse? stores,
+    FetchStoresResponse? categoryStores,
+    String? error,
+    @Default(0) int currentStoreIndex,
+  }) = _StoresState;
+
+  factory StoresState.initial() => const StoresState(
+        status: StoresStateStatus.initial,
+      );
 }
