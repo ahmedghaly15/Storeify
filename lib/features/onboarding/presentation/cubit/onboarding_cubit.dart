@@ -1,45 +1,65 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/features/onboarding/data/models/navigate_among_pages_params.dart';
+import 'package:store_ify/core/helpers/shared_pref_helper.dart';
+import 'package:store_ify/core/helpers/shared_pref_keys.dart';
+import 'package:store_ify/core/utils/app_assets.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/onboarding/data/models/onboarding_attributes.dart';
-import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo.dart';
 import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_state.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class OnboardingCubit extends Cubit<OnboardingState> {
-  final OnboardingRepo _onboardingRepo;
-
-  OnboardingCubit(this._onboardingRepo)
-      : super(const OnboardingState.initial()) {
+  OnboardingCubit() : super(OnboardingState.initial()) {
     pageController = PageController(initialPage: 0);
   }
 
-  bool isLastOnboarding = false;
   late final PageController pageController;
-
-  List<OnboardingAttributes> get onboardingPages =>
-      _onboardingRepo.onboardingPages();
 
   void onChangePageIndex(int index) {
     if (index == onboardingPages.length - 1) {
-      isLastOnboarding = true;
+      emit(state.copyWith(
+        status: OnboardingStateStatus.lastPageView,
+        isLastPage: true,
+      ));
     } else {
-      isLastOnboarding = false;
+      emit(state.copyWith(
+        status: OnboardingStateStatus.lastPageView,
+        isLastPage: false,
+      ));
     }
-    emit(OnboardingState.pageViewIndexChanged(index));
   }
 
-  void navigateBetweenPages(BuildContext context) {
-    _onboardingRepo.navigateAmongPages(
-      NavigateAmongPagesParams(
-        context: context,
-        pageController: pageController,
-        isLastBoarding: isLastOnboarding,
-      ),
+  List<OnboardingAttributes> onboardingPages = const <OnboardingAttributes>[
+    OnboardingAttributes(
+      image: AppAssets.imagesOnBoarding1,
+      titleKey: LocaleKeys.onboardingTitle1,
+      subTitleKey: LocaleKeys.onboardingSubtitle1,
+    ),
+    OnboardingAttributes(
+      image: AppAssets.imagesOnBoarding2,
+      titleKey: LocaleKeys.onboardingTitle2,
+      subTitleKey: LocaleKeys.onboardingSubtitle2,
+    ),
+    OnboardingAttributes(
+      image: AppAssets.imagesOnBoarding3,
+      titleKey: LocaleKeys.onboardingTitle3,
+      subTitleKey: LocaleKeys.onboardingSubtitle3,
+    ),
+  ];
+
+  void navigateAmongPages({required VoidCallback onSkip}) {
+    if (state.isLastPage) {
+      skipOnboarding(onSkip: onSkip);
+    }
+    pageController.nextPage(
+      duration: AppConstants.onboardingAnimationDuration,
+      curve: AppConstants.onboardingCurve,
     );
   }
 
-  void skipToLogin(BuildContext context) {
-    _onboardingRepo.skipToLogin(context);
+  void skipOnboarding({required VoidCallback onSkip}) {
+    SharedPrefHelper.setData(SharedPrefKeys.onboarding, true);
+    onSkip();
   }
 
   @override

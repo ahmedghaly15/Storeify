@@ -1,14 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
-import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_params.dart';
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_cubit.dart';
-import 'package:store_ify/features/categories/presentation/widgets/sub_categories_list_view.dart';
-import 'package:store_ify/features/categories/presentation/widgets/sub_category_products_sliver_grid.dart';
 
 @RoutePage()
 class SubCategoriesView extends StatelessWidget implements AutoRouteWrapper {
@@ -39,10 +38,10 @@ class SubCategoriesView extends StatelessWidget implements AutoRouteWrapper {
           physics: AppConstants.physics,
           slivers: [
             CustomSliverAppBar(titleKey: category.name),
-            SliverToBoxAdapter(
-              child: SubCategoriesListView(category: category),
-            ),
-            const SubCategoryProductsSliverGrid(),
+            // SliverToBoxAdapter(
+            //   child: SubCategoriesListView(category: category),
+            // ),
+            // const SubCategoryProductsSliverGrid(),
           ],
         ),
       ),

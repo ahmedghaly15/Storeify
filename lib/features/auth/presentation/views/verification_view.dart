@@ -14,7 +14,7 @@ class VerificationView extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider<ValidateOtpCubit>(
-      create: (context) => getIt.get<ValidateOtpCubit>(),
+      create: (_) => getIt.get<ValidateOtpCubit>(),
       child: this,
     );
   }

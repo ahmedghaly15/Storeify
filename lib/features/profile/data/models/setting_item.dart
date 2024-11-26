@@ -1,16 +1,19 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/generated/locale_keys.g.dart';
+
 import 'package:store_ify/core/router/app_router.dart';
+import 'package:store_ify/core/themes/theming_cubit.dart';
+import 'package:store_ify/core/utils/functions/toggle_lang.dart';
 import 'package:store_ify/core/widgets/cancel_outlined_button.dart';
+import 'package:store_ify/core/widgets/custom_adaptive_dialog.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
 import 'package:store_ify/features/profile/presentation/widgets/confirm_delete_account_bloc_consumer.dart';
 import 'package:store_ify/features/profile/presentation/widgets/confirm_logout_bloc_consumer_button.dart';
-import 'package:store_ify/core/widgets/custom_adaptive_dialog.dart';
 import 'package:store_ify/features/profile/presentation/widgets/dark_mode_switch_bloc_builder.dart';
 import 'package:store_ify/features/profile/presentation/widgets/language_switch_bloc_consumer.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class SettingItem {
   final String titleKey;
@@ -31,21 +34,13 @@ class SettingItem {
 
   static List<SettingItem> get profileAppSetting => [
         SettingItem(
-          titleKey: LocaleKeys.favorite,
-          onTap: (context) => context.pushRoute(const FavoritesRoute()),
-        ),
-        SettingItem(
           titleKey: LocaleKeys.darkMode,
-          onTap: (_) {},
+          onTap: (context) => context.read<ThemingCubit>().toggleTheme(),
           trailing: const DarkModeSwitchBlocBuilder(),
         ),
         SettingItem(
-          titleKey: LocaleKeys.myOrders,
-          onTap: (context) => context.pushRoute(const CartRoute()),
-        ),
-        SettingItem(
           titleKey: LocaleKeys.arabic,
-          onTap: (_) {},
+          onTap: (context) => toggleLang(context),
           trailing: const LanguageSwitchBlocConsumer(),
         ),
       ];

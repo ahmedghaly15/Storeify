@@ -46,7 +46,6 @@ class LoginButtonBlocConsumer extends StatelessWidget {
         margin: EdgeInsets.symmetric(
           horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
         ),
-        width: double.infinity,
         child: circularIndicatorOrTextWidget(
           isLoading: state is LoginLoading,
           context: context,

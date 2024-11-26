@@ -16,44 +16,13 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$OnboardingState<T> {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(int index) pageViewIndexChanged,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(int index)? pageViewIndexChanged,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index)? pageViewIndexChanged,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(PageViewIndexChanged<T> value)
-        pageViewIndexChanged,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(PageViewIndexChanged<T> value)? pageViewIndexChanged,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(PageViewIndexChanged<T> value)? pageViewIndexChanged,
-    required TResult orElse(),
-  }) =>
+  OnboardingStateStatus get status => throw _privateConstructorUsedError;
+  bool get isLastPage => throw _privateConstructorUsedError;
+
+  /// Create a copy of OnboardingState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $OnboardingStateCopyWith<T, OnboardingState<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -62,6 +31,8 @@ abstract class $OnboardingStateCopyWith<T, $Res> {
   factory $OnboardingStateCopyWith(
           OnboardingState<T> value, $Res Function(OnboardingState<T>) then) =
       _$OnboardingStateCopyWithImpl<T, $Res, OnboardingState<T>>;
+  @useResult
+  $Res call({OnboardingStateStatus status, bool isLastPage});
 }
 
 /// @nodoc
@@ -76,131 +47,42 @@ class _$OnboardingStateCopyWithImpl<T, $Res, $Val extends OnboardingState<T>>
 
   /// Create a copy of OnboardingState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? status = null,
+    Object? isLastPage = null,
+  }) {
+    return _then(_value.copyWith(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as OnboardingStateStatus,
+      isLastPage: null == isLastPage
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<T, $Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl<T> value, $Res Function(_$InitialImpl<T>) then) =
-      __$$InitialImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$OnboardingStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
-    implements _$$InitialImplCopyWith<T, $Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of OnboardingState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$InitialImpl<T> implements _Initial<T> {
-  const _$InitialImpl();
-
+abstract class _$$OnboardingStateImplCopyWith<T, $Res>
+    implements $OnboardingStateCopyWith<T, $Res> {
+  factory _$$OnboardingStateImplCopyWith(_$OnboardingStateImpl<T> value,
+          $Res Function(_$OnboardingStateImpl<T>) then) =
+      __$$OnboardingStateImplCopyWithImpl<T, $Res>;
   @override
-  String toString() {
-    return 'OnboardingState<$T>.initial()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(int index) pageViewIndexChanged,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(int index)? pageViewIndexChanged,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index)? pageViewIndexChanged,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(PageViewIndexChanged<T> value)
-        pageViewIndexChanged,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(PageViewIndexChanged<T> value)? pageViewIndexChanged,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(PageViewIndexChanged<T> value)? pageViewIndexChanged,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial<T> implements OnboardingState<T> {
-  const factory _Initial() = _$InitialImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$PageViewIndexChangedImplCopyWith<T, $Res> {
-  factory _$$PageViewIndexChangedImplCopyWith(
-          _$PageViewIndexChangedImpl<T> value,
-          $Res Function(_$PageViewIndexChangedImpl<T>) then) =
-      __$$PageViewIndexChangedImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({int index});
+  $Res call({OnboardingStateStatus status, bool isLastPage});
 }
 
 /// @nodoc
-class __$$PageViewIndexChangedImplCopyWithImpl<T, $Res>
-    extends _$OnboardingStateCopyWithImpl<T, $Res,
-        _$PageViewIndexChangedImpl<T>>
-    implements _$$PageViewIndexChangedImplCopyWith<T, $Res> {
-  __$$PageViewIndexChangedImplCopyWithImpl(_$PageViewIndexChangedImpl<T> _value,
-      $Res Function(_$PageViewIndexChangedImpl<T>) _then)
+class __$$OnboardingStateImplCopyWithImpl<T, $Res>
+    extends _$OnboardingStateCopyWithImpl<T, $Res, _$OnboardingStateImpl<T>>
+    implements _$$OnboardingStateImplCopyWith<T, $Res> {
+  __$$OnboardingStateImplCopyWithImpl(_$OnboardingStateImpl<T> _value,
+      $Res Function(_$OnboardingStateImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of OnboardingState
@@ -208,123 +90,75 @@ class __$$PageViewIndexChangedImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = null,
+    Object? status = null,
+    Object? isLastPage = null,
   }) {
-    return _then(_$PageViewIndexChangedImpl<T>(
-      null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int,
+    return _then(_$OnboardingStateImpl<T>(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as OnboardingStateStatus,
+      isLastPage: null == isLastPage
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 
-class _$PageViewIndexChangedImpl<T> implements PageViewIndexChanged<T> {
-  const _$PageViewIndexChangedImpl(this.index);
+class _$OnboardingStateImpl<T> implements _OnboardingState<T> {
+  const _$OnboardingStateImpl({required this.status, this.isLastPage = false});
 
   @override
-  final int index;
+  final OnboardingStateStatus status;
+  @override
+  @JsonKey()
+  final bool isLastPage;
 
   @override
   String toString() {
-    return 'OnboardingState<$T>.pageViewIndexChanged(index: $index)';
+    return 'OnboardingState<$T>(status: $status, isLastPage: $isLastPage)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PageViewIndexChangedImpl<T> &&
-            (identical(other.index, index) || other.index == index));
+            other is _$OnboardingStateImpl<T> &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.isLastPage, isLastPage) ||
+                other.isLastPage == isLastPage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, index);
+  int get hashCode => Object.hash(runtimeType, status, isLastPage);
 
   /// Create a copy of OnboardingState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$PageViewIndexChangedImplCopyWith<T, _$PageViewIndexChangedImpl<T>>
-      get copyWith => __$$PageViewIndexChangedImplCopyWithImpl<T,
-          _$PageViewIndexChangedImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(int index) pageViewIndexChanged,
-  }) {
-    return pageViewIndexChanged(index);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(int index)? pageViewIndexChanged,
-  }) {
-    return pageViewIndexChanged?.call(index);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index)? pageViewIndexChanged,
-    required TResult orElse(),
-  }) {
-    if (pageViewIndexChanged != null) {
-      return pageViewIndexChanged(index);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(PageViewIndexChanged<T> value)
-        pageViewIndexChanged,
-  }) {
-    return pageViewIndexChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(PageViewIndexChanged<T> value)? pageViewIndexChanged,
-  }) {
-    return pageViewIndexChanged?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(PageViewIndexChanged<T> value)? pageViewIndexChanged,
-    required TResult orElse(),
-  }) {
-    if (pageViewIndexChanged != null) {
-      return pageViewIndexChanged(this);
-    }
-    return orElse();
-  }
+  _$$OnboardingStateImplCopyWith<T, _$OnboardingStateImpl<T>> get copyWith =>
+      __$$OnboardingStateImplCopyWithImpl<T, _$OnboardingStateImpl<T>>(
+          this, _$identity);
 }
 
-abstract class PageViewIndexChanged<T> implements OnboardingState<T> {
-  const factory PageViewIndexChanged(final int index) =
-      _$PageViewIndexChangedImpl<T>;
+abstract class _OnboardingState<T> implements OnboardingState<T> {
+  const factory _OnboardingState(
+      {required final OnboardingStateStatus status,
+      final bool isLastPage}) = _$OnboardingStateImpl<T>;
 
-  int get index;
+  @override
+  OnboardingStateStatus get status;
+  @override
+  bool get isLastPage;
 
   /// Create a copy of OnboardingState
   /// with the given fields replaced by the non-null parameter values.
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PageViewIndexChangedImplCopyWith<T, _$PageViewIndexChangedImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$OnboardingStateImplCopyWith<T, _$OnboardingStateImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
