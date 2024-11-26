@@ -48,9 +48,9 @@ class MainButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width?.w,
+      width: width?.w ?? double.infinity,
       height: height?.h,
-      margin: margin,
+      margin: margin ?? EdgeInsets.symmetric(horizontal: 23.w),
       decoration: BoxDecoration(
         color: _backgroundColor(context),
         borderRadius: BorderRadiusDirectional.circular(

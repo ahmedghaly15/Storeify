@@ -45,7 +45,6 @@ import 'package:store_ify/features/home/data/api/home_api_service.dart';
 import 'package:store_ify/features/home/data/datasources/home_local_datasource.dart';
 import 'package:store_ify/features/home/data/repos/home_repo.dart';
 import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
-import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo.dart';
 import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:store_ify/features/payment/data/api/payment_api_service.dart';
 import 'package:store_ify/features/payment/data/repositories/payment_repo.dart';
@@ -178,7 +177,6 @@ void _setupDIForRepos() {
       getIt.get<FavoritesLocalDatasource>(),
     ),
   );
-  getIt.registerLazySingleton<OnboardingRepo>(() => OnboardingRepo());
   getIt.registerLazySingleton<CartRepo>(
     () => CartRepoImpl(
       getIt.get<CartApiService>(),
@@ -201,9 +199,7 @@ void _setupDIForRepos() {
 
 void _setupDIForCubits() {
   getIt.registerLazySingleton<ThemingCubit>(() => ThemingCubit());
-  getIt.registerLazySingleton<OnboardingCubit>(
-    () => OnboardingCubit(getIt.get<OnboardingRepo>()),
-  );
+  getIt.registerLazySingleton<OnboardingCubit>(() => OnboardingCubit());
   getIt.registerLazySingleton<LoginCubit>(
     () => LoginCubit(getIt.get<LoginRepo>()),
   );
