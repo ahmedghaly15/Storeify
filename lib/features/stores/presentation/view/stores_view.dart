@@ -22,17 +22,20 @@ class StoresView extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: CustomScrollView(
-        slivers: [
-          CustomSliverAppBar(
-            titleKey: LocaleKeys.stores,
-            hasLeading: false,
-          ),
-          SliverFillRemaining(
-            child: StoresBlocBuilder(),
-          )
-        ],
+    return SafeArea(
+      child: RefreshIndicator(
+        onRefresh: () async => await context.read<StoresCubit>().fetchStores(),
+        child: const CustomScrollView(
+          slivers: [
+            CustomSliverAppBar(
+              titleKey: LocaleKeys.stores,
+              hasLeading: false,
+            ),
+            SliverFillRemaining(
+              child: StoresBlocBuilder(),
+            )
+          ],
+        ),
       ),
     );
   }

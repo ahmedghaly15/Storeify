@@ -10,18 +10,21 @@ class ShowLocationDialogBlocListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<HomeCubit, HomeState>(
-      listenWhen: (_, current) => current is ShowLocationDialog,
+      listenWhen: (_, current) =>
+          current.status == HomeStateStatus.showLocationDialog,
       listener: (_, state) {
-        state.whenOrNull(
-          showLocationDialog: () {
+        switch (state.status) {
+          case HomeStateStatus.showLocationDialog:
             showAdaptiveDialog(
               context: context,
               barrierDismissible: true,
               barrierLabel: '',
               builder: (_) => const EnableLocationPermissionAdaptiveDialog(),
             );
-          },
-        );
+            break;
+          default:
+            break;
+        }
       },
       child: const SizedBox.shrink(),
     );

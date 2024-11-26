@@ -6,8 +6,8 @@ import 'package:store_ify/core/widgets/shimmer_widget.dart';
 import 'package:store_ify/core/widgets/stores_grid_view_shimmer.dart';
 import 'package:store_ify/features/home/presentation/widgets/horizontal_separated_list_view.dart';
 
-class StoresViewShimmer extends StatelessWidget {
-  const StoresViewShimmer({super.key});
+class StoresShimmerLoading extends StatelessWidget {
+  const StoresShimmerLoading({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -7,7 +7,7 @@ import 'package:store_ify/features/home/presentation/cubit/home_state.dart';
 class HomeCubit extends Cubit<HomeState> {
   final HomeRepo _homeRepo;
 
-  HomeCubit(this._homeRepo) : super(const HomeState.initial()) {
+  HomeCubit(this._homeRepo) : super(HomeState.initial()) {
     _emitShowLocationDialog();
   }
 
@@ -16,17 +16,26 @@ class HomeCubit extends Cubit<HomeState> {
   Future<void> _emitShowLocationDialog() async {
     if (await LocationService.isLocationPermissionDenied()) {
       await Future.delayed(const Duration(seconds: 1));
-      emit(const HomeState.showLocationDialog());
+      emit(state.copyWith(
+        status: HomeStateStatus.showLocationDialog,
+      ));
     }
   }
 
   void fetchHomeData() async {
-    emit(const HomeState.fetchHomeDataLoading());
+    emit(state.copyWith(
+      status: HomeStateStatus.fetchHomeDataLoading,
+    ));
     final result = await _homeRepo.fetchHomeData(_cancelToken);
     result.when(
-      success: (homeData) => emit(HomeState.fetchHomeDataSuccess(homeData)),
-      error: (errorModel) =>
-          emit(HomeState.fetchHomeDataError(errorModel.error ?? '')),
+      success: (homeData) => emit(state.copyWith(
+        status: HomeStateStatus.fetchHomeDataSuccess,
+        homeData: homeData,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: HomeStateStatus.fetchHomeDataError,
+        error: errorModel.error ?? '',
+      )),
     );
   }
 

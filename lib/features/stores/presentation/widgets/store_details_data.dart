@@ -14,18 +14,31 @@ class StoreDetailsData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<StoreDetailsCubit, StoreDetailsState>(
-      buildWhen: (_, current) => current is UpdateCurrentDetailsIndex,
-      builder: (context, state) {
-        int currentDetail =
-            context.read<StoreDetailsCubit>().currentSubDetailsIndex;
-        switch (currentDetail) {
+    return BlocSelector<StoreDetailsCubit, StoreDetailsState, int>(
+      selector: (state) => state.selectedDetailIndex,
+      builder: (context, selectedDetailIndex) {
+        switch (selectedDetailIndex) {
           case 0:
-            return StoreOffersGridViewBlocBuilder(storeId: storeId);
+            return RefreshIndicator(
+              onRefresh: () async => await context
+                  .read<StoreDetailsCubit>()
+                  .fetchStoreOffers(storeId),
+              child: StoreOffersGridViewBlocBuilder(storeId: storeId),
+            );
           case 1:
-            return StoreBranchesListViewBlocBuilder(storeId: storeId);
+            return RefreshIndicator(
+              onRefresh: () async => await context
+                  .read<StoreDetailsCubit>()
+                  .fetchStoreBranches(storeId),
+              child: StoreBranchesListViewBlocBuilder(storeId: storeId),
+            );
           case 2:
-            return StoreCategoriesGridViewBlocBuilder(storeId: storeId);
+            return RefreshIndicator(
+              onRefresh: () async => await context
+                  .read<StoreDetailsCubit>()
+                  .fetchStoreCategories(storeId),
+              child: StoreCategoriesGridViewBlocBuilder(storeId: storeId),
+            );
           default:
             return const Center(
               child: CustomCircularProgressIndicator(),

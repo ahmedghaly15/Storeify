@@ -32,55 +32,26 @@ class _PreferStoreBlocListenerIconButtonState
   }
 
   void _toggleFavorite() {
-    setState(() {
-      isFavoritedLocal = !isFavoritedLocal;
-    });
+    _toggleIsFavoritedLocal();
     context.read<FavoritesCubit>().preferStoreOrNot(
           storeId: widget.storeId,
           isFavorited: isFavoritedLocal,
         );
   }
 
+  void _toggleIsFavoritedLocal() {
+    setState(() {
+      isFavoritedLocal = !isFavoritedLocal;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocListener<FavoritesCubit, FavoritesState>(
-      listenWhen: (_, current) =>
-          current is PreferStoreError ||
-          current is RemoveStoreFromFavsError ||
-          current is PreferStoreSuccess ||
-          current is RemoveStoreFromFavsSuccess,
-      listener: (context, state) {
-        state.whenOrNull(
-          preferStoreError: (errorKey) {
-            CustomToast.showToast(
-              context: context,
-              messageKey: errorKey,
-              state: CustomToastState.error,
-            );
-            // Rollback the change if an error occurs
-            setState(() {
-              isFavoritedLocal = !isFavoritedLocal;
-            });
-          },
-          removeStoreFromFavsError: (errorKey) {
-            CustomToast.showToast(
-              context: context,
-              messageKey: errorKey,
-              state: CustomToastState.error,
-            );
-            // Rollback the change if an error occurs
-            setState(() {
-              isFavoritedLocal = !isFavoritedLocal;
-            });
-          },
-          preferStoreSuccess: () =>
-              context.read<FavoritesCubit>().deleteCachedFavStores(),
-          removeStoreFromFavsSuccess: () =>
-              context.read<FavoritesCubit>().deleteCachedFavStores(),
-        );
-      },
+      listenWhen: (_, current) => _listenWhen(current),
+      listener: (context, state) => _listener(state, context),
       child: IconButton(
-        onPressed: _toggleFavorite,
+        onPressed: () => _toggleFavorite(),
         icon: Icon(
           isFavoritedLocal ? Icons.favorite : Icons.favorite_border_outlined,
           size: 19.w,
@@ -88,5 +59,39 @@ class _PreferStoreBlocListenerIconButtonState
         ),
       ),
     );
+  }
+
+  void _listener(FavoritesState<dynamic> state, BuildContext context) {
+    state.whenOrNull(
+      preferStoreError: (errorKey) {
+        CustomToast.showToast(
+          context: context,
+          messageKey: errorKey,
+          state: CustomToastState.error,
+        );
+        // Rollback the change if an error occurs
+        _toggleIsFavoritedLocal();
+      },
+      removeStoreFromFavsError: (errorKey) {
+        CustomToast.showToast(
+          context: context,
+          messageKey: errorKey,
+          state: CustomToastState.error,
+        );
+        // Rollback the change if an error occurs
+        _toggleIsFavoritedLocal();
+      },
+      preferStoreSuccess: () =>
+          context.read<FavoritesCubit>().deleteCachedFavStores(),
+      removeStoreFromFavsSuccess: () =>
+          context.read<FavoritesCubit>().deleteCachedFavStores(),
+    );
+  }
+
+  bool _listenWhen(FavoritesState<dynamic> current) {
+    return current is PreferStoreError ||
+        current is RemoveStoreFromFavsError ||
+        current is PreferStoreSuccess ||
+        current is RemoveStoreFromFavsSuccess;
   }
 }

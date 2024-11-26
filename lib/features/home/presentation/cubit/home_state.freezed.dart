@@ -16,64 +16,14 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HomeState<T> {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() showLocationDialog,
-    required TResult Function() fetchHomeDataLoading,
-    required TResult Function(FetchHomeResponse homeResponse)
-        fetchHomeDataSuccess,
-    required TResult Function(String error) fetchHomeDataError,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? showLocationDialog,
-    TResult? Function()? fetchHomeDataLoading,
-    TResult? Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
-    TResult? Function(String error)? fetchHomeDataError,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? showLocationDialog,
-    TResult Function()? fetchHomeDataLoading,
-    TResult Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
-    TResult Function(String error)? fetchHomeDataError,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ShowLocationDialog<T> value) showLocationDialog,
-    required TResult Function(FetchHomeDataLoading<T> value)
-        fetchHomeDataLoading,
-    required TResult Function(FetchHomeDataSuccess<T> value)
-        fetchHomeDataSuccess,
-    required TResult Function(FetchHomeDataError<T> value) fetchHomeDataError,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ShowLocationDialog<T> value)? showLocationDialog,
-    TResult? Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
-    TResult? Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
-    TResult? Function(FetchHomeDataError<T> value)? fetchHomeDataError,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(ShowLocationDialog<T> value)? showLocationDialog,
-    TResult Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
-    TResult Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
-    TResult Function(FetchHomeDataError<T> value)? fetchHomeDataError,
-    required TResult orElse(),
-  }) =>
+  HomeStateStatus get status => throw _privateConstructorUsedError;
+  FetchHomeResponse? get homeData => throw _privateConstructorUsedError;
+  String? get error => throw _privateConstructorUsedError;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $HomeStateCopyWith<T, HomeState<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -82,6 +32,9 @@ abstract class $HomeStateCopyWith<T, $Res> {
   factory $HomeStateCopyWith(
           HomeState<T> value, $Res Function(HomeState<T>) then) =
       _$HomeStateCopyWithImpl<T, $Res, HomeState<T>>;
+  @useResult
+  $Res call(
+      {HomeStateStatus status, FetchHomeResponse? homeData, String? error});
 }
 
 /// @nodoc
@@ -96,713 +49,133 @@ class _$HomeStateCopyWithImpl<T, $Res, $Val extends HomeState<T>>
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$InitialImplCopyWith<T, $Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl<T> value, $Res Function(_$InitialImpl<T>) then) =
-      __$$InitialImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$HomeStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
-    implements _$$InitialImplCopyWith<T, $Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$InitialImpl<T> implements _Initial<T> {
-  const _$InitialImpl();
-
-  @override
-  String toString() {
-    return 'HomeState<$T>.initial()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() showLocationDialog,
-    required TResult Function() fetchHomeDataLoading,
-    required TResult Function(FetchHomeResponse homeResponse)
-        fetchHomeDataSuccess,
-    required TResult Function(String error) fetchHomeDataError,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? showLocationDialog,
-    TResult? Function()? fetchHomeDataLoading,
-    TResult? Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
-    TResult? Function(String error)? fetchHomeDataError,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? showLocationDialog,
-    TResult Function()? fetchHomeDataLoading,
-    TResult Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
-    TResult Function(String error)? fetchHomeDataError,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ShowLocationDialog<T> value) showLocationDialog,
-    required TResult Function(FetchHomeDataLoading<T> value)
-        fetchHomeDataLoading,
-    required TResult Function(FetchHomeDataSuccess<T> value)
-        fetchHomeDataSuccess,
-    required TResult Function(FetchHomeDataError<T> value) fetchHomeDataError,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ShowLocationDialog<T> value)? showLocationDialog,
-    TResult? Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
-    TResult? Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
-    TResult? Function(FetchHomeDataError<T> value)? fetchHomeDataError,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(ShowLocationDialog<T> value)? showLocationDialog,
-    TResult Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
-    TResult Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
-    TResult Function(FetchHomeDataError<T> value)? fetchHomeDataError,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial<T> implements HomeState<T> {
-  const factory _Initial() = _$InitialImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$ShowLocationDialogImplCopyWith<T, $Res> {
-  factory _$$ShowLocationDialogImplCopyWith(_$ShowLocationDialogImpl<T> value,
-          $Res Function(_$ShowLocationDialogImpl<T>) then) =
-      __$$ShowLocationDialogImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$ShowLocationDialogImplCopyWithImpl<T, $Res>
-    extends _$HomeStateCopyWithImpl<T, $Res, _$ShowLocationDialogImpl<T>>
-    implements _$$ShowLocationDialogImplCopyWith<T, $Res> {
-  __$$ShowLocationDialogImplCopyWithImpl(_$ShowLocationDialogImpl<T> _value,
-      $Res Function(_$ShowLocationDialogImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ShowLocationDialogImpl<T> implements ShowLocationDialog<T> {
-  const _$ShowLocationDialogImpl();
-
-  @override
-  String toString() {
-    return 'HomeState<$T>.showLocationDialog()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ShowLocationDialogImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() showLocationDialog,
-    required TResult Function() fetchHomeDataLoading,
-    required TResult Function(FetchHomeResponse homeResponse)
-        fetchHomeDataSuccess,
-    required TResult Function(String error) fetchHomeDataError,
-  }) {
-    return showLocationDialog();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? showLocationDialog,
-    TResult? Function()? fetchHomeDataLoading,
-    TResult? Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
-    TResult? Function(String error)? fetchHomeDataError,
-  }) {
-    return showLocationDialog?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? showLocationDialog,
-    TResult Function()? fetchHomeDataLoading,
-    TResult Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
-    TResult Function(String error)? fetchHomeDataError,
-    required TResult orElse(),
-  }) {
-    if (showLocationDialog != null) {
-      return showLocationDialog();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ShowLocationDialog<T> value) showLocationDialog,
-    required TResult Function(FetchHomeDataLoading<T> value)
-        fetchHomeDataLoading,
-    required TResult Function(FetchHomeDataSuccess<T> value)
-        fetchHomeDataSuccess,
-    required TResult Function(FetchHomeDataError<T> value) fetchHomeDataError,
-  }) {
-    return showLocationDialog(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ShowLocationDialog<T> value)? showLocationDialog,
-    TResult? Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
-    TResult? Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
-    TResult? Function(FetchHomeDataError<T> value)? fetchHomeDataError,
-  }) {
-    return showLocationDialog?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(ShowLocationDialog<T> value)? showLocationDialog,
-    TResult Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
-    TResult Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
-    TResult Function(FetchHomeDataError<T> value)? fetchHomeDataError,
-    required TResult orElse(),
-  }) {
-    if (showLocationDialog != null) {
-      return showLocationDialog(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ShowLocationDialog<T> implements HomeState<T> {
-  const factory ShowLocationDialog() = _$ShowLocationDialogImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$FetchHomeDataLoadingImplCopyWith<T, $Res> {
-  factory _$$FetchHomeDataLoadingImplCopyWith(
-          _$FetchHomeDataLoadingImpl<T> value,
-          $Res Function(_$FetchHomeDataLoadingImpl<T>) then) =
-      __$$FetchHomeDataLoadingImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$FetchHomeDataLoadingImplCopyWithImpl<T, $Res>
-    extends _$HomeStateCopyWithImpl<T, $Res, _$FetchHomeDataLoadingImpl<T>>
-    implements _$$FetchHomeDataLoadingImplCopyWith<T, $Res> {
-  __$$FetchHomeDataLoadingImplCopyWithImpl(_$FetchHomeDataLoadingImpl<T> _value,
-      $Res Function(_$FetchHomeDataLoadingImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$FetchHomeDataLoadingImpl<T> implements FetchHomeDataLoading<T> {
-  const _$FetchHomeDataLoadingImpl();
-
-  @override
-  String toString() {
-    return 'HomeState<$T>.fetchHomeDataLoading()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchHomeDataLoadingImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() showLocationDialog,
-    required TResult Function() fetchHomeDataLoading,
-    required TResult Function(FetchHomeResponse homeResponse)
-        fetchHomeDataSuccess,
-    required TResult Function(String error) fetchHomeDataError,
-  }) {
-    return fetchHomeDataLoading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? showLocationDialog,
-    TResult? Function()? fetchHomeDataLoading,
-    TResult? Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
-    TResult? Function(String error)? fetchHomeDataError,
-  }) {
-    return fetchHomeDataLoading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? showLocationDialog,
-    TResult Function()? fetchHomeDataLoading,
-    TResult Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
-    TResult Function(String error)? fetchHomeDataError,
-    required TResult orElse(),
-  }) {
-    if (fetchHomeDataLoading != null) {
-      return fetchHomeDataLoading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ShowLocationDialog<T> value) showLocationDialog,
-    required TResult Function(FetchHomeDataLoading<T> value)
-        fetchHomeDataLoading,
-    required TResult Function(FetchHomeDataSuccess<T> value)
-        fetchHomeDataSuccess,
-    required TResult Function(FetchHomeDataError<T> value) fetchHomeDataError,
-  }) {
-    return fetchHomeDataLoading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ShowLocationDialog<T> value)? showLocationDialog,
-    TResult? Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
-    TResult? Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
-    TResult? Function(FetchHomeDataError<T> value)? fetchHomeDataError,
-  }) {
-    return fetchHomeDataLoading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(ShowLocationDialog<T> value)? showLocationDialog,
-    TResult Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
-    TResult Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
-    TResult Function(FetchHomeDataError<T> value)? fetchHomeDataError,
-    required TResult orElse(),
-  }) {
-    if (fetchHomeDataLoading != null) {
-      return fetchHomeDataLoading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchHomeDataLoading<T> implements HomeState<T> {
-  const factory FetchHomeDataLoading() = _$FetchHomeDataLoadingImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$FetchHomeDataSuccessImplCopyWith<T, $Res> {
-  factory _$$FetchHomeDataSuccessImplCopyWith(
-          _$FetchHomeDataSuccessImpl<T> value,
-          $Res Function(_$FetchHomeDataSuccessImpl<T>) then) =
-      __$$FetchHomeDataSuccessImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({FetchHomeResponse homeResponse});
-}
-
-/// @nodoc
-class __$$FetchHomeDataSuccessImplCopyWithImpl<T, $Res>
-    extends _$HomeStateCopyWithImpl<T, $Res, _$FetchHomeDataSuccessImpl<T>>
-    implements _$$FetchHomeDataSuccessImplCopyWith<T, $Res> {
-  __$$FetchHomeDataSuccessImplCopyWithImpl(_$FetchHomeDataSuccessImpl<T> _value,
-      $Res Function(_$FetchHomeDataSuccessImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? homeResponse = null,
+    Object? status = null,
+    Object? homeData = freezed,
+    Object? error = freezed,
   }) {
-    return _then(_$FetchHomeDataSuccessImpl<T>(
-      null == homeResponse
-          ? _value.homeResponse
-          : homeResponse // ignore: cast_nullable_to_non_nullable
-              as FetchHomeResponse,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$FetchHomeDataSuccessImpl<T> implements FetchHomeDataSuccess<T> {
-  const _$FetchHomeDataSuccessImpl(this.homeResponse);
-
-  @override
-  final FetchHomeResponse homeResponse;
-
-  @override
-  String toString() {
-    return 'HomeState<$T>.fetchHomeDataSuccess(homeResponse: $homeResponse)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchHomeDataSuccessImpl<T> &&
-            (identical(other.homeResponse, homeResponse) ||
-                other.homeResponse == homeResponse));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, homeResponse);
-
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchHomeDataSuccessImplCopyWith<T, _$FetchHomeDataSuccessImpl<T>>
-      get copyWith => __$$FetchHomeDataSuccessImplCopyWithImpl<T,
-          _$FetchHomeDataSuccessImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() showLocationDialog,
-    required TResult Function() fetchHomeDataLoading,
-    required TResult Function(FetchHomeResponse homeResponse)
-        fetchHomeDataSuccess,
-    required TResult Function(String error) fetchHomeDataError,
-  }) {
-    return fetchHomeDataSuccess(homeResponse);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? showLocationDialog,
-    TResult? Function()? fetchHomeDataLoading,
-    TResult? Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
-    TResult? Function(String error)? fetchHomeDataError,
-  }) {
-    return fetchHomeDataSuccess?.call(homeResponse);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? showLocationDialog,
-    TResult Function()? fetchHomeDataLoading,
-    TResult Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
-    TResult Function(String error)? fetchHomeDataError,
-    required TResult orElse(),
-  }) {
-    if (fetchHomeDataSuccess != null) {
-      return fetchHomeDataSuccess(homeResponse);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ShowLocationDialog<T> value) showLocationDialog,
-    required TResult Function(FetchHomeDataLoading<T> value)
-        fetchHomeDataLoading,
-    required TResult Function(FetchHomeDataSuccess<T> value)
-        fetchHomeDataSuccess,
-    required TResult Function(FetchHomeDataError<T> value) fetchHomeDataError,
-  }) {
-    return fetchHomeDataSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ShowLocationDialog<T> value)? showLocationDialog,
-    TResult? Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
-    TResult? Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
-    TResult? Function(FetchHomeDataError<T> value)? fetchHomeDataError,
-  }) {
-    return fetchHomeDataSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(ShowLocationDialog<T> value)? showLocationDialog,
-    TResult Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
-    TResult Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
-    TResult Function(FetchHomeDataError<T> value)? fetchHomeDataError,
-    required TResult orElse(),
-  }) {
-    if (fetchHomeDataSuccess != null) {
-      return fetchHomeDataSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchHomeDataSuccess<T> implements HomeState<T> {
-  const factory FetchHomeDataSuccess(final FetchHomeResponse homeResponse) =
-      _$FetchHomeDataSuccessImpl<T>;
-
-  FetchHomeResponse get homeResponse;
-
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FetchHomeDataSuccessImplCopyWith<T, _$FetchHomeDataSuccessImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$FetchHomeDataErrorImplCopyWith<T, $Res> {
-  factory _$$FetchHomeDataErrorImplCopyWith(_$FetchHomeDataErrorImpl<T> value,
-          $Res Function(_$FetchHomeDataErrorImpl<T>) then) =
-      __$$FetchHomeDataErrorImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({String error});
-}
-
-/// @nodoc
-class __$$FetchHomeDataErrorImplCopyWithImpl<T, $Res>
-    extends _$HomeStateCopyWithImpl<T, $Res, _$FetchHomeDataErrorImpl<T>>
-    implements _$$FetchHomeDataErrorImplCopyWith<T, $Res> {
-  __$$FetchHomeDataErrorImplCopyWithImpl(_$FetchHomeDataErrorImpl<T> _value,
-      $Res Function(_$FetchHomeDataErrorImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$FetchHomeDataErrorImpl<T>(
-      null == error
+    return _then(_value.copyWith(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as HomeStateStatus,
+      homeData: freezed == homeData
+          ? _value.homeData
+          : homeData // ignore: cast_nullable_to_non_nullable
+              as FetchHomeResponse?,
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$HomeStateImplCopyWith<T, $Res>
+    implements $HomeStateCopyWith<T, $Res> {
+  factory _$$HomeStateImplCopyWith(
+          _$HomeStateImpl<T> value, $Res Function(_$HomeStateImpl<T>) then) =
+      __$$HomeStateImplCopyWithImpl<T, $Res>;
+  @override
+  @useResult
+  $Res call(
+      {HomeStateStatus status, FetchHomeResponse? homeData, String? error});
+}
+
+/// @nodoc
+class __$$HomeStateImplCopyWithImpl<T, $Res>
+    extends _$HomeStateCopyWithImpl<T, $Res, _$HomeStateImpl<T>>
+    implements _$$HomeStateImplCopyWith<T, $Res> {
+  __$$HomeStateImplCopyWithImpl(
+      _$HomeStateImpl<T> _value, $Res Function(_$HomeStateImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? status = null,
+    Object? homeData = freezed,
+    Object? error = freezed,
+  }) {
+    return _then(_$HomeStateImpl<T>(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as HomeStateStatus,
+      homeData: freezed == homeData
+          ? _value.homeData
+          : homeData // ignore: cast_nullable_to_non_nullable
+              as FetchHomeResponse?,
+      error: freezed == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$FetchHomeDataErrorImpl<T> implements FetchHomeDataError<T> {
-  const _$FetchHomeDataErrorImpl(this.error);
+class _$HomeStateImpl<T> implements _HomeState<T> {
+  const _$HomeStateImpl({required this.status, this.homeData, this.error});
 
   @override
-  final String error;
+  final HomeStateStatus status;
+  @override
+  final FetchHomeResponse? homeData;
+  @override
+  final String? error;
 
   @override
   String toString() {
-    return 'HomeState<$T>.fetchHomeDataError(error: $error)';
+    return 'HomeState<$T>(status: $status, homeData: $homeData, error: $error)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchHomeDataErrorImpl<T> &&
+            other is _$HomeStateImpl<T> &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.homeData, homeData) ||
+                other.homeData == homeData) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, status, homeData, error);
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchHomeDataErrorImplCopyWith<T, _$FetchHomeDataErrorImpl<T>>
-      get copyWith => __$$FetchHomeDataErrorImplCopyWithImpl<T,
-          _$FetchHomeDataErrorImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() showLocationDialog,
-    required TResult Function() fetchHomeDataLoading,
-    required TResult Function(FetchHomeResponse homeResponse)
-        fetchHomeDataSuccess,
-    required TResult Function(String error) fetchHomeDataError,
-  }) {
-    return fetchHomeDataError(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? showLocationDialog,
-    TResult? Function()? fetchHomeDataLoading,
-    TResult? Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
-    TResult? Function(String error)? fetchHomeDataError,
-  }) {
-    return fetchHomeDataError?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? showLocationDialog,
-    TResult Function()? fetchHomeDataLoading,
-    TResult Function(FetchHomeResponse homeResponse)? fetchHomeDataSuccess,
-    TResult Function(String error)? fetchHomeDataError,
-    required TResult orElse(),
-  }) {
-    if (fetchHomeDataError != null) {
-      return fetchHomeDataError(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ShowLocationDialog<T> value) showLocationDialog,
-    required TResult Function(FetchHomeDataLoading<T> value)
-        fetchHomeDataLoading,
-    required TResult Function(FetchHomeDataSuccess<T> value)
-        fetchHomeDataSuccess,
-    required TResult Function(FetchHomeDataError<T> value) fetchHomeDataError,
-  }) {
-    return fetchHomeDataError(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ShowLocationDialog<T> value)? showLocationDialog,
-    TResult? Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
-    TResult? Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
-    TResult? Function(FetchHomeDataError<T> value)? fetchHomeDataError,
-  }) {
-    return fetchHomeDataError?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(ShowLocationDialog<T> value)? showLocationDialog,
-    TResult Function(FetchHomeDataLoading<T> value)? fetchHomeDataLoading,
-    TResult Function(FetchHomeDataSuccess<T> value)? fetchHomeDataSuccess,
-    TResult Function(FetchHomeDataError<T> value)? fetchHomeDataError,
-    required TResult orElse(),
-  }) {
-    if (fetchHomeDataError != null) {
-      return fetchHomeDataError(this);
-    }
-    return orElse();
-  }
+  _$$HomeStateImplCopyWith<T, _$HomeStateImpl<T>> get copyWith =>
+      __$$HomeStateImplCopyWithImpl<T, _$HomeStateImpl<T>>(this, _$identity);
 }
 
-abstract class FetchHomeDataError<T> implements HomeState<T> {
-  const factory FetchHomeDataError(final String error) =
-      _$FetchHomeDataErrorImpl<T>;
+abstract class _HomeState<T> implements HomeState<T> {
+  const factory _HomeState(
+      {required final HomeStateStatus status,
+      final FetchHomeResponse? homeData,
+      final String? error}) = _$HomeStateImpl<T>;
 
-  String get error;
+  @override
+  HomeStateStatus get status;
+  @override
+  FetchHomeResponse? get homeData;
+  @override
+  String? get error;
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FetchHomeDataErrorImplCopyWith<T, _$FetchHomeDataErrorImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$HomeStateImplCopyWith<T, _$HomeStateImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }

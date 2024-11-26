@@ -154,7 +154,7 @@ void _setupDIForRepos() {
     () => ResetPasswordRepo(getIt.get<ResetPasswordApiService>()),
   );
   getIt.registerLazySingleton<HomeRepo>(
-    () => HomeRepoImpl(
+    () => HomeRepo(
       getIt.get<HomeApiService>(),
       getIt.get<HomeLocalDatasource>(),
     ),
