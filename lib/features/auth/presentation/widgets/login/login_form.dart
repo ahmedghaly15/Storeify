@@ -30,14 +30,14 @@ class LoginForm extends StatelessWidget {
           ),
           MySizedBox.height24,
           const TextFieldLabel(labelKey: LocaleKeys.password),
-          BlocBuilder<LoginCubit, LoginState>(
-            buildWhen: (_, current) => current is InvertPasswordVisibility,
-            builder: (context, _) => PassTextFormField(
+          BlocSelector<LoginCubit, LoginState, bool>(
+            selector: (state) => state.isPasswordObscure,
+            builder: (context, isPasswordObscure) => PassTextFormField(
               hintTextKey: LocaleKeys.passwordHint,
               controller: loginCubit.passwordController,
               focusNode: loginCubit.passwordFocusNode,
-              obscureText: loginCubit.isPasswordVisible,
-              suffixOnPressed: () => loginCubit.invertPasswordVisibility(),
+              obscureText: isPasswordObscure,
+              suffixOnPressed: () => loginCubit.togglePassVisibility(),
               onSubmit: (_) => loginCubit.login(),
             ),
           ),
