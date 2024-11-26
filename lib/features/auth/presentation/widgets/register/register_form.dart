@@ -44,7 +44,6 @@ class RegisterForm extends StatelessWidget {
             selector: (state) => state.isPassObscure,
             builder: (context, isPassObscure) => PassTextFormField(
               controller: registerCubit.passwordController,
-              hintTextKey: LocaleKeys.passwordHint,
               focusNode: registerCubit.passwordFocusNode,
               nextFocusNode: registerCubit.confirmPasswordFocusNode,
               obscureText: isPassObscure,
@@ -67,9 +66,6 @@ class RegisterForm extends StatelessWidget {
                 confirmPassword: registerCubit.confirmController.text,
               ),
               controller: registerCubit.confirmController,
-              keyboardType: TextInputType.visiblePassword,
-              hintTextKey: LocaleKeys.passwordHint,
-              autofillHints: const <String>[AutofillHints.newPassword],
               focusNode: registerCubit.confirmPasswordFocusNode,
             ),
           ),

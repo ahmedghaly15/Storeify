@@ -33,7 +33,6 @@ class LoginForm extends StatelessWidget {
           BlocSelector<LoginCubit, LoginState, bool>(
             selector: (state) => state.isPasswordObscure,
             builder: (context, isPasswordObscure) => PassTextFormField(
-              hintTextKey: LocaleKeys.passwordHint,
               controller: loginCubit.passwordController,
               focusNode: loginCubit.passwordFocusNode,
               obscureText: isPasswordObscure,

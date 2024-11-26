@@ -15,79 +15,35 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ResetPasswordState<T> {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function(String error) error,
-    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function(String error)? error,
-    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function(String error)? error,
-    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
-    required TResult Function(InvertPasswordVisibility<T> value)
-        invertPasswordVisibility,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
-    TResult? Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
-    TResult Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
-    required TResult orElse(),
-  }) =>
+mixin _$ResetPasswordState {
+  ResetPassStateStatus get status => throw _privateConstructorUsedError;
+  String? get error => throw _privateConstructorUsedError;
+  bool get isPassObscure => throw _privateConstructorUsedError;
+  bool get isConfirmPassObscure => throw _privateConstructorUsedError;
+
+  /// Create a copy of ResetPasswordState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ResetPasswordStateCopyWith<ResetPasswordState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ResetPasswordStateCopyWith<T, $Res> {
-  factory $ResetPasswordStateCopyWith(ResetPasswordState<T> value,
-          $Res Function(ResetPasswordState<T>) then) =
-      _$ResetPasswordStateCopyWithImpl<T, $Res, ResetPasswordState<T>>;
+abstract class $ResetPasswordStateCopyWith<$Res> {
+  factory $ResetPasswordStateCopyWith(
+          ResetPasswordState value, $Res Function(ResetPasswordState) then) =
+      _$ResetPasswordStateCopyWithImpl<$Res, ResetPasswordState>;
+  @useResult
+  $Res call(
+      {ResetPassStateStatus status,
+      String? error,
+      bool isPassObscure,
+      bool isConfirmPassObscure});
 }
 
 /// @nodoc
-class _$ResetPasswordStateCopyWithImpl<T, $Res,
-        $Val extends ResetPasswordState<T>>
-    implements $ResetPasswordStateCopyWith<T, $Res> {
+class _$ResetPasswordStateCopyWithImpl<$Res, $Val extends ResetPasswordState>
+    implements $ResetPasswordStateCopyWith<$Res> {
   _$ResetPasswordStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -97,565 +53,56 @@ class _$ResetPasswordStateCopyWithImpl<T, $Res,
 
   /// Create a copy of ResetPasswordState
   /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$InitialImplCopyWith<T, $Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl<T> value, $Res Function(_$InitialImpl<T>) then) =
-      __$$InitialImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$ResetPasswordStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
-    implements _$$InitialImplCopyWith<T, $Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ResetPasswordState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$InitialImpl<T> implements _Initial<T> {
-  const _$InitialImpl();
-
-  @override
-  String toString() {
-    return 'ResetPasswordState<$T>.initial()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function(String error) error,
-    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function(String error)? error,
-    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function(String error)? error,
-    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
-    required TResult Function(InvertPasswordVisibility<T> value)
-        invertPasswordVisibility,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
-    TResult? Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
-    TResult Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial<T> implements ResetPasswordState<T> {
-  const factory _Initial() = _$InitialImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$LoadingImplCopyWith<T, $Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl<T> value, $Res Function(_$LoadingImpl<T>) then) =
-      __$$LoadingImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$LoadingImplCopyWithImpl<T, $Res>
-    extends _$ResetPasswordStateCopyWithImpl<T, $Res, _$LoadingImpl<T>>
-    implements _$$LoadingImplCopyWith<T, $Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl<T> _value, $Res Function(_$LoadingImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ResetPasswordState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LoadingImpl<T> implements Loading<T> {
-  const _$LoadingImpl();
-
-  @override
-  String toString() {
-    return 'ResetPasswordState<$T>.loading()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function(String error) error,
-    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function(String error)? error,
-    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function(String error)? error,
-    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
-    required TResult Function(InvertPasswordVisibility<T> value)
-        invertPasswordVisibility,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
-    TResult? Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
-    TResult Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Loading<T> implements ResetPasswordState<T> {
-  const factory Loading() = _$LoadingImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$SuccessImplCopyWith<T, $Res> {
-  factory _$$SuccessImplCopyWith(
-          _$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
-      __$$SuccessImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$SuccessImplCopyWithImpl<T, $Res>
-    extends _$ResetPasswordStateCopyWithImpl<T, $Res, _$SuccessImpl<T>>
-    implements _$$SuccessImplCopyWith<T, $Res> {
-  __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl<T> _value, $Res Function(_$SuccessImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ResetPasswordState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$SuccessImpl<T> implements Success<T> {
-  const _$SuccessImpl();
-
-  @override
-  String toString() {
-    return 'ResetPasswordState<$T>.success()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SuccessImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function(String error) error,
-    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
-  }) {
-    return success();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function(String error)? error,
-    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
-  }) {
-    return success?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function(String error)? error,
-    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
-    required TResult Function(InvertPasswordVisibility<T> value)
-        invertPasswordVisibility,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
-    TResult? Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
-    TResult Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Success<T> implements ResetPasswordState<T> {
-  const factory Success() = _$SuccessImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$ErrorImplCopyWith<T, $Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl<T> value, $Res Function(_$ErrorImpl<T>) then) =
-      __$$ErrorImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({String error});
-}
-
-/// @nodoc
-class __$$ErrorImplCopyWithImpl<T, $Res>
-    extends _$ResetPasswordStateCopyWithImpl<T, $Res, _$ErrorImpl<T>>
-    implements _$$ErrorImplCopyWith<T, $Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl<T> _value, $Res Function(_$ErrorImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ResetPasswordState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? status = null,
+    Object? error = freezed,
+    Object? isPassObscure = null,
+    Object? isConfirmPassObscure = null,
   }) {
-    return _then(_$ErrorImpl<T>(
-      null == error
+    return _then(_value.copyWith(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as ResetPassStateStatus,
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+              as String?,
+      isPassObscure: null == isPassObscure
+          ? _value.isPassObscure
+          : isPassObscure // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isConfirmPassObscure: null == isConfirmPassObscure
+          ? _value.isConfirmPassObscure
+          : isConfirmPassObscure // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
   }
 }
 
 /// @nodoc
-
-class _$ErrorImpl<T> implements Error<T> {
-  const _$ErrorImpl(this.error);
-
+abstract class _$$ResetPasswordStateImplCopyWith<$Res>
+    implements $ResetPasswordStateCopyWith<$Res> {
+  factory _$$ResetPasswordStateImplCopyWith(_$ResetPasswordStateImpl value,
+          $Res Function(_$ResetPasswordStateImpl) then) =
+      __$$ResetPasswordStateImplCopyWithImpl<$Res>;
   @override
-  final String error;
-
-  @override
-  String toString() {
-    return 'ResetPasswordState<$T>.error(error: $error)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ErrorImpl<T> &&
-            (identical(other.error, error) || other.error == error));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, error);
-
-  /// Create a copy of ResetPasswordState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
-      __$$ErrorImplCopyWithImpl<T, _$ErrorImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function(String error) error,
-    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
-  }) {
-    return error(this.error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function(String error)? error,
-    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
-  }) {
-    return error?.call(this.error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function(String error)? error,
-    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this.error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
-    required TResult Function(InvertPasswordVisibility<T> value)
-        invertPasswordVisibility,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
-    TResult? Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
-    TResult Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Error<T> implements ResetPasswordState<T> {
-  const factory Error(final String error) = _$ErrorImpl<T>;
-
-  String get error;
-
-  /// Create a copy of ResetPasswordState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$InvertPasswordVisibilityImplCopyWith<T, $Res> {
-  factory _$$InvertPasswordVisibilityImplCopyWith(
-          _$InvertPasswordVisibilityImpl<T> value,
-          $Res Function(_$InvertPasswordVisibilityImpl<T>) then) =
-      __$$InvertPasswordVisibilityImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({bool isPasswordVisible});
+  $Res call(
+      {ResetPassStateStatus status,
+      String? error,
+      bool isPassObscure,
+      bool isConfirmPassObscure});
 }
 
 /// @nodoc
-class __$$InvertPasswordVisibilityImplCopyWithImpl<T, $Res>
-    extends _$ResetPasswordStateCopyWithImpl<T, $Res,
-        _$InvertPasswordVisibilityImpl<T>>
-    implements _$$InvertPasswordVisibilityImplCopyWith<T, $Res> {
-  __$$InvertPasswordVisibilityImplCopyWithImpl(
-      _$InvertPasswordVisibilityImpl<T> _value,
-      $Res Function(_$InvertPasswordVisibilityImpl<T>) _then)
+class __$$ResetPasswordStateImplCopyWithImpl<$Res>
+    extends _$ResetPasswordStateCopyWithImpl<$Res, _$ResetPasswordStateImpl>
+    implements _$$ResetPasswordStateImplCopyWith<$Res> {
+  __$$ResetPasswordStateImplCopyWithImpl(_$ResetPasswordStateImpl _value,
+      $Res Function(_$ResetPasswordStateImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ResetPasswordState
@@ -663,12 +110,27 @@ class __$$InvertPasswordVisibilityImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isPasswordVisible = null,
+    Object? status = null,
+    Object? error = freezed,
+    Object? isPassObscure = null,
+    Object? isConfirmPassObscure = null,
   }) {
-    return _then(_$InvertPasswordVisibilityImpl<T>(
-      null == isPasswordVisible
-          ? _value.isPasswordVisible
-          : isPasswordVisible // ignore: cast_nullable_to_non_nullable
+    return _then(_$ResetPasswordStateImpl(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as ResetPassStateStatus,
+      error: freezed == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isPassObscure: null == isPassObscure
+          ? _value.isPassObscure
+          : isPassObscure // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isConfirmPassObscure: null == isConfirmPassObscure
+          ? _value.isConfirmPassObscure
+          : isConfirmPassObscure // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -676,131 +138,76 @@ class __$$InvertPasswordVisibilityImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$InvertPasswordVisibilityImpl<T> implements InvertPasswordVisibility<T> {
-  const _$InvertPasswordVisibilityImpl(this.isPasswordVisible);
+class _$ResetPasswordStateImpl implements _ResetPasswordState {
+  const _$ResetPasswordStateImpl(
+      {required this.status,
+      this.error,
+      this.isPassObscure = true,
+      this.isConfirmPassObscure = true});
 
   @override
-  final bool isPasswordVisible;
+  final ResetPassStateStatus status;
+  @override
+  final String? error;
+  @override
+  @JsonKey()
+  final bool isPassObscure;
+  @override
+  @JsonKey()
+  final bool isConfirmPassObscure;
 
   @override
   String toString() {
-    return 'ResetPasswordState<$T>.invertPasswordVisibility(isPasswordVisible: $isPasswordVisible)';
+    return 'ResetPasswordState(status: $status, error: $error, isPassObscure: $isPassObscure, isConfirmPassObscure: $isConfirmPassObscure)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InvertPasswordVisibilityImpl<T> &&
-            (identical(other.isPasswordVisible, isPasswordVisible) ||
-                other.isPasswordVisible == isPasswordVisible));
+            other is _$ResetPasswordStateImpl &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.error, error) || other.error == error) &&
+            (identical(other.isPassObscure, isPassObscure) ||
+                other.isPassObscure == isPassObscure) &&
+            (identical(other.isConfirmPassObscure, isConfirmPassObscure) ||
+                other.isConfirmPassObscure == isConfirmPassObscure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isPasswordVisible);
+  int get hashCode => Object.hash(
+      runtimeType, status, error, isPassObscure, isConfirmPassObscure);
 
   /// Create a copy of ResetPasswordState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$InvertPasswordVisibilityImplCopyWith<T, _$InvertPasswordVisibilityImpl<T>>
-      get copyWith => __$$InvertPasswordVisibilityImplCopyWithImpl<T,
-          _$InvertPasswordVisibilityImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function(String error) error,
-    required TResult Function(bool isPasswordVisible) invertPasswordVisibility,
-  }) {
-    return invertPasswordVisibility(isPasswordVisible);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function(String error)? error,
-    TResult? Function(bool isPasswordVisible)? invertPasswordVisibility,
-  }) {
-    return invertPasswordVisibility?.call(isPasswordVisible);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function(String error)? error,
-    TResult Function(bool isPasswordVisible)? invertPasswordVisibility,
-    required TResult orElse(),
-  }) {
-    if (invertPasswordVisibility != null) {
-      return invertPasswordVisibility(isPasswordVisible);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
-    required TResult Function(InvertPasswordVisibility<T> value)
-        invertPasswordVisibility,
-  }) {
-    return invertPasswordVisibility(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
-    TResult? Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
-  }) {
-    return invertPasswordVisibility?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
-    TResult Function(InvertPasswordVisibility<T> value)?
-        invertPasswordVisibility,
-    required TResult orElse(),
-  }) {
-    if (invertPasswordVisibility != null) {
-      return invertPasswordVisibility(this);
-    }
-    return orElse();
-  }
+  _$$ResetPasswordStateImplCopyWith<_$ResetPasswordStateImpl> get copyWith =>
+      __$$ResetPasswordStateImplCopyWithImpl<_$ResetPasswordStateImpl>(
+          this, _$identity);
 }
 
-abstract class InvertPasswordVisibility<T> implements ResetPasswordState<T> {
-  const factory InvertPasswordVisibility(final bool isPasswordVisible) =
-      _$InvertPasswordVisibilityImpl<T>;
+abstract class _ResetPasswordState implements ResetPasswordState {
+  const factory _ResetPasswordState(
+      {required final ResetPassStateStatus status,
+      final String? error,
+      final bool isPassObscure,
+      final bool isConfirmPassObscure}) = _$ResetPasswordStateImpl;
 
-  bool get isPasswordVisible;
+  @override
+  ResetPassStateStatus get status;
+  @override
+  String? get error;
+  @override
+  bool get isPassObscure;
+  @override
+  bool get isConfirmPassObscure;
 
   /// Create a copy of ResetPasswordState
   /// with the given fields replaced by the non-null parameter values.
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$InvertPasswordVisibilityImplCopyWith<T, _$InvertPasswordVisibilityImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ResetPasswordStateImplCopyWith<_$ResetPasswordStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
