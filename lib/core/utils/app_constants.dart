@@ -34,7 +34,7 @@ class AppConstants {
   ];
   static const Duration onboardingAnimationDuration =
       Duration(milliseconds: 475);
-  static Curve get onboardingCurve => Curves.fastEaseInToSlowEaseOut;
+  static Curve get onboardingCurve => Curves.easeInOutQuart;
   static OutlineInputBorder get textFieldOutlinedBorder => OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.r),
         borderSide: BorderSide(color: AppColors.fontPrimaryColor, width: 1.w),

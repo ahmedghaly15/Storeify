@@ -14,8 +14,10 @@ class ForgotPasswordRepo {
     CancelToken? cancelToken,
   ]) {
     return executeAndHandleErrors<void>(
-      () async =>
-          await _forgotPasswordApiService.forgotPassword(params, cancelToken),
+      () async => await _forgotPasswordApiService.forgotPassword(
+        params,
+        cancelToken,
+      ),
     );
   }
 }

@@ -17,34 +17,39 @@ class ValidateOtpButtonBlocConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ValidateOtpCubit, ValidateOtpState>(
-      listenWhen: (_, current) =>
-          current is ValidateOtpSuccess || current is ValidateOtpError,
-      listener: (context, state) {
-        state.whenOrNull(
-          validateOtpSuccess: () {
-            context.pushRoute(ResetPasswordRoute(email: email));
-          },
-          validateOtpError: (errorKey) => CustomToast.showToast(
-            context: context,
-            messageKey: errorKey,
-            state: CustomToastState.error,
-          ),
-        );
-      },
-      buildWhen: (_, current) =>
-          current is ValidateOtpLoading ||
-          current is ValidateOtpError ||
-          current is ValidateOtpSuccess,
-      builder: (context, state) {
-        return MainButton(
-          onPressed: () => context.read<ValidateOtpCubit>().validateOtp(email),
-          child: circularIndicatorOrTextWidget(
-            isLoading: state is ValidateOtpLoading,
-            context: context,
-            textKey: LocaleKeys.verify,
-          ),
-        );
-      },
+      listenWhen: (_, current) => _listenWhen(current),
+      listener: (context, state) => _listener(state, context),
+      buildWhen: (_, current) => _buildWhen(current),
+      builder: (context, state) => MainButton(
+        onPressed: () => context.read<ValidateOtpCubit>().validateOtp(email),
+        child: circularIndicatorOrTextWidget(
+          isLoading: state is ValidateOtpLoading,
+          context: context,
+          textKey: LocaleKeys.verify,
+        ),
+      ),
     );
   }
+
+  bool _buildWhen(ValidateOtpState<dynamic> current) {
+    return current is ValidateOtpLoading ||
+        current is ValidateOtpError ||
+        current is ValidateOtpSuccess;
+  }
+
+  void _listener(ValidateOtpState<dynamic> state, BuildContext context) {
+    state.whenOrNull(
+      validateOtpSuccess: () {
+        context.pushRoute(ResetPasswordRoute(email: email));
+      },
+      validateOtpError: (errorKey) => CustomToast.showToast(
+        context: context,
+        messageKey: errorKey,
+        state: CustomToastState.error,
+      ),
+    );
+  }
+
+  bool _listenWhen(ValidateOtpState<dynamic> current) =>
+      current is ValidateOtpSuccess || current is ValidateOtpError;
 }

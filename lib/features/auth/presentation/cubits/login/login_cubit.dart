@@ -8,7 +8,7 @@ import 'package:store_ify/features/auth/presentation/cubits/login/login_state.da
 class LoginCubit extends Cubit<LoginState> {
   final LoginRepo _loginRepo;
 
-  LoginCubit(this._loginRepo) : super(const LoginState.initial()) {
+  LoginCubit(this._loginRepo) : super(LoginState.initial()) {
     _initFormAttributes();
   }
 
@@ -35,16 +35,25 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   void _login() async {
-    emit(const LoginState.loginLoading());
-    final loginParams = LoginParams(
-      email: emailController.text.trim(),
-      password: passwordController.text,
+    emit(state.copyWith(
+      status: LoginStateStatus.loginLoading,
+    ));
+    final result = await _loginRepo.login(
+      LoginParams(
+        email: emailController.text.trim(),
+        password: passwordController.text,
+      ),
+      _cancelToken,
     );
-    final result = await _loginRepo.login(loginParams, _cancelToken);
     result.when(
-      success: (user) => emit(LoginState.loginSuccess(user)),
-      error: (errorModel) =>
-          emit(LoginState.loginError(errorModel.error ?? '')),
+      success: (user) => emit(state.copyWith(
+        status: LoginStateStatus.loginSuccess,
+        user: user,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: LoginStateStatus.loginError,
+        error: errorModel.error ?? '',
+      )),
     );
   }
 
@@ -54,10 +63,11 @@ class LoginCubit extends Cubit<LoginState> {
     }
   }
 
-  bool isPasswordVisible = true;
-  void invertPasswordVisibility() {
-    isPasswordVisible = !isPasswordVisible;
-    emit(LoginState.invertPasswordVisibility(isPasswordVisible));
+  void togglePassVisibility() {
+    emit(state.copyWith(
+      status: LoginStateStatus.togglePassVisibility,
+      isPasswordObscure: !state.isPasswordObscure,
+    ));
   }
 
   @override

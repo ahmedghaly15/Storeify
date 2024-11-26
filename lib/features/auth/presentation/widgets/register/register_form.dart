@@ -40,23 +40,22 @@ class RegisterForm extends StatelessWidget {
           ),
           MySizedBox.height24,
           const TextFieldLabel(labelKey: LocaleKeys.password),
-          BlocBuilder<RegisterCubit, RegisterState>(
-            buildWhen: (_, current) => current is TogglePassVisibility,
-            builder: (context, state) => PassTextFormField(
+          BlocSelector<RegisterCubit, RegisterState, bool>(
+            selector: (state) => state.isPassObscure,
+            builder: (context, isPassObscure) => PassTextFormField(
               controller: registerCubit.passwordController,
-              hintTextKey: LocaleKeys.passwordHint,
               focusNode: registerCubit.passwordFocusNode,
               nextFocusNode: registerCubit.confirmPasswordFocusNode,
-              obscureText: registerCubit.isPassObscured,
+              obscureText: isPassObscure,
               suffixOnPressed: () => registerCubit.togglePassVisibility(),
             ),
           ),
           MySizedBox.height24,
           const TextFieldLabel(labelKey: LocaleKeys.confirmPassword),
-          BlocBuilder<RegisterCubit, RegisterState>(
-            buildWhen: (_, current) => current is ToggleConfirmPassVisibility,
-            builder: (context, state) => PassTextFormField(
-              obscureText: registerCubit.isConfirmPassObscured,
+          BlocSelector<RegisterCubit, RegisterState, bool>(
+            selector: (state) => state.isConfirmPassObscure,
+            builder: (context, isConfirmPassObscure) => PassTextFormField(
+              obscureText: isConfirmPassObscure,
               suffixOnPressed: () =>
                   registerCubit.toggleConfirmPassVisibility(),
               onSubmit: (_) => registerCubit.register(),
@@ -67,9 +66,6 @@ class RegisterForm extends StatelessWidget {
                 confirmPassword: registerCubit.confirmController.text,
               ),
               controller: registerCubit.confirmController,
-              keyboardType: TextInputType.visiblePassword,
-              hintTextKey: LocaleKeys.passwordHint,
-              autofillHints: const <String>[AutofillHints.newPassword],
               focusNode: registerCubit.confirmPasswordFocusNode,
             ),
           ),

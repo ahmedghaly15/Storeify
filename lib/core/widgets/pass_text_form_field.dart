@@ -3,6 +3,7 @@ import 'package:store_ify/core/helpers/auth_validator.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class PassTextFormField extends StatelessWidget {
   const PassTextFormField({
@@ -40,7 +41,7 @@ class PassTextFormField extends StatelessWidget {
       onSubmit: onSubmit,
       controller: controller,
       keyboardType: keyboardType,
-      hintTextKey: hintTextKey,
+      hintTextKey: hintTextKey ?? LocaleKeys.passwordHint,
       obscureText: obscureText,
       suffixIcon: IconButton(
         onPressed: suffixOnPressed,
