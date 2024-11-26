@@ -8,7 +8,7 @@ import 'package:store_ify/features/auth/presentation/cubits/register/register_st
 class RegisterCubit extends Cubit<RegisterState> {
   final RegisterRepo _registerRepo;
 
-  RegisterCubit(this._registerRepo) : super(const RegisterState.initial()) {
+  RegisterCubit(this._registerRepo) : super(RegisterState.initial()) {
     _initFormAttributes();
   }
 
@@ -47,18 +47,27 @@ class RegisterCubit extends Cubit<RegisterState> {
   }
 
   void _register() async {
-    emit(const RegisterState.registerLoading());
-    final registerParams = RegisterParams(
-      username: usernameController.text.trim(),
-      email: emailController.text.trim(),
-      password: passwordController.text,
-      passwordConfirmation: confirmController.text,
+    emit(state.copyWith(
+      status: RegisterStateStatus.registerLoading,
+    ));
+    final result = await _registerRepo.register(
+      RegisterParams(
+        username: usernameController.text.trim(),
+        email: emailController.text.trim(),
+        password: passwordController.text,
+        passwordConfirmation: confirmController.text,
+      ),
+      _cancelToken,
     );
-    final result = await _registerRepo.register(registerParams, _cancelToken);
     result.when(
-      success: (user) => emit(RegisterState.registerSuccess(user)),
-      error: (errorModel) =>
-          emit(RegisterState.registerError(errorModel.error ?? '')),
+      success: (user) => emit(state.copyWith(
+        status: RegisterStateStatus.registerSuccess,
+        user: user,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: RegisterStateStatus.registerError,
+        error: errorModel.error ?? '',
+      )),
     );
   }
 
@@ -68,16 +77,18 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
   }
 
-  bool isPassObscured = true;
   void togglePassVisibility() {
-    isPassObscured = !isPassObscured;
-    emit(RegisterState.togglePassVisibility(isPassObscured));
+    emit(state.copyWith(
+      status: RegisterStateStatus.togglePassVisibility,
+      isPassObscure: !state.isPassObscure,
+    ));
   }
 
-  bool isConfirmPassObscured = true;
   void toggleConfirmPassVisibility() {
-    isConfirmPassObscured = !isConfirmPassObscured;
-    emit(RegisterState.toggleConfirmPassVisibility(isConfirmPassObscured));
+    emit(state.copyWith(
+      status: RegisterStateStatus.toggleConfirmPassVisibility,
+      isConfirmPassObscure: !state.isConfirmPassObscure,
+    ));
   }
 
   @override
