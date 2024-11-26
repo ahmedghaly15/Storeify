@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
 import 'package:store_ify/core/widgets/custom_toast.dart';
@@ -15,26 +16,9 @@ class VerifyEmailButtonBlocConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ForgotPasswordCubit, ForgotPasswordState>(
-      listenWhen: (_, current) =>
-          current is ForgotPasswordSuccess || current is ForgotPasswordError,
-      listener: (context, state) {
-        state.whenOrNull(
-          forgotPasswordSuccess: () => CustomToast.showToast(
-            context: context,
-            messageKey: LocaleKeys.emailSent,
-            state: CustomToastState.success,
-          ),
-          forgotPasswordError: (errorKey) => CustomToast.showToast(
-            context: context,
-            messageKey: errorKey,
-            state: CustomToastState.error,
-          ),
-        );
-      },
-      buildWhen: (_, current) =>
-          current is ForgotPasswordLoading ||
-          current is ForgotPasswordError ||
-          current is ForgotPasswordSuccess,
+      listenWhen: (_, current) => _listenOrBuildWhen(current),
+      listener: (context, state) => _listener(state, context),
+      buildWhen: (_, current) => _listenOrBuildWhen(current),
       builder: (context, state) => MainButton(
         margin: EdgeInsetsDirectional.only(
           top: 32.h,
@@ -42,14 +26,33 @@ class VerifyEmailButtonBlocConsumer extends StatelessWidget {
           start: 24.w,
           end: 24.w,
         ),
-        width: double.infinity,
-        onPressed: () =>
-            context.read<ForgotPasswordCubit>().forgotPassword(context),
+        onPressed: () => context.read<ForgotPasswordCubit>().forgotPassword(),
         child: circularIndicatorOrTextWidget(
           isLoading: state is ForgotPasswordLoading,
           context: context,
           textKey: LocaleKeys.verifyEmail,
         ),
+      ),
+    );
+  }
+
+  bool _listenOrBuildWhen(ForgotPasswordState<dynamic> current) =>
+      current is ForgotPasswordLoading ||
+      current is ForgotPasswordSuccess ||
+      current is ForgotPasswordError;
+
+  void _listener(ForgotPasswordState<dynamic> state, BuildContext context) {
+    state.whenOrNull(
+      forgotPasswordLoading: () => context.unfocusKeyboard(),
+      forgotPasswordSuccess: () => CustomToast.showToast(
+        context: context,
+        messageKey: LocaleKeys.emailSent,
+        state: CustomToastState.success,
+      ),
+      forgotPasswordError: (errorKey) => CustomToast.showToast(
+        context: context,
+        messageKey: errorKey,
+        state: CustomToastState.error,
       ),
     );
   }
