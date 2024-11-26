@@ -17,7 +17,7 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxWidth: 145.w),
+      // constraints: BoxConstraints(maxWidth: 145.w),
       decoration: BoxDecoration(
         color: context.isDarkModeActive
             ? AppColors.secondaryDarkColor

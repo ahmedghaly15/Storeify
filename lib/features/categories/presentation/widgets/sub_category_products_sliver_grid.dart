@@ -21,39 +21,47 @@ class SubCategoryProductsSliverGrid extends StatelessWidget {
           current is FetchSubCategorySuccess,
       builder: (context, state) => state.maybeWhen(
         fetchSubCategoryLoading: () => const SliverFillRemaining(
+          hasScrollBody: false,
           child: Center(
             child: CustomCircularProgressIndicator(),
           ),
         ),
         fetchSubCategoryError: (errorKey) => SliverFillRemaining(
+          hasScrollBody: false,
           child: Center(
             child: Text(context.tr(errorKey)),
           ),
         ),
-        fetchSubCategorySuccess: (subCategory) => SliverPadding(
-          padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
-          sliver: SliverGrid.builder(
-            itemCount: subCategory.products.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: AppConstants.gridCrossAxisCount,
-              crossAxisSpacing: 32.w,
-              mainAxisSpacing: 19.h,
-            ),
-            itemBuilder: (_, index) => AnimationConfiguration.staggeredGrid(
-              position: index,
-              columnCount: subCategory.products.length,
-              duration: AppConstants.gridDuration,
-              child: ScaleAnimation(
-                child: FadeInAnimation(
-                  child: ProductItem(
-                    product: subCategory.products[index],
+        fetchSubCategorySuccess: (subCategory) {
+          debugPrint(
+              'SubCategory fetched with ${subCategory.products.length} products');
+
+          return SliverPadding(
+            padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
+            sliver: SliverGrid.builder(
+              itemCount: subCategory.products.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: AppConstants.gridCrossAxisCount,
+                crossAxisSpacing: 32.w,
+                mainAxisSpacing: 19.h,
+              ),
+              itemBuilder: (_, index) => AnimationConfiguration.staggeredGrid(
+                position: index,
+                columnCount: subCategory.products.length,
+                duration: AppConstants.gridDuration,
+                child: ScaleAnimation(
+                  child: FadeInAnimation(
+                    child: ProductItem(
+                      product: subCategory.products[index],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ),
+          );
+        },
         orElse: () => const SliverFillRemaining(
+          hasScrollBody: false,
           child: Center(
             child: CustomCircularProgressIndicator(),
           ),

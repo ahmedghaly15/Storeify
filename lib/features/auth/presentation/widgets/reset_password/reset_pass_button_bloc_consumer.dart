@@ -44,25 +44,23 @@ class ResetPassButtonBlocConsumer extends StatelessWidget {
       },
       buildWhen: (_, current) =>
           current is Loading || current is Error || current is Success,
-      builder: (context, state) {
-        return MainButton(
-          margin: EdgeInsetsDirectional.symmetric(
-            horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
-          ),
-          width: double.infinity,
-          onPressed: () => context.read<ResetPasswordCubit>().resetPassword(
-                ResetPasswordRequirements(
-                  email: email,
-                  context: context,
-                ),
+      builder: (context, state) => MainButton(
+        margin: EdgeInsetsDirectional.symmetric(
+          horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
+        ),
+        width: double.infinity,
+        onPressed: () => context.read<ResetPasswordCubit>().resetPassword(
+              ResetPasswordRequirements(
+                email: email,
+                context: context,
               ),
-          child: circularIndicatorOrTextWidget(
-            isLoading: state is Loading,
-            context: context,
-            textKey: LocaleKeys.resetPassword,
-          ),
-        );
-      },
+            ),
+        child: circularIndicatorOrTextWidget(
+          isLoading: state is Loading,
+          context: context,
+          textKey: LocaleKeys.resetPassword,
+        ),
+      ),
     );
   }
 }

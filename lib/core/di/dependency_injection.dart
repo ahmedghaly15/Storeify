@@ -201,7 +201,10 @@ void _setupDIForRepos() {
 
 void _setupDIForCubits() {
   getIt.registerLazySingleton<ThemingCubit>(() => ThemingCubit());
-  getIt.registerFactory<LoginCubit>(
+  getIt.registerLazySingleton<OnboardingCubit>(
+    () => OnboardingCubit(getIt.get<OnboardingRepo>()),
+  );
+  getIt.registerLazySingleton<LoginCubit>(
     () => LoginCubit(getIt.get<LoginRepo>()),
   );
   getIt.registerFactory<RegisterCubit>(
@@ -213,34 +216,31 @@ void _setupDIForCubits() {
   getIt.registerFactory<ValidateOtpCubit>(
     () => ValidateOtpCubit(getIt.get<ValidateOtpRepo>()),
   );
-  getIt.registerFactory<ResetPasswordCubit>(
+  getIt.registerLazySingleton<ResetPasswordCubit>(
     () => ResetPasswordCubit(getIt.get<ResetPasswordRepo>()),
   );
-  getIt.registerLazySingleton<HomeCubit>(
+  getIt.registerFactory<HomeCubit>(
     () => HomeCubit(getIt.get<HomeRepo>()),
   );
-  getIt.registerLazySingleton<CategoriesCubit>(
+  getIt.registerFactory<CategoriesCubit>(
     () => CategoriesCubit(getIt.get<CategoriesRepo>()),
   );
-  getIt.registerLazySingleton<SubCategoryCubit>(
+  getIt.registerFactory<SubCategoryCubit>(
     () => SubCategoryCubit(getIt.get<CategoriesRepo>()),
   );
-  getIt.registerLazySingleton<StoresCubit>(
+  getIt.registerFactory<StoresCubit>(
     () => StoresCubit(getIt.get<StoresRepo>()),
   );
-  getIt.registerLazySingleton<StoreDetailsCubit>(
+  getIt.registerFactory<StoreDetailsCubit>(
     () => StoreDetailsCubit(getIt.get<StoresRepo>()),
   );
   getIt.registerLazySingleton<FavoritesCubit>(
     () => FavoritesCubit(getIt.get<FavoritesRepo>()),
   );
-  getIt.registerLazySingleton<FetchFavoritesCubit>(
+  getIt.registerFactory<FetchFavoritesCubit>(
     () => FetchFavoritesCubit(getIt.get<FavoritesRepo>()),
   );
-  getIt.registerLazySingleton<OnboardingCubit>(
-    () => OnboardingCubit(getIt.get<OnboardingRepo>()),
-  );
-  getIt.registerLazySingleton<CartCubit>(
+  getIt.registerFactory<CartCubit>(
     () => CartCubit(getIt.get<CartRepo>()),
   );
   getIt.registerFactory<CheckoutCubit>(

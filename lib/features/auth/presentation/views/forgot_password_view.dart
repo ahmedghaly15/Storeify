@@ -18,7 +18,7 @@ class ForgotPasswordView extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider<ForgotPasswordCubit>(
-      create: (context) => getIt.get<ForgotPasswordCubit>(),
+      create: (_) => getIt.get<ForgotPasswordCubit>(),
       child: this,
     );
   }
