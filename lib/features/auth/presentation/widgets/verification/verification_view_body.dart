@@ -35,11 +35,13 @@ class VerificationViewBody extends StatelessWidget {
                     style: AppTextStyles.textStyle24Medium,
                   ),
                   MySizedBox.height8,
-                  Text(
-                    "${context.tr(LocaleKeys.WeSentCodeTo)} $email",
-                    style: AppTextStyles.textStyle16Regular
-                        .copyWith(color: AppColors.subTitleColor),
-                    textAlign: TextAlign.center,
+                  FittedBox(
+                    child: Text(
+                      "${context.tr(LocaleKeys.WeSentCodeTo)} $email",
+                      style: AppTextStyles.textStyle16Regular
+                          .copyWith(color: AppColors.subTitleColor),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                   MySizedBox.height19,
                   Image.asset(
