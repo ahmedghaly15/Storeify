@@ -2,17 +2,27 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'change_pass_state.freezed.dart';
 
+enum ChangePassStateStatus {
+  initial,
+  changePasswordLoading,
+  changePasswordSuccess,
+  changePasswordError,
+  toggleOldPassVisibility,
+  toggleNewPassVisibility,
+  toggleConfirmNewPassVisibility,
+}
+
 @freezed
-class ChangePassState<T> with _$ChangePassState<T> {
-  const factory ChangePassState.initial() = _Initial;
-  const factory ChangePassState.changePasswordLoading() = ChangePasswordLoading;
-  const factory ChangePassState.changePasswordSuccess() = ChangePasswordSuccess;
-  const factory ChangePassState.changePasswordError(String error) =
-      ChangePasswordError<T>;
-  const factory ChangePassState.toggleOldPassVisibility(
-      bool oldPasswordObscured) = ToggleOldPassVisibility<T>;
-  const factory ChangePassState.toggleNewPassVisibility(
-      bool newPasswordObscured) = ToggleNewPassVisibility<T>;
-  const factory ChangePassState.toggleConfirmNewPassVisibility(
-      bool confirmNewPassObscured) = ToggleConfirmNewPassVisibility<T>;
+class ChangePassState with _$ChangePassState {
+  const factory ChangePassState({
+    required ChangePassStateStatus status,
+    String? error,
+    @Default(true) bool oldPasswordObscured,
+    @Default(true) bool newPasswordObscured,
+    @Default(true) bool confirmNewPassObscured,
+  }) = _ChangePassState;
+
+  factory ChangePassState.initial() => const ChangePassState(
+        status: ChangePassStateStatus.initial,
+      );
 }

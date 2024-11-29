@@ -10,7 +10,7 @@ class ChangePassCubit extends Cubit<ChangePassState> {
 
   ChangePassCubit(
     this._profileRepo,
-  ) : super(const ChangePassState.initial()) {
+  ) : super(ChangePassState.initial()) {
     _initFormAttributes();
   }
 
@@ -23,10 +23,6 @@ class ChangePassCubit extends Cubit<ChangePassState> {
 
   void _initFormAttributes() {
     formKey = GlobalKey<FormState>();
-    _initFormControllers();
-  }
-
-  void _initFormControllers() {
     passController = TextEditingController();
     newPassController = TextEditingController();
     confirmPassController = TextEditingController();
@@ -39,17 +35,23 @@ class ChangePassCubit extends Cubit<ChangePassState> {
   }
 
   void _changePassword() async {
-    emit(const ChangePassState.changePasswordLoading());
-    final params = ChangePasswordParams(
-      currentPassword: passController.text,
-      password: newPassController.text,
-      passwordConfirmation: confirmPassController.text,
+    emit(state.copyWith(status: ChangePassStateStatus.changePasswordLoading));
+    final result = await _profileRepo.changePassword(
+      ChangePasswordParams(
+        currentPassword: passController.text,
+        password: newPassController.text,
+        passwordConfirmation: confirmPassController.text,
+      ),
+      _cancelToken,
     );
-    final result = await _profileRepo.changePassword(params, _cancelToken);
     result.when(
-      success: (_) => emit(const ChangePassState.changePasswordSuccess()),
-      error: (error) =>
-          emit(ChangePassState.changePasswordError(error.error ?? '')),
+      success: (_) => emit(state.copyWith(
+        status: ChangePassStateStatus.changePasswordSuccess,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: ChangePassStateStatus.changePasswordError,
+        error: errorModel.error ?? '',
+      )),
     );
   }
 
@@ -59,23 +61,25 @@ class ChangePassCubit extends Cubit<ChangePassState> {
     }
   }
 
-  bool oldPasswordObscured = true;
   void toggleOldPasswordVisibility() {
-    oldPasswordObscured = !oldPasswordObscured;
-    emit(ChangePassState.toggleOldPassVisibility(oldPasswordObscured));
+    emit(state.copyWith(
+      status: ChangePassStateStatus.toggleOldPassVisibility,
+      oldPasswordObscured: !state.oldPasswordObscured,
+    ));
   }
 
-  bool newPasswordObscured = true;
   void toggleNewPassVisibility() {
-    newPasswordObscured = !newPasswordObscured;
-    emit(ChangePassState.toggleNewPassVisibility(newPasswordObscured));
+    emit(state.copyWith(
+      status: ChangePassStateStatus.toggleNewPassVisibility,
+      newPasswordObscured: !state.newPasswordObscured,
+    ));
   }
 
-  bool confirmNewPassObscured = true;
   void toggleConfirmPassVisibility() {
-    confirmNewPassObscured = !confirmNewPassObscured;
-    emit(
-        ChangePassState.toggleConfirmNewPassVisibility(confirmNewPassObscured));
+    emit(state.copyWith(
+      status: ChangePassStateStatus.toggleConfirmNewPassVisibility,
+      confirmNewPassObscured: !state.confirmNewPassObscured,
+    ));
   }
 
   @override

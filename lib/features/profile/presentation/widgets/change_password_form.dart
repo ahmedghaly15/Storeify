@@ -19,35 +19,34 @@ class ChangePasswordForm extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          BlocBuilder<ChangePassCubit, ChangePassState>(
-            buildWhen: (_, current) => current is ToggleOldPassVisibility,
-            builder: (context, state) => PassTextFormField(
+          BlocSelector<ChangePassCubit, ChangePassState, bool>(
+            selector: (state) => state.oldPasswordObscured,
+            builder: (context, oldPasswordObscured) => PassTextFormField(
               controller: changePassCubit.passController,
               hintTextKey: LocaleKeys.oldPassword,
-              obscureText: changePassCubit.oldPasswordObscured,
+              obscureText: oldPasswordObscured,
               suffixOnPressed: () =>
                   changePassCubit.toggleOldPasswordVisibility(),
             ),
           ),
           MySizedBox.height10,
-          BlocBuilder<ChangePassCubit, ChangePassState>(
-            buildWhen: (_, current) => current is ToggleNewPassVisibility,
-            builder: (context, state) => PassTextFormField(
+          BlocSelector<ChangePassCubit, ChangePassState, bool>(
+            selector: (state) => state.newPasswordObscured,
+            builder: (context, newPasswordObscured) => PassTextFormField(
               controller: changePassCubit.newPassController,
               hintTextKey: LocaleKeys.newPassword,
-              obscureText: changePassCubit.newPasswordObscured,
+              obscureText: newPasswordObscured,
               suffixOnPressed: () => changePassCubit.toggleNewPassVisibility(),
               autofillHints: const [AutofillHints.newPassword],
             ),
           ),
           MySizedBox.height10,
-          BlocBuilder<ChangePassCubit, ChangePassState>(
-            buildWhen: (_, current) =>
-                current is ToggleConfirmNewPassVisibility,
-            builder: (context, state) => PassTextFormField(
+          BlocSelector<ChangePassCubit, ChangePassState, bool>(
+            selector: (state) => state.confirmNewPassObscured,
+            builder: (context, confirmNewPassObscured) => PassTextFormField(
               controller: changePassCubit.confirmPassController,
               hintTextKey: LocaleKeys.confirmNewPassword,
-              obscureText: changePassCubit.confirmNewPassObscured,
+              obscureText: confirmNewPassObscured,
               suffixOnPressed: () =>
                   changePassCubit.toggleConfirmPassVisibility(),
               autofillHints: const [AutofillHints.newPassword],
