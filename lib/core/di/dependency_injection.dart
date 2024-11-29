@@ -182,7 +182,7 @@ void _setupDIForRepos() {
     ),
   );
   getIt.registerLazySingleton<CheckoutRepo>(
-    () => CheckoutRepoImpl(getIt.get<CheckoutApiService>()),
+    () => CheckoutRepo(getIt.get<CheckoutApiService>()),
   );
   getIt.registerLazySingleton<PaymentRepo>(
     () => PaymentRepoImpl(getIt.get<PaymentApiService>()),
