@@ -20,22 +20,21 @@ class SubCategoryItemBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SubCategoryCubit, SubCategoryState>(
-      buildWhen: (_, current) => current is UpdateCurrentSubCategoryIndex,
-      builder: (context, state) {
-        int currentSubCategory =
-            context.read<SubCategoryCubit>().currentSubCategoryIndex;
-
+    return BlocSelector<SubCategoryCubit, SubCategoryState, int>(
+      selector: (state) => state.selectedSubCategory,
+      builder: (context, selectedSubCategory) {
+        final isSelected =
+            selectedSubCategory == category.subCategories![index].id;
         return MainButton(
           isOutlined: true,
-          borderColor: _activeColor(currentSubCategory),
+          borderColor: _activeColor(isSelected),
           onPressed: () {
             _updateCurrentSubCategoryAndFetchIt(context);
           },
           child: Text(
             category.subCategories![index].name,
             style: AppTextStyles.textStyle10Medium.copyWith(
-              color: _activeColor(currentSubCategory),
+              color: _activeColor(isSelected),
             ),
           ),
         );
@@ -43,14 +42,9 @@ class SubCategoryItemBlocBuilder extends StatelessWidget {
     );
   }
 
-  Color _activeColor(int currentSubCategory) {
-    return _isActive(currentSubCategory)
-        ? AppColors.primaryColor
-        : AppColors.blueColor;
+  Color _activeColor(bool isSelected) {
+    return isSelected ? AppColors.primaryColor : AppColors.blueColor;
   }
-
-  bool _isActive(int currentSubCategory) =>
-      currentSubCategory == category.subCategories![index].id;
 
   void _updateCurrentSubCategoryAndFetchIt(BuildContext context) {
     context

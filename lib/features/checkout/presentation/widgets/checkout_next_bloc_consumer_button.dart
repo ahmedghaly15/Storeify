@@ -17,40 +17,53 @@ class CheckoutNextBlocConsumerButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<CheckoutCubit, CheckoutState>(
-      listenWhen: (_, current) =>
-          current is CheckoutSuccess || current is CheckoutError,
-      listener: (context, state) {
-        state.whenOrNull(
-          checkoutSuccess: (_) => context.pushRoute(const PaymentMethodRoute()),
-          checkoutError: (errorKey) => CustomToast.showToast(
-            context: context,
-            messageKey: errorKey,
-            state: CustomToastState.error,
-          ),
-        );
-      },
-      buildWhen: (_, current) =>
-          current is CheckoutSuccess ||
-          current is CheckoutError ||
-          current is CheckoutLoading,
-      builder: (context, state) {
-        return MainButton(
-          margin: EdgeInsets.symmetric(
-            horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
-            vertical: 40.h,
-          ),
-          width: double.infinity,
-          onPressed: () {
-            // context.read<CheckoutCubit>().checkoutAndValidateForm();
-            context.pushRoute(const PaymentMethodRoute());
-          },
-          child: circularIndicatorOrTextWidget(
-            isLoading: state is CheckoutLoading,
-            context: context,
-            textKey: LocaleKeys.next,
-          ),
-        );
-      },
+      listenWhen: (_, current) => _listenWhen(current.status),
+      listener: (context, state) => _listener(state, context),
+      buildWhen: (_, current) => _buildWhen(current.status),
+      builder: (context, state) => MainButton(
+        margin: EdgeInsets.symmetric(
+          horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
+          vertical: 40.h,
+        ),
+        width: double.infinity,
+        onPressed: () {
+          // context.read<CheckoutCubit>().checkoutAndValidateForm();
+          context.pushRoute(const PaymentMethodRoute());
+        },
+        child: circularIndicatorOrTextWidget(
+          isLoading: state.status == CheckoutStateStatus.checkoutLoading,
+          context: context,
+          textKey: LocaleKeys.next,
+        ),
+      ),
     );
+  }
+
+  void _listener(CheckoutState state, BuildContext context) {
+    switch (state.status) {
+      case CheckoutStateStatus.checkoutSuccess:
+        context.pushRoute(const PaymentMethodRoute());
+        break;
+      case CheckoutStateStatus.checkoutError:
+        CustomToast.showToast(
+          context: context,
+          messageKey: state.error!,
+          state: CustomToastState.error,
+        );
+        break;
+      default:
+        break;
+    }
+  }
+
+  bool _listenWhen(CheckoutStateStatus status) {
+    return status == CheckoutStateStatus.checkoutSuccess ||
+        status == CheckoutStateStatus.checkoutError;
+  }
+
+  bool _buildWhen(CheckoutStateStatus status) {
+    return status == CheckoutStateStatus.checkoutSuccess ||
+        status == CheckoutStateStatus.checkoutError ||
+        status == CheckoutStateStatus.checkoutLoading;
   }
 }

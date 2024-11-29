@@ -82,10 +82,9 @@ class CheckoutForm extends StatelessWidget {
             MySizedBox.height10,
             const TextFieldLabel(labelKey: LocaleKeys.date),
             InkWell(
-              onTap: () => context.read<CheckoutCubit>().pickDate(context),
+              onTap: () => _pickDate(context),
               child: CustomTextField(
                 enabled: false,
-                controller: context.read<CheckoutCubit>().dateController,
                 keyboardType: TextInputType.datetime,
                 textCapitalization: TextCapitalization.none,
                 hintTextKey: LocaleKeys.dateHint,
@@ -106,5 +105,17 @@ class CheckoutForm extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _pickDate(BuildContext context) async {
+    final pickedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime.now(),
+      lastDate: DateTime(2050),
+    );
+    if (pickedDate != null) {
+      context.read<CheckoutCubit>().onDatePicked(pickedDate);
+    }
   }
 }

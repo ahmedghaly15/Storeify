@@ -15,75 +15,34 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$CategoriesState<T> {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() fetchCategoriesLoading,
-    required TResult Function(FetchCategoriesResponse fetchCategoriesResponse)
-        fetchCategoriesSuccess,
-    required TResult Function(dynamic error) fetchCategoriesError,
-  }) =>
+mixin _$CategoriesState {
+  CategoriesStateStatus get status => throw _privateConstructorUsedError;
+  FetchCategoriesResponse? get categoriesResponse =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? fetchCategoriesLoading,
-    TResult? Function(FetchCategoriesResponse fetchCategoriesResponse)?
-        fetchCategoriesSuccess,
-    TResult? Function(dynamic error)? fetchCategoriesError,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? fetchCategoriesLoading,
-    TResult Function(FetchCategoriesResponse fetchCategoriesResponse)?
-        fetchCategoriesSuccess,
-    TResult Function(dynamic error)? fetchCategoriesError,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(FetchCategoriesLoading<T> value)
-        fetchCategoriesLoading,
-    required TResult Function(FetchCategoriesSuccess<T> value)
-        fetchCategoriesSuccess,
-    required TResult Function(FetchCategoriesError<T> value)
-        fetchCategoriesError,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(FetchCategoriesLoading<T> value)? fetchCategoriesLoading,
-    TResult? Function(FetchCategoriesSuccess<T> value)? fetchCategoriesSuccess,
-    TResult? Function(FetchCategoriesError<T> value)? fetchCategoriesError,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(FetchCategoriesLoading<T> value)? fetchCategoriesLoading,
-    TResult Function(FetchCategoriesSuccess<T> value)? fetchCategoriesSuccess,
-    TResult Function(FetchCategoriesError<T> value)? fetchCategoriesError,
-    required TResult orElse(),
-  }) =>
+  String? get error => throw _privateConstructorUsedError;
+
+  /// Create a copy of CategoriesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $CategoriesStateCopyWith<CategoriesState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CategoriesStateCopyWith<T, $Res> {
+abstract class $CategoriesStateCopyWith<$Res> {
   factory $CategoriesStateCopyWith(
-          CategoriesState<T> value, $Res Function(CategoriesState<T>) then) =
-      _$CategoriesStateCopyWithImpl<T, $Res, CategoriesState<T>>;
+          CategoriesState value, $Res Function(CategoriesState) then) =
+      _$CategoriesStateCopyWithImpl<$Res, CategoriesState>;
+  @useResult
+  $Res call(
+      {CategoriesStateStatus status,
+      FetchCategoriesResponse? categoriesResponse,
+      String? error});
 }
 
 /// @nodoc
-class _$CategoriesStateCopyWithImpl<T, $Res, $Val extends CategoriesState<T>>
-    implements $CategoriesStateCopyWith<T, $Res> {
+class _$CategoriesStateCopyWithImpl<$Res, $Val extends CategoriesState>
+    implements $CategoriesStateCopyWith<$Res> {
   _$CategoriesStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -93,580 +52,138 @@ class _$CategoriesStateCopyWithImpl<T, $Res, $Val extends CategoriesState<T>>
 
   /// Create a copy of CategoriesState
   /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$InitialImplCopyWith<T, $Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl<T> value, $Res Function(_$InitialImpl<T>) then) =
-      __$$InitialImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$CategoriesStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
-    implements _$$InitialImplCopyWith<T, $Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of CategoriesState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$InitialImpl<T> implements _Initial<T> {
-  const _$InitialImpl();
-
-  @override
-  String toString() {
-    return 'CategoriesState<$T>.initial()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() fetchCategoriesLoading,
-    required TResult Function(FetchCategoriesResponse fetchCategoriesResponse)
-        fetchCategoriesSuccess,
-    required TResult Function(dynamic error) fetchCategoriesError,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? fetchCategoriesLoading,
-    TResult? Function(FetchCategoriesResponse fetchCategoriesResponse)?
-        fetchCategoriesSuccess,
-    TResult? Function(dynamic error)? fetchCategoriesError,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? fetchCategoriesLoading,
-    TResult Function(FetchCategoriesResponse fetchCategoriesResponse)?
-        fetchCategoriesSuccess,
-    TResult Function(dynamic error)? fetchCategoriesError,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(FetchCategoriesLoading<T> value)
-        fetchCategoriesLoading,
-    required TResult Function(FetchCategoriesSuccess<T> value)
-        fetchCategoriesSuccess,
-    required TResult Function(FetchCategoriesError<T> value)
-        fetchCategoriesError,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(FetchCategoriesLoading<T> value)? fetchCategoriesLoading,
-    TResult? Function(FetchCategoriesSuccess<T> value)? fetchCategoriesSuccess,
-    TResult? Function(FetchCategoriesError<T> value)? fetchCategoriesError,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(FetchCategoriesLoading<T> value)? fetchCategoriesLoading,
-    TResult Function(FetchCategoriesSuccess<T> value)? fetchCategoriesSuccess,
-    TResult Function(FetchCategoriesError<T> value)? fetchCategoriesError,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial<T> implements CategoriesState<T> {
-  const factory _Initial() = _$InitialImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$FetchCategoriesLoadingImplCopyWith<T, $Res> {
-  factory _$$FetchCategoriesLoadingImplCopyWith(
-          _$FetchCategoriesLoadingImpl<T> value,
-          $Res Function(_$FetchCategoriesLoadingImpl<T>) then) =
-      __$$FetchCategoriesLoadingImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$FetchCategoriesLoadingImplCopyWithImpl<T, $Res>
-    extends _$CategoriesStateCopyWithImpl<T, $Res,
-        _$FetchCategoriesLoadingImpl<T>>
-    implements _$$FetchCategoriesLoadingImplCopyWith<T, $Res> {
-  __$$FetchCategoriesLoadingImplCopyWithImpl(
-      _$FetchCategoriesLoadingImpl<T> _value,
-      $Res Function(_$FetchCategoriesLoadingImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of CategoriesState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$FetchCategoriesLoadingImpl<T> implements FetchCategoriesLoading<T> {
-  const _$FetchCategoriesLoadingImpl();
-
-  @override
-  String toString() {
-    return 'CategoriesState<$T>.fetchCategoriesLoading()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchCategoriesLoadingImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() fetchCategoriesLoading,
-    required TResult Function(FetchCategoriesResponse fetchCategoriesResponse)
-        fetchCategoriesSuccess,
-    required TResult Function(dynamic error) fetchCategoriesError,
-  }) {
-    return fetchCategoriesLoading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? fetchCategoriesLoading,
-    TResult? Function(FetchCategoriesResponse fetchCategoriesResponse)?
-        fetchCategoriesSuccess,
-    TResult? Function(dynamic error)? fetchCategoriesError,
-  }) {
-    return fetchCategoriesLoading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? fetchCategoriesLoading,
-    TResult Function(FetchCategoriesResponse fetchCategoriesResponse)?
-        fetchCategoriesSuccess,
-    TResult Function(dynamic error)? fetchCategoriesError,
-    required TResult orElse(),
-  }) {
-    if (fetchCategoriesLoading != null) {
-      return fetchCategoriesLoading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(FetchCategoriesLoading<T> value)
-        fetchCategoriesLoading,
-    required TResult Function(FetchCategoriesSuccess<T> value)
-        fetchCategoriesSuccess,
-    required TResult Function(FetchCategoriesError<T> value)
-        fetchCategoriesError,
-  }) {
-    return fetchCategoriesLoading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(FetchCategoriesLoading<T> value)? fetchCategoriesLoading,
-    TResult? Function(FetchCategoriesSuccess<T> value)? fetchCategoriesSuccess,
-    TResult? Function(FetchCategoriesError<T> value)? fetchCategoriesError,
-  }) {
-    return fetchCategoriesLoading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(FetchCategoriesLoading<T> value)? fetchCategoriesLoading,
-    TResult Function(FetchCategoriesSuccess<T> value)? fetchCategoriesSuccess,
-    TResult Function(FetchCategoriesError<T> value)? fetchCategoriesError,
-    required TResult orElse(),
-  }) {
-    if (fetchCategoriesLoading != null) {
-      return fetchCategoriesLoading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchCategoriesLoading<T> implements CategoriesState<T> {
-  const factory FetchCategoriesLoading() = _$FetchCategoriesLoadingImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$FetchCategoriesSuccessImplCopyWith<T, $Res> {
-  factory _$$FetchCategoriesSuccessImplCopyWith(
-          _$FetchCategoriesSuccessImpl<T> value,
-          $Res Function(_$FetchCategoriesSuccessImpl<T>) then) =
-      __$$FetchCategoriesSuccessImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({FetchCategoriesResponse fetchCategoriesResponse});
-}
-
-/// @nodoc
-class __$$FetchCategoriesSuccessImplCopyWithImpl<T, $Res>
-    extends _$CategoriesStateCopyWithImpl<T, $Res,
-        _$FetchCategoriesSuccessImpl<T>>
-    implements _$$FetchCategoriesSuccessImplCopyWith<T, $Res> {
-  __$$FetchCategoriesSuccessImplCopyWithImpl(
-      _$FetchCategoriesSuccessImpl<T> _value,
-      $Res Function(_$FetchCategoriesSuccessImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of CategoriesState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fetchCategoriesResponse = null,
-  }) {
-    return _then(_$FetchCategoriesSuccessImpl<T>(
-      null == fetchCategoriesResponse
-          ? _value.fetchCategoriesResponse
-          : fetchCategoriesResponse // ignore: cast_nullable_to_non_nullable
-              as FetchCategoriesResponse,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$FetchCategoriesSuccessImpl<T> implements FetchCategoriesSuccess<T> {
-  const _$FetchCategoriesSuccessImpl(this.fetchCategoriesResponse);
-
-  @override
-  final FetchCategoriesResponse fetchCategoriesResponse;
-
-  @override
-  String toString() {
-    return 'CategoriesState<$T>.fetchCategoriesSuccess(fetchCategoriesResponse: $fetchCategoriesResponse)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchCategoriesSuccessImpl<T> &&
-            (identical(
-                    other.fetchCategoriesResponse, fetchCategoriesResponse) ||
-                other.fetchCategoriesResponse == fetchCategoriesResponse));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, fetchCategoriesResponse);
-
-  /// Create a copy of CategoriesState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchCategoriesSuccessImplCopyWith<T, _$FetchCategoriesSuccessImpl<T>>
-      get copyWith => __$$FetchCategoriesSuccessImplCopyWithImpl<T,
-          _$FetchCategoriesSuccessImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() fetchCategoriesLoading,
-    required TResult Function(FetchCategoriesResponse fetchCategoriesResponse)
-        fetchCategoriesSuccess,
-    required TResult Function(dynamic error) fetchCategoriesError,
-  }) {
-    return fetchCategoriesSuccess(fetchCategoriesResponse);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? fetchCategoriesLoading,
-    TResult? Function(FetchCategoriesResponse fetchCategoriesResponse)?
-        fetchCategoriesSuccess,
-    TResult? Function(dynamic error)? fetchCategoriesError,
-  }) {
-    return fetchCategoriesSuccess?.call(fetchCategoriesResponse);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? fetchCategoriesLoading,
-    TResult Function(FetchCategoriesResponse fetchCategoriesResponse)?
-        fetchCategoriesSuccess,
-    TResult Function(dynamic error)? fetchCategoriesError,
-    required TResult orElse(),
-  }) {
-    if (fetchCategoriesSuccess != null) {
-      return fetchCategoriesSuccess(fetchCategoriesResponse);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(FetchCategoriesLoading<T> value)
-        fetchCategoriesLoading,
-    required TResult Function(FetchCategoriesSuccess<T> value)
-        fetchCategoriesSuccess,
-    required TResult Function(FetchCategoriesError<T> value)
-        fetchCategoriesError,
-  }) {
-    return fetchCategoriesSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(FetchCategoriesLoading<T> value)? fetchCategoriesLoading,
-    TResult? Function(FetchCategoriesSuccess<T> value)? fetchCategoriesSuccess,
-    TResult? Function(FetchCategoriesError<T> value)? fetchCategoriesError,
-  }) {
-    return fetchCategoriesSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(FetchCategoriesLoading<T> value)? fetchCategoriesLoading,
-    TResult Function(FetchCategoriesSuccess<T> value)? fetchCategoriesSuccess,
-    TResult Function(FetchCategoriesError<T> value)? fetchCategoriesError,
-    required TResult orElse(),
-  }) {
-    if (fetchCategoriesSuccess != null) {
-      return fetchCategoriesSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchCategoriesSuccess<T> implements CategoriesState<T> {
-  const factory FetchCategoriesSuccess(
-          final FetchCategoriesResponse fetchCategoriesResponse) =
-      _$FetchCategoriesSuccessImpl<T>;
-
-  FetchCategoriesResponse get fetchCategoriesResponse;
-
-  /// Create a copy of CategoriesState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FetchCategoriesSuccessImplCopyWith<T, _$FetchCategoriesSuccessImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$FetchCategoriesErrorImplCopyWith<T, $Res> {
-  factory _$$FetchCategoriesErrorImplCopyWith(
-          _$FetchCategoriesErrorImpl<T> value,
-          $Res Function(_$FetchCategoriesErrorImpl<T>) then) =
-      __$$FetchCategoriesErrorImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({dynamic error});
-}
-
-/// @nodoc
-class __$$FetchCategoriesErrorImplCopyWithImpl<T, $Res>
-    extends _$CategoriesStateCopyWithImpl<T, $Res,
-        _$FetchCategoriesErrorImpl<T>>
-    implements _$$FetchCategoriesErrorImplCopyWith<T, $Res> {
-  __$$FetchCategoriesErrorImplCopyWithImpl(_$FetchCategoriesErrorImpl<T> _value,
-      $Res Function(_$FetchCategoriesErrorImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of CategoriesState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
+    Object? status = null,
+    Object? categoriesResponse = freezed,
     Object? error = freezed,
   }) {
-    return _then(_$FetchCategoriesErrorImpl<T>(
-      freezed == error ? _value.error! : error,
+    return _then(_value.copyWith(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as CategoriesStateStatus,
+      categoriesResponse: freezed == categoriesResponse
+          ? _value.categoriesResponse
+          : categoriesResponse // ignore: cast_nullable_to_non_nullable
+              as FetchCategoriesResponse?,
+      error: freezed == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$CategoriesStateImplCopyWith<$Res>
+    implements $CategoriesStateCopyWith<$Res> {
+  factory _$$CategoriesStateImplCopyWith(_$CategoriesStateImpl value,
+          $Res Function(_$CategoriesStateImpl) then) =
+      __$$CategoriesStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {CategoriesStateStatus status,
+      FetchCategoriesResponse? categoriesResponse,
+      String? error});
+}
+
+/// @nodoc
+class __$$CategoriesStateImplCopyWithImpl<$Res>
+    extends _$CategoriesStateCopyWithImpl<$Res, _$CategoriesStateImpl>
+    implements _$$CategoriesStateImplCopyWith<$Res> {
+  __$$CategoriesStateImplCopyWithImpl(
+      _$CategoriesStateImpl _value, $Res Function(_$CategoriesStateImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CategoriesState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? status = null,
+    Object? categoriesResponse = freezed,
+    Object? error = freezed,
+  }) {
+    return _then(_$CategoriesStateImpl(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as CategoriesStateStatus,
+      categoriesResponse: freezed == categoriesResponse
+          ? _value.categoriesResponse
+          : categoriesResponse // ignore: cast_nullable_to_non_nullable
+              as FetchCategoriesResponse?,
+      error: freezed == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$FetchCategoriesErrorImpl<T> implements FetchCategoriesError<T> {
-  const _$FetchCategoriesErrorImpl(this.error);
+class _$CategoriesStateImpl implements _CategoriesState {
+  const _$CategoriesStateImpl(
+      {required this.status, this.categoriesResponse, this.error});
 
   @override
-  final dynamic error;
+  final CategoriesStateStatus status;
+  @override
+  final FetchCategoriesResponse? categoriesResponse;
+  @override
+  final String? error;
 
   @override
   String toString() {
-    return 'CategoriesState<$T>.fetchCategoriesError(error: $error)';
+    return 'CategoriesState(status: $status, categoriesResponse: $categoriesResponse, error: $error)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchCategoriesErrorImpl<T> &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$CategoriesStateImpl &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.categoriesResponse, categoriesResponse) ||
+                other.categoriesResponse == categoriesResponse) &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+      Object.hash(runtimeType, status, categoriesResponse, error);
 
   /// Create a copy of CategoriesState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchCategoriesErrorImplCopyWith<T, _$FetchCategoriesErrorImpl<T>>
-      get copyWith => __$$FetchCategoriesErrorImplCopyWithImpl<T,
-          _$FetchCategoriesErrorImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() fetchCategoriesLoading,
-    required TResult Function(FetchCategoriesResponse fetchCategoriesResponse)
-        fetchCategoriesSuccess,
-    required TResult Function(dynamic error) fetchCategoriesError,
-  }) {
-    return fetchCategoriesError(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? fetchCategoriesLoading,
-    TResult? Function(FetchCategoriesResponse fetchCategoriesResponse)?
-        fetchCategoriesSuccess,
-    TResult? Function(dynamic error)? fetchCategoriesError,
-  }) {
-    return fetchCategoriesError?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? fetchCategoriesLoading,
-    TResult Function(FetchCategoriesResponse fetchCategoriesResponse)?
-        fetchCategoriesSuccess,
-    TResult Function(dynamic error)? fetchCategoriesError,
-    required TResult orElse(),
-  }) {
-    if (fetchCategoriesError != null) {
-      return fetchCategoriesError(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(FetchCategoriesLoading<T> value)
-        fetchCategoriesLoading,
-    required TResult Function(FetchCategoriesSuccess<T> value)
-        fetchCategoriesSuccess,
-    required TResult Function(FetchCategoriesError<T> value)
-        fetchCategoriesError,
-  }) {
-    return fetchCategoriesError(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(FetchCategoriesLoading<T> value)? fetchCategoriesLoading,
-    TResult? Function(FetchCategoriesSuccess<T> value)? fetchCategoriesSuccess,
-    TResult? Function(FetchCategoriesError<T> value)? fetchCategoriesError,
-  }) {
-    return fetchCategoriesError?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(FetchCategoriesLoading<T> value)? fetchCategoriesLoading,
-    TResult Function(FetchCategoriesSuccess<T> value)? fetchCategoriesSuccess,
-    TResult Function(FetchCategoriesError<T> value)? fetchCategoriesError,
-    required TResult orElse(),
-  }) {
-    if (fetchCategoriesError != null) {
-      return fetchCategoriesError(this);
-    }
-    return orElse();
-  }
+  _$$CategoriesStateImplCopyWith<_$CategoriesStateImpl> get copyWith =>
+      __$$CategoriesStateImplCopyWithImpl<_$CategoriesStateImpl>(
+          this, _$identity);
 }
 
-abstract class FetchCategoriesError<T> implements CategoriesState<T> {
-  const factory FetchCategoriesError(final dynamic error) =
-      _$FetchCategoriesErrorImpl<T>;
+abstract class _CategoriesState implements CategoriesState {
+  const factory _CategoriesState(
+      {required final CategoriesStateStatus status,
+      final FetchCategoriesResponse? categoriesResponse,
+      final String? error}) = _$CategoriesStateImpl;
 
-  dynamic get error;
+  @override
+  CategoriesStateStatus get status;
+  @override
+  FetchCategoriesResponse? get categoriesResponse;
+  @override
+  String? get error;
 
   /// Create a copy of CategoriesState
   /// with the given fields replaced by the non-null parameter values.
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FetchCategoriesErrorImplCopyWith<T, _$FetchCategoriesErrorImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$CategoriesStateImplCopyWith<_$CategoriesStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

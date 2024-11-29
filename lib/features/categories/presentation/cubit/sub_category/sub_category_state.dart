@@ -3,15 +3,24 @@ import 'package:store_ify/features/categories/data/models/fetch_sub_category_res
 
 part 'sub_category_state.freezed.dart';
 
+enum SubCategoryStateStatus {
+  initial,
+  fetchSubCategoryLoading,
+  fetchSubCategorySuccess,
+  fetchSubCategoryError,
+  updateSelectedSubCategory,
+}
+
 @freezed
-class SubCategoryState<T> with _$SubCategoryState<T> {
-  const factory SubCategoryState.initial() = _Initial;
-  const factory SubCategoryState.fetchSubCategoryLoading() =
-      FetchSubCategoryLoading;
-  const factory SubCategoryState.fetchSubCategorySuccess(
-      FetchSubCategoryResponse subCategory) = FetchSubCategorySuccess<T>;
-  const factory SubCategoryState.fetchSubCategoryError(error) =
-      FetchSubCategoryError<T>;
-  const factory SubCategoryState.updateCurrentSubCategoryIndex(
-      int currentIndex) = UpdateCurrentSubCategoryIndex<T>;
+class SubCategoryState with _$SubCategoryState {
+  const factory SubCategoryState({
+    required SubCategoryStateStatus status,
+    FetchSubCategoryResponse? subCategory,
+    String? error,
+    @Default(0) int selectedSubCategory,
+  }) = _SubCategoryState;
+
+  factory SubCategoryState.initial() => const SubCategoryState(
+        status: SubCategoryStateStatus.initial,
+      );
 }

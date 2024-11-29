@@ -24,7 +24,7 @@ class CartView extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: RefreshIndicator(
+      child: RefreshIndicator.adaptive(
         onRefresh: () async => await context.read<CartCubit>().fetchCart(),
         child: BlocBuilder<CartCubit, CartState>(
           buildWhen: (_, current) => _buildWhen(current.status),

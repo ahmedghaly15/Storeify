@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
-import 'package:store_ify/features/categories/data/models/fetch_categories_response.dart';
 import 'package:store_ify/features/categories/presentation/cubit/categories/categories_cubit.dart';
 import 'package:store_ify/features/categories/presentation/cubit/categories/categories_state.dart';
+import 'package:store_ify/features/categories/presentation/widgets/categories_sliver_grid.dart';
 import 'package:store_ify/features/categories/presentation/widgets/categories_sliver_shimmer_loading.dart';
-import 'package:store_ify/features/categories/presentation/widgets/category_item.dart';
 
 class CategoriesBlocBuilder extends StatelessWidget {
   const CategoriesBlocBuilder({super.key});
@@ -16,56 +13,43 @@ class CategoriesBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CategoriesCubit, CategoriesState>(
-      buildWhen: (_, current) =>
-          current is FetchCategoriesLoading ||
-          current is FetchCategoriesSuccess ||
-          current is FetchCategoriesError,
-      builder: (_, state) => state.maybeWhen(
-        fetchCategoriesLoading: () => const CategoriesSliverShimmerLoading(),
-        fetchCategoriesError: (errorKey) => SliverFillRemaining(
-          child: CustomErrorWidget(
-            tryAgainOnPressed: () =>
-                context.read<CategoriesCubit>().fetchCategories(),
-            errorKey: errorKey,
-          ),
-        ),
-        fetchCategoriesSuccess: (fetchCategoriesResponse) =>
-            _categoriesSliverGrid(fetchCategoriesResponse),
-        orElse: () => SliverFillRemaining(
-          child: CustomErrorWidget(
-            tryAgainOnPressed: () =>
-                context.read<CategoriesCubit>().fetchCategories(),
-            errorKey: LocaleKeys.defaultError,
-          ),
-        ),
-      ),
+      buildWhen: (_, current) => _buildWhen(current.status),
+      builder: (_, state) {
+        switch (state.status) {
+          case CategoriesStateStatus.fetchCategoriesLoading:
+            return const CategoriesSliverShimmerLoading();
+          case CategoriesStateStatus.fetchCategoriesError:
+            return state.categoriesResponse != null
+                ? SliverPadding(
+                    padding: AppConstants.categoriesGridPadding,
+                    sliver: CategoriesSliverGrid(
+                      fetchCategoriesResponse: state.categoriesResponse!,
+                    ),
+                  )
+                : SliverFillRemaining(
+                    child: CustomErrorWidget(
+                      tryAgainOnPressed: () =>
+                          context.read<CategoriesCubit>().fetchCategories(),
+                      errorKey: state.error!,
+                    ),
+                  );
+          case CategoriesStateStatus.fetchCategoriesSuccess:
+            return SliverPadding(
+              padding: AppConstants.categoriesGridPadding,
+              sliver: CategoriesSliverGrid(
+                fetchCategoriesResponse: state.categoriesResponse!,
+              ),
+            );
+          default:
+            return const CategoriesSliverShimmerLoading();
+        }
+      },
     );
   }
 
-  SliverPadding _categoriesSliverGrid(
-    FetchCategoriesResponse fetchCategoriesResponse,
-  ) =>
-      SliverPadding(
-        padding: AppConstants.categoriesGridPadding,
-        sliver: SliverGrid.builder(
-          itemBuilder: (_, index) => AnimationConfiguration.staggeredGrid(
-            position: index,
-            columnCount: fetchCategoriesResponse.categories.length,
-            duration: AppConstants.gridDuration,
-            child: ScaleAnimation(
-              child: FadeInAnimation(
-                child: CategoryItem(
-                  category: fetchCategoriesResponse.categories[index],
-                ),
-              ),
-            ),
-          ),
-          itemCount: fetchCategoriesResponse.categories.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: AppConstants.gridCrossAxisCount,
-            crossAxisSpacing: AppConstants.gridCrossAxisSpacing,
-            mainAxisSpacing: AppConstants.gridMainAxisSpacing,
-          ),
-        ),
-      );
+  bool _buildWhen(CategoriesStateStatus status) {
+    return status == CategoriesStateStatus.fetchCategoriesLoading ||
+        status == CategoriesStateStatus.fetchCategoriesSuccess ||
+        status == CategoriesStateStatus.fetchCategoriesError;
+  }
 }

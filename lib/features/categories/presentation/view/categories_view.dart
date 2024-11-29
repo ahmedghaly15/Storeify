@@ -22,14 +22,18 @@ class CategoriesView extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
-        child: CustomScrollView(
-          physics: AppConstants.physics,
-          slivers: [
-            CustomSliverAppBar(titleKey: LocaleKeys.categories),
-            CategoriesBlocBuilder()
-          ],
+    return Scaffold(
+      body: RefreshIndicator.adaptive(
+        onRefresh: () async =>
+            await context.read<CategoriesCubit>().fetchCategories(),
+        child: const SafeArea(
+          child: CustomScrollView(
+            physics: AppConstants.physics,
+            slivers: [
+              CustomSliverAppBar(titleKey: LocaleKeys.categories),
+              CategoriesBlocBuilder(),
+            ],
+          ),
         ),
       ),
     );

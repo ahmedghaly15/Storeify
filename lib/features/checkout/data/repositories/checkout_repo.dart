@@ -6,24 +6,11 @@ import 'package:store_ify/features/checkout/data/models/checkout_params.dart';
 import 'package:store_ify/features/checkout/data/models/checkout_response.dart';
 import 'package:store_ify/features/checkout/data/models/choose_payment_method_params.dart';
 
-abstract class CheckoutRepo {
-  Future<ApiResult<CheckoutResponse>> checkout(
-    CheckoutParams params, [
-    CancelToken? cancelToken,
-  ]);
-
-  Future<ApiResult<void>> choosePaymentMethod(
-    ChoosePaymentMethodParams params, [
-    CancelToken? cancelToken,
-  ]);
-}
-
-class CheckoutRepoImpl implements CheckoutRepo {
+class CheckoutRepo {
   final CheckoutApiService _checkoutApiService;
 
-  CheckoutRepoImpl(this._checkoutApiService);
+  CheckoutRepo(this._checkoutApiService);
 
-  @override
   Future<ApiResult<CheckoutResponse>> checkout(
     CheckoutParams params, [
     CancelToken? cancelToken,
@@ -36,7 +23,6 @@ class CheckoutRepoImpl implements CheckoutRepo {
     );
   }
 
-  @override
   Future<ApiResult<void>> choosePaymentMethod(
     ChoosePaymentMethodParams params, [
     CancelToken? cancelToken,

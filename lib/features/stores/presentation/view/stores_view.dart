@@ -23,7 +23,7 @@ class StoresView extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: RefreshIndicator(
+      child: RefreshIndicator.adaptive(
         onRefresh: () async => await context.read<StoresCubit>().fetchStores(),
         child: const CustomScrollView(
           slivers: [

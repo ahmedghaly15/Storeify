@@ -12,14 +12,12 @@ class CheckoutCubit extends Cubit<CheckoutState> {
 
   CheckoutCubit(
     this._checkoutRepo,
-  ) : super(const CheckoutState.initial()) {
+  ) : super(CheckoutState.initial()) {
     _initFormAttributes();
   }
 
   late final TextEditingController usernameController;
   late final TextEditingController addressController;
-  late final TextEditingController dateController;
-  String phoneNumber = '';
   late final GlobalKey<FormState> formKey;
   final CancelToken _cancelToken = CancelToken();
 
@@ -27,60 +25,60 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     formKey = GlobalKey<FormState>();
     usernameController = TextEditingController();
     addressController = TextEditingController();
-    dateController = TextEditingController();
     usernameController.text = currentUser?.user.username ?? '';
   }
 
-  int hours = 4;
-  int minutes = 0;
-
   void changeHours(int value) {
-    hours = value;
-    emit(CheckoutState.changeCheckoutHour(hours));
+    emit(state.copyWith(
+      status: CheckoutStateStatus.changingCheckoutHour,
+      checkoutHour: value,
+    ));
   }
 
   void changeMinutes(int value) {
-    minutes = value;
-    emit(CheckoutState.changeCheckoutMinutes(minutes));
+    emit(state.copyWith(
+      status: CheckoutStateStatus.changingCheckoutMinutes,
+      checkoutMinutes: value,
+    ));
   }
 
   void onCountryChanged(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
-    emit(CheckoutState.onCountryChanged(phoneNumber));
+    emit(state.copyWith(
+      status: CheckoutStateStatus.onCountryChanged,
+      phoneNumber: phoneNumber,
+    ));
   }
 
-  void _onDatePicked(DateTime date) {
-    dateController.text = DateFormat('yyyy-MM-dd').format(date);
-    emit(CheckoutState.onDatePicked(dateController.text));
-  }
-
-  Future<void> pickDate(BuildContext context) async {
-    final pickedDate = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime.now(),
-      lastDate: DateTime(2050),
-    );
-    if (pickedDate != null) {
-      _onDatePicked(pickedDate);
-    }
+  void onDatePicked(DateTime date) {
+    emit(state.copyWith(
+      status: CheckoutStateStatus.onPickingDate,
+      date: DateFormat('yyyy-MM-dd').format(date),
+    ));
   }
 
   void _checkout() async {
-    emit(const CheckoutState.checkoutLoading());
+    emit(state.copyWith(
+      status: CheckoutStateStatus.checkoutLoading,
+    ));
     final result = await _checkoutRepo.checkout(
       CheckoutParams(
         username: currentUser?.user.username ?? usernameController.text,
         address: addressController.text,
-        phone: phoneNumber,
-        date: dateController.text,
-        time: _formatTime(hours, minutes),
+        phone: state.phoneNumber,
+        date: state.date,
+        time: _formatTime(state.checkoutHour, state.checkoutMinutes),
       ),
       _cancelToken,
     );
     result.when(
-      success: (checkout) => emit(CheckoutState.checkoutSuccess(checkout)),
-      error: (error) => emit(CheckoutState.checkoutError(error.error ?? '')),
+      success: (checkout) => emit(state.copyWith(
+        status: CheckoutStateStatus.checkoutSuccess,
+        checkout: checkout,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: CheckoutStateStatus.checkoutError,
+        error: errorModel.error ?? '',
+      )),
     );
   }
 
@@ -100,7 +98,6 @@ class CheckoutCubit extends Cubit<CheckoutState> {
   void _disposeControllers() {
     usernameController.dispose();
     addressController.dispose();
-    dateController.dispose();
   }
 
   @override
