@@ -17,20 +17,21 @@ class SearchResultBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SearchCubit, SearchState>(
-      buildWhen: (_, current) =>
-          current is SearchLoading ||
-          current is SearchSuccess ||
-          current is SearchError,
+      buildWhen: (_, current) => _buildWhen(current),
       builder: (context, state) => state.maybeWhen(
         searchLoading: () => const SearchResultShimmerLoading(),
         searchSuccess: (searchResult) =>
             _buildSearchSuccessWidget(searchResult),
         searchError: (errorKey) => _buildSearchErrorWidget(errorKey),
-        orElse: () => const SliverToBoxAdapter(
-          child: SizedBox.shrink(),
-        ),
+        orElse: () => const SearchResultShimmerLoading(),
       ),
     );
+  }
+
+  bool _buildWhen(SearchState<dynamic> current) {
+    return current is SearchLoading ||
+        current is SearchSuccess ||
+        current is SearchError;
   }
 
   SingleChildRenderObjectWidget _buildSearchSuccessWidget(
