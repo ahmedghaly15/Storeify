@@ -7,7 +7,7 @@ import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/cart/data/models/fetch_cart_response.dart';
 import 'package:store_ify/features/cart/presentation/widgets/cart_product_item.dart';
-import 'package:store_ify/features/cart/presentation/widgets/cart_summary_bloc_builder.dart';
+import 'package:store_ify/features/cart/presentation/widgets/cart_summary.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 
 class CartViewBody extends StatelessWidget {
@@ -37,7 +37,7 @@ class CartViewBody extends StatelessWidget {
                 ),
               ),
         SliverToBoxAdapter(
-          child: CartSummaryBlocBuilder(cart: cart),
+          child: CartSummary(cart: cart),
         ),
         SliverToBoxAdapter(
           child: cart.cart.isNotEmpty

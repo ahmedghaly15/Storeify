@@ -1,46 +1,55 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_state.dart';
 
 class FetchFavoritesCubit extends Cubit<FetchFavoritesState> {
-  FetchFavoritesCubit(
-    this._favoritesRepo,
-  ) : super(const FetchFavoritesState.initial());
+  FetchFavoritesCubit(this._favoritesRepo)
+      : super(FetchFavoritesState.initial());
 
   final FavoritesRepo _favoritesRepo;
   final CancelToken _cancelToken = CancelToken();
 
   void fetchFavProducts() async {
-    emit(const FetchFavoritesState.fetchFavoriteProductsLoading());
+    emit(state.copyWith(
+      status: FetchFavoritesStatus.fetchFavoriteProductsLoading,
+    ));
     final result = await _favoritesRepo.fetchFavoriteProducts(_cancelToken);
     result.when(
-      success: (favorites) =>
-          emit(FetchFavoritesState.fetchFavoriteProductsSuccess(favorites)),
-      error: (errorModel) => emit(
-        FetchFavoritesState.fetchFavoriteProductsError(errorModel.error ?? ''),
-      ),
+      success: (favorites) => emit(state.copyWith(
+        status: FetchFavoritesStatus.fetchFavoriteProductsSuccess,
+        favProducts: favorites,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: FetchFavoritesStatus.fetchFavoriteProductsError,
+        error: errorModel.error ?? '',
+      )),
     );
   }
 
   void fetchFavStores() async {
-    emit(const FetchFavoritesState.fetchFavStoresLoading());
+    emit(state.copyWith(
+      status: FetchFavoritesStatus.fetchFavStoresLoading,
+    ));
     final result = await _favoritesRepo.fetchFavStores(_cancelToken);
     result.when(
-      success: (favStores) =>
-          emit(FetchFavoritesState.fetchFavStoresSuccess(favStores)),
-      error: (error) =>
-          emit(FetchFavoritesState.fetchFavStoresError(error.error ?? '')),
+      success: (favStores) => emit(state.copyWith(
+        status: FetchFavoritesStatus.fetchFavStoresSuccess,
+        favStores: favStores,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: FetchFavoritesStatus.fetchFavStoresError,
+        error: errorModel.error ?? '',
+      )),
     );
   }
 
-  int selectedFavCategory = 0;
   void _updateSelectedFavCategory(int index) {
-    if (selectedFavCategory != index) {
-      selectedFavCategory = index;
-      emit(FetchFavoritesState.updateSelectedFavCategory(index));
+    if (state.selectedFavCategory != index) {
+      emit(state.copyWith(
+        status: FetchFavoritesStatus.updateSelectedFavCategory,
+        selectedFavCategory: index,
+      ));
     }
   }
 
@@ -50,22 +59,12 @@ class FetchFavoritesCubit extends Cubit<FetchFavoritesState> {
   }
 
   void _fetchFavorites() {
-    switch (selectedFavCategory) {
+    switch (state.selectedFavCategory) {
       case 0:
         fetchFavStores();
       case 1:
         fetchFavProducts();
     }
-  }
-
-  Color selectedFavCategoryColor(int index) {
-    return isActiveFavCategory(index)
-        ? AppColors.primaryColor
-        : AppColors.blueColor;
-  }
-
-  bool isActiveFavCategory(int index) {
-    return selectedFavCategory == index;
   }
 
   @override
