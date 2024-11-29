@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:store_ify/core/router/app_router.dart';
-import 'package:store_ify/core/themes/theming_cubit.dart';
 import 'package:store_ify/core/utils/functions/toggle_lang.dart';
 import 'package:store_ify/core/widgets/cancel_outlined_button.dart';
 import 'package:store_ify/core/widgets/custom_adaptive_dialog.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_and_theme_cubit.dart';
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
 import 'package:store_ify/features/profile/presentation/widgets/confirm_delete_account_bloc_consumer.dart';
 import 'package:store_ify/features/profile/presentation/widgets/confirm_logout_bloc_consumer_button.dart';
@@ -35,7 +35,8 @@ class SettingItem {
   static List<SettingItem> get profileAppSetting => [
         SettingItem(
           titleKey: LocaleKeys.darkMode,
-          onTap: (context) => context.read<ThemingCubit>().toggleTheme(),
+          onTap: (context) =>
+              context.read<FavoritesAndThemeCubit>().toggleTheme(),
           trailing: const DarkModeSwitchBlocBuilder(),
         ),
         SettingItem(

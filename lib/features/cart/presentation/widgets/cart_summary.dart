@@ -9,8 +9,8 @@ import 'package:store_ify/features/cart/presentation/widgets/cart_summary_divide
 import 'package:store_ify/features/cart/presentation/widgets/summary_info.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 
-class CartSummaryBlocBuilder extends StatelessWidget {
-  const CartSummaryBlocBuilder({super.key, required this.cart});
+class CartSummary extends StatelessWidget {
+  const CartSummary({super.key, required this.cart});
 
   final FetchCartResponse cart;
 

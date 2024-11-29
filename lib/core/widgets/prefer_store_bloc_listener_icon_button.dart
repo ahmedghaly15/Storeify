@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/widgets/custom_toast.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_cubit.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_state.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_and_theme_cubit.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_and_theme_state.dart';
 
 class PreferStoreBlocListenerIconButton extends StatefulWidget {
   const PreferStoreBlocListenerIconButton({
@@ -33,7 +33,7 @@ class _PreferStoreBlocListenerIconButtonState
 
   void _toggleFavorite() {
     _toggleIsFavoritedLocal();
-    context.read<FavoritesCubit>().preferStoreOrNot(
+    context.read<FavoritesAndThemeCubit>().preferStoreOrNot(
           storeId: widget.storeId,
           isFavorited: isFavoritedLocal,
         );
@@ -47,8 +47,8 @@ class _PreferStoreBlocListenerIconButtonState
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<FavoritesCubit, FavoritesState>(
-      listenWhen: (_, current) => _listenWhen(current),
+    return BlocListener<FavoritesAndThemeCubit, FavoritesAndThemeState>(
+      listenWhen: (_, current) => _listenWhen(current.status),
       listener: (context, state) => _listener(state, context),
       child: IconButton(
         onPressed: () => _toggleFavorite(),
@@ -61,37 +61,39 @@ class _PreferStoreBlocListenerIconButtonState
     );
   }
 
-  void _listener(FavoritesState<dynamic> state, BuildContext context) {
-    state.whenOrNull(
-      preferStoreError: (errorKey) {
+  void _listener(FavoritesAndThemeState state, BuildContext context) {
+    switch (state.status) {
+      case FavoritesAndThemeStatus.preferStoreError:
         CustomToast.showToast(
           context: context,
-          messageKey: errorKey,
+          messageKey: state.error!,
           state: CustomToastState.error,
         );
         // Rollback the change if an error occurs
         _toggleIsFavoritedLocal();
-      },
-      removeStoreFromFavsError: (errorKey) {
+        break;
+      case FavoritesAndThemeStatus.removeStoreFromFavsError:
         CustomToast.showToast(
           context: context,
-          messageKey: errorKey,
+          messageKey: state.error!,
           state: CustomToastState.error,
         );
         // Rollback the change if an error occurs
         _toggleIsFavoritedLocal();
-      },
-      preferStoreSuccess: () =>
-          context.read<FavoritesCubit>().deleteCachedFavStores(),
-      removeStoreFromFavsSuccess: () =>
-          context.read<FavoritesCubit>().deleteCachedFavStores(),
-    );
+        break;
+      case FavoritesAndThemeStatus.preferStoreSuccess:
+      case FavoritesAndThemeStatus.removeStoreFromFavsSuccess:
+        context.read<FavoritesAndThemeCubit>().deleteCachedFavStores();
+        break;
+      default:
+        break;
+    }
   }
 
-  bool _listenWhen(FavoritesState<dynamic> current) {
-    return current is PreferStoreError ||
-        current is RemoveStoreFromFavsError ||
-        current is PreferStoreSuccess ||
-        current is RemoveStoreFromFavsSuccess;
+  bool _listenWhen(FavoritesAndThemeStatus status) {
+    return status == FavoritesAndThemeStatus.preferStoreError ||
+        status == FavoritesAndThemeStatus.removeStoreFromFavsError ||
+        status == FavoritesAndThemeStatus.preferStoreSuccess ||
+        status == FavoritesAndThemeStatus.removeStoreFromFavsSuccess;
   }
 }

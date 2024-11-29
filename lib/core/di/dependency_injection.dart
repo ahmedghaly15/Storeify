@@ -4,7 +4,6 @@ import 'package:get_it/get_it.dart';
 import 'package:store_ify/core/api/dio_factory.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/services/location_service.dart';
-import 'package:store_ify/core/themes/theming_cubit.dart';
 import 'package:store_ify/features/auth/data/api/forgot_password_api_service.dart';
 import 'package:store_ify/features/auth/data/api/login_api_service.dart';
 import 'package:store_ify/features/auth/data/api/register_api_service.dart';
@@ -39,7 +38,7 @@ import 'package:store_ify/features/favorites/data/api/favorites_api_service.dart
 import 'package:store_ify/features/favorites/data/datasources/favorites_local_datasource.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo_impl.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_cubit.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_and_theme_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
 import 'package:store_ify/features/home/data/api/home_api_service.dart';
 import 'package:store_ify/features/home/data/datasources/home_local_datasource.dart';
@@ -198,7 +197,6 @@ void _setupDIForRepos() {
 }
 
 void _setupDIForCubits() {
-  getIt.registerLazySingleton<ThemingCubit>(() => ThemingCubit());
   getIt.registerLazySingleton<OnboardingCubit>(() => OnboardingCubit());
   getIt.registerLazySingleton<LoginCubit>(
     () => LoginCubit(getIt.get<LoginRepo>()),
@@ -230,8 +228,8 @@ void _setupDIForCubits() {
   getIt.registerFactory<StoreDetailsCubit>(
     () => StoreDetailsCubit(getIt.get<StoresRepo>()),
   );
-  getIt.registerLazySingleton<FavoritesCubit>(
-    () => FavoritesCubit(getIt.get<FavoritesRepo>()),
+  getIt.registerLazySingleton<FavoritesAndThemeCubit>(
+    () => FavoritesAndThemeCubit(getIt.get<FavoritesRepo>()),
   );
   getIt.registerFactory<FetchFavoritesCubit>(
     () => FetchFavoritesCubit(getIt.get<FavoritesRepo>()),
