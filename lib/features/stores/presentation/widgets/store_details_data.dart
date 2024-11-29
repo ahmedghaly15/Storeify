@@ -19,21 +19,21 @@ class StoreDetailsData extends StatelessWidget {
       builder: (context, selectedDetailIndex) {
         switch (selectedDetailIndex) {
           case 0:
-            return RefreshIndicator(
+            return RefreshIndicator.adaptive(
               onRefresh: () async => await context
                   .read<StoreDetailsCubit>()
                   .fetchStoreOffers(storeId),
               child: StoreOffersGridViewBlocBuilder(storeId: storeId),
             );
           case 1:
-            return RefreshIndicator(
+            return RefreshIndicator.adaptive(
               onRefresh: () async => await context
                   .read<StoreDetailsCubit>()
                   .fetchStoreBranches(storeId),
               child: StoreBranchesListViewBlocBuilder(storeId: storeId),
             );
           case 2:
-            return RefreshIndicator(
+            return RefreshIndicator.adaptive(
               onRefresh: () async => await context
                   .read<StoreDetailsCubit>()
                   .fetchStoreCategories(storeId),

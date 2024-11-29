@@ -10,7 +10,7 @@ class FetchFavoritesCubit extends Cubit<FetchFavoritesState> {
   final FavoritesRepo _favoritesRepo;
   final CancelToken _cancelToken = CancelToken();
 
-  void fetchFavProducts() async {
+  Future<void> fetchFavProducts() async {
     emit(state.copyWith(
       status: FetchFavoritesStatus.fetchFavoriteProductsLoading,
     ));
@@ -27,7 +27,7 @@ class FetchFavoritesCubit extends Cubit<FetchFavoritesState> {
     );
   }
 
-  void fetchFavStores() async {
+  Future<void> fetchFavStores() async {
     emit(state.copyWith(
       status: FetchFavoritesStatus.fetchFavStoresLoading,
     ));

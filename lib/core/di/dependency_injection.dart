@@ -27,7 +27,6 @@ import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:store_ify/features/categories/data/api/categories_api_service.dart';
 import 'package:store_ify/features/categories/data/datasources/categories_local_datasource.dart';
 import 'package:store_ify/features/categories/data/repositories/categories_repo.dart';
-import 'package:store_ify/features/categories/data/repositories/categories_repo_impl.dart';
 import 'package:store_ify/features/categories/presentation/cubit/categories/categories_cubit.dart';
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_cubit.dart';
 import 'package:store_ify/features/checkout/data/api/checkout_api_service.dart';
@@ -159,7 +158,7 @@ void _setupDIForRepos() {
     ),
   );
   getIt.registerLazySingleton<CategoriesRepo>(
-    () => CategoriesRepoImpl(
+    () => CategoriesRepo(
       getIt.get<CategoriesApiService>(),
       getIt.get<CategoriesLocalDatasource>(),
     ),
