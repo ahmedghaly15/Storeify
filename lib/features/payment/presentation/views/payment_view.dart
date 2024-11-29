@@ -7,7 +7,7 @@ import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
 import 'package:store_ify/features/payment/presentation/widgets/card_details_text.dart';
 import 'package:store_ify/features/payment/presentation/widgets/pay_bloc_consumer_button.dart';
-import 'package:store_ify/features/payment/presentation/widgets/payment_form_bloc_builder.dart';
+import 'package:store_ify/features/payment/presentation/widgets/payment_form_bloc_selector.dart';
 import 'package:store_ify/features/payment/presentation/widgets/payment_progress_circles.dart';
 import 'package:store_ify/features/payment/presentation/widgets/save_card_details_check_box.dart';
 
@@ -32,7 +32,7 @@ class PaymentView extends StatelessWidget implements AutoRouteWrapper {
             CustomSliverAppBar(titleKey: LocaleKeys.paymentWithCard),
             SliverToBoxAdapter(child: PaymentProgressCircles()),
             SliverToBoxAdapter(child: CardDetailsText()),
-            SliverToBoxAdapter(child: PaymentFormBlocBuilder()),
+            SliverToBoxAdapter(child: PaymentFormBlocSelector()),
             SliverToBoxAdapter(child: SaveCardDetailsCheckbox()),
             SliverToBoxAdapter(child: PayBlocConsumerButton()),
           ],

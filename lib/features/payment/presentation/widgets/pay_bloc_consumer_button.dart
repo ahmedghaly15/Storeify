@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
@@ -17,22 +18,9 @@ class PayBlocConsumerButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<PaymentCubit, PaymentState>(
-      listenWhen: (_, current) => current is PayError || current is PaySuccess,
-      listener: (context, state) {
-        state.whenOrNull(
-          payError: (errorKey) => CustomToast.showToast(
-            context: context,
-            messageKey: errorKey,
-            state: CustomToastState.error,
-          ),
-          paySuccess: () {
-            // TODO: navigate to payment successful screen
-            // TODO: cache card details if the checkBoxValue is true
-          },
-        );
-      },
-      buildWhen: (_, current) =>
-          current is PayLoading || current is PaySuccess || current is PayError,
+      listenWhen: (_, current) => _listenOrBuildWhen(current.status),
+      listener: (context, state) => _listener(state, context),
+      buildWhen: (_, current) => _listenOrBuildWhen(current.status),
       builder: (context, state) => MainButton(
         onPressed: () {
           context.pushRoute(const PaymentSuccessfullyRoute());
@@ -43,11 +31,38 @@ class PayBlocConsumerButton extends StatelessWidget {
           horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
         ),
         child: circularIndicatorOrTextWidget(
-          isLoading: state is PayLoading,
+          isLoading: state.status == PaymentStateStatus.payLoading,
           context: context,
           textKey: LocaleKeys.payNow,
         ),
       ),
     );
+  }
+
+  void _listener(PaymentState state, BuildContext context) {
+    switch (state.status) {
+      case PaymentStateStatus.payLoading:
+        context.unfocusKeyboard();
+        break;
+      case PaymentStateStatus.payError:
+        CustomToast.showToast(
+          context: context,
+          messageKey: state.error!,
+          state: CustomToastState.error,
+        );
+        break;
+      case PaymentStateStatus.paySuccess:
+        // TODO: navigate to payment successful screen
+        // TODO: cache card details if the checkBoxValue is true
+        break;
+      default:
+        break;
+    }
+  }
+
+  bool _listenOrBuildWhen(PaymentStateStatus status) {
+    return status == PaymentStateStatus.payLoading ||
+        status == PaymentStateStatus.paySuccess ||
+        status == PaymentStateStatus.payError;
   }
 }

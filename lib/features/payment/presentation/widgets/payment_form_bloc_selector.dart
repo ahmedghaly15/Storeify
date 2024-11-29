@@ -8,13 +8,13 @@ import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_state.dart';
-import 'package:store_ify/features/payment/presentation/widgets/card_type_text_field_bloc_builder.dart';
+import 'package:store_ify/features/payment/presentation/widgets/card_type_text_field_bloc_selector.dart';
 import 'package:store_ify/features/payment/presentation/widgets/expiry_date_and_cvv_text_fields.dart';
 import 'package:store_ify/features/payment/presentation/widgets/payment_custom_text_field.dart';
 import 'package:store_ify/features/payment/presentation/widgets/payment_text_field_label.dart';
 
-class PaymentFormBlocBuilder extends StatelessWidget {
-  const PaymentFormBlocBuilder({super.key});
+class PaymentFormBlocSelector extends StatelessWidget {
+  const PaymentFormBlocSelector({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,16 +28,16 @@ class PaymentFormBlocBuilder extends StatelessWidget {
         start: 22.w,
         end: 46.w,
       ),
-      child: BlocBuilder<PaymentCubit, PaymentState>(
-        buildWhen: (_, current) => current is AlwaysAutoValidateMode,
-        builder: (context, state) => Form(
+      child: BlocSelector<PaymentCubit, PaymentState, AutovalidateMode>(
+        selector: (state) => state.autovalidateMode,
+        builder: (context, autovalidateMode) => Form(
           key: context.read<PaymentCubit>().formKey,
-          autovalidateMode: context.read<PaymentCubit>().autoValidateMode,
+          autovalidateMode: autovalidateMode,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const PaymentTextFieldLabel(labelKey: LocaleKeys.cardType),
-              const CardTypeTextFieldBlocBuilder(),
+              const CardTypeTextFieldBlocSelector(),
               MySizedBox.height19,
               const PaymentTextFieldLabel(labelKey: LocaleKeys.cardNumber),
               PaymentCustomTextField(

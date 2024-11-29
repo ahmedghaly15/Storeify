@@ -10,24 +10,24 @@ import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dar
 import 'package:store_ify/features/payment/presentation/cubits/payment_state.dart';
 import 'package:store_ify/features/payment/presentation/widgets/payment_custom_text_field.dart';
 
-class CardTypeTextFieldBlocBuilder extends StatelessWidget {
-  const CardTypeTextFieldBlocBuilder({super.key});
+class CardTypeTextFieldBlocSelector extends StatelessWidget {
+  const CardTypeTextFieldBlocSelector({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PaymentCubit, PaymentState>(
-      buildWhen: (_, current) => current is UpdateSelectedCardType,
-      builder: (context, state) => PaymentCustomTextField(
-        hintTextKey: context.read<PaymentCubit>().selectedCardType.nameKey,
+    return BlocSelector<PaymentCubit, PaymentState, CardType>(
+      selector: (state) => state.selectedCardType!,
+      builder: (context, selectedCardType) => PaymentCustomTextField(
+        hintTextKey: selectedCardType.nameKey,
         controller: context.read<PaymentCubit>().cardTypeController,
         prefixIcon: Image.asset(
-          context.read<PaymentCubit>().selectedCardType.image,
+          selectedCardType.image,
           width: 32.w,
           height: 9.h,
         ),
         suffixIcon: PopupMenuButton<CardType>(
           position: PopupMenuPosition.under,
-          initialValue: context.read<PaymentCubit>().selectedCardType,
+          initialValue: selectedCardType,
           icon: const Icon(
             Icons.arrow_drop_down,
             color: AppColors.primaryColor,
