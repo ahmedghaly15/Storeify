@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
   
   # For in-app localization
-  flutter_localization: ^0.2.0
+  easy_localization: ^3.0.7
   # A declarative routing solution for navigation
   auto_route: ^9.2.2
   # Networking
@@ -34,7 +34,7 @@ dependencies:
   # Simple direct Service Locator that allows to access the concrete implementation from everywhere
   get_it: ^7.7.0
   # Dart library that checks for internet
-  internet_connection_checker: ^2.0.0
+  internet_connection_checker: ^1.0.0+1
   # (OTP) text field
   pinput: ^5.0.0
   # Flutter plugin for reading and writing simple key-value pairs for cache
@@ -73,6 +73,10 @@ dependencies:
   path_provider: ^2.1.4
   # An easy way to add shimmer effect
   shimmer: ^3.0.0
+  # Used for picking images
+  image_picker: ^1.1.2
+  # Used for compressing images
+  flutter_image_compress: ^2.3.0
 
 dev_dependencies:
   flutter_test:
@@ -105,8 +109,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/icons/
-    - lib/core/locale/lang/ar.json
-    - lib/core/locale/lang/en.json
+    - assets/translations/
 
   fonts:
     - family: Poppins

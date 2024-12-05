@@ -12,7 +12,7 @@ class LoginView extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider<LoginCubit>(
-      create: (context) => getIt.get<LoginCubit>(),
+      create: (_) => getIt.get<LoginCubit>(),
       child: this,
     );
   }

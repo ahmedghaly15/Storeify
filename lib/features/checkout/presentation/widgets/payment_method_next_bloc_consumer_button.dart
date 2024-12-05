@@ -3,7 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
@@ -18,27 +18,9 @@ class PaymentMethodNextBlocConsumerButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<PaymentMethodCubit, PaymentMethodState>(
-      listenWhen: (_, current) =>
-          current is ChoosePaymentMethodSuccess ||
-          current is ChoosePaymentMethodError,
-      listener: (context, state) {
-        state.whenOrNull(
-          choosePaymentMethodSuccess: () {
-            // TODO: if selectedPaymentMethod's name is creditCard push to payment view
-            // TODO: else show a dialog with OK like in UI
-          },
-          choosePaymentMethodError: (errorKey) => CustomToast.showToast(
-            context: context,
-            messageKey: errorKey,
-            state: CustomToastState.error,
-          ),
-        );
-      },
-      buildWhen: (_, current) =>
-          current is ChoosePaymentMethodLoading ||
-          current is ChoosePaymentMethodError ||
-          current is ChoosePaymentMethodSuccess ||
-          current is UpdateSelectedPaymentMethod,
+      listenWhen: (_, current) => _listenWhen(current.status),
+      listener: (context, state) => _listener(state, context),
+      buildWhen: (_, current) => _buildWhen(current.status),
       builder: (context, state) => FadeInUp(
         from: 30.h,
         child: MainButton(
@@ -46,13 +28,12 @@ class PaymentMethodNextBlocConsumerButton extends StatelessWidget {
             horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
           ),
           child: circularIndicatorOrTextWidget(
-            isLoading: state is ChoosePaymentMethodLoading,
+            isLoading: state.status ==
+                PaymentMethodStateStatus.choosePaymentMethodLoading,
             context: context,
-            textKey:
-                context.read<PaymentMethodCubit>().selectedPaymentMethod.name ==
-                        LangKeys.creditCard
-                    ? LangKeys.continueKey
-                    : LangKeys.next,
+            textKey: state.selectedPaymentMethod!.name == LocaleKeys.creditCard
+                ? LocaleKeys.continueWord
+                : LocaleKeys.next,
           ),
           onPressed: () {
             context.pushRoute(const PaymentRoute());
@@ -64,5 +45,35 @@ class PaymentMethodNextBlocConsumerButton extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _listener(PaymentMethodState state, BuildContext context) {
+    switch (state.status) {
+      case PaymentMethodStateStatus.choosePaymentMethodSuccess:
+        // TODO: if selectedPaymentMethod's name is creditCard push to payment view
+        // TODO: else show a dialog with OK like in UI
+        break;
+      case PaymentMethodStateStatus.choosePaymentMethodError:
+        CustomToast.showToast(
+          context: context,
+          messageKey: state.error!,
+          state: CustomToastState.error,
+        );
+        break;
+      default:
+        break;
+    }
+  }
+
+  bool _listenWhen(PaymentMethodStateStatus status) {
+    return status == PaymentMethodStateStatus.choosePaymentMethodSuccess ||
+        status == PaymentMethodStateStatus.choosePaymentMethodError;
+  }
+
+  bool _buildWhen(PaymentMethodStateStatus status) {
+    return status == PaymentMethodStateStatus.choosePaymentMethodLoading ||
+        status == PaymentMethodStateStatus.choosePaymentMethodError ||
+        status == PaymentMethodStateStatus.choosePaymentMethodSuccess ||
+        status == PaymentMethodStateStatus.selectingPaymentMethod;
   }
 }

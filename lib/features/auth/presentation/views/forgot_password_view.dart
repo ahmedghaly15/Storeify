@@ -1,15 +1,15 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
-import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/di/dependency_injection.dart';
+import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forgot_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/widgets/forgot_password/forgot_password_form.dart';
 import 'package:store_ify/features/auth/presentation/widgets/forgot_password/verify_email_button_bloc_consumer.dart';
 import 'package:store_ify/features/auth/presentation/widgets/sign_up_text_button.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 @RoutePage()
 class ForgotPasswordView extends StatelessWidget implements AutoRouteWrapper {
@@ -18,7 +18,7 @@ class ForgotPasswordView extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider<ForgotPasswordCubit>(
-      create: (context) => getIt.get<ForgotPasswordCubit>(),
+      create: (_) => getIt.get<ForgotPasswordCubit>(),
       child: this,
     );
   }
@@ -35,7 +35,7 @@ class ForgotPasswordView extends StatelessWidget implements AutoRouteWrapper {
               children: [
                 Center(
                   child: Text(
-                    context.translate(LangKeys.forgotPassword),
+                    context.tr(LocaleKeys.forgotPassword),
                     style: AppTextStyles.textStyle24Medium,
                   ),
                 ),
@@ -48,7 +48,7 @@ class ForgotPasswordView extends StatelessWidget implements AutoRouteWrapper {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      context.translate(LangKeys.dontHaveAnAccount),
+                      context.tr(LocaleKeys.dontHaveAnAccount),
                       style: AppTextStyles.textStyle16Regular,
                     ),
                     const SignUpTextButton(),

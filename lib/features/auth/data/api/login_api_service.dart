@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:retrofit/retrofit.dart';
-import 'package:store_ify/core/api/end_points.dart';
 import 'package:retrofit/retrofit.dart' as retrofit;
+import 'package:retrofit/retrofit.dart';
+
+import 'package:store_ify/core/api/end_points.dart';
 import 'package:store_ify/core/models/storeify_user.dart';
 import 'package:store_ify/features/auth/data/models/login_params.dart';
 

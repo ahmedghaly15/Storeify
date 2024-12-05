@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/features/profile/data/models/setting_item.dart';
@@ -26,18 +26,18 @@ class SettingsSeparatedListView extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(15.r)),
           ),
-          onTap: settings[index].onTap,
+          onTap: () => settings[index].onTap(context),
           contentPadding: EdgeInsets.symmetric(horizontal: 16.w),
           title: Text(
-            context.translate(settings[index].titleKey),
+            context.tr(settings[index].titleKey),
             style: AppTextStyles.textStyle16Regular.copyWith(
-              color: Colors.white,
+              color: AppColors.lightModeColor,
             ),
           ),
           trailing: settings[index].trailing,
         ),
         separatorBuilder: (_, __) => Divider(
-          color: Colors.white,
+          color: AppColors.lightModeColor,
           thickness: 1.w,
           height: 1.h,
         ),

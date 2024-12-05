@@ -1,53 +1,60 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_state.dart';
 
 class StoresCubit extends Cubit<StoresState> {
-  StoresCubit(this._storesRepo) : super(const StoresState.initial());
-
   final StoresRepo _storesRepo;
+
+  StoresCubit(this._storesRepo) : super(StoresState.initial());
+
   final CancelToken _cancelToken = CancelToken();
 
-  void fetchStores() async {
-    emit(const StoresState.fetchStoresLoading());
+  Future<void> fetchStores() async {
+    emit(state.copyWith(
+      status: StoresStateStatus.fetchStoresLoading,
+    ));
     final result = await _storesRepo.fetchStores(_cancelToken);
     result.when(
-      success: (fetchStoresResponse) =>
-          emit(StoresState.fetchStoresSuccess(fetchStoresResponse)),
-      error: (errorModel) =>
-          emit(StoresState.fetchStoresError(errorModel.error ?? '')),
+      success: (stores) => emit(state.copyWith(
+        status: StoresStateStatus.fetchStoresSuccess,
+        stores: stores,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: StoresStateStatus.fetchStoresError,
+        error: errorModel.error ?? '',
+      )),
     );
   }
 
   void fetchCategoryStores(String categoryId) async {
-    emit(const StoresState.fetchCategoryStoresLoading());
+    emit(state.copyWith(
+      status: StoresStateStatus.fetchCategoryStoresLoading,
+    ));
     final result = await _storesRepo.fetchCategoryStores(
       categoryId,
       _cancelToken,
     );
     result.when(
-      success: (categoryStores) =>
-          emit(StoresState.fetchCategoryStoresSuccess(categoryStores)),
-      error: (errorModel) =>
-          emit(StoresState.fetchCategoryStoresError(errorModel.error ?? '')),
+      success: (categoryStores) => emit(state.copyWith(
+        status: StoresStateStatus.fetchCategoryStoresSuccess,
+        categoryStores: categoryStores,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: StoresStateStatus.fetchCategoryStoresError,
+        error: errorModel.error ?? '',
+      )),
     );
   }
 
-  int currentStoreIndex = 0;
   void updateCurrentSelectedStore(int index) {
-    if (currentStoreIndex != index) {
-      currentStoreIndex = index;
-      emit(StoresState.updateCurrentSelectedStore(index));
+    if (state.currentStoreIndex != index) {
+      emit(state.copyWith(
+        status: StoresStateStatus.updateCurrentSelectedStore,
+        currentStoreIndex: index,
+      ));
     }
   }
-
-  bool isStoreActive(int index) => currentStoreIndex == index;
-
-  Color activeStoreColor(int index) =>
-      isStoreActive(index) ? AppColors.primaryColor : AppColors.blueColor;
 
   @override
   Future<void> close() {

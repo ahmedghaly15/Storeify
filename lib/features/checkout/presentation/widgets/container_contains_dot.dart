@@ -12,7 +12,9 @@ class ContainerContainsDot extends StatelessWidget {
       padding: EdgeInsets.all(6.47.h),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: context.isDarkModeActive ? Colors.transparent : Colors.white,
+        color: context.isDarkModeActive
+            ? Colors.transparent
+            : AppColors.lightModeColor,
         border: Border.all(
           color: AppColors.colorD9D9D9,
           width: 1.08.w,

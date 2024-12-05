@@ -1,9 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/utils/app_constants.dart';
-import 'package:store_ify/features/auth/data/datasources/auth_local_datasource.dart';
 import 'package:store_ify/features/auth/data/models/login_params.dart';
 import 'package:store_ify/features/auth/data/repos/login_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_state.dart';
@@ -11,7 +8,7 @@ import 'package:store_ify/features/auth/presentation/cubits/login/login_state.da
 class LoginCubit extends Cubit<LoginState> {
   final LoginRepo _loginRepo;
 
-  LoginCubit(this._loginRepo) : super(const LoginState.initial()) {
+  LoginCubit(this._loginRepo) : super(LoginState.initial()) {
     _initFormAttributes();
   }
 
@@ -38,7 +35,9 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   void _login() async {
-    emit(const LoginState.loginLoading());
+    emit(state.copyWith(
+      status: LoginStateStatus.loginLoading,
+    ));
     final result = await _loginRepo.login(
       LoginParams(
         email: emailController.text.trim(),
@@ -47,27 +46,28 @@ class LoginCubit extends Cubit<LoginState> {
       _cancelToken,
     );
     result.when(
-      success: (user) async {
-        await AuthLocalDatasource.cacheUserAndSetTokenIntoHeaders(user);
-        currentUser = user;
-        emit(LoginState.loginSuccess(user));
-      },
-      error: (errorModel) =>
-          emit(LoginState.loginError(errorModel.error ?? '')),
+      success: (user) => emit(state.copyWith(
+        status: LoginStateStatus.loginSuccess,
+        user: user,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: LoginStateStatus.loginError,
+        error: errorModel.error ?? '',
+      )),
     );
   }
 
-  void login(BuildContext context) {
+  void login() {
     if (formKey.currentState!.validate()) {
-      context.unfocusKeyboard();
       _login();
     }
   }
 
-  bool isPasswordVisible = true;
-  void invertPasswordVisibility() {
-    isPasswordVisible = !isPasswordVisible;
-    emit(LoginState.invertPasswordVisibility(isPasswordVisible));
+  void togglePassVisibility() {
+    emit(state.copyWith(
+      status: LoginStateStatus.togglePassVisibility,
+      isPasswordObscure: !state.isPasswordObscure,
+    ));
   }
 
   @override

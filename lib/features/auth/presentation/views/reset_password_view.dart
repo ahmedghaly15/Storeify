@@ -1,14 +1,14 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/widgets/reset_password/reset_pass_button_bloc_consumer.dart';
 import 'package:store_ify/features/auth/presentation/widgets/reset_password/reset_password_form.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 @RoutePage()
 class ResetPasswordView extends StatelessWidget implements AutoRouteWrapper {
@@ -22,7 +22,7 @@ class ResetPasswordView extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider<ResetPasswordCubit>(
-      create: (context) => getIt.get<ResetPasswordCubit>(),
+      create: (_) => getIt.get<ResetPasswordCubit>(),
       child: this,
     );
   }
@@ -40,12 +40,12 @@ class ResetPasswordView extends StatelessWidget implements AutoRouteWrapper {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    context.translate(LangKeys.resetPassword),
+                    context.tr(LocaleKeys.resetPassword),
                     style: AppTextStyles.textStyle24Medium,
                   ),
                   MySizedBox.height13,
                   Text(
-                    context.translate(LangKeys.enterYourNewPass),
+                    context.tr(LocaleKeys.EnterYourNewPass),
                     style: AppTextStyles.textStyle16Regular
                         .copyWith(color: Colors.grey),
                     textAlign: TextAlign.center,

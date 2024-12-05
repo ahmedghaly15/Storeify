@@ -3,13 +3,23 @@ import 'package:store_ify/features/home/data/models/fetch_home_response.dart';
 
 part 'home_state.freezed.dart';
 
+enum HomeStateStatus {
+  initial,
+  showLocationDialog,
+  fetchHomeDataLoading,
+  fetchHomeDataSuccess,
+  fetchHomeDataError,
+}
+
 @freezed
 class HomeState<T> with _$HomeState<T> {
-  const factory HomeState.initial() = _Initial;
-  const factory HomeState.showLocationDialog() = ShowLocationDialog;
-  const factory HomeState.fetchHomeDataLoading() = FetchHomeDataLoading;
-  const factory HomeState.fetchHomeDataSuccess(FetchHomeResponse homeResponse) =
-      FetchHomeDataSuccess<T>;
-  const factory HomeState.fetchHomeDataError(String error) =
-      FetchHomeDataError<T>;
+  const factory HomeState({
+    required HomeStateStatus status,
+    FetchHomeResponse? homeData,
+    String? error,
+  }) = _HomeState;
+
+  factory HomeState.initial() => const HomeState(
+        status: HomeStateStatus.initial,
+      );
 }

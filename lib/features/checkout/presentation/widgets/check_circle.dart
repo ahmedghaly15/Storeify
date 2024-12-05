@@ -16,7 +16,7 @@ class CheckCircle extends StatelessWidget {
       ),
       child: Icon(
         Icons.check,
-        color: Colors.white,
+        color: AppColors.lightModeColor,
         size: 16.w,
       ),
     );

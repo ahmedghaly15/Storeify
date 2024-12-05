@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:numberpicker/numberpicker.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_cubit.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_state.dart';
+import 'package:store_ify/features/checkout/presentation/widgets/custom_time_picker_item.dart';
 
 class CustomTimePicker extends StatelessWidget {
   const CustomTimePicker({super.key});
@@ -16,13 +15,12 @@ class CustomTimePicker extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        BlocBuilder<CheckoutCubit, CheckoutState>(
-          buildWhen: (_, current) => current is ChangeCheckoutHour,
-          builder: (context, __) => _buildCustomTimePicker(
-            context,
+        BlocSelector<CheckoutCubit, CheckoutState, int>(
+          selector: (state) => state.checkoutHour,
+          builder: (context, hour) => CustomTimePickerItem(
             minValue: 1,
             maxValue: 12,
-            value: context.read<CheckoutCubit>().hours,
+            value: hour,
             onChanged: (value) =>
                 context.read<CheckoutCubit>().changeHours(value),
           ),
@@ -36,53 +34,17 @@ class CustomTimePicker extends StatelessWidget {
             ),
           ),
         ),
-        BlocBuilder<CheckoutCubit, CheckoutState>(
-          buildWhen: (_, current) => current is ChangeCheckoutMinutes,
-          builder: (_, __) => _buildCustomTimePicker(
-            context,
+        BlocSelector<CheckoutCubit, CheckoutState, int>(
+          selector: (state) => state.checkoutMinutes,
+          builder: (context, minutes) => CustomTimePickerItem(
             minValue: 00,
             maxValue: 59,
-            value: context.read<CheckoutCubit>().minutes,
+            value: minutes,
             onChanged: (value) =>
                 context.read<CheckoutCubit>().changeMinutes(value),
           ),
         )
       ],
-    );
-  }
-
-  Widget _buildCustomTimePicker(
-    BuildContext context, {
-    required int minValue,
-    required int maxValue,
-    required int value,
-    required void Function(int) onChanged,
-  }) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(8.r)),
-        color: context.isDarkModeActive ? Colors.transparent : Colors.white,
-        border: Border.all(
-          color: AppColors.fontPrimaryColor,
-          width: 1.08.w,
-        ),
-      ),
-      child: NumberPicker(
-        minValue: minValue,
-        maxValue: maxValue,
-        value: value,
-        itemCount: 1,
-        zeroPad: true,
-        itemWidth: 41.w,
-        itemHeight: 41.h,
-        onChanged: onChanged,
-        textStyle: AppTextStyles.textStyle16SemiBold.copyWith(
-          color: AppColors.primaryColor,
-        ),
-        selectedTextStyle: AppTextStyles.textStyle16SemiBold.copyWith(
-          color: AppColors.primaryColor,
-        ),
-      ),
     );
   }
 }

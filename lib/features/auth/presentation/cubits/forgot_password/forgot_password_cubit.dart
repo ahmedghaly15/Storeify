@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/features/auth/data/models/forgot_password_params.dart';
 import 'package:store_ify/features/auth/data/repos/forgot_password_repo.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forgot_password_state.dart';
@@ -24,9 +23,8 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
     emailController = TextEditingController();
   }
 
-  void forgotPassword(BuildContext context) {
+  void forgotPassword() {
     if (formKey.currentState!.validate()) {
-      context.unfocusKeyboard();
       _forgotPassword();
     }
   }

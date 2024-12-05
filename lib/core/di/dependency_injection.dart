@@ -1,11 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'package:store_ify/core/api/dio_factory.dart';
-import 'package:store_ify/core/locale/logic/cubit/locale_cubit.dart';
-import 'package:store_ify/core/locale/logic/locale_repo.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/services/location_service.dart';
-import 'package:store_ify/core/themes/theming_cubit.dart';
 import 'package:store_ify/features/auth/data/api/forgot_password_api_service.dart';
 import 'package:store_ify/features/auth/data/api/login_api_service.dart';
 import 'package:store_ify/features/auth/data/api/register_api_service.dart';
@@ -29,7 +30,6 @@ import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:store_ify/features/categories/data/api/categories_api_service.dart';
 import 'package:store_ify/features/categories/data/datasources/categories_local_datasource.dart';
 import 'package:store_ify/features/categories/data/repositories/categories_repo.dart';
-import 'package:store_ify/features/categories/data/repositories/categories_repo_impl.dart';
 import 'package:store_ify/features/categories/presentation/cubit/categories/categories_cubit.dart';
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_cubit.dart';
 import 'package:store_ify/features/checkout/data/api/checkout_api_service.dart';
@@ -40,21 +40,21 @@ import 'package:store_ify/features/favorites/data/api/favorites_api_service.dart
 import 'package:store_ify/features/favorites/data/datasources/favorites_local_datasource.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo_impl.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_cubit.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_and_theme_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
 import 'package:store_ify/features/home/data/api/home_api_service.dart';
-import 'package:store_ify/features/home/data/repos/home_repo.dart';
 import 'package:store_ify/features/home/data/datasources/home_local_datasource.dart';
+import 'package:store_ify/features/home/data/repos/home_repo.dart';
 import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
-import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo.dart';
-import 'package:store_ify/features/onboarding/data/repositories/onboarding_repo_impl.dart';
 import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:store_ify/features/payment/data/api/payment_api_service.dart';
 import 'package:store_ify/features/payment/data/repositories/payment_repo.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
 import 'package:store_ify/features/profile/data/api/profile_api_service.dart';
 import 'package:store_ify/features/profile/data/repos/profile_repo.dart';
+import 'package:store_ify/features/profile/presentation/cubits/change_pass/change_pass_cubit.dart';
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
+import 'package:store_ify/features/profile/presentation/cubits/update_profile/update_profile_cubit.dart';
 import 'package:store_ify/features/search/data/api/search_api_service.dart';
 import 'package:store_ify/features/search/data/repositories/search_repo.dart';
 import 'package:store_ify/features/search/presentation/cubit/search_cubit.dart';
@@ -67,12 +67,22 @@ import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubi
 
 final GetIt getIt = GetIt.instance;
 
-void setupDI() {
+Future<void> setupDI() async {
+  await _setupForExternal();
   _setupDIForCore();
   _setupForApiServices();
   _setupDIForDatasources();
   _setupDIForRepos();
   _setupDIForCubits();
+}
+
+Future<void> _setupForExternal() async {
+  final SharedPreferences sharedPreferences =
+      await SharedPreferences.getInstance();
+  getIt.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
+  const flutterSecureStorage = FlutterSecureStorage();
+  getIt.registerLazySingleton<FlutterSecureStorage>(() => flutterSecureStorage);
+  getIt.registerLazySingleton<ImagePicker>(() => ImagePicker());
 }
 
 void _setupDIForCore() {
@@ -139,9 +149,6 @@ void _setupDIForDatasources() {
 }
 
 void _setupDIForRepos() {
-  getIt.registerLazySingleton<LocaleRepo>(
-    () => LocaleRepoImpl(getIt.get<ProfileApiService>()),
-  );
   getIt.registerLazySingleton<LoginRepo>(
     () => LoginRepo(getIt.get<LoginApiService>()),
   );
@@ -158,13 +165,13 @@ void _setupDIForRepos() {
     () => ResetPasswordRepo(getIt.get<ResetPasswordApiService>()),
   );
   getIt.registerLazySingleton<HomeRepo>(
-    () => HomeRepoImpl(
+    () => HomeRepo(
       getIt.get<HomeApiService>(),
       getIt.get<HomeLocalDatasource>(),
     ),
   );
   getIt.registerLazySingleton<CategoriesRepo>(
-    () => CategoriesRepoImpl(
+    () => CategoriesRepo(
       getIt.get<CategoriesApiService>(),
       getIt.get<CategoriesLocalDatasource>(),
     ),
@@ -181,9 +188,6 @@ void _setupDIForRepos() {
       getIt.get<FavoritesLocalDatasource>(),
     ),
   );
-  getIt.registerLazySingleton<OnboardingRepo>(
-    () => const OnboardingRepoImpl(),
-  );
   getIt.registerLazySingleton<CartRepo>(
     () => CartRepoImpl(
       getIt.get<CartApiService>(),
@@ -191,13 +195,13 @@ void _setupDIForRepos() {
     ),
   );
   getIt.registerLazySingleton<CheckoutRepo>(
-    () => CheckoutRepoImpl(getIt.get<CheckoutApiService>()),
+    () => CheckoutRepo(getIt.get<CheckoutApiService>()),
   );
   getIt.registerLazySingleton<PaymentRepo>(
     () => PaymentRepoImpl(getIt.get<PaymentApiService>()),
   );
   getIt.registerLazySingleton<ProfileRepo>(
-    () => ProfileRepoImpl(getIt.get<ProfileApiService>()),
+    () => ProfileRepo(getIt.get<ProfileApiService>()),
   );
   getIt.registerLazySingleton<SearchRepo>(
     () => SearchRepo(getIt.get<SearchApiService>()),
@@ -205,10 +209,8 @@ void _setupDIForRepos() {
 }
 
 void _setupDIForCubits() {
-  getIt.registerFactory<LocaleCubit>(
-    () => LocaleCubit(getIt.get<LocaleRepo>()),
-  );
-  getIt.registerFactory<LoginCubit>(
+  getIt.registerLazySingleton<OnboardingCubit>(() => OnboardingCubit());
+  getIt.registerLazySingleton<LoginCubit>(
     () => LoginCubit(getIt.get<LoginRepo>()),
   );
   getIt.registerFactory<RegisterCubit>(
@@ -220,7 +222,7 @@ void _setupDIForCubits() {
   getIt.registerFactory<ValidateOtpCubit>(
     () => ValidateOtpCubit(getIt.get<ValidateOtpRepo>()),
   );
-  getIt.registerFactory<ResetPasswordCubit>(
+  getIt.registerLazySingleton<ResetPasswordCubit>(
     () => ResetPasswordCubit(getIt.get<ResetPasswordRepo>()),
   );
   getIt.registerFactory<HomeCubit>(
@@ -238,14 +240,11 @@ void _setupDIForCubits() {
   getIt.registerFactory<StoreDetailsCubit>(
     () => StoreDetailsCubit(getIt.get<StoresRepo>()),
   );
-  getIt.registerFactory<FavoritesCubit>(
-    () => FavoritesCubit(getIt.get<FavoritesRepo>()),
+  getIt.registerLazySingleton<FavoritesAndThemeCubit>(
+    () => FavoritesAndThemeCubit(getIt.get<FavoritesRepo>()),
   );
   getIt.registerFactory<FetchFavoritesCubit>(
     () => FetchFavoritesCubit(getIt.get<FavoritesRepo>()),
-  );
-  getIt.registerFactory<OnboardingCubit>(
-    () => OnboardingCubit(getIt.get<OnboardingRepo>()),
   );
   getIt.registerFactory<CartCubit>(
     () => CartCubit(getIt.get<CartRepo>()),
@@ -259,11 +258,16 @@ void _setupDIForCubits() {
   getIt.registerFactory<PaymentCubit>(
     () => PaymentCubit(getIt.get<PaymentRepo>()),
   );
-  getIt.registerFactory<ProfileCubit>(
-    () => ProfileCubit(getIt.get<ProfileRepo>()),
-  );
   getIt.registerFactory<SearchCubit>(
     () => SearchCubit(getIt.get<SearchRepo>()),
   );
-  getIt.registerFactory<ThemingCubit>(() => ThemingCubit());
+  getIt.registerFactory<ProfileCubit>(
+    () => ProfileCubit(getIt.get<ProfileRepo>()),
+  );
+  getIt.registerFactory<ChangePassCubit>(
+    () => ChangePassCubit(getIt.get<ProfileRepo>()),
+  );
+  getIt.registerFactory<UpdateProfileCubit>(
+    () => UpdateProfileCubit(getIt.get<ProfileRepo>()),
+  );
 }

@@ -14,7 +14,7 @@ class _CheckoutApiService implements CheckoutApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://192.168.1.10:8081/api/';
+    baseUrl ??= 'http://192.168.1.6:8081/api/';
   }
 
   final Dio _dio;
@@ -41,7 +41,7 @@ class _CheckoutApiService implements CheckoutApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/checkout',
+          'checkout',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -81,7 +81,7 @@ class _CheckoutApiService implements CheckoutApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/checkout/${paymentId}/payment-method',
+          'checkout/${paymentId}/payment-method',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,

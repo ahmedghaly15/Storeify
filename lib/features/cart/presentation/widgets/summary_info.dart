@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 
@@ -19,7 +19,7 @@ class SummaryInfo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          '${context.translate(nameKey)}:',
+          '${context.tr(nameKey)}:',
           style: AppTextStyles.textStyle12Regular.copyWith(
             color: AppColors.colorBEBEC3,
           ),

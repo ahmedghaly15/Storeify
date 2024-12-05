@@ -1,76 +1,88 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/helpers/shared_pref_helper.dart';
+import 'package:store_ify/core/helpers/secure_storage_helper.dart';
 import 'package:store_ify/core/helpers/shared_pref_keys.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
-import 'package:store_ify/core/router/app_router.dart';
-import 'package:store_ify/features/profile/data/models/setting_item.dart';
+import 'package:store_ify/features/profile/data/models/change_api_lang_params.dart';
 import 'package:store_ify/features/profile/data/repos/profile_repo.dart';
 import 'package:store_ify/features/profile/presentation/cubits/profile_state.dart';
-import 'package:store_ify/features/profile/presentation/widgets/custom_logout_adaptive_dialog.dart';
-import 'package:store_ify/features/profile/presentation/widgets/dark_mode_switch_bloc_builder.dart';
-import 'package:store_ify/features/profile/presentation/widgets/language_switch_bloc_consumer.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
   final ProfileRepo _profileRepo;
 
   ProfileCubit(
     this._profileRepo,
-  ) : super(const ProfileState.initial());
+  ) : super(ProfileState.initial());
+
+  final CancelToken _cancelToken = CancelToken();
 
   void logout() async {
-    emit(const ProfileState.logoutLoading());
+    emit(state.copyWith(
+      status: ProfileStateStatus.logoutLoading,
+    ));
     final result = await _profileRepo.logout();
     result.when(
       success: (_) async {
         await _removeCachedUser();
-        emit(const ProfileState.logoutSuccess());
+        emit(state.copyWith(
+          status: ProfileStateStatus.logoutSuccess,
+        ));
       },
-      error: (error) => emit(ProfileState.logoutError(error.error ?? '')),
+      error: (error) => emit(state.copyWith(
+        status: ProfileStateStatus.logoutError,
+        error: error.error ?? '',
+      )),
     );
   }
 
   Future<void> _removeCachedUser() async {
-    await SharedPrefHelper.removeSecuredData(SharedPrefKeys.storeifyUser);
+    await SecureStorageHelper.removeSecuredData(SharedPrefKeys.storeifyUser);
   }
 
-  List<SettingItem> profileAppSetting(BuildContext context) => [
-        SettingItem(
-          titleKey: LangKeys.favorite,
-          onTap: () => context.pushRoute(const FavoritesRoute()),
+  void deleteAccount() async {
+    emit(state.copyWith(
+      status: ProfileStateStatus.deleteAccountLoading,
+    ));
+    final result = await _profileRepo.deleteAccount(_cancelToken);
+    result.when(
+      success: (_) async {
+        await _removeCachedUser();
+        emit(state.copyWith(
+          status: ProfileStateStatus.deleteAccountSuccess,
+        ));
+      },
+      error: (error) => emit(state.copyWith(
+        status: ProfileStateStatus.deleteAccountError,
+        error: error.error ?? '',
+      )),
+    );
+  }
+
+  void toggleLocale(String langCode) {
+    emit(state.copyWith(
+      status: ProfileStateStatus.changeLocaleLocally,
+      langCode: langCode,
+    ));
+  }
+
+  void changeApiLang(String langCode) async {
+    final result = await _profileRepo.changeApiLang(
+      ChangeApiLangParams(lang: langCode),
+    );
+    result.when(
+      success: (_) =>
+          emit(state.copyWith(status: ProfileStateStatus.changeApiLangSuccess)),
+      error: (error) => emit(
+        state.copyWith(
+          status: ProfileStateStatus.changeApiLangError,
+          error: error.error ?? '',
         ),
-        const SettingItem(
-          titleKey: LangKeys.darkMode,
-          trailing: DarkModeSwitchBlocBuilder(),
-        ),
-        SettingItem(
-          titleKey: LangKeys.myOrders,
-          onTap: () => context.pushRoute(const CartRoute()),
-        ),
-        const SettingItem(
-          titleKey: LangKeys.arabic,
-          trailing: LanguageSwitchBlocConsumer(),
-        ),
-      ];
-  List<SettingItem> profileAccountSettings(BuildContext context) => [
-        SettingItem(
-          titleKey: LangKeys.paymentMethod,
-          onTap: () {},
-        ),
-        SettingItem(
-          titleKey: LangKeys.logout,
-          onTap: () {
-            showAdaptiveDialog(
-              context: context,
-              barrierDismissible: true,
-              barrierLabel: '',
-              builder: (_) => BlocProvider.value(
-                value: this,
-                child: const CustomLogoutAdaptiveDialog(),
-              ),
-            );
-          },
-        ),
-      ];
+      ),
+    );
+  }
+
+  @override
+  Future<void> close() {
+    _cancelToken.cancel();
+    return super.close();
+  }
 }

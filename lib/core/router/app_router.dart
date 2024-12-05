@@ -1,11 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+
 import 'package:store_ify/core/router/routes_names.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:store_ify/features/auth/presentation/views/login_view.dart';
-import 'package:store_ify/features/auth/presentation/views/reset_password_view.dart';
 import 'package:store_ify/features/auth/presentation/views/register_view.dart';
+import 'package:store_ify/features/auth/presentation/views/reset_password_view.dart';
 import 'package:store_ify/features/auth/presentation/views/verification_view.dart';
 import 'package:store_ify/features/cart/presentation/views/cart_view.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
@@ -19,7 +20,9 @@ import 'package:store_ify/features/layout/presentation/views/layout_view.dart';
 import 'package:store_ify/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:store_ify/features/payment/presentation/views/payment_successfully_view.dart';
 import 'package:store_ify/features/payment/presentation/views/payment_view.dart';
+import 'package:store_ify/features/profile/presentation/views/change_password_view.dart';
 import 'package:store_ify/features/profile/presentation/views/profile_view.dart';
+import 'package:store_ify/features/profile/presentation/views/update_profile_view.dart';
 import 'package:store_ify/features/search/presentation/views/search_view.dart';
 import 'package:store_ify/features/stores/data/models/store.dart';
 import 'package:store_ify/features/stores/presentation/view/store_details_view.dart';

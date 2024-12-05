@@ -14,7 +14,7 @@ class _CategoriesApiService implements CategoriesApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://192.168.1.10:8081/api/';
+    baseUrl ??= 'http://192.168.1.6:8081/api/';
   }
 
   final Dio _dio;
@@ -38,7 +38,7 @@ class _CategoriesApiService implements CategoriesApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/categories',
+          'categories',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,
@@ -77,7 +77,7 @@ class _CategoriesApiService implements CategoriesApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.10:8081/api/categories/${categoryId}/${subCategoryId}',
+          'categories/${categoryId}/${subCategoryId}',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,

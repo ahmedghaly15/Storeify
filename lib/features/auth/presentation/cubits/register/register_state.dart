@@ -3,13 +3,26 @@ import 'package:store_ify/core/models/storeify_user.dart';
 
 part 'register_state.freezed.dart';
 
+enum RegisterStateStatus {
+  initial,
+  registerLoading,
+  registerSuccess,
+  registerError,
+  togglePassVisibility,
+  toggleConfirmPassVisibility,
+}
+
 @freezed
 class RegisterState<T> with _$RegisterState<T> {
-  const factory RegisterState.initial() = _Initial;
-  const factory RegisterState.registerLoading() = RegisterLoading;
-  const factory RegisterState.registerSuccess(StoreifyUser data) =
-      RegisterSuccess<T>;
-  const factory RegisterState.registerError(String error) = RegisterError<T>;
-  const factory RegisterState.invertPasswordVisibility(bool isPasswordVisible) =
-      InvertPasswordVisibility<T>;
+  const factory RegisterState({
+    required RegisterStateStatus status,
+    StoreifyUser? user,
+    String? error,
+    @Default(true) bool isPassObscure,
+    @Default(true) bool isConfirmPassObscure,
+  }) = _RegisterState;
+
+  factory RegisterState.initial() => const RegisterState(
+        status: RegisterStateStatus.initial,
+      );
 }

@@ -5,9 +5,9 @@ import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
-import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
+import 'package:store_ify/features/profile/presentation/widgets/profile_img.dart';
 
 class HomeCustomAppBar extends StatelessWidget {
   const HomeCustomAppBar({super.key});
@@ -18,12 +18,15 @@ class HomeCustomAppBar extends StatelessWidget {
       margin: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
       child: Row(
         children: <Widget>[
-          Image.asset(AppAssets.imagesPerson),
+          const ProfileImg(radius: 15),
           MySizedBox.width8,
-          Text(
-            currentUser!.user.username,
-            style: AppTextStyles.textStyle12Regular.copyWith(
-              color: AppColors.primaryColor,
+          ValueListenableBuilder(
+            valueListenable: userNotifier,
+            builder: (context, user, _) => Text(
+              user!.user.username,
+              style: AppTextStyles.textStyle12Regular.copyWith(
+                color: AppColors.primaryColor,
+              ),
             ),
           ),
           const Spacer(),
@@ -31,8 +34,9 @@ class HomeCustomAppBar extends StatelessWidget {
             onPressed: () => context.pushRoute(const ProfileRoute()),
             icon: Icon(
               AppConstants.personIcon,
-              color:
-                  context.isDarkModeActive ? Colors.white : AppColors.greyColor,
+              color: context.isDarkModeActive
+                  ? AppColors.lightModeColor
+                  : AppColors.greyColor,
             ),
           ),
           IconButton(
@@ -43,8 +47,9 @@ class HomeCustomAppBar extends StatelessWidget {
             ),
             icon: Icon(
               Icons.notifications,
-              color:
-                  context.isDarkModeActive ? Colors.white : AppColors.greyColor,
+              color: context.isDarkModeActive
+                  ? AppColors.lightModeColor
+                  : AppColors.greyColor,
             ),
           ),
         ],

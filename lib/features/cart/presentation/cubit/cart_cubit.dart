@@ -5,44 +5,64 @@ import 'package:store_ify/features/cart/data/repositories/cart_repo.dart';
 import 'package:store_ify/features/cart/presentation/cubit/cart_state.dart';
 
 class CartCubit extends Cubit<CartState> {
-  CartCubit(this._cartRepo) : super(const CartState.initial());
-
   final CartRepo _cartRepo;
+
+  CartCubit(this._cartRepo) : super(CartState.initial());
+
   final CancelToken _cancelToken = CancelToken();
 
   void addProductToCart(AddProductToCartParams params) async {
-    emit(const CartState.addProductToCartLoading());
+    emit(state.copyWith(
+      status: CartStateStatus.addProductToCartLoading,
+    ));
     final result = await _cartRepo.addProductToCart(
       params,
       _cancelToken,
     );
     result.when(
-      success: (_) => emit(const CartState.addProductToCartSuccess()),
-      error: (errorModel) =>
-          emit(CartState.addProductToCartError(errorModel.error ?? '')),
+      success: (_) => emit(state.copyWith(
+        status: CartStateStatus.addProductToCartSuccess,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: CartStateStatus.addProductToCartError,
+        error: errorModel.error ?? '',
+      )),
     );
   }
 
-  void fetchCart() async {
-    emit(const CartState.fetchCartLoading());
+  Future<void> fetchCart() async {
+    emit(state.copyWith(
+      status: CartStateStatus.fetchCartLoading,
+    ));
     final result = await _cartRepo.fetchCart(_cancelToken);
     result.when(
-      success: (cart) => emit(CartState.fetchCartSuccess(cart)),
-      error: (errorModel) =>
-          emit(CartState.fetchCartError(errorModel.error ?? '')),
+      success: (cart) => emit(state.copyWith(
+        status: CartStateStatus.fetchCartSuccess,
+        cart: cart,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: CartStateStatus.fetchCartError,
+        error: errorModel.error ?? '',
+      )),
     );
   }
 
   void removeProductFromCart(int productId) async {
-    emit(const CartState.removeProductFromCartLoading());
+    emit(state.copyWith(
+      status: CartStateStatus.removeProductFromCartLoading,
+    ));
     final result = await _cartRepo.removeProductFromCart(
       productId,
       _cancelToken,
     );
     result.when(
-      success: (_) => emit(const CartState.removeProductFromCartSuccess()),
-      error: (errorModel) =>
-          emit(CartState.removeProductFromCartError(errorModel.error ?? '')),
+      success: (_) => emit(state.copyWith(
+        status: CartStateStatus.removeProductFromCartSuccess,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: CartStateStatus.removeProductFromCartError,
+        error: errorModel.error ?? '',
+      )),
     );
   }
 

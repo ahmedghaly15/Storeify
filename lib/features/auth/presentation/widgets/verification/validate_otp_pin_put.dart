@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/features/auth/presentation/cubits/validate_otp/validate_otp_cubit.dart';
 
@@ -12,9 +13,10 @@ class ValidateOtpPinput extends StatelessWidget {
   Widget build(BuildContext context) {
     return Pinput(
       controller: context.read<ValidateOtpCubit>().otpController,
-      // androidSmsAutofillMethod:
-      // AndroidSmsAutofillMethod.smsUserConsentApi,
-      // listenForMultipleSmsOnAndroid: true,
+      onCompleted: (_) => context.unfocusKeyboard(),
+      autofocus: true,
+      showCursor: true,
+      pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
       defaultPinTheme: PinTheme(
         width: 52.w,
         height: 52.w,

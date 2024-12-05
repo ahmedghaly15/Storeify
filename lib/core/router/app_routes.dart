@@ -28,9 +28,9 @@ List<AutoRoute> get appRoutes => [
             initial: true,
             children: [
               _buildCustomRoute(page: HomeRouteBody.page, initial: true),
-              _buildCustomRoute(page: StoresRouteBody.page),
-              _buildCustomRoute(page: CartRouteBody.page),
-              _buildCustomRoute(page: FavoritesRouteBody.page),
+              _buildCustomRoute(page: StoresRoute.page),
+              _buildCustomRoute(page: CartRoute.page),
+              _buildCustomRoute(page: FavoritesRoute.page),
             ],
           ),
         ],
@@ -44,9 +44,8 @@ List<AutoRoute> get appRoutes => [
       _buildCustomRoute(page: PaymentSuccessfullyRoute.page),
       _buildCustomRoute(page: ProfileRoute.page),
       _buildCustomRoute(page: SearchRoute.page),
-      _buildCustomRoute(page: StoresRoute.page),
-      _buildCustomRoute(page: CartRoute.page),
-      _buildCustomRoute(page: FavoritesRoute.page),
+      _buildCustomRoute(page: ChangePasswordRoute.page),
+      _buildCustomRoute(page: UpdateProfileRoute.page),
     ];
 
 CustomRoute _buildCustomRoute({

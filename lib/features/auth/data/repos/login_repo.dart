@@ -13,7 +13,7 @@ class LoginRepo {
   Future<ApiResult<StoreifyUser>> login(
     LoginParams params, [
     CancelToken? cancelToken,
-  ]) async {
+  ]) {
     return executeAndHandleErrors<StoreifyUser>(
       () async => await _loginApiService.login(params, cancelToken),
     );
