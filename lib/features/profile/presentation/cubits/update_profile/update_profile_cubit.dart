@@ -1,8 +1,11 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/profile/data/models/update_profile_params.dart';
 import 'package:store_ify/features/profile/data/repos/profile_repo.dart';
@@ -26,11 +29,27 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
     emailController = TextEditingController();
   }
 
-  void updateSelectedImg(File img) {
-    if (state.selectedImg != img) {
+  Future<XFile?> _pickAndCompressImg() async {
+    final pickedImg =
+        await getIt.get<ImagePicker>().pickImage(source: ImageSource.gallery);
+    if (pickedImg != null) {
+      final compressedImg = await FlutterImageCompress.compressAndGetFile(
+        pickedImg.path,
+        '${pickedImg.path}_compressed.jpg',
+        format: CompressFormat.jpeg,
+        quality: 70,
+      );
+      return compressedImg;
+    }
+    return null;
+  }
+
+  void pickProfileImg() async {
+    final pickedImg = await _pickAndCompressImg();
+    if (pickedImg != null) {
       emit(state.copyWith(
         status: UpdateProfileStateStatus.updateSelectedImg,
-        selectedImg: img,
+        selectedImg: File(pickedImg.path),
       ));
     }
   }
