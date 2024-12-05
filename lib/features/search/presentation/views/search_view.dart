@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
 import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/features/search/presentation/cubit/search_cubit.dart';
-import 'package:store_ify/features/search/presentation/widgets/hero_search_field_bloc_builder.dart';
+import 'package:store_ify/features/search/presentation/widgets/hero_search_field.dart';
 import 'package:store_ify/features/search/presentation/widgets/search_result_bloc_builder.dart';
 
 @RoutePage()
@@ -27,7 +27,7 @@ class SearchView extends StatelessWidget implements AutoRouteWrapper {
           slivers: [
             CustomSliverAppBar(),
             SliverToBoxAdapter(
-              child: HeroSearchFieldBlocBuilder(),
+              child: HeroSearchField(),
             ),
             SearchResultBlocBuilder(),
           ],
