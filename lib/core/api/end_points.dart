@@ -26,4 +26,5 @@ class EndPoints {
   static const String changePassword = '${profile}change-password';
   static const String search = 'search';
   static const String updateProfile = '${profile}update';
+  static const String searchData = 'searchData';
 }
