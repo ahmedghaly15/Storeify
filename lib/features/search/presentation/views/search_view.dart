@@ -14,7 +14,7 @@ class SearchView extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider<SearchCubit>(
-      create: (_) => getIt.get<SearchCubit>(),
+      create: (_) => getIt.get<SearchCubit>()..fetchSearchData(),
       child: this,
     );
   }

@@ -51,6 +51,23 @@ class SearchCubit extends Cubit<SearchState> {
     });
   }
 
+  void fetchSearchData() async {
+    emit(state.copyWith(
+      status: SearchStateStatus.fetchSearchDataLoading,
+    ));
+    final result = await _searchRepo.fetchSearchData(_cancelToken);
+    result.when(
+      success: (searchData) => emit(state.copyWith(
+        status: SearchStateStatus.fetchSearchDataSuccess,
+        searchData: searchData,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: SearchStateStatus.fetchSearchDataError,
+        error: errorModel.error ?? '',
+      )),
+    );
+  }
+
   @override
   Future<void> close() {
     _cancelToken.cancel();
