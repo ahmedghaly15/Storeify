@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
@@ -26,7 +27,9 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
           end: 24.w,
           top: 24.h,
         ),
-        onPressed: (state.email.isNotEmpty || state.username.isNotEmpty)
+        onPressed: (state.email.isNotEmpty ||
+                state.username.isNotEmpty ||
+                state.selectedImg != null)
             ? () => context.read<UpdateProfileCubit>().updateProfile()
             : null,
         child: circularIndicatorOrTextWidget(
@@ -44,8 +47,11 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
     BuildContext context,
   ) async {
     switch (state.status) {
+      case UpdateProfileStateStatus.updateProfileLoading:
+        context.unfocusKeyboard();
+        break;
       case UpdateProfileStateStatus.updateProfileSuccess:
-        currentUser = state.updatedUser!;
+        currentUserSetter = state.updatedUser!;
         await AuthLocalDatasource.cacheUser(state.updatedUser!);
         CustomToast.showToast(
           context: context,
@@ -68,11 +74,13 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
         status == UpdateProfileStateStatus.updateProfileSuccess ||
         status == UpdateProfileStateStatus.updateProfileLoading ||
         status == UpdateProfileStateStatus.onChangeEmail ||
-        status == UpdateProfileStateStatus.onChangeUsername;
+        status == UpdateProfileStateStatus.onChangeUsername ||
+        status == UpdateProfileStateStatus.updateSelectedImg;
   }
 
   bool _listenWhen(UpdateProfileStateStatus status) {
     return status == UpdateProfileStateStatus.updateProfileError ||
-        status == UpdateProfileStateStatus.updateProfileSuccess;
+        status == UpdateProfileStateStatus.updateProfileSuccess ||
+        status == UpdateProfileStateStatus.updateProfileLoading;
   }
 }

@@ -24,7 +24,6 @@ class UsernameTextFormField extends StatelessWidget {
       validate: validate,
       controller: controller,
       keyboardType: TextInputType.name,
-      textCapitalization: TextCapitalization.words,
       hintTextKey: LocaleKeys.enterYourUsername,
       autofillHints: const <String>[AutofillHints.name],
       focusNode: usernameFocusNode,

@@ -7,7 +7,7 @@ import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/profile/data/models/setting_item.dart';
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
-import 'package:store_ify/features/profile/presentation/widgets/current_user_data.dart';
+import 'package:store_ify/features/profile/presentation/widgets/user_profile_data.dart';
 import 'package:store_ify/features/profile/presentation/widgets/profile_settings_title.dart';
 import 'package:store_ify/features/profile/presentation/widgets/profile_view_sliver_app_bar.dart';
 import 'package:store_ify/features/profile/presentation/widgets/settings_separated_list_view.dart';
@@ -31,7 +31,7 @@ class ProfileView extends StatelessWidget implements AutoRouteWrapper {
         child: CustomScrollView(
           slivers: [
             const ProfileViewSliverAppBar(),
-            const SliverToBoxAdapter(child: CurrentUserData()),
+            const SliverToBoxAdapter(child: UserProfileData()),
             const SliverToBoxAdapter(
               child: ProfileSettingsTitle(titleKey: LocaleKeys.appSettings),
             ),
