@@ -27,7 +27,6 @@ class RegisterButtonBlocConsumer extends StatelessWidget {
           end: 24.w,
           bottom: 10.h,
         ),
-        width: double.infinity,
         child: circularIndicatorOrTextWidget(
           isLoading: state.status == RegisterStateStatus.registerLoading,
           context: context,

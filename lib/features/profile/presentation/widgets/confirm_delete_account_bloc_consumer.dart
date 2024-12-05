@@ -19,7 +19,6 @@ class ConfirmDeleteAccountBlocConsumer extends StatelessWidget {
       listener: (context, state) => _listener(state, context),
       builder: (context, state) => MainButton(
         onPressed: () => context.read<ProfileCubit>().deleteAccount(),
-        width: double.infinity,
         child: circularIndicatorOrTextWidget(
           isLoading: state.status == ProfileStateStatus.deleteAccountLoading,
           context: context,

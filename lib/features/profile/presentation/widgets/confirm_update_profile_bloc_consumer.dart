@@ -21,7 +21,6 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
       listener: (context, state) async => await _listener(state, context),
       buildWhen: (_, current) => _buildWhen(current.status),
       builder: (context, state) => MainButton(
-        width: double.infinity,
         margin: EdgeInsetsDirectional.only(
           start: 24.w,
           end: 24.w,
