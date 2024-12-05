@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/debouncer.dart';
 import 'package:store_ify/features/search/data/models/search_params.dart';
@@ -11,46 +10,49 @@ class SearchCubit extends Cubit<SearchState> {
 
   SearchCubit(
     this._searchRepo,
-  ) : super(const SearchState.initial()) {
-    _initSearchObjects();
-  }
-
-  void _initSearchObjects() {
-    searchController = TextEditingController();
+  ) : super(SearchState.initial()) {
     _debouncer = Debouncer(duration: const Duration(milliseconds: 500));
   }
 
-  late final TextEditingController searchController;
   late final Debouncer _debouncer;
   final CancelToken _cancelToken = CancelToken();
 
-  void _search() async {
-    emit(const SearchState.searchLoading());
+  void search() async {
+    emit(state.copyWith(
+      status: SearchStateStatus.searchLoading,
+    ));
     final result = await _searchRepo.search(
-      SearchParams(searchController.text.trim()),
+      SearchParams(state.searchText.trim()),
       _cancelToken,
     );
     result.when(
-      success: (searchResult) => emit(SearchState.searchSuccess(searchResult)),
-      error: (error) => emit(SearchState.searchError(error.error ?? '')),
+      success: (searchResult) => emit(state.copyWith(
+        status: SearchStateStatus.searchSuccess,
+        searchResult: searchResult,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: SearchStateStatus.searchError,
+        error: errorModel.error ?? '',
+      )),
     );
   }
 
-  void _updateSearchText(String text) {
-    searchController.text = text;
-    emit(SearchState.updateSearchText(searchController.text));
+  void _onChangeSearch(String? text) {
+    emit(state.copyWith(
+      status: SearchStateStatus.onChangeSearchText,
+      searchText: text ?? '',
+    ));
   }
 
-  void debouncedSearch(String text) {
-    _updateSearchText(text);
+  void debouncedSearch(String? text) {
+    _onChangeSearch(text);
     _debouncer.run(() {
-      _search();
+      search();
     });
   }
 
   @override
   Future<void> close() {
-    searchController.dispose();
     _cancelToken.cancel();
     return super.close();
   }

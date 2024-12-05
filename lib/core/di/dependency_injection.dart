@@ -56,6 +56,7 @@ import 'package:store_ify/features/profile/presentation/cubits/change_pass/chang
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
 import 'package:store_ify/features/profile/presentation/cubits/update_profile/update_profile_cubit.dart';
 import 'package:store_ify/features/search/data/api/search_api_service.dart';
+import 'package:store_ify/features/search/data/datasource/search_local_datasource.dart';
 import 'package:store_ify/features/search/data/repositories/search_repo.dart';
 import 'package:store_ify/features/search/presentation/cubit/search_cubit.dart';
 import 'package:store_ify/features/stores/data/api/stores_api_service.dart';
@@ -146,6 +147,9 @@ void _setupDIForDatasources() {
   getIt.registerLazySingleton<StoresLocalDatasource>(
     () => const StoresLocalDatasource(),
   );
+  getIt.registerLazySingleton<SearchLocalDatasource>(
+    () => const SearchLocalDatasource(),
+  );
 }
 
 void _setupDIForRepos() {
@@ -204,7 +208,10 @@ void _setupDIForRepos() {
     () => ProfileRepo(getIt.get<ProfileApiService>()),
   );
   getIt.registerLazySingleton<SearchRepo>(
-    () => SearchRepo(getIt.get<SearchApiService>()),
+    () => SearchRepo(
+      getIt.get<SearchApiService>(),
+      getIt.get<SearchLocalDatasource>(),
+    ),
   );
 }
 
