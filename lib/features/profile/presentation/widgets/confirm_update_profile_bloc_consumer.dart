@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
@@ -16,17 +17,20 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<UpdateProfileCubit, UpdateProfileState>(
-      listenWhen: (_, current) => _listenWhen(current),
+      listenWhen: (_, current) => _listenWhen(current.status),
       listener: (context, state) async => await _listener(state, context),
-      buildWhen: (_, current) => _buildWhen(current),
+      buildWhen: (_, current) => _buildWhen(current.status),
       builder: (context, state) => MainButton(
-        width: double.infinity,
         margin: EdgeInsetsDirectional.only(
           start: 24.w,
           end: 24.w,
           top: 24.h,
         ),
-        onPressed: () => _updateProfile(context),
+        onPressed: (state.email.isNotEmpty ||
+                state.username.isNotEmpty ||
+                state.selectedImg != null)
+            ? () => context.read<UpdateProfileCubit>().updateProfile()
+            : null,
         child: circularIndicatorOrTextWidget(
           isLoading:
               state.status == UpdateProfileStateStatus.updateProfileLoading,
@@ -37,27 +41,16 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
     );
   }
 
-  void _updateProfile(BuildContext context) {
-    final updateProfileCubit = context.read<UpdateProfileCubit>();
-    if (updateProfileCubit.emailController.text.isNotEmpty ||
-        updateProfileCubit.usernameController.text.isNotEmpty) {
-      updateProfileCubit.updateProfile();
-    } else {
-      CustomToast.showToast(
-        context: context,
-        messageKey: LocaleKeys.nothingChangedToUpdate,
-        state: CustomToastState.warning,
-      );
-    }
-  }
-
   Future<void> _listener(
     UpdateProfileState<dynamic> state,
     BuildContext context,
   ) async {
     switch (state.status) {
+      case UpdateProfileStateStatus.updateProfileLoading:
+        context.unfocusKeyboard();
+        break;
       case UpdateProfileStateStatus.updateProfileSuccess:
-        currentUser = state.updatedUser!;
+        currentUserSetter = state.updatedUser!;
         await AuthLocalDatasource.cacheUser(state.updatedUser!);
         CustomToast.showToast(
           context: context,
@@ -75,14 +68,18 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
     }
   }
 
-  bool _buildWhen(UpdateProfileState<dynamic> current) {
-    return current.status == UpdateProfileStateStatus.updateProfileError ||
-        current.status == UpdateProfileStateStatus.updateProfileSuccess ||
-        current.status == UpdateProfileStateStatus.updateProfileLoading;
+  bool _buildWhen(UpdateProfileStateStatus status) {
+    return status == UpdateProfileStateStatus.updateProfileError ||
+        status == UpdateProfileStateStatus.updateProfileSuccess ||
+        status == UpdateProfileStateStatus.updateProfileLoading ||
+        status == UpdateProfileStateStatus.onChangeEmail ||
+        status == UpdateProfileStateStatus.onChangeUsername ||
+        status == UpdateProfileStateStatus.updateSelectedImg;
   }
 
-  bool _listenWhen(UpdateProfileState<dynamic> current) {
-    return current.status == UpdateProfileStateStatus.updateProfileError ||
-        current.status == UpdateProfileStateStatus.updateProfileSuccess;
+  bool _listenWhen(UpdateProfileStateStatus status) {
+    return status == UpdateProfileStateStatus.updateProfileError ||
+        status == UpdateProfileStateStatus.updateProfileSuccess ||
+        status == UpdateProfileStateStatus.updateProfileLoading;
   }
 }

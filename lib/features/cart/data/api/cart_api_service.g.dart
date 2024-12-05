@@ -14,7 +14,7 @@ class _CartApiService implements CartApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://192.168.1.51:8081/api/';
+    baseUrl ??= 'http://192.168.1.6:8081/api/';
   }
 
   final Dio _dio;

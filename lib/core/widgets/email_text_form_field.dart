@@ -10,11 +10,13 @@ class EmailTextFormField extends StatelessWidget {
     this.emailFocusNode,
     this.nextFocusNode,
     this.validate,
+    this.onChanged,
   });
 
   final TextEditingController? emailController;
   final FocusNode? emailFocusNode, nextFocusNode;
   final String? Function(String?)? validate;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,7 @@ class EmailTextFormField extends StatelessWidget {
       onEditingComplete: nextFocusNode != null
           ? () => context.requestFocus(nextFocusNode!)
           : null,
+      onChanged: onChanged,
     );
   }
 }

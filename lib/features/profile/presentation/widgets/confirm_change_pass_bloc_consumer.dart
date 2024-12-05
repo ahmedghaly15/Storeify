@@ -21,7 +21,6 @@ class ConfirmChangePassBlocConsumer extends StatelessWidget {
       buildWhen: (_, current) => _listenOrBuildWhen(current.status),
       builder: (context, state) => MainButton(
         margin: EdgeInsets.symmetric(horizontal: 24.w),
-        width: double.infinity,
         onPressed: () =>
             context.read<ChangePassCubit>().validateAndChangePass(),
         child: circularIndicatorOrTextWidget(
