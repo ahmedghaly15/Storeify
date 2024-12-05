@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:store_ify/core/api/dio_factory.dart';
 import 'package:store_ify/core/router/app_router.dart';
@@ -64,12 +67,22 @@ import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubi
 
 final GetIt getIt = GetIt.instance;
 
-void setupDI() {
+Future<void> setupDI() async {
+  await _setupForExternal();
   _setupDIForCore();
   _setupForApiServices();
   _setupDIForDatasources();
   _setupDIForRepos();
   _setupDIForCubits();
+}
+
+Future<void> _setupForExternal() async {
+  final SharedPreferences sharedPreferences =
+      await SharedPreferences.getInstance();
+  getIt.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
+  const flutterSecureStorage = FlutterSecureStorage();
+  getIt.registerLazySingleton<FlutterSecureStorage>(() => flutterSecureStorage);
+  getIt.registerLazySingleton<ImagePicker>(() => ImagePicker());
 }
 
 void _setupDIForCore() {

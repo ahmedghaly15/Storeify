@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:store_ify/core/api/dio_factory.dart';
-import 'package:store_ify/core/helpers/shared_pref_helper.dart';
+import 'package:store_ify/core/helpers/secure_storage_helper.dart';
 import 'package:store_ify/core/helpers/shared_pref_keys.dart';
 import 'package:store_ify/core/models/storeify_user.dart';
 
@@ -9,7 +9,7 @@ class AuthLocalDatasource {
   AuthLocalDatasource._();
 
   static Future<void> cacheUser(StoreifyUser user) async {
-    await SharedPrefHelper.setSecuredString(
+    await SecureStorageHelper.setSecuredString(
       SharedPrefKeys.storeifyUser,
       json.encode(user.toJson()),
     );
@@ -22,7 +22,7 @@ class AuthLocalDatasource {
 
   static Future<StoreifyUser> getCachedUser() async {
     final cachedUser =
-        await SharedPrefHelper.getSecuredString(SharedPrefKeys.storeifyUser);
+        await SecureStorageHelper.getSecuredString(SharedPrefKeys.storeifyUser);
     final StoreifyUser user = StoreifyUser.fromJson(json.decode(cachedUser));
     return user;
   }
