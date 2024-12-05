@@ -16,9 +16,9 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<UpdateProfileCubit, UpdateProfileState>(
-      listenWhen: (_, current) => _listenWhen(current),
+      listenWhen: (_, current) => _listenWhen(current.status),
       listener: (context, state) async => await _listener(state, context),
-      buildWhen: (_, current) => _buildWhen(current),
+      buildWhen: (_, current) => _buildWhen(current.status),
       builder: (context, state) => MainButton(
         width: double.infinity,
         margin: EdgeInsetsDirectional.only(
@@ -26,7 +26,9 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
           end: 24.w,
           top: 24.h,
         ),
-        onPressed: () => _updateProfile(context),
+        onPressed: (state.email.isNotEmpty || state.username.isNotEmpty)
+            ? () => context.read<UpdateProfileCubit>().updateProfile()
+            : null,
         child: circularIndicatorOrTextWidget(
           isLoading:
               state.status == UpdateProfileStateStatus.updateProfileLoading,
@@ -35,20 +37,6 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void _updateProfile(BuildContext context) {
-    final updateProfileCubit = context.read<UpdateProfileCubit>();
-    if (updateProfileCubit.emailController.text.isNotEmpty ||
-        updateProfileCubit.usernameController.text.isNotEmpty) {
-      updateProfileCubit.updateProfile();
-    } else {
-      CustomToast.showToast(
-        context: context,
-        messageKey: LocaleKeys.nothingChangedToUpdate,
-        state: CustomToastState.warning,
-      );
-    }
   }
 
   Future<void> _listener(
@@ -75,14 +63,16 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
     }
   }
 
-  bool _buildWhen(UpdateProfileState<dynamic> current) {
-    return current.status == UpdateProfileStateStatus.updateProfileError ||
-        current.status == UpdateProfileStateStatus.updateProfileSuccess ||
-        current.status == UpdateProfileStateStatus.updateProfileLoading;
+  bool _buildWhen(UpdateProfileStateStatus status) {
+    return status == UpdateProfileStateStatus.updateProfileError ||
+        status == UpdateProfileStateStatus.updateProfileSuccess ||
+        status == UpdateProfileStateStatus.updateProfileLoading ||
+        status == UpdateProfileStateStatus.onChangeEmail ||
+        status == UpdateProfileStateStatus.onChangeUsername;
   }
 
-  bool _listenWhen(UpdateProfileState<dynamic> current) {
-    return current.status == UpdateProfileStateStatus.updateProfileError ||
-        current.status == UpdateProfileStateStatus.updateProfileSuccess;
+  bool _listenWhen(UpdateProfileStateStatus status) {
+    return status == UpdateProfileStateStatus.updateProfileError ||
+        status == UpdateProfileStateStatus.updateProfileSuccess;
   }
 }

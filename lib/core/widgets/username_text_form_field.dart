@@ -10,11 +10,13 @@ class UsernameTextFormField extends StatelessWidget {
     this.usernameFocusNode,
     this.nextFocusNode,
     this.validate,
+    this.onChanged,
   });
 
   final TextEditingController? controller;
   final FocusNode? usernameFocusNode, nextFocusNode;
   final String? Function(String?)? validate;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class UsernameTextFormField extends StatelessWidget {
       onEditingComplete: nextFocusNode != null
           ? () => context.requestFocus(nextFocusNode!)
           : null,
+      onChanged: onChanged,
     );
   }
 }
