@@ -1,14 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
-import 'package:store_ify/core/utils/app_constants.dart';
-import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
+
 import 'package:store_ify/core/di/dependency_injection.dart';
+import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
+import 'package:store_ify/core/widgets/custom_error_widget.dart';
 import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
-import 'package:store_ify/features/cart/presentation/widgets/cart_products_sliver_list_bloc_builder.dart';
-import 'package:store_ify/features/cart/presentation/widgets/cart_summary_bloc_builder.dart';
-import 'package:store_ify/features/cart/presentation/widgets/checkout_button_bloc_builder.dart';
+import 'package:store_ify/features/cart/presentation/cubit/cart_state.dart';
+import 'package:store_ify/features/cart/presentation/widgets/cart_view_body.dart';
 
 @RoutePage()
 class CartView extends StatelessWidget implements AutoRouteWrapper {
@@ -24,49 +23,48 @@ class CartView extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      // Extracted it as it's used as a route in Layout
-      body: CartViewBody(isAppBarHasLeading: true),
-    );
-  }
-}
-
-@RoutePage()
-class CartViewBody extends StatelessWidget implements AutoRouteWrapper {
-  const CartViewBody({
-    super.key,
-    this.isAppBarHasLeading = false,
-  });
-
-  final bool isAppBarHasLeading;
-
-  @override
-  Widget wrappedRoute(BuildContext context) {
-    return BlocProvider<CartCubit>(
-      create: (_) => getIt.get<CartCubit>()..fetchCart(),
-      child: this,
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return SafeArea(
-      child: CustomScrollView(
-        physics: AppConstants.physics,
-        slivers: [
-          CustomSliverAppBar(
-            titleKey: LangKeys.cart,
-            hasLeading: isAppBarHasLeading,
-          ),
-          const CartProductsSliverListBlocBuilder(),
-          const SliverToBoxAdapter(
-            child: CartSummaryBlocBuilder(),
-          ),
-          const SliverToBoxAdapter(
-            child: CheckoutButtonBlocBuilder(),
-          ),
-        ],
+      child: RefreshIndicator.adaptive(
+        onRefresh: () async => await context.read<CartCubit>().fetchCart(),
+        child: BlocBuilder<CartCubit, CartState>(
+          buildWhen: (_, current) => _buildWhen(current.status),
+          builder: (context, state) {
+            switch (state.status) {
+              case CartStateStatus.fetchCartLoading:
+                return const Center(
+                  child: CustomCircularProgressIndicator(),
+                );
+              case CartStateStatus.fetchCartSuccess:
+                return CartViewBody(cart: state.cart!);
+              case CartStateStatus.fetchCartError:
+                return state.cart != null
+                    ? CartViewBody(cart: state.cart!)
+                    : CustomScrollView(
+                        slivers: [
+                          SliverFillRemaining(
+                            hasScrollBody: false,
+                            child: CustomErrorWidget(
+                              errorKey: state.error!,
+                              tryAgainOnPressed: () =>
+                                  context.read<CartCubit>().fetchCart(),
+                            ),
+                          ),
+                        ],
+                      );
+              default:
+                return const Center(
+                  child: CustomCircularProgressIndicator(),
+                );
+            }
+          },
+        ),
       ),
     );
+  }
+
+  bool _buildWhen(CartStateStatus status) {
+    return status == CartStateStatus.fetchCartLoading ||
+        status == CartStateStatus.fetchCartSuccess ||
+        status == CartStateStatus.fetchCartError;
   }
 }

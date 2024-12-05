@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
@@ -18,48 +19,42 @@ class FavoriteCategoriesListView extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       padding: AppConstants.categoryPadding,
       itemBuilder: (_, index) =>
-          BlocBuilder<FetchFavoritesCubit, FetchFavoritesState>(
-        buildWhen: (_, current) => current is UpdateSelectedFavCategory,
-        builder: (context, state) => MainButton(
-          isOutlined: true,
-          backgroundColor: _backgroundColor(context, index),
-          borderRadius: 34,
-          borderColor: context.isDarkModeActive
-              ? Colors.transparent
-              : context
+          BlocSelector<FetchFavoritesCubit, FetchFavoritesState, int>(
+        selector: (state) => state.selectedFavCategory,
+        builder: (context, selectedFavCategory) {
+          final isSelected = selectedFavCategory == index;
+          return MainButton(
+            isOutlined: true,
+            backgroundColor: context.isDarkModeActive
+                ? (isSelected
+                    ? AppColors.primaryColor
+                    : AppColors.secondaryDarkColor)
+                : AppColors.lightModeColor,
+            borderRadius: 34,
+            borderColor: context.isDarkModeActive
+                ? Colors.transparent
+                : _lightModeSelectedColor(isSelected),
+            onPressed: () {
+              context
                   .read<FetchFavoritesCubit>()
-                  .selectedFavCategoryColor(index),
-          onPressed: () {
-            context
-                .read<FetchFavoritesCubit>()
-                .updateSelectedFavCategoryAndFetchItsData(index);
-          },
-          child: Text(
-            context.translate(AppConstants.favoritesCategoriesKeys[index]),
-            style: AppTextStyles.textStyle10Medium.copyWith(
-              color: context.isDarkModeActive
-                  ? AppColors.lightModeColor
-                  : context
-                      .read<FetchFavoritesCubit>()
-                      .selectedFavCategoryColor(index),
+                  .updateSelectedFavCategoryAndFetchItsData(index);
+            },
+            child: Text(
+              context.tr(AppConstants.favoritesCategoriesKeys[index]),
+              style: AppTextStyles.textStyle10Medium.copyWith(
+                color: context.isDarkModeActive
+                    ? AppColors.lightModeColor
+                    : _lightModeSelectedColor(isSelected),
+              ),
             ),
-          ),
-        ),
+          );
+        },
       ),
       separatorBuilder: (_, __) => MySizedBox.width8,
       itemCount: AppConstants.favoritesCategoriesKeys.length,
     );
   }
 
-  Color? _backgroundColor(BuildContext context, int index) {
-    return context.isDarkModeActive
-        ? _darkModelBackground(context, index)
-        : AppColors.lightModeColor;
-  }
-
-  Color? _darkModelBackground(BuildContext context, int index) {
-    return (context.read<FetchFavoritesCubit>().isActiveFavCategory(index)
-        ? AppColors.primaryColor
-        : AppColors.secondaryDarkColor);
-  }
+  Color _lightModeSelectedColor(bool isSelected) =>
+      (isSelected ? AppColors.primaryColor : AppColors.blueColor);
 }

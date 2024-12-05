@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
-import 'package:store_ify/features/layout/data/bottom_nav_item_attributes.dart';
+import 'package:store_ify/features/layout/data/models/bottom_nav_item_attributes.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -23,6 +23,7 @@ class CustomBottomNavBar extends StatelessWidget {
         children: List.generate(
           _bottomNavItems.length,
           (index) => _buildBottomNavItem(_bottomNavItems[index], context),
+          growable: false,
         ),
       ),
     );
@@ -45,7 +46,7 @@ class CustomBottomNavBar extends StatelessWidget {
                   : AppColors.greyColor,
             ),
             Text(
-              context.translate(attributes.labelKey),
+              context.tr(attributes.labelKey),
               style: AppTextStyles.textStyle8Bold.copyWith(
                 color: attributes.index == currentIndex
                     ? AppColors.primaryColor
@@ -60,25 +61,25 @@ class CustomBottomNavBar extends StatelessWidget {
         BottomNavItemAttributes(
           index: 0,
           icon: Icons.home_outlined,
-          labelKey: LangKeys.home,
+          labelKey: LocaleKeys.home,
           color: AppColors.greyColor,
         ),
         BottomNavItemAttributes(
           index: 1,
           icon: Icons.store,
-          labelKey: LangKeys.stores,
+          labelKey: LocaleKeys.stores,
           color: AppColors.greyColor,
         ),
         BottomNavItemAttributes(
           index: 2,
           icon: Icons.shopping_cart_outlined,
-          labelKey: LangKeys.cart,
+          labelKey: LocaleKeys.cart,
           color: AppColors.greyColor,
         ),
         BottomNavItemAttributes(
           index: 3,
           icon: Icons.favorite_outline,
-          labelKey: LangKeys.favorite,
+          labelKey: LocaleKeys.favorite,
           color: AppColors.greyColor,
         ),
       ];

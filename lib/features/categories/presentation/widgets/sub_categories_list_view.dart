@@ -14,7 +14,7 @@ class SubCategoriesListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: AppConstants.categoryMargin,
-      height: 25.h,
+      height: 50.h,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         padding: AppConstants.categoryPadding,

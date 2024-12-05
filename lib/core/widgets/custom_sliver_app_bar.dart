@@ -1,5 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/widgets/get_back_icon_button.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
@@ -21,9 +21,7 @@ class CustomSliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      // title: titleWidget ?? Text(titleKey ?? ''),
-      title: titleWidget ??
-          Text(titleKey == null ? '' : context.translate(titleKey!)),
+      title: titleWidget ?? Text(titleKey == null ? '' : context.tr(titleKey!)),
       leading: hasLeading ? leading ?? const GetBackIconButton() : null,
       actions: actions,
     );

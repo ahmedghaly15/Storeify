@@ -14,8 +14,10 @@ class ResetPasswordRepo {
     CancelToken? cancelToken,
   ]) {
     return executeAndHandleErrors<void>(
-      () async =>
-          await _resetPasswordApiService.resetPassword(params, cancelToken),
+      () async => await _resetPasswordApiService.resetPassword(
+        params,
+        cancelToken,
+      ),
     );
   }
 }

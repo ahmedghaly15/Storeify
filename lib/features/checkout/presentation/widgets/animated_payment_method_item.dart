@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
@@ -35,8 +36,8 @@ class AnimatedPaymentMethodItem extends StatelessWidget {
           begin: 0.0,
           end: isChosen ? 10.0.h : 0.0,
         ),
-        builder: (_, double translateY, __) => Transform.translate(
-          offset: Offset(0.0, -translateY),
+        builder: (_, double trY, __) => Transform.translate(
+          offset: Offset(0.0, -trY),
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
             margin: EdgeInsets.symmetric(
@@ -78,7 +79,7 @@ class AnimatedPaymentMethodItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    context.translate(paymentMethod.name),
+                    context.tr(paymentMethod.name),
                     style: AppTextStyles.textStyle16Regular,
                   ),
                   MySizedBox.width40,

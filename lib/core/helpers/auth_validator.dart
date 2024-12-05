@@ -1,41 +1,41 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:store_ify/core/helpers/app_regex.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class AuthValidator {
   static String? validatePasswordField(BuildContext context, {String? value}) {
     if (value == null || value.isEmpty) {
-      return context.translate(LangKeys.passwordRequired);
+      return context.tr(LocaleKeys.passwordRequired);
     } else if (value.length < 8) {
-      return context.translate(LangKeys.passwordInvalidLength);
+      return context.tr(LocaleKeys.passwordInvalidLength);
     } else if (!AppRegex.passwordHasCapitalCharacter(value)) {
-      return context.translate(LangKeys.passwordContainsUppercase);
+      return context.tr(LocaleKeys.passwordContainsUppercase);
     } else if (!AppRegex.passwordHasLowercaseCharacter(value)) {
-      return context.translate(LangKeys.passwordContainsLowercase);
+      return context.tr(LocaleKeys.passwordContainsLowercase);
     } else if (!AppRegex.passwordHasNumber(value)) {
-      return context.translate(LangKeys.passwordContainsDigit);
+      return context.tr(LocaleKeys.passwordContainsDigit);
     } else if (!AppRegex.passwordHasSpecialCharacter(value)) {
-      return context.translate(LangKeys.passwordContainsSpecial);
+      return context.tr(LocaleKeys.passwordContainsSpecial);
     }
     return null;
   }
 
   static String? validateEmailField(BuildContext context, {String? value}) {
     if (value == null || value.isEmpty) {
-      return context.translate(LangKeys.emailRequired);
+      return context.tr(LocaleKeys.emailRequired);
     } else if (!AppRegex.isEmailValid(value)) {
-      return context.translate(LangKeys.emailInvalid);
+      return context.tr(LocaleKeys.emailInvalid);
     }
     return null;
   }
 
   static String? validateNameField(BuildContext context, {String? value}) {
     if (value!.isEmpty) {
-      return context.translate(LangKeys.nameRequired);
+      return context.tr(LocaleKeys.nameRequired);
     }
     if (value.length < 3) {
-      return context.translate(LangKeys.nameInvalidLength);
+      return context.tr(LocaleKeys.nameInvalidLength);
     }
     return null;
   }
@@ -47,7 +47,7 @@ class AuthValidator {
     required String confirmPassword,
   }) {
     if (value!.isEmpty || password != confirmPassword) {
-      return context.translate(LangKeys.passwordsDontMatch);
+      return context.tr(LocaleKeys.passwordsDontMatch);
     }
 
     return null;

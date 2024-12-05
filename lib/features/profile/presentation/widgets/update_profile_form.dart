@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/widgets/email_text_form_field.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/core/widgets/username_text_form_field.dart';
@@ -16,12 +16,12 @@ class UpdateProfileForm extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TextFieldLabel(labelKey: LangKeys.email),
+        const TextFieldLabel(labelKey: LocaleKeys.email),
         EmailTextFormField(
           emailController: updateProfileCubit.emailController,
         ),
         MySizedBox.height24,
-        const TextFieldLabel(labelKey: LangKeys.username),
+        const TextFieldLabel(labelKey: LocaleKeys.username),
         UsernameTextFormField(
           controller: updateProfileCubit.usernameController,
         ),

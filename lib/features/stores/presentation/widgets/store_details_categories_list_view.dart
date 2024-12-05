@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
@@ -23,42 +24,55 @@ class StoreDetailsCategoriesListView extends StatelessWidget {
       height: 25.h,
       child: HorizontalSeparatedListView(
         padding: AppConstants.categoryPadding,
-        itemBuilder: (_, index) {
-          return BlocBuilder<StoreDetailsCubit, StoreDetailsState>(
-            buildWhen: (_, current) => current is UpdateCurrentDetailsIndex,
-            builder: (context, state) {
-              return MainButton(
-                isOutlined: true,
-                backgroundColor: context.isDarkModeActive
-                    ? AppColors.secondaryDarkColor
-                    : AppColors.lightModeColor,
-                onPressed: () => context
-                    .read<StoreDetailsCubit>()
-                    .updateCurrentStoreAndFetchItsData(
-                      index: index,
-                      storeId: storeId,
-                    ),
-                borderRadius: 34,
-                borderColor: context
-                    .read<StoreDetailsCubit>()
-                    .selectedStoreDetailColor(context, index),
-                child: Text(
-                  context.translate(
-                    AppConstants.storeDetailsCategoriesKeys[index],
+        itemBuilder: (_, index) =>
+            BlocSelector<StoreDetailsCubit, StoreDetailsState, int>(
+          selector: (state) => state.selectedDetailIndex,
+          builder: (context, selectedDetailIndex) {
+            final isStoreDetailSelected = selectedDetailIndex == index;
+            return MainButton(
+              isOutlined: true,
+              backgroundColor: context.isDarkModeActive
+                  ? AppColors.secondaryDarkColor
+                  : AppColors.lightModeColor,
+              onPressed: () => context
+                  .read<StoreDetailsCubit>()
+                  .updateSelectedStoreDetailAndFetchItsData(
+                    index: index,
+                    storeId: storeId,
                   ),
-                  style: AppTextStyles.textStyle10Medium.copyWith(
-                    color: context
-                        .read<StoreDetailsCubit>()
-                        .storeDetailTextColor(context, index),
-                  ),
+              borderRadius: 34,
+              borderColor: _selectedStoreDetailColor(context, index),
+              child: Text(
+                context.tr(
+                  AppConstants.storeDetailsCategoriesKeys[index],
                 ),
-              );
-            },
-          );
-        },
+                style: AppTextStyles.textStyle10Medium.copyWith(
+                  color: _storeDetailTextColor(context, isStoreDetailSelected),
+                ),
+              ),
+            );
+          },
+        ),
         separatorWidget: MySizedBox.width8,
         itemCount: AppConstants.storeDetailsCategoriesKeys.length,
       ),
     );
+  }
+
+  Color _selectedStoreDetailColor(
+          BuildContext context, isStoreDetailSelected) =>
+      isStoreDetailSelected
+          ? AppColors.primaryColor
+          : (context.isDarkModeActive
+              ? AppColors.secondaryDarkColor!
+              : AppColors.blueColor);
+
+  Color _storeDetailTextColor(
+      BuildContext context, bool isStoreDetailSelected) {
+    return isStoreDetailSelected
+        ? AppColors.primaryColor
+        : (context.isDarkModeActive
+            ? AppColors.lightModeColor
+            : AppColors.blueColor);
   }
 }

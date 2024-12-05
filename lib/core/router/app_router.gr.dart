@@ -67,54 +67,6 @@ class CartRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [CartViewBody]
-class CartRouteBody extends PageRouteInfo<CartRouteBodyArgs> {
-  CartRouteBody({
-    Key? key,
-    bool isAppBarHasLeading = false,
-    List<PageRouteInfo>? children,
-  }) : super(
-          CartRouteBody.name,
-          args: CartRouteBodyArgs(
-            key: key,
-            isAppBarHasLeading: isAppBarHasLeading,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'CartRouteBody';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      final args = data.argsAs<CartRouteBodyArgs>(
-          orElse: () => const CartRouteBodyArgs());
-      return WrappedRoute(
-          child: CartViewBody(
-        key: args.key,
-        isAppBarHasLeading: args.isAppBarHasLeading,
-      ));
-    },
-  );
-}
-
-class CartRouteBodyArgs {
-  const CartRouteBodyArgs({
-    this.key,
-    this.isAppBarHasLeading = false,
-  });
-
-  final Key? key;
-
-  final bool isAppBarHasLeading;
-
-  @override
-  String toString() {
-    return 'CartRouteBodyArgs{key: $key, isAppBarHasLeading: $isAppBarHasLeading}';
-  }
-}
-
-/// generated route for
 /// [CategoriesView]
 class CategoriesRoute extends PageRouteInfo<void> {
   const CategoriesRoute({List<PageRouteInfo>? children})
@@ -188,54 +140,6 @@ class FavoritesRoute extends PageRouteInfo<void> {
       return WrappedRoute(child: const FavoritesView());
     },
   );
-}
-
-/// generated route for
-/// [FavoritesViewBody]
-class FavoritesRouteBody extends PageRouteInfo<FavoritesRouteBodyArgs> {
-  FavoritesRouteBody({
-    Key? key,
-    bool isAppBarHasLeading = false,
-    List<PageRouteInfo>? children,
-  }) : super(
-          FavoritesRouteBody.name,
-          args: FavoritesRouteBodyArgs(
-            key: key,
-            isAppBarHasLeading: isAppBarHasLeading,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'FavoritesRouteBody';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      final args = data.argsAs<FavoritesRouteBodyArgs>(
-          orElse: () => const FavoritesRouteBodyArgs());
-      return WrappedRoute(
-          child: FavoritesViewBody(
-        key: args.key,
-        isAppBarHasLeading: args.isAppBarHasLeading,
-      ));
-    },
-  );
-}
-
-class FavoritesRouteBodyArgs {
-  const FavoritesRouteBodyArgs({
-    this.key,
-    this.isAppBarHasLeading = false,
-  });
-
-  final Key? key;
-
-  final bool isAppBarHasLeading;
-
-  @override
-  String toString() {
-    return 'FavoritesRouteBodyArgs{key: $key, isAppBarHasLeading: $isAppBarHasLeading}';
-  }
 }
 
 /// generated route for
@@ -558,54 +462,6 @@ class StoresRoute extends PageRouteInfo<void> {
       return WrappedRoute(child: const StoresView());
     },
   );
-}
-
-/// generated route for
-/// [StoresViewBody]
-class StoresRouteBody extends PageRouteInfo<StoresRouteBodyArgs> {
-  StoresRouteBody({
-    Key? key,
-    bool isAppBarHasLeading = false,
-    List<PageRouteInfo>? children,
-  }) : super(
-          StoresRouteBody.name,
-          args: StoresRouteBodyArgs(
-            key: key,
-            isAppBarHasLeading: isAppBarHasLeading,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'StoresRouteBody';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      final args = data.argsAs<StoresRouteBodyArgs>(
-          orElse: () => const StoresRouteBodyArgs());
-      return WrappedRoute(
-          child: StoresViewBody(
-        key: args.key,
-        isAppBarHasLeading: args.isAppBarHasLeading,
-      ));
-    },
-  );
-}
-
-class StoresRouteBodyArgs {
-  const StoresRouteBodyArgs({
-    this.key,
-    this.isAppBarHasLeading = false,
-  });
-
-  final Key? key;
-
-  final bool isAppBarHasLeading;
-
-  @override
-  String toString() {
-    return 'StoresRouteBodyArgs{key: $key, isAppBarHasLeading: $isAppBarHasLeading}';
-  }
 }
 
 /// generated route for

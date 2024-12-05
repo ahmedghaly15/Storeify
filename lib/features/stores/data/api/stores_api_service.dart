@@ -12,12 +12,12 @@ part 'stores_api_service.g.dart';
 abstract class StoresApiService {
   factory StoresApiService(Dio dio, {String baseUrl}) = _StoresApiService;
 
-  @GET(EndPoints.fetchStores)
+  @GET(EndPoints.stores)
   Future<FetchStoresResponse> fetchStores([
     @CancelRequest() CancelToken? cancelToken,
   ]);
 
-  @GET('${EndPoints.fetchStores}/{category_id}')
+  @GET('${EndPoints.stores}/{category_id}')
   Future<FetchStoresResponse> fetchCategoryStores(
     @Path('category_id') String categoryId, [
     @CancelRequest() CancelToken? cancelToken,

@@ -3,14 +3,22 @@ import 'package:store_ify/features/categories/data/models/fetch_categories_respo
 
 part 'categories_state.freezed.dart';
 
+enum CategoriesStateStatus {
+  initial,
+  fetchCategoriesLoading,
+  fetchCategoriesSuccess,
+  fetchCategoriesError,
+}
+
 @freezed
-class CategoriesState<T> with _$CategoriesState<T> {
-  const factory CategoriesState.initial() = _Initial;
-  const factory CategoriesState.fetchCategoriesLoading() =
-      FetchCategoriesLoading;
-  const factory CategoriesState.fetchCategoriesSuccess(
-          FetchCategoriesResponse fetchCategoriesResponse) =
-      FetchCategoriesSuccess<T>;
-  const factory CategoriesState.fetchCategoriesError(error) =
-      FetchCategoriesError<T>;
+class CategoriesState with _$CategoriesState {
+  const factory CategoriesState({
+    required CategoriesStateStatus status,
+    FetchCategoriesResponse? categoriesResponse,
+    String? error,
+  }) = _CategoriesState;
+
+  factory CategoriesState.initial() => const CategoriesState(
+        status: CategoriesStateStatus.initial,
+      );
 }

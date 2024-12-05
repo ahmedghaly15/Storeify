@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:store_ify/core/api/api_error_handler.dart';
 import 'package:store_ify/core/api/api_result.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
 import 'package:store_ify/features/cart/data/api/cart_api_service.dart';
@@ -37,23 +36,14 @@ class CartRepoImpl implements CartRepo {
         await _localDatasource.retrieveCachedCart();
     if (cachedCart == null) {
       debugPrint('*********** NO CACHED CART ***********');
-      return await _fetchAndCacheCart(cancelToken);
+      return executeAndHandleErrors<FetchCartResponse>(() async {
+        final cart = await _cartApiService.fetchCart(cancelToken);
+        await _localDatasource.cacheCart(cart);
+        return cart;
+      });
     } else {
       debugPrint('*********** GOT CACHED CART ***********');
       return ApiResult.success(cachedCart);
-    }
-  }
-
-  Future<ApiResult<FetchCartResponse>> _fetchAndCacheCart(
-    CancelToken? cancelToken,
-  ) async {
-    try {
-      final cart = await _cartApiService.fetchCart(cancelToken);
-      await _localDatasource.cacheCart(cart);
-      return ApiResult.success(cart);
-    } catch (error) {
-      debugPrint('********* ERROR FETCHING CART: $error *********');
-      return ApiResult.error(ApiErrorHandler.handle(error));
     }
   }
 

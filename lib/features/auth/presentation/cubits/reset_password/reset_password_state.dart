@@ -2,12 +2,25 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'reset_password_state.freezed.dart';
 
+enum ResetPassStateStatus {
+  initial,
+  resetPassLoading,
+  resetPassSuccess,
+  resetPassError,
+  togglePassVisibility,
+  toggleConfirmPassVisibility,
+}
+
 @freezed
-class ResetPasswordState<T> with _$ResetPasswordState<T> {
-  const factory ResetPasswordState.initial() = _Initial;
-  const factory ResetPasswordState.loading() = Loading;
-  const factory ResetPasswordState.success() = Success;
-  const factory ResetPasswordState.error(String error) = Error<T>;
-  const factory ResetPasswordState.invertPasswordVisibility(
-      bool isPasswordVisible) = InvertPasswordVisibility<T>;
+class ResetPasswordState with _$ResetPasswordState {
+  const factory ResetPasswordState({
+    required ResetPassStateStatus status,
+    String? error,
+    @Default(true) bool isPassObscure,
+    @Default(true) bool isConfirmPassObscure,
+  }) = _ResetPasswordState;
+
+  factory ResetPasswordState.initial() => const ResetPasswordState(
+        status: ResetPassStateStatus.initial,
+      );
 }

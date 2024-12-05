@@ -4,20 +4,25 @@ import 'package:store_ify/features/categories/data/repositories/categories_repo.
 import 'package:store_ify/features/categories/presentation/cubit/categories/categories_state.dart';
 
 class CategoriesCubit extends Cubit<CategoriesState> {
-  CategoriesCubit(this._categoriesRepo)
-      : super(const CategoriesState.initial());
+  CategoriesCubit(this._categoriesRepo) : super(CategoriesState.initial());
 
   final CategoriesRepo _categoriesRepo;
   final CancelToken _cancelToken = CancelToken();
 
-  void fetchCategories() async {
-    emit(const CategoriesState.fetchCategoriesLoading());
+  Future<void> fetchCategories() async {
+    emit(state.copyWith(
+      status: CategoriesStateStatus.fetchCategoriesLoading,
+    ));
     final result = await _categoriesRepo.fetchCategories(_cancelToken);
     result.when(
-      success: (fetchCategoriesResponse) =>
-          emit(CategoriesState.fetchCategoriesSuccess(fetchCategoriesResponse)),
-      error: (errorModel) =>
-          emit(CategoriesState.fetchCategoriesError(errorModel.error ?? '')),
+      success: (categoriesResponse) => emit(state.copyWith(
+        status: CategoriesStateStatus.fetchCategoriesSuccess,
+        categoriesResponse: categoriesResponse,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: CategoriesStateStatus.fetchCategoriesError,
+        error: errorModel.error ?? '',
+      )),
     );
   }
 

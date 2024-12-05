@@ -15,89 +15,36 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$PaymentMethodState<T> {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(PaymentMethod paymentMethod)
-        updateSelectedPaymentMethod,
-    required TResult Function() choosePaymentMethodLoading,
-    required TResult Function() choosePaymentMethodSuccess,
-    required TResult Function(String error) choosePaymentMethodError,
-  }) =>
+mixin _$PaymentMethodState {
+  PaymentMethodStateStatus get status => throw _privateConstructorUsedError;
+  PaymentMethod? get selectedPaymentMethod =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
-    TResult? Function()? choosePaymentMethodLoading,
-    TResult? Function()? choosePaymentMethodSuccess,
-    TResult? Function(String error)? choosePaymentMethodError,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
-    TResult Function()? choosePaymentMethodLoading,
-    TResult Function()? choosePaymentMethodSuccess,
-    TResult Function(String error)? choosePaymentMethodError,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(UpdateSelectedPaymentMethod<T> value)
-        updateSelectedPaymentMethod,
-    required TResult Function(ChoosePaymentMethodLoading<T> value)
-        choosePaymentMethodLoading,
-    required TResult Function(ChoosePaymentMethodSuccess<T> value)
-        choosePaymentMethodSuccess,
-    required TResult Function(ChoosePaymentMethodError<T> value)
-        choosePaymentMethodError,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(UpdateSelectedPaymentMethod<T> value)?
-        updateSelectedPaymentMethod,
-    TResult? Function(ChoosePaymentMethodLoading<T> value)?
-        choosePaymentMethodLoading,
-    TResult? Function(ChoosePaymentMethodSuccess<T> value)?
-        choosePaymentMethodSuccess,
-    TResult? Function(ChoosePaymentMethodError<T> value)?
-        choosePaymentMethodError,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(UpdateSelectedPaymentMethod<T> value)?
-        updateSelectedPaymentMethod,
-    TResult Function(ChoosePaymentMethodLoading<T> value)?
-        choosePaymentMethodLoading,
-    TResult Function(ChoosePaymentMethodSuccess<T> value)?
-        choosePaymentMethodSuccess,
-    TResult Function(ChoosePaymentMethodError<T> value)?
-        choosePaymentMethodError,
-    required TResult orElse(),
-  }) =>
+  String? get error => throw _privateConstructorUsedError;
+
+  /// Create a copy of PaymentMethodState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PaymentMethodStateCopyWith<PaymentMethodState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PaymentMethodStateCopyWith<T, $Res> {
-  factory $PaymentMethodStateCopyWith(PaymentMethodState<T> value,
-          $Res Function(PaymentMethodState<T>) then) =
-      _$PaymentMethodStateCopyWithImpl<T, $Res, PaymentMethodState<T>>;
+abstract class $PaymentMethodStateCopyWith<$Res> {
+  factory $PaymentMethodStateCopyWith(
+          PaymentMethodState value, $Res Function(PaymentMethodState) then) =
+      _$PaymentMethodStateCopyWithImpl<$Res, PaymentMethodState>;
+  @useResult
+  $Res call(
+      {PaymentMethodStateStatus status,
+      PaymentMethod? selectedPaymentMethod,
+      String? error});
+
+  $PaymentMethodCopyWith<$Res>? get selectedPaymentMethod;
 }
 
 /// @nodoc
-class _$PaymentMethodStateCopyWithImpl<T, $Res,
-        $Val extends PaymentMethodState<T>>
-    implements $PaymentMethodStateCopyWith<T, $Res> {
+class _$PaymentMethodStateCopyWithImpl<$Res, $Val extends PaymentMethodState>
+    implements $PaymentMethodStateCopyWith<$Res> {
   _$PaymentMethodStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -107,638 +54,67 @@ class _$PaymentMethodStateCopyWithImpl<T, $Res,
 
   /// Create a copy of PaymentMethodState
   /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$InitialImplCopyWith<T, $Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl<T> value, $Res Function(_$InitialImpl<T>) then) =
-      __$$InitialImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$PaymentMethodStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
-    implements _$$InitialImplCopyWith<T, $Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of PaymentMethodState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$InitialImpl<T> implements _Initial<T> {
-  const _$InitialImpl();
-
-  @override
-  String toString() {
-    return 'PaymentMethodState<$T>.initial()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(PaymentMethod paymentMethod)
-        updateSelectedPaymentMethod,
-    required TResult Function() choosePaymentMethodLoading,
-    required TResult Function() choosePaymentMethodSuccess,
-    required TResult Function(String error) choosePaymentMethodError,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
-    TResult? Function()? choosePaymentMethodLoading,
-    TResult? Function()? choosePaymentMethodSuccess,
-    TResult? Function(String error)? choosePaymentMethodError,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
-    TResult Function()? choosePaymentMethodLoading,
-    TResult Function()? choosePaymentMethodSuccess,
-    TResult Function(String error)? choosePaymentMethodError,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(UpdateSelectedPaymentMethod<T> value)
-        updateSelectedPaymentMethod,
-    required TResult Function(ChoosePaymentMethodLoading<T> value)
-        choosePaymentMethodLoading,
-    required TResult Function(ChoosePaymentMethodSuccess<T> value)
-        choosePaymentMethodSuccess,
-    required TResult Function(ChoosePaymentMethodError<T> value)
-        choosePaymentMethodError,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(UpdateSelectedPaymentMethod<T> value)?
-        updateSelectedPaymentMethod,
-    TResult? Function(ChoosePaymentMethodLoading<T> value)?
-        choosePaymentMethodLoading,
-    TResult? Function(ChoosePaymentMethodSuccess<T> value)?
-        choosePaymentMethodSuccess,
-    TResult? Function(ChoosePaymentMethodError<T> value)?
-        choosePaymentMethodError,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(UpdateSelectedPaymentMethod<T> value)?
-        updateSelectedPaymentMethod,
-    TResult Function(ChoosePaymentMethodLoading<T> value)?
-        choosePaymentMethodLoading,
-    TResult Function(ChoosePaymentMethodSuccess<T> value)?
-        choosePaymentMethodSuccess,
-    TResult Function(ChoosePaymentMethodError<T> value)?
-        choosePaymentMethodError,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial<T> implements PaymentMethodState<T> {
-  const factory _Initial() = _$InitialImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$UpdateSelectedPaymentMethodImplCopyWith<T, $Res> {
-  factory _$$UpdateSelectedPaymentMethodImplCopyWith(
-          _$UpdateSelectedPaymentMethodImpl<T> value,
-          $Res Function(_$UpdateSelectedPaymentMethodImpl<T>) then) =
-      __$$UpdateSelectedPaymentMethodImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({PaymentMethod paymentMethod});
-
-  $PaymentMethodCopyWith<$Res> get paymentMethod;
-}
-
-/// @nodoc
-class __$$UpdateSelectedPaymentMethodImplCopyWithImpl<T, $Res>
-    extends _$PaymentMethodStateCopyWithImpl<T, $Res,
-        _$UpdateSelectedPaymentMethodImpl<T>>
-    implements _$$UpdateSelectedPaymentMethodImplCopyWith<T, $Res> {
-  __$$UpdateSelectedPaymentMethodImplCopyWithImpl(
-      _$UpdateSelectedPaymentMethodImpl<T> _value,
-      $Res Function(_$UpdateSelectedPaymentMethodImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of PaymentMethodState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? paymentMethod = null,
+    Object? status = null,
+    Object? selectedPaymentMethod = freezed,
+    Object? error = freezed,
   }) {
-    return _then(_$UpdateSelectedPaymentMethodImpl<T>(
-      null == paymentMethod
-          ? _value.paymentMethod
-          : paymentMethod // ignore: cast_nullable_to_non_nullable
-              as PaymentMethod,
-    ));
+    return _then(_value.copyWith(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as PaymentMethodStateStatus,
+      selectedPaymentMethod: freezed == selectedPaymentMethod
+          ? _value.selectedPaymentMethod
+          : selectedPaymentMethod // ignore: cast_nullable_to_non_nullable
+              as PaymentMethod?,
+      error: freezed == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
   }
 
   /// Create a copy of PaymentMethodState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PaymentMethodCopyWith<$Res> get paymentMethod {
-    return $PaymentMethodCopyWith<$Res>(_value.paymentMethod, (value) {
-      return _then(_value.copyWith(paymentMethod: value));
+  $PaymentMethodCopyWith<$Res>? get selectedPaymentMethod {
+    if (_value.selectedPaymentMethod == null) {
+      return null;
+    }
+
+    return $PaymentMethodCopyWith<$Res>(_value.selectedPaymentMethod!, (value) {
+      return _then(_value.copyWith(selectedPaymentMethod: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-
-class _$UpdateSelectedPaymentMethodImpl<T>
-    implements UpdateSelectedPaymentMethod<T> {
-  const _$UpdateSelectedPaymentMethodImpl(this.paymentMethod);
-
+abstract class _$$PaymentMethodStateImplCopyWith<$Res>
+    implements $PaymentMethodStateCopyWith<$Res> {
+  factory _$$PaymentMethodStateImplCopyWith(_$PaymentMethodStateImpl value,
+          $Res Function(_$PaymentMethodStateImpl) then) =
+      __$$PaymentMethodStateImplCopyWithImpl<$Res>;
   @override
-  final PaymentMethod paymentMethod;
-
-  @override
-  String toString() {
-    return 'PaymentMethodState<$T>.updateSelectedPaymentMethod(paymentMethod: $paymentMethod)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UpdateSelectedPaymentMethodImpl<T> &&
-            (identical(other.paymentMethod, paymentMethod) ||
-                other.paymentMethod == paymentMethod));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, paymentMethod);
-
-  /// Create a copy of PaymentMethodState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UpdateSelectedPaymentMethodImplCopyWith<T,
-          _$UpdateSelectedPaymentMethodImpl<T>>
-      get copyWith => __$$UpdateSelectedPaymentMethodImplCopyWithImpl<T,
-          _$UpdateSelectedPaymentMethodImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(PaymentMethod paymentMethod)
-        updateSelectedPaymentMethod,
-    required TResult Function() choosePaymentMethodLoading,
-    required TResult Function() choosePaymentMethodSuccess,
-    required TResult Function(String error) choosePaymentMethodError,
-  }) {
-    return updateSelectedPaymentMethod(paymentMethod);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
-    TResult? Function()? choosePaymentMethodLoading,
-    TResult? Function()? choosePaymentMethodSuccess,
-    TResult? Function(String error)? choosePaymentMethodError,
-  }) {
-    return updateSelectedPaymentMethod?.call(paymentMethod);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
-    TResult Function()? choosePaymentMethodLoading,
-    TResult Function()? choosePaymentMethodSuccess,
-    TResult Function(String error)? choosePaymentMethodError,
-    required TResult orElse(),
-  }) {
-    if (updateSelectedPaymentMethod != null) {
-      return updateSelectedPaymentMethod(paymentMethod);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(UpdateSelectedPaymentMethod<T> value)
-        updateSelectedPaymentMethod,
-    required TResult Function(ChoosePaymentMethodLoading<T> value)
-        choosePaymentMethodLoading,
-    required TResult Function(ChoosePaymentMethodSuccess<T> value)
-        choosePaymentMethodSuccess,
-    required TResult Function(ChoosePaymentMethodError<T> value)
-        choosePaymentMethodError,
-  }) {
-    return updateSelectedPaymentMethod(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(UpdateSelectedPaymentMethod<T> value)?
-        updateSelectedPaymentMethod,
-    TResult? Function(ChoosePaymentMethodLoading<T> value)?
-        choosePaymentMethodLoading,
-    TResult? Function(ChoosePaymentMethodSuccess<T> value)?
-        choosePaymentMethodSuccess,
-    TResult? Function(ChoosePaymentMethodError<T> value)?
-        choosePaymentMethodError,
-  }) {
-    return updateSelectedPaymentMethod?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(UpdateSelectedPaymentMethod<T> value)?
-        updateSelectedPaymentMethod,
-    TResult Function(ChoosePaymentMethodLoading<T> value)?
-        choosePaymentMethodLoading,
-    TResult Function(ChoosePaymentMethodSuccess<T> value)?
-        choosePaymentMethodSuccess,
-    TResult Function(ChoosePaymentMethodError<T> value)?
-        choosePaymentMethodError,
-    required TResult orElse(),
-  }) {
-    if (updateSelectedPaymentMethod != null) {
-      return updateSelectedPaymentMethod(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UpdateSelectedPaymentMethod<T> implements PaymentMethodState<T> {
-  const factory UpdateSelectedPaymentMethod(final PaymentMethod paymentMethod) =
-      _$UpdateSelectedPaymentMethodImpl<T>;
-
-  PaymentMethod get paymentMethod;
-
-  /// Create a copy of PaymentMethodState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UpdateSelectedPaymentMethodImplCopyWith<T,
-          _$UpdateSelectedPaymentMethodImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ChoosePaymentMethodLoadingImplCopyWith<T, $Res> {
-  factory _$$ChoosePaymentMethodLoadingImplCopyWith(
-          _$ChoosePaymentMethodLoadingImpl<T> value,
-          $Res Function(_$ChoosePaymentMethodLoadingImpl<T>) then) =
-      __$$ChoosePaymentMethodLoadingImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$ChoosePaymentMethodLoadingImplCopyWithImpl<T, $Res>
-    extends _$PaymentMethodStateCopyWithImpl<T, $Res,
-        _$ChoosePaymentMethodLoadingImpl<T>>
-    implements _$$ChoosePaymentMethodLoadingImplCopyWith<T, $Res> {
-  __$$ChoosePaymentMethodLoadingImplCopyWithImpl(
-      _$ChoosePaymentMethodLoadingImpl<T> _value,
-      $Res Function(_$ChoosePaymentMethodLoadingImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of PaymentMethodState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ChoosePaymentMethodLoadingImpl<T>
-    implements ChoosePaymentMethodLoading<T> {
-  const _$ChoosePaymentMethodLoadingImpl();
-
-  @override
-  String toString() {
-    return 'PaymentMethodState<$T>.choosePaymentMethodLoading()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChoosePaymentMethodLoadingImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(PaymentMethod paymentMethod)
-        updateSelectedPaymentMethod,
-    required TResult Function() choosePaymentMethodLoading,
-    required TResult Function() choosePaymentMethodSuccess,
-    required TResult Function(String error) choosePaymentMethodError,
-  }) {
-    return choosePaymentMethodLoading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
-    TResult? Function()? choosePaymentMethodLoading,
-    TResult? Function()? choosePaymentMethodSuccess,
-    TResult? Function(String error)? choosePaymentMethodError,
-  }) {
-    return choosePaymentMethodLoading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
-    TResult Function()? choosePaymentMethodLoading,
-    TResult Function()? choosePaymentMethodSuccess,
-    TResult Function(String error)? choosePaymentMethodError,
-    required TResult orElse(),
-  }) {
-    if (choosePaymentMethodLoading != null) {
-      return choosePaymentMethodLoading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(UpdateSelectedPaymentMethod<T> value)
-        updateSelectedPaymentMethod,
-    required TResult Function(ChoosePaymentMethodLoading<T> value)
-        choosePaymentMethodLoading,
-    required TResult Function(ChoosePaymentMethodSuccess<T> value)
-        choosePaymentMethodSuccess,
-    required TResult Function(ChoosePaymentMethodError<T> value)
-        choosePaymentMethodError,
-  }) {
-    return choosePaymentMethodLoading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(UpdateSelectedPaymentMethod<T> value)?
-        updateSelectedPaymentMethod,
-    TResult? Function(ChoosePaymentMethodLoading<T> value)?
-        choosePaymentMethodLoading,
-    TResult? Function(ChoosePaymentMethodSuccess<T> value)?
-        choosePaymentMethodSuccess,
-    TResult? Function(ChoosePaymentMethodError<T> value)?
-        choosePaymentMethodError,
-  }) {
-    return choosePaymentMethodLoading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(UpdateSelectedPaymentMethod<T> value)?
-        updateSelectedPaymentMethod,
-    TResult Function(ChoosePaymentMethodLoading<T> value)?
-        choosePaymentMethodLoading,
-    TResult Function(ChoosePaymentMethodSuccess<T> value)?
-        choosePaymentMethodSuccess,
-    TResult Function(ChoosePaymentMethodError<T> value)?
-        choosePaymentMethodError,
-    required TResult orElse(),
-  }) {
-    if (choosePaymentMethodLoading != null) {
-      return choosePaymentMethodLoading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ChoosePaymentMethodLoading<T> implements PaymentMethodState<T> {
-  const factory ChoosePaymentMethodLoading() =
-      _$ChoosePaymentMethodLoadingImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$ChoosePaymentMethodSuccessImplCopyWith<T, $Res> {
-  factory _$$ChoosePaymentMethodSuccessImplCopyWith(
-          _$ChoosePaymentMethodSuccessImpl<T> value,
-          $Res Function(_$ChoosePaymentMethodSuccessImpl<T>) then) =
-      __$$ChoosePaymentMethodSuccessImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$ChoosePaymentMethodSuccessImplCopyWithImpl<T, $Res>
-    extends _$PaymentMethodStateCopyWithImpl<T, $Res,
-        _$ChoosePaymentMethodSuccessImpl<T>>
-    implements _$$ChoosePaymentMethodSuccessImplCopyWith<T, $Res> {
-  __$$ChoosePaymentMethodSuccessImplCopyWithImpl(
-      _$ChoosePaymentMethodSuccessImpl<T> _value,
-      $Res Function(_$ChoosePaymentMethodSuccessImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of PaymentMethodState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ChoosePaymentMethodSuccessImpl<T>
-    implements ChoosePaymentMethodSuccess<T> {
-  const _$ChoosePaymentMethodSuccessImpl();
-
-  @override
-  String toString() {
-    return 'PaymentMethodState<$T>.choosePaymentMethodSuccess()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChoosePaymentMethodSuccessImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(PaymentMethod paymentMethod)
-        updateSelectedPaymentMethod,
-    required TResult Function() choosePaymentMethodLoading,
-    required TResult Function() choosePaymentMethodSuccess,
-    required TResult Function(String error) choosePaymentMethodError,
-  }) {
-    return choosePaymentMethodSuccess();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
-    TResult? Function()? choosePaymentMethodLoading,
-    TResult? Function()? choosePaymentMethodSuccess,
-    TResult? Function(String error)? choosePaymentMethodError,
-  }) {
-    return choosePaymentMethodSuccess?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
-    TResult Function()? choosePaymentMethodLoading,
-    TResult Function()? choosePaymentMethodSuccess,
-    TResult Function(String error)? choosePaymentMethodError,
-    required TResult orElse(),
-  }) {
-    if (choosePaymentMethodSuccess != null) {
-      return choosePaymentMethodSuccess();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(UpdateSelectedPaymentMethod<T> value)
-        updateSelectedPaymentMethod,
-    required TResult Function(ChoosePaymentMethodLoading<T> value)
-        choosePaymentMethodLoading,
-    required TResult Function(ChoosePaymentMethodSuccess<T> value)
-        choosePaymentMethodSuccess,
-    required TResult Function(ChoosePaymentMethodError<T> value)
-        choosePaymentMethodError,
-  }) {
-    return choosePaymentMethodSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(UpdateSelectedPaymentMethod<T> value)?
-        updateSelectedPaymentMethod,
-    TResult? Function(ChoosePaymentMethodLoading<T> value)?
-        choosePaymentMethodLoading,
-    TResult? Function(ChoosePaymentMethodSuccess<T> value)?
-        choosePaymentMethodSuccess,
-    TResult? Function(ChoosePaymentMethodError<T> value)?
-        choosePaymentMethodError,
-  }) {
-    return choosePaymentMethodSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(UpdateSelectedPaymentMethod<T> value)?
-        updateSelectedPaymentMethod,
-    TResult Function(ChoosePaymentMethodLoading<T> value)?
-        choosePaymentMethodLoading,
-    TResult Function(ChoosePaymentMethodSuccess<T> value)?
-        choosePaymentMethodSuccess,
-    TResult Function(ChoosePaymentMethodError<T> value)?
-        choosePaymentMethodError,
-    required TResult orElse(),
-  }) {
-    if (choosePaymentMethodSuccess != null) {
-      return choosePaymentMethodSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ChoosePaymentMethodSuccess<T> implements PaymentMethodState<T> {
-  const factory ChoosePaymentMethodSuccess() =
-      _$ChoosePaymentMethodSuccessImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$ChoosePaymentMethodErrorImplCopyWith<T, $Res> {
-  factory _$$ChoosePaymentMethodErrorImplCopyWith(
-          _$ChoosePaymentMethodErrorImpl<T> value,
-          $Res Function(_$ChoosePaymentMethodErrorImpl<T>) then) =
-      __$$ChoosePaymentMethodErrorImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({String error});
+  $Res call(
+      {PaymentMethodStateStatus status,
+      PaymentMethod? selectedPaymentMethod,
+      String? error});
+
+  @override
+  $PaymentMethodCopyWith<$Res>? get selectedPaymentMethod;
 }
 
 /// @nodoc
-class __$$ChoosePaymentMethodErrorImplCopyWithImpl<T, $Res>
-    extends _$PaymentMethodStateCopyWithImpl<T, $Res,
-        _$ChoosePaymentMethodErrorImpl<T>>
-    implements _$$ChoosePaymentMethodErrorImplCopyWith<T, $Res> {
-  __$$ChoosePaymentMethodErrorImplCopyWithImpl(
-      _$ChoosePaymentMethodErrorImpl<T> _value,
-      $Res Function(_$ChoosePaymentMethodErrorImpl<T>) _then)
+class __$$PaymentMethodStateImplCopyWithImpl<$Res>
+    extends _$PaymentMethodStateCopyWithImpl<$Res, _$PaymentMethodStateImpl>
+    implements _$$PaymentMethodStateImplCopyWith<$Res> {
+  __$$PaymentMethodStateImplCopyWithImpl(_$PaymentMethodStateImpl _value,
+      $Res Function(_$PaymentMethodStateImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of PaymentMethodState
@@ -746,153 +122,87 @@ class __$$ChoosePaymentMethodErrorImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? status = null,
+    Object? selectedPaymentMethod = freezed,
+    Object? error = freezed,
   }) {
-    return _then(_$ChoosePaymentMethodErrorImpl<T>(
-      null == error
+    return _then(_$PaymentMethodStateImpl(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as PaymentMethodStateStatus,
+      selectedPaymentMethod: freezed == selectedPaymentMethod
+          ? _value.selectedPaymentMethod
+          : selectedPaymentMethod // ignore: cast_nullable_to_non_nullable
+              as PaymentMethod?,
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$ChoosePaymentMethodErrorImpl<T> implements ChoosePaymentMethodError<T> {
-  const _$ChoosePaymentMethodErrorImpl(this.error);
+class _$PaymentMethodStateImpl implements _PaymentMethodState {
+  const _$PaymentMethodStateImpl(
+      {required this.status, this.selectedPaymentMethod, this.error});
 
   @override
-  final String error;
+  final PaymentMethodStateStatus status;
+  @override
+  final PaymentMethod? selectedPaymentMethod;
+  @override
+  final String? error;
 
   @override
   String toString() {
-    return 'PaymentMethodState<$T>.choosePaymentMethodError(error: $error)';
+    return 'PaymentMethodState(status: $status, selectedPaymentMethod: $selectedPaymentMethod, error: $error)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChoosePaymentMethodErrorImpl<T> &&
+            other is _$PaymentMethodStateImpl &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.selectedPaymentMethod, selectedPaymentMethod) ||
+                other.selectedPaymentMethod == selectedPaymentMethod) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode =>
+      Object.hash(runtimeType, status, selectedPaymentMethod, error);
 
   /// Create a copy of PaymentMethodState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChoosePaymentMethodErrorImplCopyWith<T, _$ChoosePaymentMethodErrorImpl<T>>
-      get copyWith => __$$ChoosePaymentMethodErrorImplCopyWithImpl<T,
-          _$ChoosePaymentMethodErrorImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(PaymentMethod paymentMethod)
-        updateSelectedPaymentMethod,
-    required TResult Function() choosePaymentMethodLoading,
-    required TResult Function() choosePaymentMethodSuccess,
-    required TResult Function(String error) choosePaymentMethodError,
-  }) {
-    return choosePaymentMethodError(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
-    TResult? Function()? choosePaymentMethodLoading,
-    TResult? Function()? choosePaymentMethodSuccess,
-    TResult? Function(String error)? choosePaymentMethodError,
-  }) {
-    return choosePaymentMethodError?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(PaymentMethod paymentMethod)? updateSelectedPaymentMethod,
-    TResult Function()? choosePaymentMethodLoading,
-    TResult Function()? choosePaymentMethodSuccess,
-    TResult Function(String error)? choosePaymentMethodError,
-    required TResult orElse(),
-  }) {
-    if (choosePaymentMethodError != null) {
-      return choosePaymentMethodError(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(UpdateSelectedPaymentMethod<T> value)
-        updateSelectedPaymentMethod,
-    required TResult Function(ChoosePaymentMethodLoading<T> value)
-        choosePaymentMethodLoading,
-    required TResult Function(ChoosePaymentMethodSuccess<T> value)
-        choosePaymentMethodSuccess,
-    required TResult Function(ChoosePaymentMethodError<T> value)
-        choosePaymentMethodError,
-  }) {
-    return choosePaymentMethodError(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(UpdateSelectedPaymentMethod<T> value)?
-        updateSelectedPaymentMethod,
-    TResult? Function(ChoosePaymentMethodLoading<T> value)?
-        choosePaymentMethodLoading,
-    TResult? Function(ChoosePaymentMethodSuccess<T> value)?
-        choosePaymentMethodSuccess,
-    TResult? Function(ChoosePaymentMethodError<T> value)?
-        choosePaymentMethodError,
-  }) {
-    return choosePaymentMethodError?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(UpdateSelectedPaymentMethod<T> value)?
-        updateSelectedPaymentMethod,
-    TResult Function(ChoosePaymentMethodLoading<T> value)?
-        choosePaymentMethodLoading,
-    TResult Function(ChoosePaymentMethodSuccess<T> value)?
-        choosePaymentMethodSuccess,
-    TResult Function(ChoosePaymentMethodError<T> value)?
-        choosePaymentMethodError,
-    required TResult orElse(),
-  }) {
-    if (choosePaymentMethodError != null) {
-      return choosePaymentMethodError(this);
-    }
-    return orElse();
-  }
+  _$$PaymentMethodStateImplCopyWith<_$PaymentMethodStateImpl> get copyWith =>
+      __$$PaymentMethodStateImplCopyWithImpl<_$PaymentMethodStateImpl>(
+          this, _$identity);
 }
 
-abstract class ChoosePaymentMethodError<T> implements PaymentMethodState<T> {
-  const factory ChoosePaymentMethodError(final String error) =
-      _$ChoosePaymentMethodErrorImpl<T>;
+abstract class _PaymentMethodState implements PaymentMethodState {
+  const factory _PaymentMethodState(
+      {required final PaymentMethodStateStatus status,
+      final PaymentMethod? selectedPaymentMethod,
+      final String? error}) = _$PaymentMethodStateImpl;
 
-  String get error;
+  @override
+  PaymentMethodStateStatus get status;
+  @override
+  PaymentMethod? get selectedPaymentMethod;
+  @override
+  String? get error;
 
   /// Create a copy of PaymentMethodState
   /// with the given fields replaced by the non-null parameter values.
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ChoosePaymentMethodErrorImplCopyWith<T, _$ChoosePaymentMethodErrorImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$PaymentMethodStateImplCopyWith<_$PaymentMethodStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

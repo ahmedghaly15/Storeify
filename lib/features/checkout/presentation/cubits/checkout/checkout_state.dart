@@ -3,18 +3,30 @@ import 'package:store_ify/features/checkout/data/models/checkout_response.dart';
 
 part 'checkout_state.freezed.dart';
 
+enum CheckoutStateStatus {
+  initial,
+  checkoutLoading,
+  checkoutSuccess,
+  checkoutError,
+  changingCheckoutHour,
+  changingCheckoutMinutes,
+  onCountryChanged,
+  onPickingDate,
+}
+
 @freezed
-class CheckoutState<T> with _$CheckoutState<T> {
-  const factory CheckoutState.initial() = _Initial;
-  const factory CheckoutState.changeCheckoutHour(int value) =
-      ChangeCheckoutHour<T>;
-  const factory CheckoutState.changeCheckoutMinutes(int value) =
-      ChangeCheckoutMinutes<T>;
-  const factory CheckoutState.onCountryChanged(String phoneNumber) =
-      _OnCountryChanged<T>;
-  const factory CheckoutState.onDatePicked(String date) = _OnDatePicked<T>;
-  const factory CheckoutState.checkoutLoading() = CheckoutLoading;
-  const factory CheckoutState.checkoutSuccess(CheckoutResponse checkout) =
-      CheckoutSuccess<T>;
-  const factory CheckoutState.checkoutError(String error) = CheckoutError<T>;
+class CheckoutState with _$CheckoutState {
+  const factory CheckoutState({
+    required CheckoutStateStatus status,
+    @Default(4) int checkoutHour,
+    @Default(0) int checkoutMinutes,
+    @Default('') String phoneNumber,
+    @Default('') String date,
+    CheckoutResponse? checkout,
+    String? error,
+  }) = _CheckoutState;
+
+  factory CheckoutState.initial() => const CheckoutState(
+        status: CheckoutStateStatus.initial,
+      );
 }

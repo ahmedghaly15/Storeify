@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
 import 'package:store_ify/core/widgets/custom_toast.dart';
@@ -31,7 +31,7 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
           isLoading:
               state.status == UpdateProfileStateStatus.updateProfileLoading,
           context: context,
-          textKey: LangKeys.confirm,
+          textKey: LocaleKeys.confirm,
         ),
       ),
     );
@@ -45,7 +45,7 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
     } else {
       CustomToast.showToast(
         context: context,
-        messageKey: LangKeys.nothingChangedToUpdate,
+        messageKey: LocaleKeys.nothingChangedToUpdate,
         state: CustomToastState.warning,
       );
     }
@@ -61,7 +61,7 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
         await AuthLocalDatasource.cacheUser(state.updatedUser!);
         CustomToast.showToast(
           context: context,
-          messageKey: LangKeys.profileUpdatedSuccessfully,
+          messageKey: LocaleKeys.profileUpdatedSuccessfully,
           state: CustomToastState.success,
         );
       case UpdateProfileStateStatus.updateProfileError:

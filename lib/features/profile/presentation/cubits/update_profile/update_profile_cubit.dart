@@ -27,26 +27,30 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
   }
 
   void updateSelectedImg(File img) {
-    emit(state.copyWith(
-      status: UpdateProfileStateStatus.updateSelectedImg,
-      selectedImg: img,
-    ));
+    if (state.selectedImg != img) {
+      emit(state.copyWith(
+        status: UpdateProfileStateStatus.updateSelectedImg,
+        selectedImg: img,
+      ));
+    }
   }
 
   void updateProfile() async {
     emit(state.copyWith(
       status: UpdateProfileStateStatus.updateProfileLoading,
     ));
-    final params = UpdateProfileParams(
-      username: usernameController.text.isEmpty
-          ? currentUser!.user.username
-          : usernameController.text,
-      email: emailController.text.isEmpty
-          ? currentUser!.user.email
-          : emailController.text,
-      img: state.selectedImg,
+    final result = await _profileRepo.updateProfile(
+      UpdateProfileParams(
+        username: usernameController.text.isEmpty
+            ? currentUser!.user.username
+            : usernameController.text,
+        email: emailController.text.isEmpty
+            ? currentUser!.user.email
+            : emailController.text,
+        img: state.selectedImg,
+      ),
+      _cancelToken,
     );
-    final result = await _profileRepo.updateProfile(params, _cancelToken);
     result.when(
       success: (user) {
         emit(state.copyWith(

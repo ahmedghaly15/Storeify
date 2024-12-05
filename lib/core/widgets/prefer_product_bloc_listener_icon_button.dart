@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/widgets/custom_toast.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_cubit.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_state.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_and_theme_cubit.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_and_theme_state.dart';
 
 class PreferProductBlocListenerIconButton extends StatefulWidget {
   const PreferProductBlocListenerIconButton({
@@ -32,56 +32,26 @@ class _PreferProductBlocListenerIconButtonState
   }
 
   void _toggleFavorite() {
-    setState(() {
-      isFavoritedLocal = !isFavoritedLocal;
-    });
-    context.read<FavoritesCubit>().preferProductOrNot(
+    _toggleIsFavoritedLocal();
+    context.read<FavoritesAndThemeCubit>().preferProductOrNot(
           productId: widget.productId,
           isFavorited: isFavoritedLocal,
         );
   }
 
+  void _toggleIsFavoritedLocal() {
+    setState(() {
+      isFavoritedLocal = !isFavoritedLocal;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return BlocListener<FavoritesCubit, FavoritesState>(
-      listenWhen: (_, current) =>
-          current is RemoveProductFromFavsError ||
-          current is PreferProductError ||
-          current is PreferProductSuccess ||
-          current is RemoveProductFromFavsSuccess,
-      listener: (context, state) {
-        state.whenOrNull(
-          removeProductFromFavsError: (errorKey) {
-            CustomToast.showToast(
-              context: context,
-              messageKey: errorKey,
-              state: CustomToastState.error,
-            );
-            // Rollback the change if an error occurs
-            setState(() {
-              isFavoritedLocal = !isFavoritedLocal;
-            });
-          },
-          preferProductError: (errorKey) {
-            CustomToast.showToast(
-              context: context,
-              messageKey: errorKey,
-              state: CustomToastState.error,
-            );
-            setState(() {
-              isFavoritedLocal = !isFavoritedLocal;
-            });
-          },
-          preferProductSuccess: () {
-            context.read<FavoritesCubit>().deleteCachedFavProducts();
-          },
-          removeProductFromFavsSuccess: () {
-            context.read<FavoritesCubit>().deleteCachedFavProducts();
-          },
-        );
-      },
+    return BlocListener<FavoritesAndThemeCubit, FavoritesAndThemeState>(
+      listenWhen: (_, current) => _listenWhen(current.status),
+      listener: (context, state) => _listener(state, context),
       child: IconButton(
-        onPressed: _toggleFavorite,
+        onPressed: () => _toggleFavorite(),
         icon: Icon(
           isFavoritedLocal ? Icons.favorite : Icons.favorite_border_outlined,
           size: 18.w,
@@ -89,5 +59,41 @@ class _PreferProductBlocListenerIconButtonState
         ),
       ),
     );
+  }
+
+  void _listener(FavoritesAndThemeState state, BuildContext context) {
+    switch (state.status) {
+      case FavoritesAndThemeStatus.removeProductFromFavsError:
+        CustomToast.showToast(
+          context: context,
+          messageKey: state.error!,
+          state: CustomToastState.error,
+        );
+        // Rollback the change if an error occurs
+        _toggleIsFavoritedLocal();
+        break;
+      case FavoritesAndThemeStatus.preferProductError:
+        CustomToast.showToast(
+          context: context,
+          messageKey: state.error!,
+          state: CustomToastState.error,
+        );
+        // Rollback the change if an error occurs
+        _toggleIsFavoritedLocal();
+        break;
+      case FavoritesAndThemeStatus.preferProductSuccess:
+      case FavoritesAndThemeStatus.removeProductFromFavsSuccess:
+        context.read<FavoritesAndThemeCubit>().deleteCachedFavProducts();
+        break;
+      default:
+        break;
+    }
+  }
+
+  bool _listenWhen(FavoritesAndThemeStatus status) {
+    return status == FavoritesAndThemeStatus.removeProductFromFavsError ||
+        status == FavoritesAndThemeStatus.preferProductError ||
+        status == FavoritesAndThemeStatus.preferProductSuccess ||
+        status == FavoritesAndThemeStatus.removeProductFromFavsSuccess;
   }
 }

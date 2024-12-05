@@ -230,22 +230,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.18.0"
-  connectivity_plus:
-    dependency: transitive
-    description:
-      name: connectivity_plus
-      sha256: "2056db5241f96cdc0126bd94459fc4cdc13876753768fc7a31c425e50a7177d0"
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.0.5"
-  connectivity_plus_platform_interface:
-    dependency: transitive
-    description:
-      name: connectivity_plus_platform_interface
-      sha256: "42657c1715d48b167930d5f34d00222ac100475f73d10162ddf43e714932f204"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.1"
   convert:
     dependency: transitive
     description:
@@ -278,14 +262,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.6"
-  dbus:
-    dependency: transitive
-    description:
-      name: dbus
-      sha256: "365c771ac3b0e58845f39ec6deebc76e3276aa9922b0cc60840712094d9047ac"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.7.10"
   dio:
     dependency: "direct main"
     description:
@@ -302,6 +278,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  easy_localization:
+    dependency: "direct main"
+    description:
+      name: easy_localization
+      sha256: fa59bcdbbb911a764aa6acf96bbb6fa7a5cf8234354fc45ec1a43a0349ef0201
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.7"
+  easy_logger:
+    dependency: transitive
+    description:
+      name: easy_logger
+      sha256: c764a6e024846f33405a2342caf91c62e357c24b02c04dbc712ef232bf30ffb7
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
   expandable_page_view:
     dependency: "direct main"
     description:
@@ -379,14 +371,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.0"
-  flutter_localization:
-    dependency: "direct main"
-    description:
-      name: flutter_localization
-      sha256: c2918388c56fe2d555074215dba44bc47bd5c1036e6b237f72f210b7136cfe61
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.1"
   flutter_localizations:
     dependency: transitive
     description: flutter
@@ -702,10 +686,10 @@ packages:
     dependency: "direct main"
     description:
       name: internet_connection_checker
-      sha256: "8aeeca332a8984fa7e69018634956262cf724de9914447508762da0187bbb482"
+      sha256: "1c683e63e89c9ac66a40748b1b20889fd9804980da732bf2b58d6d5456c8e876"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.0"
+    version: "1.0.0+1"
   intl:
     dependency: "direct main"
     description:
@@ -842,14 +826,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
-  nm:
-    dependency: transitive
-    description:
-      name: nm
-      sha256: "2c9aae4127bdc8993206464fcc063611e0e36e72018696cd9631023a31b24254"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.5.0"
   numberpicker:
     dependency: "direct main"
     description:

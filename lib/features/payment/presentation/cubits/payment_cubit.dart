@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/payment/data/models/card_type.dart';
 import 'package:store_ify/features/payment/data/models/pay_params.dart';
 import 'package:store_ify/features/payment/data/repositories/payment_repo.dart';
@@ -11,7 +9,7 @@ import 'package:store_ify/features/payment/presentation/cubits/payment_state.dar
 class PaymentCubit extends Cubit<PaymentState> {
   final PaymentRepo _paymentRepo;
 
-  PaymentCubit(this._paymentRepo) : super(const PaymentState.initial()) {
+  PaymentCubit(this._paymentRepo) : super(PaymentState.initial()) {
     _initFormAttributes();
   }
 
@@ -25,17 +23,21 @@ class PaymentCubit extends Cubit<PaymentState> {
   late final FocusNode expiryDateFocusNode;
   late final FocusNode cvvFocusNode;
   late final GlobalKey<FormState> formKey;
-  late AutovalidateMode autoValidateMode;
 
   void _initFormAttributes() {
     formKey = GlobalKey<FormState>();
-    autoValidateMode = AutovalidateMode.disabled;
-    _initControllers();
-    _initFocusNodes();
+    cardTypeController = TextEditingController();
+    cardNumberController = TextEditingController();
+    cardHolderNumberController = TextEditingController();
+    expiryDateController = TextEditingController();
+    cvvController = TextEditingController();
+    cardHolderNumberFocusNode = FocusNode();
+    expiryDateFocusNode = FocusNode();
+    cvvFocusNode = FocusNode();
   }
 
   void _pay(int orderId) async {
-    emit(const PaymentState.payLoading());
+    emit(state.copyWith(status: PaymentStateStatus.payLoading));
     final result = await _paymentRepo.pay(
       PayParams(
         orderId: orderId,
@@ -49,72 +51,54 @@ class PaymentCubit extends Cubit<PaymentState> {
       _cancelToken,
     );
     result.when(
-      success: (_) => emit(const PaymentState.paySuccess()),
-      error: (error) => emit(PaymentState.payError(error.error ?? '')),
+      success: (_) =>
+          emit(state.copyWith(status: PaymentStateStatus.paySuccess)),
+      error: (errorModel) => emit(state.copyWith(
+        status: PaymentStateStatus.payError,
+        error: errorModel.error ?? '',
+      )),
     );
   }
 
-  void payAndValidateForm(BuildContext context, int orderId) {
+  void payAndValidateForm(int orderId) {
     if (formKey.currentState!.validate()) {
-      context.unfocusKeyboard();
       _pay(orderId);
     } else {
-      if (autoValidateMode != AutovalidateMode.always) {
-        _alwaysAutovalidateMode();
-      }
+      _alwaysAutovalidateMode();
     }
   }
 
   void _alwaysAutovalidateMode() {
-    autoValidateMode = AutovalidateMode.always;
-    emit(const PaymentState.alwaysAutoValidateMode(AutovalidateMode.always));
+    emit(state.copyWith(
+      status: PaymentStateStatus.alwaysAutoValidateMode,
+      autovalidateMode: AutovalidateMode.always,
+    ));
   }
 
-  bool checkboxValue = false;
   void toggleCheckBox(bool? value) {
-    if (checkboxValue != value) {
-      checkboxValue = value ?? false;
-      emit(PaymentState.toggleCheckBox(checkboxValue));
+    if (state.checkboxValue != value) {
+      emit(state.copyWith(
+        status: PaymentStateStatus.toggleCheckBox,
+        checkboxValue: value ?? false,
+      ));
     }
   }
-
-  CardType selectedCardType = AppConstants.cardTypes[0];
 
   void updateSelectedCardType(CardType cardType) {
-    if (selectedCardType != cardType) {
-      selectedCardType = cardType;
-      emit(PaymentState.updateSelectedCardType(cardType));
+    if (state.selectedCardType != cardType) {
+      emit(state.copyWith(
+        status: PaymentStateStatus.updateSelectedCardType,
+        selectedCardType: cardType,
+      ));
     }
-  }
-
-  void _initControllers() {
-    cardTypeController = TextEditingController();
-    cardNumberController = TextEditingController();
-    cardHolderNumberController = TextEditingController();
-    expiryDateController = TextEditingController();
-    cvvController = TextEditingController();
-  }
-
-  void _initFocusNodes() {
-    cardHolderNumberFocusNode = FocusNode();
-    expiryDateFocusNode = FocusNode();
-    cvvFocusNode = FocusNode();
   }
 
   void _disposeFormAttributes() {
-    _disposeControllers();
-    _disposeFocusNodes();
-  }
-
-  void _disposeControllers() {
     cardTypeController.dispose();
     cardNumberController.dispose();
     cardHolderNumberController.dispose();
     expiryDateController.dispose();
     cvvController.dispose();
-  }
-
-  void _disposeFocusNodes() {
     cardHolderNumberFocusNode.dispose();
     expiryDateFocusNode.dispose();
     cvvFocusNode.dispose();

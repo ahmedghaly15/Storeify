@@ -14,7 +14,7 @@
     "signUp": "Sign up",
     "createAccount": "Create an account",
     "confirmPassword": "Confirm password",
-    "example@gmail.com": "Example@gmail.com",
+    "emailFieldHint": "Example@gmail.com",
     "passwordHint": "*********",
     "USER_NOT_FOUND": "User not found. Please try again.",
     "tryAgain": "Try again",
@@ -83,7 +83,7 @@
     "howDoUWantToPay": "How do you want to Pay ?",
     "creditCard": "Credit Card",
     "cashOnDelivery": "Cash On Delivery",
-    "continue": "Continue",
+    "continueWord": "Continue",
     "PAYMENT_METHOD_REQUIRED": "Payment method is required.",
     "paymentWithCard": "Payment with Card",
     "payNow": "Pay Now",
@@ -148,5 +148,6 @@
     "sureToDeleteAccount": "Are you sure you want to delete your account?",
     "updateProfile": "Update Profile",
     "profileUpdatedSuccessfully": "Profile updated successfully",
-    "nothingChangedToUpdate": "Nothing changed to update"
+    "nothingChangedToUpdate": "Nothing changed to update",
+    "changingApiLangError": "An error occurred while changing the language from the server. Please try again later."
 }

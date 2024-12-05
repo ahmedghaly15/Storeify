@@ -4,22 +4,28 @@ import 'package:store_ify/features/favorites/data/models/fetch_favorite_products
 
 part 'fetch_favorites_state.freezed.dart';
 
+enum FetchFavoritesStatus {
+  initial,
+  fetchFavoriteProductsLoading,
+  fetchFavoriteProductsSuccess,
+  fetchFavoriteProductsError,
+  fetchFavStoresLoading,
+  fetchFavStoresSuccess,
+  fetchFavStoresError,
+  updateSelectedFavCategory,
+}
+
 @freezed
-class FetchFavoritesState<T> with _$FetchFavoritesState<T> {
-  const factory FetchFavoritesState.initial() = _Initial;
-  const factory FetchFavoritesState.fetchFavoriteProductsLoading() =
-      FetchFavoriteProductsLoading;
-  const factory FetchFavoritesState.fetchFavoriteProductsSuccess(
-          FetchFavoriteProductsResponse favorites) =
-      FetchFavoriteProductsSuccess<T>;
-  const factory FetchFavoritesState.fetchFavoriteProductsError(String error) =
-      FetchFavoriteProductsError<T>;
-  const factory FetchFavoritesState.updateSelectedFavCategory(
-      int selectedFavCategory) = UpdateSelectedFavCategory<T>;
-  const factory FetchFavoritesState.fetchFavStoresLoading() =
-      FetchFavStoresLoading;
-  const factory FetchFavoritesState.fetchFavStoresSuccess(
-      FetchFavStoresResponse favStores) = FetchFavStoresSuccess<T>;
-  const factory FetchFavoritesState.fetchFavStoresError(String error) =
-      FetchFavStoresError<T>;
+class FetchFavoritesState with _$FetchFavoritesState {
+  const factory FetchFavoritesState({
+    required FetchFavoritesStatus status,
+    FetchFavoriteProductsResponse? favProducts,
+    FetchFavStoresResponse? favStores,
+    String? error,
+    @Default(0) int selectedFavCategory,
+  }) = _FetchFavoritesState;
+
+  factory FetchFavoritesState.initial() => const FetchFavoritesState(
+        status: FetchFavoritesStatus.initial,
+      );
 }

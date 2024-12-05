@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/features/search/presentation/cubit/search_cubit.dart';
 import 'package:store_ify/features/search/presentation/cubit/search_state.dart';
 import 'package:store_ify/features/search/presentation/widgets/custom_search_text_field.dart';
@@ -13,7 +13,7 @@ class HeroSearchFieldBlocBuilder extends StatelessWidget {
     return BlocBuilder<SearchCubit, SearchState>(
       buildWhen: (_, current) => current is UpdateSearchText,
       builder: (context, state) => Hero(
-        tag: LangKeys.search,
+        tag: LocaleKeys.search,
         child: Material(
           color: Colors.transparent,
           child: CustomSearchTextField(

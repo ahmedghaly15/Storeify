@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/auth_validator.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/core/widgets/pass_text_form_field.dart';
 import 'package:store_ify/features/profile/presentation/cubits/change_pass/change_pass_cubit.dart';
@@ -19,35 +19,34 @@ class ChangePasswordForm extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          BlocBuilder<ChangePassCubit, ChangePassState>(
-            buildWhen: (_, current) => current is ToggleOldPassVisibility,
-            builder: (context, state) => PassTextFormField(
+          BlocSelector<ChangePassCubit, ChangePassState, bool>(
+            selector: (state) => state.oldPasswordObscured,
+            builder: (context, oldPasswordObscured) => PassTextFormField(
               controller: changePassCubit.passController,
-              hintTextKey: LangKeys.oldPassword,
-              obscureText: changePassCubit.oldPasswordObscured,
+              hintTextKey: LocaleKeys.oldPassword,
+              obscureText: oldPasswordObscured,
               suffixOnPressed: () =>
                   changePassCubit.toggleOldPasswordVisibility(),
             ),
           ),
           MySizedBox.height10,
-          BlocBuilder<ChangePassCubit, ChangePassState>(
-            buildWhen: (_, current) => current is ToggleNewPassVisibility,
-            builder: (context, state) => PassTextFormField(
+          BlocSelector<ChangePassCubit, ChangePassState, bool>(
+            selector: (state) => state.newPasswordObscured,
+            builder: (context, newPasswordObscured) => PassTextFormField(
               controller: changePassCubit.newPassController,
-              hintTextKey: LangKeys.newPassword,
-              obscureText: changePassCubit.newPasswordObscured,
+              hintTextKey: LocaleKeys.newPassword,
+              obscureText: newPasswordObscured,
               suffixOnPressed: () => changePassCubit.toggleNewPassVisibility(),
               autofillHints: const [AutofillHints.newPassword],
             ),
           ),
           MySizedBox.height10,
-          BlocBuilder<ChangePassCubit, ChangePassState>(
-            buildWhen: (_, current) =>
-                current is ToggleConfirmNewPassVisibility,
-            builder: (context, state) => PassTextFormField(
+          BlocSelector<ChangePassCubit, ChangePassState, bool>(
+            selector: (state) => state.confirmNewPassObscured,
+            builder: (context, confirmNewPassObscured) => PassTextFormField(
               controller: changePassCubit.confirmPassController,
-              hintTextKey: LangKeys.confirmNewPassword,
-              obscureText: changePassCubit.confirmNewPassObscured,
+              hintTextKey: LocaleKeys.confirmNewPassword,
+              obscureText: confirmNewPassObscured,
               suffixOnPressed: () =>
                   changePassCubit.toggleConfirmPassVisibility(),
               autofillHints: const [AutofillHints.newPassword],

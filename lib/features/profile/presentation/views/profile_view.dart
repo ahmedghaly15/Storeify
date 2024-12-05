@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:store_ify/core/di/dependency_injection.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/profile/data/models/setting_item.dart';
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
@@ -33,7 +33,7 @@ class ProfileView extends StatelessWidget implements AutoRouteWrapper {
             const ProfileViewSliverAppBar(),
             const SliverToBoxAdapter(child: CurrentUserData()),
             const SliverToBoxAdapter(
-              child: ProfileSettingsTitle(titleKey: LangKeys.appSettings),
+              child: ProfileSettingsTitle(titleKey: LocaleKeys.appSettings),
             ),
             SliverToBoxAdapter(
               child: SettingsSeparatedListView(
@@ -42,7 +42,7 @@ class ProfileView extends StatelessWidget implements AutoRouteWrapper {
             ),
             const SliverToBoxAdapter(child: MySizedBox.height16),
             const SliverToBoxAdapter(
-              child: ProfileSettingsTitle(titleKey: LangKeys.accountSettings),
+              child: ProfileSettingsTitle(titleKey: LocaleKeys.accountSettings),
             ),
             SliverToBoxAdapter(
               child: SettingsSeparatedListView(

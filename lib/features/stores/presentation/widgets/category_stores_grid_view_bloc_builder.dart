@@ -15,15 +15,13 @@ class CategoryStoresGridViewBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<StoresCubit, StoresState>(
-      buildWhen: (_, current) => current is UpdateCurrentSelectedStore,
-      builder: (context, state) => Expanded(
+    return BlocSelector<StoresCubit, StoresState, int>(
+      selector: (state) => state.currentStoreIndex,
+      builder: (context, currentStoreIndex) => Expanded(
         child: GridView.builder(
           padding: AppConstants.categoryPadding,
           physics: AppConstants.physics,
-          itemCount: stores[context.read<StoresCubit>().currentStoreIndex]
-              .categories!
-              .length,
+          itemCount: stores[currentStoreIndex].categories!.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: AppConstants.gridCrossAxisCount,
             crossAxisSpacing: 8.w,
@@ -31,9 +29,7 @@ class CategoryStoresGridViewBlocBuilder extends StatelessWidget {
           ),
           itemBuilder: (_, index) => AnimationConfiguration.staggeredGrid(
             position: index,
-            columnCount: stores[context.read<StoresCubit>().currentStoreIndex]
-                .categories!
-                .length,
+            columnCount: stores[currentStoreIndex].categories!.length,
             duration: AppConstants.gridDuration,
             child: ScaleAnimation(
               child: StoreItem(store: stores[index]),

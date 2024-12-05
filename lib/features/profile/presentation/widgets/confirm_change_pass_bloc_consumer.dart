@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
 import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
@@ -16,43 +16,52 @@ class ConfirmChangePassBlocConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ChangePassCubit, ChangePassState>(
-      listenWhen: (_, current) =>
-          current is ChangePasswordLoading ||
-          current is ChangePasswordSuccess ||
-          current is ChangePasswordError,
-      listener: (context, state) {
-        state.whenOrNull(
-          changePasswordLoading: () => context.unfocusKeyboard(),
-          changePasswordSuccess: () {
-            context.maybePop();
-            CustomToast.showToast(
-              context: context,
-              messageKey: LangKeys.passChangedSuccessfully,
-              state: CustomToastState.success,
-            );
-          },
-          changePasswordError: (error) => CustomToast.showToast(
-            context: context,
-            state: CustomToastState.error,
-            messageKey: error,
-          ),
-        );
-      },
-      buildWhen: (_, current) =>
-          current is ChangePasswordLoading ||
-          current is ChangePasswordError ||
-          current is ChangePasswordSuccess,
+      listenWhen: (_, current) => _listenOrBuildWhen(current.status),
+      listener: (context, state) => _listener(state, context),
+      buildWhen: (_, current) => _listenOrBuildWhen(current.status),
       builder: (context, state) => MainButton(
         margin: EdgeInsets.symmetric(horizontal: 24.w),
         width: double.infinity,
         onPressed: () =>
             context.read<ChangePassCubit>().validateAndChangePass(),
         child: circularIndicatorOrTextWidget(
-          isLoading: state is ChangePasswordLoading,
+          isLoading:
+              state.status == ChangePassStateStatus.changePasswordLoading,
           context: context,
-          textKey: LangKeys.confirm,
+          textKey: LocaleKeys.confirm,
         ),
       ),
     );
+  }
+
+  void _listener(ChangePassState state, BuildContext context) {
+    switch (state.status) {
+      case ChangePassStateStatus.changePasswordLoading:
+        context.unfocusKeyboard();
+        break;
+      case ChangePassStateStatus.changePasswordSuccess:
+        context.maybePop();
+        CustomToast.showToast(
+          context: context,
+          messageKey: LocaleKeys.passChangedSuccessfully,
+          state: CustomToastState.success,
+        );
+        break;
+      case ChangePassStateStatus.changePasswordError:
+        CustomToast.showToast(
+          context: context,
+          state: CustomToastState.error,
+          messageKey: state.error ?? '',
+        );
+        break;
+      default:
+        break;
+    }
+  }
+
+  bool _listenOrBuildWhen(ChangePassStateStatus status) {
+    return status == ChangePassStateStatus.changePasswordLoading ||
+        status == ChangePassStateStatus.changePasswordSuccess ||
+        status == ChangePassStateStatus.changePasswordError;
   }
 }

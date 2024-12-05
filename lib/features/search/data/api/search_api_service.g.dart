@@ -14,7 +14,7 @@ class _SearchApiService implements SearchApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://192.168.1.7:8081/api/';
+    baseUrl ??= 'http://192.168.1.51:8081/api/';
   }
 
   final Dio _dio;
@@ -41,7 +41,7 @@ class _SearchApiService implements SearchApiService {
     )
         .compose(
           _dio.options,
-          'http://192.168.1.7:8081/api/search',
+          'search',
           queryParameters: queryParameters,
           data: _data,
           cancelToken: cancelToken,

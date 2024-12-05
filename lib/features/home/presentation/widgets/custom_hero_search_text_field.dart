@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:store_ify/core/locale/lang_keys.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/features/search/presentation/widgets/custom_search_text_field.dart';
 
@@ -10,7 +10,7 @@ class CustomHeroSearchTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Hero(
-      tag: LangKeys.search,
+      tag: LocaleKeys.search,
       flightShuttleBuilder: (
         BuildContext context,
         Animation<double> animation,
