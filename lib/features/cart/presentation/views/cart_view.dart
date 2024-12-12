@@ -8,6 +8,7 @@ import 'package:store_ify/core/widgets/custom_error_widget.dart';
 import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:store_ify/features/cart/presentation/cubit/cart_state.dart';
 import 'package:store_ify/features/cart/presentation/widgets/cart_view_body.dart';
+import 'package:store_ify/features/cart/presentation/widgets/empty_cart_widget.dart';
 
 @RoutePage()
 class CartView extends StatelessWidget implements AutoRouteWrapper {
@@ -35,10 +36,14 @@ class CartView extends StatelessWidget implements AutoRouteWrapper {
                   child: CustomCircularProgressIndicator(),
                 );
               case CartStateStatus.fetchCartSuccess:
-                return CartViewBody(cart: state.cart!);
+                return state.cart!.cart.isNotEmpty
+                    ? CartViewBody(cart: state.cart!)
+                    : const EmptyCartWidget();
               case CartStateStatus.fetchCartError:
                 return state.cart != null
-                    ? CartViewBody(cart: state.cart!)
+                    ? (state.cart!.cart.isNotEmpty
+                        ? CartViewBody(cart: state.cart!)
+                        : const EmptyCartWidget())
                     : CustomScrollView(
                         slivers: [
                           SliverFillRemaining(
