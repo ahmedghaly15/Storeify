@@ -40,7 +40,6 @@ class EnableLocationPermissionAdaptiveDialog extends StatelessWidget {
           onPressed: () async =>
               await _requestLocationPermissionAndShowGrantedToast(context),
           textKey: LocaleKeys.ok,
-          width: double.infinity,
         ),
         MySizedBox.height8,
         CancelOutlinedButton(

@@ -25,7 +25,6 @@ class CheckoutNextBlocConsumerButton extends StatelessWidget {
           horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
           vertical: 40.h,
         ),
-        width: double.infinity,
         onPressed: () {
           // context.read<CheckoutCubit>().checkoutAndValidateForm();
           context.pushRoute(const PaymentMethodRoute());

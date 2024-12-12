@@ -149,5 +149,10 @@
     "updateProfile": "تحديث الملف الشخصي",
     "profileUpdatedSuccessfully": "تم تحديث الملف الشخصي بنجاح",
     "nothingChangedToUpdate": "لا توجد تغييرات للتحديث",
-    "changingApiLangError": "حدث خطأ أثناء تغيير اللغة من الخادم. الرجاء المحاولة مرة أخرى لاحقاً."
+    "changingApiLangError": "حدث خطأ أثناء تغيير اللغة من الخادم. الرجاء المحاولة مرة أخرى لاحقاً.",
+    "putToYourCart": "اضافة الى السلة",
+    "putToYourCartToStartShopping": "اضافة الى السلة للبدء بالتسوق",
+    "topCategories": "أفضل الفئات",
+    "noResultsFound": "لم يتم العثور على نتائج",
+    "tryDifferentKeywords": "من فضلك حاول البحث باستخدام كلمات مختلفة."
 }

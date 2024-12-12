@@ -13,6 +13,14 @@ bool isOnboardingVisited = false;
 StoreifyUser? currentUser;
 String? countryCode;
 
+final userNotifier = ValueNotifier(currentUser);
+
+// Update the currentUser setter
+set currentUserSetter(StoreifyUser user) {
+  currentUser = user;
+  userNotifier.value = user;
+}
+
 class AppConstants {
   static const ScrollPhysics physics = BouncingScrollPhysics();
   static const int gridCrossAxisCount = 2;

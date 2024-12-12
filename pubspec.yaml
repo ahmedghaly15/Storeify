@@ -73,6 +73,10 @@ dependencies:
   path_provider: ^2.1.4
   # An easy way to add shimmer effect
   shimmer: ^3.0.0
+  # Used for picking images
+  image_picker: ^1.1.2
+  # Used for compressing images
+  flutter_image_compress: ^2.3.0
 
 dev_dependencies:
   flutter_test:

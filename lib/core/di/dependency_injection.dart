@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:store_ify/core/api/dio_factory.dart';
 import 'package:store_ify/core/router/app_router.dart';
@@ -20,9 +23,7 @@ import 'package:store_ify/features/auth/presentation/cubits/register/register_cu
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/validate_otp/validate_otp_cubit.dart';
 import 'package:store_ify/features/cart/data/api/cart_api_service.dart';
-import 'package:store_ify/features/cart/data/datasources/cart_local_datasource.dart';
 import 'package:store_ify/features/cart/data/repositories/cart_repo.dart';
-import 'package:store_ify/features/cart/data/repositories/cart_repo_impl.dart';
 import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:store_ify/features/categories/data/api/categories_api_service.dart';
 import 'package:store_ify/features/categories/data/datasources/categories_local_datasource.dart';
@@ -53,6 +54,7 @@ import 'package:store_ify/features/profile/presentation/cubits/change_pass/chang
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
 import 'package:store_ify/features/profile/presentation/cubits/update_profile/update_profile_cubit.dart';
 import 'package:store_ify/features/search/data/api/search_api_service.dart';
+import 'package:store_ify/features/search/data/datasource/search_local_datasource.dart';
 import 'package:store_ify/features/search/data/repositories/search_repo.dart';
 import 'package:store_ify/features/search/presentation/cubit/search_cubit.dart';
 import 'package:store_ify/features/stores/data/api/stores_api_service.dart';
@@ -64,12 +66,22 @@ import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubi
 
 final GetIt getIt = GetIt.instance;
 
-void setupDI() {
+Future<void> setupDI() async {
+  await _setupForExternal();
   _setupDIForCore();
   _setupForApiServices();
   _setupDIForDatasources();
   _setupDIForRepos();
   _setupDIForCubits();
+}
+
+Future<void> _setupForExternal() async {
+  final SharedPreferences sharedPreferences =
+      await SharedPreferences.getInstance();
+  getIt.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
+  const flutterSecureStorage = FlutterSecureStorage();
+  getIt.registerLazySingleton<FlutterSecureStorage>(() => flutterSecureStorage);
+  getIt.registerLazySingleton<ImagePicker>(() => ImagePicker());
 }
 
 void _setupDIForCore() {
@@ -124,14 +136,14 @@ void _setupDIForDatasources() {
   getIt.registerLazySingleton<HomeLocalDatasource>(
     () => const HomeLocalDatasource(),
   );
-  getIt.registerLazySingleton<CartLocalDatasource>(
-    () => const CartLocalDatasource(),
-  );
   getIt.registerLazySingleton<FavoritesLocalDatasource>(
     () => const FavoritesLocalDatasource(),
   );
   getIt.registerLazySingleton<StoresLocalDatasource>(
     () => const StoresLocalDatasource(),
+  );
+  getIt.registerLazySingleton<SearchLocalDatasource>(
+    () => const SearchLocalDatasource(),
   );
 }
 
@@ -176,10 +188,7 @@ void _setupDIForRepos() {
     ),
   );
   getIt.registerLazySingleton<CartRepo>(
-    () => CartRepoImpl(
-      getIt.get<CartApiService>(),
-      getIt.get<CartLocalDatasource>(),
-    ),
+    () => CartRepo(getIt.get<CartApiService>()),
   );
   getIt.registerLazySingleton<CheckoutRepo>(
     () => CheckoutRepo(getIt.get<CheckoutApiService>()),
@@ -191,7 +200,10 @@ void _setupDIForRepos() {
     () => ProfileRepo(getIt.get<ProfileApiService>()),
   );
   getIt.registerLazySingleton<SearchRepo>(
-    () => SearchRepo(getIt.get<SearchApiService>()),
+    () => SearchRepo(
+      getIt.get<SearchApiService>(),
+      getIt.get<SearchLocalDatasource>(),
+    ),
   );
 }
 

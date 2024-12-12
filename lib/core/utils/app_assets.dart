@@ -65,6 +65,15 @@ class AppAssets {
   /// assets/images/default_error.png
   static const String imagesDefaultError = "assets/images/default_error.png";
 
+  /// Assets for imagesEmptyCart
+  /// assets/images/empty-cart.png
+  static const String imagesEmptyCart = "assets/images/empty-cart.png";
+
+  /// Assets for imagesEmptyFavorites
+  /// assets/images/empty-favorites.png
+  static const String imagesEmptyFavorites =
+      "assets/images/empty-favorites.png";
+
   /// Assets for imagesMasterCard
   /// assets/images/master_card.png
   static const String imagesMasterCard = "assets/images/master_card.png";
@@ -119,4 +128,12 @@ class AppAssets {
   /// Assets for imagesVisa
   /// assets/images/visa.png
   static const String imagesVisa = "assets/images/visa.png";
+
+  /// Assets for translationsAr
+  /// assets/translations/ar.json
+  static const String translationsAr = "assets/translations/ar.json";
+
+  /// Assets for translationsEn
+  /// assets/translations/en.json
+  static const String translationsEn = "assets/translations/en.json";
 }

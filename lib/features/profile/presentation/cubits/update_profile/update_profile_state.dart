@@ -11,6 +11,8 @@ enum UpdateProfileStateStatus {
   updateProfileSuccess,
   updateProfileError,
   updateSelectedImg,
+  onChangeEmail,
+  onChangeUsername,
 }
 
 @freezed
@@ -20,6 +22,8 @@ class UpdateProfileState<T> with _$UpdateProfileState<T> {
     StoreifyUser? updatedUser,
     File? selectedImg,
     String? error,
+    @Default('') String email,
+    @Default('') String username,
   }) = _UpdateProfileState;
 
   factory UpdateProfileState.initial() => const UpdateProfileState(

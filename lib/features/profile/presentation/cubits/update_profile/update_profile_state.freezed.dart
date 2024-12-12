@@ -20,6 +20,8 @@ mixin _$UpdateProfileState<T> {
   StoreifyUser? get updatedUser => throw _privateConstructorUsedError;
   File? get selectedImg => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  String get username => throw _privateConstructorUsedError;
 
   /// Create a copy of UpdateProfileState
   /// with the given fields replaced by the non-null parameter values.
@@ -38,7 +40,9 @@ abstract class $UpdateProfileStateCopyWith<T, $Res> {
       {UpdateProfileStateStatus status,
       StoreifyUser? updatedUser,
       File? selectedImg,
-      String? error});
+      String? error,
+      String email,
+      String username});
 
   $StoreifyUserCopyWith<$Res>? get updatedUser;
 }
@@ -63,6 +67,8 @@ class _$UpdateProfileStateCopyWithImpl<T, $Res,
     Object? updatedUser = freezed,
     Object? selectedImg = freezed,
     Object? error = freezed,
+    Object? email = null,
+    Object? username = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -81,6 +87,14 @@ class _$UpdateProfileStateCopyWithImpl<T, $Res,
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -111,7 +125,9 @@ abstract class _$$UpdateProfileStateImplCopyWith<T, $Res>
       {UpdateProfileStateStatus status,
       StoreifyUser? updatedUser,
       File? selectedImg,
-      String? error});
+      String? error,
+      String email,
+      String username});
 
   @override
   $StoreifyUserCopyWith<$Res>? get updatedUser;
@@ -135,6 +151,8 @@ class __$$UpdateProfileStateImplCopyWithImpl<T, $Res>
     Object? updatedUser = freezed,
     Object? selectedImg = freezed,
     Object? error = freezed,
+    Object? email = null,
+    Object? username = null,
   }) {
     return _then(_$UpdateProfileStateImpl<T>(
       status: null == status
@@ -153,6 +171,14 @@ class __$$UpdateProfileStateImplCopyWithImpl<T, $Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -161,7 +187,12 @@ class __$$UpdateProfileStateImplCopyWithImpl<T, $Res>
 
 class _$UpdateProfileStateImpl<T> implements _UpdateProfileState<T> {
   const _$UpdateProfileStateImpl(
-      {required this.status, this.updatedUser, this.selectedImg, this.error});
+      {required this.status,
+      this.updatedUser,
+      this.selectedImg,
+      this.error,
+      this.email = '',
+      this.username = ''});
 
   @override
   final UpdateProfileStateStatus status;
@@ -171,10 +202,16 @@ class _$UpdateProfileStateImpl<T> implements _UpdateProfileState<T> {
   final File? selectedImg;
   @override
   final String? error;
+  @override
+  @JsonKey()
+  final String email;
+  @override
+  @JsonKey()
+  final String username;
 
   @override
   String toString() {
-    return 'UpdateProfileState<$T>(status: $status, updatedUser: $updatedUser, selectedImg: $selectedImg, error: $error)';
+    return 'UpdateProfileState<$T>(status: $status, updatedUser: $updatedUser, selectedImg: $selectedImg, error: $error, email: $email, username: $username)';
   }
 
   @override
@@ -187,12 +224,15 @@ class _$UpdateProfileStateImpl<T> implements _UpdateProfileState<T> {
                 other.updatedUser == updatedUser) &&
             (identical(other.selectedImg, selectedImg) ||
                 other.selectedImg == selectedImg) &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.error, error) || other.error == error) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.username, username) ||
+                other.username == username));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, status, updatedUser, selectedImg, error);
+  int get hashCode => Object.hash(
+      runtimeType, status, updatedUser, selectedImg, error, email, username);
 
   /// Create a copy of UpdateProfileState
   /// with the given fields replaced by the non-null parameter values.
@@ -209,7 +249,9 @@ abstract class _UpdateProfileState<T> implements UpdateProfileState<T> {
       {required final UpdateProfileStateStatus status,
       final StoreifyUser? updatedUser,
       final File? selectedImg,
-      final String? error}) = _$UpdateProfileStateImpl<T>;
+      final String? error,
+      final String email,
+      final String username}) = _$UpdateProfileStateImpl<T>;
 
   @override
   UpdateProfileStateStatus get status;
@@ -219,6 +261,10 @@ abstract class _UpdateProfileState<T> implements UpdateProfileState<T> {
   File? get selectedImg;
   @override
   String? get error;
+  @override
+  String get email;
+  @override
+  String get username;
 
   /// Create a copy of UpdateProfileState
   /// with the given fields replaced by the non-null parameter values.

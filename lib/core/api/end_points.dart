@@ -2,7 +2,7 @@ class EndPoints {
   EndPoints._();
 
   // static const String baseUrl = 'https://store-ify.000webhostapp.com/api/';
-  static const String baseUrl = 'http://192.168.1.51:8081/api/';
+  static const String baseUrl = 'http://192.168.1.6:8081/api/';
   static const String login = 'login';
   static const String register = 'register';
   static const String forgotPassword = 'forget-password';
@@ -26,4 +26,5 @@ class EndPoints {
   static const String changePassword = '${profile}change-password';
   static const String search = 'search';
   static const String updateProfile = '${profile}update';
+  static const String searchData = 'searchData';
 }

@@ -19,7 +19,7 @@ void main() async {
   final appDocumentDir = await getApplicationDocumentsDirectory();
   await Hive.initFlutter(appDocumentDir.path);
   await HiveHelper.registerAdapters();
-  setupDI();
+  await setupDI();
   Bloc.observer = MyBlocObserver();
   await checkIfOnboardingIsVisited();
   await checkIfUserIsLoggedIn();

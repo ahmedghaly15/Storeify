@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/router/app_router.dart';
+
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
@@ -24,33 +25,25 @@ class CartViewBody extends StatelessWidget {
           titleKey: LocaleKeys.cart,
           hasLeading: false,
         ),
-        cart.cart.isNotEmpty
-            ? SliverList.builder(
-                itemCount: cart.cart.length,
-                itemBuilder: (_, index) => CartProductItem(
-                  product: cart.cart[index].product,
-                ),
-              )
-            : const SliverFillRemaining(
-                child: Center(
-                  child: Text('Empty Cart'),
-                ),
-              ),
+        SliverList.builder(
+          itemCount: cart.cart.length,
+          itemBuilder: (_, index) => CartProductItem(
+            product: cart.cart[index].product,
+          ),
+        ),
         SliverToBoxAdapter(
           child: CartSummary(cart: cart),
         ),
         SliverToBoxAdapter(
-          child: cart.cart.isNotEmpty
-              ? MainButton(
-                  onPressed: () => context.pushRoute(const CheckoutRoute()),
-                  textKey: LocaleKeys.checkout,
-                  margin: EdgeInsetsDirectional.only(
-                    start: 24.w,
-                    end: 24.w,
-                    bottom: 24.h,
-                  ),
-                )
-              : const SizedBox.shrink(),
+          child: MainButton(
+            onPressed: () => context.pushRoute(const CheckoutRoute()),
+            textKey: LocaleKeys.checkout,
+            margin: EdgeInsetsDirectional.only(
+              start: 24.w,
+              end: 24.w,
+              bottom: 24.h,
+            ),
+          ),
         ),
       ],
     );

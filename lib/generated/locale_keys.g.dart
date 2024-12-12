@@ -152,5 +152,10 @@ abstract class  LocaleKeys {
   static const profileUpdatedSuccessfully = 'profileUpdatedSuccessfully';
   static const nothingChangedToUpdate = 'nothingChangedToUpdate';
   static const changingApiLangError = 'changingApiLangError';
+  static const putToYourCart = 'putToYourCart';
+  static const putToYourCartToStartShopping = 'putToYourCartToStartShopping';
+  static const topCategories = 'topCategories';
+  static const noResultsFound = 'noResultsFound';
+  static const tryDifferentKeywords = 'tryDifferentKeywords';
 
 }

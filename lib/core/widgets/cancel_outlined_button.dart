@@ -12,7 +12,6 @@ class CancelOutlinedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MainButton(
       onPressed: onCancel ?? () => context.maybePop(),
-      width: double.infinity,
       textKey: LocaleKeys.cancel,
       isOutlined: true,
     );
