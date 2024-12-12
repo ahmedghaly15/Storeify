@@ -6,7 +6,6 @@ import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
-import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_state.dart';
@@ -47,20 +46,12 @@ class ResetPassButtonBlocConsumer extends StatelessWidget {
         context.unfocusKeyboard();
         break;
       case ResetPassStateStatus.resetPassSuccess:
-        CustomToast.showToast(
-          context: context,
-          messageKey: LocaleKeys.passwordResetSuccess,
-          state: CustomToastState.success,
-        );
+        context.showToast(LocaleKeys.passwordResetSuccess);
         context.router
             .popUntil((route) => route.settings.name == LoginRoute.name);
         break;
       case ResetPassStateStatus.resetPassError:
-        CustomToast.showToast(
-          context: context,
-          messageKey: state.error!,
-          state: CustomToastState.error,
-        );
+        context.showToast(state.error!);
         break;
       default:
         break;

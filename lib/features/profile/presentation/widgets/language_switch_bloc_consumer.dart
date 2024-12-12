@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/utils/functions/toggle_lang.dart';
 import 'package:store_ify/core/widgets/custom_adaptive_switch.dart';
-import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
 import 'package:store_ify/features/profile/presentation/cubits/profile_state.dart';
 
@@ -32,11 +32,7 @@ class LanguageSwitchBlocConsumer extends StatelessWidget {
         context.maybePop();
         break;
       case ProfileStateStatus.changeApiLangError:
-        CustomToast.showToast(
-          context: context,
-          messageKey: state.error ?? '',
-          state: CustomToastState.error,
-        );
+        context.showToast(state.error!);
         break;
 
       default:

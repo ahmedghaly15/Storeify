@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
-import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_and_theme_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_and_theme_state.dart';
 
@@ -64,20 +64,12 @@ class _PreferProductBlocListenerIconButtonState
   void _listener(FavoritesAndThemeState state, BuildContext context) {
     switch (state.status) {
       case FavoritesAndThemeStatus.removeProductFromFavsError:
-        CustomToast.showToast(
-          context: context,
-          messageKey: state.error!,
-          state: CustomToastState.error,
-        );
+        context.showToast(state.error!);
         // Rollback the change if an error occurs
         _toggleIsFavoritedLocal();
         break;
       case FavoritesAndThemeStatus.preferProductError:
-        CustomToast.showToast(
-          context: context,
-          messageKey: state.error!,
-          state: CustomToastState.error,
-        );
+        context.showToast(state.error!);
         // Rollback the change if an error occurs
         _toggleIsFavoritedLocal();
         break;

@@ -5,7 +5,6 @@ import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
-import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/auth/data/datasources/auth_local_datasource.dart';
 import 'package:store_ify/features/profile/presentation/cubits/update_profile/update_profile_cubit.dart';
@@ -52,17 +51,9 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
       case UpdateProfileStateStatus.updateProfileSuccess:
         currentUserSetter = state.updatedUser!;
         await AuthLocalDatasource.cacheUser(state.updatedUser!);
-        CustomToast.showToast(
-          context: context,
-          messageKey: LocaleKeys.profileUpdatedSuccessfully,
-          state: CustomToastState.success,
-        );
+        context.showToast(LocaleKeys.profileUpdatedSuccessfully);
       case UpdateProfileStateStatus.updateProfileError:
-        CustomToast.showToast(
-          context: context,
-          messageKey: state.error!,
-          state: CustomToastState.error,
-        );
+        context.showToast(state.error!);
       default:
         break;
     }

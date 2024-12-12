@@ -7,7 +7,6 @@ import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
-import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_state.dart';
@@ -45,11 +44,7 @@ class PayBlocConsumerButton extends StatelessWidget {
         context.unfocusKeyboard();
         break;
       case PaymentStateStatus.payError:
-        CustomToast.showToast(
-          context: context,
-          messageKey: state.error!,
-          state: CustomToastState.error,
-        );
+        context.showToast(state.error!);
         break;
       case PaymentStateStatus.paySuccess:
         // TODO: navigate to payment successful screen

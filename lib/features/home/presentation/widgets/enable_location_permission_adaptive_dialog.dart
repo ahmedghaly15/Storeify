@@ -9,7 +9,6 @@ import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:store_ify/core/widgets/cancel_outlined_button.dart';
-import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 
@@ -54,27 +53,15 @@ class EnableLocationPermissionAdaptiveDialog extends StatelessWidget {
   ) async {
     await LocationService.requestPermission();
     if (await LocationService.isLocationPermissionDenied()) {
-      CustomToast.showToast(
-        context: context,
-        messageKey: LocaleKeys.locationDenied,
-        state: CustomToastState.error,
-      );
+      context.showToast(LocaleKeys.locationDenied);
     } else {
-      CustomToast.showToast(
-        context: context,
-        messageKey: LocaleKeys.locationGranted,
-        state: CustomToastState.success,
-      );
+      context.showToast(LocaleKeys.locationGranted);
     }
     context.maybePop();
   }
 
   Future<void> _popAndShowLocationDeniedToast(BuildContext context) async {
     await context.maybePop();
-    CustomToast.showToast(
-      context: context,
-      messageKey: LocaleKeys.locationDenied,
-      state: CustomToastState.error,
-    );
+    context.showToast(LocaleKeys.locationDenied);
   }
 }

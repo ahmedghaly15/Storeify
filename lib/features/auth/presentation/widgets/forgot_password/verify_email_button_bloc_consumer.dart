@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
-import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forgot_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forgot_password_state.dart';
@@ -44,16 +43,8 @@ class VerifyEmailButtonBlocConsumer extends StatelessWidget {
   void _listener(ForgotPasswordState<dynamic> state, BuildContext context) {
     state.whenOrNull(
       forgotPasswordLoading: () => context.unfocusKeyboard(),
-      forgotPasswordSuccess: () => CustomToast.showToast(
-        context: context,
-        messageKey: LocaleKeys.emailSent,
-        state: CustomToastState.success,
-      ),
-      forgotPasswordError: (errorKey) => CustomToast.showToast(
-        context: context,
-        messageKey: errorKey,
-        state: CustomToastState.error,
-      ),
+      forgotPasswordSuccess: () => context.showToast(LocaleKeys.emailSent),
+      forgotPasswordError: (errorKey) => context.showToast(errorKey),
     );
   }
 }
