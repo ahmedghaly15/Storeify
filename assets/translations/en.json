@@ -149,5 +149,7 @@
     "updateProfile": "Update Profile",
     "profileUpdatedSuccessfully": "Profile updated successfully",
     "nothingChangedToUpdate": "Nothing changed to update",
-    "changingApiLangError": "An error occurred while changing the language from the server. Please try again later."
+    "changingApiLangError": "An error occurred while changing the language from the server. Please try again later.",
+    "putToYourCart": "Put to your cart",
+    "putToYourCartToStartShopping": "Put to your cart to start shopping"
 }
