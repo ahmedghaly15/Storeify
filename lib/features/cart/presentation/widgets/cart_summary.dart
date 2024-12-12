@@ -16,45 +16,43 @@ class CartSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return cart.cart.isNotEmpty
-        ? Container(
-            margin: EdgeInsetsDirectional.only(
-              start: 16.w,
-              end: 16.w,
-              top: 8.h,
-              bottom: 24.h,
+    return Container(
+      margin: EdgeInsetsDirectional.only(
+        start: 16.w,
+        end: 16.w,
+        top: 8.h,
+        bottom: 24.h,
+      ),
+      child: Column(
+        children: [
+          Text(
+            context.tr(LocaleKeys.summary),
+            style: AppTextStyles.textStyle12Regular.copyWith(
+              color: AppColors.colorBEBEC3,
             ),
-            child: Column(
-              children: [
-                Text(
-                  context.tr(LocaleKeys.summary),
-                  style: AppTextStyles.textStyle12Regular.copyWith(
-                    color: AppColors.colorBEBEC3,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                MySizedBox.height8,
-                const CartSummaryDivider(),
-                MySizedBox.height8,
-                const SummaryInfo(
-                  nameKey: LocaleKeys.subtotal,
-                  price: 525.5,
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 8.h),
-                  child: const SummaryInfo(
-                    nameKey: LocaleKeys.delivery,
-                    price: 20.0,
-                  ),
-                ),
-                const CartSummaryDivider(),
-                const SummaryInfo(
-                  nameKey: LocaleKeys.total,
-                  price: 553,
-                ),
-              ],
+            textAlign: TextAlign.center,
+          ),
+          MySizedBox.height8,
+          const CartSummaryDivider(),
+          MySizedBox.height8,
+          SummaryInfo(
+            nameKey: LocaleKeys.subtotal,
+            price: cart.subTotalPrice,
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 8.h),
+            child: SummaryInfo(
+              nameKey: LocaleKeys.delivery,
+              price: cart.delivery.toDouble(),
             ),
-          )
-        : const SizedBox.shrink();
+          ),
+          const CartSummaryDivider(),
+          SummaryInfo(
+            nameKey: LocaleKeys.total,
+            price: cart.totalPrice,
+          ),
+        ],
+      ),
+    );
   }
 }

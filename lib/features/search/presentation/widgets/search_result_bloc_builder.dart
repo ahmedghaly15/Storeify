@@ -1,15 +1,12 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/models/product.dart';
-import 'package:store_ify/core/utils/app_constants.dart';
+import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
-import 'package:store_ify/core/widgets/product_item.dart';
-import 'package:store_ify/features/search/data/models/search_response.dart';
 import 'package:store_ify/features/search/presentation/cubit/search_cubit.dart';
 import 'package:store_ify/features/search/presentation/cubit/search_state.dart';
+import 'package:store_ify/features/search/presentation/widgets/no_result_search_found_widget.dart';
 import 'package:store_ify/features/search/presentation/widgets/search_result_shimmer_loading.dart';
+import 'package:store_ify/features/search/presentation/widgets/search_result_sliver_grid.dart';
 
 class SearchResultBlocBuilder extends StatelessWidget {
   const SearchResultBlocBuilder({super.key});
@@ -17,65 +14,41 @@ class SearchResultBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SearchCubit, SearchState>(
-      buildWhen: (_, current) => _buildWhen(current),
-      builder: (context, state) => state.maybeWhen(
-        searchLoading: () => const SearchResultShimmerLoading(),
-        searchSuccess: (searchResult) =>
-            _buildSearchSuccessWidget(searchResult),
-        searchError: (errorKey) => _buildSearchErrorWidget(errorKey),
-        orElse: () => const SearchResultShimmerLoading(),
-      ),
+      buildWhen: (_, current) => _buildWhen(current.status),
+      builder: (context, state) {
+        switch (state.status) {
+          case SearchStateStatus.searchLoading:
+            return const SearchResultShimmerLoading();
+          case SearchStateStatus.searchSuccess:
+            return state.searchResult!.products.isNotEmpty
+                ? SearchResultSliverGrid(searchResult: state.searchResult!)
+                : const NoResultSearchFoundWidget();
+          case SearchStateStatus.searchError:
+            return state.error != AppStrings.searchRequiredErrorKey
+                ? SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: CustomErrorWidget(
+                      errorKey: state.error!,
+                      tryAgainOnPressed: () {
+                        context.read<SearchCubit>().search();
+                      },
+                    ),
+                  )
+                : const SliverToBoxAdapter(
+                    child: SizedBox.shrink(),
+                  );
+          default:
+            return const SliverToBoxAdapter(
+              child: SizedBox.shrink(),
+            );
+        }
+      },
     );
   }
 
-  bool _buildWhen(SearchState<dynamic> current) {
-    return current is SearchLoading ||
-        current is SearchSuccess ||
-        current is SearchError;
-  }
-
-  SingleChildRenderObjectWidget _buildSearchSuccessWidget(
-    SearchResponse searchResult,
-  ) {
-    return searchResult.products.isNotEmpty
-        ? SliverPadding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            sliver: SliverGrid.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: AppConstants.gridCrossAxisCount,
-                crossAxisSpacing: 8.w,
-                mainAxisSpacing: 8.h,
-              ),
-              itemBuilder: (_, index) => _animatedProductItem(
-                index,
-                searchResult.products[index],
-              ),
-              itemCount: searchResult.products.length,
-            ),
-          )
-        : const SliverToBoxAdapter(
-            child: Text('Empty search result'),
-          );
-  }
-
-  Widget _buildSearchErrorWidget(String errorKey) {
-    return errorKey != 'SEARCH_REQUIRED'
-        ? SliverFillRemaining(
-            hasScrollBody: false,
-            child: CustomErrorWidget(errorKey: errorKey),
-          )
-        : const SliverToBoxAdapter(
-            child: SizedBox.shrink(),
-          );
-  }
-
-  Widget _animatedProductItem(int index, Product product) {
-    return index % 2 == 0
-        ? FadeInLeft(
-            child: ProductItem(product: product),
-          )
-        : FadeInRight(
-            child: ProductItem(product: product),
-          );
+  bool _buildWhen(SearchStateStatus status) {
+    return status == SearchStateStatus.searchLoading ||
+        status == SearchStateStatus.searchError ||
+        status == SearchStateStatus.searchSuccess;
   }
 }

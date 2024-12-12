@@ -22,7 +22,7 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  void fetchHomeData() async {
+  Future<void> fetchHomeData() async {
     emit(state.copyWith(
       status: HomeStateStatus.fetchHomeDataLoading,
     ));

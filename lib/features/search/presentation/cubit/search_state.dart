@@ -1,14 +1,29 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:store_ify/features/search/data/models/fetch_search_data_response.dart';
 import 'package:store_ify/features/search/data/models/search_response.dart';
 
 part 'search_state.freezed.dart';
 
+enum SearchStateStatus {
+  initial,
+  searchLoading,
+  searchSuccess,
+  searchError,
+  fetchSearchDataLoading,
+  fetchSearchDataSuccess,
+  fetchSearchDataError,
+}
+
 @freezed
-class SearchState<T> with _$SearchState<T> {
-  const factory SearchState.initial() = _Initial;
-  const factory SearchState.searchLoading() = SearchLoading;
-  const factory SearchState.searchSuccess(SearchResponse searchResult) =
-      SearchSuccess<T>;
-  const factory SearchState.searchError(String error) = SearchError<T>;
-  const factory SearchState.updateSearchText(String text) = UpdateSearchText<T>;
+class SearchState with _$SearchState {
+  const factory SearchState({
+    required SearchStateStatus status,
+    SearchResponse? searchResult,
+    FetchSearchDataResponse? searchData,
+    String? error,
+  }) = _SearchState;
+
+  factory SearchState.initial() => const SearchState(
+        status: SearchStateStatus.initial,
+      );
 }

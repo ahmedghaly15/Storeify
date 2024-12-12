@@ -34,8 +34,7 @@ class CartProductItem extends StatelessWidget {
       child: Row(
         children: [
           CustomCachedNetworkImage(
-            imageUrl:
-                'https://plus.unsplash.com/premium_photo-1675896084254-dcb626387e1e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D',
+            imageUrl: product.productImages[0].img,
             imageBuilder: (_, image) => Container(
               height: 98.h,
               width: 101.w,

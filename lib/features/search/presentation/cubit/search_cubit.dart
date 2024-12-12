@@ -11,41 +11,60 @@ class SearchCubit extends Cubit<SearchState> {
 
   SearchCubit(
     this._searchRepo,
-  ) : super(const SearchState.initial()) {
-    _initSearchObjects();
-  }
-
-  void _initSearchObjects() {
+  ) : super(SearchState.initial()) {
     searchController = TextEditingController();
     _debouncer = Debouncer(duration: const Duration(milliseconds: 500));
   }
 
-  late final TextEditingController searchController;
   late final Debouncer _debouncer;
+  late final TextEditingController searchController;
   final CancelToken _cancelToken = CancelToken();
 
-  void _search() async {
-    emit(const SearchState.searchLoading());
+  void search() async {
+    emit(state.copyWith(
+      status: SearchStateStatus.searchLoading,
+    ));
     final result = await _searchRepo.search(
       SearchParams(searchController.text.trim()),
       _cancelToken,
     );
     result.when(
-      success: (searchResult) => emit(SearchState.searchSuccess(searchResult)),
-      error: (error) => emit(SearchState.searchError(error.error ?? '')),
+      success: (searchResult) => emit(state.copyWith(
+        status: SearchStateStatus.searchSuccess,
+        searchResult: searchResult,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: SearchStateStatus.searchError,
+        error: errorModel.error ?? '',
+      )),
     );
   }
 
-  void _updateSearchText(String text) {
-    searchController.text = text;
-    emit(SearchState.updateSearchText(searchController.text));
+  void debouncedSearch(String? text) {
+    _debouncer.run(() {
+      search();
+    });
   }
 
-  void debouncedSearch(String text) {
-    _updateSearchText(text);
-    _debouncer.run(() {
-      _search();
-    });
+  void changeSearchText(String text) {
+    searchController.text = text;
+  }
+
+  void fetchSearchData() async {
+    emit(state.copyWith(
+      status: SearchStateStatus.fetchSearchDataLoading,
+    ));
+    final result = await _searchRepo.fetchSearchData(_cancelToken);
+    result.when(
+      success: (searchData) => emit(state.copyWith(
+        status: SearchStateStatus.fetchSearchDataSuccess,
+        searchData: searchData,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: SearchStateStatus.fetchSearchDataError,
+        error: errorModel.error ?? '',
+      )),
+    );
   }
 
   @override

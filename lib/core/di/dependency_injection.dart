@@ -23,9 +23,7 @@ import 'package:store_ify/features/auth/presentation/cubits/register/register_cu
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/validate_otp/validate_otp_cubit.dart';
 import 'package:store_ify/features/cart/data/api/cart_api_service.dart';
-import 'package:store_ify/features/cart/data/datasources/cart_local_datasource.dart';
 import 'package:store_ify/features/cart/data/repositories/cart_repo.dart';
-import 'package:store_ify/features/cart/data/repositories/cart_repo_impl.dart';
 import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:store_ify/features/categories/data/api/categories_api_service.dart';
 import 'package:store_ify/features/categories/data/datasources/categories_local_datasource.dart';
@@ -56,6 +54,7 @@ import 'package:store_ify/features/profile/presentation/cubits/change_pass/chang
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
 import 'package:store_ify/features/profile/presentation/cubits/update_profile/update_profile_cubit.dart';
 import 'package:store_ify/features/search/data/api/search_api_service.dart';
+import 'package:store_ify/features/search/data/datasource/search_local_datasource.dart';
 import 'package:store_ify/features/search/data/repositories/search_repo.dart';
 import 'package:store_ify/features/search/presentation/cubit/search_cubit.dart';
 import 'package:store_ify/features/stores/data/api/stores_api_service.dart';
@@ -137,14 +136,14 @@ void _setupDIForDatasources() {
   getIt.registerLazySingleton<HomeLocalDatasource>(
     () => const HomeLocalDatasource(),
   );
-  getIt.registerLazySingleton<CartLocalDatasource>(
-    () => const CartLocalDatasource(),
-  );
   getIt.registerLazySingleton<FavoritesLocalDatasource>(
     () => const FavoritesLocalDatasource(),
   );
   getIt.registerLazySingleton<StoresLocalDatasource>(
     () => const StoresLocalDatasource(),
+  );
+  getIt.registerLazySingleton<SearchLocalDatasource>(
+    () => const SearchLocalDatasource(),
   );
 }
 
@@ -189,10 +188,7 @@ void _setupDIForRepos() {
     ),
   );
   getIt.registerLazySingleton<CartRepo>(
-    () => CartRepoImpl(
-      getIt.get<CartApiService>(),
-      getIt.get<CartLocalDatasource>(),
-    ),
+    () => CartRepo(getIt.get<CartApiService>()),
   );
   getIt.registerLazySingleton<CheckoutRepo>(
     () => CheckoutRepo(getIt.get<CheckoutApiService>()),
@@ -204,7 +200,10 @@ void _setupDIForRepos() {
     () => ProfileRepo(getIt.get<ProfileApiService>()),
   );
   getIt.registerLazySingleton<SearchRepo>(
-    () => SearchRepo(getIt.get<SearchApiService>()),
+    () => SearchRepo(
+      getIt.get<SearchApiService>(),
+      getIt.get<SearchLocalDatasource>(),
+    ),
   );
 }
 
