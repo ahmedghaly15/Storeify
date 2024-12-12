@@ -24,7 +24,6 @@ import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset
 import 'package:store_ify/features/auth/presentation/cubits/validate_otp/validate_otp_cubit.dart';
 import 'package:store_ify/features/cart/data/api/cart_api_service.dart';
 import 'package:store_ify/features/cart/data/repositories/cart_repo.dart';
-import 'package:store_ify/features/cart/data/repositories/cart_repo_impl.dart';
 import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:store_ify/features/categories/data/api/categories_api_service.dart';
 import 'package:store_ify/features/categories/data/datasources/categories_local_datasource.dart';
@@ -189,7 +188,7 @@ void _setupDIForRepos() {
     ),
   );
   getIt.registerLazySingleton<CartRepo>(
-    () => CartRepoImpl(getIt.get<CartApiService>()),
+    () => CartRepo(getIt.get<CartApiService>()),
   );
   getIt.registerLazySingleton<CheckoutRepo>(
     () => CheckoutRepo(getIt.get<CheckoutApiService>()),
