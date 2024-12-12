@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/debouncer.dart';
 import 'package:store_ify/features/search/data/models/search_params.dart';
@@ -11,10 +12,12 @@ class SearchCubit extends Cubit<SearchState> {
   SearchCubit(
     this._searchRepo,
   ) : super(SearchState.initial()) {
+    searchController = TextEditingController();
     _debouncer = Debouncer(duration: const Duration(milliseconds: 500));
   }
 
   late final Debouncer _debouncer;
+  late final TextEditingController searchController;
   final CancelToken _cancelToken = CancelToken();
 
   void search() async {
@@ -22,7 +25,7 @@ class SearchCubit extends Cubit<SearchState> {
       status: SearchStateStatus.searchLoading,
     ));
     final result = await _searchRepo.search(
-      SearchParams(state.searchText.trim()),
+      SearchParams(searchController.text.trim()),
       _cancelToken,
     );
     result.when(
@@ -37,18 +40,14 @@ class SearchCubit extends Cubit<SearchState> {
     );
   }
 
-  void _onChangeSearch(String? text) {
-    emit(state.copyWith(
-      status: SearchStateStatus.onChangeSearchText,
-      searchText: text ?? '',
-    ));
-  }
-
   void debouncedSearch(String? text) {
-    _onChangeSearch(text);
     _debouncer.run(() {
       search();
     });
+  }
+
+  void changeSearchText(String text) {
+    searchController.text = text;
   }
 
   void fetchSearchData() async {
@@ -70,6 +69,7 @@ class SearchCubit extends Cubit<SearchState> {
 
   @override
   Future<void> close() {
+    searchController.dispose();
     _cancelToken.cancel();
     return super.close();
   }

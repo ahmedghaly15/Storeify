@@ -20,7 +20,6 @@ mixin _$SearchState {
   SearchResponse? get searchResult => throw _privateConstructorUsedError;
   FetchSearchDataResponse? get searchData => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
-  String get searchText => throw _privateConstructorUsedError;
 
   /// Create a copy of SearchState
   /// with the given fields replaced by the non-null parameter values.
@@ -39,8 +38,7 @@ abstract class $SearchStateCopyWith<$Res> {
       {SearchStateStatus status,
       SearchResponse? searchResult,
       FetchSearchDataResponse? searchData,
-      String? error,
-      String searchText});
+      String? error});
 }
 
 /// @nodoc
@@ -62,7 +60,6 @@ class _$SearchStateCopyWithImpl<$Res, $Val extends SearchState>
     Object? searchResult = freezed,
     Object? searchData = freezed,
     Object? error = freezed,
-    Object? searchText = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -81,10 +78,6 @@ class _$SearchStateCopyWithImpl<$Res, $Val extends SearchState>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
-      searchText: null == searchText
-          ? _value.searchText
-          : searchText // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
@@ -101,8 +94,7 @@ abstract class _$$SearchStateImplCopyWith<$Res>
       {SearchStateStatus status,
       SearchResponse? searchResult,
       FetchSearchDataResponse? searchData,
-      String? error,
-      String searchText});
+      String? error});
 }
 
 /// @nodoc
@@ -122,7 +114,6 @@ class __$$SearchStateImplCopyWithImpl<$Res>
     Object? searchResult = freezed,
     Object? searchData = freezed,
     Object? error = freezed,
-    Object? searchText = null,
   }) {
     return _then(_$SearchStateImpl(
       status: null == status
@@ -141,10 +132,6 @@ class __$$SearchStateImplCopyWithImpl<$Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
-      searchText: null == searchText
-          ? _value.searchText
-          : searchText // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -153,11 +140,7 @@ class __$$SearchStateImplCopyWithImpl<$Res>
 
 class _$SearchStateImpl implements _SearchState {
   const _$SearchStateImpl(
-      {required this.status,
-      this.searchResult,
-      this.searchData,
-      this.error,
-      this.searchText = ''});
+      {required this.status, this.searchResult, this.searchData, this.error});
 
   @override
   final SearchStateStatus status;
@@ -167,13 +150,10 @@ class _$SearchStateImpl implements _SearchState {
   final FetchSearchDataResponse? searchData;
   @override
   final String? error;
-  @override
-  @JsonKey()
-  final String searchText;
 
   @override
   String toString() {
-    return 'SearchState(status: $status, searchResult: $searchResult, searchData: $searchData, error: $error, searchText: $searchText)';
+    return 'SearchState(status: $status, searchResult: $searchResult, searchData: $searchData, error: $error)';
   }
 
   @override
@@ -186,14 +166,12 @@ class _$SearchStateImpl implements _SearchState {
                 other.searchResult == searchResult) &&
             (identical(other.searchData, searchData) ||
                 other.searchData == searchData) &&
-            (identical(other.error, error) || other.error == error) &&
-            (identical(other.searchText, searchText) ||
-                other.searchText == searchText));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, status, searchResult, searchData, error, searchText);
+  int get hashCode =>
+      Object.hash(runtimeType, status, searchResult, searchData, error);
 
   /// Create a copy of SearchState
   /// with the given fields replaced by the non-null parameter values.
@@ -209,8 +187,7 @@ abstract class _SearchState implements SearchState {
       {required final SearchStateStatus status,
       final SearchResponse? searchResult,
       final FetchSearchDataResponse? searchData,
-      final String? error,
-      final String searchText}) = _$SearchStateImpl;
+      final String? error}) = _$SearchStateImpl;
 
   @override
   SearchStateStatus get status;
@@ -220,8 +197,6 @@ abstract class _SearchState implements SearchState {
   FetchSearchDataResponse? get searchData;
   @override
   String? get error;
-  @override
-  String get searchText;
 
   /// Create a copy of SearchState
   /// with the given fields replaced by the non-null parameter values.

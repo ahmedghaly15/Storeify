@@ -9,7 +9,6 @@ enum SearchStateStatus {
   searchLoading,
   searchSuccess,
   searchError,
-  onChangeSearchText,
   fetchSearchDataLoading,
   fetchSearchDataSuccess,
   fetchSearchDataError,
@@ -22,7 +21,6 @@ class SearchState with _$SearchState {
     SearchResponse? searchResult,
     FetchSearchDataResponse? searchData,
     String? error,
-    @Default('') String searchText,
   }) = _SearchState;
 
   factory SearchState.initial() => const SearchState(
