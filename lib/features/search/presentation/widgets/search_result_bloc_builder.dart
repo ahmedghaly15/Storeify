@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
 import 'package:store_ify/features/search/presentation/cubit/search_cubit.dart';
 import 'package:store_ify/features/search/presentation/cubit/search_state.dart';
+import 'package:store_ify/features/search/presentation/widgets/no_result_search_found_widget.dart';
 import 'package:store_ify/features/search/presentation/widgets/search_result_shimmer_loading.dart';
 import 'package:store_ify/features/search/presentation/widgets/search_result_sliver_grid.dart';
 
@@ -20,11 +22,9 @@ class SearchResultBlocBuilder extends StatelessWidget {
           case SearchStateStatus.searchSuccess:
             return state.searchResult!.products.isNotEmpty
                 ? SearchResultSliverGrid(searchResult: state.searchResult!)
-                : const SliverToBoxAdapter(
-                    child: SizedBox.shrink(),
-                  );
+                : const NoResultSearchFoundWidget();
           case SearchStateStatus.searchError:
-            return state.error != 'SEARCH_REQUIRED'
+            return state.error != AppStrings.searchRequiredErrorKey
                 ? SliverFillRemaining(
                     hasScrollBody: false,
                     child: CustomErrorWidget(
@@ -38,7 +38,9 @@ class SearchResultBlocBuilder extends StatelessWidget {
                     child: SizedBox.shrink(),
                   );
           default:
-            return const SearchResultShimmerLoading();
+            return const SliverToBoxAdapter(
+              child: SizedBox.shrink(),
+            );
         }
       },
     );
