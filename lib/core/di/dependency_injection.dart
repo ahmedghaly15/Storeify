@@ -23,7 +23,6 @@ import 'package:store_ify/features/auth/presentation/cubits/register/register_cu
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/validate_otp/validate_otp_cubit.dart';
 import 'package:store_ify/features/cart/data/api/cart_api_service.dart';
-import 'package:store_ify/features/cart/data/datasources/cart_local_datasource.dart';
 import 'package:store_ify/features/cart/data/repositories/cart_repo.dart';
 import 'package:store_ify/features/cart/data/repositories/cart_repo_impl.dart';
 import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
@@ -138,9 +137,6 @@ void _setupDIForDatasources() {
   getIt.registerLazySingleton<HomeLocalDatasource>(
     () => const HomeLocalDatasource(),
   );
-  getIt.registerLazySingleton<CartLocalDatasource>(
-    () => const CartLocalDatasource(),
-  );
   getIt.registerLazySingleton<FavoritesLocalDatasource>(
     () => const FavoritesLocalDatasource(),
   );
@@ -193,10 +189,7 @@ void _setupDIForRepos() {
     ),
   );
   getIt.registerLazySingleton<CartRepo>(
-    () => CartRepoImpl(
-      getIt.get<CartApiService>(),
-      getIt.get<CartLocalDatasource>(),
-    ),
+    () => CartRepoImpl(getIt.get<CartApiService>()),
   );
   getIt.registerLazySingleton<CheckoutRepo>(
     () => CheckoutRepo(getIt.get<CheckoutApiService>()),

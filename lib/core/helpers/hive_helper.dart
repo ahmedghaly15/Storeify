@@ -4,8 +4,6 @@ import 'package:store_ify/core/models/pagination.dart';
 import 'package:store_ify/core/models/product.dart';
 import 'package:store_ify/core/models/size.dart';
 import 'package:store_ify/core/models/storeify_user.dart';
-import 'package:store_ify/features/cart/data/models/cart.dart';
-import 'package:store_ify/features/cart/data/models/fetch_cart_response.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
 import 'package:store_ify/features/categories/data/models/fetch_categories_response.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_response.dart';
@@ -34,8 +32,6 @@ class HiveHelper {
     Hive.registerAdapter(CategoryAdapter());
     Hive.registerAdapter(SubCategoryAdapter());
     Hive.registerAdapter(PaginationAdapter());
-    Hive.registerAdapter(CartAdapter());
-    Hive.registerAdapter(FetchCartResponseAdapter());
     Hive.registerAdapter(FetchSubCategoryResponseAdapter());
     Hive.registerAdapter(FetchCategoriesResponseAdapter());
     Hive.registerAdapter(FetchFavStoresResponseAdapter());
