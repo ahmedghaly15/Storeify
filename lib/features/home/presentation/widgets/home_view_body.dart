@@ -24,27 +24,30 @@ class HomeViewBody extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: CustomScrollView(
-        physics: AppConstants.physics,
-        slivers: [
-          SliverToBoxAdapter(
-            child: HomeCustomAppBar(),
-          ),
-          SliverToBoxAdapter(
-            child: CustomHeroSearchTextField(),
-          ),
-          SliverToBoxAdapter(
-            child: ShowLocationDialogBlocListener(),
-          ),
-          SliverToBoxAdapter(
-            child: FavoritesActionBlocListener(),
-          ),
-          SliverFillRemaining(
-            hasScrollBody: false,
-            child: HomeDataBlocBuilder(),
-          ),
-        ],
+    return SafeArea(
+      child: RefreshIndicator.adaptive(
+        onRefresh: () async => await context.read<HomeCubit>().fetchHomeData(),
+        child: const CustomScrollView(
+          physics: AppConstants.physics,
+          slivers: [
+            SliverToBoxAdapter(
+              child: HomeCustomAppBar(),
+            ),
+            SliverToBoxAdapter(
+              child: CustomHeroSearchTextField(),
+            ),
+            SliverToBoxAdapter(
+              child: ShowLocationDialogBlocListener(),
+            ),
+            SliverToBoxAdapter(
+              child: FavoritesActionBlocListener(),
+            ),
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: HomeDataBlocBuilder(),
+            ),
+          ],
+        ),
       ),
     );
   }
