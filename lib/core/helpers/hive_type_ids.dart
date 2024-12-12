@@ -22,4 +22,5 @@ class HiveTypeIds {
   static const int fetchStoreOffersResponse = 20;
   static const int storeBranch = 21;
   static const int searchData = 22;
+  static const int searchDataItem = 23;
 }

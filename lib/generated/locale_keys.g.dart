@@ -154,5 +154,8 @@ abstract class  LocaleKeys {
   static const changingApiLangError = 'changingApiLangError';
   static const putToYourCart = 'putToYourCart';
   static const putToYourCartToStartShopping = 'putToYourCartToStartShopping';
+  static const topCategories = 'topCategories';
+  static const noResultsFound = 'noResultsFound';
+  static const tryDifferentKeywords = 'tryDifferentKeywords';
 
 }

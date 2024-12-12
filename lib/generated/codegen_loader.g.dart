@@ -167,7 +167,10 @@ class CodegenLoader extends AssetLoader{
   "nothingChangedToUpdate": "لا توجد تغييرات للتحديث",
   "changingApiLangError": "حدث خطأ أثناء تغيير اللغة من الخادم. الرجاء المحاولة مرة أخرى لاحقاً.",
   "putToYourCart": "اضافة الى السلة",
-  "putToYourCartToStartShopping": "اضافة الى السلة للبدء بالتسوق"
+  "putToYourCartToStartShopping": "اضافة الى السلة للبدء بالتسوق",
+  "topCategories": "أفضل الفئات",
+  "noResultsFound": "لم يتم العثور على نتائج",
+  "tryDifferentKeywords": "من فضلك حاول البحث باستخدام كلمات مختلفة."
 };
 static const Map<String,dynamic> en = {
   "signInToContinue": "Sign in to continue",
@@ -322,7 +325,10 @@ static const Map<String,dynamic> en = {
   "nothingChangedToUpdate": "Nothing changed to update",
   "changingApiLangError": "An error occurred while changing the language from the server. Please try again later.",
   "putToYourCart": "Put to your cart",
-  "putToYourCartToStartShopping": "Put to your cart to start shopping"
+  "putToYourCartToStartShopping": "Put to your cart to start shopping",
+  "topCategories": "Top Categories",
+  "noResultsFound": "No results found",
+  "tryDifferentKeywords": "Please try searching with different keywords."
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

@@ -23,10 +23,15 @@ class FetchSearchDataResponse {
   Map<String, dynamic> toJson() => _$FetchSearchDataResponseToJson(this);
 }
 
+@HiveType(typeId: HiveTypeIds.searchDataItem)
 @JsonSerializable()
 class SearchDataItem {
+  @HiveField(0)
   final int id;
-  final String name, img;
+  @HiveField(1)
+  final String name;
+  @HiveField(2)
+  final String img;
 
   SearchDataItem({
     required this.id,
