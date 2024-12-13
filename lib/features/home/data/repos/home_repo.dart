@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:store_ify/core/api/api_result.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
@@ -12,16 +11,14 @@ class HomeRepo {
 
   const HomeRepo(this._homeApiService, this._localDatasource);
 
-  Future<ApiResult<FetchHomeResponse>> fetchHomeData([
-    CancelToken? cancelToken,
-  ]) async {
+  Future<ApiResult<FetchHomeResponse>> fetchHomeData() async {
     final FetchHomeResponse? cachedHomeResponse =
         await _localDatasource.retrieveCachedHomeResponse();
     if (cachedHomeResponse == null) {
       debugPrint('********** NO CACHED HOME RESPONSE **********');
       return executeAndHandleErrors<FetchHomeResponse>(
         () async {
-          final homeResponse = await _homeApiService.fetchHomeData(cancelToken);
+          final homeResponse = await _homeApiService.fetchHomeData();
           await _localDatasource.cacheHomeResponse(homeResponse);
           return homeResponse;
         },

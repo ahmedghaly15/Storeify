@@ -10,7 +10,5 @@ abstract class HomeApiService {
   factory HomeApiService(Dio dio, {String baseUrl}) = _HomeApiService;
 
   @GET(EndPoints.fetchHomeData)
-  Future<FetchHomeResponse> fetchHomeData([
-    @CancelRequest() CancelToken? cancelToken,
-  ]);
+  Future<FetchHomeResponse> fetchHomeData();
 }
