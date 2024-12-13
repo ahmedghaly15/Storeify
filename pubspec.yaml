@@ -31,8 +31,6 @@ dependencies:
   flutter_svg: ^2.0.10+1
   # Simple direct Service Locator that allows to access the concrete implementation from everywhere
   get_it: ^7.7.0
-  # Dart library that checks for internet
-  internet_connection_checker: ^1.0.0+1
   # (OTP) text field
   pinput: ^5.0.0
   # Flutter plugin for reading and writing simple key-value pairs for cache
