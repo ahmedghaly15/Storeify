@@ -180,7 +180,7 @@ class __$$CheckoutStateImplCopyWithImpl<$Res>
 class _$CheckoutStateImpl implements _CheckoutState {
   const _$CheckoutStateImpl(
       {required this.status,
-      this.checkoutHour = 4,
+      this.checkoutHour = 0,
       this.checkoutMinutes = 0,
       this.phoneNumber = '',
       this.date = '',

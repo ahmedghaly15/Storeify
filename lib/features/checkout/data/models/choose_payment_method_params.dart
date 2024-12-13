@@ -5,6 +5,7 @@ part 'choose_payment_method_params.g.dart';
 @JsonSerializable()
 class ChoosePaymentMethodParams {
   final int paymentId;
+  @JsonKey(name: 'payment_method')
   final String paymentMethod;
 
   const ChoosePaymentMethodParams({
