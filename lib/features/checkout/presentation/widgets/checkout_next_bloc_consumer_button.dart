@@ -12,7 +12,9 @@ import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkou
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_state.dart';
 
 class CheckoutNextBlocConsumerButton extends StatelessWidget {
-  const CheckoutNextBlocConsumerButton({super.key});
+  const CheckoutNextBlocConsumerButton({super.key, required this.amount});
+
+  final double amount;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class CheckoutNextBlocConsumerButton extends StatelessWidget {
         ),
         onPressed: () {
           // context.read<CheckoutCubit>().checkoutAndValidateForm();
-          context.pushRoute(const PaymentMethodRoute());
+          context.pushRoute(PaymentMethodRoute(amount: amount));
         },
         child: circularIndicatorOrTextWidget(
           isLoading: state.status == CheckoutStateStatus.checkoutLoading,
@@ -41,7 +43,7 @@ class CheckoutNextBlocConsumerButton extends StatelessWidget {
   void _listener(CheckoutState state, BuildContext context) {
     switch (state.status) {
       case CheckoutStateStatus.checkoutSuccess:
-        context.pushRoute(const PaymentMethodRoute());
+        context.pushRoute(PaymentMethodRoute(amount: amount));
         break;
       case CheckoutStateStatus.checkoutError:
         context.showToast(state.error!);

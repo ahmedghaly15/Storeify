@@ -65,8 +65,8 @@ class PaymentFormBlocSelector extends StatelessWidget {
                     onEditingComplete: () => context.requestFocus(
                       context.read<PaymentCubit>().cardHolderNumberFocusNode,
                     ),
-                    // validate: (val) =>
-                    //     PaymentValidator.validateCardNumberField(context, val),
+                    validate: (val) =>
+                        PaymentValidator.validateCardNumberField(context, val),
                   ),
                   MySizedBox.height19,
                   const PaymentTextFieldLabel(
