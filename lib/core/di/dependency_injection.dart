@@ -38,12 +38,11 @@ import 'package:store_ify/features/favorites/data/api/favorites_api_service.dart
 import 'package:store_ify/features/favorites/data/datasources/favorites_local_datasource.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo_impl.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_and_theme_cubit.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites/general_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
 import 'package:store_ify/features/home/data/api/home_api_service.dart';
 import 'package:store_ify/features/home/data/datasources/home_local_datasource.dart';
 import 'package:store_ify/features/home/data/repos/home_repo.dart';
-import 'package:store_ify/features/home/presentation/cubit/home_cubit.dart';
 import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:store_ify/features/payment/data/api/payment_api_service.dart';
 import 'package:store_ify/features/payment/data/repositories/payment_repo.dart';
@@ -194,7 +193,7 @@ void _setupDIForRepos() {
     () => CheckoutRepo(getIt.get<CheckoutApiService>()),
   );
   getIt.registerLazySingleton<PaymentRepo>(
-    () => PaymentRepoImpl(getIt.get<PaymentApiService>()),
+    () => PaymentRepo(getIt.get<PaymentApiService>()),
   );
   getIt.registerLazySingleton<ProfileRepo>(
     () => ProfileRepo(getIt.get<ProfileApiService>()),
@@ -224,9 +223,6 @@ void _setupDIForCubits() {
   getIt.registerLazySingleton<ResetPasswordCubit>(
     () => ResetPasswordCubit(getIt.get<ResetPasswordRepo>()),
   );
-  getIt.registerFactory<HomeCubit>(
-    () => HomeCubit(getIt.get<HomeRepo>()),
-  );
   getIt.registerFactory<CategoriesCubit>(
     () => CategoriesCubit(getIt.get<CategoriesRepo>()),
   );
@@ -239,8 +235,11 @@ void _setupDIForCubits() {
   getIt.registerFactory<StoreDetailsCubit>(
     () => StoreDetailsCubit(getIt.get<StoresRepo>()),
   );
-  getIt.registerLazySingleton<FavoritesAndThemeCubit>(
-    () => FavoritesAndThemeCubit(getIt.get<FavoritesRepo>()),
+  getIt.registerLazySingleton<GeneralCubit>(
+    () => GeneralCubit(
+      favoritesRepo: getIt.get<FavoritesRepo>(),
+      homeRepo: getIt.get<HomeRepo>(),
+    ),
   );
   getIt.registerFactory<FetchFavoritesCubit>(
     () => FetchFavoritesCubit(getIt.get<FavoritesRepo>()),
