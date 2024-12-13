@@ -54,7 +54,7 @@ class LoginButtonBlocConsumer extends StatelessWidget {
     await AuthLocalDatasource.cacheUserAndSetTokenIntoHeaders(
       state.user!,
     );
-    context.replaceRoute(const BottomNavBarRoute());
+    context.replaceRoute(const LayoutRoute());
   }
 
   bool _listenOrBuildWhen(LoginStateStatus status) {
