@@ -9,6 +9,7 @@ import 'package:store_ify/core/helpers/hive_helper.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/utils/bloc_observer.dart';
 import 'package:store_ify/core/utils/functions/check_for_first_launch_and_device_theme.dart';
+import 'package:store_ify/core/utils/functions/check_if_android_above_12.dart';
 import 'package:store_ify/core/utils/functions/check_if_onboarding_visited.dart';
 import 'package:store_ify/core/utils/functions/check_if_user_is_logged_in.dart';
 import 'package:store_ify/core/utils/functions/get_and_cache_country_code.dart';
@@ -24,6 +25,7 @@ void main() async {
   await HiveHelper.registerAdapters();
   await setupDI();
   await checkForFirstLaunchAndDeviceTheme();
+  await checkIfAndroidAbove12();
   await checkIfOnboardingIsVisited();
   await checkIfUserIsLoggedIn();
   await getAndCacheCountryCode();
