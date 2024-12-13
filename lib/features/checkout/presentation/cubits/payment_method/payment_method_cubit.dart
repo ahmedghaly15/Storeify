@@ -22,13 +22,13 @@ class PaymentMethodCubit extends Cubit<PaymentMethodState> {
     }
   }
 
-  void choosePaymentMethod(int paymentId) async {
+  void selectPaymentMethod() async {
     emit(state.copyWith(
       status: PaymentMethodStateStatus.choosePaymentMethodLoading,
     ));
     final result = await _checkoutRepo.choosePaymentMethod(
       ChoosePaymentMethodParams(
-        paymentId: paymentId,
+        paymentId: state.selectedPaymentMethod!.id,
         paymentMethod: state.selectedPaymentMethod!.name,
       ),
       _cancelToken,

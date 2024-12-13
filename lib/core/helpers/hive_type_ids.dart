@@ -23,4 +23,6 @@ class HiveTypeIds {
   static const int storeBranch = 21;
   static const int searchData = 22;
   static const int searchDataItem = 23;
+  static const int payParams = 24;
+  static const int cardType = 25;
 }

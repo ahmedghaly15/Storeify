@@ -74,7 +74,7 @@
     "enterYourAddress": "Enter your address",
     "phone": "Phone",
     "date": "Date",
-    "dateHint": "MMM/DD/YYYY",
+    "dateHint": "YYYY-MM-DD",
     "time": "Time",
     "locationGranted": "Location has been granted.",
     "locationDenied": "Location permission denied. Please grant it.",
@@ -154,5 +154,8 @@
     "putToYourCartToStartShopping": "Put to your cart to start shopping",
     "topCategories": "Top Categories",
     "noResultsFound": "No results found",
-    "tryDifferentKeywords": "Please try searching with different keywords."
+    "tryDifferentKeywords": "Please try searching with different keywords.",
+    "cashWillBeCollectedOnDelivery": "Cash will be collected on delivery",
+    "sureToConfirmPayment": "Are you sure you want to confirm the payment?",
+    "INVALID_PAYMENT_METHOD": "The selected payment method is invalid. Please choose a different method and try again."
 }

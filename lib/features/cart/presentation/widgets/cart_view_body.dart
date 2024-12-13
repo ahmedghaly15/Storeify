@@ -12,9 +12,10 @@ import 'package:store_ify/features/cart/presentation/widgets/cart_summary.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 
 class CartViewBody extends StatelessWidget {
-  const CartViewBody({super.key, required this.cart});
+  const CartViewBody({super.key, required this.cart, required this.amount});
 
   final FetchCartResponse cart;
+  final double amount;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class CartViewBody extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: MainButton(
-            onPressed: () => context.pushRoute(const CheckoutRoute()),
+            onPressed: () => context.pushRoute(CheckoutRoute(amount: amount)),
             textKey: LocaleKeys.checkout,
             margin: EdgeInsetsDirectional.only(
               start: 24.w,

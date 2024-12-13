@@ -18,7 +18,7 @@ enum CheckoutStateStatus {
 class CheckoutState with _$CheckoutState {
   const factory CheckoutState({
     required CheckoutStateStatus status,
-    @Default(4) int checkoutHour,
+    @Default(0) int checkoutHour,
     @Default(0) int checkoutMinutes,
     @Default('') String phoneNumber,
     @Default('') String date,
@@ -26,7 +26,10 @@ class CheckoutState with _$CheckoutState {
     String? error,
   }) = _CheckoutState;
 
-  factory CheckoutState.initial() => const CheckoutState(
+  factory CheckoutState.initial() => CheckoutState(
         status: CheckoutStateStatus.initial,
+        checkoutHour:
+            DateTime.now().hour % 12 == 0 ? 12 : DateTime.now().hour % 12,
+        checkoutMinutes: DateTime.now().minute,
       );
 }

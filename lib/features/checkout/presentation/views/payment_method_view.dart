@@ -12,7 +12,9 @@ import 'package:store_ify/features/checkout/presentation/widgets/payment_methods
 
 @RoutePage()
 class PaymentMethodView extends StatelessWidget implements AutoRouteWrapper {
-  const PaymentMethodView({super.key});
+  const PaymentMethodView({super.key, required this.amount});
+
+  final double amount;
 
   @override
   Widget wrappedRoute(BuildContext context) {
@@ -24,22 +26,24 @@ class PaymentMethodView extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            CustomSliverAppBar(titleKey: LocaleKeys.checkout),
-            SliverToBoxAdapter(
+            const CustomSliverAppBar(titleKey: LocaleKeys.checkout),
+            const SliverToBoxAdapter(
               child: PaymentMethodProcessProgress(),
             ),
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: HowDoUWantToPayQuestion(),
             ),
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: PaymentMethods(),
             ),
             SliverToBoxAdapter(
-              child: PaymentMethodNextBlocConsumerButton(),
+              child: PaymentMethodNextBlocConsumerButton(
+                amount: amount,
+              ),
             ),
           ],
         ),

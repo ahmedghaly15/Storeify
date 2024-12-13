@@ -51,8 +51,6 @@ class ExpiryDateAndCvvTextFields extends StatelessWidget {
                 focusNode: context.read<PaymentCubit>().cvvFocusNode,
                 validate: (val) =>
                     PaymentValidator.validateCvvField(context, val),
-                onSubmit: (_) =>
-                    context.read<PaymentCubit>().payAndValidateForm(1),
               ),
             ],
           ),

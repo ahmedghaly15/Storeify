@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:store_ify/core/themes/app_themes.dart';
+import 'package:store_ify/features/home/data/models/fetch_home_response.dart';
 
-part 'favorites_and_theme_state.freezed.dart';
+part 'general_state.freezed.dart';
 
-enum FavoritesAndThemeStatus {
+enum GeneralStateStatus {
   initial,
   preferProductLoading,
   preferProductSuccess,
@@ -19,18 +20,22 @@ enum FavoritesAndThemeStatus {
   removeStoreFromFavsSuccess,
   removeStoreFromFavsError,
   toggleTheme,
+  fetchHomeDataLoading,
+  fetchHomeDataSuccess,
+  fetchHomeDataError,
 }
 
 @freezed
-class FavoritesAndThemeState with _$FavoritesAndThemeState {
-  const factory FavoritesAndThemeState({
-    required FavoritesAndThemeStatus status,
+class GeneralState with _$GeneralState {
+  const factory GeneralState({
+    required GeneralStateStatus status,
     String? error,
     ThemeData? theme,
-  }) = _FavoritesAndThemeState;
+    FetchHomeResponse? homeData,
+  }) = _GeneralState;
 
-  factory FavoritesAndThemeState.initial() => FavoritesAndThemeState(
-        status: FavoritesAndThemeStatus.initial,
+  factory GeneralState.initial() => GeneralState(
+        status: GeneralStateStatus.initial,
         theme: AppThemes.lightMode,
       );
 }

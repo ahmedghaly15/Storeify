@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import 'package:store_ify/core/router/routes_names.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:store_ify/features/auth/presentation/views/login_view.dart';
@@ -40,12 +39,7 @@ class AppRouter extends RootStackRouter {
   List<AutoRoute> get routes => appRoutes;
 }
 
-@RoutePage(name: RoutesNames.authRoute)
+@RoutePage(name: 'AuthRoute')
 class Auth extends AutoRouter {
   const Auth({super.key});
-}
-
-@RoutePage(name: RoutesNames.bottomNavBarRoute)
-class BottomNavBar extends AutoRouter {
-  const BottomNavBar({super.key});
 }

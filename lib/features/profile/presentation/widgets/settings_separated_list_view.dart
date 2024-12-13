@@ -29,7 +29,8 @@ class SettingsSeparatedListView extends StatelessWidget {
           onTap: () => settings[index].onTap(context),
           contentPadding: EdgeInsets.symmetric(horizontal: 16.w),
           title: Text(
-            context.tr(settings[index].titleKey),
+            settings[index].titleKey.tr(),
+            // context.tr(settings[index].titleKey),
             style: AppTextStyles.textStyle16Regular.copyWith(
               color: AppColors.lightModeColor,
             ),

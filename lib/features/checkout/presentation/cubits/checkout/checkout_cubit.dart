@@ -18,14 +18,18 @@ class CheckoutCubit extends Cubit<CheckoutState> {
 
   late final TextEditingController usernameController;
   late final TextEditingController addressController;
+  late final TextEditingController dateController;
   late final GlobalKey<FormState> formKey;
   final CancelToken _cancelToken = CancelToken();
 
   void _initFormAttributes() {
     formKey = GlobalKey<FormState>();
-    usernameController = TextEditingController();
+    usernameController = TextEditingController(
+      text: currentUser?.user.username ?? '',
+    );
+    // TODO: use open street api to init this controller with the current address
     addressController = TextEditingController();
-    usernameController.text = currentUser?.user.username ?? '';
+    dateController = TextEditingController();
   }
 
   void changeHours(int value) {
@@ -54,6 +58,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
       status: CheckoutStateStatus.onPickingDate,
       date: DateFormat('yyyy-MM-dd').format(date),
     ));
+    dateController.text = DateFormat('yyyy-MM-dd').format(date);
   }
 
   void _checkout() async {
@@ -62,7 +67,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     ));
     final result = await _checkoutRepo.checkout(
       CheckoutParams(
-        username: currentUser?.user.username ?? usernameController.text,
+        username: usernameController.text,
         address: addressController.text,
         phone: state.phoneNumber,
         date: state.date,
@@ -98,6 +103,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
   void _disposeControllers() {
     usernameController.dispose();
     addressController.dispose();
+    dateController.dispose();
   }
 
   @override

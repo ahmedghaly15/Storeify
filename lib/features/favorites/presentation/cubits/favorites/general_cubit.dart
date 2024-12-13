@@ -6,17 +6,43 @@ import 'package:store_ify/core/helpers/shared_pref_keys.dart';
 import 'package:store_ify/core/themes/app_themes.dart';
 import 'package:store_ify/features/favorites/data/models/prefer_params.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_and_theme_state.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites/general_state.dart';
+import 'package:store_ify/features/home/data/repos/home_repo.dart';
 
-class FavoritesAndThemeCubit extends Cubit<FavoritesAndThemeState> {
-  FavoritesAndThemeCubit(
-    this._favoritesRepo,
-  ) : super(FavoritesAndThemeState.initial()) {
+class GeneralCubit extends Cubit<GeneralState> {
+  final FavoritesRepo favoritesRepo;
+  final HomeRepo homeRepo;
+
+  GeneralCubit({
+    required this.favoritesRepo,
+    required this.homeRepo,
+  }) : super(GeneralState.initial()) {
     _retrieveCachedTheme();
   }
 
-  final FavoritesRepo _favoritesRepo;
   final CancelToken _cancelToken = CancelToken();
+
+  Future<void> fetchHomeData() async {
+    emit(state.copyWith(
+      status: GeneralStateStatus.fetchHomeDataLoading,
+    ));
+    final result = await homeRepo.fetchHomeData();
+    result.when(
+      success: (homeData) => emit(state.copyWith(
+        status: GeneralStateStatus.fetchHomeDataSuccess,
+        homeData: homeData,
+      )),
+      error: (errorModel) => emit(state.copyWith(
+        status: GeneralStateStatus.fetchHomeDataError,
+        error: errorModel.error ?? '',
+      )),
+    );
+  }
+
+  void deleteCachedAndFetchHomeData() async {
+    await homeRepo.deleteHomeCachedData();
+    fetchHomeData();
+  }
 
   void preferProductOrNot({
     required bool isFavorited,
@@ -27,19 +53,19 @@ class FavoritesAndThemeCubit extends Cubit<FavoritesAndThemeState> {
 
   void _preferProduct(int productId) async {
     emit(state.copyWith(
-      status: FavoritesAndThemeStatus.preferProductLoading,
+      status: GeneralStateStatus.preferProductLoading,
     ));
-    final result = await _favoritesRepo.preferItem(
+    final result = await favoritesRepo.preferItem(
       itemType: FavItemType.product,
       params: PreferParams(productId: productId),
       cancelToken: _cancelToken,
     );
     result.when(
       success: (_) => emit(state.copyWith(
-        status: FavoritesAndThemeStatus.preferProductSuccess,
+        status: GeneralStateStatus.preferProductSuccess,
       )),
       error: (errorModel) => emit(state.copyWith(
-        status: FavoritesAndThemeStatus.preferProductError,
+        status: GeneralStateStatus.preferProductError,
         error: errorModel.error ?? '',
       )),
     );
@@ -47,19 +73,19 @@ class FavoritesAndThemeCubit extends Cubit<FavoritesAndThemeState> {
 
   void _removeProductFromFavs(int productId) async {
     emit(state.copyWith(
-      status: FavoritesAndThemeStatus.removeProductFromFavsLoading,
+      status: GeneralStateStatus.removeProductFromFavsLoading,
     ));
-    final result = await _favoritesRepo.removeItemFromFavs(
+    final result = await favoritesRepo.removeItemFromFavs(
       itemId: productId,
       itemType: FavItemType.product,
       cancelToken: _cancelToken,
     );
     result.when(
       success: (_) => emit(state.copyWith(
-        status: FavoritesAndThemeStatus.removeProductFromFavsSuccess,
+        status: GeneralStateStatus.removeProductFromFavsSuccess,
       )),
       error: (errorModel) => emit(state.copyWith(
-        status: FavoritesAndThemeStatus.removeProductFromFavsError,
+        status: GeneralStateStatus.removeProductFromFavsError,
         error: errorModel.error ?? '',
       )),
     );
@@ -74,19 +100,19 @@ class FavoritesAndThemeCubit extends Cubit<FavoritesAndThemeState> {
 
   void _preferStore(int storeId) async {
     emit(state.copyWith(
-      status: FavoritesAndThemeStatus.preferStoreLoading,
+      status: GeneralStateStatus.preferStoreLoading,
     ));
-    final result = await _favoritesRepo.preferItem(
+    final result = await favoritesRepo.preferItem(
       params: PreferParams(storeId: storeId),
       itemType: FavItemType.store,
       cancelToken: _cancelToken,
     );
     result.when(
       success: (_) => emit(state.copyWith(
-        status: FavoritesAndThemeStatus.preferStoreSuccess,
+        status: GeneralStateStatus.preferStoreSuccess,
       )),
       error: (errorModel) => emit(state.copyWith(
-        status: FavoritesAndThemeStatus.preferStoreError,
+        status: GeneralStateStatus.preferStoreError,
         error: errorModel.error ?? '',
       )),
     );
@@ -94,30 +120,30 @@ class FavoritesAndThemeCubit extends Cubit<FavoritesAndThemeState> {
 
   void _removeStoreFromFavs(int storeId) async {
     emit(state.copyWith(
-      status: FavoritesAndThemeStatus.removeStoreFromFavsLoading,
+      status: GeneralStateStatus.removeStoreFromFavsLoading,
     ));
-    final result = await _favoritesRepo.removeItemFromFavs(
+    final result = await favoritesRepo.removeItemFromFavs(
       itemId: storeId,
       itemType: FavItemType.store,
       cancelToken: _cancelToken,
     );
     result.when(
       success: (_) => emit(state.copyWith(
-        status: FavoritesAndThemeStatus.removeStoreFromFavsSuccess,
+        status: GeneralStateStatus.removeStoreFromFavsSuccess,
       )),
       error: (errorModel) => emit(state.copyWith(
-        status: FavoritesAndThemeStatus.removeStoreFromFavsError,
+        status: GeneralStateStatus.removeStoreFromFavsError,
         error: errorModel.error ?? '',
       )),
     );
   }
 
   Future<void> deleteCachedFavProducts() async {
-    await _favoritesRepo.deleteCachedFavProducts();
+    await favoritesRepo.deleteCachedFavProducts();
   }
 
   Future<void> deleteCachedFavStores() async {
-    await _favoritesRepo.deleteCachedFavStores();
+    await favoritesRepo.deleteCachedFavStores();
   }
 
   Future<void> _cacheSelectedTheme(Brightness brightness) async {
@@ -136,7 +162,7 @@ class FavoritesAndThemeCubit extends Cubit<FavoritesAndThemeState> {
 
   void toggleTheme() {
     emit(state.copyWith(
-      status: FavoritesAndThemeStatus.toggleTheme,
+      status: GeneralStateStatus.toggleTheme,
       theme: state.theme!.brightness == Brightness.light
           ? AppThemes.darkMode
           : AppThemes.lightMode,

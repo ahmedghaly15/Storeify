@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
-import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/auth/data/datasources/auth_local_datasource.dart';
 import 'package:store_ify/features/auth/presentation/cubits/register/register_cubit.dart';
@@ -45,19 +44,11 @@ class RegisterButtonBlocConsumer extends StatelessWidget {
       case RegisterStateStatus.registerSuccess:
         currentUser = state.user;
         AuthLocalDatasource.cacheUserAndSetTokenIntoHeaders(state.user!);
-        CustomToast.showToast(
-          context: context,
-          messageKey: LocaleKeys.accountCreatedSuccessfully,
-          state: CustomToastState.success,
-        );
+        context.showToast(LocaleKeys.accountCreatedSuccessfully);
         context.maybePop();
         break;
       case RegisterStateStatus.registerError:
-        CustomToast.showToast(
-          context: context,
-          messageKey: state.error!,
-          state: CustomToastState.error,
-        );
+        context.showToast(state.error!);
         break;
       default:
         break;

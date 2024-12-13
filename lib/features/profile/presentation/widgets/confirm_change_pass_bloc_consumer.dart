@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
-import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/profile/presentation/cubits/change_pass/change_pass_cubit.dart';
 import 'package:store_ify/features/profile/presentation/cubits/change_pass/change_pass_state.dart';
@@ -40,18 +39,10 @@ class ConfirmChangePassBlocConsumer extends StatelessWidget {
         break;
       case ChangePassStateStatus.changePasswordSuccess:
         context.maybePop();
-        CustomToast.showToast(
-          context: context,
-          messageKey: LocaleKeys.passChangedSuccessfully,
-          state: CustomToastState.success,
-        );
+        context.showToast(LocaleKeys.passChangedSuccessfully);
         break;
       case ChangePassStateStatus.changePasswordError:
-        CustomToast.showToast(
-          context: context,
-          state: CustomToastState.error,
-          messageKey: state.error ?? '',
-        );
+        context.showToast(state.error!);
         break;
       default:
         break;

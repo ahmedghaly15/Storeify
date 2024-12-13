@@ -13,7 +13,9 @@ import 'package:store_ify/features/payment/presentation/widgets/save_card_detail
 
 @RoutePage()
 class PaymentView extends StatelessWidget implements AutoRouteWrapper {
-  const PaymentView({super.key});
+  const PaymentView({super.key, required this.amount});
+
+  final double amount;
 
   @override
   Widget wrappedRoute(BuildContext context) {
@@ -25,16 +27,18 @@ class PaymentView extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            CustomSliverAppBar(titleKey: LocaleKeys.paymentWithCard),
-            SliverToBoxAdapter(child: PaymentProgressCircles()),
-            SliverToBoxAdapter(child: CardDetailsText()),
-            SliverToBoxAdapter(child: PaymentFormBlocSelector()),
-            SliverToBoxAdapter(child: SaveCardDetailsCheckbox()),
-            SliverToBoxAdapter(child: PayBlocConsumerButton()),
+            const CustomSliverAppBar(titleKey: LocaleKeys.paymentWithCard),
+            const SliverToBoxAdapter(child: PaymentProgressCircles()),
+            const SliverToBoxAdapter(child: CardDetailsText()),
+            const SliverToBoxAdapter(child: PaymentFormBlocSelector()),
+            const SliverToBoxAdapter(child: SaveCardDetailsCheckbox()),
+            SliverToBoxAdapter(
+              child: PayBlocConsumerButton(amount: amount),
+            ),
           ],
         ),
       ),

@@ -37,12 +37,18 @@ class CartView extends StatelessWidget implements AutoRouteWrapper {
                 );
               case CartStateStatus.fetchCartSuccess:
                 return state.cart!.cart.isNotEmpty
-                    ? CartViewBody(cart: state.cart!)
+                    ? CartViewBody(
+                        cart: state.cart!,
+                        amount: state.cart!.totalPrice,
+                      )
                     : const EmptyCartWidget();
               case CartStateStatus.fetchCartError:
                 return state.cart != null
                     ? (state.cart!.cart.isNotEmpty
-                        ? CartViewBody(cart: state.cart!)
+                        ? CartViewBody(
+                            cart: state.cart!,
+                            amount: state.cart!.totalPrice,
+                          )
                         : const EmptyCartWidget())
                     : CustomScrollView(
                         slivers: [

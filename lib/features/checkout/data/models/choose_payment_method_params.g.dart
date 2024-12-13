@@ -10,12 +10,12 @@ ChoosePaymentMethodParams _$ChoosePaymentMethodParamsFromJson(
         Map<String, dynamic> json) =>
     ChoosePaymentMethodParams(
       paymentId: (json['paymentId'] as num).toInt(),
-      paymentMethod: json['paymentMethod'] as String,
+      paymentMethod: json['payment_method'] as String,
     );
 
 Map<String, dynamic> _$ChoosePaymentMethodParamsToJson(
         ChoosePaymentMethodParams instance) =>
     <String, dynamic>{
       'paymentId': instance.paymentId,
-      'paymentMethod': instance.paymentMethod,
+      'payment_method': instance.paymentMethod,
     };

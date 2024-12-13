@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'favorites_and_theme_state.dart';
+part of 'general_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,39 +15,43 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$FavoritesAndThemeState {
-  FavoritesAndThemeStatus get status => throw _privateConstructorUsedError;
+mixin _$GeneralState {
+  GeneralStateStatus get status => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
   ThemeData? get theme => throw _privateConstructorUsedError;
+  FetchHomeResponse? get homeData => throw _privateConstructorUsedError;
 
-  /// Create a copy of FavoritesAndThemeState
+  /// Create a copy of GeneralState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $FavoritesAndThemeStateCopyWith<FavoritesAndThemeState> get copyWith =>
+  $GeneralStateCopyWith<GeneralState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FavoritesAndThemeStateCopyWith<$Res> {
-  factory $FavoritesAndThemeStateCopyWith(FavoritesAndThemeState value,
-          $Res Function(FavoritesAndThemeState) then) =
-      _$FavoritesAndThemeStateCopyWithImpl<$Res, FavoritesAndThemeState>;
+abstract class $GeneralStateCopyWith<$Res> {
+  factory $GeneralStateCopyWith(
+          GeneralState value, $Res Function(GeneralState) then) =
+      _$GeneralStateCopyWithImpl<$Res, GeneralState>;
   @useResult
-  $Res call({FavoritesAndThemeStatus status, String? error, ThemeData? theme});
+  $Res call(
+      {GeneralStateStatus status,
+      String? error,
+      ThemeData? theme,
+      FetchHomeResponse? homeData});
 }
 
 /// @nodoc
-class _$FavoritesAndThemeStateCopyWithImpl<$Res,
-        $Val extends FavoritesAndThemeState>
-    implements $FavoritesAndThemeStateCopyWith<$Res> {
-  _$FavoritesAndThemeStateCopyWithImpl(this._value, this._then);
+class _$GeneralStateCopyWithImpl<$Res, $Val extends GeneralState>
+    implements $GeneralStateCopyWith<$Res> {
+  _$GeneralStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of FavoritesAndThemeState
+  /// Create a copy of GeneralState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -55,12 +59,13 @@ class _$FavoritesAndThemeStateCopyWithImpl<$Res,
     Object? status = null,
     Object? error = freezed,
     Object? theme = freezed,
+    Object? homeData = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as FavoritesAndThemeStatus,
+              as GeneralStateStatus,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -69,33 +74,38 @@ class _$FavoritesAndThemeStateCopyWithImpl<$Res,
           ? _value.theme
           : theme // ignore: cast_nullable_to_non_nullable
               as ThemeData?,
+      homeData: freezed == homeData
+          ? _value.homeData
+          : homeData // ignore: cast_nullable_to_non_nullable
+              as FetchHomeResponse?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$FavoritesAndThemeStateImplCopyWith<$Res>
-    implements $FavoritesAndThemeStateCopyWith<$Res> {
-  factory _$$FavoritesAndThemeStateImplCopyWith(
-          _$FavoritesAndThemeStateImpl value,
-          $Res Function(_$FavoritesAndThemeStateImpl) then) =
-      __$$FavoritesAndThemeStateImplCopyWithImpl<$Res>;
+abstract class _$$GeneralStateImplCopyWith<$Res>
+    implements $GeneralStateCopyWith<$Res> {
+  factory _$$GeneralStateImplCopyWith(
+          _$GeneralStateImpl value, $Res Function(_$GeneralStateImpl) then) =
+      __$$GeneralStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({FavoritesAndThemeStatus status, String? error, ThemeData? theme});
+  $Res call(
+      {GeneralStateStatus status,
+      String? error,
+      ThemeData? theme,
+      FetchHomeResponse? homeData});
 }
 
 /// @nodoc
-class __$$FavoritesAndThemeStateImplCopyWithImpl<$Res>
-    extends _$FavoritesAndThemeStateCopyWithImpl<$Res,
-        _$FavoritesAndThemeStateImpl>
-    implements _$$FavoritesAndThemeStateImplCopyWith<$Res> {
-  __$$FavoritesAndThemeStateImplCopyWithImpl(
-      _$FavoritesAndThemeStateImpl _value,
-      $Res Function(_$FavoritesAndThemeStateImpl) _then)
+class __$$GeneralStateImplCopyWithImpl<$Res>
+    extends _$GeneralStateCopyWithImpl<$Res, _$GeneralStateImpl>
+    implements _$$GeneralStateImplCopyWith<$Res> {
+  __$$GeneralStateImplCopyWithImpl(
+      _$GeneralStateImpl _value, $Res Function(_$GeneralStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of FavoritesAndThemeState
+  /// Create a copy of GeneralState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -103,12 +113,13 @@ class __$$FavoritesAndThemeStateImplCopyWithImpl<$Res>
     Object? status = null,
     Object? error = freezed,
     Object? theme = freezed,
+    Object? homeData = freezed,
   }) {
-    return _then(_$FavoritesAndThemeStateImpl(
+    return _then(_$GeneralStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as FavoritesAndThemeStatus,
+              as GeneralStateStatus,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -117,68 +128,78 @@ class __$$FavoritesAndThemeStateImplCopyWithImpl<$Res>
           ? _value.theme
           : theme // ignore: cast_nullable_to_non_nullable
               as ThemeData?,
+      homeData: freezed == homeData
+          ? _value.homeData
+          : homeData // ignore: cast_nullable_to_non_nullable
+              as FetchHomeResponse?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$FavoritesAndThemeStateImpl implements _FavoritesAndThemeState {
-  const _$FavoritesAndThemeStateImpl(
-      {required this.status, this.error, this.theme});
+class _$GeneralStateImpl implements _GeneralState {
+  const _$GeneralStateImpl(
+      {required this.status, this.error, this.theme, this.homeData});
 
   @override
-  final FavoritesAndThemeStatus status;
+  final GeneralStateStatus status;
   @override
   final String? error;
   @override
   final ThemeData? theme;
+  @override
+  final FetchHomeResponse? homeData;
 
   @override
   String toString() {
-    return 'FavoritesAndThemeState(status: $status, error: $error, theme: $theme)';
+    return 'GeneralState(status: $status, error: $error, theme: $theme, homeData: $homeData)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FavoritesAndThemeStateImpl &&
+            other is _$GeneralStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.error, error) || other.error == error) &&
-            (identical(other.theme, theme) || other.theme == theme));
+            (identical(other.theme, theme) || other.theme == theme) &&
+            (identical(other.homeData, homeData) ||
+                other.homeData == homeData));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, error, theme);
+  int get hashCode => Object.hash(runtimeType, status, error, theme, homeData);
 
-  /// Create a copy of FavoritesAndThemeState
+  /// Create a copy of GeneralState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$FavoritesAndThemeStateImplCopyWith<_$FavoritesAndThemeStateImpl>
-      get copyWith => __$$FavoritesAndThemeStateImplCopyWithImpl<
-          _$FavoritesAndThemeStateImpl>(this, _$identity);
+  _$$GeneralStateImplCopyWith<_$GeneralStateImpl> get copyWith =>
+      __$$GeneralStateImplCopyWithImpl<_$GeneralStateImpl>(this, _$identity);
 }
 
-abstract class _FavoritesAndThemeState implements FavoritesAndThemeState {
-  const factory _FavoritesAndThemeState(
-      {required final FavoritesAndThemeStatus status,
+abstract class _GeneralState implements GeneralState {
+  const factory _GeneralState(
+      {required final GeneralStateStatus status,
       final String? error,
-      final ThemeData? theme}) = _$FavoritesAndThemeStateImpl;
+      final ThemeData? theme,
+      final FetchHomeResponse? homeData}) = _$GeneralStateImpl;
 
   @override
-  FavoritesAndThemeStatus get status;
+  GeneralStateStatus get status;
   @override
   String? get error;
   @override
   ThemeData? get theme;
+  @override
+  FetchHomeResponse? get homeData;
 
-  /// Create a copy of FavoritesAndThemeState
+  /// Create a copy of GeneralState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FavoritesAndThemeStateImplCopyWith<_$FavoritesAndThemeStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$GeneralStateImplCopyWith<_$GeneralStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

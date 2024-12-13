@@ -19,7 +19,6 @@ class CardTypeTextFieldBlocSelector extends StatelessWidget {
       selector: (state) => state.selectedCardType!,
       builder: (context, selectedCardType) => PaymentCustomTextField(
         hintTextKey: selectedCardType.nameKey,
-        controller: context.read<PaymentCubit>().cardTypeController,
         prefixIcon: Image.asset(
           selectedCardType.image,
           width: 32.w,

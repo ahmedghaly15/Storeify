@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class AppRoutesObserver extends AutoRouterObserver {
   @override
   void didPush(Route route, Route? previousRoute) {
+    debugPrint('Previous route : ${previousRoute?.settings.name}');
     debugPrint('New route pushed: ${route.settings.name}');
   }
 
