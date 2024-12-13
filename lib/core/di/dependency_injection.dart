@@ -1,3 +1,4 @@
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
@@ -81,6 +82,7 @@ Future<void> _setupForExternal() async {
   const flutterSecureStorage = FlutterSecureStorage();
   getIt.registerLazySingleton<FlutterSecureStorage>(() => flutterSecureStorage);
   getIt.registerLazySingleton<ImagePicker>(() => ImagePicker());
+  getIt.registerLazySingleton<DeviceInfoPlugin>(() => DeviceInfoPlugin());
 }
 
 void _setupDIForCore() {
