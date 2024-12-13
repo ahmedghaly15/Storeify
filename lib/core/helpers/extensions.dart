@@ -24,7 +24,7 @@ extension CheckDarkThemeActivation on BuildContext {
 extension ShowMyToast on BuildContext {
   void showToast(String message) => ScaffoldMessenger.of(this).showSnackBar(
         SnackBar(
-          backgroundColor: Colors.black38,
+          backgroundColor: Colors.black26,
           elevation: 0,
           duration: const Duration(seconds: 2),
           dismissDirection: locale.languageCode == 'ar'
@@ -39,10 +39,12 @@ extension ShowMyToast on BuildContext {
             spacing: 8.w,
             children: [
               Image.asset(AppAssets.appIcon, height: 32.h, width: 32.h),
-              Text(
-                this.tr(message),
-                style: AppTextStyles.textStyle14Regular
-                    .copyWith(color: Colors.white),
+              Expanded(
+                child: Text(
+                  this.tr(message),
+                  style: AppTextStyles.textStyle14Regular
+                      .copyWith(color: Colors.white),
+                ),
               )
             ],
           ),

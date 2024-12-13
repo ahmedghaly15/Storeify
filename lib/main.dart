@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
+
+import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/core/helpers/hive_helper.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
+import 'package:store_ify/core/utils/bloc_observer.dart';
 import 'package:store_ify/core/utils/functions/check_if_onboarding_visited.dart';
 import 'package:store_ify/core/utils/functions/check_if_user_is_logged_in.dart';
 import 'package:store_ify/core/utils/functions/get_and_cache_country_code.dart';
 import 'package:store_ify/generated/codegen_loader.g.dart';
 import 'package:store_ify/storeify_app.dart';
-import 'package:store_ify/core/utils/bloc_observer.dart';
-import 'package:store_ify/core/di/dependency_injection.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
