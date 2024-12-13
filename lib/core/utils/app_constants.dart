@@ -8,6 +8,8 @@ import 'package:store_ify/features/checkout/data/models/payment_method.dart';
 import 'package:store_ify/features/payment/data/models/card_type.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 
+bool isAndroidAbove12 = false;
+bool isDeviceDarkModeActive = false;
 bool isUserLoggedIn = false;
 bool isOnboardingVisited = false;
 StoreifyUser? currentUser;

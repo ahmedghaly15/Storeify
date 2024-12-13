@@ -73,6 +73,8 @@ dependencies:
   image_picker: ^1.1.2
   # Used for compressing images
   flutter_image_compress: ^2.3.0
+  # Flutter plugin provides detailed information about the device
+  device_info_plus: ^11.2.0
 
 dev_dependencies:
   flutter_test:
@@ -110,16 +112,21 @@ flutter:
   fonts:
     - family: Poppins
       fonts:
-        - asset: assets/fonts/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins/Poppins-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Poppins-Medium.ttf
+        - asset: assets/fonts/Poppins/Poppins-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Poppins-SemiBold.ttf
+        - asset: assets/fonts/Poppins/Poppins-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/Poppins-Bold.ttf
+        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
           weight: 700
-        - asset: assets/fonts/Poppins-ExtraBold.ttf
+        - asset: assets/fonts/Poppins/Poppins-ExtraBold.ttf
           weight: 900
+          
+    - family: PottaOne
+      fonts:
+        - asset: assets/fonts/PottaOne/PottaOne-Regular.ttf
+          weight: 400
 
 flutter_assets:
   assets_path: assets/
