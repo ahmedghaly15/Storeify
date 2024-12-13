@@ -21,6 +21,8 @@ mixin _$PaymentState {
   AutovalidateMode get autovalidateMode => throw _privateConstructorUsedError;
   bool get checkboxValue => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
+  PaymentCardDetails? get paymentCardDetails =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of PaymentState
   /// with the given fields replaced by the non-null parameter values.
@@ -40,7 +42,8 @@ abstract class $PaymentStateCopyWith<$Res> {
       CardType? selectedCardType,
       AutovalidateMode autovalidateMode,
       bool checkboxValue,
-      String? error});
+      String? error,
+      PaymentCardDetails? paymentCardDetails});
 
   $CardTypeCopyWith<$Res>? get selectedCardType;
 }
@@ -65,6 +68,7 @@ class _$PaymentStateCopyWithImpl<$Res, $Val extends PaymentState>
     Object? autovalidateMode = null,
     Object? checkboxValue = null,
     Object? error = freezed,
+    Object? paymentCardDetails = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -87,6 +91,10 @@ class _$PaymentStateCopyWithImpl<$Res, $Val extends PaymentState>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
+      paymentCardDetails: freezed == paymentCardDetails
+          ? _value.paymentCardDetails
+          : paymentCardDetails // ignore: cast_nullable_to_non_nullable
+              as PaymentCardDetails?,
     ) as $Val);
   }
 
@@ -118,7 +126,8 @@ abstract class _$$PaymentStateImplCopyWith<$Res>
       CardType? selectedCardType,
       AutovalidateMode autovalidateMode,
       bool checkboxValue,
-      String? error});
+      String? error,
+      PaymentCardDetails? paymentCardDetails});
 
   @override
   $CardTypeCopyWith<$Res>? get selectedCardType;
@@ -142,6 +151,7 @@ class __$$PaymentStateImplCopyWithImpl<$Res>
     Object? autovalidateMode = null,
     Object? checkboxValue = null,
     Object? error = freezed,
+    Object? paymentCardDetails = freezed,
   }) {
     return _then(_$PaymentStateImpl(
       status: null == status
@@ -164,6 +174,10 @@ class __$$PaymentStateImplCopyWithImpl<$Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
+      paymentCardDetails: freezed == paymentCardDetails
+          ? _value.paymentCardDetails
+          : paymentCardDetails // ignore: cast_nullable_to_non_nullable
+              as PaymentCardDetails?,
     ));
   }
 }
@@ -176,7 +190,8 @@ class _$PaymentStateImpl implements _PaymentState {
       this.selectedCardType,
       this.autovalidateMode = AutovalidateMode.disabled,
       this.checkboxValue = false,
-      this.error});
+      this.error,
+      this.paymentCardDetails});
 
   @override
   final PaymentStateStatus status;
@@ -190,10 +205,12 @@ class _$PaymentStateImpl implements _PaymentState {
   final bool checkboxValue;
   @override
   final String? error;
+  @override
+  final PaymentCardDetails? paymentCardDetails;
 
   @override
   String toString() {
-    return 'PaymentState(status: $status, selectedCardType: $selectedCardType, autovalidateMode: $autovalidateMode, checkboxValue: $checkboxValue, error: $error)';
+    return 'PaymentState(status: $status, selectedCardType: $selectedCardType, autovalidateMode: $autovalidateMode, checkboxValue: $checkboxValue, error: $error, paymentCardDetails: $paymentCardDetails)';
   }
 
   @override
@@ -208,12 +225,14 @@ class _$PaymentStateImpl implements _PaymentState {
                 other.autovalidateMode == autovalidateMode) &&
             (identical(other.checkboxValue, checkboxValue) ||
                 other.checkboxValue == checkboxValue) &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.error, error) || other.error == error) &&
+            (identical(other.paymentCardDetails, paymentCardDetails) ||
+                other.paymentCardDetails == paymentCardDetails));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, status, selectedCardType,
-      autovalidateMode, checkboxValue, error);
+      autovalidateMode, checkboxValue, error, paymentCardDetails);
 
   /// Create a copy of PaymentState
   /// with the given fields replaced by the non-null parameter values.
@@ -230,7 +249,8 @@ abstract class _PaymentState implements PaymentState {
       final CardType? selectedCardType,
       final AutovalidateMode autovalidateMode,
       final bool checkboxValue,
-      final String? error}) = _$PaymentStateImpl;
+      final String? error,
+      final PaymentCardDetails? paymentCardDetails}) = _$PaymentStateImpl;
 
   @override
   PaymentStateStatus get status;
@@ -242,6 +262,8 @@ abstract class _PaymentState implements PaymentState {
   bool get checkboxValue;
   @override
   String? get error;
+  @override
+  PaymentCardDetails? get paymentCardDetails;
 
   /// Create a copy of PaymentState
   /// with the given fields replaced by the non-null parameter values.
