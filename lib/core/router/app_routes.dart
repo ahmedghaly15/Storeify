@@ -20,19 +20,13 @@ List<AutoRoute> get appRoutes => [
         ],
       ),
       AutoRoute(
-        page: BottomNavBarRoute.page,
+        page: LayoutRoute.page,
         initial: isUserLoggedIn ? true : false,
         children: [
-          AutoRoute(
-            page: LayoutRoute.page,
-            initial: true,
-            children: [
-              _buildCustomRoute(page: HomeRouteBody.page, initial: true),
-              _buildCustomRoute(page: StoresRoute.page),
-              _buildCustomRoute(page: CartRoute.page),
-              _buildCustomRoute(page: FavoritesRoute.page),
-            ],
-          ),
+          _buildCustomRoute(page: HomeRouteBody.page, initial: true),
+          _buildCustomRoute(page: StoresRoute.page),
+          _buildCustomRoute(page: CartRoute.page),
+          _buildCustomRoute(page: FavoritesRoute.page),
         ],
       ),
       _buildCustomRoute(page: CategoriesRoute.page),
