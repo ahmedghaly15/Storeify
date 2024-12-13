@@ -42,12 +42,14 @@ class CustomAdaptiveDialog extends StatelessWidget {
               ? Text(
                   context.tr(titleText!),
                   style: AppTextStyles.textStyle20Medium,
+                  textAlign: TextAlign.center,
                 )
               : null),
       content: content ??
           Text(
             context.tr(contentText!),
             style: AppTextStyles.textStyle16Medium,
+            textAlign: TextAlign.center,
           ),
       actions: actions,
       actionsPadding: actionsPadding,

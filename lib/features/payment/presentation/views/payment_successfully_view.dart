@@ -35,7 +35,7 @@ class PaymentSuccessfullyView extends StatelessWidget {
                   vertical: 24.h,
                 ),
                 onPressed: () {
-                  context.router.popUntilRouteWithName(BottomNavBarRoute.name);
+                  context.replaceRoute(const LayoutRoute());
                 },
                 textKey: LocaleKeys.backToHome,
               ),

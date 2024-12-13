@@ -1,12 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
-import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/auth/data/datasources/auth_local_datasource.dart';
 import 'package:store_ify/features/auth/presentation/cubits/login/login_cubit.dart';
@@ -23,9 +21,6 @@ class LoginButtonBlocConsumer extends StatelessWidget {
       listener: (context, state) async => await _listener(state, context),
       buildWhen: (_, current) => _listenOrBuildWhen(current.status),
       builder: (context, state) => MainButton(
-        margin: EdgeInsets.symmetric(
-          horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
-        ),
         child: circularIndicatorOrTextWidget(
           isLoading: state.status == LoginStateStatus.loginLoading,
           context: context,
@@ -45,11 +40,7 @@ class LoginButtonBlocConsumer extends StatelessWidget {
       case LoginStateStatus.loginSuccess:
         await _cacheUserAndGoHome(state, context);
       case LoginStateStatus.loginError:
-        CustomToast.showToast(
-          context: context,
-          messageKey: state.error!,
-          state: CustomToastState.error,
-        );
+        context.showToast(state.error!);
       default:
         break;
     }
@@ -63,7 +54,7 @@ class LoginButtonBlocConsumer extends StatelessWidget {
     await AuthLocalDatasource.cacheUserAndSetTokenIntoHeaders(
       state.user!,
     );
-    context.replaceRoute(const BottomNavBarRoute());
+    context.replaceRoute(const LayoutRoute());
   }
 
   bool _listenOrBuildWhen(LoginStateStatus status) {

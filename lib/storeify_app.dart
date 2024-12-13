@@ -9,8 +9,8 @@ import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_themes.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/utils/auto_route_observer.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_and_theme_cubit.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_and_theme_state.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites/general_cubit.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites/general_state.dart';
 
 class StoreifyApp extends StatelessWidget {
   const StoreifyApp({super.key});
@@ -21,10 +21,9 @@ class StoreifyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (_, __) => BlocProvider<FavoritesAndThemeCubit>.value(
-        value: getIt.get<FavoritesAndThemeCubit>(),
-        child: BlocSelector<FavoritesAndThemeCubit, FavoritesAndThemeState,
-            ThemeData>(
+      builder: (_, __) => BlocProvider<GeneralCubit>.value(
+        value: getIt.get<GeneralCubit>(),
+        child: BlocSelector<GeneralCubit, GeneralState, ThemeData>(
           selector: (state) => state.theme!,
           builder: (context, theme) => MaterialApp.router(
             debugShowCheckedModeBanner: false,

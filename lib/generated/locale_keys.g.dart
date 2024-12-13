@@ -157,5 +157,8 @@ abstract class  LocaleKeys {
   static const topCategories = 'topCategories';
   static const noResultsFound = 'noResultsFound';
   static const tryDifferentKeywords = 'tryDifferentKeywords';
+  static const cashWillBeCollectedOnDelivery = 'cashWillBeCollectedOnDelivery';
+  static const sureToConfirmPayment = 'sureToConfirmPayment';
+  static const INVALID_PAYMENT_METHOD = 'INVALID_PAYMENT_METHOD';
 
 }

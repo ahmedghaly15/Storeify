@@ -29,25 +29,6 @@ class AuthRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [BottomNavBar]
-class BottomNavBarRoute extends PageRouteInfo<void> {
-  const BottomNavBarRoute({List<PageRouteInfo>? children})
-      : super(
-          BottomNavBarRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'BottomNavBarRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return const BottomNavBar();
-    },
-  );
-}
-
-/// generated route for
 /// [CartView]
 class CartRoute extends PageRouteInfo<void> {
   const CartRoute({List<PageRouteInfo>? children})
@@ -106,10 +87,17 @@ class ChangePasswordRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [CheckoutView]
-class CheckoutRoute extends PageRouteInfo<void> {
-  const CheckoutRoute({List<PageRouteInfo>? children})
-      : super(
+class CheckoutRoute extends PageRouteInfo<CheckoutRouteArgs> {
+  CheckoutRoute({
+    Key? key,
+    required double amount,
+    List<PageRouteInfo>? children,
+  }) : super(
           CheckoutRoute.name,
+          args: CheckoutRouteArgs(
+            key: key,
+            amount: amount,
+          ),
           initialChildren: children,
         );
 
@@ -118,9 +106,30 @@ class CheckoutRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return WrappedRoute(child: const CheckoutView());
+      final args = data.argsAs<CheckoutRouteArgs>();
+      return WrappedRoute(
+          child: CheckoutView(
+        key: args.key,
+        amount: args.amount,
+      ));
     },
   );
+}
+
+class CheckoutRouteArgs {
+  const CheckoutRouteArgs({
+    this.key,
+    required this.amount,
+  });
+
+  final Key? key;
+
+  final double amount;
+
+  @override
+  String toString() {
+    return 'CheckoutRouteArgs{key: $key, amount: $amount}';
+  }
 }
 
 /// generated route for
@@ -175,7 +184,7 @@ class HomeRouteBody extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return WrappedRoute(child: const HomeViewBody());
+      return const HomeViewBody();
     },
   );
 }
@@ -239,10 +248,17 @@ class OnboardingRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [PaymentMethodView]
-class PaymentMethodRoute extends PageRouteInfo<void> {
-  const PaymentMethodRoute({List<PageRouteInfo>? children})
-      : super(
+class PaymentMethodRoute extends PageRouteInfo<PaymentMethodRouteArgs> {
+  PaymentMethodRoute({
+    Key? key,
+    required double amount,
+    List<PageRouteInfo>? children,
+  }) : super(
           PaymentMethodRoute.name,
+          args: PaymentMethodRouteArgs(
+            key: key,
+            amount: amount,
+          ),
           initialChildren: children,
         );
 
@@ -251,9 +267,30 @@ class PaymentMethodRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return WrappedRoute(child: const PaymentMethodView());
+      final args = data.argsAs<PaymentMethodRouteArgs>();
+      return WrappedRoute(
+          child: PaymentMethodView(
+        key: args.key,
+        amount: args.amount,
+      ));
     },
   );
+}
+
+class PaymentMethodRouteArgs {
+  const PaymentMethodRouteArgs({
+    this.key,
+    required this.amount,
+  });
+
+  final Key? key;
+
+  final double amount;
+
+  @override
+  String toString() {
+    return 'PaymentMethodRouteArgs{key: $key, amount: $amount}';
+  }
 }
 
 /// generated route for
@@ -277,10 +314,17 @@ class PaymentSuccessfullyRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [PaymentView]
-class PaymentRoute extends PageRouteInfo<void> {
-  const PaymentRoute({List<PageRouteInfo>? children})
-      : super(
+class PaymentRoute extends PageRouteInfo<PaymentRouteArgs> {
+  PaymentRoute({
+    Key? key,
+    required double amount,
+    List<PageRouteInfo>? children,
+  }) : super(
           PaymentRoute.name,
+          args: PaymentRouteArgs(
+            key: key,
+            amount: amount,
+          ),
           initialChildren: children,
         );
 
@@ -289,9 +333,30 @@ class PaymentRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return WrappedRoute(child: const PaymentView());
+      final args = data.argsAs<PaymentRouteArgs>();
+      return WrappedRoute(
+          child: PaymentView(
+        key: args.key,
+        amount: args.amount,
+      ));
     },
   );
+}
+
+class PaymentRouteArgs {
+  const PaymentRouteArgs({
+    this.key,
+    required this.amount,
+  });
+
+  final Key? key;
+
+  final double amount;
+
+  @override
+  String toString() {
+    return 'PaymentRouteArgs{key: $key, amount: $amount}';
+  }
 }
 
 /// generated route for

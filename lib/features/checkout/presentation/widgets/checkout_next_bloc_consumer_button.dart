@@ -2,17 +2,19 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
-import 'package:store_ify/core/widgets/custom_toast.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_cubit.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_state.dart';
 
 class CheckoutNextBlocConsumerButton extends StatelessWidget {
-  const CheckoutNextBlocConsumerButton({super.key});
+  const CheckoutNextBlocConsumerButton({super.key, required this.amount});
+
+  final double amount;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class CheckoutNextBlocConsumerButton extends StatelessWidget {
         ),
         onPressed: () {
           // context.read<CheckoutCubit>().checkoutAndValidateForm();
-          context.pushRoute(const PaymentMethodRoute());
+          context.pushRoute(PaymentMethodRoute(amount: amount));
         },
         child: circularIndicatorOrTextWidget(
           isLoading: state.status == CheckoutStateStatus.checkoutLoading,
@@ -41,14 +43,10 @@ class CheckoutNextBlocConsumerButton extends StatelessWidget {
   void _listener(CheckoutState state, BuildContext context) {
     switch (state.status) {
       case CheckoutStateStatus.checkoutSuccess:
-        context.pushRoute(const PaymentMethodRoute());
+        context.pushRoute(PaymentMethodRoute(amount: amount));
         break;
       case CheckoutStateStatus.checkoutError:
-        CustomToast.showToast(
-          context: context,
-          messageKey: state.error!,
-          state: CustomToastState.error,
-        );
+        context.showToast(state.error!);
         break;
       default:
         break;

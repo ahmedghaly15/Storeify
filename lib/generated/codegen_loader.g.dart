@@ -91,7 +91,7 @@ class CodegenLoader extends AssetLoader{
   "date": "التاريخ",
   "time": "الوقت",
   "enterYourAddress": "ادخل عنوانك",
-  "dateHint": "MMM/DD/YYYY",
+  "dateHint": "YYYY-MM-DD",
   "locationGranted": "تم تفعيل الموقع.",
   "locationDenied": "الموقع غير مسموح به. الرجاء تفعيله.",
   "DATE_AFTER_TODAY": "التاريخ يجب ان يكون بعد اليوم.",
@@ -170,7 +170,10 @@ class CodegenLoader extends AssetLoader{
   "putToYourCartToStartShopping": "اضافة الى السلة للبدء بالتسوق",
   "topCategories": "أفضل الفئات",
   "noResultsFound": "لم يتم العثور على نتائج",
-  "tryDifferentKeywords": "من فضلك حاول البحث باستخدام كلمات مختلفة."
+  "tryDifferentKeywords": "من فضلك حاول البحث باستخدام كلمات مختلفة.",
+  "cashWillBeCollectedOnDelivery": "سيتم تحصيل النقد عند التسليم",
+  "sureToConfirmPayment": "هل انت متاكد من تاكيد الدفع؟",
+  "INVALID_PAYMENT_METHOD": "طريقة الدفع المختارة غير صالحة. يرجى اختيار طريقة أخرى والمحاولة مرة أخرى."
 };
 static const Map<String,dynamic> en = {
   "signInToContinue": "Sign in to continue",
@@ -248,7 +251,7 @@ static const Map<String,dynamic> en = {
   "enterYourAddress": "Enter your address",
   "phone": "Phone",
   "date": "Date",
-  "dateHint": "MMM/DD/YYYY",
+  "dateHint": "YYYY-MM-DD",
   "time": "Time",
   "locationGranted": "Location has been granted.",
   "locationDenied": "Location permission denied. Please grant it.",
@@ -328,7 +331,10 @@ static const Map<String,dynamic> en = {
   "putToYourCartToStartShopping": "Put to your cart to start shopping",
   "topCategories": "Top Categories",
   "noResultsFound": "No results found",
-  "tryDifferentKeywords": "Please try searching with different keywords."
+  "tryDifferentKeywords": "Please try searching with different keywords.",
+  "cashWillBeCollectedOnDelivery": "Cash will be collected on delivery",
+  "sureToConfirmPayment": "Are you sure you want to confirm the payment?",
+  "INVALID_PAYMENT_METHOD": "The selected payment method is invalid. Please choose a different method and try again."
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

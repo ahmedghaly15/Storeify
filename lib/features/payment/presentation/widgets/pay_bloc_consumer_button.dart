@@ -2,18 +2,25 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/functions/circular_indicator_or_text_widget.dart';
-import 'package:store_ify/core/widgets/custom_toast.dart';
+import 'package:store_ify/core/widgets/cancel_outlined_button.dart';
+import 'package:store_ify/core/widgets/custom_adaptive_dialog.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
+import 'package:store_ify/core/widgets/my_sized_box.dart';
+import 'package:store_ify/features/payment/data/datasource/payment_local_datasource.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_state.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class PayBlocConsumerButton extends StatelessWidget {
-  const PayBlocConsumerButton({super.key});
+  const PayBlocConsumerButton({super.key, required this.amount});
+
+  final double amount;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +30,9 @@ class PayBlocConsumerButton extends StatelessWidget {
       buildWhen: (_, current) => _listenOrBuildWhen(current.status),
       builder: (context, state) => MainButton(
         onPressed: () {
-          context.pushRoute(const PaymentSuccessfullyRoute());
-          // context.read<PaymentCubit>().payAndValidateForm(context, 1);
+          context
+              .read<PaymentCubit>()
+              .payAndValidateForm(orderId: 1, amount: amount);
         },
         margin: EdgeInsets.symmetric(
           vertical: 15.h,
@@ -45,18 +53,52 @@ class PayBlocConsumerButton extends StatelessWidget {
         context.unfocusKeyboard();
         break;
       case PaymentStateStatus.payError:
-        CustomToast.showToast(
-          context: context,
-          messageKey: state.error!,
-          state: CustomToastState.error,
-        );
+        context.showToast(state.error!);
         break;
       case PaymentStateStatus.paySuccess:
-        // TODO: navigate to payment successful screen
-        // TODO: cache card details if the checkBoxValue is true
+        showAdaptiveDialog(
+          context: context,
+          barrierLabel: '',
+          barrierDismissible: false,
+          builder: (_) => BlocProvider.value(
+            value: getIt.get<PaymentCubit>(),
+            child: CustomAdaptiveDialog(
+              contentText: LocaleKeys.sureToConfirmPayment,
+              actions: [
+                const CancelOutlinedButton(),
+                MySizedBox.height10,
+                MainButton(
+                  textKey: LocaleKeys.confirm,
+                  margin: EdgeInsets.zero,
+                  onPressed: () async {
+                    await _cacheCardDetails(state);
+                    context.router.pushAndPopUntil(
+                      const PaymentSuccessfullyRoute(),
+                      predicate: (route) =>
+                          route.settings.name == LayoutRoute.name,
+                    );
+                  },
+                )
+              ],
+            ),
+          ),
+        );
         break;
       default:
         break;
+    }
+  }
+
+  Future<void> _cacheCardDetails(PaymentState state) async {
+    final cachedCardDetails =
+        await PaymentLocalDatasource.retrieveCachedCardDetails();
+    if (state.checkboxValue && state.paymentCardDetails != cachedCardDetails) {
+      await PaymentLocalDatasource.deleteCachedCardDetails();
+      await PaymentLocalDatasource.cacheCardDetails(
+        state.paymentCardDetails!,
+      );
+    } else if (!state.checkboxValue) {
+      PaymentLocalDatasource.deleteCachedCardDetails();
     }
   }
 

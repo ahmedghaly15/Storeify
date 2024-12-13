@@ -75,7 +75,7 @@
     "date": "التاريخ",
     "time": "الوقت",
     "enterYourAddress": "ادخل عنوانك",
-    "dateHint": "MMM/DD/YYYY",
+    "dateHint": "YYYY-MM-DD",
     "locationGranted": "تم تفعيل الموقع.",
     "locationDenied": "الموقع غير مسموح به. الرجاء تفعيله.",
     "DATE_AFTER_TODAY": "التاريخ يجب ان يكون بعد اليوم.",
@@ -154,5 +154,8 @@
     "putToYourCartToStartShopping": "اضافة الى السلة للبدء بالتسوق",
     "topCategories": "أفضل الفئات",
     "noResultsFound": "لم يتم العثور على نتائج",
-    "tryDifferentKeywords": "من فضلك حاول البحث باستخدام كلمات مختلفة."
+    "tryDifferentKeywords": "من فضلك حاول البحث باستخدام كلمات مختلفة.",
+    "cashWillBeCollectedOnDelivery": "سيتم تحصيل النقد عند التسليم",
+    "sureToConfirmPayment": "هل انت متاكد من تاكيد الدفع؟",
+    "INVALID_PAYMENT_METHOD": "طريقة الدفع المختارة غير صالحة. يرجى اختيار طريقة أخرى والمحاولة مرة أخرى."
 }
