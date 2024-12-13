@@ -11,6 +11,8 @@ import 'package:store_ify/features/favorites/data/models/fetch_fav_stores_respon
 import 'package:store_ify/features/favorites/data/models/fetch_favorite_products_response.dart';
 import 'package:store_ify/features/home/data/models/fetch_home_response.dart';
 import 'package:store_ify/features/home/data/models/sub_category.dart';
+import 'package:store_ify/features/payment/data/models/card_type.dart';
+import 'package:store_ify/features/payment/data/models/payment_card_details.dart';
 import 'package:store_ify/features/search/data/models/fetch_search_data_response.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_branches.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_categories_response.dart';
@@ -44,5 +46,7 @@ class HiveHelper {
     Hive.registerAdapter(FetchStoreOffersResponseAdapter());
     Hive.registerAdapter(SearchDataItemAdapter());
     Hive.registerAdapter(FetchSearchDataResponseAdapter());
+    Hive.registerAdapter(CardTypeAdapter());
+    Hive.registerAdapter(PaymentCardDetailsAdapter());
   }
 }
