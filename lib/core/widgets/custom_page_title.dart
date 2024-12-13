@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_ify/core/utils/app_navigator.dart';
-import 'package:store_ify/config/themes/app_text_styles.dart';
+import 'package:store_ify/core/themes/app_text_styles.dart';
 
 class CustomPageTitle extends StatelessWidget {
   const CustomPageTitle({
@@ -14,7 +13,7 @@ class CustomPageTitle extends StatelessWidget {
       children: [
         IconButton(
             onPressed: () {
-              context.getBack();
+              // context.back();
             },
             icon: const Icon(
               Icons.arrow_back,

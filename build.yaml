@@ -1,0 +1,10 @@
+global_options:
+  auto_route_generator:
+    runs_before:
+      - freezed
+  freezed:
+    runs_before:
+      - json_serializable
+  json_serializable:
+    runs_before:
+      - retrofit_generator
