@@ -19,6 +19,7 @@ class ConfirmLogoutBlocConsumerButton extends StatelessWidget {
       listener: (context, state) => _listener(state, context),
       buildWhen: (_, current) => _buildWhen(current.status),
       builder: (context, state) => MainButton(
+        margin: EdgeInsets.zero,
         onPressed: () => context.read<ProfileCubit>().logout(),
         child: circularIndicatorOrTextWidget(
           isLoading: state.status == ProfileStateStatus.logoutLoading,

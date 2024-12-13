@@ -36,7 +36,7 @@ class ConfirmDeleteAccountBlocConsumer extends StatelessWidget {
       case ProfileStateStatus.deleteAccountSuccess:
         context.router.pushAndPopUntil(
           const AuthRoute(),
-          predicate: (route) => route.settings.name == BottomNavBarRoute.name,
+          predicate: (route) => route.settings.name == LayoutRoute.name,
         );
         break;
       default:

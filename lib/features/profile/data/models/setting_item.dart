@@ -7,7 +7,7 @@ import 'package:store_ify/core/utils/functions/toggle_lang.dart';
 import 'package:store_ify/core/widgets/cancel_outlined_button.dart';
 import 'package:store_ify/core/widgets/custom_adaptive_dialog.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites/favorites_and_theme_cubit.dart';
+import 'package:store_ify/features/favorites/presentation/cubits/favorites/general_cubit.dart';
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
 import 'package:store_ify/features/profile/presentation/widgets/confirm_delete_account_bloc_consumer.dart';
 import 'package:store_ify/features/profile/presentation/widgets/confirm_logout_bloc_consumer_button.dart';
@@ -35,8 +35,7 @@ class SettingItem {
   static List<SettingItem> get profileAppSetting => [
         SettingItem(
           titleKey: LocaleKeys.darkMode,
-          onTap: (context) =>
-              context.read<FavoritesAndThemeCubit>().toggleTheme(),
+          onTap: (context) => context.read<GeneralCubit>().toggleTheme(),
           trailing: const DarkModeSwitchBlocBuilder(),
         ),
         SettingItem(
@@ -46,10 +45,6 @@ class SettingItem {
         ),
       ];
   static List<SettingItem> get profileAccountSettings => [
-        SettingItem(
-          titleKey: LocaleKeys.paymentMethod,
-          onTap: (_) {},
-        ),
         SettingItem(
           titleKey: LocaleKeys.logout,
           onTap: (context) {
