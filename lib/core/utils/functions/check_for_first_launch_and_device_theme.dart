@@ -7,8 +7,11 @@ Future<void> checkForFirstLaunchAndDeviceTheme() async {
   final firstLaunch =
       await SharedPrefHelper.getBool(SharedPrefKeys.firstLaunch);
   if (firstLaunch == null) {
+    isFirstLaunch = true;
     await SharedPrefHelper.setData(SharedPrefKeys.firstLaunch, true);
     _checkTheDeviceTheme();
+  } else {
+    isFirstLaunch = false;
   }
 }
 
