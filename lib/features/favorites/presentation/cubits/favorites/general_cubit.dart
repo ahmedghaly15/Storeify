@@ -5,6 +5,7 @@ import 'package:store_ify/core/helpers/shared_pref_helper.dart';
 import 'package:store_ify/core/helpers/shared_pref_keys.dart';
 import 'package:store_ify/core/themes/app_themes.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
+import 'package:store_ify/core/utils/functions/check_for_first_launch_and_device_theme.dart';
 import 'package:store_ify/features/favorites/data/models/prefer_params.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/general_state.dart';
@@ -154,9 +155,7 @@ class GeneralCubit extends Cubit<GeneralState> {
   }
 
   Future<void> _retrieveCachedTheme() async {
-    final firstLaunch =
-        await SharedPrefHelper.getBool(SharedPrefKeys.firstLaunch);
-    if (firstLaunch == true) {
+    if (isFirstLaunch) {
       debugPrint('************ THIS IS OUR FIRST LAUNCH ************');
       _cacheSelectedTheme(
           isDeviceDarkModeActive ? Brightness.dark : Brightness.light);
@@ -175,7 +174,10 @@ class GeneralCubit extends Cubit<GeneralState> {
     }
   }
 
-  void toggleTheme() {
+  void toggleTheme() async {
+    if (isFirstLaunch) {
+      await checkForFirstLaunchAndDeviceTheme();
+    }
     emit(state.copyWith(
       status: GeneralStateStatus.toggleTheme,
       theme: state.theme!.brightness == Brightness.light
