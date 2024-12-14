@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/models/product.dart';
+import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,7 +37,7 @@ class ProductItem extends StatelessWidget {
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         minWidth: 0,
         onPressed: () {
-          // context.navigateTo(routeName: Routes.productDetailsViewRoute);
+          context.pushRoute(ProductDetailsRoute(product: product));
         },
         child: Column(
           children: <Widget>[
@@ -84,16 +86,18 @@ class ProductItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "${product.priceAfterDiscount} LE",
+                        "${product.priceAfterDiscount.toStringAsFixed(2)} LE",
                         style: AppTextStyles.textStyle10Medium.copyWith(
-                          color: AppColors.lightBlueColor,
+                          color: AppColors.color2A94F4,
                         ),
                       ),
                       MySizedBox.width8,
                       Text(
-                        "${product.price} LE",
+                        "${product.price.toStringAsFixed(2)} LE",
                         style: AppTextStyles.textStyle10Medium.copyWith(
                           decoration: TextDecoration.lineThrough,
+                          color: AppColors.greyColor,
+                          decorationColor: AppColors.greyColor,
                         ),
                       ),
                       PreferProductBlocListenerIconButton(

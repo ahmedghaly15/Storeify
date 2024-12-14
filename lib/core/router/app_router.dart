@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:store_ify/core/models/product.dart';
 
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/auth/presentation/views/forgot_password_view.dart';
@@ -19,6 +20,7 @@ import 'package:store_ify/features/layout/presentation/views/layout_view.dart';
 import 'package:store_ify/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:store_ify/features/payment/presentation/views/payment_successfully_view.dart';
 import 'package:store_ify/features/payment/presentation/views/payment_view.dart';
+import 'package:store_ify/features/product_details/presentation/views/product_details_view.dart';
 import 'package:store_ify/features/profile/presentation/views/change_password_view.dart';
 import 'package:store_ify/features/profile/presentation/views/profile_view.dart';
 import 'package:store_ify/features/profile/presentation/views/update_profile_view.dart';
