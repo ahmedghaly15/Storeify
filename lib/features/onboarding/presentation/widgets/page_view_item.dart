@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
@@ -46,7 +47,9 @@ class PageViewItem extends StatelessWidget {
                 textKey: pageInfo.subTitleKey,
                 textStyle: AppTextStyles.textStyle12Medium,
               ),
-              style: AppTextStyles.textStyle12Medium,
+              style: AppTextStyles.textStyle12Medium.copyWith(
+                color: context.isDarkModeActive ? Colors.white : Colors.black,
+              ),
             ),
             textAlign: TextAlign.center,
           ),
