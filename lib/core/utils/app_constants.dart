@@ -9,6 +9,7 @@ import 'package:store_ify/features/payment/data/models/card_type.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 
 bool isAndroidAbove12 = false;
+bool isFirstLaunch = false;
 bool isDeviceDarkModeActive = false;
 bool isUserLoggedIn = false;
 bool isOnboardingVisited = false;
