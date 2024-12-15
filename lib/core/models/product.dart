@@ -1,8 +1,8 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:store_ify/core/helpers/hive_type_ids.dart';
-import 'package:store_ify/core/models/color.dart';
-import 'package:store_ify/core/models/size.dart';
+import 'package:store_ify/core/models/product_color.dart';
+import 'package:store_ify/core/models/product_size.dart';
 import 'package:store_ify/features/home/data/models/sub_category.dart';
 import 'package:store_ify/features/stores/data/models/store.dart';
 
@@ -37,9 +37,9 @@ class Product {
   @JsonKey(name: 'sub_category')
   final SubCategory? subCategory;
   @HiveField(10)
-  final List<Color>? colors;
+  final List<ProductColor>? colors;
   @HiveField(11)
-  final List<Size>? sizes;
+  final List<ProductSize>? sizes;
   @HiveField(12)
   final Store? store;
 

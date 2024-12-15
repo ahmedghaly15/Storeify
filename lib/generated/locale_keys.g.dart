@@ -160,5 +160,10 @@ abstract class  LocaleKeys {
   static const cashWillBeCollectedOnDelivery = 'cashWillBeCollectedOnDelivery';
   static const sureToConfirmPayment = 'sureToConfirmPayment';
   static const INVALID_PAYMENT_METHOD = 'INVALID_PAYMENT_METHOD';
+  static const sizes = 'sizes';
+  static const colors = 'colors';
+  static const details = 'details';
+  static const addToCart = 'addToCart';
+  static const buyNow = 'buyNow';
 
 }

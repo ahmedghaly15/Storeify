@@ -157,5 +157,10 @@
     "tryDifferentKeywords": "Please try searching with different keywords.",
     "cashWillBeCollectedOnDelivery": "Cash will be collected on delivery",
     "sureToConfirmPayment": "Are you sure you want to confirm the payment?",
-    "INVALID_PAYMENT_METHOD": "The selected payment method is invalid. Please choose a different method and try again."
+    "INVALID_PAYMENT_METHOD": "The selected payment method is invalid. Please choose a different method and try again.",
+    "sizes": "Sizes",
+    "colors": "Colors",
+    "details": "Details",
+    "addToCart": "Add to Cart",
+    "buyNow": "Buy Now"
 }

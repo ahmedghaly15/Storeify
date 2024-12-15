@@ -1,29 +1,29 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'color.dart';
+part of 'product_color.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class ColorAdapter extends TypeAdapter<Color> {
+class ProductColorAdapter extends TypeAdapter<ProductColor> {
   @override
   final int typeId = 5;
 
   @override
-  Color read(BinaryReader reader) {
+  ProductColor read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Color(
+    return ProductColor(
       id: fields[0] as int,
       color: fields[1] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, Color obj) {
+  void write(BinaryWriter writer, ProductColor obj) {
     writer
       ..writeByte(2)
       ..writeByte(0)
@@ -38,7 +38,7 @@ class ColorAdapter extends TypeAdapter<Color> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ColorAdapter &&
+      other is ProductColorAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
@@ -47,12 +47,13 @@ class ColorAdapter extends TypeAdapter<Color> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Color _$ColorFromJson(Map<String, dynamic> json) => Color(
+ProductColor _$ProductColorFromJson(Map<String, dynamic> json) => ProductColor(
       id: (json['id'] as num).toInt(),
       color: json['color'] as String,
     );
 
-Map<String, dynamic> _$ColorToJson(Color instance) => <String, dynamic>{
+Map<String, dynamic> _$ProductColorToJson(ProductColor instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'color': instance.color,
     };

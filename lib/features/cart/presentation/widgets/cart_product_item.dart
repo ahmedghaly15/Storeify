@@ -7,7 +7,7 @@ import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_cached_network_image.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
-import 'package:store_ify/features/cart/presentation/widgets/quantity_and_price.dart';
+import 'package:store_ify/core/widgets/product_quantity_controller.dart';
 
 class CartProductItem extends StatelessWidget {
   const CartProductItem({
@@ -63,7 +63,18 @@ class CartProductItem extends StatelessWidget {
                   style: AppTextStyles.textStyle10Light,
                 ),
                 MySizedBox.height8,
-                QuantityAndPrice(price: product.price),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const ProductQuantityController(),
+                    Text(
+                      '${product.price} LE',
+                      style: AppTextStyles.textStyle16Medium.copyWith(
+                        color: AppColors.color2A94F4,
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

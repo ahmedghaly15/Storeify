@@ -173,7 +173,12 @@ class CodegenLoader extends AssetLoader{
   "tryDifferentKeywords": "من فضلك حاول البحث باستخدام كلمات مختلفة.",
   "cashWillBeCollectedOnDelivery": "سيتم تحصيل النقد عند التسليم",
   "sureToConfirmPayment": "هل انت متاكد من تاكيد الدفع؟",
-  "INVALID_PAYMENT_METHOD": "طريقة الدفع المختارة غير صالحة. يرجى اختيار طريقة أخرى والمحاولة مرة أخرى."
+  "INVALID_PAYMENT_METHOD": "طريقة الدفع المختارة غير صالحة. يرجى اختيار طريقة أخرى والمحاولة مرة أخرى.",
+  "sizes": "المقاسات",
+  "colors": "الألوان",
+  "details": "التفاصيل",
+  "addToCart": "اضافة الى السلة",
+  "buyNow": "شراء الان"
 };
 static const Map<String,dynamic> en = {
   "signInToContinue": "Sign in to continue",
@@ -334,7 +339,12 @@ static const Map<String,dynamic> en = {
   "tryDifferentKeywords": "Please try searching with different keywords.",
   "cashWillBeCollectedOnDelivery": "Cash will be collected on delivery",
   "sureToConfirmPayment": "Are you sure you want to confirm the payment?",
-  "INVALID_PAYMENT_METHOD": "The selected payment method is invalid. Please choose a different method and try again."
+  "INVALID_PAYMENT_METHOD": "The selected payment method is invalid. Please choose a different method and try again.",
+  "sizes": "Sizes",
+  "colors": "Colors",
+  "details": "Details",
+  "addToCart": "Add to Cart",
+  "buyNow": "Buy Now"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

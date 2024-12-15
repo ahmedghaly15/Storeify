@@ -23,6 +23,8 @@ enum GeneralStateStatus {
   fetchHomeDataLoading,
   fetchHomeDataSuccess,
   fetchHomeDataError,
+  increaseProductQuantity,
+  decreaseProductQuantity,
 }
 
 @freezed
@@ -32,6 +34,7 @@ class GeneralState with _$GeneralState {
     String? error,
     ThemeData? theme,
     FetchHomeResponse? homeData,
+    @Default(1) int productQuantity,
   }) = _GeneralState;
 
   factory GeneralState.initial() => GeneralState(

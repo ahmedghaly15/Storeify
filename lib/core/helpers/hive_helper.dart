@@ -1,8 +1,8 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:store_ify/core/models/color.dart';
+import 'package:store_ify/core/models/product_color.dart';
 import 'package:store_ify/core/models/pagination.dart';
 import 'package:store_ify/core/models/product.dart';
-import 'package:store_ify/core/models/size.dart';
+import 'package:store_ify/core/models/product_size.dart';
 import 'package:store_ify/core/models/storeify_user.dart';
 import 'package:store_ify/features/categories/data/models/category.dart';
 import 'package:store_ify/features/categories/data/models/fetch_categories_response.dart';
@@ -29,8 +29,8 @@ class HiveHelper {
     Hive.registerAdapter(FetchHomeResponseAdapter());
     Hive.registerAdapter(ProductAdapter());
     Hive.registerAdapter(ProductImgAdapter());
-    Hive.registerAdapter(ColorAdapter());
-    Hive.registerAdapter(SizeAdapter());
+    Hive.registerAdapter(ProductColorAdapter());
+    Hive.registerAdapter(ProductSizeAdapter());
     Hive.registerAdapter(StoreAdapter());
     Hive.registerAdapter(CategoryAdapter());
     Hive.registerAdapter(SubCategoryAdapter());
