@@ -178,7 +178,13 @@ class CodegenLoader extends AssetLoader{
   "colors": "الألوان",
   "details": "التفاصيل",
   "addToCart": "اضافة الى السلة",
-  "buyNow": "شراء الان"
+  "buyNow": "شراء الان",
+  "productAddedToCart": "تمت اضافة المنتج الى السلة بنجاح",
+  "cantAddProductToCartWithoutSelectingColorOrSize": "لا يمكن إضافة المنتج إلى السلة دون اختيار اللون أو الحجم. يرجى اختيار اللون أو الحجم ثم المحاولة مرة أخرى.",
+  "SIZE_NOT_FOUND_FOR_PRODUCT": "الحجم المختار غير متوفر للمنتج. يرجى اختيار حجم اخر والمحاولة مرة اخرى.",
+  "COLOR_NOT_FOUND_FOR_PRODUCT": "اللون المختار غير متوفر للمنتج. يرجى اختيار لون اخر والمحاولة مرة اخرى.",
+  "SIZE_REQUIRED": "يرجى اختيار الحجم ثم المحاولة مرة أخرى",
+  "COLOR_REQUIRED": "يرجى اختيار اللون ثم المحاولة مرة أخرى"
 };
 static const Map<String,dynamic> en = {
   "signInToContinue": "Sign in to continue",
@@ -344,7 +350,13 @@ static const Map<String,dynamic> en = {
   "colors": "Colors",
   "details": "Details",
   "addToCart": "Add to Cart",
-  "buyNow": "Buy Now"
+  "buyNow": "Buy Now",
+  "productAddedToCart": "Product has been added to cart successfully",
+  "cantAddProductToCartWithoutSelectingColorOrSize": "Can't add product to cart without selecting color or size. Please select a color or size and try again.",
+  "SIZE_NOT_FOUND_FOR_PRODUCT": "The selected size is not available for this product. Please select a different size and try again.",
+  "COLOR_NOT_FOUND_FOR_PRODUCT": "The selected color is not available for this product. Please select a different color and try again.",
+  "SIZE_REQUIRED": "Please select a size and try again",
+  "COLOR_REQUIRED": "Please select a color and try again"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }
