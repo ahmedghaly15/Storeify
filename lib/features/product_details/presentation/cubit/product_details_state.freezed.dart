@@ -41,6 +41,9 @@ abstract class $ProductDetailsStateCopyWith<$Res> {
       ProductColor? selectedProductColor,
       int productQuantity,
       String? error});
+
+  $ProductSizeCopyWith<$Res>? get selectedProductSize;
+  $ProductColorCopyWith<$Res>? get selectedProductColor;
 }
 
 /// @nodoc
@@ -87,6 +90,34 @@ class _$ProductDetailsStateCopyWithImpl<$Res, $Val extends ProductDetailsState>
               as String?,
     ) as $Val);
   }
+
+  /// Create a copy of ProductDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ProductSizeCopyWith<$Res>? get selectedProductSize {
+    if (_value.selectedProductSize == null) {
+      return null;
+    }
+
+    return $ProductSizeCopyWith<$Res>(_value.selectedProductSize!, (value) {
+      return _then(_value.copyWith(selectedProductSize: value) as $Val);
+    });
+  }
+
+  /// Create a copy of ProductDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ProductColorCopyWith<$Res>? get selectedProductColor {
+    if (_value.selectedProductColor == null) {
+      return null;
+    }
+
+    return $ProductColorCopyWith<$Res>(_value.selectedProductColor!, (value) {
+      return _then(_value.copyWith(selectedProductColor: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -103,6 +134,11 @@ abstract class _$$ProductDetailsStateImplCopyWith<$Res>
       ProductColor? selectedProductColor,
       int productQuantity,
       String? error});
+
+  @override
+  $ProductSizeCopyWith<$Res>? get selectedProductSize;
+  @override
+  $ProductColorCopyWith<$Res>? get selectedProductColor;
 }
 
 /// @nodoc

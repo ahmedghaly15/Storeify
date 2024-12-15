@@ -19,8 +19,8 @@ class ProductDetailsCubit extends Cubit<ProductDetailsState> {
     ));
     final addProductToCartParams = AddProductToCartParams(
       productId: productId,
-      colorId: state.selectedProductColor!.id,
-      sizeId: state.selectedProductSize!.id,
+      colorId: state.selectedProductColor?.id,
+      sizeId: state.selectedProductSize?.id,
       quantity: state.productQuantity,
     );
     final result = await _cartRepo.addProductToCart(
@@ -38,6 +38,8 @@ class ProductDetailsCubit extends Cubit<ProductDetailsState> {
     );
   }
 
+  int get productQuantity => state.productQuantity;
+
   void increaseProductQuantity() {
     emit(state.copyWith(
       status: ProductDetailsStateStatus.increaseProductQuantity,
@@ -54,17 +56,33 @@ class ProductDetailsCubit extends Cubit<ProductDetailsState> {
     }
   }
 
-  void updateSelectedProductSize(ProductSize productSize) {
-    emit(state.copyWith(
-      status: ProductDetailsStateStatus.selectProductSize,
-      selectedProductSize: productSize,
-    ));
+  ProductSize? get selectedProductSize => state.selectedProductSize;
+  void selectProductSize(ProductSize productSize) {
+    if (state.selectedProductSize != productSize) {
+      emit(state.copyWith(
+        status: ProductDetailsStateStatus.selectProductSize,
+        selectedProductSize: productSize,
+      ));
+    }
   }
 
-  void updateSelectedProductColor(ProductColor productColor) {
+  ProductColor? get selectedProductColor => state.selectedProductColor;
+  void selectProductColor(ProductColor productColor) {
+    if (state.selectedProductColor != productColor) {
+      emit(state.copyWith(
+        status: ProductDetailsStateStatus.selectProductColor,
+        selectedProductColor: productColor,
+      ));
+    }
+  }
+
+  void initStateProductColorAndSize({
+    required ProductColor? productColor,
+    required ProductSize? productSize,
+  }) {
     emit(state.copyWith(
-      status: ProductDetailsStateStatus.selectProductColor,
       selectedProductColor: productColor,
+      selectedProductSize: productSize,
     ));
   }
 
