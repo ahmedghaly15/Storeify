@@ -15,7 +15,15 @@ class ProductDetailsView extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider<ProductDetailsCubit>(
-      create: (_) => getIt.get<ProductDetailsCubit>(),
+      create: (_) => getIt.get<ProductDetailsCubit>()
+        ..initStateProductColorAndSize(
+          productColor: (product.colors != null && product.colors!.isNotEmpty)
+              ? product.colors![0]
+              : null,
+          productSize: (product.sizes != null && product.sizes!.isNotEmpty)
+              ? product.sizes![0]
+              : null,
+        ),
       child: this,
     );
   }
