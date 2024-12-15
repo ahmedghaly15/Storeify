@@ -187,22 +187,6 @@ class GeneralCubit extends Cubit<GeneralState> {
     _cacheSelectedTheme(state.theme!.brightness);
   }
 
-  void increaseProductQuantity() {
-    emit(state.copyWith(
-      status: GeneralStateStatus.increaseProductQuantity,
-      productQuantity: state.productQuantity + 1,
-    ));
-  }
-
-  void decreaseProductQuantity() {
-    if (state.productQuantity > 1) {
-      emit(state.copyWith(
-        status: GeneralStateStatus.decreaseProductQuantity,
-        productQuantity: state.productQuantity - 1,
-      ));
-    }
-  }
-
   @override
   Future<void> close() {
     _cancelToken.cancel();
