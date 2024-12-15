@@ -47,12 +47,13 @@ class ProductSizeAdapter extends TypeAdapter<ProductSize> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-ProductSize _$ProductSizeFromJson(Map<String, dynamic> json) => ProductSize(
+_$ProductSizeImpl _$$ProductSizeImplFromJson(Map<String, dynamic> json) =>
+    _$ProductSizeImpl(
       id: (json['id'] as num).toInt(),
       size: json['size'] as String,
     );
 
-Map<String, dynamic> _$ProductSizeToJson(ProductSize instance) =>
+Map<String, dynamic> _$$ProductSizeImplToJson(_$ProductSizeImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'size': instance.size,
