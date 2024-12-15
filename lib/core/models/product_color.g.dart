@@ -47,12 +47,13 @@ class ProductColorAdapter extends TypeAdapter<ProductColor> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-ProductColor _$ProductColorFromJson(Map<String, dynamic> json) => ProductColor(
+_$ProductColorImpl _$$ProductColorImplFromJson(Map<String, dynamic> json) =>
+    _$ProductColorImpl(
       id: (json['id'] as num).toInt(),
       color: json['color'] as String,
     );
 
-Map<String, dynamic> _$ProductColorToJson(ProductColor instance) =>
+Map<String, dynamic> _$$ProductColorImplToJson(_$ProductColorImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'color': instance.color,

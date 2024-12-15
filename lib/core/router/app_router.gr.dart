@@ -381,10 +381,11 @@ class ProductDetailsRoute extends PageRouteInfo<ProductDetailsRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<ProductDetailsRouteArgs>();
-      return ProductDetailsView(
+      return WrappedRoute(
+          child: ProductDetailsView(
         key: args.key,
         product: args.product,
-      );
+      ));
     },
   );
 }

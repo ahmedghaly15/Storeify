@@ -10,18 +10,23 @@ Widget circularIndicatorOrTextWidget({
   required bool isLoading,
   required BuildContext context,
   required String textKey,
+  bool isOutlined = false,
 }) {
   return isLoading
       ? SizedBox.square(
           dimension: 24.h,
           child: CustomCircularProgressIndicator(
-            color: context.isDarkModeActive
-                ? AppColors.darkColor
-                : AppColors.lightModeColor,
+            color: isOutlined
+                ? AppColors.primaryColor
+                : (context.isDarkModeActive
+                    ? AppColors.darkColor
+                    : AppColors.lightModeColor),
           ),
         )
       : Text(
           context.tr(textKey),
-          style: AppTextStyles.mainButtonTextStyle,
+          style: AppTextStyles.textStyle16Medium.copyWith(
+            color: isOutlined ? AppColors.primaryColor : Colors.white,
+          ),
         );
 }

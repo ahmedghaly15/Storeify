@@ -19,6 +19,7 @@ mixin _$CartState {
   CartStateStatus get status => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
   FetchCartResponse? get cart => throw _privateConstructorUsedError;
+  int get productQuantity => throw _privateConstructorUsedError;
 
   /// Create a copy of CartState
   /// with the given fields replaced by the non-null parameter values.
@@ -32,7 +33,11 @@ abstract class $CartStateCopyWith<$Res> {
   factory $CartStateCopyWith(CartState value, $Res Function(CartState) then) =
       _$CartStateCopyWithImpl<$Res, CartState>;
   @useResult
-  $Res call({CartStateStatus status, String? error, FetchCartResponse? cart});
+  $Res call(
+      {CartStateStatus status,
+      String? error,
+      FetchCartResponse? cart,
+      int productQuantity});
 }
 
 /// @nodoc
@@ -53,6 +58,7 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
     Object? status = null,
     Object? error = freezed,
     Object? cart = freezed,
+    Object? productQuantity = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -67,6 +73,10 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
           ? _value.cart
           : cart // ignore: cast_nullable_to_non_nullable
               as FetchCartResponse?,
+      productQuantity: null == productQuantity
+          ? _value.productQuantity
+          : productQuantity // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -79,7 +89,11 @@ abstract class _$$CartStateImplCopyWith<$Res>
       __$$CartStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CartStateStatus status, String? error, FetchCartResponse? cart});
+  $Res call(
+      {CartStateStatus status,
+      String? error,
+      FetchCartResponse? cart,
+      int productQuantity});
 }
 
 /// @nodoc
@@ -98,6 +112,7 @@ class __$$CartStateImplCopyWithImpl<$Res>
     Object? status = null,
     Object? error = freezed,
     Object? cart = freezed,
+    Object? productQuantity = null,
   }) {
     return _then(_$CartStateImpl(
       status: null == status
@@ -112,6 +127,10 @@ class __$$CartStateImplCopyWithImpl<$Res>
           ? _value.cart
           : cart // ignore: cast_nullable_to_non_nullable
               as FetchCartResponse?,
+      productQuantity: null == productQuantity
+          ? _value.productQuantity
+          : productQuantity // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -119,7 +138,8 @@ class __$$CartStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CartStateImpl implements _CartState {
-  const _$CartStateImpl({required this.status, this.error, this.cart});
+  const _$CartStateImpl(
+      {required this.status, this.error, this.cart, this.productQuantity = 1});
 
   @override
   final CartStateStatus status;
@@ -127,10 +147,13 @@ class _$CartStateImpl implements _CartState {
   final String? error;
   @override
   final FetchCartResponse? cart;
+  @override
+  @JsonKey()
+  final int productQuantity;
 
   @override
   String toString() {
-    return 'CartState(status: $status, error: $error, cart: $cart)';
+    return 'CartState(status: $status, error: $error, cart: $cart, productQuantity: $productQuantity)';
   }
 
   @override
@@ -140,11 +163,14 @@ class _$CartStateImpl implements _CartState {
             other is _$CartStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.error, error) || other.error == error) &&
-            (identical(other.cart, cart) || other.cart == cart));
+            (identical(other.cart, cart) || other.cart == cart) &&
+            (identical(other.productQuantity, productQuantity) ||
+                other.productQuantity == productQuantity));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, error, cart);
+  int get hashCode =>
+      Object.hash(runtimeType, status, error, cart, productQuantity);
 
   /// Create a copy of CartState
   /// with the given fields replaced by the non-null parameter values.
@@ -159,7 +185,8 @@ abstract class _CartState implements CartState {
   const factory _CartState(
       {required final CartStateStatus status,
       final String? error,
-      final FetchCartResponse? cart}) = _$CartStateImpl;
+      final FetchCartResponse? cart,
+      final int productQuantity}) = _$CartStateImpl;
 
   @override
   CartStateStatus get status;
@@ -167,6 +194,8 @@ abstract class _CartState implements CartState {
   String? get error;
   @override
   FetchCartResponse? get cart;
+  @override
+  int get productQuantity;
 
   /// Create a copy of CartState
   /// with the given fields replaced by the non-null parameter values.

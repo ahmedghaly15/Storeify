@@ -165,5 +165,10 @@ abstract class  LocaleKeys {
   static const details = 'details';
   static const addToCart = 'addToCart';
   static const buyNow = 'buyNow';
+  static const productAddedToCart = 'productAddedToCart';
+  static const SIZE_NOT_FOUND_FOR_PRODUCT = 'SIZE_NOT_FOUND_FOR_PRODUCT';
+  static const COLOR_NOT_FOUND_FOR_PRODUCT = 'COLOR_NOT_FOUND_FOR_PRODUCT';
+  static const SIZE_REQUIRED = 'SIZE_REQUIRED';
+  static const COLOR_REQUIRED = 'COLOR_REQUIRED';
 
 }

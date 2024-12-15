@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
-import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/features/cart/presentation/widgets/control_cart_product_quantity.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites/general_cubit.dart';
-import 'package:store_ify/features/favorites/presentation/cubits/favorites/general_state.dart';
 
 class ProductQuantityController extends StatelessWidget {
   const ProductQuantityController({
     super.key,
+    required this.productQuantityWidget,
     this.mainAxisAlignment = MainAxisAlignment.start,
+    required this.increaseOnPressed,
+    required this.decreaseOnPressed,
   });
 
   final MainAxisAlignment mainAxisAlignment;
+  final Widget productQuantityWidget;
+  final VoidCallback increaseOnPressed, decreaseOnPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class ProductQuantityController extends StatelessWidget {
       mainAxisAlignment: mainAxisAlignment,
       children: [
         ControlCartProductQuantity(
-          onTap: () => context.read<GeneralCubit>().decreaseProductQuantity(),
+          onTap: decreaseOnPressed,
           icon: Icons.remove,
           borderRadius: BorderRadiusDirectional.horizontal(
             start: Radius.circular(15.r),
@@ -39,18 +40,10 @@ class ProductQuantityController extends StatelessWidget {
               width: 1.w,
             ),
           ),
-          child: BlocSelector<GeneralCubit, GeneralState, int>(
-            selector: (state) => state.productQuantity,
-            builder: (context, productQuantity) => Text(
-              '$productQuantity',
-              style: AppTextStyles.textStyle8Regular.copyWith(
-                color: AppColors.primaryColor,
-              ),
-            ),
-          ),
+          child: productQuantityWidget,
         ),
         ControlCartProductQuantity(
-          onTap: () => context.read<GeneralCubit>().increaseProductQuantity(),
+          onTap: increaseOnPressed,
           icon: Icons.add,
           borderRadius: BorderRadiusDirectional.horizontal(
             end: Radius.circular(15.r),
