@@ -27,8 +27,8 @@ class ProductAdapter extends TypeAdapter<Product> {
       productImages: (fields[7] as List).cast<ProductImg>(),
       isFavorited: fields[8] as bool,
       subCategory: fields[9] as SubCategory?,
-      colors: (fields[10] as List?)?.cast<Color>(),
-      sizes: (fields[11] as List?)?.cast<Size>(),
+      colors: (fields[10] as List?)?.cast<ProductColor>(),
+      sizes: (fields[11] as List?)?.cast<ProductSize>(),
       store: fields[12] as Store?,
     );
   }
@@ -130,10 +130,10 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
           ? null
           : SubCategory.fromJson(json['sub_category'] as Map<String, dynamic>),
       colors: (json['colors'] as List<dynamic>?)
-          ?.map((e) => Color.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ProductColor.fromJson(e as Map<String, dynamic>))
           .toList(),
       sizes: (json['sizes'] as List<dynamic>?)
-          ?.map((e) => Size.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ProductSize.fromJson(e as Map<String, dynamic>))
           .toList(),
       store: json['store'] == null
           ? null

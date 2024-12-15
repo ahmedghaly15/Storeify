@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:store_ify/core/models/color.dart';
+import 'package:store_ify/core/models/product_color.dart';
 import 'package:store_ify/core/models/product.dart';
-import 'package:store_ify/core/models/size.dart';
+import 'package:store_ify/core/models/product_size.dart';
 
 part 'cart.g.dart';
 
@@ -14,8 +14,8 @@ class Cart {
   @JsonKey(name: 'cart_id')
   final int cartId;
   final Product product;
-  final Color color;
-  final Size size;
+  final ProductColor color;
+  final ProductSize size;
 
   const Cart({
     required this.id,
