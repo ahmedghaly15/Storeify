@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:store_ify/core/di/dependency_injection.dart';
-import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
 import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:store_ify/features/cart/presentation/cubit/cart_state.dart';
+import 'package:store_ify/features/cart/presentation/widgets/cart_loading_view.dart';
 import 'package:store_ify/features/cart/presentation/widgets/cart_view_body.dart';
 import 'package:store_ify/features/cart/presentation/widgets/empty_cart_widget.dart';
 
@@ -32,9 +32,7 @@ class CartView extends StatelessWidget implements AutoRouteWrapper {
           builder: (context, state) {
             switch (state.status) {
               case CartStateStatus.fetchCartLoading:
-                return const Center(
-                  child: CustomCircularProgressIndicator(),
-                );
+                return const CartLoadingView();
               case CartStateStatus.fetchCartSuccess:
                 return state.cart!.cart.isNotEmpty
                     ? CartViewBody(
@@ -63,9 +61,7 @@ class CartView extends StatelessWidget implements AutoRouteWrapper {
                         ],
                       );
               default:
-                return const Center(
-                  child: CustomCircularProgressIndicator(),
-                );
+                return const CartLoadingView();
             }
           },
         ),
