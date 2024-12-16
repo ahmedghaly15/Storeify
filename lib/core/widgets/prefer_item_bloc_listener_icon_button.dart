@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/enums.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
+import 'package:store_ify/features/favorites/data/datasources/favorites_local_datasource.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/general_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/general_state.dart';
 
@@ -35,23 +36,26 @@ class _PreferItemBlocListenerIconButtonState
     _isFavoritedLocal = widget.isFavorited;
   }
 
-  void _preferItemOrNot() {
-    _toggleIsFavoritedLocal();
-    widget.itemType == FavItemType.product
-        ? context.read<GeneralCubit>().preferProductOrNot(
-              productId: widget.productId!,
-              isFavorited: _isFavoritedLocal,
-            )
-        : context.read<GeneralCubit>().preferStoreOrNot(
-              storeId: widget.storeId!,
-              isFavorited: _isFavoritedLocal,
-            );
-  }
-
   void _toggleIsFavoritedLocal() {
     setState(() {
       _isFavoritedLocal = !_isFavoritedLocal;
     });
+  }
+
+  void _preferItemOrNot() {
+    _toggleIsFavoritedLocal();
+    _isFavoritedLocal
+        ? context.read<GeneralCubit>().removeItemFromFavs(
+              itemId: widget.itemType == FavItemType.product
+                  ? widget.productId!
+                  : widget.storeId!,
+              itemType: widget.itemType,
+            )
+        : context.read<GeneralCubit>().preferItem(
+              storeId: widget.storeId,
+              productId: widget.productId,
+              itemType: widget.itemType,
+            );
   }
 
   @override
@@ -70,7 +74,7 @@ class _PreferItemBlocListenerIconButtonState
     );
   }
 
-  void _listener(GeneralState state, BuildContext context) {
+  void _listener(GeneralState state, BuildContext context) async {
     switch (state.status) {
       case GeneralStateStatus.preferProductError:
       case GeneralStateStatus.removeProductFromFavsError:
@@ -82,11 +86,11 @@ class _PreferItemBlocListenerIconButtonState
         break;
       case GeneralStateStatus.preferProductSuccess:
       case GeneralStateStatus.removeProductFromFavsSuccess:
-        context.read<GeneralCubit>().deleteCachedFavProducts();
+        await FavoritesLocalDatasource.deleteCachedFavProducts();
         break;
       case GeneralStateStatus.preferStoreSuccess:
       case GeneralStateStatus.removeStoreFromFavsSuccess:
-        context.read<GeneralCubit>().deleteCachedFavStores();
+        await FavoritesLocalDatasource.deleteCachedFavStores();
         break;
       default:
         break;
