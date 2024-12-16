@@ -6,8 +6,8 @@ class HiveTypeIds {
   static const int fetchHomeResponse = 2;
   static const int product = 3;
   static const int productImg = 4;
-  static const int color = 5;
-  static const int size = 6;
+  static const int productColor = 5;
+  static const int productSize = 6;
   static const int store = 7;
   static const int category = 8;
   static const int subCategory = 9;

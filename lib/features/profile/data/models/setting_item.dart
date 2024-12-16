@@ -11,7 +11,7 @@ import 'package:store_ify/features/favorites/presentation/cubits/favorites/gener
 import 'package:store_ify/features/profile/presentation/cubits/profile_cubit.dart';
 import 'package:store_ify/features/profile/presentation/widgets/confirm_delete_account_bloc_consumer.dart';
 import 'package:store_ify/features/profile/presentation/widgets/confirm_logout_bloc_consumer_button.dart';
-import 'package:store_ify/features/profile/presentation/widgets/dark_mode_switch_bloc_builder.dart';
+import 'package:store_ify/features/profile/presentation/widgets/dark_mode_switch_bloc_selector.dart';
 import 'package:store_ify/features/profile/presentation/widgets/language_switch_bloc_consumer.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 
@@ -36,7 +36,7 @@ class SettingItem {
         SettingItem(
           titleKey: LocaleKeys.darkMode,
           onTap: (context) => context.read<GeneralCubit>().toggleTheme(),
-          trailing: const DarkModeSwitchBlocBuilder(),
+          trailing: const DarkModeSwitchBlocSelector(),
         ),
         SettingItem(
           titleKey: LocaleKeys.arabic,

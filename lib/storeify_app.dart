@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_themes.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/utils/auto_route_observer.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/general_cubit.dart';
@@ -30,7 +31,9 @@ class StoreifyApp extends StatelessWidget {
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
             locale: context.locale,
-            theme: theme,
+            theme: (isFirstLaunch && isDeviceDarkModeActive)
+                ? AppThemes.darkMode
+                : theme,
             themeMode:
                 theme == AppThemes.lightMode ? ThemeMode.light : ThemeMode.dark,
             title: AppStrings.appTitle,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/models/product.dart';
@@ -7,7 +8,9 @@ import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_cached_network_image.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
-import 'package:store_ify/features/cart/presentation/widgets/quantity_and_price.dart';
+import 'package:store_ify/core/widgets/product_quantity_controller.dart';
+import 'package:store_ify/features/cart/presentation/cubit/cart_cubit.dart';
+import 'package:store_ify/features/cart/presentation/cubit/cart_state.dart';
 
 class CartProductItem extends StatelessWidget {
   const CartProductItem({
@@ -63,7 +66,36 @@ class CartProductItem extends StatelessWidget {
                   style: AppTextStyles.textStyle10Light,
                 ),
                 MySizedBox.height8,
-                QuantityAndPrice(price: product.price),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ProductQuantityController(
+                      decreaseOnPressed: () =>
+                          context.read<CartCubit>().decreaseProductQuantity(),
+                      increaseOnPressed: () =>
+                          context.read<CartCubit>().increaseProductQuantity(),
+                      productQuantityWidget:
+                          BlocSelector<CartCubit, CartState, int>(
+                        selector: (state) => state.productQuantity,
+                        builder: (context, productQuantity) => Text(
+                          '$productQuantity',
+                          style: AppTextStyles.textStyle8Regular.copyWith(
+                            color: AppColors.primaryColor,
+                          ),
+                        ),
+                      ),
+                    ),
+                    BlocSelector<CartCubit, CartState, int>(
+                      selector: (state) => state.productQuantity,
+                      builder: (context, productQuantity) => Text(
+                        '${(product.priceAfterDiscount * productQuantity).toStringAsFixed(2)} LE',
+                        style: AppTextStyles.textStyle16Medium.copyWith(
+                          color: AppColors.color2A94F4,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

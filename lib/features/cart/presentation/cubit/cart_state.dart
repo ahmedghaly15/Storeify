@@ -14,6 +14,8 @@ enum CartStateStatus {
   removeProductFromCartLoading,
   removeProductFromCartSuccess,
   removeProductFromCartError,
+  increaseProductQuantity,
+  decreaseProductQuantity,
 }
 
 @freezed
@@ -22,6 +24,7 @@ class CartState with _$CartState {
     required CartStateStatus status,
     String? error,
     FetchCartResponse? cart,
+    @Default(1) int productQuantity,
   }) = _CartState;
 
   factory CartState.initial() => const CartState(

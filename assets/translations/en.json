@@ -157,5 +157,15 @@
     "tryDifferentKeywords": "Please try searching with different keywords.",
     "cashWillBeCollectedOnDelivery": "Cash will be collected on delivery",
     "sureToConfirmPayment": "Are you sure you want to confirm the payment?",
-    "INVALID_PAYMENT_METHOD": "The selected payment method is invalid. Please choose a different method and try again."
+    "INVALID_PAYMENT_METHOD": "The selected payment method is invalid. Please choose a different method and try again.",
+    "sizes": "Sizes",
+    "colors": "Colors",
+    "details": "Details",
+    "addToCart": "Add to Cart",
+    "buyNow": "Buy Now",
+    "productAddedToCart": "Product has been added to cart successfully",
+    "SIZE_NOT_FOUND_FOR_PRODUCT": "The selected size is not available for this product. Please select a different size and try again.",
+    "COLOR_NOT_FOUND_FOR_PRODUCT": "The selected color is not available for this product. Please select a different color and try again.",
+    "SIZE_REQUIRED": "Please select a size and try again",
+    "COLOR_REQUIRED": "Please select a color and try again"
 }

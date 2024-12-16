@@ -173,7 +173,17 @@ class CodegenLoader extends AssetLoader{
   "tryDifferentKeywords": "من فضلك حاول البحث باستخدام كلمات مختلفة.",
   "cashWillBeCollectedOnDelivery": "سيتم تحصيل النقد عند التسليم",
   "sureToConfirmPayment": "هل انت متاكد من تاكيد الدفع؟",
-  "INVALID_PAYMENT_METHOD": "طريقة الدفع المختارة غير صالحة. يرجى اختيار طريقة أخرى والمحاولة مرة أخرى."
+  "INVALID_PAYMENT_METHOD": "طريقة الدفع المختارة غير صالحة. يرجى اختيار طريقة أخرى والمحاولة مرة أخرى.",
+  "sizes": "المقاسات",
+  "colors": "الألوان",
+  "details": "التفاصيل",
+  "addToCart": "اضافة الى السلة",
+  "buyNow": "شراء الان",
+  "productAddedToCart": "تمت اضافة المنتج الى السلة بنجاح",
+  "SIZE_NOT_FOUND_FOR_PRODUCT": "الحجم المختار غير متوفر للمنتج. يرجى اختيار حجم اخر والمحاولة مرة اخرى.",
+  "COLOR_NOT_FOUND_FOR_PRODUCT": "اللون المختار غير متوفر للمنتج. يرجى اختيار لون اخر والمحاولة مرة اخرى.",
+  "SIZE_REQUIRED": "يرجى اختيار الحجم ثم المحاولة مرة أخرى",
+  "COLOR_REQUIRED": "يرجى اختيار اللون ثم المحاولة مرة أخرى"
 };
 static const Map<String,dynamic> en = {
   "signInToContinue": "Sign in to continue",
@@ -334,7 +344,17 @@ static const Map<String,dynamic> en = {
   "tryDifferentKeywords": "Please try searching with different keywords.",
   "cashWillBeCollectedOnDelivery": "Cash will be collected on delivery",
   "sureToConfirmPayment": "Are you sure you want to confirm the payment?",
-  "INVALID_PAYMENT_METHOD": "The selected payment method is invalid. Please choose a different method and try again."
+  "INVALID_PAYMENT_METHOD": "The selected payment method is invalid. Please choose a different method and try again.",
+  "sizes": "Sizes",
+  "colors": "Colors",
+  "details": "Details",
+  "addToCart": "Add to Cart",
+  "buyNow": "Buy Now",
+  "productAddedToCart": "Product has been added to cart successfully",
+  "SIZE_NOT_FOUND_FOR_PRODUCT": "The selected size is not available for this product. Please select a different size and try again.",
+  "COLOR_NOT_FOUND_FOR_PRODUCT": "The selected color is not available for this product. Please select a different color and try again.",
+  "SIZE_REQUIRED": "Please select a size and try again",
+  "COLOR_REQUIRED": "Please select a color and try again"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

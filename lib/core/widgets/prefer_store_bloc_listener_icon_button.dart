@@ -23,25 +23,25 @@ class PreferStoreBlocListenerIconButton extends StatefulWidget {
 
 class _PreferStoreBlocListenerIconButtonState
     extends State<PreferStoreBlocListenerIconButton> {
-  late bool isFavoritedLocal;
+  late bool _isFavoritedLocal;
 
   @override
   void initState() {
     super.initState();
-    isFavoritedLocal = widget.isFavorited;
+    _isFavoritedLocal = widget.isFavorited;
   }
 
-  void _toggleFavorite() {
+  void _preferStoreOrNot() {
     _toggleIsFavoritedLocal();
     context.read<GeneralCubit>().preferStoreOrNot(
           storeId: widget.storeId,
-          isFavorited: isFavoritedLocal,
+          isFavorited: _isFavoritedLocal,
         );
   }
 
   void _toggleIsFavoritedLocal() {
     setState(() {
-      isFavoritedLocal = !isFavoritedLocal;
+      _isFavoritedLocal = !_isFavoritedLocal;
     });
   }
 
@@ -51,9 +51,9 @@ class _PreferStoreBlocListenerIconButtonState
       listenWhen: (_, current) => _listenWhen(current.status),
       listener: (context, state) => _listener(state, context),
       child: IconButton(
-        onPressed: () => _toggleFavorite(),
+        onPressed: () => _preferStoreOrNot(),
         icon: Icon(
-          isFavoritedLocal ? Icons.favorite : Icons.favorite_border_outlined,
+          _isFavoritedLocal ? Icons.favorite : Icons.favorite_border_outlined,
           size: 19.w,
           color: AppColors.primaryColor,
         ),

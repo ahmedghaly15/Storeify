@@ -6,16 +6,16 @@ part 'add_product_to_cart_params.g.dart';
 class AddProductToCartParams {
   final int productId;
   @JsonKey(name: 'color_id')
-  final int colorId;
+  final int? colorId;
   @JsonKey(name: 'size_id')
-  final int sizeId;
+  final int? sizeId;
   final int quantity;
 
   const AddProductToCartParams({
     required this.productId,
-    required this.colorId,
-    required this.sizeId,
     required this.quantity,
+    this.sizeId,
+    this.colorId,
   });
 
   factory AddProductToCartParams.fromJson(Map<String, dynamic> json) =>

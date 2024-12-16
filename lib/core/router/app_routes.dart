@@ -2,11 +2,15 @@ part of 'app_router.dart';
 
 List<AutoRoute> get appRoutes => [
       AutoRoute(
-        initial: isOnboardingVisited ? false : true,
+        initial: isAndroidAbove12,
+        page: SplashRoute.page,
+      ),
+      _buildCustomRoute(
+        initial: (!isAndroidAbove12 && isOnboardingVisited),
         page: OnboardingRoute.page,
       ),
       AutoRoute(
-        initial: (isOnboardingVisited && !isUserLoggedIn) ? true : false,
+        initial: (!isAndroidAbove12 && isOnboardingVisited && !isUserLoggedIn),
         page: AuthRoute.page,
         children: [
           _buildCustomRoute(
@@ -21,7 +25,6 @@ List<AutoRoute> get appRoutes => [
       ),
       AutoRoute(
         page: LayoutRoute.page,
-        initial: isUserLoggedIn ? true : false,
         children: [
           _buildCustomRoute(page: HomeRouteBody.page, initial: true),
           _buildCustomRoute(page: StoresRoute.page),
@@ -40,6 +43,7 @@ List<AutoRoute> get appRoutes => [
       _buildCustomRoute(page: SearchRoute.page),
       _buildCustomRoute(page: ChangePasswordRoute.page),
       _buildCustomRoute(page: UpdateProfileRoute.page),
+      _buildCustomRoute(page: ProductDetailsRoute.page),
     ];
 
 CustomRoute _buildCustomRoute({

@@ -7,9 +7,9 @@ class SharedPrefHelper {
   SharedPrefHelper._();
 
   /// Removes a value from SharedPreferences with given [key].
-  static removeData(String key) async {
+  static Future<bool> removeData(String key) async {
     debugPrint('SharedPrefHelper : data with key : $key has been removed');
-    await getIt.get<SharedPreferences>().remove(key);
+    return await getIt.get<SharedPreferences>().remove(key);
   }
 
   /// Removes all keys and values in the SharedPreferences
@@ -36,9 +36,9 @@ class SharedPrefHelper {
   }
 
   /// Gets a bool value from SharedPreferences with given [key].
-  static getBool(String key) async {
+  static Future<bool?> getBool(String key) async {
     debugPrint('SharedPrefHelper : getBool with key : $key');
-    return getIt.get<SharedPreferences>().getBool(key) ?? false;
+    return getIt.get<SharedPreferences>().getBool(key);
   }
 
   /// Gets a double value from SharedPreferences with given [key].

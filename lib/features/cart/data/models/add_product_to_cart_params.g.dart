@@ -10,9 +10,9 @@ AddProductToCartParams _$AddProductToCartParamsFromJson(
         Map<String, dynamic> json) =>
     AddProductToCartParams(
       productId: (json['productId'] as num).toInt(),
-      colorId: (json['color_id'] as num).toInt(),
-      sizeId: (json['size_id'] as num).toInt(),
       quantity: (json['quantity'] as num).toInt(),
+      sizeId: (json['size_id'] as num?)?.toInt(),
+      colorId: (json['color_id'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$AddProductToCartParamsToJson(

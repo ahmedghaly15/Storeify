@@ -1,3 +1,4 @@
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
@@ -47,6 +48,7 @@ import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_cubi
 import 'package:store_ify/features/payment/data/api/payment_api_service.dart';
 import 'package:store_ify/features/payment/data/repositories/payment_repo.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
+import 'package:store_ify/features/product_details/presentation/cubit/product_details_cubit.dart';
 import 'package:store_ify/features/profile/data/api/profile_api_service.dart';
 import 'package:store_ify/features/profile/data/repos/profile_repo.dart';
 import 'package:store_ify/features/profile/presentation/cubits/change_pass/change_pass_cubit.dart';
@@ -81,6 +83,7 @@ Future<void> _setupForExternal() async {
   const flutterSecureStorage = FlutterSecureStorage();
   getIt.registerLazySingleton<FlutterSecureStorage>(() => flutterSecureStorage);
   getIt.registerLazySingleton<ImagePicker>(() => ImagePicker());
+  getIt.registerLazySingleton<DeviceInfoPlugin>(() => DeviceInfoPlugin());
 }
 
 void _setupDIForCore() {
@@ -267,5 +270,8 @@ void _setupDIForCubits() {
   );
   getIt.registerFactory<UpdateProfileCubit>(
     () => UpdateProfileCubit(getIt.get<ProfileRepo>()),
+  );
+  getIt.registerFactory<ProductDetailsCubit>(
+    () => ProductDetailsCubit(getIt.get<CartRepo>()),
   );
 }
