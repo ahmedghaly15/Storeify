@@ -7,7 +7,7 @@ import 'package:store_ify/features/home/data/models/sub_category.dart';
 part 'category.g.dart';
 
 @HiveType(typeId: HiveTypeIds.category)
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Category {
   @HiveField(0)
   final int id;

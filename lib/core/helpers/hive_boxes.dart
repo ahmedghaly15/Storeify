@@ -3,7 +3,6 @@ class HiveBoxes {
 
   static const String homeResponseBox = 'homeResponseBox';
   static const String categoriesResponseBox = 'categoriesResponseBox';
-  static const String subCategoryBox = 'subCategoryBox';
   static const String favProductsBox = 'favProductsBox';
   static const String favStoresBox = 'favStoresBox';
   static const String fetchStoresBox = 'fetchStoresBox';

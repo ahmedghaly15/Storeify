@@ -77,6 +77,6 @@ Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
       'img': instance.img,
-      'sub_categories': instance.subCategories,
-      'products': instance.products,
+      'sub_categories': instance.subCategories?.map((e) => e.toJson()).toList(),
+      'products': instance.products?.map((e) => e.toJson()).toList(),
     };
