@@ -29,9 +29,11 @@ class PaymentMethodNextBlocConsumerButton extends StatelessWidget {
             isLoading: state.status ==
                 PaymentMethodStateStatus.choosePaymentMethodLoading,
             context: context,
-            textKey: state.selectedPaymentMethod!.name == LocaleKeys.creditCard
-                ? LocaleKeys.continueWord
-                : LocaleKeys.confirm,
+            textKey:
+                context.read<PaymentMethodCubit>().selectedPaymentMethod.name ==
+                        LocaleKeys.creditCard
+                    ? LocaleKeys.continueWord
+                    : LocaleKeys.confirm,
           ),
           onPressed: () {
             context.pushRoute(PaymentRoute(amount: amount));
@@ -45,7 +47,8 @@ class PaymentMethodNextBlocConsumerButton extends StatelessWidget {
   void _listener(PaymentMethodState state, BuildContext context) {
     switch (state.status) {
       case PaymentMethodStateStatus.choosePaymentMethodSuccess:
-        state.selectedPaymentMethod!.name == LocaleKeys.creditCard
+        context.read<PaymentMethodCubit>().selectedPaymentMethod.name ==
+                LocaleKeys.creditCard
             ? context.pushRoute(PaymentRoute(amount: amount))
             : _showToastAndGoHome(context);
         break;
@@ -70,7 +73,6 @@ class PaymentMethodNextBlocConsumerButton extends StatelessWidget {
   bool _buildWhen(PaymentMethodStateStatus status) {
     return status == PaymentMethodStateStatus.choosePaymentMethodLoading ||
         status == PaymentMethodStateStatus.choosePaymentMethodError ||
-        status == PaymentMethodStateStatus.choosePaymentMethodSuccess ||
-        status == PaymentMethodStateStatus.selectingPaymentMethod;
+        status == PaymentMethodStateStatus.choosePaymentMethodSuccess;
   }
 }
