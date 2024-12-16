@@ -20,7 +20,7 @@ class CheckoutView extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider<CheckoutCubit>(
-      create: (_) => getIt.get<CheckoutCubit>(),
+      create: (_) => getIt.get<CheckoutCubit>()..getCountryCode(),
       child: this,
     );
   }
