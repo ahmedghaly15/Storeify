@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
+import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/auth/presentation/widgets/verification/validate_otp_button_bloc_consumer.dart';
 import 'package:store_ify/features/auth/presentation/widgets/verification/validate_otp_pin_put.dart';
@@ -22,6 +23,7 @@ class VerificationViewBody extends StatelessWidget {
     return SafeArea(
       child: CustomScrollView(
         slivers: [
+          const CustomSliverAppBar(),
           SliverFillRemaining(
             hasScrollBody: false,
             child: Padding(
@@ -33,6 +35,7 @@ class VerificationViewBody extends StatelessWidget {
                   Text(
                     context.tr(LocaleKeys.OtpVerification),
                     style: AppTextStyles.textStyle24Medium,
+                    textAlign: TextAlign.center,
                   ),
                   MySizedBox.height8,
                   FittedBox(
@@ -52,6 +55,7 @@ class VerificationViewBody extends StatelessWidget {
                   Text(
                     context.tr(LocaleKeys.otpCode),
                     style: AppTextStyles.textStyle16Medium,
+                    textAlign: TextAlign.center,
                   ),
                   MySizedBox.height13,
                   const ValidateOtpPinput(),
