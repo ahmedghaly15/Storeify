@@ -148,12 +148,12 @@ Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
       'price': instance.price,
       'price_after_discount': instance.priceAfterDiscount,
       'store_img': instance.storeImg,
-      'images': instance.productImages,
+      'images': instance.productImages.map((e) => e.toJson()).toList(),
       'is_favorited': instance.isFavorited,
-      'sub_category': instance.subCategory,
-      'colors': instance.colors,
-      'sizes': instance.sizes,
-      'store': instance.store,
+      'sub_category': instance.subCategory?.toJson(),
+      'colors': instance.colors?.map((e) => e.toJson()).toList(),
+      'sizes': instance.sizes?.map((e) => e.toJson()).toList(),
+      'store': instance.store?.toJson(),
     };
 
 ProductImg _$ProductImgFromJson(Map<String, dynamic> json) => ProductImg(

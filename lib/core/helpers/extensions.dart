@@ -7,7 +7,7 @@ import 'package:store_ify/core/utils/app_strings.dart';
 
 extension NullOrEmptyString on String? {
   /// Check if the string is null or empty
-  bool get nullOrEmpty => this == null || this == '';
+  bool get isNullOrEmpty => this == null || this == '';
 }
 
 extension UnfocusKeyboard on BuildContext {

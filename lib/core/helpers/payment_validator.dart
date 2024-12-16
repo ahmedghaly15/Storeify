@@ -1,13 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:store_ify/core/helpers/app_regex.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 
 class PaymentValidator {
   PaymentValidator._();
 
   static String? validateField(BuildContext context, String? value) {
-    if (value!.isEmpty) {
+    if (value!.isNullOrEmpty) {
       return context.tr(LocaleKeys.fieldRequired);
     }
     return null;

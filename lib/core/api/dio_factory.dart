@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/helpers/secure_storage_helper.dart';
-import 'package:store_ify/core/helpers/shared_pref_keys.dart';
+import 'package:store_ify/core/helpers/cache_keys.dart';
 import 'package:store_ify/core/models/storeify_user.dart';
 import 'package:store_ify/features/auth/data/datasources/auth_local_datasource.dart';
 
@@ -40,9 +40,9 @@ class DioFactory {
 
   static void _addDioHeaders() async {
     final cachedUser =
-        await SecureStorageHelper.getSecuredString(SharedPrefKeys.storeifyUser);
+        await SecureStorageHelper.getSecuredString(CacheKeys.storeifyUser);
 
-    if (cachedUser.nullOrEmpty == false) {
+    if (cachedUser.isNullOrEmpty == false) {
       final StoreifyUser user = await AuthLocalDatasource.getCachedUser();
       _dio?.options.headers = {
         'Accept': 'application/json',
