@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
+import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forgot_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/widgets/forgot_password/forgot_password_form.dart';
 import 'package:store_ify/features/auth/presentation/widgets/forgot_password/verify_email_button_bloc_consumer.dart';
@@ -28,6 +29,7 @@ class ForgotPasswordView extends StatelessWidget implements AutoRouteWrapper {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
+          const CustomSliverAppBar(),
           SliverFillRemaining(
             hasScrollBody: false,
             child: Column(

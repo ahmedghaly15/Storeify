@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
+import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/auth/presentation/widgets/register/register_button_bloc_consumer.dart';
 import 'package:store_ify/features/auth/presentation/widgets/register/register_form.dart';
@@ -16,6 +17,7 @@ class RegisterViewBody extends StatelessWidget {
     return SafeArea(
       child: CustomScrollView(
         slivers: [
+          const CustomSliverAppBar(),
           SliverToBoxAdapter(
             child: Container(
               margin: EdgeInsetsDirectional.only(top: 40.h, start: 10.w),
