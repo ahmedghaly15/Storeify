@@ -6,7 +6,7 @@ class SecureStorageHelper {
   SecureStorageHelper._();
 
   /// Saves a [value] with a [key] in the FlutterSecureStorage.
-  static setSecuredString(String key, String value) async {
+  static Future<void> setSecuredString(String key, String value) async {
     debugPrint(
         "FlutterSecureStorage : setSecuredString with key : $key and value : $value");
     await getIt.get<FlutterSecureStorage>().write(key: key, value: value);
@@ -19,13 +19,13 @@ class SecureStorageHelper {
   }
 
   /// Removes a value from FlutterSecureStorage with given [key].
-  static removeSecuredData(String key) async {
+  static Future<void> removeSecuredData(String key) async {
     debugPrint('FlutterSecureStorage : data with key : $key has been removed');
     await getIt.get<FlutterSecureStorage>().delete(key: key);
   }
 
   /// Removes all keys and values in the FlutterSecureStorage
-  static clearAllSecuredData() async {
+  static Future<void> clearAllSecuredData() async {
     debugPrint('FlutterSecureStorage : all data has been cleared');
     await getIt.get<FlutterSecureStorage>().deleteAll();
   }

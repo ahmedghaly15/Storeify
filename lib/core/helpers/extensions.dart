@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
+import 'package:store_ify/core/utils/app_strings.dart';
 
 extension NullOrEmptyString on String? {
   /// Check if the string is null or empty
@@ -28,7 +29,7 @@ extension ShowMyToast on BuildContext {
               isDarkModeActive ? const Color(0xff505152) : Colors.black26,
           elevation: 0,
           duration: const Duration(seconds: 2),
-          dismissDirection: locale.languageCode == 'ar'
+          dismissDirection: locale.languageCode == AppStrings.arabicLangCode
               ? DismissDirection.startToEnd
               : DismissDirection.endToStart,
           behavior: SnackBarBehavior.floating,
