@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/checkout/data/models/checkout_response.dart';
 
@@ -12,6 +13,12 @@ enum CheckoutStateStatus {
   changingCheckoutHour,
   changingCheckoutMinutes,
   updatePhoneNumber,
+  enableLocationPermissionLoading,
+  enableLocationPermissionSuccess,
+  enableLocationPermissionError,
+  fetchCityDataLoading,
+  fetchCityDataSuccess,
+  fetchCityDataError,
 }
 
 @freezed
@@ -24,6 +31,7 @@ class CheckoutState with _$CheckoutState {
     CheckoutResponse? checkout,
     String? error,
     @Default(AppConstants.defaultCountryCode) String countryCode,
+    Position? currentPosition,
   }) = _CheckoutState;
 
   factory CheckoutState.initial() => CheckoutState(
