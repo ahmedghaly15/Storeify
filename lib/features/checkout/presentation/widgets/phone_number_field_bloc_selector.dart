@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/helpers/payment_validator.dart';
+import 'package:store_ify/core/helpers/text_form_validator.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_cubit.dart';
@@ -35,13 +35,11 @@ class PhoneNumberFieldBlocSelector extends StatelessWidget {
               ? Colors.transparent
               : AppColors.lightModeColor,
         ),
-        onChanged: (phoneNumber) =>
-            context.read<CheckoutCubit>().updatePhoneNumber(
-                  '${phoneNumber.countryCode}${phoneNumber.number}',
-                ),
-        validator: (value) => PaymentValidator.validateField(
+        onChanged: (phone) =>
+            context.read<CheckoutCubit>().updatePhoneNumber(phone),
+        validator: (value) => TextFormValidator.validateField(
           context,
-          value?.countryCode,
+          value?.number,
         ),
       ),
     );

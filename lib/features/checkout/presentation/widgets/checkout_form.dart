@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:store_ify/core/helpers/auth_validator.dart';
-import 'package:store_ify/core/helpers/payment_validator.dart';
+import 'package:store_ify/core/helpers/text_form_validator.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
@@ -23,7 +22,7 @@ class CheckoutForm extends StatelessWidget {
     return FadeInDown(
       from: 50.h,
       child: Form(
-        key: context.read<CheckoutCubit>().formKey,
+        key: checkoutCubit.formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -35,7 +34,7 @@ class CheckoutForm extends StatelessWidget {
               hintTextKey: LocaleKeys.enterYourUsername,
               autofillHints: const <String>[AutofillHints.name],
               validate: (String? value) =>
-                  AuthValidator.validateNameField(context, value: value),
+                  TextFormValidator.validateNameField(context, value: value),
             ),
             MySizedBox.height10,
             const TextFieldLabel(labelKey: LocaleKeys.yourAddress),
@@ -46,7 +45,7 @@ class CheckoutForm extends StatelessWidget {
               hintTextKey: LocaleKeys.enterYourAddress,
               autofillHints: const <String>[AutofillHints.addressCity],
               validate: (String? value) =>
-                  PaymentValidator.validateField(context, value),
+                  TextFormValidator.validateField(context, value),
             ),
             MySizedBox.height10,
             const TextFieldLabel(labelKey: LocaleKeys.phone),
@@ -66,7 +65,7 @@ class CheckoutForm extends StatelessWidget {
                 hintTextKey: LocaleKeys.dateHint,
                 autofillHints: const <String>[AutofillHints.birthday],
                 validate: (String? value) =>
-                    PaymentValidator.validateField(context, value),
+                    TextFormValidator.validateCheckoutDateField(context, value),
                 suffixIcon: const Icon(
                   Icons.calendar_month,
                   color: AppColors.primaryColor,
