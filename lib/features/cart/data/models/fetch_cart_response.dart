@@ -3,7 +3,7 @@ import 'package:store_ify/features/cart/data/models/cart.dart';
 
 part 'fetch_cart_response.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FetchCartResponse {
   final List<Cart> cart;
   final int totalItems, delivery;

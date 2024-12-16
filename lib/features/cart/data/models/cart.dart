@@ -5,7 +5,7 @@ import 'package:store_ify/core/models/product_size.dart';
 
 part 'cart.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Cart {
   final int id;
   final int quantity;
