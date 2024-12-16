@@ -20,9 +20,9 @@ mixin _$CheckoutState {
   int get checkoutHour => throw _privateConstructorUsedError;
   int get checkoutMinutes => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
-  String get date => throw _privateConstructorUsedError;
   CheckoutResponse? get checkout => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
+  String get countryCode => throw _privateConstructorUsedError;
 
   /// Create a copy of CheckoutState
   /// with the given fields replaced by the non-null parameter values.
@@ -42,9 +42,9 @@ abstract class $CheckoutStateCopyWith<$Res> {
       int checkoutHour,
       int checkoutMinutes,
       String phoneNumber,
-      String date,
       CheckoutResponse? checkout,
-      String? error});
+      String? error,
+      String countryCode});
 }
 
 /// @nodoc
@@ -66,9 +66,9 @@ class _$CheckoutStateCopyWithImpl<$Res, $Val extends CheckoutState>
     Object? checkoutHour = null,
     Object? checkoutMinutes = null,
     Object? phoneNumber = null,
-    Object? date = null,
     Object? checkout = freezed,
     Object? error = freezed,
+    Object? countryCode = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -87,10 +87,6 @@ class _$CheckoutStateCopyWithImpl<$Res, $Val extends CheckoutState>
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String,
       checkout: freezed == checkout
           ? _value.checkout
           : checkout // ignore: cast_nullable_to_non_nullable
@@ -99,6 +95,10 @@ class _$CheckoutStateCopyWithImpl<$Res, $Val extends CheckoutState>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
+      countryCode: null == countryCode
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -116,9 +116,9 @@ abstract class _$$CheckoutStateImplCopyWith<$Res>
       int checkoutHour,
       int checkoutMinutes,
       String phoneNumber,
-      String date,
       CheckoutResponse? checkout,
-      String? error});
+      String? error,
+      String countryCode});
 }
 
 /// @nodoc
@@ -138,9 +138,9 @@ class __$$CheckoutStateImplCopyWithImpl<$Res>
     Object? checkoutHour = null,
     Object? checkoutMinutes = null,
     Object? phoneNumber = null,
-    Object? date = null,
     Object? checkout = freezed,
     Object? error = freezed,
+    Object? countryCode = null,
   }) {
     return _then(_$CheckoutStateImpl(
       status: null == status
@@ -159,10 +159,6 @@ class __$$CheckoutStateImplCopyWithImpl<$Res>
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String,
       checkout: freezed == checkout
           ? _value.checkout
           : checkout // ignore: cast_nullable_to_non_nullable
@@ -171,6 +167,10 @@ class __$$CheckoutStateImplCopyWithImpl<$Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
+      countryCode: null == countryCode
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -183,9 +183,9 @@ class _$CheckoutStateImpl implements _CheckoutState {
       this.checkoutHour = 0,
       this.checkoutMinutes = 0,
       this.phoneNumber = '',
-      this.date = '',
       this.checkout,
-      this.error});
+      this.error,
+      this.countryCode = AppConstants.defaultCountryCode});
 
   @override
   final CheckoutStateStatus status;
@@ -199,16 +199,16 @@ class _$CheckoutStateImpl implements _CheckoutState {
   @JsonKey()
   final String phoneNumber;
   @override
-  @JsonKey()
-  final String date;
-  @override
   final CheckoutResponse? checkout;
   @override
   final String? error;
+  @override
+  @JsonKey()
+  final String countryCode;
 
   @override
   String toString() {
-    return 'CheckoutState(status: $status, checkoutHour: $checkoutHour, checkoutMinutes: $checkoutMinutes, phoneNumber: $phoneNumber, date: $date, checkout: $checkout, error: $error)';
+    return 'CheckoutState(status: $status, checkoutHour: $checkoutHour, checkoutMinutes: $checkoutMinutes, phoneNumber: $phoneNumber, checkout: $checkout, error: $error, countryCode: $countryCode)';
   }
 
   @override
@@ -223,15 +223,16 @@ class _$CheckoutStateImpl implements _CheckoutState {
                 other.checkoutMinutes == checkoutMinutes) &&
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
-            (identical(other.date, date) || other.date == date) &&
             (identical(other.checkout, checkout) ||
                 other.checkout == checkout) &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.error, error) || other.error == error) &&
+            (identical(other.countryCode, countryCode) ||
+                other.countryCode == countryCode));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, status, checkoutHour,
-      checkoutMinutes, phoneNumber, date, checkout, error);
+      checkoutMinutes, phoneNumber, checkout, error, countryCode);
 
   /// Create a copy of CheckoutState
   /// with the given fields replaced by the non-null parameter values.
@@ -248,9 +249,9 @@ abstract class _CheckoutState implements CheckoutState {
       final int checkoutHour,
       final int checkoutMinutes,
       final String phoneNumber,
-      final String date,
       final CheckoutResponse? checkout,
-      final String? error}) = _$CheckoutStateImpl;
+      final String? error,
+      final String countryCode}) = _$CheckoutStateImpl;
 
   @override
   CheckoutStateStatus get status;
@@ -261,11 +262,11 @@ abstract class _CheckoutState implements CheckoutState {
   @override
   String get phoneNumber;
   @override
-  String get date;
-  @override
   CheckoutResponse? get checkout;
   @override
   String? get error;
+  @override
+  String get countryCode;
 
   /// Create a copy of CheckoutState
   /// with the given fields replaced by the non-null parameter values.

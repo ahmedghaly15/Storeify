@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:store_ify/core/services/location_service.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/checkout/data/models/checkout_params.dart';
 import 'package:store_ify/features/checkout/data/repositories/checkout_repo.dart';
@@ -32,6 +33,12 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     dateController = TextEditingController();
   }
 
+  void getCountryCode() async {
+    emit(state.copyWith(
+      countryCode: await LocationService.getAndCacheCountryCode(),
+    ));
+  }
+
   void changeHours(int value) {
     emit(state.copyWith(
       status: CheckoutStateStatus.changingCheckoutHour,
@@ -46,18 +53,14 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     ));
   }
 
-  void onCountryChanged(String phoneNumber) {
+  void updatePhoneNumber(String phoneNumber) {
     emit(state.copyWith(
-      status: CheckoutStateStatus.onCountryChanged,
+      status: CheckoutStateStatus.updatePhoneNumber,
       phoneNumber: phoneNumber,
     ));
   }
 
   void onDatePicked(DateTime date) {
-    emit(state.copyWith(
-      status: CheckoutStateStatus.onPickingDate,
-      date: DateFormat('yyyy-MM-dd').format(date),
-    ));
     dateController.text = DateFormat('yyyy-MM-dd').format(date);
   }
 
@@ -70,7 +73,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
         username: usernameController.text,
         address: addressController.text,
         phone: state.phoneNumber,
-        date: state.date,
+        date: dateController.text,
         time: _formatTime(state.checkoutHour, state.checkoutMinutes),
       ),
       _cancelToken,
