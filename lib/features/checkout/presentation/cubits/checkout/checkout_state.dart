@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:intl_phone_field/phone_number.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/checkout/data/models/checkout_response.dart';
 
@@ -27,6 +28,7 @@ class CheckoutState with _$CheckoutState {
     required CheckoutStateStatus status,
     @Default(0) int checkoutHour,
     @Default(0) int checkoutMinutes,
+    PhoneNumber? phone,
     @Default('') String phoneNumber,
     CheckoutResponse? checkout,
     String? error,

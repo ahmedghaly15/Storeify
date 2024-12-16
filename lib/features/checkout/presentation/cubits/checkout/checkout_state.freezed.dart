@@ -19,6 +19,7 @@ mixin _$CheckoutState {
   CheckoutStateStatus get status => throw _privateConstructorUsedError;
   int get checkoutHour => throw _privateConstructorUsedError;
   int get checkoutMinutes => throw _privateConstructorUsedError;
+  PhoneNumber? get phone => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
   CheckoutResponse? get checkout => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
@@ -42,6 +43,7 @@ abstract class $CheckoutStateCopyWith<$Res> {
       {CheckoutStateStatus status,
       int checkoutHour,
       int checkoutMinutes,
+      PhoneNumber? phone,
       String phoneNumber,
       CheckoutResponse? checkout,
       String? error,
@@ -67,6 +69,7 @@ class _$CheckoutStateCopyWithImpl<$Res, $Val extends CheckoutState>
     Object? status = null,
     Object? checkoutHour = null,
     Object? checkoutMinutes = null,
+    Object? phone = freezed,
     Object? phoneNumber = null,
     Object? checkout = freezed,
     Object? error = freezed,
@@ -86,6 +89,10 @@ class _$CheckoutStateCopyWithImpl<$Res, $Val extends CheckoutState>
           ? _value.checkoutMinutes
           : checkoutMinutes // ignore: cast_nullable_to_non_nullable
               as int,
+      phone: freezed == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as PhoneNumber?,
       phoneNumber: null == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
@@ -122,6 +129,7 @@ abstract class _$$CheckoutStateImplCopyWith<$Res>
       {CheckoutStateStatus status,
       int checkoutHour,
       int checkoutMinutes,
+      PhoneNumber? phone,
       String phoneNumber,
       CheckoutResponse? checkout,
       String? error,
@@ -145,6 +153,7 @@ class __$$CheckoutStateImplCopyWithImpl<$Res>
     Object? status = null,
     Object? checkoutHour = null,
     Object? checkoutMinutes = null,
+    Object? phone = freezed,
     Object? phoneNumber = null,
     Object? checkout = freezed,
     Object? error = freezed,
@@ -164,6 +173,10 @@ class __$$CheckoutStateImplCopyWithImpl<$Res>
           ? _value.checkoutMinutes
           : checkoutMinutes // ignore: cast_nullable_to_non_nullable
               as int,
+      phone: freezed == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as PhoneNumber?,
       phoneNumber: null == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
@@ -195,6 +208,7 @@ class _$CheckoutStateImpl implements _CheckoutState {
       {required this.status,
       this.checkoutHour = 0,
       this.checkoutMinutes = 0,
+      this.phone,
       this.phoneNumber = '',
       this.checkout,
       this.error,
@@ -210,6 +224,8 @@ class _$CheckoutStateImpl implements _CheckoutState {
   @JsonKey()
   final int checkoutMinutes;
   @override
+  final PhoneNumber? phone;
+  @override
   @JsonKey()
   final String phoneNumber;
   @override
@@ -224,7 +240,7 @@ class _$CheckoutStateImpl implements _CheckoutState {
 
   @override
   String toString() {
-    return 'CheckoutState(status: $status, checkoutHour: $checkoutHour, checkoutMinutes: $checkoutMinutes, phoneNumber: $phoneNumber, checkout: $checkout, error: $error, countryCode: $countryCode, currentPosition: $currentPosition)';
+    return 'CheckoutState(status: $status, checkoutHour: $checkoutHour, checkoutMinutes: $checkoutMinutes, phone: $phone, phoneNumber: $phoneNumber, checkout: $checkout, error: $error, countryCode: $countryCode, currentPosition: $currentPosition)';
   }
 
   @override
@@ -237,6 +253,7 @@ class _$CheckoutStateImpl implements _CheckoutState {
                 other.checkoutHour == checkoutHour) &&
             (identical(other.checkoutMinutes, checkoutMinutes) ||
                 other.checkoutMinutes == checkoutMinutes) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
             (identical(other.checkout, checkout) ||
@@ -254,6 +271,7 @@ class _$CheckoutStateImpl implements _CheckoutState {
       status,
       checkoutHour,
       checkoutMinutes,
+      phone,
       phoneNumber,
       checkout,
       error,
@@ -274,6 +292,7 @@ abstract class _CheckoutState implements CheckoutState {
       {required final CheckoutStateStatus status,
       final int checkoutHour,
       final int checkoutMinutes,
+      final PhoneNumber? phone,
       final String phoneNumber,
       final CheckoutResponse? checkout,
       final String? error,
@@ -286,6 +305,8 @@ abstract class _CheckoutState implements CheckoutState {
   int get checkoutHour;
   @override
   int get checkoutMinutes;
+  @override
+  PhoneNumber? get phone;
   @override
   String get phoneNumber;
   @override

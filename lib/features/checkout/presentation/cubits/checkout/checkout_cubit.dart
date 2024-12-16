@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
+import 'package:intl_phone_field/phone_number.dart';
 import 'package:store_ify/core/services/location_service.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
+import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/features/checkout/data/models/checkout_params.dart';
 import 'package:store_ify/features/checkout/data/repositories/checkout_repo.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_state.dart';
@@ -30,7 +32,6 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     usernameController = TextEditingController(
       text: currentUser?.user.username ?? '',
     );
-    // TODO: use open street api to init this controller with the current address
     addressController = TextEditingController();
     dateController = TextEditingController();
   }
@@ -83,7 +84,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     );
   }
 
-  void getCountryCode() async {
+  void updateCountryCode() async {
     emit(state.copyWith(
       countryCode: await LocationService.getAndCacheCountryCode(),
     ));
@@ -103,15 +104,18 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     ));
   }
 
-  void updatePhoneNumber(String phoneNumber) {
+  String get phoneNumber => state.phoneNumber;
+  void updatePhoneNumber(PhoneNumber phone) {
     emit(state.copyWith(
       status: CheckoutStateStatus.updatePhoneNumber,
-      phoneNumber: phoneNumber,
+      phone: phone,
+      phoneNumber: phone.number,
     ));
   }
 
   void onDatePicked(DateTime date) {
-    dateController.text = DateFormat('yyyy-MM-dd').format(date);
+    dateController.text =
+        DateFormat(AppStrings.checkoutDateFormat).format(date);
   }
 
   void checkout() async {
@@ -122,7 +126,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
       CheckoutParams(
         username: usernameController.text,
         address: addressController.text,
-        phone: state.phoneNumber,
+        phone: '${state.phone!.countryCode}${state.phone!.number}',
         date: dateController.text,
         time: formatTime(state.checkoutHour, state.checkoutMinutes),
       ),
