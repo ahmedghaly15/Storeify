@@ -14,7 +14,6 @@ bool isDeviceDarkModeActive = false;
 bool isUserLoggedIn = false;
 bool isOnboardingVisited = false;
 StoreifyUser? currentUser;
-String? countryCode;
 
 final userNotifier = ValueNotifier(currentUser);
 
@@ -25,6 +24,7 @@ set currentUserSetter(StoreifyUser user) {
 }
 
 class AppConstants {
+  static const String defaultCountryCode = 'EG';
   static const ScrollPhysics physics = BouncingScrollPhysics();
   static const int gridCrossAxisCount = 2;
   static double get gridCrossAxisSpacing => 10.w;

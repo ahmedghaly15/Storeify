@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/shared_pref_helper.dart';
-import 'package:store_ify/core/helpers/shared_pref_keys.dart';
+import 'package:store_ify/core/helpers/cache_keys.dart';
 import 'package:store_ify/core/themes/app_themes.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/utils/functions/check_for_first_launch_and_device_theme.dart';
@@ -151,7 +151,7 @@ class GeneralCubit extends Cubit<GeneralState> {
   Future<void> _cacheSelectedTheme(Brightness brightness) async {
     final themeIndex = brightness == Brightness.light ? 0 : 1;
     debugPrint('THEME INDEX: $themeIndex');
-    await SharedPrefHelper.setData(SharedPrefKeys.appTheme, themeIndex);
+    await SharedPrefHelper.setData(CacheKeys.appTheme, themeIndex);
   }
 
   Future<void> _retrieveCachedTheme() async {
@@ -159,15 +159,14 @@ class GeneralCubit extends Cubit<GeneralState> {
       debugPrint('************ THIS IS OUR FIRST LAUNCH ************');
       _cacheSelectedTheme(
           isDeviceDarkModeActive ? Brightness.dark : Brightness.light);
-      await SharedPrefHelper.setData(SharedPrefKeys.firstLaunch, false);
+      await SharedPrefHelper.setData(CacheKeys.firstLaunch, false);
       emit(state.copyWith(
         theme:
             isDeviceDarkModeActive ? AppThemes.darkMode : AppThemes.lightMode,
       ));
     } else {
       debugPrint('************ THIS IS NOT OUR FIRST LAUNCH ************');
-      final cachedThemeIndex =
-          await SharedPrefHelper.getInt(SharedPrefKeys.appTheme) ?? 0;
+      final cachedThemeIndex = SharedPrefHelper.getInt(CacheKeys.appTheme) ?? 0;
       final savedTheme =
           cachedThemeIndex == 0 ? AppThemes.lightMode : AppThemes.darkMode;
       emit(state.copyWith(theme: savedTheme));

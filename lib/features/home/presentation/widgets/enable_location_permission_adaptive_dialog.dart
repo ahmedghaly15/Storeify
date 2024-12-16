@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -43,7 +44,10 @@ class EnableLocationPermissionAdaptiveDialog extends StatelessWidget {
         ),
         MySizedBox.height8,
         CancelOutlinedButton(
-          onCancel: () async => await _popAndShowLocationDeniedToast(context),
+          onCancel: () async {
+            await context.maybePop();
+            context.showToast(LocaleKeys.locationDenied);
+          },
         ),
       ],
     );
@@ -52,17 +56,12 @@ class EnableLocationPermissionAdaptiveDialog extends StatelessWidget {
   Future<void> _requestLocationPermissionAndShowGrantedToast(
     BuildContext context,
   ) async {
-    await LocationService.requestPermission();
+    await Geolocator.requestPermission();
     if (await LocationService.isLocationPermissionDenied()) {
       context.showToast(LocaleKeys.locationDenied);
     } else {
       context.showToast(LocaleKeys.locationGranted);
     }
     context.maybePop();
-  }
-
-  Future<void> _popAndShowLocationDeniedToast(BuildContext context) async {
-    await context.maybePop();
-    context.showToast(LocaleKeys.locationDenied);
   }
 }
