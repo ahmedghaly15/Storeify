@@ -60,7 +60,8 @@ class LocationService {
   static Future<bool> isLocationPermissionDenied() async {
     final LocationPermission permission = await Geolocator.checkPermission();
     return permission == LocationPermission.denied ||
-        permission == LocationPermission.deniedForever;
+        permission == LocationPermission.deniedForever ||
+        permission == LocationPermission.unableToDetermine;
   }
 
   static Future<CachedLocation?> _retrieveCachedCountryCode() async {

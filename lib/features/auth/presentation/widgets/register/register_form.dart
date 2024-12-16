@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/helpers/auth_validator.dart';
+import 'package:store_ify/core/helpers/text_form_validator.dart';
 import 'package:store_ify/core/widgets/email_text_form_field.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/core/widgets/pass_text_form_field.dart';
@@ -27,7 +27,7 @@ class RegisterForm extends StatelessWidget {
             emailFocusNode: registerCubit.emailFocusNode,
             nextFocusNode: registerCubit.usernameFocusNode,
             validate: (String? value) =>
-                AuthValidator.validateEmailField(context, value: value),
+                TextFormValidator.validateEmailField(context, value: value),
           ),
           MySizedBox.height24,
           const TextFieldLabel(labelKey: LocaleKeys.username),
@@ -36,7 +36,7 @@ class RegisterForm extends StatelessWidget {
             usernameFocusNode: registerCubit.usernameFocusNode,
             nextFocusNode: registerCubit.passwordFocusNode,
             validate: (String? value) =>
-                AuthValidator.validateNameField(context, value: value),
+                TextFormValidator.validateNameField(context, value: value),
           ),
           MySizedBox.height24,
           const TextFieldLabel(labelKey: LocaleKeys.password),
@@ -59,7 +59,8 @@ class RegisterForm extends StatelessWidget {
               suffixOnPressed: () =>
                   registerCubit.toggleConfirmPassVisibility(),
               onSubmit: (_) => registerCubit.register(),
-              validate: (value) => AuthValidator.validateConfirmPasswordField(
+              validate: (value) =>
+                  TextFormValidator.validateConfirmPasswordField(
                 context,
                 value: value,
                 password: registerCubit.passwordController.text,

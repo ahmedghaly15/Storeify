@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_ify/core/helpers/auth_validator.dart';
+import 'package:store_ify/core/helpers/text_form_validator.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
@@ -36,7 +36,7 @@ class PassTextFormField extends StatelessWidget {
       autofillHints: autofillHints,
       validate: validate ??
           (String? value) =>
-              AuthValidator.validatePasswordField(context, value: value),
+              TextFormValidator.validatePasswordField(context, value: value),
       focusNode: focusNode,
       onSubmit: onSubmit,
       controller: controller,

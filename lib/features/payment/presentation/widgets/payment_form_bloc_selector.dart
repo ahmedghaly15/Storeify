@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/helpers/payment_validator.dart';
+import 'package:store_ify/core/helpers/text_form_validator.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
@@ -66,7 +66,7 @@ class PaymentFormBlocSelector extends StatelessWidget {
                       context.read<PaymentCubit>().cardHolderNumberFocusNode,
                     ),
                     validate: (val) =>
-                        PaymentValidator.validateCardNumberField(context, val),
+                        TextFormValidator.validateCardNumberField(context, val),
                   ),
                   MySizedBox.height19,
                   const PaymentTextFieldLabel(
@@ -84,7 +84,7 @@ class PaymentFormBlocSelector extends StatelessWidget {
                       context.read<PaymentCubit>().expiryDateFocusNode,
                     ),
                     validate: (val) =>
-                        PaymentValidator.validateCardHolderNumberField(
+                        TextFormValidator.validateCardHolderNumberField(
                             context, val),
                   ),
                   MySizedBox.height19,

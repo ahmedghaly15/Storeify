@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/helpers/auth_validator.dart';
+import 'package:store_ify/core/helpers/text_form_validator.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/core/widgets/pass_text_form_field.dart';
@@ -50,7 +50,8 @@ class ChangePasswordForm extends StatelessWidget {
               suffixOnPressed: () =>
                   changePassCubit.toggleConfirmPassVisibility(),
               autofillHints: const [AutofillHints.newPassword],
-              validate: (value) => AuthValidator.validateConfirmPasswordField(
+              validate: (value) =>
+                  TextFormValidator.validateConfirmPasswordField(
                 context,
                 value: value,
                 password: changePassCubit.newPassController.text,

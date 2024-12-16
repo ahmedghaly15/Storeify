@@ -94,6 +94,7 @@ class CodegenLoader extends AssetLoader{
   "dateHint": "YYYY-MM-DD",
   "locationGranted": "تم تفعيل الموقع.",
   "locationDenied": "الموقع غير مسموح به. الرجاء تفعيله.",
+  "locationDeniedDescription": "يرجى تمكين أذونات الموقع في إعدادات جهازك لاستخدام هذه الميزة.",
   "DATE_AFTER_TODAY": "التاريخ يجب ان يكون بعد اليوم.",
   "CART_EMPTY": "عربة التسوق فارغة.",
   "howDoUWantToPay": "كيف تريد الدفع ؟",
@@ -183,7 +184,8 @@ class CodegenLoader extends AssetLoader{
   "SIZE_NOT_FOUND_FOR_PRODUCT": "الحجم المختار غير متوفر للمنتج. يرجى اختيار حجم اخر والمحاولة مرة اخرى.",
   "COLOR_NOT_FOUND_FOR_PRODUCT": "اللون المختار غير متوفر للمنتج. يرجى اختيار لون اخر والمحاولة مرة اخرى.",
   "SIZE_REQUIRED": "يرجى اختيار الحجم ثم المحاولة مرة أخرى",
-  "COLOR_REQUIRED": "يرجى اختيار اللون ثم المحاولة مرة أخرى"
+  "COLOR_REQUIRED": "يرجى اختيار اللون ثم المحاولة مرة أخرى",
+  "phoneNumberCantBeEmpty": "لا يمكن ان يكون رقم الهاتف فارغ. يرجى ادخال رقم هاتف صالح."
 };
 static const Map<String,dynamic> en = {
   "signInToContinue": "Sign in to continue",
@@ -265,6 +267,7 @@ static const Map<String,dynamic> en = {
   "time": "Time",
   "locationGranted": "Location has been granted.",
   "locationDenied": "Location permission denied. Please grant it.",
+  "locationDeniedDescription": "Please enable location permission in your device settings to use this feature.",
   "DATE_AFTER_TODAY": "Date should be after today.",
   "CART_EMPTY": "Cart is empty.",
   "howDoUWantToPay": "How do you want to Pay ?",
@@ -354,7 +357,8 @@ static const Map<String,dynamic> en = {
   "SIZE_NOT_FOUND_FOR_PRODUCT": "The selected size is not available for this product. Please select a different size and try again.",
   "COLOR_NOT_FOUND_FOR_PRODUCT": "The selected color is not available for this product. Please select a different color and try again.",
   "SIZE_REQUIRED": "Please select a size and try again",
-  "COLOR_REQUIRED": "Please select a color and try again"
+  "COLOR_REQUIRED": "Please select a color and try again",
+  "phoneNumberCantBeEmpty": "Phone number can't be empty. Please enter a valid phone number."
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

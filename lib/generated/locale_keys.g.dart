@@ -80,6 +80,7 @@ abstract class  LocaleKeys {
   static const dateHint = 'dateHint';
   static const locationGranted = 'locationGranted';
   static const locationDenied = 'locationDenied';
+  static const locationDeniedDescription = 'locationDeniedDescription';
   static const DATE_AFTER_TODAY = 'DATE_AFTER_TODAY';
   static const CART_EMPTY = 'CART_EMPTY';
   static const howDoUWantToPay = 'howDoUWantToPay';
@@ -170,5 +171,6 @@ abstract class  LocaleKeys {
   static const COLOR_NOT_FOUND_FOR_PRODUCT = 'COLOR_NOT_FOUND_FOR_PRODUCT';
   static const SIZE_REQUIRED = 'SIZE_REQUIRED';
   static const COLOR_REQUIRED = 'COLOR_REQUIRED';
+  static const phoneNumberCantBeEmpty = 'phoneNumberCantBeEmpty';
 
 }

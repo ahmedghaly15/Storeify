@@ -12,11 +12,12 @@ class CustomErrorWidget extends StatelessWidget {
     this.tryAgainOnPressed,
     required this.errorKey,
     this.assetImgPath,
+    this.errorDescriptionKey,
   });
 
   final VoidCallback? tryAgainOnPressed;
   final String errorKey;
-  final String? assetImgPath;
+  final String? assetImgPath, errorDescriptionKey;
 
   @override
   Widget build(BuildContext context) {
@@ -33,24 +34,21 @@ class CustomErrorWidget extends StatelessWidget {
                     : AppAssets.imagesDefaultError),
             fit: BoxFit.cover,
           ),
-          Column(
-            children: [
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 12.h),
-                child: Text(
-                  context.tr(errorKey),
-                  style: AppTextStyles.textStyle18Bold,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              Text(
-                context.tr(errorKey == LocaleKeys.noInternet
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 12.h),
+            child: Text(
+              context.tr(errorKey),
+              style: AppTextStyles.textStyle18Bold,
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Text(
+            context.tr(errorDescriptionKey ??
+                (errorKey == LocaleKeys.noInternet
                     ? LocaleKeys.ensureInternetConnection
-                    : LocaleKeys.defaultErrorDescription),
-                style: AppTextStyles.textStyle14Regular,
-                textAlign: TextAlign.center,
-              ),
-            ],
+                    : LocaleKeys.defaultErrorDescription)),
+            style: AppTextStyles.textStyle14Regular,
+            textAlign: TextAlign.center,
           ),
           if (tryAgainOnPressed != null)
             TryAgainButton(onPressed: tryAgainOnPressed),

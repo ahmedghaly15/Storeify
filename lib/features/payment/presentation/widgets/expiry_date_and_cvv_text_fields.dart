@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:store_ify/core/helpers/payment_validator.dart';
+import 'package:store_ify/core/helpers/text_form_validator.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
@@ -32,7 +32,8 @@ class ExpiryDateAndCvvTextFields extends StatelessWidget {
                 onEditingComplete: () => context.requestFocus(
                   context.read<PaymentCubit>().cvvFocusNode,
                 ),
-                validate: (val) => PaymentValidator.validateField(context, val),
+                validate: (val) =>
+                    TextFormValidator.validateField(context, val),
               ),
             ],
           ),
@@ -50,7 +51,7 @@ class ExpiryDateAndCvvTextFields extends StatelessWidget {
                 keyboardType: TextInputType.number,
                 focusNode: context.read<PaymentCubit>().cvvFocusNode,
                 validate: (val) =>
-                    PaymentValidator.validateCvvField(context, val),
+                    TextFormValidator.validateCvvField(context, val),
               ),
             ],
           ),
