@@ -91,17 +91,21 @@ class CheckoutCubit extends Cubit<CheckoutState> {
   }
 
   void changeHours(int value) {
-    emit(state.copyWith(
-      status: CheckoutStateStatus.changingCheckoutHour,
-      checkoutHour: value,
-    ));
+    if (value >= 1 && value <= 12) {
+      emit(state.copyWith(
+        status: CheckoutStateStatus.changingCheckoutHour,
+        checkoutHour: value,
+      ));
+    }
   }
 
   void changeMinutes(int value) {
-    emit(state.copyWith(
-      status: CheckoutStateStatus.changingCheckoutMinutes,
-      checkoutMinutes: value,
-    ));
+    if (value >= 0 && value <= 59) {
+      emit(state.copyWith(
+        status: CheckoutStateStatus.changingCheckoutMinutes,
+        checkoutMinutes: value,
+      ));
+    }
   }
 
   String get phoneNumber => state.phoneNumber;
@@ -118,7 +122,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
         DateFormat(AppStrings.checkoutDateFormat).format(date);
   }
 
-  void checkout() async {
+  void _checkout() async {
     emit(state.copyWith(
       status: CheckoutStateStatus.checkoutLoading,
     ));
@@ -128,7 +132,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
         address: addressController.text,
         phone: '${state.phone!.countryCode}${state.phone!.number}',
         date: dateController.text,
-        time: formatTime(state.checkoutHour, state.checkoutMinutes),
+        time: _formatTime(),
       ),
       _cancelToken,
     );
@@ -146,18 +150,18 @@ class CheckoutCubit extends Cubit<CheckoutState> {
 
   void checkoutAndValidateForm() {
     if (formKey.currentState!.validate()) {
-      checkout();
+      _checkout();
     }
   }
 
-  String formatTime(int hour, int minute) {
+  String _formatTime() {
     String zeroPad(int value) => value.toString().padLeft(2, '0');
-    String formattedHour = zeroPad(hour);
-    String formattedMinute = zeroPad(minute);
+    String formattedHour = zeroPad(state.checkoutHour);
+    String formattedMinute = zeroPad(state.checkoutMinutes);
     return '$formattedHour:$formattedMinute';
   }
 
-  void disposeControllers() {
+  void _disposeControllers() {
     usernameController.dispose();
     addressController.dispose();
     dateController.dispose();
@@ -165,7 +169,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
 
   @override
   Future<void> close() {
-    disposeControllers();
+    _disposeControllers();
     _cancelToken.cancel();
     return super.close();
   }

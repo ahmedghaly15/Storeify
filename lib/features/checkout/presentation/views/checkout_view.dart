@@ -1,12 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:store_ify/core/di/dependency_injection.dart';
+import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_cubit.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_state.dart';
 import 'package:store_ify/features/checkout/presentation/widgets/checkout_view_body.dart';
 import 'package:store_ify/features/checkout/presentation/widgets/enable_location_error_widget.dart';
 import 'package:store_ify/features/checkout/presentation/widgets/enable_location_loading_widget.dart';
-import 'package:store_ify/core/di/dependency_injection.dart';
-import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_cubit.dart';
 
 @RoutePage()
 class CheckoutView extends StatelessWidget implements AutoRouteWrapper {
