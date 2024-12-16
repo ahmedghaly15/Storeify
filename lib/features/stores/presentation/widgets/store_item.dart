@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:store_ify/core/helpers/enums.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
@@ -8,7 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_cached_network_image.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
-import 'package:store_ify/core/widgets/prefer_store_bloc_listener_icon_button.dart';
+import 'package:store_ify/core/widgets/prefer_item_bloc_listener_icon_button.dart';
 import 'package:store_ify/features/stores/data/models/store.dart';
 
 class StoreItem extends StatelessWidget {
@@ -67,10 +68,12 @@ class StoreItem extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
-                PreferStoreBlocListenerIconButton(
+                PreferItemBlocListenerIconButton(
                   storeId: store.id,
                   // TODO:
                   // isFavorited: store.isFavorited,
+                  isFavorited: false,
+                  itemType: FavItemType.store,
                 ),
               ],
             ),
