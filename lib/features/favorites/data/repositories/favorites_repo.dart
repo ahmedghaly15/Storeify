@@ -79,12 +79,4 @@ class FavoritesRepo {
       return ApiResult.success(cachedFavStores);
     }
   }
-
-  Future<void> deleteCachedFavProducts() async {
-    await _localDatasource.deleteCachedFavProducts();
-  }
-
-  Future<void> deleteCachedFavStores() async {
-    await _localDatasource.deleteCachedFavStores();
-  }
 }

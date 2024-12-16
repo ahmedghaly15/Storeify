@@ -46,7 +46,7 @@ class FavoritesLocalDatasource {
         .get('${HiveKeys.favStoresResponse}_${currentUser!.user.username}');
   }
 
-  Future<void> deleteCachedFavProducts() async {
+  static Future<void> deleteCachedFavProducts() async {
     final box = await Hive.openLazyBox<FetchFavoriteProductsResponse>(
       HiveBoxes.favProductsBox,
     );
@@ -54,7 +54,7 @@ class FavoritesLocalDatasource {
         '${HiveKeys.favProductsResponse}_${currentUser!.user.username}');
   }
 
-  Future<void> deleteCachedFavStores() async {
+  static Future<void> deleteCachedFavStores() async {
     final box = await Hive.openLazyBox<FetchFavStoresResponse>(
       HiveBoxes.favStoresBox,
     );
