@@ -27,4 +27,8 @@ class EndPoints {
   static const String search = 'search';
   static const String updateProfile = '${profile}update';
   static const String searchData = 'searchData';
+  static const String openStreetApiBaseUrl =
+      'https://nominatim.openstreetmap.org/';
+  static const String fetchCityDataUsingPosition =
+      '${openStreetApiBaseUrl}reverse?format=json';
 }
