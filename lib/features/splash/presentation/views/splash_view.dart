@@ -69,8 +69,8 @@ class _SplashViewState extends State<SplashView> {
             SizedBox(
               height: 87.h,
               width: 87.h,
-              child: const CustomCircularProgressIndicator(
-                strokeWidth: 5,
+              child: CustomCircularProgressIndicator(
+                strokeWidth: 5.w,
                 backgroundColor: AppColors.colorD9D9D9,
               ),
             ),

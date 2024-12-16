@@ -55,7 +55,7 @@
     "NO_FAVORITE_STORES": "You don't have any favorite stores",
     "No_Favorite_Products": "You don't have any favorite products",
     "ensureInternetConnection": "Please ensure that you are connect with the internet and try again.",
-    "defaultErrorDescription": "An error occurred while getting the  data  for  you. Please try again later",
+    "defaultErrorDescription": "An error occurred while getting the data for you. Please try again later",
     "onboardingTitle1": "Welcome to Store-ify",
     "onboardingSubtitle1": "Explore a world of endless possibilities. Store-ify is your one-stop destination for a diverse range of stores and products.",
     "onboardingTitle2": "Discover & Shop",
@@ -78,6 +78,7 @@
     "time": "Time",
     "locationGranted": "Location has been granted.",
     "locationDenied": "Location permission denied. Please grant it.",
+    "locationDeniedDescription": "Please enable location permission in your device settings to use this feature.",
     "DATE_AFTER_TODAY": "Date should be after today.",
     "CART_EMPTY": "Cart is empty.",
     "howDoUWantToPay": "How do you want to Pay ?",
@@ -167,5 +168,6 @@
     "SIZE_NOT_FOUND_FOR_PRODUCT": "The selected size is not available for this product. Please select a different size and try again.",
     "COLOR_NOT_FOUND_FOR_PRODUCT": "The selected color is not available for this product. Please select a different color and try again.",
     "SIZE_REQUIRED": "Please select a size and try again",
-    "COLOR_REQUIRED": "Please select a color and try again"
+    "COLOR_REQUIRED": "Please select a color and try again",
+    "phoneNumberCantBeEmpty": "Phone number can't be empty. Please enter a valid phone number."
 }

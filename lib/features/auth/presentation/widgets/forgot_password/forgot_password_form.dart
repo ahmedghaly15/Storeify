@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/helpers/auth_validator.dart';
+import 'package:store_ify/core/helpers/text_form_validator.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 import 'package:store_ify/core/widgets/custom_text_field.dart';
 import 'package:store_ify/features/auth/presentation/cubits/forgot_password/forgot_password_cubit.dart';
@@ -19,7 +19,7 @@ class ForgotPasswordForm extends StatelessWidget {
           const TextFieldLabel(labelKey: LocaleKeys.email),
           CustomTextField(
             validate: (String? value) =>
-                AuthValidator.validateEmailField(context, value: value),
+                TextFormValidator.validateEmailField(context, value: value),
             controller: context.read<ForgotPasswordCubit>().emailController,
             keyboardType: TextInputType.emailAddress,
             hintTextKey: LocaleKeys.emailFieldHint,

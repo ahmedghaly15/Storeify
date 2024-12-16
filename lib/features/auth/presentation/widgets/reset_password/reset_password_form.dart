@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/core/helpers/auth_validator.dart';
+import 'package:store_ify/core/helpers/text_form_validator.dart';
 import 'package:store_ify/core/widgets/pass_text_form_field.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_cubit.dart';
 import 'package:store_ify/features/auth/presentation/cubits/reset_password/reset_password_state.dart';
@@ -37,7 +37,8 @@ class ResetPasswordForm extends StatelessWidget {
               focusNode: resetPassCubit.confirmPassFocusNode,
               suffixOnPressed: () =>
                   resetPassCubit.toggleConfirmPassVisibility(),
-              validate: (value) => AuthValidator.validateConfirmPasswordField(
+              validate: (value) =>
+                  TextFormValidator.validateConfirmPasswordField(
                 context,
                 value: value,
                 password: resetPassCubit.passController.text,

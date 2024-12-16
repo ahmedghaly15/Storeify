@@ -1,11 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
+import 'package:intl_phone_field/phone_number.dart';
+import 'package:store_ify/core/services/location_service.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
+import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/features/checkout/data/models/checkout_params.dart';
 import 'package:store_ify/features/checkout/data/repositories/checkout_repo.dart';
 import 'package:store_ify/features/checkout/presentation/cubits/checkout/checkout_state.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class CheckoutCubit extends Cubit<CheckoutState> {
   final CheckoutRepo _checkoutRepo;
@@ -27,9 +32,62 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     usernameController = TextEditingController(
       text: currentUser?.user.username ?? '',
     );
-    // TODO: use open street api to init this controller with the current address
     addressController = TextEditingController();
     dateController = TextEditingController();
+  }
+
+  void enableLocationPermission() async {
+    emit(state.copyWith(
+      status: CheckoutStateStatus.enableLocationPermissionLoading,
+    ));
+    if (await LocationService.isLocationPermissionDenied()) {
+      await Geolocator.requestPermission();
+      if (await LocationService.isLocationPermissionDenied()) {
+        emit(state.copyWith(
+          status: CheckoutStateStatus.enableLocationPermissionError,
+          error: LocaleKeys.locationDenied,
+        ));
+        return;
+      }
+    }
+    try {
+      final currentPosition = await Geolocator.getCurrentPosition();
+      emit(state.copyWith(
+        status: CheckoutStateStatus.enableLocationPermissionSuccess,
+        currentPosition: currentPosition,
+      ));
+    } catch (error) {
+      emit(state.copyWith(
+        status: CheckoutStateStatus.enableLocationPermissionError,
+        error: LocaleKeys.defaultError,
+      ));
+    }
+  }
+
+  Future<void> fetchCityData() async {
+    emit(state.copyWith(
+      status: CheckoutStateStatus.fetchCityDataLoading,
+    ));
+    final result =
+        await _checkoutRepo.fetchCityDataUsingPosition(state.currentPosition!);
+    result.when(
+      success: (address) {
+        emit(state.copyWith(
+          status: CheckoutStateStatus.fetchCityDataSuccess,
+        ));
+        addressController.text = address;
+      },
+      error: (errorModel) => emit(state.copyWith(
+        status: CheckoutStateStatus.fetchCityDataError,
+        error: errorModel.error ?? '',
+      )),
+    );
+  }
+
+  void updateCountryCode() async {
+    emit(state.copyWith(
+      countryCode: await LocationService.getAndCacheCountryCode(),
+    ));
   }
 
   void changeHours(int value) {
@@ -46,22 +104,21 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     ));
   }
 
-  void onCountryChanged(String phoneNumber) {
+  String get phoneNumber => state.phoneNumber;
+  void updatePhoneNumber(PhoneNumber phone) {
     emit(state.copyWith(
-      status: CheckoutStateStatus.onCountryChanged,
-      phoneNumber: phoneNumber,
+      status: CheckoutStateStatus.updatePhoneNumber,
+      phone: phone,
+      phoneNumber: phone.number,
     ));
   }
 
   void onDatePicked(DateTime date) {
-    emit(state.copyWith(
-      status: CheckoutStateStatus.onPickingDate,
-      date: DateFormat('yyyy-MM-dd').format(date),
-    ));
-    dateController.text = DateFormat('yyyy-MM-dd').format(date);
+    dateController.text =
+        DateFormat(AppStrings.checkoutDateFormat).format(date);
   }
 
-  void _checkout() async {
+  void checkout() async {
     emit(state.copyWith(
       status: CheckoutStateStatus.checkoutLoading,
     ));
@@ -69,9 +126,9 @@ class CheckoutCubit extends Cubit<CheckoutState> {
       CheckoutParams(
         username: usernameController.text,
         address: addressController.text,
-        phone: state.phoneNumber,
-        date: state.date,
-        time: _formatTime(state.checkoutHour, state.checkoutMinutes),
+        phone: '${state.phone!.countryCode}${state.phone!.number}',
+        date: dateController.text,
+        time: formatTime(state.checkoutHour, state.checkoutMinutes),
       ),
       _cancelToken,
     );
@@ -89,18 +146,18 @@ class CheckoutCubit extends Cubit<CheckoutState> {
 
   void checkoutAndValidateForm() {
     if (formKey.currentState!.validate()) {
-      _checkout();
+      checkout();
     }
   }
 
-  String _formatTime(int hour, int minute) {
+  String formatTime(int hour, int minute) {
     String zeroPad(int value) => value.toString().padLeft(2, '0');
     String formattedHour = zeroPad(hour);
     String formattedMinute = zeroPad(minute);
     return '$formattedHour:$formattedMinute';
   }
 
-  void _disposeControllers() {
+  void disposeControllers() {
     usernameController.dispose();
     addressController.dispose();
     dateController.dispose();
@@ -108,7 +165,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
 
   @override
   Future<void> close() {
-    _disposeControllers();
+    disposeControllers();
     _cancelToken.cancel();
     return super.close();
   }

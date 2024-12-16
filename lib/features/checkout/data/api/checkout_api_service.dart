@@ -4,6 +4,7 @@ import 'package:store_ify/core/api/end_points.dart';
 import 'package:store_ify/features/checkout/data/models/checkout_params.dart';
 import 'package:store_ify/features/checkout/data/models/checkout_response.dart';
 import 'package:store_ify/features/checkout/data/models/choose_payment_method_params.dart';
+import 'package:store_ify/features/checkout/data/models/fetch_city_data.dart';
 
 part 'checkout_api_service.g.dart';
 
@@ -23,4 +24,12 @@ abstract class CheckoutApiService {
     @Body() ChoosePaymentMethodParams params, [
     @CancelRequest() CancelToken? cancelToken,
   ]);
+
+  @GET(EndPoints.fetchCityDataUsingPosition)
+  Future<FetchCityData> fetchCityDataUsingPosition({
+    @Query('lat') required double lat,
+    @Query('lon') required double lon,
+    @Query('en') String lang = 'en',
+    @CancelRequest() CancelToken? cancelToken,
+  });
 }

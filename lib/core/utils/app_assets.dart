@@ -94,6 +94,11 @@ class AppAssets {
   /// assets/images/no_internet.png
   static const String imagesNoInternet = "assets/images/no_internet.png";
 
+  /// Assets for imagesNoNotifications
+  /// assets/images/no-notifications.png
+  static const String imagesNoNotifications =
+      "assets/images/no-notifications.png";
+
   /// Assets for imagesOnBoarding1
   /// assets/images/on_boarding1.png
   static const String imagesOnBoarding1 = "assets/images/on_boarding1.png";

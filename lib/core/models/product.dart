@@ -9,7 +9,7 @@ import 'package:store_ify/features/stores/data/models/store.dart';
 part 'product.g.dart';
 
 @HiveType(typeId: HiveTypeIds.product)
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Product {
   @HiveField(0)
   final int id;

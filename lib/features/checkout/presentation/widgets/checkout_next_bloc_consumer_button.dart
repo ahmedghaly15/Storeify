@@ -28,8 +28,12 @@ class CheckoutNextBlocConsumerButton extends StatelessWidget {
           vertical: 40.h,
         ),
         onPressed: () {
-          // context.read<CheckoutCubit>().checkoutAndValidateForm();
           context.pushRoute(PaymentMethodRoute(amount: amount));
+          // if (context.read<CheckoutCubit>().phoneNumber.isNotEmpty) {
+          //   context.read<CheckoutCubit>().checkoutAndValidateForm();
+          // } else {
+          //   context.showToast(LocaleKeys.phoneNumberCantBeEmpty);
+          // }
         },
         child: circularIndicatorOrTextWidget(
           isLoading: state.status == CheckoutStateStatus.checkoutLoading,

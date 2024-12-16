@@ -15,7 +15,6 @@ class HiveKeys {
   static const String fetchedStoreCategoriesResponse =
       'fetchedStoreCategoriesResponse';
   static const String fetchedStoreOffersResponse = 'fetchedStoreOffersResponse';
-  static const String countryCode = 'countryCode';
   static const String searchData = 'searchData';
   static const String cardDetails = 'cardDetails';
 }

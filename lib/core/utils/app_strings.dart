@@ -6,4 +6,5 @@ class AppStrings {
   static const String arabicLangCode = 'ar';
   static const String englishLangCode = 'en';
   static const String searchRequiredErrorKey = 'SEARCH_REQUIRED';
+  static const String checkoutDateFormat = 'yyyy-MM-dd';
 }

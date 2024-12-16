@@ -12,7 +12,6 @@ import 'package:store_ify/core/utils/functions/check_for_first_launch_and_device
 import 'package:store_ify/core/utils/functions/check_if_android_above_12.dart';
 import 'package:store_ify/core/utils/functions/check_if_onboarding_visited.dart';
 import 'package:store_ify/core/utils/functions/check_if_user_is_logged_in.dart';
-import 'package:store_ify/core/utils/functions/get_and_cache_country_code.dart';
 import 'package:store_ify/generated/codegen_loader.g.dart';
 import 'package:store_ify/storeify_app.dart';
 
@@ -28,7 +27,6 @@ void main() async {
   await checkIfAndroidAbove12();
   await checkIfOnboardingIsVisited();
   await checkIfUserIsLoggedIn();
-  await getAndCacheCountryCode();
   // TODO: add some animations to the whole app
   // TODO: remember to handle empty lists in the UI
   // TODO: handle save card details logic using hive

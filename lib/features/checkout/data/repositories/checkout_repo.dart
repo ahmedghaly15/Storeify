@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:store_ify/core/api/api_result.dart';
 import 'package:store_ify/core/utils/functions/execute_and_handle_errors.dart';
 import 'package:store_ify/features/checkout/data/api/checkout_api_service.dart';
@@ -34,5 +35,19 @@ class CheckoutRepo {
         cancelToken,
       ),
     );
+  }
+
+  Future<ApiResult<String>> fetchCityDataUsingPosition(
+    Position position, [
+    CancelToken? cancelToken,
+  ]) {
+    return executeAndHandleErrors<String>(() async {
+      final cityData = await _checkoutApiService.fetchCityDataUsingPosition(
+        lat: position.latitude,
+        lon: position.longitude,
+        cancelToken: cancelToken,
+      );
+      return cityData.displayName;
+    });
   }
 }
