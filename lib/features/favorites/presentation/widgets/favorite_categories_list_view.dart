@@ -34,10 +34,13 @@ class FavoriteCategoriesListView extends StatelessWidget {
             borderColor: context.isDarkModeActive
                 ? Colors.transparent
                 : _lightModeSelectedColor(isSelected),
-            onPressed: () {
+            onPressed: () async {
               context
                   .read<FetchFavoritesCubit>()
-                  .updateSelectedFavCategoryAndFetchItsData(index);
+                  .updateSelectedFavCategory(index);
+              await context
+                  .read<FetchFavoritesCubit>()
+                  .fetchSelectedCategoryFavs();
             },
             child: Text(
               context.tr(AppConstants.favoritesCategoriesKeys[index]),

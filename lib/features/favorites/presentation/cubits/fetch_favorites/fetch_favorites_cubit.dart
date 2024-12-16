@@ -44,7 +44,7 @@ class FetchFavoritesCubit extends Cubit<FetchFavoritesState> {
     );
   }
 
-  void _updateSelectedFavCategory(int index) {
+  void updateSelectedFavCategory(int index) {
     if (state.selectedFavCategory != index) {
       emit(state.copyWith(
         status: FetchFavoritesStatus.updateSelectedFavCategory,
@@ -53,17 +53,14 @@ class FetchFavoritesCubit extends Cubit<FetchFavoritesState> {
     }
   }
 
-  void updateSelectedFavCategoryAndFetchItsData(int index) {
-    _updateSelectedFavCategory(index);
-    _fetchFavorites();
-  }
-
-  void _fetchFavorites() {
+  Future<void> fetchSelectedCategoryFavs() async {
     switch (state.selectedFavCategory) {
       case 0:
-        fetchFavStores();
+        await fetchFavStores();
+        break;
       case 1:
-        fetchFavProducts();
+        await fetchFavProducts();
+        break;
     }
   }
 
