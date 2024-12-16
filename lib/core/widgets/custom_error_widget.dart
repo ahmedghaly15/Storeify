@@ -11,10 +11,12 @@ class CustomErrorWidget extends StatelessWidget {
     super.key,
     this.tryAgainOnPressed,
     required this.errorKey,
+    this.assetImgPath,
   });
 
   final VoidCallback? tryAgainOnPressed;
   final String errorKey;
+  final String? assetImgPath;
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +26,13 @@ class CustomErrorWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          if (errorKey == LocaleKeys.noInternet)
-            Image.asset(
-              AppAssets.imagesNoInternet,
-              fit: BoxFit.cover,
-            ),
-          if (errorKey != LocaleKeys.noInternet)
-            Image.asset(
-              AppAssets.imagesDefaultError,
-              fit: BoxFit.cover,
-            ),
+          Image.asset(
+            assetImgPath ??
+                (errorKey == LocaleKeys.noInternet
+                    ? AppAssets.imagesNoInternet
+                    : AppAssets.imagesDefaultError),
+            fit: BoxFit.cover,
+          ),
           Column(
             children: [
               Container(
@@ -44,18 +43,13 @@ class CustomErrorWidget extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              if (errorKey == LocaleKeys.noInternet)
-                Text(
-                  context.tr(LocaleKeys.ensureInternetConnection),
-                  style: AppTextStyles.textStyle14Regular,
-                  textAlign: TextAlign.center,
-                ),
-              if (errorKey != LocaleKeys.noInternet)
-                Text(
-                  context.tr(LocaleKeys.defaultErrorDescription),
-                  style: AppTextStyles.textStyle14Regular,
-                  textAlign: TextAlign.center,
-                ),
+              Text(
+                context.tr(errorKey == LocaleKeys.noInternet
+                    ? LocaleKeys.ensureInternetConnection
+                    : LocaleKeys.defaultErrorDescription),
+                style: AppTextStyles.textStyle14Regular,
+                textAlign: TextAlign.center,
+              ),
             ],
           ),
           if (tryAgainOnPressed != null)
