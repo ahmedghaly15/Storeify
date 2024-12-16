@@ -32,12 +32,12 @@ class ForgotPasswordView extends StatelessWidget implements AutoRouteWrapper {
             hasScrollBody: false,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Center(
-                  child: Text(
-                    context.tr(LocaleKeys.forgotPassword),
-                    style: AppTextStyles.textStyle24Medium,
-                  ),
+                Text(
+                  context.tr(LocaleKeys.forgotPassword),
+                  style: AppTextStyles.textStyle24Medium,
+                  textAlign: TextAlign.center,
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 14.h),
