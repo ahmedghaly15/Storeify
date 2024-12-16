@@ -1,47 +1,107 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:store_ify/core/utils/functions/get_and_cache_country_code.dart';
+import 'package:store_ify/core/helpers/cache_keys.dart';
+import 'package:store_ify/core/helpers/extensions.dart';
+import 'package:store_ify/core/helpers/shared_pref_helper.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
+
+class CachedLocation {
+  final String? countryCode;
+  final DateTime timestamp;
+
+  CachedLocation({
+    this.countryCode,
+    required this.timestamp,
+  });
+}
 
 class LocationService {
-  static Future<void> requestPermission() async {
-    await Geolocator.requestPermission();
+  static const int _locationCacheDurationDays = 5;
+
+  static Future<String> getAndCacheCountryCode() async {
+    final cachedLocation = await _retrieveCachedCountryCode();
+
+    if (cachedLocation != null && !_isCacheExpired(cachedLocation.timestamp)) {
+      final cachedCountryCode = cachedLocation.countryCode;
+      debugPrint('Using cached country code: $cachedCountryCode');
+      return cachedCountryCode!;
+    }
+
+    return await _refreshCachedLocation();
+  }
+
+  static Future<String?> _getCountryCode() async {
+    // Check and request permission
+    try {
+      if (await isLocationPermissionDenied()) {
+        await Geolocator.requestPermission();
+        if (await isLocationPermissionDenied()) {
+          debugPrint('Location permissions denied');
+          return null;
+        }
+      }
+      // Get position only if we have permission and services are enabled
+      final Position position = await Geolocator.getCurrentPosition();
+      debugPrint('***** LocationService: Getting Country Code *****');
+      List<Placemark> placemarks = await placemarkFromCoordinates(
+        position.latitude,
+        position.longitude,
+      );
+      debugPrint(
+          '***** Country Code: ${placemarks.first.isoCountryCode} *****');
+      return placemarks.first.isoCountryCode;
+    } catch (e) {
+      debugPrint('Error getting location: $e');
+      return null;
+    }
   }
 
   static Future<bool> isLocationPermissionDenied() async {
-    final locationPermission = await Geolocator.checkPermission();
-    return locationPermission == LocationPermission.deniedForever ||
-        locationPermission == LocationPermission.denied;
+    final LocationPermission permission = await Geolocator.checkPermission();
+    return permission == LocationPermission.denied ||
+        permission == LocationPermission.deniedForever;
   }
 
-  static Future<String> getCountryCode() async {
-    try {
-      return await _currentCountryCode();
-    } catch (error) {
-      return _handleGetCountryCodeErrors(error);
+  static Future<CachedLocation?> _retrieveCachedCountryCode() async {
+    final cachedCountryCode = SharedPrefHelper.getString(CacheKeys.countryCode);
+    final timestampStr =
+        SharedPrefHelper.getString(CacheKeys.countryCodeTimestamp);
+
+    if (!timestampStr.isNullOrEmpty) {
+      return CachedLocation(
+        countryCode: cachedCountryCode,
+        timestamp: DateTime.parse(timestampStr!),
+      );
     }
+    return null;
   }
 
-  static Future<String> _currentCountryCode() async {
-    Position position = await Geolocator.getCurrentPosition();
-    debugPrint('***** LocationService: Getting Country Code *****');
-    List<Placemark> placemarks =
-        await placemarkFromCoordinates(position.latitude, position.longitude);
-    debugPrint('***** Country Code: ${placemarks.first.isoCountryCode} *****');
-    return placemarks.first.isoCountryCode ?? 'EG';
+  static bool _isCacheExpired(DateTime timestamp) {
+    final now = DateTime.now();
+    final difference = now.difference(timestamp).inDays;
+    return difference >= _locationCacheDurationDays;
   }
 
-  static Future<String> _handleGetCountryCodeErrors(Object error) async {
-    final cachedCountryCode = await retrieveCachedCountryCode();
-    if (error is PlatformException && error.code == 'IO_ERROR') {
-      debugPrint(
-          '*** Geocoding service unavailable. Defaulting to $cachedCountryCode. ***');
+  static Future<String> _refreshCachedLocation() async {
+    final currentCountryCode = await _getCountryCode();
+
+    if (currentCountryCode.isNullOrEmpty) {
+      return AppConstants.defaultCountryCode;
     } else {
-      debugPrint('******* Error retrieving country code: $error *******');
+      await _cacheCountryCode(currentCountryCode!);
+      return currentCountryCode;
     }
+  }
 
-    // Return a default value
-    return cachedCountryCode ?? 'US';
+  static Future<void> _cacheCountryCode(String countryCode) async {
+    debugPrint('********* CACHING COUNTRY CODE: $countryCode *************');
+    await Future.wait([
+      SharedPrefHelper.setData(CacheKeys.countryCode, countryCode),
+      SharedPrefHelper.setData(
+        CacheKeys.countryCodeTimestamp,
+        DateTime.now().toIso8601String(),
+      ),
+    ]);
   }
 }
