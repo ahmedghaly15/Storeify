@@ -32,29 +32,26 @@ class LoginButtonBlocConsumer extends StatelessWidget {
   }
 
   Future<void> _listener(
-      LoginState<dynamic> state, BuildContext context) async {
+    LoginState<dynamic> state,
+    BuildContext context,
+  ) async {
     switch (state.status) {
       case LoginStateStatus.loginLoading:
         context.unfocusKeyboard();
         break;
       case LoginStateStatus.loginSuccess:
-        await _cacheUserAndGoHome(state, context);
+        currentUser = state.user;
+        await AuthLocalDatasource.cacheUserAndSetTokenIntoHeaders(
+          state.user!,
+        );
+        context.replaceRoute(const LayoutRoute());
+        break;
       case LoginStateStatus.loginError:
         context.showToast(state.error!);
+        break;
       default:
         break;
     }
-  }
-
-  Future<void> _cacheUserAndGoHome(
-    LoginState<dynamic> state,
-    BuildContext context,
-  ) async {
-    currentUser = state.user;
-    await AuthLocalDatasource.cacheUserAndSetTokenIntoHeaders(
-      state.user!,
-    );
-    context.replaceRoute(const LayoutRoute());
   }
 
   bool _listenOrBuildWhen(LoginStateStatus status) {
