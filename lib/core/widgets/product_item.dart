@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:store_ify/core/helpers/enums.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/models/product.dart';
 import 'package:store_ify/core/router/app_router.dart';
@@ -9,7 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_cached_network_image.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
-import 'package:store_ify/core/widgets/prefer_product_bloc_listener_icon_button.dart';
+import 'package:store_ify/core/widgets/prefer_item_bloc_listener_icon_button.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({super.key, required this.product});
@@ -19,7 +20,6 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // constraints: BoxConstraints(maxWidth: 145.w),
       decoration: BoxDecoration(
         color: context.isDarkModeActive
             ? AppColors.secondaryDarkColor
@@ -63,7 +63,6 @@ class ProductItem extends StatelessWidget {
               padding: EdgeInsetsDirectional.only(
                 start: 9.w,
                 top: 8.h,
-                end: 16.w,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,9 +99,12 @@ class ProductItem extends StatelessWidget {
                           decorationColor: AppColors.greyColor,
                         ),
                       ),
-                      PreferProductBlocListenerIconButton(
-                        isFavorited: product.isFavorited,
-                        productId: product.id,
+                      Expanded(
+                        child: PreferItemBlocListenerIconButton(
+                          isFavorited: product.isFavorited,
+                          productId: product.id,
+                          itemType: FavItemType.product,
+                        ),
                       ),
                     ],
                   ),

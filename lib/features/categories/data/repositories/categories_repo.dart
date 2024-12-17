@@ -35,22 +35,13 @@ class CategoriesRepo {
   Future<ApiResult<FetchSubCategoryResponse>> fetchSubCategory(
     FetchSubCategoryParams params, [
     CancelToken? cancelToken,
-  ]) async {
-    final cachedSubCategory = await _localDatasource.getCachedSubCategory();
-    if (cachedSubCategory == null) {
-      debugPrint('********** CACHED SUB CATEGORY NOT FOUND **********');
-      return executeAndHandleErrors<FetchSubCategoryResponse>(() async {
-        final subCategory = await _categoriesApiService.fetchSubCategory(
-          params.categoryId,
-          params.subCategoryId,
-          cancelToken,
-        );
-        await _localDatasource.cacheSubCategory(subCategory);
-        return subCategory;
-      });
-    } else {
-      debugPrint('********** GOT CACHED SUB CATEGORY **********');
-      return ApiResult.success(cachedSubCategory);
-    }
+  ]) {
+    return executeAndHandleErrors<FetchSubCategoryResponse>(
+      () async => await _categoriesApiService.fetchSubCategory(
+        params.categoryId,
+        params.subCategoryId,
+        cancelToken,
+      ),
+    );
   }
 }

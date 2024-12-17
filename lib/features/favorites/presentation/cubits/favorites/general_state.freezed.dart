@@ -20,6 +20,7 @@ mixin _$GeneralState {
   String? get error => throw _privateConstructorUsedError;
   ThemeData? get theme => throw _privateConstructorUsedError;
   FetchHomeResponse? get homeData => throw _privateConstructorUsedError;
+  int? get favAffectedItem => throw _privateConstructorUsedError;
 
   /// Create a copy of GeneralState
   /// with the given fields replaced by the non-null parameter values.
@@ -38,7 +39,8 @@ abstract class $GeneralStateCopyWith<$Res> {
       {GeneralStateStatus status,
       String? error,
       ThemeData? theme,
-      FetchHomeResponse? homeData});
+      FetchHomeResponse? homeData,
+      int? favAffectedItem});
 }
 
 /// @nodoc
@@ -60,6 +62,7 @@ class _$GeneralStateCopyWithImpl<$Res, $Val extends GeneralState>
     Object? error = freezed,
     Object? theme = freezed,
     Object? homeData = freezed,
+    Object? favAffectedItem = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -78,6 +81,10 @@ class _$GeneralStateCopyWithImpl<$Res, $Val extends GeneralState>
           ? _value.homeData
           : homeData // ignore: cast_nullable_to_non_nullable
               as FetchHomeResponse?,
+      favAffectedItem: freezed == favAffectedItem
+          ? _value.favAffectedItem
+          : favAffectedItem // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -94,7 +101,8 @@ abstract class _$$GeneralStateImplCopyWith<$Res>
       {GeneralStateStatus status,
       String? error,
       ThemeData? theme,
-      FetchHomeResponse? homeData});
+      FetchHomeResponse? homeData,
+      int? favAffectedItem});
 }
 
 /// @nodoc
@@ -114,6 +122,7 @@ class __$$GeneralStateImplCopyWithImpl<$Res>
     Object? error = freezed,
     Object? theme = freezed,
     Object? homeData = freezed,
+    Object? favAffectedItem = freezed,
   }) {
     return _then(_$GeneralStateImpl(
       status: null == status
@@ -132,6 +141,10 @@ class __$$GeneralStateImplCopyWithImpl<$Res>
           ? _value.homeData
           : homeData // ignore: cast_nullable_to_non_nullable
               as FetchHomeResponse?,
+      favAffectedItem: freezed == favAffectedItem
+          ? _value.favAffectedItem
+          : favAffectedItem // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -140,7 +153,11 @@ class __$$GeneralStateImplCopyWithImpl<$Res>
 
 class _$GeneralStateImpl implements _GeneralState {
   const _$GeneralStateImpl(
-      {required this.status, this.error, this.theme, this.homeData});
+      {required this.status,
+      this.error,
+      this.theme,
+      this.homeData,
+      this.favAffectedItem});
 
   @override
   final GeneralStateStatus status;
@@ -150,10 +167,12 @@ class _$GeneralStateImpl implements _GeneralState {
   final ThemeData? theme;
   @override
   final FetchHomeResponse? homeData;
+  @override
+  final int? favAffectedItem;
 
   @override
   String toString() {
-    return 'GeneralState(status: $status, error: $error, theme: $theme, homeData: $homeData)';
+    return 'GeneralState(status: $status, error: $error, theme: $theme, homeData: $homeData, favAffectedItem: $favAffectedItem)';
   }
 
   @override
@@ -165,11 +184,14 @@ class _$GeneralStateImpl implements _GeneralState {
             (identical(other.error, error) || other.error == error) &&
             (identical(other.theme, theme) || other.theme == theme) &&
             (identical(other.homeData, homeData) ||
-                other.homeData == homeData));
+                other.homeData == homeData) &&
+            (identical(other.favAffectedItem, favAffectedItem) ||
+                other.favAffectedItem == favAffectedItem));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, error, theme, homeData);
+  int get hashCode =>
+      Object.hash(runtimeType, status, error, theme, homeData, favAffectedItem);
 
   /// Create a copy of GeneralState
   /// with the given fields replaced by the non-null parameter values.
@@ -185,7 +207,8 @@ abstract class _GeneralState implements GeneralState {
       {required final GeneralStateStatus status,
       final String? error,
       final ThemeData? theme,
-      final FetchHomeResponse? homeData}) = _$GeneralStateImpl;
+      final FetchHomeResponse? homeData,
+      final int? favAffectedItem}) = _$GeneralStateImpl;
 
   @override
   GeneralStateStatus get status;
@@ -195,6 +218,8 @@ abstract class _GeneralState implements GeneralState {
   ThemeData? get theme;
   @override
   FetchHomeResponse? get homeData;
+  @override
+  int? get favAffectedItem;
 
   /// Create a copy of GeneralState
   /// with the given fields replaced by the non-null parameter values.

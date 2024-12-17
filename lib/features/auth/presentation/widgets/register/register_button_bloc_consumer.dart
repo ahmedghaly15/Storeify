@@ -36,14 +36,14 @@ class RegisterButtonBlocConsumer extends StatelessWidget {
     );
   }
 
-  void _listener(RegisterState<dynamic> state, BuildContext context) {
+  void _listener(RegisterState<dynamic> state, BuildContext context) async {
     switch (state.status) {
       case RegisterStateStatus.registerLoading:
         context.unfocusKeyboard();
         break;
       case RegisterStateStatus.registerSuccess:
         currentUser = state.user;
-        AuthLocalDatasource.cacheUserAndSetTokenIntoHeaders(state.user!);
+        await AuthLocalDatasource.cacheUserAndSetTokenIntoHeaders(state.user!);
         context.showToast(LocaleKeys.accountCreatedSuccessfully);
         context.maybePop();
         break;

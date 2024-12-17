@@ -1,12 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_ify/generated/locale_keys.g.dart';
+
+import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
-import 'package:store_ify/core/di/dependency_injection.dart';
+import 'package:store_ify/features/categories/data/datasources/categories_local_datasource.dart';
 import 'package:store_ify/features/categories/presentation/cubit/categories/categories_cubit.dart';
 import 'package:store_ify/features/categories/presentation/widgets/categories_bloc_builder.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 @RoutePage()
 class CategoriesView extends StatelessWidget implements AutoRouteWrapper {
@@ -24,8 +26,10 @@ class CategoriesView extends StatelessWidget implements AutoRouteWrapper {
   Widget build(BuildContext context) {
     return Scaffold(
       body: RefreshIndicator.adaptive(
-        onRefresh: () async =>
-            await context.read<CategoriesCubit>().fetchCategories(),
+        onRefresh: () async {
+          await CategoriesLocalDatasource.deleteCachedCategories();
+          await context.read<CategoriesCubit>().fetchCategories();
+        },
         child: const SafeArea(
           child: CustomScrollView(
             physics: AppConstants.physics,

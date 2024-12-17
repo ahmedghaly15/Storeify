@@ -25,7 +25,7 @@ class PaymentMethods extends StatelessWidget {
               PaymentMethod>(
             selector: (state) => state.selectedPaymentMethod!,
             builder: (context, selectedPaymentMethod) => FadeInUp(
-              from: 60,
+              from: 60.h,
               child: AnimatedPaymentMethodItem(
                 isChosen: index == selectedPaymentMethod.id,
                 paymentMethod: AppConstants.paymentMethods[index],

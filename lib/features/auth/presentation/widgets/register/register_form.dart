@@ -23,11 +23,8 @@ class RegisterForm extends StatelessWidget {
         children: <Widget>[
           const TextFieldLabel(labelKey: LocaleKeys.email),
           EmailTextFormField(
-            emailController: registerCubit.emailController,
-            emailFocusNode: registerCubit.emailFocusNode,
+            controller: registerCubit.emailController,
             nextFocusNode: registerCubit.usernameFocusNode,
-            validate: (String? value) =>
-                TextFormValidator.validateEmailField(context, value: value),
           ),
           MySizedBox.height24,
           const TextFieldLabel(labelKey: LocaleKeys.username),
@@ -35,8 +32,6 @@ class RegisterForm extends StatelessWidget {
             controller: registerCubit.usernameController,
             usernameFocusNode: registerCubit.usernameFocusNode,
             nextFocusNode: registerCubit.passwordFocusNode,
-            validate: (String? value) =>
-                TextFormValidator.validateNameField(context, value: value),
           ),
           MySizedBox.height24,
           const TextFieldLabel(labelKey: LocaleKeys.password),

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/helpers/enums.dart';
 import 'package:store_ify/core/helpers/shared_pref_helper.dart';
 import 'package:store_ify/core/helpers/cache_keys.dart';
 import 'package:store_ify/core/themes/app_themes.dart';
@@ -41,111 +42,69 @@ class GeneralCubit extends Cubit<GeneralState> {
     );
   }
 
-  void deleteCachedAndFetchHomeData() async {
-    await homeRepo.deleteHomeCachedData();
-    fetchHomeData();
-  }
-
-  void preferProductOrNot({
-    required bool isFavorited,
-    required int productId,
-  }) {
-    isFavorited ? _removeProductFromFavs(productId) : _preferProduct(productId);
-  }
-
-  void _preferProduct(int productId) async {
+  void preferItem({
+    int? storeId,
+    int? productId,
+    required FavItemType itemType,
+  }) async {
+    final isStoreItem = itemType == FavItemType.store;
     emit(state.copyWith(
-      status: GeneralStateStatus.preferProductLoading,
+      status: isStoreItem
+          ? GeneralStateStatus.preferStoreLoading
+          : GeneralStateStatus.preferProductLoading,
     ));
     final result = await favoritesRepo.preferItem(
-      itemType: FavItemType.product,
-      params: PreferParams(productId: productId),
+      params: PreferParams(storeId: storeId, productId: productId),
+      itemType: itemType,
       cancelToken: _cancelToken,
     );
     result.when(
       success: (_) => emit(state.copyWith(
-        status: GeneralStateStatus.preferProductSuccess,
+        status: isStoreItem
+            ? GeneralStateStatus.preferStoreSuccess
+            : GeneralStateStatus.preferProductSuccess,
+        favAffectedItem: isStoreItem ? storeId : productId,
       )),
       error: (errorModel) => emit(state.copyWith(
-        status: GeneralStateStatus.preferProductError,
+        status: isStoreItem
+            ? GeneralStateStatus.preferStoreError
+            : GeneralStateStatus.preferProductError,
         error: errorModel.error ?? '',
+        favAffectedItem: isStoreItem ? storeId : productId,
       )),
     );
   }
 
-  void _removeProductFromFavs(int productId) async {
+  void removeItemFromFavs({
+    required int itemId,
+    required FavItemType itemType,
+  }) async {
+    final isStoreItem = itemType == FavItemType.store;
     emit(state.copyWith(
-      status: GeneralStateStatus.removeProductFromFavsLoading,
+      status: isStoreItem
+          ? GeneralStateStatus.removeStoreFromFavsLoading
+          : GeneralStateStatus.removeProductFromFavsLoading,
     ));
     final result = await favoritesRepo.removeItemFromFavs(
-      itemId: productId,
-      itemType: FavItemType.product,
+      itemId: itemId,
+      itemType: itemType,
       cancelToken: _cancelToken,
     );
     result.when(
       success: (_) => emit(state.copyWith(
-        status: GeneralStateStatus.removeProductFromFavsSuccess,
+        status: isStoreItem
+            ? GeneralStateStatus.removeStoreFromFavsSuccess
+            : GeneralStateStatus.removeProductFromFavsSuccess,
+        favAffectedItem: itemId,
       )),
       error: (errorModel) => emit(state.copyWith(
-        status: GeneralStateStatus.removeProductFromFavsError,
+        status: isStoreItem
+            ? GeneralStateStatus.removeStoreFromFavsError
+            : GeneralStateStatus.removeProductFromFavsError,
         error: errorModel.error ?? '',
+        favAffectedItem: itemId,
       )),
     );
-  }
-
-  void preferStoreOrNot({
-    required bool isFavorited,
-    required int storeId,
-  }) {
-    isFavorited ? _removeStoreFromFavs(storeId) : _preferStore(storeId);
-  }
-
-  void _preferStore(int storeId) async {
-    emit(state.copyWith(
-      status: GeneralStateStatus.preferStoreLoading,
-    ));
-    final result = await favoritesRepo.preferItem(
-      params: PreferParams(storeId: storeId),
-      itemType: FavItemType.store,
-      cancelToken: _cancelToken,
-    );
-    result.when(
-      success: (_) => emit(state.copyWith(
-        status: GeneralStateStatus.preferStoreSuccess,
-      )),
-      error: (errorModel) => emit(state.copyWith(
-        status: GeneralStateStatus.preferStoreError,
-        error: errorModel.error ?? '',
-      )),
-    );
-  }
-
-  void _removeStoreFromFavs(int storeId) async {
-    emit(state.copyWith(
-      status: GeneralStateStatus.removeStoreFromFavsLoading,
-    ));
-    final result = await favoritesRepo.removeItemFromFavs(
-      itemId: storeId,
-      itemType: FavItemType.store,
-      cancelToken: _cancelToken,
-    );
-    result.when(
-      success: (_) => emit(state.copyWith(
-        status: GeneralStateStatus.removeStoreFromFavsSuccess,
-      )),
-      error: (errorModel) => emit(state.copyWith(
-        status: GeneralStateStatus.removeStoreFromFavsError,
-        error: errorModel.error ?? '',
-      )),
-    );
-  }
-
-  Future<void> deleteCachedFavProducts() async {
-    await favoritesRepo.deleteCachedFavProducts();
-  }
-
-  Future<void> deleteCachedFavStores() async {
-    await favoritesRepo.deleteCachedFavStores();
   }
 
   Future<void> _cacheSelectedTheme(Brightness brightness) async {

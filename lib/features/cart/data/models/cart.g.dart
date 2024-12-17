@@ -23,7 +23,7 @@ Map<String, dynamic> _$CartToJson(Cart instance) => <String, dynamic>{
       'price': instance.price,
       'total': instance.total,
       'cart_id': instance.cartId,
-      'product': instance.product,
-      'color': instance.color,
-      'size': instance.size,
+      'product': instance.product.toJson(),
+      'color': instance.color.toJson(),
+      'size': instance.size.toJson(),
     };

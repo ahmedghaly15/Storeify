@@ -12,6 +12,7 @@ class ValidateOtpPinput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Pinput(
+      length: 4,
       controller: context.read<ValidateOtpCubit>().otpController,
       onCompleted: (_) => context.unfocusKeyboard(),
       autofocus: true,

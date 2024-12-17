@@ -14,7 +14,7 @@ class ResetPasswordForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final resetPassCubit = context.read<ResetPasswordCubit>();
     return Form(
-      key: context.read<ResetPasswordCubit>().formKey,
+      key: resetPassCubit.formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

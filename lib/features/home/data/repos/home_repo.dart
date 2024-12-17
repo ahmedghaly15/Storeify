@@ -28,8 +28,4 @@ class HomeRepo {
       return ApiResult.success(cachedHomeResponse);
     }
   }
-
-  Future<void> deleteHomeCachedData() async {
-    await _localDatasource.deleteHomeCachedResponse();
-  }
 }

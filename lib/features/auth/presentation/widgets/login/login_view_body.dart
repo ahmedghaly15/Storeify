@@ -59,12 +59,12 @@ class LoginViewBody extends StatelessWidget {
                           foregroundColor: context.isDarkModeActive
                               ? Colors.white
                               : AppColors.greyColor,
+                          textStyle: AppTextStyles.textStyle16Regular,
                         ),
                         onPressed: () =>
                             context.pushRoute(const ForgotPasswordRoute()),
                         child: Text(
                           context.tr(LocaleKeys.forgotPassword),
-                          style: AppTextStyles.textStyle16Regular,
                         ),
                       ),
                       const SignUpTextButton(),

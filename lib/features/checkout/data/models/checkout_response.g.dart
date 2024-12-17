@@ -13,7 +13,7 @@ CheckoutResponse _$CheckoutResponseFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$CheckoutResponseToJson(CheckoutResponse instance) =>
     <String, dynamic>{
-      'order': instance.order,
+      'order': instance.order.toJson(),
     };
 
 Order _$OrderFromJson(Map<String, dynamic> json) => Order(

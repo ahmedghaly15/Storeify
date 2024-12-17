@@ -22,7 +22,7 @@ class HomeLocalDatasource {
     return box.get('${HiveKeys.homeResponse}_${currentUser!.user.username}');
   }
 
-  Future<void> deleteHomeCachedResponse() async {
+  static Future<void> deleteHomeCachedResponse() async {
     final box =
         await Hive.openLazyBox<FetchHomeResponse>(HiveBoxes.homeResponseBox);
     await box.delete('${HiveKeys.homeResponse}_${currentUser!.user.username}');

@@ -38,7 +38,6 @@ import 'package:store_ify/features/checkout/presentation/cubits/payment_method/p
 import 'package:store_ify/features/favorites/data/api/favorites_api_service.dart';
 import 'package:store_ify/features/favorites/data/datasources/favorites_local_datasource.dart';
 import 'package:store_ify/features/favorites/data/repositories/favorites_repo.dart';
-import 'package:store_ify/features/favorites/data/repositories/favorites_repo_impl.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/general_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
 import 'package:store_ify/features/home/data/api/home_api_service.dart';
@@ -184,7 +183,7 @@ void _setupDIForRepos() {
     ),
   );
   getIt.registerLazySingleton<FavoritesRepo>(
-    () => FavoritesRepoImpl(
+    () => FavoritesRepo(
       getIt.get<FavoritesApiService>(),
       getIt.get<FavoritesLocalDatasource>(),
     ),

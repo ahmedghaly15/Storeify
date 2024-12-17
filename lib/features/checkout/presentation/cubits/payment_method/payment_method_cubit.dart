@@ -13,6 +13,7 @@ class PaymentMethodCubit extends Cubit<PaymentMethodState> {
   final CheckoutRepo _checkoutRepo;
   final CancelToken _cancelToken = CancelToken();
 
+  PaymentMethod get selectedPaymentMethod => state.selectedPaymentMethod!;
   void updateSelectedPaymentMethod(PaymentMethod paymentMethod) {
     if (state.selectedPaymentMethod != paymentMethod) {
       emit(state.copyWith(

@@ -9,6 +9,7 @@ part 'sub_category.g.dart';
 class SubCategory {
   @HiveField(0)
   final int id;
+
   @HiveField(1)
   final String name;
 

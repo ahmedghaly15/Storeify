@@ -21,15 +21,13 @@ void main() async {
   Bloc.observer = MyBlocObserver();
   final appDocumentDir = await getApplicationDocumentsDirectory();
   await Hive.initFlutter(appDocumentDir.path);
-  await HiveHelper.registerAdapters();
+  HiveHelper.registerAdapters();
   await setupDI();
   await checkForFirstLaunchAndDeviceTheme();
   await checkIfAndroidAbove12();
   await checkIfOnboardingIsVisited();
   await checkIfUserIsLoggedIn();
-  // TODO: add some animations to the whole app
   // TODO: remember to handle empty lists in the UI
-  // TODO: handle save card details logic using hive
   runApp(
     EasyLocalization(
       supportedLocales: const [

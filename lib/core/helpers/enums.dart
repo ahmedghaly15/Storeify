@@ -1,0 +1,1 @@
+enum FavItemType { product, store }

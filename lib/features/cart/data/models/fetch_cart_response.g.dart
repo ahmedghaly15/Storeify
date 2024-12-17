@@ -19,7 +19,7 @@ FetchCartResponse _$FetchCartResponseFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$FetchCartResponseToJson(FetchCartResponse instance) =>
     <String, dynamic>{
-      'cart': instance.cart,
+      'cart': instance.cart.map((e) => e.toJson()).toList(),
       'totalItems': instance.totalItems,
       'delivery': instance.delivery,
       'totalPrice': instance.totalPrice,

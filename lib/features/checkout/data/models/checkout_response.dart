@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'checkout_response.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class CheckoutResponse {
   final Order order;
 

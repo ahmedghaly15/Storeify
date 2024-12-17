@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/features/home/presentation/widgets/horizontal_separated_list_view.dart';
 import 'package:store_ify/features/stores/data/models/store.dart';
 import 'package:store_ify/features/stores/presentation/widgets/store_item.dart';
@@ -14,7 +15,10 @@ class TopStoresListView extends StatelessWidget {
     return SizedBox(
       height: 175.h,
       child: HorizontalSeparatedListView(
-        itemBuilder: (_, index) => StoreItem(store: topStores[index]),
+        itemBuilder: (_, index) => AspectRatio(
+          aspectRatio: AppConstants.storeItemAspectRatio,
+          child: StoreItem(store: topStores[index]),
+        ),
         itemCount: topStores.length,
       ),
     );
