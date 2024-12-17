@@ -4,7 +4,7 @@ import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/core/widgets/shimmer_widget.dart';
 import 'package:store_ify/core/widgets/stores_grid_view_shimmer.dart';
-import 'package:store_ify/features/home/presentation/widgets/horizontal_separated_list_view.dart';
+import 'package:store_ify/core/widgets/horizontal_separated_list_view.dart';
 
 class StoresShimmerLoading extends StatelessWidget {
   const StoresShimmerLoading({super.key});

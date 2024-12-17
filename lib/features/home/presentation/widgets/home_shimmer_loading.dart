@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/shimmer_widget.dart';
-import 'package:store_ify/features/home/presentation/widgets/horizontal_separated_list_view.dart';
+import 'package:store_ify/core/widgets/horizontal_separated_list_view.dart';
 
 class HomeShimmerLoading extends StatelessWidget {
   const HomeShimmerLoading({super.key});

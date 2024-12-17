@@ -5,7 +5,7 @@ import 'package:store_ify/core/widgets/list_outlined_button.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_state.dart';
-import 'package:store_ify/features/home/presentation/widgets/horizontal_separated_list_view.dart';
+import 'package:store_ify/core/widgets/horizontal_separated_list_view.dart';
 
 class FavoriteCategoriesListView extends StatelessWidget {
   const FavoriteCategoriesListView({super.key});

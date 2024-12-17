@@ -8,7 +8,7 @@ import 'package:store_ify/features/categories/data/models/category.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_params.dart';
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_cubit.dart';
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_state.dart';
-import 'package:store_ify/features/home/presentation/widgets/horizontal_separated_list_view.dart';
+import 'package:store_ify/core/widgets/horizontal_separated_list_view.dart';
 
 class SubCategoriesListView extends StatelessWidget {
   const SubCategoriesListView({super.key, required this.category});
