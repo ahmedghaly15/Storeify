@@ -11,9 +11,10 @@ class CustomSliverAppBar extends StatelessWidget {
     this.titleWidget,
     this.leading,
     this.hasLeading = true,
+    this.titleText,
   });
 
-  final String? titleKey;
+  final String? titleKey, titleText;
   final List<Widget>? actions;
   final Widget? titleWidget;
   final Widget? leading;
@@ -23,7 +24,11 @@ class CustomSliverAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       title: titleWidget ??
-          (titleKey.isNullOrEmpty ? null : Text(context.tr(titleKey!))),
+          ((titleKey.isNullOrEmpty && titleText.isNullOrEmpty)
+              ? null
+              : Text(
+                  titleText ?? context.tr(titleKey!),
+                )),
       leading: hasLeading ? leading ?? const GetBackIconButton() : null,
       actions: actions,
     );
