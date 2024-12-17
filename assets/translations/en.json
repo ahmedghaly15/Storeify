@@ -170,5 +170,7 @@
     "SIZE_REQUIRED": "Please select a size and try again",
     "COLOR_REQUIRED": "Please select a color and try again",
     "phoneNumberCantBeEmpty": "Phone number can't be empty. Please enter a valid phone number.",
-    "emptyCategories": "No categories found. Please try again later."
+    "emptyCategories": "No categories found. Please try again later.",
+    "addToFavorites": "Add to Favorites",
+    "emptyFavDescription": "You don't have any favorites. Add some to your favorites."
 }

@@ -105,6 +105,7 @@ class AppConstants {
         crossAxisCount: gridCrossAxisCount,
         crossAxisSpacing: 15.w,
         mainAxisSpacing: 10.h,
+        childAspectRatio: productItemAspectRatio,
       );
 
   static BoxDecoration storeBranchItemDecoration(BuildContext context) {
@@ -119,4 +120,6 @@ class AppConstants {
   }
 
   static EdgeInsetsGeometry get storeBranchItemPadding => EdgeInsets.all(10.h);
+  static const double storeItemAspectRatio = 169 / 165;
+  static const double productItemAspectRatio = 145 / 209;
 }

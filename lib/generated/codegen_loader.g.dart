@@ -186,7 +186,9 @@ class CodegenLoader extends AssetLoader{
   "SIZE_REQUIRED": "يرجى اختيار الحجم ثم المحاولة مرة أخرى",
   "COLOR_REQUIRED": "يرجى اختيار اللون ثم المحاولة مرة أخرى",
   "phoneNumberCantBeEmpty": "لا يمكن ان يكون رقم الهاتف فارغ. يرجى ادخال رقم هاتف صالح.",
-  "emptyCategories": "لا يوجد فئات. يرجى التحقق من الاتصال بالانترنت والمحاولة مرة اخرى."
+  "emptyCategories": "لا يوجد فئات. يرجى التحقق من الاتصال بالانترنت والمحاولة مرة اخرى.",
+  "addToFavorites": "اضافة الى المفضلة",
+  "emptyFavDescription": "لا يوجد منتجات في المفضلة. يرجى اضافة منتجات للمفضلة."
 };
 static const Map<String,dynamic> en = {
   "signInToContinue": "Sign in to continue",
@@ -360,7 +362,9 @@ static const Map<String,dynamic> en = {
   "SIZE_REQUIRED": "Please select a size and try again",
   "COLOR_REQUIRED": "Please select a color and try again",
   "phoneNumberCantBeEmpty": "Phone number can't be empty. Please enter a valid phone number.",
-  "emptyCategories": "No categories found. Please try again later."
+  "emptyCategories": "No categories found. Please try again later.",
+  "addToFavorites": "Add to Favorites",
+  "emptyFavDescription": "You don't have any favorites. Add some to your favorites."
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

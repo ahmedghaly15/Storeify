@@ -12,6 +12,7 @@ class HiveTypeIds {
   static const int category = 8;
   static const int pagination = 10;
   static const int fetchStores = 11;
+  static const int subCategory = 12;
   static const int fetchCategoriesResponse = 14;
   static const int fetchFavoriteProductsResponse = 16;
   static const int fetchFavStoresResponse = 17;

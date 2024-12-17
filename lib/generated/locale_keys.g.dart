@@ -173,5 +173,7 @@ abstract class  LocaleKeys {
   static const COLOR_REQUIRED = 'COLOR_REQUIRED';
   static const phoneNumberCantBeEmpty = 'phoneNumberCantBeEmpty';
   static const emptyCategories = 'emptyCategories';
+  static const addToFavorites = 'addToFavorites';
+  static const emptyFavDescription = 'emptyFavDescription';
 
 }
