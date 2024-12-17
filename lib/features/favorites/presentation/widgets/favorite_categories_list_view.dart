@@ -1,64 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:store_ify/core/themes/app_colors.dart';
-import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
-import 'package:store_ify/core/widgets/main_button.dart';
+import 'package:store_ify/core/widgets/list_outlined_button.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_state.dart';
+import 'package:store_ify/features/home/presentation/widgets/horizontal_separated_list_view.dart';
 
 class FavoriteCategoriesListView extends StatelessWidget {
   const FavoriteCategoriesListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      scrollDirection: Axis.horizontal,
-      padding: AppConstants.categoryPadding,
-      itemBuilder: (_, index) =>
-          BlocSelector<FetchFavoritesCubit, FetchFavoritesState, int>(
-        selector: (state) => state.selectedFavCategory,
-        builder: (context, selectedFavCategory) {
-          final isSelected = selectedFavCategory == index;
-          return MainButton(
-            width: 76,
-            padding: EdgeInsets.symmetric(vertical: 5.h),
-            margin: EdgeInsets.zero,
-            isOutlined: true,
-            backgroundColor: Colors.transparent,
-            borderRadius: 34,
-            borderColor: context.isDarkModeActive
-                ? _darkModeColor(isSelected)
-                : _lightModeSelectedColor(isSelected),
-            onPressed: () async {
-              context
-                  .read<FetchFavoritesCubit>()
-                  .updateSelectedFavCategory(index);
-              context.read<FetchFavoritesCubit>().fetchSelectedCategoryFavs();
-            },
-            child: Text(
-              context.tr(AppConstants.favoritesCategoriesKeys[index]),
-              style: AppTextStyles.textStyle10Medium.copyWith(
-                color: context.isDarkModeActive
-                    ? _darkModeColor(isSelected)
-                    : _lightModeSelectedColor(isSelected),
-              ),
-            ),
-          );
-        },
+    return SizedBox(
+      height: AppConstants.horizontalTapsListHeight,
+      child: HorizontalSeparatedListView(
+        padding: AppConstants.categoryPadding,
+        itemBuilder: (_, index) =>
+            BlocSelector<FetchFavoritesCubit, FetchFavoritesState, int>(
+          selector: (state) => state.selectedFavCategory,
+          builder: (context, selectedFavCategory) {
+            final isSelected = selectedFavCategory == index;
+            return ListOutlinedButton(
+              isActive: isSelected,
+              onPressed: () async {
+                if (!isSelected) {
+                  context
+                      .read<FetchFavoritesCubit>()
+                      .updateSelectedFavCategory(index);
+                  context
+                      .read<FetchFavoritesCubit>()
+                      .fetchSelectedCategoryFavs();
+                }
+              },
+              textKey: AppConstants.favoritesCategoriesKeys[index],
+            );
+          },
+        ),
+        separatorWidget: MySizedBox.width8,
+        itemCount: AppConstants.favoritesCategoriesKeys.length,
       ),
-      separatorBuilder: (_, __) => MySizedBox.width8,
-      itemCount: AppConstants.favoritesCategoriesKeys.length,
     );
   }
-
-  Color _darkModeColor(bool isSelected) =>
-      isSelected ? AppColors.primaryColor : AppColors.lightModeColor;
-
-  Color _lightModeSelectedColor(bool isSelected) =>
-      (isSelected ? AppColors.primaryColor : AppColors.blueColor);
 }
