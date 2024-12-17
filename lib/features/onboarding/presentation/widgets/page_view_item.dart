@@ -8,7 +8,7 @@ import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/onboarding/data/models/onboarding_attributes.dart';
 import 'package:store_ify/features/onboarding/presentation/widgets/custom_indicators.dart';
-import 'package:store_ify/features/onboarding/presentation/widgets/next_button_bloc_builder.dart';
+import 'package:store_ify/features/onboarding/presentation/widgets/next_button_bloc_selector.dart';
 
 class PageViewItem extends StatelessWidget {
   const PageViewItem({
@@ -57,7 +57,7 @@ class PageViewItem extends StatelessWidget {
         MySizedBox.height24,
         const CustomIndicators(),
         MySizedBox.height40,
-        const NextButtonBlocBuilder(),
+        const NextButtonBlocSelector(),
       ],
     );
   }

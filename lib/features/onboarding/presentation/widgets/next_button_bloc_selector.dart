@@ -8,8 +8,8 @@ import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_cubi
 import 'package:store_ify/features/onboarding/presentation/cubit/onboarding_state.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 
-class NextButtonBlocBuilder extends StatelessWidget {
-  const NextButtonBlocBuilder({super.key});
+class NextButtonBlocSelector extends StatelessWidget {
+  const NextButtonBlocSelector({super.key});
 
   @override
   Widget build(BuildContext context) {
