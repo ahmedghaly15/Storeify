@@ -4,17 +4,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:store_ify/core/router/app_router.dart';
+import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
+import 'package:store_ify/core/widgets/product_item.dart';
+import 'package:store_ify/features/categories/presentation/widgets/category_item.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/general_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/favorites/general_state.dart';
 import 'package:store_ify/features/home/data/models/fetch_home_response.dart';
-import 'package:store_ify/features/home/presentation/widgets/best_selling_list_view.dart';
-import 'package:store_ify/features/home/presentation/widgets/categories_list_view.dart';
 import 'package:store_ify/features/home/presentation/widgets/home_shimmer_loading.dart';
+import 'package:store_ify/features/home/presentation/widgets/horizontal_separated_list_view.dart';
 import 'package:store_ify/features/home/presentation/widgets/list_title.dart';
 import 'package:store_ify/features/home/presentation/widgets/padded_title_and_view_all_text_button.dart';
-import 'package:store_ify/features/home/presentation/widgets/top_stores_list_view.dart';
+import 'package:store_ify/features/stores/presentation/widgets/store_item.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 
 class HomeDataBlocBuilder extends StatelessWidget {
@@ -71,19 +73,48 @@ class HomeDataWidget extends StatelessWidget {
             titleKey: LocaleKeys.bestSelling,
             bottomPadding: 25,
           ),
-          BestSellingListView(bestSelling: homeData.bestSelling),
+          SizedBox(
+            height: 210.h,
+            child: HorizontalSeparatedListView(
+              itemBuilder: (_, index) => AspectRatio(
+                aspectRatio: AppConstants.productItemAspectRatio,
+                child: ProductItem(
+                  product: homeData.bestSelling[index],
+                ),
+              ),
+              itemCount: homeData.bestSelling.length,
+            ),
+          ),
           MySizedBox.height13,
           PaddedTitleAndViewAllTextButton(
             titleKey: LocaleKeys.categories,
             viewAllOnPressed: () => context.pushRoute(const CategoriesRoute()),
           ),
-          CategoriesListView(categories: homeData.categories),
+          SizedBox(
+            height: 166.h,
+            child: HorizontalSeparatedListView(
+              itemBuilder: (_, index) => AspectRatio(
+                aspectRatio: AppConstants.storeItemAspectRatio,
+                child: CategoryItem(category: homeData.categories[index]),
+              ),
+              itemCount: homeData.categories.length,
+            ),
+          ),
           MySizedBox.height13,
           const ListTitle(
             titleKey: LocaleKeys.topStores,
             bottomPadding: 25,
           ),
-          TopStoresListView(topStores: homeData.topStores),
+          SizedBox(
+            height: 175.h,
+            child: HorizontalSeparatedListView(
+              itemBuilder: (_, index) => AspectRatio(
+                aspectRatio: AppConstants.storeItemAspectRatio,
+                child: StoreItem(store: homeData.topStores[index]),
+              ),
+              itemCount: homeData.topStores.length,
+            ),
+          ),
         ],
       ),
     );
