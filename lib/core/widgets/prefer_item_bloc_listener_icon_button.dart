@@ -42,8 +42,7 @@ class _PreferItemBlocListenerIconButtonState
     });
   }
 
-  void _preferItemOrNot() {
-    _toggleIsFavoritedLocal();
+  void _preferItemOrNot(BuildContext context) async {
     _isFavoritedLocal
         ? context.read<GeneralCubit>().removeItemFromFavs(
               itemId: widget.itemType == FavItemType.product
@@ -56,15 +55,17 @@ class _PreferItemBlocListenerIconButtonState
               productId: widget.productId,
               itemType: widget.itemType,
             );
+    _toggleIsFavoritedLocal();
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<GeneralCubit, GeneralState>(
-      listenWhen: (_, current) => _listenWhen(current.status),
+      listenWhen: (_, current) =>
+          _listenWhen(current.status, current.favAffectedItem),
       listener: (context, state) => _listener(state, context),
       child: IconButton(
-        onPressed: () => _preferItemOrNot(),
+        onPressed: () => _preferItemOrNot(context),
         icon: Icon(
           _isFavoritedLocal ? Icons.favorite : Icons.favorite_border_outlined,
           size: 18.w,
@@ -82,7 +83,10 @@ class _PreferItemBlocListenerIconButtonState
       case GeneralStateStatus.removeStoreFromFavsError:
         context.showToast(state.error!);
         // Rollback the change if an error occurs
-        _toggleIsFavoritedLocal();
+        Future.delayed(
+          const Duration(seconds: 1),
+          () => _toggleIsFavoritedLocal(),
+        );
         break;
       case GeneralStateStatus.preferProductSuccess:
       case GeneralStateStatus.removeProductFromFavsSuccess:
@@ -97,14 +101,19 @@ class _PreferItemBlocListenerIconButtonState
     }
   }
 
-  bool _listenWhen(GeneralStateStatus status) {
-    return status == GeneralStateStatus.removeProductFromFavsError ||
-        status == GeneralStateStatus.preferProductError ||
-        status == GeneralStateStatus.preferProductSuccess ||
-        status == GeneralStateStatus.removeProductFromFavsSuccess ||
-        status == GeneralStateStatus.preferStoreError ||
-        status == GeneralStateStatus.removeStoreFromFavsError ||
-        status == GeneralStateStatus.preferStoreSuccess ||
-        status == GeneralStateStatus.removeStoreFromFavsSuccess;
+  bool _listenWhen(GeneralStateStatus status, int? affectedItemId) {
+    final itemId = widget.itemType == FavItemType.product
+        ? widget.productId
+        : widget.storeId;
+
+    return affectedItemId == itemId &&
+        (status == GeneralStateStatus.removeProductFromFavsError ||
+            status == GeneralStateStatus.removeProductFromFavsSuccess ||
+            status == GeneralStateStatus.preferProductError ||
+            status == GeneralStateStatus.preferProductSuccess ||
+            status == GeneralStateStatus.preferStoreError ||
+            status == GeneralStateStatus.preferStoreSuccess ||
+            status == GeneralStateStatus.removeStoreFromFavsError ||
+            status == GeneralStateStatus.removeStoreFromFavsSuccess);
   }
 }

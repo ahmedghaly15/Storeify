@@ -63,12 +63,14 @@ class GeneralCubit extends Cubit<GeneralState> {
         status: isStoreItem
             ? GeneralStateStatus.preferStoreSuccess
             : GeneralStateStatus.preferProductSuccess,
+        favAffectedItem: isStoreItem ? storeId : productId,
       )),
       error: (errorModel) => emit(state.copyWith(
         status: isStoreItem
             ? GeneralStateStatus.preferStoreError
             : GeneralStateStatus.preferProductError,
         error: errorModel.error ?? '',
+        favAffectedItem: isStoreItem ? storeId : productId,
       )),
     );
   }
@@ -93,12 +95,14 @@ class GeneralCubit extends Cubit<GeneralState> {
         status: isStoreItem
             ? GeneralStateStatus.removeStoreFromFavsSuccess
             : GeneralStateStatus.removeProductFromFavsSuccess,
+        favAffectedItem: itemId,
       )),
       error: (errorModel) => emit(state.copyWith(
         status: isStoreItem
             ? GeneralStateStatus.removeStoreFromFavsError
             : GeneralStateStatus.removeProductFromFavsError,
         error: errorModel.error ?? '',
+        favAffectedItem: itemId,
       )),
     );
   }

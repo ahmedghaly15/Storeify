@@ -32,6 +32,7 @@ class GeneralState with _$GeneralState {
     String? error,
     ThemeData? theme,
     FetchHomeResponse? homeData,
+    int? favAffectedItem,
   }) = _GeneralState;
 
   factory GeneralState.initial() => GeneralState(
