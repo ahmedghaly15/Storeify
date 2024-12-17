@@ -20,7 +20,6 @@ class StoreItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxWidth: 175.w),
       decoration: BoxDecoration(
         color: context.isDarkModeActive
             ? AppColors.secondaryDarkColor

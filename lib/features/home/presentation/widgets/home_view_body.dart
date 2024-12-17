@@ -7,7 +7,6 @@ import 'package:store_ify/features/favorites/presentation/cubits/favorites/gener
 import 'package:store_ify/features/home/data/datasources/home_local_datasource.dart';
 import 'package:store_ify/features/home/presentation/widgets/custom_hero_search_text_field.dart';
 import 'package:store_ify/features/home/presentation/widgets/enable_location_permission_adaptive_dialog.dart';
-import 'package:store_ify/features/home/presentation/widgets/favorites_action_bloc_listener.dart';
 import 'package:store_ify/features/home/presentation/widgets/home_data_bloc_builder.dart';
 import 'package:store_ify/features/home/presentation/widgets/home_custom_app_bar.dart';
 
@@ -54,9 +53,6 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             ),
             SliverToBoxAdapter(
               child: CustomHeroSearchTextField(),
-            ),
-            SliverToBoxAdapter(
-              child: FavoritesActionBlocListener(),
             ),
             SliverFillRemaining(
               hasScrollBody: false,
