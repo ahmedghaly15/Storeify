@@ -53,6 +53,8 @@ class PaymentCubit extends Cubit<PaymentState> {
     ));
   }
 
+  PaymentCardDetails? get paymentCardDetails => state.paymentCardDetails;
+
   void _pay({
     required int orderId,
     required double amount,
@@ -102,6 +104,7 @@ class PaymentCubit extends Cubit<PaymentState> {
     ));
   }
 
+  bool get checkboxValue => state.checkboxValue;
   void toggleCheckBox(bool? value) {
     if (state.checkboxValue != value) {
       emit(state.copyWith(
@@ -111,7 +114,8 @@ class PaymentCubit extends Cubit<PaymentState> {
     }
   }
 
-  void updateSelectedCardType(CardType cardType) {
+  CardType get selectedCardType => state.selectedCardType!;
+  void selectCardType(CardType cardType) {
     if (state.selectedCardType != cardType) {
       emit(state.copyWith(
         status: PaymentStateStatus.updateSelectedCardType,

@@ -9,7 +9,6 @@ import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/main_button.dart';
-import 'package:store_ify/core/widgets/my_sized_box.dart';
 
 @RoutePage()
 class PaymentSuccessfullyView extends StatelessWidget {
@@ -18,29 +17,26 @@ class PaymentSuccessfullyView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: ElasticIn(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(AppAssets.imagesPaymentSuccessfully),
-              MySizedBox.height24,
-              Text(
-                context.tr(LocaleKeys.paymentSuccessfully),
-                style: AppTextStyles.textStyle24Medium,
+      body: ElasticIn(
+        child: Column(
+          spacing: 24.w,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.asset(AppAssets.imagesPaymentSuccessfully),
+            Text(
+              context.tr(LocaleKeys.paymentSuccessfully),
+              style: AppTextStyles.textStyle24Medium,
+              textAlign: TextAlign.center,
+            ),
+            MainButton(
+              margin: EdgeInsets.symmetric(
+                horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
               ),
-              MainButton(
-                margin: EdgeInsets.symmetric(
-                  horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
-                  vertical: 24.h,
-                ),
-                onPressed: () {
-                  context.replaceRoute(const LayoutRoute());
-                },
-                textKey: LocaleKeys.backToHome,
-              ),
-            ],
-          ),
+              onPressed: () => context.replaceRoute(const LayoutRoute()),
+              textKey: LocaleKeys.backToHome,
+            ),
+          ],
         ),
       ),
     );
