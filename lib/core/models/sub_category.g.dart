@@ -47,12 +47,13 @@ class SubCategoryAdapter extends TypeAdapter<SubCategory> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-SubCategory _$SubCategoryFromJson(Map<String, dynamic> json) => SubCategory(
+_$SubCategoryImpl _$$SubCategoryImplFromJson(Map<String, dynamic> json) =>
+    _$SubCategoryImpl(
       id: (json['id'] as num).toInt(),
       name: json['name'] as String,
     );
 
-Map<String, dynamic> _$SubCategoryToJson(SubCategory instance) =>
+Map<String, dynamic> _$$SubCategoryImplToJson(_$SubCategoryImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

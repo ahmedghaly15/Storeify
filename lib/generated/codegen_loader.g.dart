@@ -188,7 +188,11 @@ class CodegenLoader extends AssetLoader{
   "phoneNumberCantBeEmpty": "لا يمكن ان يكون رقم الهاتف فارغ. يرجى ادخال رقم هاتف صالح.",
   "emptyCategories": "لا يوجد فئات. يرجى التحقق من الاتصال بالانترنت والمحاولة مرة اخرى.",
   "addToFavorites": "اضافة الى المفضلة",
-  "emptyFavDescription": "لا يوجد منتجات في المفضلة. يرجى اضافة منتجات للمفضلة."
+  "emptyFavDescription": "لا يوجد منتجات في المفضلة. يرجى اضافة منتجات للمفضلة.",
+  "emptySubCategories": "لم يتم العثور على فئات فرعية لهذه الفئة",
+  "emptySubCategoriesDescription": "لا تحتوي هذه الفئة على أي فئات فرعية",
+  "subCategoryHasNoProducts": "لم يتم العثور على منتجات لهذه الفئة الفرعية",
+  "subCategoryHasNoProductsDescription": "لا تحتوي هذه الفئة الفرعية على أي منتجات"
 };
 static const Map<String,dynamic> en = {
   "signInToContinue": "Sign in to continue",
@@ -364,7 +368,11 @@ static const Map<String,dynamic> en = {
   "phoneNumberCantBeEmpty": "Phone number can't be empty. Please enter a valid phone number.",
   "emptyCategories": "No categories found. Please try again later.",
   "addToFavorites": "Add to Favorites",
-  "emptyFavDescription": "You don't have any favorites. Add some to your favorites."
+  "emptyFavDescription": "You don't have any favorites. Add some to your favorites.",
+  "emptySubCategories": "No sub categories found for this category",
+  "emptySubCategoriesDescription": "This category doesn't have any sub categories",
+  "subCategoryHasNoProducts": "No Products found for this sub category",
+  "subCategoryHasNoProductsDescription": "This sub category doesn't have any products"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }
