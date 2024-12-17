@@ -70,24 +70,14 @@ class StoreDetailsCubit extends Cubit<StoreDetailsState> {
     );
   }
 
-  void updateSelectedStoreDetailAndFetchItsData({
-    required int index,
-    required int storeId,
-  }) {
-    _updateSelectedStoreDetail(index);
-    _fetchStoreData(storeId);
+  void updateSelectedStoreDetail(int index) {
+    emit(state.copyWith(
+      status: StoreDetailsStateStatus.updateCurrentDetailsIndex,
+      selectedDetailIndex: index,
+    ));
   }
 
-  void _updateSelectedStoreDetail(int index) {
-    if (state.selectedDetailIndex != index) {
-      emit(state.copyWith(
-        status: StoreDetailsStateStatus.updateCurrentDetailsIndex,
-        selectedDetailIndex: index,
-      ));
-    }
-  }
-
-  void _fetchStoreData(int storeId) {
+  void fetchStoreData(int storeId) {
     switch (state.selectedDetailIndex) {
       case 0:
         fetchStoreOffers(storeId);
