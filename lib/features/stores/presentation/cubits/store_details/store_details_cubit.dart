@@ -70,7 +70,7 @@ class StoreDetailsCubit extends Cubit<StoreDetailsState> {
     );
   }
 
-  void updateSelectedStoreDetail(int index) {
+  void selectedStoreDetail(int index) {
     emit(state.copyWith(
       status: StoreDetailsStateStatus.updateCurrentDetailsIndex,
       selectedDetailIndex: index,

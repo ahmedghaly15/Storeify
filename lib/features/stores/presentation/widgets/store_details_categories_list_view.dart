@@ -28,7 +28,7 @@ class StoreDetailsCategoriesListView extends StatelessWidget {
               isActive: isStoreDetailSelected,
               onPressed: () {
                 if (!isStoreDetailSelected) {
-                  context.read<StoreDetailsCubit>().updateSelectedStoreDetail(
+                  context.read<StoreDetailsCubit>().selectedStoreDetail(
                         index,
                       );
                   context.read<StoreDetailsCubit>().fetchStoreData(
