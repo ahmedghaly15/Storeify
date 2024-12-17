@@ -7,6 +7,7 @@ import 'package:store_ify/core/widgets/products_grid_view_shimmer.dart';
 import 'package:store_ify/core/widgets/stores_grid_view_shimmer.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_state.dart';
+import 'package:store_ify/features/favorites/presentation/widgets/empty_favorites_widget.dart';
 import 'package:store_ify/features/favorites/presentation/widgets/favorite_products_grid_view.dart';
 import 'package:store_ify/features/favorites/presentation/widgets/favorite_stores_grid_view.dart';
 
@@ -22,10 +23,14 @@ class FavoritesGridViewBlocBuilder extends StatelessWidget {
           case FetchFavoritesStatus.fetchFavStoresLoading:
             return const StoresGridViewShimmer();
           case FetchFavoritesStatus.fetchFavStoresSuccess:
-            return FavoriteStoresGridView(stores: state.favStores!.stores);
+            return state.favStores!.stores.isEmpty
+                ? const EmptyFavoritesWidget()
+                : FavoriteStoresGridView(stores: state.favStores!.stores);
           case FetchFavoritesStatus.fetchFavStoresError:
             return state.favStores != null
-                ? FavoriteStoresGridView(stores: state.favStores!.stores)
+                ? (state.favStores!.stores.isEmpty
+                    ? const EmptyFavoritesWidget()
+                    : FavoriteStoresGridView(stores: state.favStores!.stores))
                 : CustomErrorWidget(
                     tryAgainOnPressed: () =>
                         context.read<FetchFavoritesCubit>().fetchFavStores(),
@@ -34,14 +39,18 @@ class FavoritesGridViewBlocBuilder extends StatelessWidget {
           case FetchFavoritesStatus.fetchFavoriteProductsLoading:
             return const ProductsGridViewShimmer();
           case FetchFavoritesStatus.fetchFavoriteProductsSuccess:
-            return FavoriteProductsGridView(
-              products: state.favProducts!.products,
-            );
+            return state.favProducts!.products.isEmpty
+                ? const EmptyFavoritesWidget()
+                : FavoriteProductsGridView(
+                    products: state.favProducts!.products,
+                  );
           case FetchFavoritesStatus.fetchFavoriteProductsError:
             return state.favProducts != null
-                ? FavoriteProductsGridView(
-                    products: state.favProducts!.products,
-                  )
+                ? (state.favProducts!.products.isEmpty
+                    ? const EmptyFavoritesWidget()
+                    : FavoriteProductsGridView(
+                        products: state.favProducts!.products,
+                      ))
                 : CustomErrorWidget(
                     tryAgainOnPressed: () =>
                         context.read<FetchFavoritesCubit>().fetchFavProducts(),
