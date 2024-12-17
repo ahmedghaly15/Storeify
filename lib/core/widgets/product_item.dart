@@ -20,7 +20,6 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // constraints: BoxConstraints(maxWidth: 145.w),
       decoration: BoxDecoration(
         color: context.isDarkModeActive
             ? AppColors.secondaryDarkColor
@@ -64,7 +63,6 @@ class ProductItem extends StatelessWidget {
               padding: EdgeInsetsDirectional.only(
                 start: 9.w,
                 top: 8.h,
-                end: 16.w,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,10 +99,12 @@ class ProductItem extends StatelessWidget {
                           decorationColor: AppColors.greyColor,
                         ),
                       ),
-                      PreferItemBlocListenerIconButton(
-                        isFavorited: product.isFavorited,
-                        productId: product.id,
-                        itemType: FavItemType.product,
+                      Expanded(
+                        child: PreferItemBlocListenerIconButton(
+                          isFavorited: product.isFavorited,
+                          productId: product.id,
+                          itemType: FavItemType.product,
+                        ),
                       ),
                     ],
                   ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
@@ -24,29 +25,26 @@ class FavoriteCategoriesListView extends StatelessWidget {
         builder: (context, selectedFavCategory) {
           final isSelected = selectedFavCategory == index;
           return MainButton(
+            width: 76,
+            padding: EdgeInsets.symmetric(vertical: 5.h),
+            margin: EdgeInsets.zero,
             isOutlined: true,
-            backgroundColor: context.isDarkModeActive
-                ? (isSelected
-                    ? AppColors.primaryColor
-                    : AppColors.secondaryDarkColor)
-                : AppColors.lightModeColor,
+            backgroundColor: Colors.transparent,
             borderRadius: 34,
             borderColor: context.isDarkModeActive
-                ? Colors.transparent
+                ? _darkModeColor(isSelected)
                 : _lightModeSelectedColor(isSelected),
             onPressed: () async {
               context
                   .read<FetchFavoritesCubit>()
                   .updateSelectedFavCategory(index);
-              await context
-                  .read<FetchFavoritesCubit>()
-                  .fetchSelectedCategoryFavs();
+              context.read<FetchFavoritesCubit>().fetchSelectedCategoryFavs();
             },
             child: Text(
               context.tr(AppConstants.favoritesCategoriesKeys[index]),
               style: AppTextStyles.textStyle10Medium.copyWith(
                 color: context.isDarkModeActive
-                    ? AppColors.lightModeColor
+                    ? _darkModeColor(isSelected)
                     : _lightModeSelectedColor(isSelected),
               ),
             ),
@@ -57,6 +55,9 @@ class FavoriteCategoriesListView extends StatelessWidget {
       itemCount: AppConstants.favoritesCategoriesKeys.length,
     );
   }
+
+  Color _darkModeColor(bool isSelected) =>
+      isSelected ? AppColors.primaryColor : AppColors.lightModeColor;
 
   Color _lightModeSelectedColor(bool isSelected) =>
       (isSelected ? AppColors.primaryColor : AppColors.blueColor);

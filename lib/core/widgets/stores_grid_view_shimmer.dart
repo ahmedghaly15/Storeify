@@ -16,10 +16,9 @@ class StoresGridViewShimmer extends StatelessWidget {
         crossAxisCount: AppConstants.gridCrossAxisCount,
         crossAxisSpacing: 8.w,
         mainAxisSpacing: 16.h,
+        childAspectRatio: AppConstants.storeItemAspectRatio,
       ),
-      itemBuilder: (_, __) => ShimmerWidget(
-        constraints: BoxConstraints(maxHeight: 165.h, maxWidth: 170.w),
-      ),
+      itemBuilder: (_, __) => const ShimmerWidget(),
     );
   }
 }
