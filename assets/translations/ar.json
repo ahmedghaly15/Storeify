@@ -172,5 +172,9 @@
     "phoneNumberCantBeEmpty": "لا يمكن ان يكون رقم الهاتف فارغ. يرجى ادخال رقم هاتف صالح.",
     "emptyCategories": "لا يوجد فئات. يرجى التحقق من الاتصال بالانترنت والمحاولة مرة اخرى.",
     "addToFavorites": "اضافة الى المفضلة",
-    "emptyFavDescription": "لا يوجد منتجات في المفضلة. يرجى اضافة منتجات للمفضلة."
+    "emptyFavDescription": "لا يوجد منتجات في المفضلة. يرجى اضافة منتجات للمفضلة.",
+    "emptySubCategories": "لم يتم العثور على فئات فرعية لهذه الفئة",
+    "emptySubCategoriesDescription": "لا تحتوي هذه الفئة على أي فئات فرعية",
+    "subCategoryHasNoProducts": "لم يتم العثور على منتجات لهذه الفئة الفرعية",
+    "subCategoryHasNoProductsDescription": "لا تحتوي هذه الفئة الفرعية على أي منتجات"
 }

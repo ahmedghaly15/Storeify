@@ -25,6 +25,7 @@ class MainButton extends StatelessWidget {
     this.margin,
     this.borderColor = AppColors.primaryColor,
     this.borderWidth = 1,
+    this.isInfinityWidth = true,
   });
 
   final String? textKey;
@@ -44,11 +45,12 @@ class MainButton extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final Color borderColor;
   final double borderWidth;
+  final bool isInfinityWidth;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width?.w ?? double.infinity,
+      width: width?.w ?? (isInfinityWidth ? double.infinity : null),
       height: height?.h,
       margin: margin ?? EdgeInsets.symmetric(horizontal: 23.w),
       decoration: BoxDecoration(

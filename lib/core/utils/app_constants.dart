@@ -122,4 +122,5 @@ class AppConstants {
   static EdgeInsetsGeometry get storeBranchItemPadding => EdgeInsets.all(10.h);
   static const double storeItemAspectRatio = 169 / 165;
   static const double productItemAspectRatio = 145 / 209;
+  static double get horizontalTapsListHeight => 25.h;
 }

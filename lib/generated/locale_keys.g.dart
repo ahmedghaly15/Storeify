@@ -175,5 +175,9 @@ abstract class  LocaleKeys {
   static const emptyCategories = 'emptyCategories';
   static const addToFavorites = 'addToFavorites';
   static const emptyFavDescription = 'emptyFavDescription';
+  static const emptySubCategories = 'emptySubCategories';
+  static const emptySubCategoriesDescription = 'emptySubCategoriesDescription';
+  static const subCategoryHasNoProducts = 'subCategoryHasNoProducts';
+  static const subCategoryHasNoProductsDescription = 'subCategoryHasNoProductsDescription';
 
 }

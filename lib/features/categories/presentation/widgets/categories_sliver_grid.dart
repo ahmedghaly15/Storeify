@@ -15,6 +15,12 @@ class CategoriesSliverGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverGrid.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: AppConstants.gridCrossAxisCount,
+        crossAxisSpacing: AppConstants.gridCrossAxisSpacing,
+        mainAxisSpacing: AppConstants.gridMainAxisSpacing,
+        childAspectRatio: AppConstants.storeItemAspectRatio,
+      ),
       itemBuilder: (_, index) => AnimationConfiguration.staggeredGrid(
         position: index,
         columnCount: fetchCategoriesResponse.categories.length,
@@ -28,11 +34,6 @@ class CategoriesSliverGrid extends StatelessWidget {
         ),
       ),
       itemCount: fetchCategoriesResponse.categories.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: AppConstants.gridCrossAxisCount,
-        crossAxisSpacing: AppConstants.gridCrossAxisSpacing,
-        mainAxisSpacing: AppConstants.gridMainAxisSpacing,
-      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/utils/app_assets.dart';
 
 import 'package:store_ify/core/widgets/custom_circular_progress_indicator.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
@@ -7,9 +8,10 @@ import 'package:store_ify/core/widgets/products_grid_view_shimmer.dart';
 import 'package:store_ify/core/widgets/stores_grid_view_shimmer.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_cubit.dart';
 import 'package:store_ify/features/favorites/presentation/cubits/fetch_favorites/fetch_favorites_state.dart';
-import 'package:store_ify/features/favorites/presentation/widgets/empty_favorites_widget.dart';
+import 'package:store_ify/core/widgets/empty_widget.dart';
 import 'package:store_ify/features/favorites/presentation/widgets/favorite_products_grid_view.dart';
 import 'package:store_ify/features/favorites/presentation/widgets/favorite_stores_grid_view.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class FavoritesGridViewBlocBuilder extends StatelessWidget {
   const FavoritesGridViewBlocBuilder({super.key});
@@ -73,5 +75,18 @@ class FavoritesGridViewBlocBuilder extends StatelessWidget {
         status == FetchFavoritesStatus.fetchFavoriteProductsLoading ||
         status == FetchFavoritesStatus.fetchFavoriteProductsSuccess ||
         status == FetchFavoritesStatus.fetchFavoriteProductsError;
+  }
+}
+
+class EmptyFavoritesWidget extends StatelessWidget {
+  const EmptyFavoritesWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const EmptyWidget(
+      imagePath: AppAssets.imagesEmptyFavorites,
+      titleKey: LocaleKeys.addToFavorites,
+      descriptionKey: LocaleKeys.emptyFavDescription,
+    );
   }
 }

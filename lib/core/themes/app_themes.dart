@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
+import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 
 class AppThemes {
@@ -11,8 +12,11 @@ class AppThemes {
         scaffoldBackgroundColor: AppColors.lightModeColor,
         fontFamily: AppStrings.fontFamily,
         brightness: Brightness.light,
-        appBarTheme: const AppBarTheme(
+        appBarTheme: AppBarTheme(
           backgroundColor: AppColors.lightModeColor,
+          titleTextStyle: AppTextStyles.textStyle24Medium.copyWith(
+            color: Colors.black,
+          ),
         ),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
@@ -44,8 +48,11 @@ class AppThemes {
         scaffoldBackgroundColor: AppColors.darkColor,
         fontFamily: AppStrings.fontFamily,
         brightness: Brightness.dark,
-        appBarTheme: const AppBarTheme(
+        appBarTheme: AppBarTheme(
           backgroundColor: AppColors.darkColor,
+          titleTextStyle: AppTextStyles.textStyle24Medium.copyWith(
+            color: Colors.white,
+          ),
         ),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(

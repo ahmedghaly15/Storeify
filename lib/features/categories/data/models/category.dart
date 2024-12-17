@@ -2,7 +2,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:store_ify/core/helpers/hive_type_ids.dart';
 import 'package:store_ify/core/models/product.dart';
-import 'package:store_ify/features/home/data/models/sub_category.dart';
+import 'package:store_ify/core/models/sub_category.dart';
 
 part 'category.g.dart';
 

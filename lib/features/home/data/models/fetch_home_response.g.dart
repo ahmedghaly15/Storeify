@@ -70,8 +70,8 @@ FetchHomeResponse _$FetchHomeResponseFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$FetchHomeResponseToJson(FetchHomeResponse instance) =>
     <String, dynamic>{
-      'bestSelling': instance.bestSelling,
-      'categories': instance.categories,
-      'topStores': instance.topStores,
-      'pagination': instance.pagination,
+      'bestSelling': instance.bestSelling.map((e) => e.toJson()).toList(),
+      'categories': instance.categories.map((e) => e.toJson()).toList(),
+      'topStores': instance.topStores.map((e) => e.toJson()).toList(),
+      'pagination': instance.pagination.toJson(),
     };

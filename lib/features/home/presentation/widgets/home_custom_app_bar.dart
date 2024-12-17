@@ -15,17 +15,21 @@ class HomeCustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
+      margin: EdgeInsets.symmetric(horizontal: 16.w),
       child: Row(
         children: <Widget>[
           const ProfileImg(radius: 15),
           MySizedBox.width8,
           ValueListenableBuilder(
             valueListenable: userNotifier,
-            builder: (context, user, _) => Text(
-              user!.user.username,
-              style: AppTextStyles.textStyle12Regular.copyWith(
-                color: AppColors.primaryColor,
+            builder: (context, user, _) => Expanded(
+              child: Text(
+                user!.user.username,
+                style: AppTextStyles.textStyle12Regular.copyWith(
+                  color: AppColors.primaryColor,
+                ),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
               ),
             ),
           ),

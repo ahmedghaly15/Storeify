@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/models/sub_category.dart';
 import 'package:store_ify/features/categories/data/models/fetch_sub_category_params.dart';
 import 'package:store_ify/features/categories/data/repositories/categories_repo.dart';
 import 'package:store_ify/features/categories/presentation/cubit/sub_category/sub_category_state.dart';
@@ -18,9 +19,9 @@ class SubCategoryCubit extends Cubit<SubCategoryState> {
     ));
     final result = await _categoriesRepo.fetchSubCategory(params, _cancelToken);
     result.when(
-      success: (subCategory) => emit(state.copyWith(
+      success: (subCategoryResponse) => emit(state.copyWith(
         status: SubCategoryStateStatus.fetchSubCategorySuccess,
-        subCategory: subCategory,
+        subCategoryResponse: subCategoryResponse,
       )),
       error: (errorModel) => emit(state.copyWith(
         status: SubCategoryStateStatus.fetchSubCategoryError,
@@ -29,13 +30,12 @@ class SubCategoryCubit extends Cubit<SubCategoryState> {
     );
   }
 
-  void updateCurrentSubCategoryIndex(int index) {
-    if (state.selectedSubCategory != index) {
-      emit(state.copyWith(
-        status: SubCategoryStateStatus.updateSelectedSubCategory,
-        selectedSubCategory: index,
-      ));
-    }
+  SubCategory get selectedSubCategory => state.selectedSubCategory!;
+  void selectSubCategory(SubCategory subCategory) {
+    emit(state.copyWith(
+      status: SubCategoryStateStatus.updateSelectedSubCategory,
+      selectedSubCategory: subCategory,
+    ));
   }
 
   @override

@@ -172,5 +172,9 @@
     "phoneNumberCantBeEmpty": "Phone number can't be empty. Please enter a valid phone number.",
     "emptyCategories": "No categories found. Please try again later.",
     "addToFavorites": "Add to Favorites",
-    "emptyFavDescription": "You don't have any favorites. Add some to your favorites."
+    "emptyFavDescription": "You don't have any favorites. Add some to your favorites.",
+    "emptySubCategories": "No sub categories found for this category",
+    "emptySubCategoriesDescription": "This category doesn't have any sub categories",
+    "subCategoryHasNoProducts": "No Products found for this sub category",
+    "subCategoryHasNoProductsDescription": "This sub category doesn't have any products"
 }
