@@ -17,10 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$SubCategoryState {
   SubCategoryStateStatus get status => throw _privateConstructorUsedError;
-  FetchSubCategoryResponse? get subCategory =>
+  FetchSubCategoryResponse? get subCategoryResponse =>
       throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
-  int get selectedSubCategory => throw _privateConstructorUsedError;
+  SubCategory? get selectedSubCategory => throw _privateConstructorUsedError;
 
   /// Create a copy of SubCategoryState
   /// with the given fields replaced by the non-null parameter values.
@@ -37,9 +37,11 @@ abstract class $SubCategoryStateCopyWith<$Res> {
   @useResult
   $Res call(
       {SubCategoryStateStatus status,
-      FetchSubCategoryResponse? subCategory,
+      FetchSubCategoryResponse? subCategoryResponse,
       String? error,
-      int selectedSubCategory});
+      SubCategory? selectedSubCategory});
+
+  $SubCategoryCopyWith<$Res>? get selectedSubCategory;
 }
 
 /// @nodoc
@@ -58,28 +60,42 @@ class _$SubCategoryStateCopyWithImpl<$Res, $Val extends SubCategoryState>
   @override
   $Res call({
     Object? status = null,
-    Object? subCategory = freezed,
+    Object? subCategoryResponse = freezed,
     Object? error = freezed,
-    Object? selectedSubCategory = null,
+    Object? selectedSubCategory = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as SubCategoryStateStatus,
-      subCategory: freezed == subCategory
-          ? _value.subCategory
-          : subCategory // ignore: cast_nullable_to_non_nullable
+      subCategoryResponse: freezed == subCategoryResponse
+          ? _value.subCategoryResponse
+          : subCategoryResponse // ignore: cast_nullable_to_non_nullable
               as FetchSubCategoryResponse?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
-      selectedSubCategory: null == selectedSubCategory
+      selectedSubCategory: freezed == selectedSubCategory
           ? _value.selectedSubCategory
           : selectedSubCategory // ignore: cast_nullable_to_non_nullable
-              as int,
+              as SubCategory?,
     ) as $Val);
+  }
+
+  /// Create a copy of SubCategoryState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SubCategoryCopyWith<$Res>? get selectedSubCategory {
+    if (_value.selectedSubCategory == null) {
+      return null;
+    }
+
+    return $SubCategoryCopyWith<$Res>(_value.selectedSubCategory!, (value) {
+      return _then(_value.copyWith(selectedSubCategory: value) as $Val);
+    });
   }
 }
 
@@ -93,9 +109,12 @@ abstract class _$$SubCategoryStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {SubCategoryStateStatus status,
-      FetchSubCategoryResponse? subCategory,
+      FetchSubCategoryResponse? subCategoryResponse,
       String? error,
-      int selectedSubCategory});
+      SubCategory? selectedSubCategory});
+
+  @override
+  $SubCategoryCopyWith<$Res>? get selectedSubCategory;
 }
 
 /// @nodoc
@@ -112,27 +131,27 @@ class __$$SubCategoryStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
-    Object? subCategory = freezed,
+    Object? subCategoryResponse = freezed,
     Object? error = freezed,
-    Object? selectedSubCategory = null,
+    Object? selectedSubCategory = freezed,
   }) {
     return _then(_$SubCategoryStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as SubCategoryStateStatus,
-      subCategory: freezed == subCategory
-          ? _value.subCategory
-          : subCategory // ignore: cast_nullable_to_non_nullable
+      subCategoryResponse: freezed == subCategoryResponse
+          ? _value.subCategoryResponse
+          : subCategoryResponse // ignore: cast_nullable_to_non_nullable
               as FetchSubCategoryResponse?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
-      selectedSubCategory: null == selectedSubCategory
+      selectedSubCategory: freezed == selectedSubCategory
           ? _value.selectedSubCategory
           : selectedSubCategory // ignore: cast_nullable_to_non_nullable
-              as int,
+              as SubCategory?,
     ));
   }
 }
@@ -142,23 +161,22 @@ class __$$SubCategoryStateImplCopyWithImpl<$Res>
 class _$SubCategoryStateImpl implements _SubCategoryState {
   const _$SubCategoryStateImpl(
       {required this.status,
-      this.subCategory,
+      this.subCategoryResponse,
       this.error,
-      this.selectedSubCategory = 0});
+      this.selectedSubCategory});
 
   @override
   final SubCategoryStateStatus status;
   @override
-  final FetchSubCategoryResponse? subCategory;
+  final FetchSubCategoryResponse? subCategoryResponse;
   @override
   final String? error;
   @override
-  @JsonKey()
-  final int selectedSubCategory;
+  final SubCategory? selectedSubCategory;
 
   @override
   String toString() {
-    return 'SubCategoryState(status: $status, subCategory: $subCategory, error: $error, selectedSubCategory: $selectedSubCategory)';
+    return 'SubCategoryState(status: $status, subCategoryResponse: $subCategoryResponse, error: $error, selectedSubCategory: $selectedSubCategory)';
   }
 
   @override
@@ -167,16 +185,16 @@ class _$SubCategoryStateImpl implements _SubCategoryState {
         (other.runtimeType == runtimeType &&
             other is _$SubCategoryStateImpl &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.subCategory, subCategory) ||
-                other.subCategory == subCategory) &&
+            (identical(other.subCategoryResponse, subCategoryResponse) ||
+                other.subCategoryResponse == subCategoryResponse) &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.selectedSubCategory, selectedSubCategory) ||
                 other.selectedSubCategory == selectedSubCategory));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, status, subCategory, error, selectedSubCategory);
+  int get hashCode => Object.hash(
+      runtimeType, status, subCategoryResponse, error, selectedSubCategory);
 
   /// Create a copy of SubCategoryState
   /// with the given fields replaced by the non-null parameter values.
@@ -191,18 +209,18 @@ class _$SubCategoryStateImpl implements _SubCategoryState {
 abstract class _SubCategoryState implements SubCategoryState {
   const factory _SubCategoryState(
       {required final SubCategoryStateStatus status,
-      final FetchSubCategoryResponse? subCategory,
+      final FetchSubCategoryResponse? subCategoryResponse,
       final String? error,
-      final int selectedSubCategory}) = _$SubCategoryStateImpl;
+      final SubCategory? selectedSubCategory}) = _$SubCategoryStateImpl;
 
   @override
   SubCategoryStateStatus get status;
   @override
-  FetchSubCategoryResponse? get subCategory;
+  FetchSubCategoryResponse? get subCategoryResponse;
   @override
   String? get error;
   @override
-  int get selectedSubCategory;
+  SubCategory? get selectedSubCategory;
 
   /// Create a copy of SubCategoryState
   /// with the given fields replaced by the non-null parameter values.
