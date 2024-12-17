@@ -9,7 +9,7 @@ import 'package:store_ify/features/stores/data/models/store.dart';
 part 'fetch_home_response.g.dart';
 
 @HiveType(typeId: HiveTypeIds.fetchHomeResponse)
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FetchHomeResponse {
   @HiveField(0)
   final List<Product> bestSelling;

@@ -79,9 +79,9 @@ class HomeDataWidget extends StatelessWidget {
           ),
           CategoriesListView(categories: homeData.categories),
           MySizedBox.height13,
-          PaddedTitleAndViewAllTextButton(
+          const ListTitle(
             titleKey: LocaleKeys.topStores,
-            viewAllOnPressed: () {},
+            bottomPadding: 25,
           ),
           TopStoresListView(topStores: homeData.topStores),
         ],

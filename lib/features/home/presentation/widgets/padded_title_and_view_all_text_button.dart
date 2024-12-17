@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/features/home/presentation/widgets/list_title.dart';
-import 'package:store_ify/features/home/presentation/widgets/view_all_text_button.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class PaddedTitleAndViewAllTextButton extends StatelessWidget {
   const PaddedTitleAndViewAllTextButton({
@@ -15,13 +17,22 @@ class PaddedTitleAndViewAllTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 20.h),
+    return Container(
+      margin: EdgeInsets.only(bottom: 20.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ListTitle(titleKey: titleKey),
-          ViewAllTextButton(onPressed: viewAllOnPressed),
+          TextButton(
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
+              textStyle: AppTextStyles.textStyle16Regular,
+            ),
+            onPressed: viewAllOnPressed,
+            child: Text(
+              context.tr(LocaleKeys.viewAll),
+            ),
+          ),
         ],
       ),
     );
