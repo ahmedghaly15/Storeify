@@ -1,6 +1,12 @@
-# Storeify | E-Commerce  
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/866bd9bd-dff7-4a35-a223-921b27ad3351" alt="App Icon" width="253" height="192"/>
+</p>
 
-**Storeify** is a powerful and dynamic e-commerce Flutter application designed to provide users with a seamless and engaging shopping experience. With robust features and a user-centric interface, Storeify combines functionality and performance to deliver an all-in-one e-commerce solution.  
+<h1 align="center">Storeify | E-Commerce</h1>
+
+<p align="center">
+  <strong>Storeify</strong> is a powerful and dynamic e-commerce Flutter application designed to provide users with a seamless and engaging shopping experience. With robust features and a user-centric interface, Storeify combines functionality and performance to deliver an all-in-one e-commerce solution.
+</p>
 
 ---
 
@@ -16,7 +22,7 @@
 
 ## Preview
 
-https://github.com/user-attachments/assets/9e169d3e-968f-4e67-9373-bba5b2ad5853
+https://github.com/user-attachments/assets/ab7bc1ab-4151-40da-accd-143dae9c94a2
 
 ---
 
