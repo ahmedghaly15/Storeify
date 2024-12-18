@@ -96,7 +96,7 @@ FetchStoreBranchesResponse _$FetchStoreBranchesResponseFromJson(
 Map<String, dynamic> _$FetchStoreBranchesResponseToJson(
         FetchStoreBranchesResponse instance) =>
     <String, dynamic>{
-      'branches': instance.branches,
+      'branches': instance.branches.map((e) => e.toJson()).toList(),
     };
 
 StoreBranch _$StoreBranchFromJson(Map<String, dynamic> json) => StoreBranch(

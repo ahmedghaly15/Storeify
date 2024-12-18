@@ -4,7 +4,7 @@ import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/list_outlined_button.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/core/widgets/horizontal_separated_list_view.dart';
-import 'package:store_ify/features/stores/data/models/store.dart';
+import 'package:store_ify/core/models/store.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_state.dart';
 

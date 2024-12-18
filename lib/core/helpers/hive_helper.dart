@@ -17,7 +17,7 @@ import 'package:store_ify/features/stores/data/models/fetch_store_branches.dart'
 import 'package:store_ify/features/stores/data/models/fetch_store_categories_response.dart';
 import 'package:store_ify/features/stores/data/models/fetch_store_offers_response.dart';
 import 'package:store_ify/features/stores/data/models/fetch_stores_response.dart';
-import 'package:store_ify/features/stores/data/models/store.dart';
+import 'package:store_ify/core/models/store.dart';
 
 class HiveHelper {
   HiveHelper._();

@@ -61,6 +61,6 @@ FetchStoreOffersResponse _$FetchStoreOffersResponseFromJson(
 Map<String, dynamic> _$FetchStoreOffersResponseToJson(
         FetchStoreOffersResponse instance) =>
     <String, dynamic>{
-      'products': instance.products,
-      'pagination': instance.pagination,
+      'products': instance.products.map((e) => e.toJson()).toList(),
+      'pagination': instance.pagination.toJson(),
     };

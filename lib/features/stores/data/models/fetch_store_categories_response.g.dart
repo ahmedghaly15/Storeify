@@ -56,5 +56,5 @@ FetchStoreCategoriesResponse _$FetchStoreCategoriesResponseFromJson(
 Map<String, dynamic> _$FetchStoreCategoriesResponseToJson(
         FetchStoreCategoriesResponse instance) =>
     <String, dynamic>{
-      'categories': instance.categories,
+      'categories': instance.categories.map((e) => e.toJson()).toList(),
     };

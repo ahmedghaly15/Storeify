@@ -10,7 +10,7 @@ import 'package:store_ify/core/utils/app_constants.dart';
 import 'package:store_ify/core/widgets/custom_cached_network_image.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/core/widgets/prefer_item_bloc_listener_icon_button.dart';
-import 'package:store_ify/features/stores/data/models/store.dart';
+import 'package:store_ify/core/models/store.dart';
 
 class StoreItem extends StatelessWidget {
   const StoreItem({super.key, required this.store});

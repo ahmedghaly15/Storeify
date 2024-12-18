@@ -70,6 +70,6 @@ Map<String, dynamic> _$StoreToJson(Store instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'img': instance.img,
-      'categories': instance.categories,
+      'categories': instance.categories?.map((e) => e.toJson()).toList(),
       'total_products_ordered': instance.totalProductsOrdered,
     };

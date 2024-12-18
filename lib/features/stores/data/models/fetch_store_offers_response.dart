@@ -7,7 +7,7 @@ import 'package:store_ify/core/models/product.dart';
 part 'fetch_store_offers_response.g.dart';
 
 @HiveType(typeId: HiveTypeIds.fetchStoreOffersResponse)
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FetchStoreOffersResponse {
   @HiveField(0)
   final List<Product> products;

@@ -6,7 +6,7 @@ import 'package:store_ify/features/categories/data/models/category.dart';
 part 'fetch_store_categories_response.g.dart';
 
 @HiveType(typeId: HiveTypeIds.fetchStoreCategoriesResponse)
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FetchStoreCategoriesResponse {
   @HiveField(0)
   final List<Category> categories;
