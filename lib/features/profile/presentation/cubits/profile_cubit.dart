@@ -22,7 +22,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     final result = await _profileRepo.logout();
     result.when(
       success: (_) async {
-        await _removeCachedUser();
+        await SecureStorageHelper.removeSecuredData(CacheKeys.storeifyUser);
         emit(state.copyWith(
           status: ProfileStateStatus.logoutSuccess,
         ));
@@ -34,10 +34,6 @@ class ProfileCubit extends Cubit<ProfileState> {
     );
   }
 
-  Future<void> _removeCachedUser() async {
-    await SecureStorageHelper.removeSecuredData(CacheKeys.storeifyUser);
-  }
-
   void deleteAccount() async {
     emit(state.copyWith(
       status: ProfileStateStatus.deleteAccountLoading,
@@ -45,7 +41,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     final result = await _profileRepo.deleteAccount(_cancelToken);
     result.when(
       success: (_) async {
-        await _removeCachedUser();
+        await SecureStorageHelper.removeSecuredData(CacheKeys.storeifyUser);
         emit(state.copyWith(
           status: ProfileStateStatus.deleteAccountSuccess,
         ));

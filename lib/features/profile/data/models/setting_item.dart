@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_ify/core/di/dependency_injection.dart';
 
 import 'package:store_ify/core/router/app_router.dart';
 import 'package:store_ify/core/utils/functions/toggle_lang.dart';
@@ -53,7 +54,7 @@ class SettingItem {
               barrierDismissible: true,
               barrierLabel: '',
               builder: (_) => BlocProvider.value(
-                value: context.read<ProfileCubit>(),
+                value: getIt.get<ProfileCubit>(),
                 child: const CustomAdaptiveDialog(
                   contentText: LocaleKeys.sureToLogout,
                   actions: [
@@ -77,7 +78,7 @@ class SettingItem {
             barrierDismissible: true,
             barrierLabel: '',
             builder: (_) => BlocProvider.value(
-              value: context.read<ProfileCubit>(),
+              value: getIt.get<ProfileCubit>(),
               child: const CustomAdaptiveDialog(
                 contentText: LocaleKeys.sureToLogout,
                 actions: [
