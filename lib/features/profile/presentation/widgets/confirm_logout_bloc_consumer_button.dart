@@ -40,8 +40,13 @@ class ConfirmLogoutBlocConsumerButton extends StatelessWidget {
     switch (state.status) {
       case ProfileStateStatus.logoutError:
         context.showToast(state.error!);
+        break;
       case ProfileStateStatus.logoutSuccess:
-        context.router.replaceAll([const LoginRoute()]);
+        context.router.pushAndPopUntil(
+          const AuthRoute(),
+          predicate: (route) => route.settings.name == LayoutRoute.name,
+        );
+        break;
       default:
         break;
     }

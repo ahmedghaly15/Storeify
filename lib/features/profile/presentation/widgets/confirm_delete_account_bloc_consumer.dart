@@ -17,6 +17,7 @@ class ConfirmDeleteAccountBlocConsumer extends StatelessWidget {
     return BlocConsumer<ProfileCubit, ProfileState>(
       listenWhen: (_, current) => _listenWhen(current.status),
       listener: (context, state) => _listener(state, context),
+      buildWhen: (_, current) => _buildWhen(current.status),
       builder: (context, state) => MainButton(
         onPressed: () => context.read<ProfileCubit>().deleteAccount(),
         child: circularIndicatorOrTextWidget(
@@ -42,6 +43,12 @@ class ConfirmDeleteAccountBlocConsumer extends StatelessWidget {
       default:
         break;
     }
+  }
+
+  bool _buildWhen(ProfileStateStatus status) {
+    return status == ProfileStateStatus.deleteAccountError ||
+        status == ProfileStateStatus.deleteAccountSuccess ||
+        status == ProfileStateStatus.deleteAccountLoading;
   }
 
   bool _listenWhen(ProfileStateStatus status) {
