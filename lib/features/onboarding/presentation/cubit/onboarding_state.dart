@@ -4,7 +4,7 @@ part 'onboarding_state.freezed.dart';
 
 enum OnboardingStateStatus {
   initial,
-  lastPageView,
+  onPageChanged,
 }
 
 @freezed

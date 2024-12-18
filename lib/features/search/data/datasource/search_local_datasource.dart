@@ -22,7 +22,7 @@ class SearchLocalDatasource {
     return box.get('${HiveKeys.searchData}_${currentUser!.user.username}');
   }
 
-  Future<void> deleteCachedSearchData() async {
+  static Future<void> deleteCachedSearchData() async {
     final box = await Hive.openLazyBox<FetchSearchDataResponse>(
         HiveBoxes.searchDataBox);
     await box.delete('${HiveKeys.searchData}_${currentUser!.user.username}');

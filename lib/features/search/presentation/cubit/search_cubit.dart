@@ -20,6 +20,10 @@ class SearchCubit extends Cubit<SearchState> {
   late final TextEditingController searchController;
   final CancelToken _cancelToken = CancelToken();
 
+  void changeSearchText(String text) {
+    searchController.text = text;
+  }
+
   void search() async {
     emit(state.copyWith(
       status: SearchStateStatus.searchLoading,
@@ -46,11 +50,7 @@ class SearchCubit extends Cubit<SearchState> {
     });
   }
 
-  void changeSearchText(String text) {
-    searchController.text = text;
-  }
-
-  void fetchSearchData() async {
+  Future<void> fetchSearchData() async {
     emit(state.copyWith(
       status: SearchStateStatus.fetchSearchDataLoading,
     ));

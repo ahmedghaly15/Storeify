@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:store_ify/core/helpers/text_form_validator.dart';
-import 'package:store_ify/generated/locale_keys.g.dart';
-import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/core/widgets/pass_text_form_field.dart';
 import 'package:store_ify/features/profile/presentation/cubits/change_pass/change_pass_cubit.dart';
 import 'package:store_ify/features/profile/presentation/cubits/change_pass/change_pass_state.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class ChangePasswordForm extends StatelessWidget {
   const ChangePasswordForm({super.key});
@@ -16,6 +17,7 @@ class ChangePasswordForm extends StatelessWidget {
     return Form(
       key: changePassCubit.formKey,
       child: Column(
+        spacing: 10.h,
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -29,7 +31,6 @@ class ChangePasswordForm extends StatelessWidget {
                   changePassCubit.toggleOldPasswordVisibility(),
             ),
           ),
-          MySizedBox.height10,
           BlocSelector<ChangePassCubit, ChangePassState, bool>(
             selector: (state) => state.newPasswordObscured,
             builder: (context, newPasswordObscured) => PassTextFormField(
@@ -40,7 +41,6 @@ class ChangePasswordForm extends StatelessWidget {
               autofillHints: const [AutofillHints.newPassword],
             ),
           ),
-          MySizedBox.height10,
           BlocSelector<ChangePassCubit, ChangePassState, bool>(
             selector: (state) => state.confirmNewPassObscured,
             builder: (context, confirmNewPassObscured) => PassTextFormField(

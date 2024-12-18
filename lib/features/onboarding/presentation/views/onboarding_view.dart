@@ -52,19 +52,17 @@ class OnboardingView extends StatelessWidget implements AutoRouteWrapper {
             hasScrollBody: false,
             child: Center(
               child: ExpandablePageView.builder(
+                controller: context.read<OnboardingCubit>().pageController,
                 scrollDirection: Axis.horizontal,
                 animateFirstPage: true,
                 padEnds: false,
                 animationDuration: AppConstants.onboardingAnimationDuration,
                 animationCurve: AppConstants.onboardingCurve,
-                controller: context.read<OnboardingCubit>().pageController,
                 onPageChanged: (index) =>
-                    context.read<OnboardingCubit>().onChangePageIndex(index),
-                itemCount:
-                    context.read<OnboardingCubit>().onboardingPages.length,
+                    context.read<OnboardingCubit>().onPageChanged(index),
+                itemCount: AppConstants.onboardingPages.length,
                 itemBuilder: (_, index) => PageViewItem(
-                  pageInfo:
-                      context.read<OnboardingCubit>().onboardingPages[index],
+                  pageInfo: AppConstants.onboardingPages[index],
                 ),
               ),
             ),

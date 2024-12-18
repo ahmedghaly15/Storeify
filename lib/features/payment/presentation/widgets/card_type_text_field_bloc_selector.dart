@@ -49,7 +49,7 @@ class CardTypeTextFieldBlocSelector extends StatelessWidget {
               )
               .toList(),
           onSelected: (value) {
-            context.read<PaymentCubit>().updateSelectedCardType(value);
+            context.read<PaymentCubit>().selectCardType(value);
           },
         ),
       ),

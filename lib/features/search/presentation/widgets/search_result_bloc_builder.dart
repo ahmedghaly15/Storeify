@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/widgets/custom_error_widget.dart';
+import 'package:store_ify/core/widgets/empty_widget.dart';
+import 'package:store_ify/core/widgets/products_grid_view_shimmer.dart';
 import 'package:store_ify/features/search/presentation/cubit/search_cubit.dart';
 import 'package:store_ify/features/search/presentation/cubit/search_state.dart';
-import 'package:store_ify/features/search/presentation/widgets/no_result_search_found_widget.dart';
-import 'package:store_ify/features/search/presentation/widgets/search_result_shimmer_loading.dart';
 import 'package:store_ify/features/search/presentation/widgets/search_result_sliver_grid.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class SearchResultBlocBuilder extends StatelessWidget {
   const SearchResultBlocBuilder({super.key});
@@ -18,20 +19,27 @@ class SearchResultBlocBuilder extends StatelessWidget {
       builder: (context, state) {
         switch (state.status) {
           case SearchStateStatus.searchLoading:
-            return const SearchResultShimmerLoading();
+            return const SliverFillRemaining(
+              child: ProductsGridViewShimmer(),
+            );
           case SearchStateStatus.searchSuccess:
             return state.searchResult!.products.isNotEmpty
                 ? SearchResultSliverGrid(searchResult: state.searchResult!)
-                : const NoResultSearchFoundWidget();
+                : const SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: EmptyWidget(
+                      titleKey: LocaleKeys.noResultsFound,
+                      descriptionKey: LocaleKeys.tryDifferentKeywords,
+                    ),
+                  );
           case SearchStateStatus.searchError:
             return state.error != AppStrings.searchRequiredErrorKey
                 ? SliverFillRemaining(
                     hasScrollBody: false,
                     child: CustomErrorWidget(
                       errorKey: state.error!,
-                      tryAgainOnPressed: () {
-                        context.read<SearchCubit>().search();
-                      },
+                      tryAgainOnPressed: () =>
+                          context.read<SearchCubit>().search(),
                     ),
                   )
                 : const SliverToBoxAdapter(

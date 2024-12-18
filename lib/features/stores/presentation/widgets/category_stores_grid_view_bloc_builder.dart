@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
-import 'package:store_ify/features/stores/data/models/store.dart';
+import 'package:store_ify/core/models/store.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_state.dart';
 import 'package:store_ify/features/stores/presentation/widgets/store_item.dart';

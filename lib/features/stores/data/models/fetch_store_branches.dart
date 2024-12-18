@@ -5,7 +5,7 @@ import 'package:store_ify/core/helpers/hive_type_ids.dart';
 part 'fetch_store_branches.g.dart';
 
 @HiveType(typeId: HiveTypeIds.fetchStoreBranchesResponse)
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FetchStoreBranchesResponse {
   @HiveField(0)
   final List<StoreBranch> branches;

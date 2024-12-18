@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/helpers/text_form_validator.dart';
-import 'package:store_ify/generated/locale_keys.g.dart';
-import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/payment/presentation/cubits/payment_cubit.dart';
 import 'package:store_ify/features/payment/presentation/widgets/payment_custom_text_field.dart';
 import 'package:store_ify/features/payment/presentation/widgets/payment_text_field_label.dart';
+import 'package:store_ify/generated/locale_keys.g.dart';
 
 class ExpiryDateAndCvvTextFields extends StatelessWidget {
   const ExpiryDateAndCvvTextFields({super.key});
@@ -14,6 +15,7 @@ class ExpiryDateAndCvvTextFields extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      spacing: 19.w,
       children: [
         Expanded(
           child: Column(
@@ -38,7 +40,6 @@ class ExpiryDateAndCvvTextFields extends StatelessWidget {
             ],
           ),
         ),
-        MySizedBox.width19,
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

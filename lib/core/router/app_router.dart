@@ -26,7 +26,7 @@ import 'package:store_ify/features/profile/presentation/views/profile_view.dart'
 import 'package:store_ify/features/profile/presentation/views/update_profile_view.dart';
 import 'package:store_ify/features/search/presentation/views/search_view.dart';
 import 'package:store_ify/features/splash/presentation/views/splash_view.dart';
-import 'package:store_ify/features/stores/data/models/store.dart';
+import 'package:store_ify/core/models/store.dart';
 import 'package:store_ify/features/stores/presentation/view/store_details_view.dart';
 import 'package:store_ify/features/stores/presentation/view/stores_view.dart';
 

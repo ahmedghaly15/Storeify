@@ -28,6 +28,15 @@ class StoresLocalDatasource {
         .get('${HiveKeys.fetchedStoresResponse}_${currentUser!.user.username}');
   }
 
+  static Future<void> deleteCachedStores() async {
+    final box = await Hive.openLazyBox<FetchStoresResponse>(
+      HiveBoxes.fetchStoresBox,
+    );
+    await box.delete(
+      '${HiveKeys.fetchedStoresResponse}_${currentUser!.user.username}',
+    );
+  }
+
   Future<void> cacheCategoryStores(FetchStoresResponse stores) async {
     final box = await Hive.openLazyBox<FetchStoresResponse>(
       HiveBoxes.fetchCategoryStoresBox,

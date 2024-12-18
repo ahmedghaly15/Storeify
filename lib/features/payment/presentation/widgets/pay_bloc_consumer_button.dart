@@ -29,11 +29,9 @@ class PayBlocConsumerButton extends StatelessWidget {
       listener: (context, state) => _listener(state, context),
       buildWhen: (_, current) => _listenOrBuildWhen(current.status),
       builder: (context, state) => MainButton(
-        onPressed: () {
-          context
-              .read<PaymentCubit>()
-              .payAndValidateForm(orderId: 1, amount: amount);
-        },
+        onPressed: () => context
+            .read<PaymentCubit>()
+            .payAndValidateForm(orderId: 1, amount: amount),
         margin: EdgeInsets.symmetric(
           vertical: 15.h,
           horizontal: AppConstants.mainButtonHorizontalMarginVal.w,
@@ -56,49 +54,54 @@ class PayBlocConsumerButton extends StatelessWidget {
         context.showToast(state.error!);
         break;
       case PaymentStateStatus.paySuccess:
-        showAdaptiveDialog(
-          context: context,
-          barrierLabel: '',
-          barrierDismissible: false,
-          builder: (_) => BlocProvider.value(
-            value: getIt.get<PaymentCubit>(),
-            child: CustomAdaptiveDialog(
-              contentText: LocaleKeys.sureToConfirmPayment,
-              actions: [
-                const CancelOutlinedButton(),
-                MySizedBox.height10,
-                MainButton(
-                  textKey: LocaleKeys.confirm,
-                  margin: EdgeInsets.zero,
-                  onPressed: () async {
-                    await _cacheCardDetails(state);
-                    context.router.pushAndPopUntil(
-                      const PaymentSuccessfullyRoute(),
-                      predicate: (route) =>
-                          route.settings.name == LayoutRoute.name,
-                    );
-                  },
-                )
-              ],
-            ),
-          ),
-        );
+        _showConfirmationDialog(context);
         break;
       default:
         break;
     }
   }
 
-  Future<void> _cacheCardDetails(PaymentState state) async {
+  void _showConfirmationDialog(BuildContext context) {
+    showAdaptiveDialog(
+      context: context,
+      barrierLabel: '',
+      barrierDismissible: false,
+      builder: (_) => BlocProvider.value(
+        value: getIt.get<PaymentCubit>(),
+        child: CustomAdaptiveDialog(
+          contentText: LocaleKeys.sureToConfirmPayment,
+          actions: [
+            const CancelOutlinedButton(),
+            MySizedBox.height10,
+            MainButton(
+              textKey: LocaleKeys.confirm,
+              margin: EdgeInsets.zero,
+              onPressed: () async {
+                await _cacheCardDetails(context);
+                context.router.pushAndPopUntil(
+                  const PaymentSuccessfullyRoute(),
+                  predicate: (route) => route.settings.name == LayoutRoute.name,
+                );
+              },
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<void> _cacheCardDetails(BuildContext context) async {
+    final paymentCubit = context.read<PaymentCubit>();
     final cachedCardDetails =
         await PaymentLocalDatasource.retrieveCachedCardDetails();
-    if (state.checkboxValue && state.paymentCardDetails != cachedCardDetails) {
+    if (paymentCubit.checkboxValue &&
+        paymentCubit.paymentCardDetails != cachedCardDetails) {
       await PaymentLocalDatasource.deleteCachedCardDetails();
       await PaymentLocalDatasource.cacheCardDetails(
-        state.paymentCardDetails!,
+        paymentCubit.paymentCardDetails!,
       );
-    } else if (!state.checkboxValue) {
-      PaymentLocalDatasource.deleteCachedCardDetails();
+    } else if (!paymentCubit.checkboxValue) {
+      await PaymentLocalDatasource.deleteCachedCardDetails();
     }
   }
 

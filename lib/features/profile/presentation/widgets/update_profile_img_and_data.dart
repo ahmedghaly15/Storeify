@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/utils/app_constants.dart';
-import 'package:store_ify/core/widgets/my_sized_box.dart';
 import 'package:store_ify/features/profile/presentation/cubits/update_profile/update_profile_cubit.dart';
 import 'package:store_ify/features/profile/presentation/cubits/update_profile/update_profile_state.dart';
 import 'package:store_ify/features/profile/presentation/widgets/profile_img.dart';
@@ -23,6 +22,7 @@ class UpdateProfileImgAndData extends StatelessWidget {
         end: 26.w,
       ),
       child: Row(
+        spacing: 8.w,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Stack(
@@ -54,7 +54,6 @@ class UpdateProfileImgAndData extends StatelessWidget {
               ),
             ],
           ),
-          MySizedBox.width8,
           Flexible(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

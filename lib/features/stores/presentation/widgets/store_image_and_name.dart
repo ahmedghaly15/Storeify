@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_ify/core/themes/app_text_styles.dart';
 import 'package:store_ify/core/widgets/custom_cached_network_image.dart';
 import 'package:store_ify/core/widgets/my_sized_box.dart';
-import 'package:store_ify/features/stores/data/models/store.dart';
+import 'package:store_ify/core/models/store.dart';
 
 class StoreImageAndName extends StatelessWidget {
   const StoreImageAndName({

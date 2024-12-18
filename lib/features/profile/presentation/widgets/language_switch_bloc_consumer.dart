@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:store_ify/core/helpers/extensions.dart';
 import 'package:store_ify/core/utils/app_strings.dart';
 import 'package:store_ify/core/utils/functions/toggle_lang.dart';
 import 'package:store_ify/core/widgets/custom_adaptive_switch.dart';
@@ -17,11 +16,11 @@ class LanguageSwitchBlocConsumer extends StatelessWidget {
     return BlocConsumer<ProfileCubit, ProfileState>(
       listenWhen: (_, current) =>
           current.status == ProfileStateStatus.changeLocaleLocally ||
-          current.status == ProfileStateStatus.changeApiLangError,
+          current.status == ProfileStateStatus.changeApiLangSuccess,
       listener: (context, state) => _listener(state, context),
       buildWhen: (previous, current) => previous.langCode != current.langCode,
       builder: (context, state) => CustomAdaptiveSwitch(
-        value: state.langCode == AppStrings.englishLangCode ? false : true,
+        value: state.langCode == AppStrings.arabicLangCode,
         onChanged: (_) => toggleLang(context),
       ),
     );
@@ -32,10 +31,9 @@ class LanguageSwitchBlocConsumer extends StatelessWidget {
       case ProfileStateStatus.changeLocaleLocally:
         context.read<ProfileCubit>().changeApiLang(state.langCode);
         await Hive.deleteFromDisk();
-        await context.read<GeneralCubit>().fetchHomeData();
         break;
-      case ProfileStateStatus.changeApiLangError:
-        context.showToast(state.error!);
+      case ProfileStateStatus.changeApiLangSuccess:
+        await context.read<GeneralCubit>().fetchHomeData();
         break;
       default:
         break;

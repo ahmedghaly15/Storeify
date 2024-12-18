@@ -60,7 +60,6 @@ import 'package:store_ify/features/search/presentation/cubit/search_cubit.dart';
 import 'package:store_ify/features/stores/data/api/stores_api_service.dart';
 import 'package:store_ify/features/stores/data/datasources/stores_local_datasource.dart';
 import 'package:store_ify/features/stores/data/repositories/stores_repo.dart';
-import 'package:store_ify/features/stores/data/repositories/stores_repo_impl.dart';
 import 'package:store_ify/features/stores/presentation/cubits/store_details/store_details_cubit.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubit.dart';
 
@@ -177,7 +176,7 @@ void _setupDIForRepos() {
     ),
   );
   getIt.registerLazySingleton<StoresRepo>(
-    () => StoresRepoImpl(
+    () => StoresRepo(
       getIt.get<StoresApiService>(),
       getIt.get<StoresLocalDatasource>(),
     ),

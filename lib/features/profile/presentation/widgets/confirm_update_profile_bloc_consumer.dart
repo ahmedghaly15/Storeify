@@ -52,8 +52,10 @@ class ConfirmUpdateProfileBlocConsumer extends StatelessWidget {
         currentUserSetter = state.updatedUser!;
         await AuthLocalDatasource.cacheUser(state.updatedUser!);
         context.showToast(LocaleKeys.profileUpdatedSuccessfully);
+        break;
       case UpdateProfileStateStatus.updateProfileError:
         context.showToast(state.error!);
+        break;
       default:
         break;
     }

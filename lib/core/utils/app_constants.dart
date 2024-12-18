@@ -5,6 +5,7 @@ import 'package:store_ify/core/models/storeify_user.dart';
 import 'package:store_ify/core/themes/app_colors.dart';
 import 'package:store_ify/core/utils/app_assets.dart';
 import 'package:store_ify/features/checkout/data/models/payment_method.dart';
+import 'package:store_ify/features/onboarding/data/models/onboarding_attributes.dart';
 import 'package:store_ify/features/payment/data/models/card_type.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
 
@@ -25,6 +26,24 @@ set currentUserSetter(StoreifyUser user) {
 
 class AppConstants {
   static const String defaultCountryCode = 'EG';
+  static List<OnboardingAttributes> onboardingPages =
+      const <OnboardingAttributes>[
+    OnboardingAttributes(
+      image: AppAssets.imagesOnBoarding1,
+      titleKey: LocaleKeys.onboardingTitle1,
+      subTitleKey: LocaleKeys.onboardingSubtitle1,
+    ),
+    OnboardingAttributes(
+      image: AppAssets.imagesOnBoarding2,
+      titleKey: LocaleKeys.onboardingTitle2,
+      subTitleKey: LocaleKeys.onboardingSubtitle2,
+    ),
+    OnboardingAttributes(
+      image: AppAssets.imagesOnBoarding3,
+      titleKey: LocaleKeys.onboardingTitle3,
+      subTitleKey: LocaleKeys.onboardingSubtitle3,
+    ),
+  ];
   static const ScrollPhysics physics = BouncingScrollPhysics();
   static const int gridCrossAxisCount = 2;
   static double get gridCrossAxisSpacing => 10.w;
