@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:store_ify/core/di/dependency_injection.dart';
 import 'package:store_ify/core/widgets/custom_sliver_app_bar.dart';
+import 'package:store_ify/features/stores/data/datasources/stores_local_datasource.dart';
 import 'package:store_ify/features/stores/presentation/cubits/stores/stores_cubit.dart';
 import 'package:store_ify/features/stores/presentation/widgets/stores_bloc_builder.dart';
 import 'package:store_ify/generated/locale_keys.g.dart';
@@ -24,7 +25,10 @@ class StoresView extends StatelessWidget implements AutoRouteWrapper {
   Widget build(BuildContext context) {
     return SafeArea(
       child: RefreshIndicator.adaptive(
-        onRefresh: () async => await context.read<StoresCubit>().fetchStores(),
+        onRefresh: () async {
+          await StoresLocalDatasource.deleteCachedStores();
+          await context.read<StoresCubit>().fetchStores();
+        },
         child: const CustomScrollView(
           slivers: [
             CustomSliverAppBar(
