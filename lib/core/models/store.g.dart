@@ -22,13 +22,15 @@ class StoreAdapter extends TypeAdapter<Store> {
       img: fields[2] as String,
       categories: (fields[3] as List?)?.cast<Category>(),
       totalProductsOrdered: fields[4] as int,
+      isFavorited: fields[5] as bool,
+      averageRating: fields[6] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Store obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -38,7 +40,11 @@ class StoreAdapter extends TypeAdapter<Store> {
       ..writeByte(3)
       ..write(obj.categories)
       ..writeByte(4)
-      ..write(obj.totalProductsOrdered);
+      ..write(obj.totalProductsOrdered)
+      ..writeByte(5)
+      ..write(obj.isFavorited)
+      ..writeByte(6)
+      ..write(obj.averageRating);
   }
 
   @override
@@ -64,6 +70,8 @@ Store _$StoreFromJson(Map<String, dynamic> json) => Store(
           ?.map((e) => Category.fromJson(e as Map<String, dynamic>))
           .toList(),
       totalProductsOrdered: (json['total_products_ordered'] as num).toInt(),
+      isFavorited: json['is_favorited'] as bool,
+      averageRating: json['average_rating'] as String,
     );
 
 Map<String, dynamic> _$StoreToJson(Store instance) => <String, dynamic>{
@@ -72,4 +80,6 @@ Map<String, dynamic> _$StoreToJson(Store instance) => <String, dynamic>{
       'img': instance.img,
       'categories': instance.categories?.map((e) => e.toJson()).toList(),
       'total_products_ordered': instance.totalProductsOrdered,
+      'is_favorited': instance.isFavorited,
+      'average_rating': instance.averageRating,
     };

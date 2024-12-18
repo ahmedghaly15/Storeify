@@ -6,7 +6,7 @@ import 'package:store_ify/features/categories/data/models/category.dart';
 part 'store.g.dart';
 
 @HiveType(typeId: HiveTypeIds.store)
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, fieldRename: FieldRename.snake)
 class Store {
   @HiveField(0)
   final int id;
@@ -17,15 +17,20 @@ class Store {
   @HiveField(3)
   final List<Category>? categories;
   @HiveField(4)
-  @JsonKey(name: 'total_products_ordered')
   final int totalProductsOrdered;
+  @HiveField(5)
+  final bool isFavorited;
+  @HiveField(6)
+  final String averageRating;
 
-  const Store({
+  Store({
     required this.id,
     required this.name,
     required this.img,
     required this.categories,
     required this.totalProductsOrdered,
+    required this.isFavorited,
+    required this.averageRating,
   });
 
   factory Store.fromJson(Map<String, dynamic> json) => _$StoreFromJson(json);

@@ -28,7 +28,7 @@ class StoreCategoriesListView extends StatelessWidget {
             return ListOutlinedButton(
               isActive: isStoreSelected,
               onPressed: () {
-                context.read<StoresCubit>().updateCurrentSelectedStore(index);
+                context.read<StoresCubit>().selectStore(index);
               },
               text: stores[index].name,
             );

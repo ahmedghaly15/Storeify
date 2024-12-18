@@ -47,7 +47,7 @@ class StoresCubit extends Cubit<StoresState> {
     );
   }
 
-  void updateCurrentSelectedStore(int index) {
+  void selectStore(int index) {
     if (state.currentStoreIndex != index) {
       emit(state.copyWith(
         status: StoresStateStatus.updateCurrentSelectedStore,
